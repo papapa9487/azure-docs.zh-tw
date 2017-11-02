@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: bwren
-ms.openlocfilehash: 2e6987d30b56407559f54c02817ee94eff8df46b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: b1181698deee265e4b6b2df8bb18e2297cdc8599
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Developer Analytics 工具的版本資訊
 
@@ -121,7 +121,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="version-70"></a>7.0 版
 ### <a name="azure-application-insights-trends"></a>Azure Application Insights 趨勢
-Azure Application Insights 是 Visual Studio 中的新工具，可用來協助您分析應用程式在一段時間內的運作情況。 若要開始使用，請在 **Application Insights** 工具列按鈕或在 [Application Insights 搜尋] 視窗中選擇 [探索遙測趨勢]。 或者，在 檢視 功能表上，按一下 其他視窗，然後按一下Application Insights 趨勢。 選擇五種常見查詢的其中一個，以便開始使用。 您可以根據遙測類型、時間範圍和其他屬性，分析不同的資料集。 若要尋找資料中的異常狀況，請選擇 [檢視類型]  下拉式清單中的其中一個異常選項。 視窗底部的篩選選項可讓您輕鬆地全神貫注於特定的遙測子集。
+Azure Application Insights 是 Visual Studio 中的新工具，可用來協助您分析應用程式在一段時間內的運作情況。 若要開始使用，請在 **Application Insights** 工具列按鈕或在 [Application Insights 搜尋] 視窗中選擇 [探索遙測趨勢]。 或者，在 [檢視] 功能表上，按一下 [其他視窗]，然後按一下 [Application Insights 趨勢]。 選擇五種常見查詢的其中一個，以便開始使用。 您可以根據遙測類型、時間範圍和其他屬性，分析不同的資料集。 若要尋找資料中的異常狀況，請選擇 [檢視類型]  下拉式清單中的其中一個異常選項。 視窗底部的篩選選項可讓您輕鬆地全神貫注於特定的遙測子集。
 
 ![Application Insights 趨勢](./media/app-insights-release-notes-vsix/Trends.png)
 
@@ -131,7 +131,7 @@ CodeLens 現在會顯示例外狀況遙測。 如果您已將專案連線到 App
 ![CodeLens 中的例外狀況](./media/app-insights-release-notes-vsix/ExceptionsCodeLens.png)
 
 ### <a name="aspnet-core-support"></a>ASP.NET Core 支援
-Application Insights 現在支援 Visual Studio 中的 ASP.NET Core RC2 專案。 您可以從 [新增專案]  對話方塊將 Application Insights 加入至新的 ASP.NET Core RC2 專案，如下列螢幕擷取畫面所示。 或者，您可以將它加入至現有專案，在 方案總管 中以滑鼠右鍵按一下專案，然後按一下新增 Application Insights 遙測 。
+Application Insights 現在支援 Visual Studio 中的 ASP.NET Core RC2 專案。 您可以從 [新增專案]  對話方塊將 Application Insights 加入至新的 ASP.NET Core RC2 專案，如下列螢幕擷取畫面所示。 或者，您可以將它加入至現有專案，在 [方案總管] 中以滑鼠右鍵按一下專案，然後按一下 [新增 Application Insights 遙測] 。
 
 ![ASP.NET Core 支援](./media/app-insights-release-notes-vsix/NetCoreSupport.png)
 
@@ -140,7 +140,7 @@ ASP.NET 5 RC1 和 ASP.NET Core RC2 專案也會在 [診斷工具] 視窗中提�
 ![診斷工具支援](./media/app-insights-release-notes-vsix/DiagnosticTools.png)
 
 ### <a name="hockeyapp-for-universal-windows-apps"></a>通用 Windows 應用程式的 HockeyApp
-除了 Beta 版散發套件和使用者意見反應，HockeyApp 還提供通用 Windows 應用程式的符號式當機報告。 我們已經將 HockeyApp SDK 的新增作業變得更簡單︰以滑鼠右鍵按一下您的通用 Windows 專案，然後按一下Hockey App - 啟用當機分析 。 這會安裝 SDK、設定當機資訊收集，並在雲端佈建 HockeyApp 資源，全都不需要將您的應用程式上傳至 HockeyApp 服務。
+除了 Beta 版散發套件和使用者意見反應，HockeyApp 還提供通用 Windows 應用程式的符號式當機報告。 我們已經將 HockeyApp SDK 的新增作業變得更簡單︰以滑鼠右鍵按一下您的通用 Windows 專案，然後按一下 [Hockey App - 啟用當機分析] 。 這會安裝 SDK、設定當機資訊收集，並在雲端佈建 HockeyApp 資源，全都不需要將您的應用程式上傳至 HockeyApp 服務。
 
 其他的新功能：
 
@@ -204,9 +204,9 @@ Windows Forms 專案節點的內容功能表現在包含將組建上傳至 Hocke
 
 1. 為您的應用程式偵錯。
 2. 使用下列其中一種方式來開啟 Application Insights 搜尋：
-   * 在 檢視 功能表上，按一下 其他視窗，然後按一下Application Insights 搜尋。
+   * 在 [檢視] 功能表上，按一下 [其他視窗]，然後按一下 [Application Insights 搜尋]。
    * 按一下 [Application Insights]  工具列按鈕。
-   * 在 方案總管 中，展開 ApplicationInsights.config，然後按一下搜尋偵錯工作階段遙測。
+   * 在 [方案總管] 中，展開 [ApplicationInsights.config]，然後按一下 [搜尋偵錯工作階段遙測]。
 3. 如果您尚未註冊 Application Insights，搜尋視窗會以偵錯工作階段遙測模式開啟。
 4. 按一下 [搜尋]  圖示，以查看您的本機遙測。
 
@@ -220,7 +220,7 @@ Windows Forms 專案節點的內容功能表現在包含將組建上傳至 Hocke
 如果您已經設定了這些記錄架構其中之一，則下一節會說明取得它的方式。
 **如果您已經新增 Application Insights：**
 
-1. 以滑鼠右鍵按一下專案節點，然後按一下Application Insights，再按一下 設定 Application Insights。 請確定您在設定視窗中看到可新增正確配接器的選項。
+1. 以滑鼠右鍵按一下專案節點，然後按一下 [Application Insights]，再按一下 [設定 Application Insights]。 請確定您在設定視窗中看到可新增正確配接器的選項。
 2. 或者，當您建置方案時，請注意出現在畫面右上角的快顯視窗並按一下 [設定] 。
 
 ![記錄通知](./media/app-insights-release-notes-vsix/LoggingToast.png)

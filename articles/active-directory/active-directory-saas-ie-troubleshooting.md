@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/02/2017
+ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 938d0b4046afa8c80eabe542f4541d0554948f5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a4c3b69a9ab31e6382cb5cf863101861fa2a78e
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>疑難排解 Internet explorer 的存取面板延伸模組
 這篇文章可協助您疑難排解下列問題：
@@ -58,7 +58,7 @@ ms.lasthandoff: 10/11/2017
 2. 按一下 [程式] 索引標籤，然後按一下 [管理附加元件] 按鈕。
    
     ![按一下 [管理附加元件]](./media/active-directory-saas-ie-troubleshooting/internetoptions_programs.png)
-3. 在此對話方塊中，選取 存取面板延伸模組，然後按一下啟用 按鈕。
+3. 在此對話方塊中，選取 [存取面板延伸模組]，然後按一下 [啟用] 按鈕。
    
     ![按一下 [啟用]](./media/active-directory-saas-ie-troubleshooting/enableaddon.png)
 4. 若要儲存這些變更，請關閉所有 Internet Explorer 視窗，然後再次開啟 Internet Explorer。

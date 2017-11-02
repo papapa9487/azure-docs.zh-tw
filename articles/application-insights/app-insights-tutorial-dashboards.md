@@ -3,18 +3,18 @@ title: "在 Azure Application Insights 中建立自訂儀表板 | Microsoft Docs
 description: "使用 Azure Application Insights 建立自訂 KPI 儀表板的教學課程。"
 keywords: 
 services: application-insights
-author: bwren
-ms.author: bwren
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/20/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 3ad1bfe2c45fd087f094aad5b2028ab488dbb2a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d2f98ca2fb39289b2916ddd24590924856507d6
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>使用 Azure Application Insights 建立自訂 KPI 儀表板
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 10/11/2017
     ![釘選 [概觀時間軸]](media/app-insights-tutorial-dashboards/pin-overview-timeline.png)
  
 3. 在畫面頂端，按一下 [檢視儀表板] 以返回儀表板。
-4. [概觀時間軸] 現在已新增至儀表板。  按一下並將它拖曳到適當的位置，然後按一下完成自訂 和 發行變更。  您的儀表板現在已經有一個包含有用資訊的磚。
+4. [概觀時間軸] 現在已新增至儀表板。  按一下並將它拖曳到適當的位置，然後按一下 [完成自訂] 和 [發行變更]。  您的儀表板現在已經有一個包含有用資訊的磚。
 
     ![含有 [概觀時間軸] 的儀表板](media/app-insights-tutorial-dashboards/dashboard-02.png)
 
@@ -154,7 +154,7 @@ Azure Applications Insights Analytics 是分開的服務，因此您必須共用
     ![Analytics 圖表](media/app-insights-tutorial-dashboards/analytics-chart.png)
 
 6. 按一下釘選圖示以將圖表釘選至儀表板，這次請選取連結以返回儀表板。
-4. 您所選格式的查詢結果現在已新增到您的儀表板。  按一下並將每個項目拖曳到適當的位置，然後按一下完成編輯。
+4. 您所選格式的查詢結果現在已新增到您的儀表板。  按一下並將每個項目拖曳到適當的位置，然後按一下 [完成編輯]。
 5. 以滑鼠右鍵按一下各個磚並選取 [編輯標題]，以提供描述性標題。
 
     ![含有 Analytics 的儀表板](media/app-insights-tutorial-dashboards/dashboard-05.png)

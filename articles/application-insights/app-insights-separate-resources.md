@@ -3,7 +3,7 @@ title: "在 Azure Application Insights 中區分開發、測試及發行的遙�
 description: "將遙測導向開發、測試和生產戳記的不同資源。"
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 578e30f0-31ed-4f39-baa8-01b4c2f310c9
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: bwren
-ms.openlocfilehash: f51fa4639aaa60686cc349683713c6e5f9732bb9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: 8d95958bce0597bfb16ef1c6b99b72ce9134e66f
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>區分開發、測試及生產環境的遙測
 
@@ -76,7 +76,7 @@ iKey 也會用在您的應用程式網頁中，在 [您從快速啟動刀鋒視�
 
 在 [portal.azure.com](https://portal.azure.com)中新增 Application Insights 資源：
 
-![按一下 新增，然後按一下Application Insights](./media/app-insights-separate-resources/01-new.png)
+![按一下 [新增]，然後按一下 [Application Insights]](./media/app-insights-separate-resources/01-new.png)
 
 * **應用程式類型** 會影響您在 [概觀] 刀鋒視窗中看到的內容，以及 [計量瀏覽器](app-insights-metrics-explorer.md)中提供的屬性。 如果沒有看到您的應用程式類型，請針對網頁選擇其中一個 Web 類型。
 * **資源群組** 可讓您輕鬆管理屬性，例如 [存取控制](app-insights-resources-roles-access-control.md)。 您可以對開發、測試和生產環境使用不同的資源群組。

@@ -6,7 +6,7 @@
 | - 磁碟可用空間 (處理序伺服器快取) | 600 GB
 | 磁碟可用空間 (保留磁碟) | 600 GB|
 | **軟體** | |
-| 作業系統版本 | Windows Server 2012 R2 |
+| 作業系統版本 | Windows Server 2012 R2 <br> Windows Server 2016 |
 | 作業系統地區設定 | 英文 (en-us)|
 | VMware vSphere PowerCLI 版本 | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")|
 | Windows Server 角色 | 請勿啟用下列角色： <br> - Active Directory Domain Services <br>- 網際網路資訊服務 <br> - Hyper-V |

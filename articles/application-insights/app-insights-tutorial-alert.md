@@ -2,18 +2,18 @@
 title: "透過 Azure Application Insights 傳送警示 | Microsoft Docs"
 description: "使用 Azure Application Insights 傳送警示以回應應用程式錯誤的教學課程。"
 keywords: 
-author: bwren
-ms.author: bwren
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/20/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: ce297476cfdf80564c6c0cb835955a146f7a1c12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39e2f136e30ebb6dcfc003c435382f3384af1052
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>使用 Azure Application Insights 監視應用程式健康情況並傳送警示
 
@@ -43,7 +43,7 @@ Azure Application Insights 可讓您監視您的應用程式，並在應用程�
 Application Insights 中的可用性測試，可讓您從世界各地的不同位置自動測試您的應用程式。   在本教學課程中，您會執行簡單的測試，以確定應用程式可以使用。  您也可以建立完整的檢測程序來測試詳細作業。 
 
 1. 選取 [Application Insights]，然後選取您的訂用帳戶。  
-1. 選取 調查 功能表下方的 可用性，然後按一下加入測試。
+1. 選取 [調查] 功能表下方的 [可用性]，然後按一下 [加入測試]。
  
     ![加入可用性測試](media/app-insights-tutorial-alert/add-test.png)
 

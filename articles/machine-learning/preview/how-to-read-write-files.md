@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: 2f3ca2e694fd9952319a70477e9887c332b08044
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: f5c75b95d9019c15bb402313ce7407fa9abb81d4
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>保存變更和處理大型檔案
-利用 Azure Machine Learning 測試服務，您可以設定各種不同的執行目標。 某些目標屬於本機，例如本機電腦或本機電腦上的 Docker 容器。 其他則是遠端，例如在遠端電腦或在 HDInsight 叢集上的 Docker 容器。 如需詳細資訊，請參閱 [Azure Machine Learning 實驗執行服務概觀](experiment-execution-configuration.md)。 
+利用 Azure Machine Learning 測試服務，您可以設定各種不同的執行目標。 某些目標屬於本機，例如本機電腦或本機電腦上的 Docker 容器。 其他則是遠端，例如在遠端電腦或在 HDInsight 叢集上的 Docker 容器。 如需詳細資訊，請參閱 [Azure Machine Learning 實驗執行服務概觀](experimentation-service-configuration.md)。 
 
 在您可於目標上執行之前，您必須將專案資料夾複製到計算目標。 您必須這麼做，即使是利用針對此用途使用本機暫存資料夾的本機執行。 
 
@@ -143,7 +143,7 @@ C:\users\<username>\.azureml\share\<exp_acct_name>\<workspace_name>\<proj_name>\
 
 您可以直接在這些資料夾中放置輸入資料，並預期您在該電腦上的本機或 Docker 執行可以挑選它們。 您也可以從本機或 Docker 執行將檔案寫入此資料夾，並預期檔案會保存於該資料夾中，存留於執行生命週期中。
 
-如需詳細資訊，請參閱 [Azure Machine Learning Workbench 執行組態檔](experiment-execution-configuration-reference.md)。
+如需詳細資訊，請參閱 [Azure Machine Learning Workbench 執行組態檔](experimentation-service-configuration-reference.md)。
 
 >[!NOTE]
 >HDInsight 計算內容中不支援 `AZUREML_NATIVE_SHARE_DIRECTORY` 環境變數。 不過，您可以藉由明確地使用絕對 Azure Blob 儲存體路徑來往返讀取和寫入連接的 Blob 儲存體，輕鬆達到相同的結果。
@@ -195,5 +195,5 @@ attach_storage_container(spark, "<storage account name>", "<storage key>”)
 由於 Azure Machine Learning 會藉由將整個專案資料夾複製到目標計算內容來執行指令碼，因此，請特別注意大型輸入、輸出和中繼檔案。 對於大型檔案交易，您可以使用特殊的輸出資料夾、可透過 `AZUREML_NATIVE_SHARE_DIRECTORY` 環境變數存取的共用資料夾，或外部永久性儲存體。 
 
 ## <a name="next-steps"></a>後續步驟
-- 檢閱 [Azure Machine Learning Workbench 執行組態檔](experiment-execution-configuration-reference.md)文章。
+- 檢閱 [Azure Machine Learning Workbench 執行組態檔](experimentation-service-configuration-reference.md)文章。
 - 請參閱 [Classifying Iris](tutorial-classifying-iris-part-1.md) (將蝴蝶花分類) 教學課程專案如何使用 outputs 資料夾來保存定型的模型。

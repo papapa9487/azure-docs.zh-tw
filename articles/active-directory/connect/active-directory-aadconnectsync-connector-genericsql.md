@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/31/2017
 ms.author: billmath
-ms.openlocfilehash: a84096ba53a308855beedd76d9dec827c025cd57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 81bacc39d974dfbd1b2aa8dce9e629c508203811
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>一般 SQL 連接器技術參考
 本文說明一般 SQL 連接器。 本文適用於下列產品：
@@ -291,7 +291,7 @@ ms.lasthandoff: 10/11/2017
 * **新增 SP 名稱**：如有任何物件來到連接器以便在各自的資料表中插入，就會執行此 SP。
 * **更新 SP 名稱**：如有任何物件來到連接器以便在各自的資料表中更新，就會執行此 SP。
 * **刪除 SP 名稱**：如有任何物件來到連接器以便在各自的資料表中刪除，就會執行此 SP。
-* 從結構描述選取的屬性會做為預存程序的參數值。 範例： `EmployeeName: INPUT: @EmployeeName` (EmployeeName 已在連接器結構描述中選取，而連接器會在進行匯出時取代各自的值)
+* 從結構描述選取的屬性會做為預存程序的參數值。 範例： `@EmployeeName: INPUT: EmployeeName` (EmployeeName 已在連接器結構描述中選取，而連接器會在進行匯出時取代各自的值)
 * 若要執行參數化預存程序，請以 `[Name]:[Direction]:[Value]` 格式提供參數。 在個別一行上輸入每個參數 (使用 Ctrl + Enter 來換行)。
 
 **SQL query**  

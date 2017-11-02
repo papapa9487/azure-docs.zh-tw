@@ -3,7 +3,7 @@ title: "在 Azure Application Insights 中監視 Docker 應用程式 | Microsoft
 description: "Docker 效能計數器、事件和例外狀況可以與來自容器化應用程式的遙測一起顯示在 Application Insights 上。"
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 27a3083d-d67f-4a07-8f3c-4edb65a0a685
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: bwren
-ms.openlocfilehash: b082e345ca1bb3b12c548e05e699474d3aa9306c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: 68f408f18b767ed9c5aba8fed8c97f021cdeb123
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>在 Application Insights 中監視 Docker 應用程式
 [Docker](https://www.docker.com/) 容器的週期事件和效能計數器可以在 Application Insights 上繪製成圖表。 在您的主機的容器中安裝 [Application Insights](app-insights-overview.md) 映像，它會顯示主機及其他映像的效能計數器。
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
     但如果您是應用程式的開發人員，我們希望您 [將 Application Insights SDK 加入](app-insights-java-live.md) 每個應用程式中。 如果這些應用程式其實全部都是單一商務應用程式的元件，則您可能會設定所有應用程式將遙測資料傳送至一個資源，再使用該相同的資源來顯示 Docker 週期和效能資料。 
    
     第三種情況是您已開發大部分應用程式，但想要使用不同的資源來顯示其遙測。 在這種情況下，您可能也需要為 Docker 資料建立不同的資源。 
-2. 新增 Docker 磚：選擇 新增磚，從資源庫拖曳 Docker 磚，然後按一下完成。 
+2. 新增 [Docker] 磚：選擇 [新增磚]，從資源庫拖曳 [Docker] 磚，然後按一下 [完成]。 
    
     ![範例](./media/app-insights-docker/03.png)
 3. 按一下 [程式集]  下拉式清單，然後複製檢測金鑰。 您將會使用這個項目以告知 SDK 傳送遙測的位置。

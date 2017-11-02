@@ -3,7 +3,7 @@ title: "使用 Microsoft Flow 自動化 Azure Application Insights 程序"
 description: "了解如何利用 Application Insights Connector，使用 Microsoft Flow 來快速自動執行可重複的程序。"
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2017
-ms.author: bwren
-ms.openlocfilehash: 510f4f284bbd0dbe4171896899f7ade7dee19e39
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: a1d2787626ed8fa71e3e4e9921ffb8a4680014cb
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>使用適用於 Microsoft Flow 的連接器自動執行 Azure Application Insights 程序
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 
 
 ### <a name="step-3-add-an-application-insights-action"></a>步驟 3：新增 Application Insights 動作
-1. 按一下 新增步驟，然後按一下新增動作。
+1. 按一下 [新增步驟]，然後按一下 [新增動作]。
 2. 搜尋 **Azure Application Insights**。
 3. 按一下 [Azure Application Insights – 視覺化 Analytics 查詢預覽]。
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="step-6-configure-the-flow-to-send-email"></a>步驟 6：設定傳送電子郵件的流程
 
-1. 按一下 新增步驟，然後按一下新增動作。
+1. 按一下 [新增步驟]，然後按一下 [新增動作]。
 2. 搜尋 **Office 365 Outlook**。
 3. 按一下 [Office 365 Outlook – 傳送電子郵件]。
 
@@ -111,7 +111,7 @@ ms.lasthandoff: 10/11/2017
     ![Office 365 電子郵件設定畫面](./media/app-insights-automate-with-flow/flow7.png)
 
 ### <a name="step-7-save-and-test-your-flow"></a>步驟 7：儲存並測試流程
-- 在 流程名稱 方塊中，新增您的流程名稱，然後按一下建立流程。
+- 在 [流程名稱] 方塊中，新增您的流程名稱，然後按一下 [建立流程]。
 
     ![流程建立視窗](./media/app-insights-automate-with-flow/flow8.png)
 

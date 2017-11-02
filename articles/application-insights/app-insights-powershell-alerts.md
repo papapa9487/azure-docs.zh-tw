@@ -3,7 +3,7 @@ title: "在 Application Insights 中使用 PowerShell 設定警示 | Microsoft D
 description: "自動化 Application Insights 的組態以取得有關度量變更的電子郵件。"
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
-ms.author: bwren
-ms.openlocfilehash: 64675c51abf80daa3a55220f910aa8fdee1042ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: b90a540afd1c2815db8f5a99ee210ce21ea4d874
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>在 Application Insights 中使用 PowerShell 設定警示
 您可以在 [Application Insights](app-insights-overview.md) 中自動設定[警示](app-insights-alerts.md)的組態。

@@ -76,7 +76,6 @@ Resource Manager 除了可讓您透過範本部署複雜的應用程式之外，
 | 計算 | 未關聯的虛擬機器磁碟。 | 移轉儲存體帳戶時，將會移轉這些磁碟背後的 VHD blob |
 | 計算 | 虛擬機器映像。 | 移轉儲存體帳戶時，將會移轉這些磁碟背後的 VHD blob |
 | 網路 | 端點 ACL。 | 移除端點 ACL，然後重試移轉。 |
-| 網路 | 具有 ExpressRoute 閘道和 VPN 閘道的虛擬網路  | 在開始移轉前移除 VPN 閘道，然後在移轉完成後重新建立 VPN 閘道。 深入了解 [ExpressRoute 移轉](../articles/expressroute/expressroute-migration-classic-resource-manager.md)。|
 | 網路 | 應用程式閘道 | 在開始移轉前移除應用程式閘道，然後在移轉完成後重新建立應用程式閘道。 |
 | 網路 | 使用 VNet 對等互連的虛擬網路。 | 將虛擬網路移轉至 Resource Manager，然後對等互連。 深入了解 [VNet 對等互連](../articles/virtual-network/virtual-network-peering-overview.md)。 | 
 

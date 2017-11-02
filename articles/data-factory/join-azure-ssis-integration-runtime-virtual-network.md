@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: spelluru
-ms.openlocfilehash: 02d9102bfc9b0d8084988609282f2c78b5789e7e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8a58f55bd627594145661e1c8d5c1da360cd1e30
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>將 Azure-SSIS 整合執行階段加入虛擬網路
 如果符合下列其中一種條件，您必須將 Azure-SSIS 整合執行階段 (IR) 加入 Azure 虛擬網路 (VNet)： 
@@ -26,6 +26,9 @@ ms.lasthandoff: 10/11/2017
 - 您想要從 Azure-SSIS 整合執行階段上執行的 SSIS 套件連線至內部部署資料存放區。
 
  Azure Data Factory 第 2 版 (預覽) 可讓您將 Azure-SSIS 整合執行階段加入傳統 VNet 中。 目前，尚未支援 Azure Resource Manager VNet。 不過，您可以如下節所示暫時解決它。 
+
+ > [!NOTE]
+> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用 Data Factory 服務的 1 版 (正式推出版本 (GA))，請參閱 [Data Factory 第 1 版文件](v1/data-factory-introduction.md)。
 
 如果 SSIS 套件只會存取公用雲端資料存放區，則您不需要將 Azure-SSIS IR 加入 VNet 中。 如果 SSIS 套件存取內部部署資料存放區，則您必須將 Azure-SSIS IR 加入連線至內部部署網路的 VNet 中。 如果在不在 VNet 的 Azure SQL Database 中裝載 SSIS 目錄，您需要開啟適當的連接埠。 如果在傳統 VNet 的 Azure SQL 受管理執行個體中裝載 SSIS 目錄，您可以將 Azure-SSIS IR 加入相同的傳統 VNet (或) 不同的傳統 VNet，而此 VNet 具有與含 Azure SQL 受管理執行個體之 VNet 的傳統對傳統 VNet 連線。 下列各節提供更多詳細資料。  
 

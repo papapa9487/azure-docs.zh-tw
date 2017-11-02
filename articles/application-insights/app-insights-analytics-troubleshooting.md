@@ -3,7 +3,7 @@ title: "為 Azure Application Insights 中的 Analytics 進行疑難排解 | Mic
 description: "有關於 Application Insights 分析的問題嗎？ 從這裡開始。 "
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 9bbd5859-3584-4d80-9b6d-d5910fa48baa
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2016
-ms.author: bwren
-ms.openlocfilehash: 02df117908fc1790e8cfb9ec0a7218c1b8be856c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: 3ef9150cad62e9f9fc43f7afcbbbc01d89884a12
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>疑難排解 Application Insights 中的分析
 有關於 [Application Insights 分析](app-insights-analytics.md)的問題嗎？ 從這裡開始。 「分析」是強大的 Azure Application Insights 搜尋工具。

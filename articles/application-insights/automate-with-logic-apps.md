@@ -3,7 +3,7 @@ title: "使用 Logic Apps 自動執行 Azure Application Insights 程序。"
 description: "了解如何透過將 Application Insights Connector 新增到您的邏輯應用程式，快速自動執行重複程序。"
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
-ms.author: bwren
-ms.openlocfilehash: 36df5bc0a019f4197d40fd6fa5a2a9957820c8b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: 92521bab2082f63fa01e816151e3da9400effe6d
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>使用 Logic Apps 自動執行 Application Insights 程序
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
     ![邏輯應用程式設計工具 [參考] 視窗](./media/automate-with-logic-apps/step2b.png)
 
 ### <a name="step-3-add-an-application-insights-action"></a>步驟 3：新增 Application Insights 動作
-1. 按一下 新增步驟，然後按一下新增動作。
+1. 按一下 [新增步驟]，然後按一下 [新增動作]。
 
 2. 在 [選擇動作] 搜尋方塊中，輸入 **Azure Application Insights**。
 

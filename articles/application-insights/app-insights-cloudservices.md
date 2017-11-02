@@ -4,7 +4,7 @@ description: "使用 Application Insights 有效地監視您的 Web 和背景工
 services: application-insights
 documentationcenter: 
 keywords: "WAD2AI, Azure 診斷"
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 editor: alancameronwills
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
-ms.author: bwren
-ms.openlocfilehash: c12b225aa351d0c272243469550791a6840091e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: 9e27ffe72986406031ba6cf9b1153090f6ff1113
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure 雲端服務的 Application Insights
 您可以透過 [Application Insights][start] 來監視 [Microsoft Azure 雲端服務應用程式](https://azure.microsoft.com/services/cloud-services/)，它會結合 Application Insights SDK 的資料與雲端服務的 [Azure 診斷](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics)資料，來讓您了解應用程式的可用性、效能、失敗和使用情形。 當您取得有關應用程式在現實世界的效能和效率的意見反應時，您可以在每個開發生命週期中針對設計方向做出明智的抉擇。
@@ -80,7 +80,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 在 [Azure 入口網站][portal]中，建立新的 Application Insights 資源。 針對應用程式類型，選擇 ASP.NET 應用程式。 
 
-    ![按一下 新增，然後按一下Application Insights](./media/app-insights-cloudservices/01-new.png)
+    ![按一下 [新增]，然後按一下 [Application Insights]](./media/app-insights-cloudservices/01-new.png)
 2. 請注意，每個資源都是以「檢測金鑰」作為識別。 如果您想要手動設定或確認 SDK 的組態，稍後可能會需要此金鑰。
 
     ![按一下 [屬性]，選取金鑰，然後按下 CTRL+C](./media/app-insights-cloudservices/02-props.png) 

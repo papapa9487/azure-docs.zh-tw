@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cd2b646f3715368d9caba216883afdf07b9d778e
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: db3be8068ef9e560614daa0e7f0dcf62467fd338
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>在 Azure 中搭配 SQL Database 來建置 ASP.NET 應用程式
 
@@ -378,7 +378,7 @@ public ActionResult Create([Bind(Include = "Description,CreatedDate,Done")] Todo
 
 在您的瀏覽器中，再次巡覽至位於 *http://&lt;your app name>.azurewebsites.net* 的您的 Web 應用程式，然後在 Azure 中嘗試按一按待辦事項清單應用程式。 追蹤訊息現在會資料流處理到 Visual Studio 的 [輸出] 視窗中。
 
-```
+```console
 Application: 2017-04-06T23:30:41  PID[8132] Verbose     GET /Todos/Index
 Application: 2017-04-06T23:30:43  PID[8132] Verbose     GET /Todos/Create
 Application: 2017-04-06T23:30:53  PID[8132] Verbose     POST /Todos/Create
