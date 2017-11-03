@@ -2,21 +2,21 @@
 title: "使用 Azure Site Recovery 將複寫的 Azure VM 容錯移轉及容錯回復到次要 Azure 區域 (預覽)"
 description: "了解如何使用 Azure Site Recovery 將 Azure VM 複寫容錯移轉及容錯回復到次要 Azure 區域"
 services: site-recovery
-author: rajani-janaki-ram
+author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/18/2017
-ms.author: rajanaki
+ms.date: 11/01/2017
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 6a66528bfeb7249add9f589830293760c238e7db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02b709bb8dbab5d10ce9f4cf6155ff26ce229298
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>在 Azure 區域之間容錯移轉及容錯回復 (預覽)
 

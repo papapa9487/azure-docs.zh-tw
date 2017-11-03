@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
-ms.openlocfilehash: 4ca7f791b4c5c8bb9020144785b1c1aeb20db195
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 9696a74ac02688f9004156f6f16b39b37756751d
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="create-a-user-defined-route---powershell"></a>建立使用者定義的路由 - PowerShell
 
-在本教學課程中，了解如何透過網路虛擬設備建立使用者定義的路由，以路由兩個[虛擬網路](virtual-networks-overview.md)子網路之間的流量。 網路虛擬設備是執行網路應用程式 (例如防火牆) 的虛擬機器。 若要深入了解您可以在 Azure 虛擬網路中部署的預先設定的網路虛擬設備，請參閱 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances)。
+在本教學課程中，了解如何透過網路虛擬設備建立使用者定義的路由，以路由兩個[虛擬網路](virtual-networks-overview.md)子網路之間的流量。 網路虛擬設備是執行網路應用程式 (例如防火牆) 的虛擬機器。 若要深入了解您可以在 Azure 虛擬網路中部署之預先設定的網路虛擬設備，請參閱 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances) \(英文\)。
 
 當您在虛擬網路中建立子網路時，Azure 會建立預設[系統路由](virtual-networks-udr-overview.md#system-routes)，讓所有子網路中的資源彼此通訊，如下圖所示：
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/20/2017
 
 ![使用者定義的路由](./media/create-user-defined-route/user-defined-routes.png)
 
-本文提供透過 Resource Manager 部署模型建立使用者定義路由的步驟，而此部署模型正是建立使用者定義路由時我們建議使用的部署模型。 如果您需要建立使用者定義的路由 (傳統)，請參閱[建立使用者定義的路由 (傳統)](virtual-network-create-udr-classic-ps.md)。 如果您不熟悉 Azure 部署模型，請參閱[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 若要深入了解使用者定義的路由，請參閱[使用者定義的路由概觀](virtual-networks-udr-overview.md#user-defined-routes)。
+本文提供透過 Resource Manager 部署模型建立使用者定義路由的步驟，而此部署模型正是建立使用者定義路由時我們建議使用的部署模型。 如果您需要建立使用者定義的路由 (傳統)，請參閱[建立使用者定義的路由 (傳統)](virtual-network-create-udr-classic-ps.md)。 如果您不熟悉 Azure 部署模型，請參閱[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 若要深入了解使用者定義的路由，請參閱[使用者定義的路由概觀](virtual-networks-udr-overview.md#user-defined)。
 
 ## <a name="create-routes-and-network-virtual-appliance"></a>建立路由和網路虛擬設備
 
@@ -217,7 +217,7 @@ ms.lasthandoff: 10/20/2017
 1. 如果您還沒有驗證路由，請完成[建立路由和網路虛擬設備](#create-routes-and-network-virtual-appliance)中的步驟。
 2. 在接下來的方塊中，按一下 [試試看] 按鈕，隨即開啟 Azure Cloud Shell。 如果出現提示，請使用您的 [Azure 帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account)登入 Azure。 如果您沒有 Azure 帳戶，您可以註冊 [免費試用](https://azure.microsoft.com/offers/ms-azr-0044p)。 Azure Cloud Shell 是已經預先安裝 Azure 命令列介面的免費 Bash 殼層。 
 
-    下列指令碼會建立兩個虛擬機器，其中一個位於*公用*子網路，而另一個則位於*私人*子網路。 這些指令碼也會針對 NVA 作業系統內的網路介面啟用 IP 轉送，讓作業系統透過網路介面路由傳送流量。 實際執行 NVA 通常會先檢查流量，再路由傳送，但是在本教學課程中，簡單的 NVA 只會路由傳送流量而不會加以檢查。 
+    下列指令碼會建立兩個虛擬機器，其中一個位於公用子網路，而另一個則位於私人子網路。 這些指令碼也會針對 NVA 作業系統內的網路介面啟用 IP 轉送，讓作業系統透過網路介面路由傳送流量。 實際執行 NVA 通常會先檢查流量，再路由傳送，但是在本教學課程中，簡單的 NVA 只會路由傳送流量而不會加以檢查。 
 
     在接下來的 **Linux** 或 **Windows** 指令碼中，按一下 [複製] 按鈕，然後將指令碼內容貼到文字編輯器中。 變更 *adminPassword* 變數的密碼，然後將指令碼貼到 Azure Cloud Shell 中。 針對您在[建立路由和網路虛擬設備](#create-routes-and-network-virtual-appliance)的步驟 7 中建立網路虛擬設備時選取的作業系統，執行指令碼。 
 
@@ -331,16 +331,16 @@ ms.lasthandoff: 10/20/2017
       --settings '{"commandToExecute":"powershell.exe Restart-Computer -ComputerName myVm-Nva -Force"}'
     ```
 
-3. 在公用與私人子網路中，驗證虛擬機器之間的通訊。 
+3. 驗證公用與私人子網路中的虛擬機器之間的通訊。 
 
-    - 開啟 [SSH](../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm) (Linux) 或[遠端桌面](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm) (Windows) 與 *myVm-Public* 虛擬機器公用 IP 位址的連線。
-    - 從 *myVm-Public* 虛擬機器上的命令提示字元中，輸入 `ping myVm-Private`。 您之所以收到回覆，是因為 NVA 會將流量從公用子網路路由傳送至私人子網路。
-    - 從 *myVm-Public* 虛擬機器，在公用和私人子網路中的虛擬機器之間執行追蹤路由。 根據您在公用與私人子網路的虛擬機器中所安裝的作業系統而定，輸入適當的命令：
-        - **Windows**：從命令提示字元中，執行 `tracert myvm-private` 命令。
+    - 開啟 [SSH](../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm) (Linux) 或[遠端桌面](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm) (Windows) 與 *myVm-Public* 虛擬機器公用 IP 位址之間的連線。
+    - 在 *myVm-Public* 虛擬機器上的命令提示字元中，輸入 `ping myVm-Private`。 您之所以收到回覆，是因為 NVA 會將流量從公用子網路路由傳送至私人子網路。
+    - 從 *myVm-Public* 虛擬機器，執行公用和私人子網路中的虛擬機器之間的路由追蹤。 請根據您在公用與私人子網路中的虛擬機器上所安裝的作業系統，輸入下列適當的命令之一：
+        - **Windows**：在命令提示字元中，執行 `tracert myvm-private` 命令。
         - **Ubuntu**：執行 `tracepath myvm-private` 命令。
       流量會先通過 10.0.2.4 (NVA)，然後到達 10.0.1.4 (私人子網路中的虛擬機器)。 
-    - 連線至 *myVm-Private* 虛擬機器，並 ping *myVm-Public* 虛擬機器，以完成上述步驟。 追蹤路由會顯示經過 10.0.2.4 再到達 10.0.0.4 (公用子網路中的虛擬機器) 的通訊。
-    - **選擇性**：若要驗證 Azure 內兩個虛擬機器之間的下一個躍點，請使用 Azure 網路監看員的下一個躍點功能。 使用網路監看員之前，您必須先針對您想要使用網路監看員的地區，[建立 Azure 網路監看員執行個體](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 在本教學課程中，使用的是美國東部地區。 一旦您啟用區域的網路監看員執行個體之後，請輸入下列命令，查看公用與私人子網路中虛擬機器之間的下一個躍點資訊：
+    - 連線至 *myVm-Private* 虛擬機器，並 Ping *myVm-Public* 虛擬機器，以完成上述步驟。 追蹤路由會顯示經過 10.0.2.4 再到達 10.0.0.4 (公用子網路中的虛擬機器) 的通訊。
+    - **選擇性**：若要驗證 Azure 內兩部虛擬機器之間的下一個躍點，請使用 Azure 網路監看員的 [下一個躍點] 功能。 使用網路監看員之前，您必須先針對您想要使用網路監看員的區域，[建立 Azure 網路監看員執行個體](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 在本教學課程中，使用的是美國東部區域。 一旦您啟用區域的網路監看員執行個體之後，請輸入下列命令，查看公用與私人子網路中虛擬機器之間的下一個躍點資訊：
      
         ```azurecli-interactive
         az network watcher show-next-hop --resource-group myResourceGroup --vm myVm-Public --source-ip 10.0.0.4 --dest-ip 10.0.1.4
@@ -349,11 +349,11 @@ ms.lasthandoff: 10/20/2017
        輸出會傳回 *10.0.2.4* 作為 **nextHopIpAddress**，並傳回 *VirtualAppliance* 作為 **nextHopType**。
 
 > [!NOTE]
-> 若要說明本教學課程中的概念，公用 IP 位址要指派給公用和私人子網路中的虛擬機器，而且要在 Azure 內啟用這兩個虛擬機器的所有網路連接埠存取。 建立用於生產環境的虛擬機器時，您可能無法將公用 IP 位址指派給這些虛擬機器，而且可能要在私人子網路前面部署網路虛擬設備，或將網路安全性群組指派給子網路、網路介面或兩者，才能篩選私人子網路的網路流量。 若要深入了解網路安全性群組，請參閱[網路安全性群組](virtual-networks-nsg.md)。
+> 為了說明本教學課程中的概念，已將公用 IP 位址指派給公用和私人子網路中的虛擬機器，而在 Azure 內也啟用了這兩部虛擬機器的所有網路連接埠存取。 建立用於實際執行的虛擬機器時，您不得將公用 IP 位址指派給這些虛擬機器，但可在私人子網路前面部署網路虛擬設備，或將網路安全性群組指派給子網路、網路介面或兩者，來篩選私人子網路的網路流量。 若要深入了解網路安全性群組，請參閱[網路安全性群組](virtual-networks-nsg.md)。
 
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
 
-本教學課程需要有包含兩個子網路的現有虛擬網路。 在接下來的方塊中按一下 [試試看] 按鈕，可快速建立虛擬網路。 按一下 [試試看] 按鈕可開啟 [Azure Cloud Shell](../cloud-shell/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 雖然 Cloud Shell 在本節中會執行 PowerShell 或 Bash 殼層，但是 Bash 殼層是用來建立虛擬網路的。 Bash 殼層已安裝 Azure 命令列介面。 如果出現 Cloud Shell 的提示，請使用您的 [Azure 帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account)登入 Azure。 如果您沒有 Azure 帳戶，您可以註冊 [免費試用](https://azure.microsoft.com/offers/ms-azr-0044p)。 若要建立本教學課程中使用的虛擬網路，請在下列方塊中按一下 [複製] 按鈕，然後將指令碼貼到 Azure Cloud Shell 中：
+本教學課程需要有包含兩個子網路的現有虛擬網路。 在接下來的方塊中按一下 [試試看] 按鈕，可快速建立虛擬網路。 按一下 [試試看] 按鈕可開啟 [Azure Cloud Shell](../cloud-shell/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 雖然 Cloud Shell 會執行 PowerShell 或 Bash 殼層，但在本節中會使用 Bash 殼層來建立虛擬網路。 Bash 殼層已安裝 Azure 命令列介面。 如果出現 Cloud Shell 的提示，請使用您的 [Azure 帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account)登入 Azure。 如果您沒有 Azure 帳戶，您可以註冊 [免費試用](https://azure.microsoft.com/offers/ms-azr-0044p)。 若要建立本教學課程中所使用的虛擬網路，請在下列方塊中按一下 [複製] 按鈕，然後將指令碼貼到 Azure Cloud Shell 中：
 
 ```azurecli-interactive
 #!/bin/bash
@@ -383,7 +383,7 @@ az network vnet subnet create \
   --resource-group $rgName
 ```
 
-若要深入了解如何使用入口網站、PowerShell 或 Azure Resource Manager 範本建立虛擬網路，請參閱[建立虛擬網路](virtual-networks-create-vnet-arm-pportal.md)。
+若要深入了解如何使用入口網站、PowerShell 或 Azure Resource Manager 範本來建立虛擬網路，請參閱[建立虛擬網路](virtual-networks-create-vnet-arm-pportal.md)。
 
 ## <a name="delete-resources"></a>刪除資源
 
@@ -397,4 +397,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 - 建立[高可用性的網路虛擬設備](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 - 網路虛擬設備通常會獲指派多個網路介面和 IP 位址。 了解如何[將網路介面新增至現有的虛擬機器](virtual-network-network-interface-vm.md#vm-add-nic)以及如何[將 IP 位址新增至現有的網路介面](virtual-network-network-interface-addresses.md#add-ip-addresses)。 雖然所有虛擬機器大小至少都可以包含兩個附加的網路介面，但是每個虛擬機器大小都支援網路介面數目的上限。 若要了解如何每個虛擬機器大小支援多少個網路介面，請參閱 [Windows](../virtual-machines/windows/sizes.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) 和 [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 的虛擬機器大小。 
-- 建立使用者定義的路由，以強制透過[站對站 VPN 連線](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)進行通道流量內部部署。
+- 建立使用者定義的路由，以強制透過[站台對站台 VPN 連線](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)進行通道流量內部部署。

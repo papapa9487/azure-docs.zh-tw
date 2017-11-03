@@ -12,14 +12,14 @@ ms.custom: load & move data
 ms.devlang: NA
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.workload: data-management
+ms.workload: Active
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: 4427b74f205dcd2eabf825bbfc345279dc303f96
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 2291088b3d8e50f4e8143bf8560580e89db4cae3
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>將 Azure SQL 資料庫匯出到 BACPAC 檔案
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/12/2017
 
 ![資料庫匯出](./media/sql-database-export/database-export.png)
 
-若要監視匯出作業的進度，請開啟包含匯出資料庫的邏輯伺服器頁面。 向下捲動至**作業**，然後按一下匯入/匯出歷程記錄 。
+若要監視匯出作業的進度，請開啟包含匯出資料庫的邏輯伺服器頁面。 向下捲動至**作業**，然後按一下 [匯入/匯出歷程記錄] 。
 
 ![匯出記錄](./media/sql-database-export/export-history.png)
 ![匯出記錄狀態](./media/sql-database-export/export-history2.png)

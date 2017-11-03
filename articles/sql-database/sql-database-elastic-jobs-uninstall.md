@@ -8,18 +8,18 @@ author: ddove
 editor: 
 ms.assetid: bfc9d820-edbd-4fca-bfbf-1f339cfcc448
 ms.service: sql-database
-ms.workload: sql-database
+ms.workload: Inactive
 ms.custom: scale out apps
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 62204def565d45f230b034e8d593ae10cb971813
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 5e665ee8cc9efacbd31111dc0458ad6096e457c0
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="uninstall-elastic-database-jobs-components"></a>解除安裝彈性資料庫工作元件
 **彈性資料庫工作**元件可以使用 Azure 入口網站或 PowerShell 加以解除安裝。

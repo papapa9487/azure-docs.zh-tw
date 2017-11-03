@@ -13,14 +13,14 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: On Demand
 ms.date: 12/22/2016
 ms.author: sashan
-ms.openlocfilehash: 25e651203f804fbf32d632b5f83145a3f3f72a7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e44c92c3f37b3f1e3397d1c8cdb8c8f6d0f9942e
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>儲存多達 10 年的 Azure SQL Database 備份
 許多應用程式具有法規、相容性或其他商務用途，需要您保留 Azure SQL Database [自動備份](sql-database-automated-backups.md)所提供超過 7-35 天的資料庫備份。 使用長期備份保留功能可讓您將 SQL Database 備份儲存在 Azure 復原服務保存庫中多達 10 年。 每個保存庫最多可以儲存 1000 個資料庫。 您接著可以選取資料庫中的任何備份以將其還原為新的保存庫。
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 
 請執行下列作業之一，在 Azure 復原服務保存庫中設定、管理自動備份的長期保留並從該保留還原：
 
-* 使用 Azure 入口網站：按一下 長期備份保留 並選取資料庫，然後按一下設定。 
+* 使用 Azure 入口網站：按一下 [長期備份保留] 並選取資料庫，然後按一下 [設定]。 
 
    ![選取進行長期備份保留的資料庫](./media/sql-database-get-started-backup-recovery/select-database-for-long-term-backup-retention.png)
 

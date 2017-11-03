@@ -9,17 +9,17 @@ editor: MightyPen
 ms.assetid: c2bf14a0-905b-47b4-afb6-efe9a61147d5
 ms.service: sql-database
 ms.custom: develop databases
-ms.workload: data-management
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: jodebrui
-ms.openlocfilehash: 50eed9aed417778bd497f55e20c8e732fdae9cf9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 71dd7d36eee210b80ed6a791b52f977a416b6bb7
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>使用記憶體內部 OLTP 改善 SQL Database 中的應用程式效能
 [記憶體內部 OLTP](sql-database-in-memory.md) 可用來改善交易處理、資料擷取和暫時性資料的效能，在[高階](sql-database-service-tiers.md) Azure SQL Database 而無須增加定價層。 
@@ -77,7 +77,7 @@ SSMS 包含您可以對具有作用中工作負載的資料庫執行的 [交易�
 若要使用此移轉選項：
 
 1. 使用 SSMS 連接到測試資料庫。
-2. 在 物件總管 中，以滑鼠右鍵按一下資料表，然後按一下記憶體最佳化建議程式。
+2. 在 [物件總管] 中，以滑鼠右鍵按一下資料表，然後按一下 [記憶體最佳化建議程式]。
    
    * [資料表記憶體最佳化建議程式]  精靈隨即顯示。
 3. 在此精靈中按一下 [移轉驗證] \(或 [下一步] 按鈕)，以查看資料表是否有任何在記憶體最佳化資料表中不受支援的功能。 如需詳細資訊，請參閱：

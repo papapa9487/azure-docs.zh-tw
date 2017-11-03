@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: 9ed89261b7050bb41d49b827e02d24535983160f
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 58e141498ed5cbaa110622d949a9627c98827ac3
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 簡介 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -110,7 +110,7 @@ Azure Data Factory 第 2 版是以原始 Azure Data Factory 資料移動和轉�
 
 - *.NET SDK*：針對第 2 版更新 .NET SDK。 
 - *PowerShell*：針對第 2 版更新 PowerShell Cmdlet。 第 2 版 Cmdlet 的名稱中會有 **DataFactoryV2**。 例如：Get-AzureRmDataFactoryV2。 
-- *Python SDK*：這個 SDK 是第 2 版的新增項目。
+- *Python SDK*：此 SDK 是第 2 版的新增項目。
 - *REST API*：針對第 2 版更新 REST API。  
 
 針對第 2 版更新的 SDK 不具與第 1 版用戶端的回溯相容性。 
@@ -147,7 +147,7 @@ Data Factory 中的連結服務，有兩個用途：
 - 用來代表可裝載活動執行的 **計算資源** 。 例如，HDInsightHive 活動會在 HDInsight Hadoop 叢集上執行。 如需轉換活動和所支援計算環境的清單，請參閱[轉換資料](transform-data.md)一文。
 
 ### <a name="triggers"></a>觸發程序
-觸發程序代表處理單位，用來決定何時需要開始執行管線。 針對不同類型的事件有不同類型的觸發程序。 就預覽版而言，我們支援時鐘排程器觸發程序。 
+觸發程序代表處理單位，用來決定何時需要開始執行管線。 針對不同類型的事件，有不同類型的觸發程序。 就預覽版而言，我們支援時鐘排程器觸發程序。 
 
 
 ### <a name="pipeline-runs"></a>管線執行

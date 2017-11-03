@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: dad415936280b4af916b8c46df46f6c51ac0bca4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f76693dfcaf5076372e4c4d5f28678c05eff85ed
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>使用 Azure 入口網站對路由進行疑難排解
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 
 * **系統路由︰** 在 Azure 虛擬網路 (VNet) 中建立的每個子網路預設都有系統路由表，允許本機 VNet 流量、透過 VPN 閘道的內部部署流量以及網際網路流量。 對等互連的 VNet 也有系統路由。
 * **BGP 路由︰** 透過 ExpressRoute 或站台對站台 VPN 連線傳播到網路介面。 閱讀 [BGP 與 VPN 閘道](../vpn-gateway/vpn-gateway-bgp-overview.md)和 [ExpressRoute 概觀](../expressroute/expressroute-introduction.md)文章深入了解 BGP 路由。
-* **使用者定義路由 (UDR)：** 如果您使用網路虛擬設備或透過站台對站台 VPN 強制將流量導向內部部署網路，您可能會有與子網路路由表相關聯的使用者定義路由 (UDR)。 如果您不熟悉 UDR，請閱讀 [使用者定義路由](virtual-networks-udr-overview.md#user-defined-routes) 文章。
+* **使用者定義路由 (UDR)：** 如果您使用網路虛擬設備或透過站台對站台 VPN 強制將流量導向內部部署網路，您可能會有與子網路路由表相關聯的使用者定義路由 (UDR)。 如果您不熟悉 UDR，請閱讀 [使用者定義路由](virtual-networks-udr-overview.md#user-defined) 文章。
 
 因為有各種路由可套用至網路介面，所以可能會很難判斷哪些彙總路由是有效的。 為了協助對 VM 網路連線進行疑難排解，您可以檢視 Azure Resource Manager 部署模型中某個網路介面的所有有效路由。
 

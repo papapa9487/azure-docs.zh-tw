@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/29/2017
 ms.author: jroth
-ms.openlocfilehash: 4b8cc80f2d1ed6f09ec917118dc9495d20394b94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33c306258b6be40f2c5cbc016e3c84e36bf61e0d
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-resource-manager"></a>使用 Azure PowerShell 佈建 SQL Server 虛擬機器 (Resource Manager)
 > [!div class="op_single_selector"]
@@ -74,7 +74,7 @@ $ResourceGroupName = "sqlvm1"
 ### <a name="storage-properties"></a>儲存體屬性
 使用下列變數來定義儲存體帳戶和虛擬機器所要使用的儲存體類型。
 
-視需要修改並執行下列 Cmdlet 來初始化這些變數。 請注意，在此範例中，我們使用 [進階儲存體](../../../storage/common/storage-premium-storage.md)，這是針對生產環境工作負載建議使用的儲存體。 如需有關本指南及其他建議的詳細資料，請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳做法](virtual-machines-windows-sql-performance.md)。
+視需要修改並執行下列 Cmdlet 來初始化這些變數。 請注意，在此範例中，我們使用 [進階儲存體](../premium-storage.md)，這是針對生產環境工作負載建議使用的儲存體。 如需有關本指南及其他建議的詳細資料，請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳做法](virtual-machines-windows-sql-performance.md)。
 
 ```PowerShell
 $StorageName = $ResourceGroupName + "storage"

@@ -9,34 +9,34 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: faa6d72645fafeb2551795effd87232f0e3e0fe0
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: a80b27dc8f1a15bf2e62c9992be8bfa02cacb2f6
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫中的 PostgreSQL 擴充功能
 PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能。 擴充功能可在單一封裝中一併統合多個相關的 SQL 物件，其可使用單一命令從您的資料庫加以載入或移除。 載入資料庫之後，擴充功能就可如內建功能般運作。 如需 PostgreSQL 擴充功能的詳細資訊，請參閱[將相關物件封裝成擴充功能 (英文)](https://www.postgresql.org/docs/9.6/static/extend-extensions.html)。
 
 ## <a name="how-to-use-postgresql-extensions"></a>如何使用 PostgreSQL 擴充功能
-您必須先針對資料庫安裝 PostgreSQL 擴充功能，然後才能使用它們。 若要安裝特定的擴充功能，請從 psql 工具執行 [CREATE EXTENSION](https://www.postgresql.org/docs/9.6/static/sql-createextension.html) 命令，以將封裝的物件載入至您的資料庫。
+您必須先在資料庫中安裝 PostgreSQL 擴充功能，然後才能使用它們。 若要安裝特定的擴充功能，請從 psql 工具執行 [CREATE EXTENSION](https://www.postgresql.org/docs/9.6/static/sql-createextension.html) 命令，以將封裝的物件載入至您的資料庫。
 
-適用於 PostgreSQL 的 Azure 資料庫支援的部分重要擴充功能如此處所列。 不支援未列出的擴充功能；您無法利用適用於 PostgreSQL 的 Azure 資料庫服務，自行建立擴充功能。
+適用於 PostgreSQL 的 Azure 資料庫目前支援的部分重要擴充功能如下所列。 不支援未列出的擴充功能；您無法利用適用於 PostgreSQL 的 Azure 資料庫服務，自行建立擴充功能。
 
 ## <a name="extensions-supported-by-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫支援的擴充功能
-下表列出適用於 PostgreSQL 的 Azure 資料庫目前支援的標準 PostgreSQL 擴充功能。 此資訊也可以藉由查詢 pg\_available\_extensions 來取得。
+下表列出適用於 PostgreSQL 的 Azure 資料庫目前支援的標準 PostgreSQL 擴充功能。 此資訊也可以藉由查詢 `pg\_available\_extensions` 來取得。
 
 ### <a name="data-types-extensions"></a>資料類型擴充功能
 
 > [!div class="mx-tableFixed"]
 | **擴充功能** | **說明** |
 |---|---|
-| [chkpass](https://www.postgresql.org/docs/9.6/static/chkpass.html) | 為自動加密密碼提供資料類型 |
-| [citext](https://www.postgresql.org/docs/9.6/static/citext.html) | 提供不區分大小寫的字元字串類型 |
-| [cube](https://www.postgresql.org/docs/9.6/static/cube.html) | 提供多維度 Cube 的資料類型 |
-| [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | 提供用來儲存索引鍵/值組之集合的資料類型 |
-| [isn](https://www.postgresql.org/docs/9.6/static/isn.html) | 提供國際產品編號標準的資料類型 |
-| [ltree](https://www.postgresql.org/docs/9.6/static/ltree.html) | 提供階層式樹狀結構的資料類型 |
+| [chkpass](https://www.postgresql.org/docs/9.6/static/chkpass.html) | 為自動加密密碼提供資料類型。 |
+| [citext](https://www.postgresql.org/docs/9.6/static/citext.html) | 提供不區分大小寫的字元字串類型。 |
+| [cube](https://www.postgresql.org/docs/9.6/static/cube.html) | 提供多維度 Cube 的資料類型。 |
+| [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | 提供用來儲存索引鍵/值組之集合的資料類型。 |
+| [isn](https://www.postgresql.org/docs/9.6/static/isn.html) | 提供國際產品編號標準的資料類型。 |
+| [ltree](https://www.postgresql.org/docs/9.6/static/ltree.html) | 提供階層式樹狀結構的資料類型。 |
 
 ### <a name="functions-extensions"></a>函數擴充功能
 
@@ -73,7 +73,7 @@ PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能
 > [!div class="mx-tableFixed"]
 | **擴充功能** | **說明** |
 |---|---|
-| [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL 可載入的程序性語言 |
+| [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL 可載入的程序性語言。 |
 
 ### <a name="miscellaneous-extensions"></a>其他擴充功能
 
@@ -87,7 +87,7 @@ PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能
 | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | 提供方法來顯示 Tuple 層級統計資料。 |
 | [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | 可用來存取儲存於外部 PostgreSQL 伺服器之資料的外部資料包裝函式。 |
 
-### <a name="postgis"></a>PostGIS
+### <a name="postgis-extensions"></a>PostGIS 擴充功能
 
 > [!div class="mx-tableFixed"]
 | **擴充功能** | **說明** |

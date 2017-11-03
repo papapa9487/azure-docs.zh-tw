@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: jdial
-ms.openlocfilehash: 8e464348660114f5e99b4739bb7761b7e53ebf99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 544ba6484b23da425d53594622122b1e18b92359
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="virtual-appliance-scenario"></a>虛擬設備的案例
 在較大的 Azure 客戶中，常見的案例是需要對網際網路公開兩層式的應用程式，同時允許從內部部署資料中心存取後層。 本文件會逐步引導您完成案例，使用使用者定義路由 (UDR)、VPN 閘道和網路虛擬裝置來部署符合下列需求的兩層式環境︰
@@ -70,7 +70,7 @@ ms.lasthandoff: 10/11/2017
   * **AZF3**。 內部部署資料中心系統管理員可存取的管理防火牆，且已連線到用來管理所有防火牆設備的管理子網路。 您可以在 Marketplace 中找到 2-NIC 虛擬設備的範本，或直接向您的設備廠商要求一份。
 
 ## <a name="user-defined-routing-udr"></a>使用者定義的路由 (UDR)
-Azure 中的每個子網路都可以連結至 UDR 資料表，這份資料表用以定義如何路由在該子網路中起始的流量。 如未定義任何 UDR，Azure 就會使用預設的路由允許流量在子網路之間流動。 如需進一步了解 UDR，請瀏覽 [什麼是使用者定義路由和 IP 轉送](virtual-networks-udr-overview.md#ip-forwarding)。
+Azure 中的每個子網路都可以連結至 UDR 資料表，這份資料表用以定義如何路由在該子網路中起始的流量。 如未定義任何 UDR，Azure 就會使用預設的路由允許流量在子網路之間流動。 如需進一步了解 UDR，請瀏覽 [什麼是使用者定義路由和 IP 轉送](virtual-networks-udr-overview.md)。
 
 為確保通訊經由正確的防火牆設備完成，根據上述的最後一個需求，您需要建立下列路由表，將 UDR 包含在 **azurevnet**中。
 
@@ -110,7 +110,7 @@ UDR 和 IP 轉送兩種功能可以組合使用，以使用虛擬設備來控制
 
 此虛擬應用裝置 VM 必須能夠接收未定址到本身的連入流量。 若要讓 VM 接收定址到其他目的地的流量，您必須針對 VM 啟用 IP 轉送。 這是 Azure 設定，不是客體作業系統中的設定。 虛擬設備仍然需要執行某些類型的應用程式，以處理連入流量並正確予以路由。
 
-如需深入了解 IP 轉送，請瀏覽 [什麼是使用者定義路由和 IP 轉送？](virtual-networks-udr-overview.md#ip-forwarding)。
+如需深入了解 IP 轉送，請瀏覽 [什麼是使用者定義路由和 IP 轉送？](virtual-networks-udr-overview.md)。
 
 例如，假設 Azure 虛擬網路中有下列安裝程式︰
 

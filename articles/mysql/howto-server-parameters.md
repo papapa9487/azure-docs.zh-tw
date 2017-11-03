@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/10/2017
-ms.openlocfilehash: a18f163cbea0dac0d8272eaa24d0d2e03542c6ca
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 06c7f9f6bd49ebfaf03b04cb6e30b963593bfb35
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>如何使用 Azure 入口網站，在適用於 MySQL 的 Azure 資料庫中設定伺服器參數
 
@@ -41,7 +41,7 @@ MySQL 的 Azure 資料庫支援某些伺服器參數的組態。 本主題說明
 | 基本 100  | 2560 | 100 | 
 | 標準 100 | 2560 | 200 | 
 | 標準 200 | 5120 | 400 | 
-| 標準 400 | 10240 | 400 | 
+| 標準 400 | 10240 | 800 | 
 | 標準 800 | 20480 | 1600 |
 
 適用於版本 [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) \(英文\) 和 [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html) \(英文\) 的其他伺服器參數預設值。

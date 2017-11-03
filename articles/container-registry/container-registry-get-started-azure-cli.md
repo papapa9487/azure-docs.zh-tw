@@ -17,17 +17,17 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91f0aa093e0a1f7ed4d54a0cdf5ef53bc41cb6be
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 6b3fb9a3ea090f0083e8f113ddf13312fe42b59a
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>使用 Azure CLI 建立容器登錄庫
 
 Azure Container Registry 是用於儲存私用 Docker 容器映像的受管理 Docker 容器登錄服務。 本指南詳述如何使用 Azure CLI 建立 Azure Container Registry 執行個體。
 
-本快速入門需要您執行 Azure CLI 2.0.12 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
+本快速入門需要您執行 Azure CLI 2.0.20 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
 
 您也必須在本機上安裝 Docker。 Docker 提供可輕鬆在 [Mac](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 或 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 系統上設定 Docker 的套件。
 
@@ -45,10 +45,7 @@ az group create --name myResourceGroup --location eastus
 
 在本快速入門中，我們會建立「基本」登錄。 有數個不同的 SKU 提供 Azure Container Registry，簡略說明於下表。 如需個別項目更詳細的資訊，請參閱[容器登錄 SKU](container-registry-skus.md)。
 
-Azure Container Registry 在數個 SKU 中提供服務：`Basic`、`Managed_Basic`、`Managed_Standard` 和 `Managed_Premium`。 雖然 `Managed_*` SKU 提供諸如受管理存放裝置及 Webhook 等進階功能，但目前在某些 Azure 區域無法透過 Azure CLI 使用它們。 我們在本快速入門中選取 `Basic` SKU 是因為其在所有區域的可用性。
-
->[!NOTE]
-> 受管理登錄目前在部分區域無法使用。 不過，在所有區域中目前版本的 Azure CLI 皆不支援建立受管理的登錄。 下一版的 Azure CLI 將支援。 在這之前的版本，請使用 [Azure 入口網站](container-registry-get-started-portal.md)建立受管理的登錄。
+[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
 使用 [az acr create](/cli/azure/acr#create) 命令，以建立 ACR 執行個體。
 

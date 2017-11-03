@@ -13,14 +13,14 @@ ms.custom: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: Active
 ms.date: 07/10/2017
 ms.author: rickbyh
-ms.openlocfilehash: 484283a98831b3d5fbf079a3bf5eb9ec0d7ab4d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1a73da7ba3e92f5229faf73cb932dd50b50dfe1
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>使用 SQL Database 或 SQL 資料倉儲設定和管理 Azure Active Directory 驗證
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 下列程序會示範如何變更特定訂用帳戶的相關聯目錄。
 1. 使用 Azure 訂用帳戶管理員連接到您的 [Azure 傳統入口網站](https://manage.windowsazure.com/) 。
 2. 在左邊的橫幅中，選取 [設定] 。
-3. 您的訂用帳戶會出現在 [設定] 畫面中。 如果未出現所需的訂用帳戶，請按一下頂端的 訂用帳戶，拉下 依目錄篩選 方塊並選取包含您訂用帳戶的目錄，然後按一下套用。
+3. 您的訂用帳戶會出現在 [設定] 畫面中。 如果未出現所需的訂用帳戶，請按一下頂端的 [訂用帳戶]，拉下 [依目錄篩選] 方塊並選取包含您訂用帳戶的目錄，然後按一下 [套用]。
    
     ![select subscription][4]
 4. 在 [設定] 區域中，按一下您的訂用帳戶，然後按一下頁面底部的 [編輯目錄]。
@@ -81,7 +81,7 @@ ms.lasthandoff: 10/11/2017
 3. 在 [Active Directory 系統管理員] 刀鋒視窗中，按一下 [設定系統管理員]。   
     ![選取 Active Directory](./media/sql-database-aad-authentication/select-active-directory.png)  
     
-4. 在 新增系統管理員 刀鋒視窗中，搜尋使用者，選取使用者或群組成為系統管理員，然後按一下選取。 ([Active Directory 系統管理員] 刀鋒視窗會顯示您 Active Directory 的所有成員與群組。 呈現灰色的使用者或群組無法選取，因為他們不受支援成為 Azure AD 系統管理員。 (請在[利用 SQL Database 或 SQL 資料倉儲使用 Azure Active Directory 驗證來驗證](sql-database-aad-authentication.md)的＜Azure AD 功能和限制＞節中參閱支援的系統管理員清單。)以角色為基礎的存取控制 (RBAC) 只會套用至入口網站，並且不會傳播至 SQL Server。   
+4. 在 [新增系統管理員] 刀鋒視窗中，搜尋使用者，選取使用者或群組成為系統管理員，然後按一下 [選取]。 ([Active Directory 系統管理員] 刀鋒視窗會顯示您 Active Directory 的所有成員與群組。 呈現灰色的使用者或群組無法選取，因為他們不受支援成為 Azure AD 系統管理員。 (請在[利用 SQL Database 或 SQL 資料倉儲使用 Azure Active Directory 驗證來驗證](sql-database-aad-authentication.md)的＜Azure AD 功能和限制＞節中參閱支援的系統管理員清單。)以角色為基礎的存取控制 (RBAC) 只會套用至入口網站，並且不會傳播至 SQL Server。   
     ![選取系統管理員](./media/sql-database-aad-authentication/select-admin.png)  
     
 5. 在 [Active Directory 系統管理員] 刀鋒視窗頂端，按一下 [儲存]。   
@@ -94,7 +94,7 @@ ms.lasthandoff: 10/11/2017
    > 
 
 
-若要稍後移除系統管理員，請在 Active Directory 系統管理員 刀鋒視窗頂端，按一下 移除系統管理員，然後按一下儲存。
+若要稍後移除系統管理員，請在 [Active Directory 系統管理員] 刀鋒視窗頂端，按一下 [移除系統管理員]，然後按一下 [儲存]。
 
 ### <a name="powershell"></a>PowerShell
 若要執行 PowerShell Cmdlet，Azure PowerShell 必須已安裝且正在執行中。 如需詳細資訊，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。

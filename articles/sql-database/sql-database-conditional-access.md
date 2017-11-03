@@ -9,11 +9,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: rickbyh
-ms.openlocfilehash: 0dcec61c03a84197e2c351761c743683caa98a06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.workload: Inactive
+ms.openlocfilehash: c45f0ae655c544f51c8983c234591eef3da9dc6b
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>使用 Azure SQL Database 和資料倉儲的條件式存取 (MFA)  
 
@@ -27,11 +28,11 @@ SQL Database 和 SQL 資料倉儲都支援 Microsoft 條件式存取。 下列�
 1.  登入入口網站、選取 **Azure Active Directory**，然後選取**條件式存取**。 如需詳細資訊，請參閱 [Azure Active Directory 條件式存取的技術參考](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-technical-reference)。  
   ![[條件式存取] 刀鋒視窗](./media/sql-database-conditional-access/conditional-access-blade.png) 
      
-2.  在 條件式存取原則 刀鋒視窗中，按一下 新增原則、提供名稱，然後按一下設定規則。  
-3.  在 [指派] 下，選取 [使用者和群組]，核取 [選取使用者和群組]，然後選取要進行條件式存取的使用者或群組。 按一下 選取，然後按一下完成 可接受您的選擇。  
+2.  在 [條件式存取原則] 刀鋒視窗中，按一下 [新增原則]、提供名稱，然後按一下 [設定規則]。  
+3.  在 [指派] 下，選取 [使用者和群組]，核取 [選取使用者和群組]，然後選取要進行條件式存取的使用者或群組。 按一下 [選取]，然後按一下 [完成] 可接受您的選擇。  
   ![選取 [使用者和群組]](./media/sql-database-conditional-access/select-users-and-groups.png)  
 
-4.  選取 [雲端應用程式]，按一下 [選取應用程式]。 您會看到所有可供條件式存取使用的應用程式。 選取底部的 Azure SQL Database按一下 選取然後按一下完成。  
+4.  選取 [雲端應用程式]，按一下 [選取應用程式]。 您會看到所有可供條件式存取使用的應用程式。 選取底部的 [Azure SQL Database]按一下 [選取]然後按一下 [完成]。  
   ![選取 SQL Database](./media/sql-database-conditional-access/select-sql-database.png)  
   如果找不到下列第三個螢幕擷取畫面中所列的 **Azure SQL Database**，請完成下列步驟：   
   - 使用 SSMS 搭配 AAD 管理帳戶來登入您的 Azure SQL DB/DW 執行個體。  

@@ -9,13 +9,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/01/2017
 ms.author: raynew
-ms.openlocfilehash: ee445c8af2fc6620385d9c462d4c6551da3d7367
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: MVC
+ms.openlocfilehash: 1c9bfe567b1e0872abc7aba054127735d5f61754
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>為內部部署 VMware VM 設定災害復原至 Azure
 
@@ -50,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 
 行動服務必須安裝在您要複寫的每個 VM 上。 當您啟用 VM 的複寫功能時，Site Recovery 會自動安裝此服務。 若要自動安裝，您必須準備一個可供 Site Recovery 用來存取 VM 的帳戶。
 
-您可以使用網域或本機帳戶。 在 Linux VM 上，帳戶應該是來源 Linux 伺服器上的根使用者。 對於 Windows VM，如果您不使用網域帳戶，請停用本機電腦上的遠端使用者存取控制：
+您可以使用網域或本機帳戶。 若是 Linux VM，此帳戶應該是來源 Linux 伺服器上的根使用者。 對於 Windows VM，如果您不使用網域帳戶，請停用本機電腦上的遠端使用者存取控制：
 
   - 在登錄的 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** 下，新增 DWORD 項目 **LocalAccountTokenFilterPolicy** 並將其值設為 1。
 

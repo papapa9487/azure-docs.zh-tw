@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: bdf078a0cebf3c36d5916035fb5fd7e47d231abe
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 0f8c8e2c22310f6de9f5bedff79a87b887bc0fb1
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Azure Logic Apps 的工作流程定義語言結構描述
 
@@ -314,7 +314,7 @@ ms.lasthandoff: 10/26/2017
 |addseconds|將整數秒數新增至傳入的字串時間戳記。 秒數可以是正數或負數。 根據預設，結果會是 ISO 8601 格式 ("o") 的字串，除非有提供格式規範。 例如：`2015-03-15T13:27:00Z`： <p>`addseconds('2015-03-15T13:27:36Z', -36)` <p> **參數編號**：1 <p> **名稱**︰時間戳記 <p> **描述**︰必要。 包含時間的字串。 <p> **參數編號**：2 <p> **名稱**︰秒 <p> **描述**︰必要。 新增的秒數。 可以是負數以減去秒。 <p> **參數編號**：3 <p> **名稱**︰格式 <p> **描述**︰選擇性。 [單一格式規範字元](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自訂格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指出如何格式化這個時間戳記值。 如果未提供格式，則會使用 ISO 8601 格式 ("o")。|  
 |addminutes|將整數分鐘數新增至傳入的字串時間戳記。 分鐘數可以是正數或負數。 根據預設，結果會是 ISO 8601 格式 ("o") 的字串，除非有提供格式規範。 例如：`2015-03-15T14:00:36Z`： <p>`addminutes('2015-03-15T13:27:36Z', 33)` <p> **參數編號**：1 <p> **名稱**︰時間戳記 <p> **描述**︰必要。 包含時間的字串。 <p> **參數編號**：2 <p> **名稱**︰分鐘 <p> **描述**︰必要。 要新增的分鐘數。 可以是負數以減去分鐘。 <p> **參數編號**：3 <p> **名稱**︰格式 <p> **描述**︰選擇性。 [單一格式規範字元](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自訂格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指出如何格式化這個時間戳記值。 如果未提供格式，則會使用 ISO 8601 格式 ("o")。|  
 |addhours|將整數時數新增至傳入的字串時間戳記。 時數可以是正數或負數。 根據預設，結果會是 ISO 8601 格式 ("o") 的字串，除非有提供格式規範。 例如：`2015-03-16T01:27:36Z`： <p>`addhours('2015-03-15T13:27:36Z', 12)` <p> **參數編號**：1 <p> **名稱**︰時間戳記 <p> **描述**︰必要。 包含時間的字串。 <p> **參數編號**：2 <p> **名稱**︰小時 <p> **描述**︰必要。 要新增的時數。 可以是負數以減去小時。 <p> **參數編號**：3 <p> **名稱**︰格式 <p> **描述**︰選擇性。 [單一格式規範字元](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自訂格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指出如何格式化這個時間戳記值。 如果未提供格式，則會使用 ISO 8601 格式 ("o")。|  
-|adddays|將整數天數新增至傳入的字串時間戳記。 天數可以是正數或負數。 根據預設，結果會是 ISO 8601 格式 ("o") 的字串，除非有提供格式規範。 例如：`2015-02-23T13:27:36Z`： <p>`addseconds('2015-03-15T13:27:36Z', -20)` <p> **參數編號**：1 <p> **名稱**︰時間戳記 <p> **描述**︰必要。 包含時間的字串。 <p> **參數編號**：2 <p> **名稱**︰天 <p> **描述**︰必要。 要新增的天數。 可以是負數以減去天。 <p> **參數編號**：3 <p> **名稱**︰格式 <p> **描述**︰選擇性。 [單一格式規範字元](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自訂格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指出如何格式化這個時間戳記值。 如果未提供格式，則會使用 ISO 8601 格式 ("o")。|  
+|adddays|將整數天數新增至傳入的字串時間戳記。 天數可以是正數或負數。 根據預設，結果會是 ISO 8601 格式 ("o") 的字串，除非有提供格式規範。 例如：`2015-02-23T13:27:36Z`： <p>`adddays('2015-03-15T13:27:36Z', -2)` <p> **參數編號**：1 <p> **名稱**︰時間戳記 <p> **描述**︰必要。 包含時間的字串。 <p> **參數編號**：2 <p> **名稱**︰天 <p> **描述**︰必要。 要新增的天數。 可以是負數以減去天。 <p> **參數編號**：3 <p> **名稱**︰格式 <p> **描述**︰選擇性。 [單一格式規範字元](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自訂格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指出如何格式化這個時間戳記值。 如果未提供格式，則會使用 ISO 8601 格式 ("o")。|  
 |formatDateTime|以日期格式傳回字串。 根據預設，結果會是 ISO 8601 格式 ("o") 的字串，除非有提供格式規範。 例如：`2015-02-23T13:27:36Z`： <p>`formatDateTime('2015-03-15T13:27:36Z', 'o')` <p> **參數編號**：1 <p> **名稱**︰日期 <p> **描述**︰必要。 包含日期的字串。 <p> **參數編號**：2 <p> **名稱**︰格式 <p> **描述**︰選擇性。 [單一格式規範字元](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自訂格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指出如何格式化這個時間戳記值。 如果未提供格式，則會使用 ISO 8601 格式 ("o")。|  
 |startOfHour|傳回小時開始至傳入的字串時間戳記。 例如：`2017-03-15T13:00:00Z`：<br /><br /> `startOfHour('2017-03-15T13:27:36Z')`<br /><br /> **參數編號**：1<br /><br /> **名稱**︰時間戳記<br /><br /> **描述**︰必要。 這是包含時間的字串。<br /><br />**參數編號**：2<br /><br /> **名稱**︰格式<br /><br /> **描述**︰選擇性。 [單一格式規範字元](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自訂格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指出如何格式化這個時間戳記值。 如果未提供格式，則會使用 ISO 8601 格式 ("o")。|  
 |startOfDay|傳回天數開始至傳入的字串時間戳記。 例如：`2017-03-15T00:00:00Z`：<br /><br /> `startOfDay('2017-03-15T13:27:36Z')`<br /><br /> **參數編號**：1<br /><br /> **名稱**︰時間戳記<br /><br /> **描述**︰必要。 這是包含時間的字串。<br /><br />**參數編號**：2<br /><br /> **名稱**︰格式<br /><br /> **描述**︰選擇性。 [單一格式規範字元](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自訂格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指出如何格式化這個時間戳記值。 如果未提供格式，則會使用 ISO 8601 格式 ("o")。| 

@@ -3,7 +3,7 @@ title: "為 Azure 雲端服務和虛擬機器設定診斷 | Microsoft Docs"
 description: "了解如何在 Visual Studio 中為 Azure 雲端服務和虛擬機器 (VM) 設定診斷。"
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
+author: mikejo
 manager: ghogen
 editor: 
 ms.assetid: e70cd7b4-6298-43aa-adea-6fd618414c26
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: kraigb
-ms.openlocfilehash: 8e8cef539ef69d75642c43121202d3b713ddc8f7
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.author: mikejo
+ms.openlocfilehash: f00771d89749e7507d7f303f366fe63f537900ff
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="set-up-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>為 Azure 雲端服務和虛擬機器設定診斷
 需要針對 Azure 雲端服務或 Azure 虛擬機器進行疑難排解時，您可以使用 Visual Studio 更輕鬆地設定 Azure 診斷。 診斷會在執行雲端服務的虛擬機器和虛擬機器執行個體上擷取系統資料和記錄資料。 診斷資料會傳輸到您選擇的儲存體帳戶。 如需 Azure 中診斷記錄的詳細資訊，請參閱[在 Azure App Service 中針對 Web 應用程式啟用診斷記錄](app-service/web-sites-enable-diagnostic-log.md)。
@@ -188,7 +188,7 @@ ms.lasthandoff: 10/13/2017
 透過 [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110)) 命名空間中的類別，支援 ASP.NET 中的 ETW 架構。 Microsoft.WindowsAzure.Diagnostics 命名空間 (繼承自並擴充標準 [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110)) 類別) 可讓您使用 [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110)) 作為 Azure 環境中的記錄架構。 如需詳細資訊，請參閱[在 Microsoft Azure 中控制記錄和追蹤](https://msdn.microsoft.com/magazine/ff714589.aspx)和[在 Azure 雲端服務和虛擬機器中啟用診斷](cloud-services/cloud-services-dotnet-diagnostics.md)。
 
 ### <a name="crash-dumps"></a>損毀傾印
-若要擷取角色執行個體何時損毀的相關資訊，請選取 [啟用損毀傾印的傳輸] 核取方塊。 (由於 ASP.NET 處理大多數例外狀況，這通常只對背景工作角色才有用。)若要增加或減少專用於損毀傾印的儲存空間百分比，您可以變更**目錄配額 (%)** 值。。 您可以變更儲存損毀傾印的儲存體容器，也可以選取您想要擷取**完整**或**最小**傾印。
+若要擷取角色執行個體何時損毀的相關資訊，請選取 [啟用損毀傾印的傳輸] 核取方塊。 (由於 ASP.NET 處理大多數例外狀況，這通常只對背景工作角色才有用。)若要增加或減少專用於損毀傾印的儲存空間百分比，您可以變更**目錄配額 (%)** 值。 您可以變更儲存損毀傾印的儲存體容器，也可以選取您想要擷取**完整**或**最小**傾印。
 
 下一個螢幕擷取畫面列出目前正在追蹤的處理序。 選取您想要擷取之處理序的核取方塊。 若要將另一個處理序新增至清單，請輸入處理序名稱，然後選擇 [新增處理序]。
 

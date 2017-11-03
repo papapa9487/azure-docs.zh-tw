@@ -9,17 +9,17 @@ editor:
 ms.assetid: 
 ms.service: sql-database
 ms.custom: devcenter
-ms.workload: drivers
+ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/05/2017
 ms.author: carlrab
-ms.openlocfilehash: d74c889b60e4d2ad24d70db70f4a0bc8284013ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fc50c78af7c88cc2d0c537456cb8323002f8696
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>使用 .NET (C#) 搭配 Visual Studio 連線及查詢 Azure SQL database
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 10/11/2017
 4. 在 [方案總管] 中，以滑鼠右鍵按一下 [sqltest]，然後按一下 [管理 NuGet 套件]。 
 5. 在 [瀏覽] 上，搜尋 ```System.Data.SqlClient```，並在找到後選取它。
 6. 在 **System.Data.SqlClient** 頁面上，按一下 [安裝]。
-7. 當安裝完成時，檢閱所做的變更，然後按一下確定 來關閉 預覽 視窗。 
+7. 當安裝完成時，檢閱所做的變更，然後按一下 [確定] 來關閉 [預覽] 視窗。 
 8. 如果 [授權接受] 視窗出現時，按一下 [我接受]。
 
 ## <a name="insert-code-to-query-sql-database"></a>插入程式碼以查詢 SQL 資料庫

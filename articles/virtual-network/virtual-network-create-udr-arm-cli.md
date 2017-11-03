@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
-ms.openlocfilehash: b41754e74708a095d95eee31da5e304771a6ae05
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: affa68b6aeedb031914b12dac711d93c7ed4a47a
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="create-a-user-defined-route---azure-cli"></a>建立使用者定義的路由 - Azure CLI
 
-在本教學課程中，了解如何透過網路虛擬設備建立應立使用者定義的路由，以路由兩個[虛擬網路](virtual-networks-overview.md)子網路之間的流量。 網路虛擬設備是執行網路應用程式 (例如防火牆) 的虛擬機器。 若要深入了解您可以在 Azure 虛擬網路中部署的預先設定的網路虛擬設備，請參閱 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances)。
+在本教學課程中，了解如何透過網路虛擬設備建立應立使用者定義的路由，以路由兩個[虛擬網路](virtual-networks-overview.md)子網路之間的流量。 網路虛擬設備是執行網路應用程式 (例如防火牆) 的虛擬機器。 若要深入了解您可以在 Azure 虛擬網路中部署之預先設定的網路虛擬設備，請參閱 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances) \(英文\)。
 
 當您在虛擬網路中建立子網路時，Azure 會建立預設[系統路由](virtual-networks-udr-overview.md#system-routes)，讓所有子網路中的資源彼此通訊，如下圖所示：
 
 ![預設路由](./media/create-user-defined-route/default-routes.png)
 
-在本教學課程中，您使用公用、私人和 DMZ 子網路建立虛擬網路，如下圖所示。 web 伺服器一般會部署到公用子網路，而應用程式或資料庫伺服器可能會部署到私人子網路。 您建立虛擬機器以做為 DMZ 子網路中的網路虛擬設備，並選擇性地在每個子網路中建立虛擬機器，以透過網路虛擬設備進行通訊。 公用和私人子網路之間的所有流量都會透過設備路由，如下圖所示：
+在本教學課程中，您使用公用、私人和 DMZ 子網路建立虛擬網路，如下圖所示。 網頁伺服器通常可能會部署到公用子網路，而應用程式或資料庫伺服器則可能會部署到私人子網路。 您可以建立虛擬機器作為 DMZ 子網路中的網路虛擬設備，並選擇性地在每個子網路中建立可透過網路虛擬設備進行通訊的虛擬機器。 公用和私人子網路之間的所有流量都會透過設備路由，如下圖所示：
 
 ![使用者定義的路由](./media/create-user-defined-route/user-defined-routes.png)
 
-本文提供透過 Resource Manager 部署模型建立使用者定義路由的步驟，而此部署模型正是建立使用者定義路由時我們建議使用的部署模型。 如果您需要建立使用者定義的路由 (傳統)，請參閱[建立使用者定義的路由 (傳統)](virtual-network-create-udr-classic-cli.md)。 如果您不熟悉 Azure 部署模型，請參閱[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 若要深入了解使用者定義的路由，請參閱[使用者定義的路由概觀](virtual-networks-udr-overview.md#user-defined-routes)。
+本文提供透過 Resource Manager 部署模型建立使用者定義路由的步驟，而此部署模型正是建立使用者定義路由時我們建議使用的部署模型。 如果您需要建立使用者定義的路由 (傳統)，請參閱[建立使用者定義的路由 (傳統)](virtual-network-create-udr-classic-cli.md)。 如果您不熟悉 Azure 部署模型，請參閱[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 若要深入了解使用者定義的路由，請參閱[使用者定義的路由概觀](virtual-networks-udr-overview.md#user-defined)。
 
 ## <a name="create-routes-and-network-virtual-appliance"></a>建立路由和網路虛擬設備
 
@@ -170,7 +170,7 @@ ms.lasthandoff: 10/20/2017
 1. 如果您還沒有驗證路由，請完成[建立路由和網路虛擬設備](#create-routes-and-network-virtual-appliance)中的步驟。
 2. 在接下來的方塊中，按一下 [試試看] 按鈕，隨即開啟 Azure Cloud Shell。 如果出現提示，請使用您的 [Azure 帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account)登入 Azure。 如果您沒有 Azure 帳戶，您可以註冊 [免費試用](https://azure.microsoft.com/offers/ms-azr-0044p)。 Azure Cloud Shell 是已經預先安裝 Azure 命令列介面的免費 Bash 殼層。 
 
-    下列指令碼會建立兩個虛擬機器，其中一個位於*公用*子網路，而另一個則位於*私人*子網路。 這些指令碼也會針對 NVA 作業系統內的網路介面啟用 IP 轉送，讓作業系統透過網路介面路由傳送流量。 實際執行 NVA 通常會先檢查流量，再路由傳送，但是在本教學課程中，簡單的 NVA 只會路由傳送流量而不會加以檢查。 
+    下列指令碼會建立兩個虛擬機器，其中一個位於公用子網路，而另一個則位於私人子網路。 這些指令碼也會針對 NVA 作業系統內的網路介面啟用 IP 轉送，讓作業系統透過網路介面路由傳送流量。 實際執行 NVA 通常會先檢查流量，再路由傳送，但是在本教學課程中，簡單的 NVA 只會路由傳送流量而不會加以檢查。 
 
     在接下來的 **Linux** 或 **Windows** 指令碼中，按一下 [複製] 按鈕，然後將指令碼內容貼到文字編輯器中。 變更 *adminPassword* 變數的密碼，然後將指令碼貼到 Azure Cloud Shell 中。 針對您在[建立路由和網路虛擬設備](#create-routes-and-network-virtual-appliance)的步驟 5 中建立網路虛擬設備時所選取的作業系統，執行指令碼。 
 
@@ -292,7 +292,7 @@ ms.lasthandoff: 10/20/2017
         - **Windows**：在命令提示字元中，執行 `tracert myvm-private` 命令。
         - **Ubuntu**：執行 `tracepath myvm-private` 命令。
       流量會先通過 10.0.2.4 (NVA)，然後到達 10.0.1.4 (私人子網路中的虛擬機器)。 
-    - 連線至 *myVm-Private* 虛擬機器，並 ping *myVm-Public* 虛擬機器，以完成上述步驟。 追蹤路由會顯示經過 10.0.2.4 再到達 10.0.0.4 (公用子網路中的虛擬機器) 的通訊。
+    - 連線至 *myVm-Private* 虛擬機器，並 Ping *myVm-Public* 虛擬機器，以完成上述步驟。 追蹤路由會顯示經過 10.0.2.4 再到達 10.0.0.4 (公用子網路中的虛擬機器) 的通訊。
     - **選擇性**：若要驗證 Azure 內兩部虛擬機器之間的下一個躍點，請使用 Azure 網路監看員的 [下一個躍點] 功能。 使用網路監看員之前，您必須先針對您想要使用網路監看員的區域，[建立 Azure 網路監看員執行個體](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 在本教學課程中，使用的是美國東部區域。 一旦您啟用區域的網路監看員執行個體之後，請輸入下列命令，查看公用與私人子網路中虛擬機器之間的下一個躍點資訊：
      
         ```azurecli-interactive

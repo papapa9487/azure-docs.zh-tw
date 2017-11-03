@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/22/2017
+ms.date: 11/01/2017
 ms.author: raynew
-ms.openlocfilehash: aa378c167c81617bc13baa65335335a749d13516
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: MVC
+ms.openlocfilehash: 6a10cbf1d3c8043ddcac9a725373fc30a3ecee20
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>將 Amazon Web Services (AWS) VM 移轉至 Azure
 
@@ -87,7 +88,7 @@ Azure 中需要有幾個資源可供移轉的 EC2 執行個體使用。 其中�
 
 行動服務必須安裝在您要複寫的每個 VM 上。 當您啟用 VM 的複寫功能時，Site Recovery 會自動安裝此服務。 若要自動安裝，您必須在 EC2 執行個體上準備一個可供 Site Recovery 用來存取 VM 的帳戶。
 
-您可以使用網域帳戶或本機帳戶。 在 Linux VM 上，帳戶應該是來源 Linux 伺服器上的根使用者。 若是 Windows VM，如果您不使用網域帳戶，請停用本機電腦上的遠端使用者存取控制：
+您可以使用網域帳戶或本機帳戶。 若是 Linux VM，此帳戶應該是來源 Linux 伺服器上的根使用者。 若是 Windows VM，如果您不使用網域帳戶，請停用本機電腦上的遠端使用者存取控制：
 
   - 在登錄的 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** 下，新增 DWORD 項目 **LocalAccountTokenFilterPolicy** 並將其值設為 1。
     
@@ -96,7 +97,7 @@ Azure 中需要有幾個資源可供移轉的 EC2 執行個體使用。 其中�
 
 ## <a name="prepare-the-infrastructure"></a>準備基礎結構 
 
-在保存庫的入口網站頁面上，從 快速入門 區段中選取 Site Recovery，然後按一下準備基礎結構。
+在保存庫的入口網站頁面上，從 [快速入門] 區段中選取 [Site Recovery]，然後按一下 [準備基礎結構]。
 
 ### <a name="1-protection-goal"></a>1 保護目標
 
@@ -125,9 +126,9 @@ Azure 中需要有幾個資源可供移轉的 EC2 執行個體使用。 其中�
 5. 在 VM 上，以滑鼠右鍵按一下您下載的 **Microsoft Azure Site Recovery 整合安裝**的安裝程式，然後選取 [以系統管理員身分執行]。 
 
     1. 在 [開始之前] 中，選取 [安裝設定伺服器和處理序伺服器]，然後按 [下一步]。
-    2. 在 [第三方軟體授權] 中，選取 [我接受第三方授權合約]。 然後按一下下一步。
+    2. 在 [第三方軟體授權] 中，選取 [我接受第三方授權合約]。 然後按一下 [下一步]。
     3. 在 [註冊] 中，按一下 [瀏覽]，導覽至您放置保存庫註冊金鑰檔的位置，然後按 [下一步]。
-    4. 在 [網際網路設定] 中，選取 [不使用 Proxy 伺服器而連線到 Azure Site Recovery]。 然後按一下下一步。
+    4. 在 [網際網路設定] 中，選取 [不使用 Proxy 伺服器而連線到 Azure Site Recovery]。 然後按一下 [下一步]。
     5. 在 [檢查必要條件] 頁面上會檢查數個項目。 完成時，按 [下一步]。 
     6. 在 [MySQL 設定] 中，提供必要的密碼，然後按 [下一步]。
     7. 在 [環境詳細資料] 中，選取 [否] \(您不需要保護 VMware 機器)，然後按 [下一步]。
@@ -160,7 +161,7 @@ Azure 中需要有幾個資源可供移轉的 EC2 執行個體使用。 其中�
 
 ### <a name="5-deployment-planning-select"></a>5 部署規劃 - 選取 
 
-在 完成部署規劃了嗎? 中，從下拉式清單選取 稍後再進行，然後按一下確定。
+在 [完成部署規劃了嗎?] 中，從下拉式清單選取 [稍後再進行]，然後按一下 [確定]。
 
 當**準備基礎結構**的 5 個區段全部完成時，按一下 [確定]。
 
@@ -196,7 +197,7 @@ Azure 中需要有幾個資源可供移轉的 EC2 執行個體使用。 其中�
     
     - 3 實體機器 - 選取
         
-        按一下 + 實體機器，針對您想要移轉的 EC2 執行個體，輸入 名稱、IP 位址 和 OS 類型，然後按一下確定。
+        按一下 [+ 實體機器]，針對您想要移轉的 EC2 執行個體，輸入 [名稱]、[IP 位址] 和 [OS 類型]，然後按一下 [確定]。
         
     - 4 屬性 - 設定屬性
         
@@ -204,7 +205,7 @@ Azure 中需要有幾個資源可供移轉的 EC2 執行個體使用。 其中�
         
     - 5 複寫設定 - 進行複寫設定
     
-        請確定在下拉式清單中選取的複寫原則是 **myReplicationPolicy**，然後按一下確定。
+        請確定在下拉式清單中選取的複寫原則是 **myReplicationPolicy**，然後按一下 [確定]。
         
 3. 當精靈完成時，按一下 [啟用複寫]。
         

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: raynew
-ms.openlocfilehash: 9764e48e04eb0c83afea09934ce64d2485ab15d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1647e9d69da3e991bec4e00b3a1083a254fa9550
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-your-secondary-on-premises-site"></a>為 Hyper-V VM 設定災害復原至次要內部部署網站
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 
 - 檢閱[案例架構和元件](concepts-hyper-v-to-secondary-architecture.md)。
 - 檢閱所有元件的[支援需求](site-recovery-support-matrix-to-sec-site.md)。
-- 請確定 VMM 伺服器和 Hyper-V 主機符合[支援需求](site-recovery-support-matrix-to-sec-site.md#on-premises-servers)。
+- 請確定 VMM 伺服器和 Hyper-V 主機符合[支援需求](site-recovery-support-matrix-to-sec-site.md)。
 - 檢查您要複寫的 VM 符合[複寫的機器支援](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions)。
 - 準備 VMM 伺服器以進行網路對應。
 

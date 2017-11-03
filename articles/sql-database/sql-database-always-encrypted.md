@@ -10,17 +10,17 @@ editor: cgronlun
 ms.assetid: ce7e052e-8bf6-4d7c-9204-4c6f4afeba4b
 ms.service: sql-database
 ms.custom: security
-ms.workload: data-management
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: sstein
-ms.openlocfilehash: d1fdfc4f739e65ff532b159eefaffe1622ad0963
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47154202d0a8f7704561676fa645b5ccdb5b8c01
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>一律加密：保護 SQL Database 中的機密資料，並將加密金鑰儲存在 Windows 憑證存放區中
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 10/11/2017
 在本節中，您將建立資料表來保存病患的資料。 這一開始會是一般表格 -- 您將在下一節中設定加密。
 
 1. 展開 [資料庫] 。
-2. 在 Clinic 資料庫上按一下滑鼠右鍵，然後按一下新增查詢。
+2. 在 [Clinic] 資料庫上按一下滑鼠右鍵，然後按一下 [新增查詢]。
 3. 將下列 Transact-SQL (T-SQL) 貼到新的查詢視窗中並「執行」  它。
 
         CREATE TABLE [dbo].[Patients](
@@ -483,8 +483,8 @@ SSMS 提供一個精靈，可為您設定 CMK、CEK 及加密的資料行，來�
 
 若要使用 SSMS 來存取純文字資料，您可以將 **Column Encryption Setting=enabled** 參數新增到連線中。
 
-1. 在 SSMS 中，於 物件總管 中您的伺服器上按一下滑鼠右鍵，然後按一下中斷連線。
-2. 按一下 連接  >  資料庫引擎 以開啟 連接到伺服器 視窗，然後按一下選項。
+1. 在 SSMS 中，於 [物件總管] 中您的伺服器上按一下滑鼠右鍵，然後按一下 [中斷連線]。
+2. 按一下 [連接]  >  [資料庫引擎] 以開啟 [連接到伺服器] 視窗，然後按一下 [選項]。
 3. 按一下 [其他連接參數] 並輸入 **Column Encryption Setting=enabled**。
    
     ![新的主控台應用程式](./media/sql-database-always-encrypted/ssms-connection-parameter.png)

@@ -12,14 +12,14 @@ ms.custom: monitor & tune
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: NA
+ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: b075253c12918df63a464de79e2ab2ff43103da1
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 358986f58c431aebfe7b41daa8c40ba641dc408a
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>使用 Intelligent Insights Azure SQL Database 效能診斷記錄
 
@@ -94,7 +94,7 @@ Intelligent Insights 效能記錄的下一個區段包含透過內建的人工�
 | TempDB 爭用 | <li>造成爭用之查詢的查詢雜湊</li><li>整體資料庫頁面閂鎖爭用等候時間的查詢歸屬 [%]</li> |
 | 彈性集區 DTU 不足 | <li>彈性集區</li><li>DTU 取用量最高的資料庫</li><li>取用量最高之取用者所使用的不良 DTU 百分比</li> |
 | 計畫迴歸 | <li>查詢雜湊</li><li>良好計畫識別碼</li><li>不良計畫識別碼</li> |
-| 資料庫範圍組態值變更 | <li>與預設值相比的資料庫範圍組態變更</li> |
+| 資料庫範圍設定值變更 | <li>與預設值相比的資料庫範圍組態變更</li> |
 | 用戶端執行速度太慢 | <li>查詢雜湊</li><li>等候時間</li> |
 | 定價層降級 | <li>文字通知</li> |
 

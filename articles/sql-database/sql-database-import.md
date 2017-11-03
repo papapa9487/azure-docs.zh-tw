@@ -12,14 +12,14 @@ ms.custom: load & move data
 ms.devlang: NA
 ms.date: 06/26/2017
 ms.author: carlrab
-ms.workload: data-management
+ms.workload: Active
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: 5ff4184a6147c367c64b5c90c090e1abe59edb90
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34dee9511822acec46ba4854729939b84f3c06c6
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>將 BACPAC 檔案匯入到新的 Azure SQL Database
 
@@ -40,11 +40,11 @@ ms.lasthandoff: 10/11/2017
 
    ![資料庫匯入](./media/sql-database-import/import.png)
 
-若要監視匯入作業的進度，請開啟包含匯入資料庫的邏輯伺服器頁面。 向下捲動至**作業**，然後按一下匯入/匯出歷程記錄 。
+若要監視匯入作業的進度，請開啟包含匯入資料庫的邏輯伺服器頁面。 向下捲動至**作業**，然後按一下 [匯入/匯出歷程記錄] 。
 
 ### <a name="monitor-the-progress-of-an-import-operation"></a>監視匯入作業的進度
 
-若要監視匯入作業的進度，請將邏輯伺服器的頁面開啟為要匯入的資料庫。 向下捲動至**作業**，然後按一下匯入/匯出歷程記錄 。
+若要監視匯入作業的進度，請將邏輯伺服器的頁面開啟為要匯入的資料庫。 向下捲動至**作業**，然後按一下 [匯入/匯出歷程記錄] 。
    
    ![匯入](./media/sql-database-import/import-history.png)![匯入狀態](./media/sql-database-import/import-status.png)
 
