@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: ramankum
-ms.openlocfilehash: 0380b4aaa23b4aaba4c67d05e2d62f3ef41d6a32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c22c2c194cb839c3ec9e3e851768ca19bc6fc443
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>將 Azure 受控磁碟儲存體從標準轉換至進階，反之亦然
 
-受控磁碟提供兩個儲存體選項：[進階](../../storage/storage-premium-storage.md) (以 SSD 為基礎) 和[標準](../../storage/storage-standard-storage.md) (以 HDD 為基礎)。 它可讓您根據您的效能需求，在兩個選項之間，以最少的停機時間輕鬆切換。 這項功能不適用於非受控磁碟。 但您可以輕鬆地[轉換為受控磁碟](convert-unmanaged-to-managed-disks.md)，以在兩個選項之間輕鬆切換。
+受控磁碟提供兩個儲存體選項：[進階](../windows/premium-storage.md) (以 SSD 為基礎) 和[標準](../windows/standard-storage.md) (以 HDD 為基礎)。 它可讓您根據您的效能需求，在兩個選項之間，以最少的停機時間輕鬆切換。 這項功能不適用於非受控磁碟。 但您可以輕鬆地[轉換為受控磁碟](convert-unmanaged-to-managed-disks.md)，以在兩個選項之間輕鬆切換。
 
 本文說明如何使用 Azure CLI 將受控磁碟從標準轉換至進階，反之亦然。 如果您需要安裝或升級 Azure CLI，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli.md)。 
 

@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
-ms.openlocfilehash: 95c6a1e9cfadeb19a0ec5a53fffb15ef220bfec0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9fe7a5f254d8b384cae10ecd34e0bdafa433ff13
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 資源提供者作業
 
@@ -167,31 +167,6 @@ ms.lasthandoff: 10/11/2017
 |/service/reports/byTime/read|取得依時間週期來彙總的報告|
 |/service/reports/byApi/read|取得依 API 來彙總的報告|
 |/service/reports/byProduct/read|取得依產品來彙總的報告。|
-
-## <a name="microsoftappservice"></a>Microsoft.AppService
-
-| 作業 | 說明 |
-|---|---|
-|/appidentities/Read|傳回已向閘道器註冊的資源 (網站)。|
-|/appidentities/Write|建立新的應用程式身分識別。|
-|/appidentities/Delete|刪除現有的應用程式身分識別。|
-|/deploymenttemplates/listMetadata/Action|列出與 API 應用程式套件相關聯的 UI 中繼資料。|
-|/deploymenttemplates/generate/Action|傳回用來佈建 API 應用程式執行個體的部署範本。|
-|/gateways/Read|傳回閘道器執行個體。|
-|/gateways/Write|建立新的閘道器，或更新現有閘道器。|
-|/gateways/Delete|刪除現有的閘道器執行個體。|
-|/gateways/listLoginUris/Action|填入權杖存放區，並傳回 OAuth 登入 URI。|
-|/gateways/listKeys/Action|傳回閘道器祕密。|
-|/gateways/tokens/Write|使用給定名稱來建立新的 Zumo 權杖。|
-|/gateways/registrations/Read|傳回已向閘道器註冊的資源 (網站)。|
-|/gateways/registrations/Write|向閘道器註冊資源 (網站)。|
-|/gateways/registrations/Delete|從閘道器取消註冊資源 (網站)。|
-|/apiapps/Read|傳回 API 應用程式執行個體。|
-|/apiapps/Write|建立新的 API 應用程式，或更新現有 API 應用程式。|
-|/apiapps/Delete|刪除現有的 API 應用程式執行個體。|
-|/apiapps/listStatus/Action|傳回 API 應用程式的狀態。|
-|/apiapps/listKeys/Action|傳回 API 應用程式的祕密。|
-|/apiapps/apidefinitions/Read|傳回 API 應用程式的 API 定義。|
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 

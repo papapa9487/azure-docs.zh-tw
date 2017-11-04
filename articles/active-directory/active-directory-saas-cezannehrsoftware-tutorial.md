@@ -240,7 +240,7 @@ Cezanne HR Software 與 Azure AD 整合提供下列優點。 您可以：
 
 6. 在 [識別提供者] 清單方塊中，選取您的識別提供者。 在 [使用者識別碼] 方塊中，輸入測試使用者 Britta Simon 帳戶的電子郵件地址。
 
-    [識別提供者] 和 [使用者識別碼] 方塊![][使用者](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "")
+    ![識別提供者 和 使用者識別碼 方塊](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "[使用者]")
     
 7. 選取 [ **儲存**]。
 

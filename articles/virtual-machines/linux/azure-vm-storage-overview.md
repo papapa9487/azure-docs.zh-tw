@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
-ms.openlocfilehash: 5e8a62bb180de7288531139594cb61440cab04c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 934580f6fcfdbff6e61626ed685459478559717d
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-and-linux-vm-storage"></a>Azure 和 Linux VM 儲存體
 Azure 儲存體是現代應用程式的雲端儲存體解決方案，這些應用程式仰賴持續性、可用性和可調整性來滿足其客戶的需求。  除了可讓開發人員打造支援全新案例的大規模應用程式之外，Azure 儲存體還針對 Microsoft 虛擬機器提供儲存基礎。
@@ -91,7 +91,7 @@ Azure 標準儲存體是預設的儲存體類型。  標準儲存體符合成本
 * 進階儲存體磁碟：Azure 進階儲存體支援可連接到 DS、DSv2 或 GS 系列 Azure VM 的 VM 磁碟。
 * 進階儲存體 Blob：進階儲存體可支援 Azure 分頁 Blob，其用於保存適用於 Azure 虛擬機器 (VM) 的永續性磁碟。
 * 進階本地備援儲存體：進階儲存體帳戶僅支援本地備援儲存體 (LRS) 作為複寫選項，並在單一區域內會保留三份資料。
-* [進階儲存體](../../storage/common/storage-premium-storage.md)
+* [進階儲存體](../windows/premium-storage.md)
 
 ## <a name="premium-storage-supported-vms"></a>進階儲存體支援的 VM
 「進階儲存體」支援 DS 系列、DSv2 系列、GS 系列及 Fs 系列的 Azure 虛擬機器 (VM)。 您可以將「標準」和「進階」儲存體磁碟與「進階儲存體」支援的 VM 搭配使用。 但是不能將「進階儲存體」磁碟與非「進階儲存體」相容的 VM 系列搭配使用。

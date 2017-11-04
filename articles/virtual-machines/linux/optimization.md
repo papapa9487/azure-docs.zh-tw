@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: eb79d574fd4dddfb986660cc338bc8748f2082c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e63b50e06ae280819aea88f61bf9f25b6e44eac7
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>在 Azure 上最佳化 Linux VM
 您可以從命令列或入口網站，輕鬆建立 Linux 虛擬機器 (VM)。 本教學課程示範如何在 Microsoft Azure 平台上設定，以確保將其效能最佳化。 本主題會使用 Ubuntu Server VM，但您也可以使用 [自己的映像做為範本](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)來建立 Linux 虛擬機器。  
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 在 Azure 中建立 Linux VM 後，它有兩個相關聯的磁碟。 **/dev/sda** 是作業系統磁碟，**/dev/sdb** 是暫存磁碟。  請勿將主要作業系統磁碟 (**/dev/sda**) 用於作業系統以外的用途，因為它已針對快速開啟 VM 進行最佳化，無法為工作負載提供良好的效能。 您會想要將一或多個磁碟連接至 VM，以取得具永續性且經過最佳化的資料儲存空間。 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>加入磁碟以達成大小和效能目標
-根據 VM 大小，您可以在 A 系列機器上連接最多 16 個額外的磁碟、在 D 系列上連接 32 個、在 G 系列上連接 64 個，且每個磁碟的大小高達 1 TB。 您可以根據空間和 IOps 需求加入額外的磁碟。 標準儲存體每個磁碟的效能目標為 500 IOps，而進階儲存體每個磁碟的效能目標最高為 5000 IOps。  如需進階儲存體磁碟的詳細資訊，請參閱[進階儲存體：Azure VM 的高效能儲存體](../../storage/common/storage-premium-storage.md)
+根據 VM 大小，您可以在 A 系列機器上連接最多 16 個額外的磁碟、在 D 系列上連接 32 個、在 G 系列上連接 64 個，且每個磁碟的大小高達 1 TB。 您可以根據空間和 IOps 需求加入額外的磁碟。 標準儲存體每個磁碟的效能目標為 500 IOps，而進階儲存體每個磁碟的效能目標最高為 5000 IOps。  如需進階儲存體磁碟的詳細資訊，請參閱[進階儲存體：Azure VM 的高效能儲存體](../windows/premium-storage.md)
 
 對於快取設定為 **ReadOnly** 或 **None** 的進階儲存體磁碟，若要達到最高 IOps，您必須在 Linux 中掛接檔案系統時停用 **barrier** (阻礙)。 您不需要阻礙，因為這些快取設定的進階儲存體磁碟寫入都是持久的。
 
@@ -131,7 +131,7 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 
 以下是一些連往其他資源的實用連結： 
 
-* [Premium 儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../../storage/common/storage-premium-storage.md)
+* [Premium 儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../windows/premium-storage.md)
 * [Azure Linux 代理程式使用者指南](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [在 Azure Linux VM 上最佳化 MySQL 效能](classic/optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [在 Linux 上設定軟體 RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

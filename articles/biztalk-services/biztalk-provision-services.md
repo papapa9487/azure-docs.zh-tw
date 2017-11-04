@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 2. 在底端的導覽窗格中，選取 [新增]：  
    ![選取 [新增] 按鈕。][NEWButton]
 3. 選取 [應用程式服務]  >  [BIZTALK 服務]  >  [自訂建立]：  
-   ![選取 BizTalk 服務] 與選取 [自訂建立]][NewBizTalkService]
+   ![Select BizTalk Service and select Custom Create][NewBizTalkService]
 4. 輸入 BizTalk 服務設定：
    
     <table border="1">
