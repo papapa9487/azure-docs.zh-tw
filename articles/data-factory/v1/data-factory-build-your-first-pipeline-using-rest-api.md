@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: b3531579f65d08e7dcc453502899970d89b82bcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a6b52f56647a8bc018c4cf56e996877c1c0d2e6
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>教學課程：使用 Data Factory REST API 建置您的第一個 Azure Data Factory
 > [!div class="op_single_selector"]
@@ -32,6 +32,9 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
+
+> [!NOTE]
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的 Data Factory 服務第 2 版，請參閱 [快速入門：使用 Azure Data Factory 第 2 版建立資料處理站](../quickstart-create-data-factory-rest-api.md)。
 
 在本文中，您會使用 Data Factory REST API 來建立第一個 Azure Data Factory。 若要使用其他工具/SDK 進行本教學課程，請選取下拉式清單的其中一個選項。
 

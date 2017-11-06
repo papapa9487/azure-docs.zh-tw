@@ -3,7 +3,7 @@ title: "利用 PowerShell 開始使用 Azure DNS | Microsoft Docs"
 description: "了解如何在 Azure DNS 中建立 DNS 區域和記錄。 這份逐步指南將引導您使用 PowerShell 建立和管理第一個 DNS 區域和記錄。"
 services: dns
 documentationcenter: na
-author: jtuliani
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
-ms.author: jonatul
-ms.openlocfilehash: 48f7ba325f61b4a91c0208b4c99058da801bee19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: kumud
+ms.openlocfilehash: 0b0d474752615e60747ffe7681c2d04cd2685bba
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="get-started-with-azure-dns-using-powershell"></a>利用 PowerShell 開始使用 Azure DNS
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 > * [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-getstarted-cli.md)
 
-本文將逐步引導您使用 Azure PowerShell 建立第一個 DNS 區域和記錄。 您也可以使用 Azure 入口網站或跨平台 Azure CLI 執行這些步驟。
+本文將逐步引導您使用 Azure PowerShell 建立第一個 DNS 區域和記錄。 您也可以使用 Azure 入口網站或跨平台 Azure CLI 執行這些步驟。 Azure DNS 也支援建立私人網域。 如需有關如何建立第一個私人 DNS 區域與記錄的逐步指示，請參閱[透過 PowerShell 開始使用 Azure DNS 私人區域 ](private-dns-getstarted-powershell.md)。
 
 DNS 區域用來裝載特定網域的 DNS 記錄。 若要開始將網域裝載到 Azure DNS 中，您必須建立該網域名稱的 DNS 區域。 接著在此 DNS 區域內，建立網域的每筆 DNS 記錄。 最後，若要將 DNS 區域發佈至網際網路，您需要設定網域的名稱伺服器。 以下說明上述各步驟。
 

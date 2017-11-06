@@ -1,5 +1,5 @@
 ---
-title: "什麼是 Azure Site Recovery？ | Microsoft Docs"
+title: "關於 Azure Site Recovery？ | Microsoft Docs"
 description: "提供 Azure Site Recovery 服務的概觀，並摘要說明部署案例。"
 services: site-recovery
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/25/2017
+ms.date: 11/01/2017
 ms.author: raynew
-ms.openlocfilehash: aa657c92f347f7529affee78ad1842e5e066b74d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: MVC
+ms.openlocfilehash: 90f9fe5775f493298dad3b12f2be9d6da6cb480e
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="what-is-site-recovery"></a>什麼是 Site Recovery？
+# <a name="about-site-recovery"></a>關於 Site Recovery
 
 歡迎使用 Azure Site Recovery 服務！ 本文提供此服務的快速概觀。
 
@@ -62,19 +63,15 @@ Site Recovery 可以管理複寫：
 
 **支援** | **詳細資料**
 --- | ---
-**我可以複寫哪些項目？** | Azure 區域間的 Azure VM (預覽)<br/><br/>  內部部署 VMware VM、Hyper-V VM、實體伺服器 (Windows 和 Linux) 至 Azure<br/<br/> 內部部署 VMware VM、Hyper-V VM、實體伺服器至次要網站。 針對 Hyper-V VM，僅在 Hyper-V 主機是由 System Center VMM 所管理時才支援複寫至次要網站。
+**我可以複寫哪些項目？** | Azure 區域之間的 Azure VM。<br/><br/>  內部部署 VMware VM、Hyper-V VM、實體伺服器 (Windows 和 Linux) 至 Azure。<br/><br/> 內部部署 VMware VM、Hyper-V VM、實體伺服器至 Virtual Machine Manager (VMM)。
 **Site Recovery 支援哪些區域？** | [支援區域](https://azure.microsoft.com/regions/services/) |
-**複寫的機器需要哪些作業系統？** | [Azure 虛擬機器需求](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)s<br></br>[VMware 虛擬機器需求](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> 如果是 Hyper-V VM，支援 Azure 和 Hyper-V 支援的所有[客體 OS](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)。<br/><br/> [實體伺服器需求](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
-**我需要哪些 VMware 伺服器/主機？** | VMware VM 可以位於[支援的 vSphere 主機/vCenter 伺服器](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)上
+**複寫的機器需要哪些作業系統？** | [需求](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)</br></br>[VMware 虛擬機器需求](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> 如果是 Hyper-V VM，支援 Azure 和 Hyper-V 支援的所有[客體 OS](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)。<br/><br/> [實體伺服器需求](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
+**我需要哪些 VMware 伺服器/主機？** | VMware VM 可以位於[支援的 vSphere 主機/vCenter 伺服器](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)上。
+
 **可以複寫哪些工作負載？** | 您可以複寫在支援的複寫機器上執行的所有工作負載。 此外，Site Recovery 小組已經針對[應用程式數目](site-recovery-workload.md#workload-summary)執行應用程式專屬測試。
 
 
-## <a name="azure-portal-considerations"></a>Azure 入口網站的考量
-
-* Site Recovery 可以部署在 [Azure 入口網站](https://portal.azure.com)中。
-* 在 Azure 傳統入口網站中，您可以使用傳統服務管理模型來管理 Site Recovery。
-- 傳統的入口網站只能用來維護現有的 Site Recovery 部署。 您無法在傳統入口網站中建立新的保存庫。
 
 ## <a name="next-steps"></a>後續步驟
-* 深入了解[工作負載支援](site-recovery-workload.md)
-* 開始使用[區域間的 Azure VM 複寫](site-recovery-azure-to-azure.md)、[VMware 複寫至 Azure](vmware-walkthrough-overview.md)，或 [Hyper-V 複寫至 Azure](hyper-v-site-walkthrough-overview.md)。
+* 深入了解[工作負載支援](site-recovery-workload.md)。
+* 開始[不同區域間的 Azure VM 複寫](azure-to-azure-quickstart.md)。 

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/27/2017
-ms.openlocfilehash: 56a79906a0f43f06d35db703d641f547e7bdf868
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 048d734277f855086a48ad00a52b873adbf419b4
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="classifying-iris-part-3-deploy-a-model"></a>分類鳶尾花第 3 部分：部署模型
 Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家用來以雲端規模準備資料、開發測試以及部署模型。
@@ -85,15 +85,15 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
    ![評分檔案](media/tutorial-classifying-iris/model_data_collection.png)
 
-4. 若要取得結構描述檔案，請執行指令碼。 選擇命令列中的 **local** 環境和 **iris_score.py** 指令碼，然後按一下 [執行] 按鈕。 
+4. 若要取得結構描述檔案，請執行指令碼。 選擇命令列中的 **local** 環境和 **iris-score.py** 指令碼，然後按一下 [執行] 按鈕。 
 
 5. 此指令碼會在 **outputs** 資料夾中建立 JSON 檔案，它會擷取模型所需的輸入資料結構描述。
 
-6. 請注意 Machine Learning Workbench 視窗右邊的 [作業] 窗格。 等候最新的 **iris\_score.py** 作業顯示綠色 [已完成] 狀態。 然後按一下最新作業執行的超連結 **iris\_score.py [1]**，以查看來自 **iris_score.py** 執行的執行詳細資料。 
+6. 請注意 Machine Learning Workbench 視窗右邊的 [作業] 窗格。 等候最新的 **iris-score.py** 作業顯示綠色 [已完成] 狀態。 然後按一下最新作業執行的超連結 **iris-score.py [1]**，以查看來自 **iris-score.py** 執行的執行詳細資料。 
 
 7. 在 [執行屬性] 頁面上，於 [輸出] 區段中，選取新建立的 **service_schema.json** 檔案。 [核取] 此檔案，然後按 [下載]。 將檔案儲存到您的專案根資料夾。
 
-8. 返回您開啟指令碼 **iris_score.py** 的前一個索引標籤。 
+8. 返回您開啟指令碼 **iris-score.py** 的前一個索引標籤。 
 
    注意可讓您從 Web 服務擷取模型輸入和預測的資料收集使用量。 下列各點是資料收集特別有趣的方面：
 
@@ -120,6 +120,9 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
    ```
 
 現在您已準備好要準備讓您的環境對模型作業化。
+
+>[!NOTE]
+>部署模型必須要有 Azure 訂用帳戶的擁有者存取權。
 
 ## <a name="prepare-to-operationalize-locally"></a>準備在本機作業化
 使用_本機模式_部署，於本機電腦上的 Docker 容器中執行。
@@ -201,7 +204,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 1. 使用下列命令建立即時 Web 服務：
 
    ```azurecli
-   az ml service create realtime -f iris_score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f iris-score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
    ```
    這會產生您可以在稍後使用的 Web 服務識別碼。
 
@@ -241,7 +244,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
    若要建立資訊清單，請使用此命令並提供來自前一個步驟的模型識別碼輸出：
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f iris_score.py -r python -i <model ID> -s service_schema.json
+   az ml manifest create --manifest-name <new manifest name> -f iris-score.py -r python -i <model ID> -s service_schema.json
    ```
    此命令會產生資訊清單識別碼。
 

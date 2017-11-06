@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 19f9686de9face1e53fc84eac23381eadc9fb5cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c4fb60bde7599daa0ac9d7704c398adcdb0d471
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-portal"></a>教學課程：使用 Azure 入口網站建置您的第一個 Azure Data Factory
 > [!div class="op_single_selector"]
@@ -30,6 +30,9 @@ ms.lasthandoff: 10/11/2017
 > * [Resource Manager 範本](data-factory-build-your-first-pipeline-using-arm.md)
 > * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
+
+> [!NOTE]
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的 Data Factory 服務第 2 版，請參閱 [快速入門：使用 Azure Data Factory 第 2 版建立資料處理站](../quickstart-create-data-factory-dot-net.md)。
 
 在本文中，您會了解如何使用 [Azure 入口網站](https://portal.azure.com/)來建立您的第一個 Azure Data Factory。 若要使用其他工具/SDK 進行本教學課程，請選取下拉式清單的其中一個選項。 
 
@@ -235,7 +238,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="create-pipeline"></a>建立管線
 在此步驟中，您會建立第一個具有 **HDInsightHive** 活動的管線。 您每個月都可取得輸入配量資訊 (頻率：每月，間隔：1)，輸出配量則是每用產生，而活動的排程器屬性也設為每月。 輸出資料集設定及活動排程器必須相符。 目前，輸出資料集會影響排程，因此即使活動並未產生任何輸出，您都必須建立輸出資料集。 如果活動沒有任何輸入，您可以略過建立輸入資料集。 本節結尾會說明下列 JSON 中使用的屬性。
 
-1. 在 Data Factory 編輯器 中，按一下 省略符號 (…) 其他命令，然後按一下新增管線。
+1. 在 [Data Factory 編輯器] 中，按一下 [省略符號 (…) 其他命令]，然後按一下 [新增管線]。
 
     ![新增管線按鈕](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 2. 複製下列程式碼片段並貼到 [Draft-1] 視窗。

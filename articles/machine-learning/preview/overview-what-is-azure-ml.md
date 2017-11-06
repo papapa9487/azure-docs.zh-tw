@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017
-ms.openlocfilehash: 3bf9227a7ee432f036c57dd9d1c3807c7a867f3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5535433c478b989e255451a0bf882dfb8ba8f8fe
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="what-is-azure-machine-learning"></a>什麼是 Azure Machine Learning？
 
@@ -105,7 +105,7 @@ Azure Machine Learning Workbench 是桌面應用程式加上命令列工具，�
 
 測試服務會建構虛擬環境，以確保您的指令碼可以隔離執行但具有可重現的結果。 它會記錄執行歷程記錄資訊，並以視覺化方式將歷程記錄呈現給您。 您可以從您的測試執行輕鬆選取最佳的模型。 
 
-如需詳細資訊，請參考[測試執行組態](experiment-execution-configuration.md)。
+如需詳細資訊，請參考[測試服務組態](experimentation-service-configuration.md)。
 
 ## <a name="azure-machine-learning-model-management-service"></a>Azure Machine Learning 模型管理服務
 

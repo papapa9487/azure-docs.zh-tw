@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/31/2016
+ms.date: 10/31/2017
 ms.author: shigu;barbkess
-ms.openlocfilehash: b3a7755281ceb2818f80e0e6b31cf51a46c8f650
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: ef6abba371d3a22d1cbaeb88dbd242f9f97b361c
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲最佳做法
 這篇文章集合許多讓您從 Azure SQL 資料倉儲獲得最佳效能的最佳做法。  文章中有些基本概念很容易說明，有些概念則更進階，我們在文中只做概述。  這篇文章的目的是要提供您一些基本指引，以及讓您對建立資料倉儲時需注意的重要領域有所認知。  每一節都會介紹一個概念，並提供您哪裡可以閱讀深度討論的詳細文章。
@@ -82,7 +82,7 @@ SQL 資料倉儲支援透過數種工具 (包括 Azure Data Factory、PolyBase�
 另請參閱[暫存資料表][Temporary tables]、[CREATE TABLE][CREATE TABLE]、[CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]
 
 ## <a name="optimize-clustered-columnstore-tables"></a>將叢集資料行存放區資料表最佳化
-叢集資料行存放區索引是將資料儲存在 Azure SQL 資料倉儲中最有效率的方式之一。  根據預設，SQL 資料倉儲中的資料表會建立為「叢集資料行存放區」。  為了讓資料行存放區資料表的查詢獲得最佳效能，良好的區段品質很重要。  當資料列在記憶體不足的狀態下寫入資料行存放區資料表時，資料行存放區區段品質可能會降低。  壓縮的資料列群組中的資料列數目可以測量區段品質。  如需偵測和改善叢集資料行存放區資料表區段品質的逐步指示，請參閱[資料表索引][Table indexes]一文中的[資料行存放區索引品質不佳的原因][Causes of poor columnstore index quality]。  由於高品質資料行存放區區段很重要，最好使用中型或大型資源類別中的使用者識別碼來載入資料。  使用的 DWU 愈少，要指派給載入使用者的資源類別愈大。
+叢集資料行存放區索引是將資料儲存在 SQL 資料倉儲中最有效率的方式之一。  根據預設，SQL 資料倉儲中的資料表會建立為「叢集資料行存放區」。  為了讓資料行存放區資料表的查詢獲得最佳效能，良好的區段品質很重要。  當資料列在記憶體不足的狀態下寫入資料行存放區資料表時，資料行存放區區段品質可能會降低。  壓縮的資料列群組中的資料列數目可以測量區段品質。  如需偵測和改善叢集資料行存放區資料表區段品質的逐步指示，請參閱[資料表索引][Table indexes]一文中的[資料行存放區索引品質不佳的原因][Causes of poor columnstore index quality]。  由於高品質資料行存放區區段很重要，最好使用中型或大型資源類別中的使用者識別碼來載入資料。 使用較低的[服務等級](performance-tiers.md#service-levels)，則表示您想要將更大型的資源類別指派給載入使用者。
 
 由於資料行存放區資料表通常要等到每個資料表有超過 1 百萬個資料列之後才會將資料推送到壓縮的資料行存放區區段，而且每個 SQL 資料倉儲資料表分割成 60 個資料表，根據經驗法則，資料行存放區資料表對於查詢沒有好處，除非資料表有超過 6 千萬個資料列。  小於 6 千萬列的資料表使用資料行存放區索引似乎不太合理，  但也無傷大雅。  此外，如果您將資料分割，則您要考慮的是每個資料分割必須有 1 百萬個資料列，使用叢集資料行存放區索引才有益。  如果資料表有 100 個分割，則它至少必須擁有 60 億個資料列才會受益於叢集資料行存放區 (60 個散發 * 100 個分割 * 1 百萬個資料列)。  如果在此範例中，您的資料表並沒有 60 億個資料列，請減少資料分割數目，或考慮改用堆積資料表。  使用次要索引搭配堆積資料表而不是資料行存放區資料表，也可能是值得進行的實驗，看看是否可以獲得較佳的效能。  資料行存放區資料表尚不支援次要索引。
 

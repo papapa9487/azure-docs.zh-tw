@@ -13,16 +13,23 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/06/2017
 ms.author: jingwang
-ms.openlocfilehash: d78176eca6bdbf32d6b4400ad2812dea98703d67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 579311b28abb650c6527fe1160ebf875ce7e8c82
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>使用 .NET SDK 建立資料處理站和管線
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [第 1 版 - 正式推出](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [第 2 版 - 預覽](quickstart-create-data-factory-dot-net.md)
+
 Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資料驅動工作流程，以便協調及自動進行資料移動和資料轉換。 使用 Azure Data Factory，您可以建立和排程資料驅動工作流程 (稱為管線)，這類工作流程可以從不同資料存放區內嵌資料，使用計算服務 (例如 Azure HDInsight Hadoop、Spark、Azure Data Lake Analytics 和 Azure Machine Learning) 來處理/轉換資料，以及將輸出資料發佈至資料存放區 (例如 Azure SQL 資料倉儲)，以供商業智慧 (BI) 應用程式使用。 
 
 本快速入門說明如何使用 .NET SDK 來建立 Azure 資料處理站。 在此範例中的資料處理站會將資料從 Azure Blob 儲存體中的一個資料夾複製到其他資料夾。
+
+> [!NOTE]
+> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (也就是正式推出版 (GA))，請參閱 [開始使用 Data Factory 第 1 版](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
@@ -39,7 +46,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 使用 Visual Studio 2013/2015/2017 建立 C# .NET 主控台應用程式。
 
 1. 啟動 **Visual Studio**。
-2. 按一下 檔案，指向 新增，然後按一下專案。
+2. 按一下 [檔案]，指向 [新增]，然後按一下 [專案]。
 3. 從右邊的專案類型清單中，選取 [Visual C#] -> [主控台應用程式 (.NET Framework)]。 需要 .NET 4.5.2 版或更新版本。
 4. 輸入 **ADFv2QuickStart** 作為名稱。
 5. 按一下 [確定]  以建立專案。

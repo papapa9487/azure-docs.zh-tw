@@ -3,8 +3,8 @@ title: "將網域委派給 Azure DNS |Microsoft Docs"
 description: "了解如何變更網域委派及使用 Azure DNS 名稱伺服器提供網域主機代管。"
 services: dns
 documentationcenter: na
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: jeconnoc
 ms.assetid: 257da6ec-d6e2-4b6f-ad76-ee2dde4efbcc
 ms.service: dns
 ms.devlang: na
@@ -12,12 +12,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
-ms.author: gwallace
-ms.openlocfilehash: 7aa26fd54bab476e798e2327d1c46afb04aa3838
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.author: kumud
+ms.openlocfilehash: d73a42fd0f41c20b516c0348c86b40202fd06f53
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="delegate-a-domain-to-azure-dns"></a>將網域委派給 Azure DNS
 
@@ -30,11 +30,11 @@ Azure DNS 可讓您裝載 DNS 區域，並在 Azure 中管理網域的 DNS 記�
 ## <a name="create-a-dns-zone"></a>建立 DNS 區域
 
 1. 登入 Azure 入口網站
-1. 在 [中樞] 功能表上，按一下 [新增] > [網路] > [DNS 區域] 以開啟 [建立 DNS 區域] 刀鋒視窗。
+1. 在 [中樞] 功能表上，按一下 [新增] > [網路] > [DNS 區域] 以開啟 [建立 DNS 區域] 頁面。
 
     ![DNS 區域](./media/dns-domain-delegation/dns.png)
 
-1. 在 [建立 DNS 區域] 刀鋒視窗中輸入下列的值，然後按一下 [建立]：
+1. 在 [建立 DNS 區域] 頁面中輸入下列的值，然後按一下 [建立]：
 
    | **設定** | **值** | **詳細資料** |
    |---|---|---|
@@ -50,9 +50,9 @@ Azure DNS 可讓您裝載 DNS 區域，並在 Azure 中管理網域的 DNS 記�
 
 在委派 DNS 區域給 Azure DNS 之前，您必須先知道區域的名稱伺服器名稱。 每次建立區域時，Azure DNS 都會配置某個集區中的名稱伺服器。
 
-1. 建立 DNS 區域之後，在 Azure 入口網站的 [我的最愛] 窗格中，按一下 [所有資源]。 在 [所有資源] 刀鋒視窗中，按一下 [contoso.net] DNS 區域。 如果您選取的訂用帳戶已有幾個資源，您可以在 [依名稱篩選...] 方塊中輸入 **contoso.net**， 輕鬆地存取應用程式閘道。 
+1. 建立 DNS 區域之後，在 Azure 入口網站的 [我的最愛] 窗格中，按一下 [所有資源]。 在 [所有資源] 頁面中，按一下 [contoso.net] DNS 區域。 如果您選取的訂用帳戶已有幾個資源，您可以在 [依名稱篩選...] 方塊中輸入 **contoso.net**， 輕鬆地存取應用程式閘道。 
 
-1. 從 DNS 區域刀鋒視窗中擷取名稱伺服器。 在此範例引，區域 'contoso.net' 已被指派名稱伺服器 'ns1-01.azure-dns.com'、'ns2-01.azure-dns.net'、'ns3-01.azure-dns.org' 和 'ns4-01.azure-dns.info'：
+1. 從 DNS 區域頁面中擷取名稱伺服器。 在此範例引，區域 'contoso.net' 已被指派名稱伺服器 'ns1-01.azure-dns.com'、'ns2-01.azure-dns.net'、'ns3-01.azure-dns.org' 和 'ns4-01.azure-dns.info'：
 
  ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
 
@@ -122,7 +122,7 @@ az network dns record-set list --resource-group contosoRG --zone-name contoso.ne
 
 委派網域給 Azure DNS 時，您必須使用 Azure DNS 提供的名稱伺服器名稱。 不論您的網域名稱為何，建議將名稱伺服器的 4 個名稱全部用上。 網域委派不需要名稱伺服器名稱，即可使用相同的最上層網域作為您的網域。
 
-您不應該使用「黏附記錄」指向 Azure DNS 名稱伺服器 IP 位址，因為這些 IP 位址日後可能變更。 Azure DNS 目前不支援使用您區域中名稱伺服器名稱的委派 (有時稱為「虛名名稱伺服器」)。
+請勿使用「黏附記錄」指向 Azure DNS 名稱伺服器 IP 位址，因為這些 IP 位址日後可能變更。 Azure DNS 目前不支援使用您區域中名稱伺服器名稱的委派 (有時稱為「虛名名稱伺服器」)。
 
 ## <a name="verify-name-resolution-is-working"></a>確認名稱解析正常運作
 
@@ -161,11 +161,11 @@ default TTL = 300 (5 mins)
 ### <a name="create-a-dns-zone"></a>建立 DNS 區域
 
 1. 登入 Azure 入口網站
-1. 在 [中樞] 功能表上，按一下 [新增] > [網路] > [DNS 區域] 以開啟 [建立 DNS 區域] 刀鋒視窗。
+1. 在 [中樞] 功能表上，按一下 [新增] > [網路] > [DNS 區域] 以開啟 [建立 DNS 區域] 頁面。
 
     ![DNS 區域](./media/dns-domain-delegation/dns.png)
 
-1. 在 [建立 DNS 區域] 刀鋒視窗中輸入下列的值，然後按一下 [建立]：
+1. 在 [建立 DNS 區域] 頁面中輸入下列的值，然後按一下 [建立]：
 
    | **設定** | **值** | **詳細資料** |
    |---|---|---|
@@ -179,9 +179,9 @@ default TTL = 300 (5 mins)
 
 ### <a name="retrieve-name-servers"></a>擷取名稱伺服器
 
-1. 建立 DNS 區域之後，在 Azure 入口網站的 [我的最愛] 窗格中，按一下 [所有資源]。 在 [所有資源] 刀鋒視窗中，按一下 [partners.contoso.net] DNS 區域。 如果您選取的訂用帳戶已有幾個資源，您可以在 [依名稱篩選...] 方塊中輸入 **partners.contoso.net**， 輕鬆地存取 DNS 區域。
+1. 建立 DNS 區域之後，在 Azure 入口網站的 [我的最愛] 窗格中，按一下 [所有資源]。 在 [所有資源] 頁面中，按一下 [partners.contoso.net] DNS 區域。 如果您選取的訂用帳戶已有幾個資源，您可以在 [依名稱篩選...] 方塊中輸入 **partners.contoso.net**， 輕鬆地存取 DNS 區域。
 
-1. 從 DNS 區域刀鋒視窗中擷取名稱伺服器。 在此範例引，區域 'contoso.net' 已被指派名稱伺服器 'ns1-01.azure-dns.com'、'ns2-01.azure-dns.net'、'ns3-01.azure-dns.org' 和 'ns4-01.azure-dns.info'：
+1. 從 DNS 區域頁面中擷取名稱伺服器。 在此範例引，區域 'contoso.net' 已被指派名稱伺服器 'ns1-01.azure-dns.com'、'ns2-01.azure-dns.net'、'ns3-01.azure-dns.org' 和 'ns4-01.azure-dns.info'：
 
  ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
 
@@ -191,7 +191,7 @@ Azure DNS 會自動在包含指派的名稱伺服器的區域中，建立權威 
 
 1. 瀏覽至 Azure 入口網站中的 **contoso.net** DNS 區域。
 1. 按一下 [+ 記錄集]
-1. 在 [新增記錄集] 刀鋒視窗上，輸入下列值，然後按一下 [確定]：
+1. 在 [新增記錄集] 頁面上，輸入下列值，然後按一下 [確定]：
 
    | **設定** | **值** | **詳細資料** |
    |---|---|---|
@@ -297,8 +297,8 @@ az network dns record-set ns add-record --resource-group contosorg --zone-name c
 
 若要刪除這篇文章中建立的所有資源，請完成下列步驟︰
 
-1. 在 Azure 入口網站的 [我的最愛] 窗格中，按一下 [所有資源]。 在 [所有資源] 刀鋒視窗中，按一下 [contosorg] 資源群組。 如果您選取的訂用帳戶已有幾個資源，可以在 [依名稱篩選...] 方塊中輸入 **contosorg**， 輕鬆地存取資源群組。
-1. 在 [contosorg] 刀鋒視窗中，按一下 [刪除] 按鈕。
+1. 在 Azure 入口網站的 [我的最愛] 窗格中，按一下 [所有資源]。 在 [所有資源] 頁面中，按一下 [contosorg] 資源群組。 如果您選取的訂用帳戶已有幾個資源，可以在 [依名稱篩選...] 方塊中輸入 **contosorg**， 輕鬆地存取資源群組。
+1. 在 [contosorg] 頁面中，按一下 [刪除] 按鈕。
 1. 入口網站會要求您輸入資源群組的名稱，以確認您想要刪除它。 輸入 contosorg 作為資源群組名稱，然後按一下 [刪除]。 刪除資源群組會刪除資源群組內的所有資源，所以務必確認資源群組的內容，然後再刪除它。 入口網站會刪除資源群組內包含的所有資源，然後刪除資源群組本身。 這個程序需要幾分鐘的時間。
 
 ## <a name="next-steps"></a>後續步驟

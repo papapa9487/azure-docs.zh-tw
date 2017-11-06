@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 82656f3176124d33ebf35098d1e2054f6a5b22b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 29b413de12084766a43904f7291a35f2699a961b
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>教學課程：使用 .NET API 建立具有複製活動的管線
 > [!div class="op_single_selector"]
@@ -31,6 +31,9 @@ ms.lasthandoff: 10/11/2017
 > * [Azure Resource Manager 範本](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+
+> [!NOTE]
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的第 2 版 Data Factory 服務，請參閱[第 2 版中的複製活動教學課程文件](../quickstart-create-data-factory-dot-net.md)。 
 
 在本文中，您會了解如何使用 [.NET API](https://portal.azure.com) 建立資料處理站，其中有管線可將資料從 Azure Blob 儲存體複製到 Azure SQL 資料庫。 如果您不熟悉 Azure Data Factory，請先詳閱 [Azure Data Factory 簡介](data-factory-introduction.md)一文，再進行本教學課程。   
 
@@ -119,13 +122,13 @@ ms.lasthandoff: 10/11/2017
 ## <a name="walkthrough"></a>逐步介紹
 1. 使用 Visual Studio 2012/2013/2015 建立 C# .NET 主控台應用程式。
    1. 啟動 **Visual Studio** 2012/2013/2015。
-   2. 按一下 檔案，指向 新增，然後按一下專案。
+   2. 按一下 [檔案]，指向 [新增]，然後按一下 [專案]。
    3. 展開 [範本]，然後選取 [Visual C#]。 在此逐步解說中，您使用的是 C#，但您可以使用任何 .NET 語言。
    4. 從右邊的專案類型清單中選取 [主控台應用程式]  。
    5. 在 [名稱] 中輸入 **DataFactoryAPITestApp** 。
    6. 在 [位置] 中選取 **C:\ADFGetStarted**。
    7. 按一下 [確定]  以建立專案。
-2. 按一下 **工具**，指向 **NuGet 封裝管理員**，然後按一下**封裝管理員主控台**。
+2. 按一下 [**工具**]，指向 [**NuGet 封裝管理員**]，然後按一下 [**封裝管理員主控台**]。
 3. 在 [Package Manager Console] 中，輸入下列命令：
    1. 執行以下命令安裝 Data Factory 套件：`Install-Package Microsoft.Azure.Management.DataFactories`
    2. 執行下列命令安裝 Azure Active Directory 套件 (您在程式碼中使用 Active Directory API)︰`Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`

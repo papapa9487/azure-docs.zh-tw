@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 10/13/2017
+ms.date: 10/17/2017
 ms.author: samacha
-ms.openlocfilehash: 57437875da80bb5eece650063b7c5c2b0ffd65f7
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 889aaa697a04a81075b85c834d534bfeb4faf79b
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="what-is-stream-analytics"></a>什麼是串流分析？
 
@@ -63,7 +63,7 @@ Azure 串流分析是受管理的事件處理引擎，可讓您設定串流資�
 
 以許多方向路由傳送串流分析作業輸出。 寫入至儲存體，例如 Azure Blob、Azure SQL Database、Azure Data Lake Store 或 Azure Cosmos DB。 從該處，您可以透過 Azure HDInsight 執行批次分析。 或者將輸出傳送至另一個服務，以便另一個程序 (例如事件中樞、Azure 服務匯流排、佇列) 使用，或傳送至 Power BI 進行視覺化。
 
-### <a name="easy-to-use"></a>容易使用
+### <a name="simple-to-use"></a>用法簡單
 
 若要定義轉換，可以使用簡單及敘述性的[串流分析查詢語言](https://msdn.microsoft.com/library/azure/dn834998.aspx)，讓您無須程式設計即可建立複雜的分析。 查詢語言會採用串流資料作為輸入。 接著您可以篩選和排序資料、彙總值、執行計算、加入資料 (加入至資料流或參考資料)，並使用地理空間函式。 您可以在入口網站中編輯查詢 (使用 IntelliSense 和語法檢查)，然後使用從即時資料流中擷取的範例資料測試查詢。
 
@@ -71,22 +71,21 @@ Azure 串流分析是受管理的事件處理引擎，可讓您設定串流資�
 
 您可以透過定義和叫用其他函式來延伸查詢語言的功能。 您可以在 Azure 機器學習服務中定義函式呼叫，以充分運用 Azure 機器學習解決方案。 若要執行作為串流分析查詢一部分的複雜計算，也可以整合 JavaScript 使用者定義函式 (UDFs)。
 
-### <a name="scalability"></a>延展性
+### <a name="scalable"></a>可調整
 
 串流分析每秒可處理 1 GB 的傳入資料。 與 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)和 [Azure IoT 中樞](https://azure.microsoft.com/services/iot-hub/)整合，可讓作業每秒擷取數百萬來自連線裝置、點擊資料流及記錄檔等項目的事件。 透過事件中樞的分割功能，您可以將計算分割為邏輯步驟，而每個步驟都可以再進一步地分割來增加延展性。
 
 ### <a name="low-cost"></a>低成本
 
-作為雲端服務，串流分析已進行最佳化，讓您以低成本執行分析作業。 您可根據串流單位使用量和系統處理的資料量執行隨用隨付。 使用量衍生自所處理的事件量，以及佈建在叢集內，用來處理串流分析工作的計算能力。
+作為雲端服務，串流分析已進行成本最佳化。 您可根據串流單位使用量和資料量執行付款。 使用量衍生自所處理的事件量，以及佈建在作業叢集內的計算能力。
 
-### <a name="reliability-quick-recovery-and-repeatability"></a>可靠性、快速修復和可重複性
+### <a name="reliable"></a>可靠
 
-作為雲端中受管理的服務，串流分析可協助防止資料遺失，並提供業務續航力。 如果發生失敗，該服務會提供內建的修復功能。 此服務具備內部維護狀態的能力，因此會提供可重複的結果，確保能封存事件並在日後重新套用處理，且一律取得相同的結果。 這項功能可讓您及時回頭檢視，並在執行根本原因分析和假設狀況分析等案例時調查計算方式。
+作為受管理的服務，串流分析可協助防止資料遺失，並提供業務續航力。 如果發生失敗，該服務會提供內建的修復功能。 此服務具備內部維護狀態的能力，因此會提供可重複的結果，確保能封存事件並在日後重新套用處理，且一律取得相同的結果。 這項功能可讓您及時回頭檢視，並在執行根本原因分析和假設狀況分析等案例時調查計算方式。
 
 ## <a name="next-steps"></a>後續步驟
 
 * 先從[嘗試從 IoT 裝置執行匯入和查詢](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)開始。
 * 建置[端對端串流分析解決方案](stream-analytics-real-time-fraud-detection.md)，透過檢查電話中繼資料以找出詐騙電話。
-* 了解用於串流分析且類似 SQL 的查詢語言，以及[視窗函式](stream-analytics-window-functions.md)等獨特概念。
 * 在 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)中尋找串流分析問題的答案。
 

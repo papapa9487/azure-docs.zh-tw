@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: ac70959b4582ace8c8f34e71caccd61f640aabfd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 320df0586d9f4391bb8ad6add80a48daa7979aa9
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>教學課程：使用 Visual Studio 建立具有複製活動的管線
 > [!div class="op_single_selector"]
@@ -33,6 +33,9 @@ ms.lasthandoff: 10/11/2017
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
 > 
+
+> [!NOTE]
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的第 2 版 Data Factory 服務，請參閱[第 2 版中的複製活動教學課程文件](../quickstart-create-data-factory-dot-net.md)。 
 
 在本文中，您會了解如何使用 Microsoft Visual Studio 建立資料處理站，其中有管線可將資料從 Azure Blob 儲存體複製到 Azure SQL 資料庫。 如果您不熟悉 Azure Data Factory，請先詳閱 [Azure Data Factory 簡介](data-factory-introduction.md)一文，再進行本教學課程。   
 
@@ -70,11 +73,11 @@ ms.lasthandoff: 10/11/2017
 4. 在部署 Data Factory 實體 (連結服務、資料集/資料表和管線) 時，建立 Azure **Data Factory**。 
 
 ## <a name="create-visual-studio-project"></a>建立 Visual Studio 專案
-1. 啟動 **Visual Studio 2015**。 按一下 檔案，指向 新增，然後按一下專案。 您應該會看到 [新增專案]  對話方塊。  
-2. 在 新增專案 對話方塊中，選取 **DataFactory** 範本，然後按一下空白 Data Factory 專案。  
+1. 啟動 **Visual Studio 2015**。 按一下 [檔案]，指向 [新增]，然後按一下 [專案]。 您應該會看到 [新增專案]  對話方塊。  
+2. 在 [新增專案] 對話方塊中，選取 **DataFactory** 範本，然後按一下 [空白 Data Factory 專案]。  
    
     ![[新增專案] 對話方塊](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-project-dialog.png)
-3. 指定專案名稱、方案位置和方案名稱，然後按一下確定。
+3. 指定專案名稱、方案位置和方案名稱，然後按一下 [確定]。
    
     ![Solution Explorer](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png)    
 
@@ -90,8 +93,8 @@ Azure SQL 連結服務可將 Azure SQL Database 連結到資料處理站。 從 
 連結服務會將資料存放區或計算服務連結至 Azure Data Factory。 如需複製活動支援的所有來源和接收，請參閱 [支援的資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 。 如需 Data Factory 支援的計算服務清單，請參閱 [計算連結服務](data-factory-compute-linked-services.md) 。 在本教學課程中，您不會使用任何計算服務。 
 
 ### <a name="create-the-azure-storage-linked-service"></a>建立 Azure 儲存體連結服務
-1. 以滑鼠右鍵按一下 方案總管 中的 連結服務，指向 新增，然後按一下新增項目。      
-2. 在 新增新項目 對話方塊中，從清單選取 Azure 儲存體連結服務，然後按一下新增。 
+1. 以滑鼠右鍵按一下 [方案總管] 中的 [連結服務]，指向 [新增]，然後按一下 [新增項目]。      
+2. 在 [新增新項目] 對話方塊中，從清單選取 [Azure 儲存體連結服務]，然後按一下 [新增]。 
    
     ![新的連結服務](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-linked-service-dialog.png)
 3. 使用 Azure 儲存體帳戶的名稱及其金鑰來取代 `<accountname>` 和 `<accountkey>`。 
@@ -102,7 +105,7 @@ Azure SQL 連結服務可將 Azure SQL Database 連結到資料處理站。 從 
     如需連結服務定義中 JSON 屬性的詳細資訊，請參閱 [Azure Blob 儲存體連接器](data-factory-azure-blob-connector.md#linked-service-properties)一文。
 
 ### <a name="create-the-azure-sql-linked-service"></a>建立 Azure SQL 連結服務。
-1. 再次以滑鼠右鍵按一下 方案總管 中的 連結服務 節點，指向 新增，然後按一下新增項目。 
+1. 再次以滑鼠右鍵按一下 [方案總管] 中的 [連結服務] 節點，指向 [新增]，然後按一下 [新增項目]。 
 2. 這次，請選取 [Azure SQL 連結服務]，然後按一下 [新增]。 
 3. 在 **AzureSqlLinkedService1.json 檔案**中，以您的 Azure SQL Server 名稱、資料庫名稱、使用者帳戶名稱和密碼取代 `<servername>`、`<databasename>`、`<username@servername>` 和 `<password>`。    
 4. 儲存 **AzureSqlLinkedService1.json** 檔案。 
@@ -122,8 +125,8 @@ Azure 儲存體連結服務會指定 Data Factory 服務在執行階段用來連
 
 在此，您會使用「資料表」一詞，而不是「資料集」。 資料表是矩形的資料集，而且是目前唯一受支援的資料集類型。 
 
-1. 以滑鼠右鍵按一下 方案總管 中的 資料表，指向 新增，然後按一下新增項目。
-2. 在 新增新項目 對話方塊中，選取 Azure Blob，然後按一下新增。   
+1. 以滑鼠右鍵按一下 [方案總管] 中的 [資料表]，指向 [新增]，然後按一下 [新增項目]。
+2. 在 [新增新項目] 對話方塊中，選取 [Azure Blob]，然後按一下 [新增]。   
 3. 將 JSON 文字取代為下列文字並儲存 **AzureBlobLocation1.json** 檔案。 
 
   ```json   
@@ -175,8 +178,8 @@ Azure 儲存體連結服務會指定 Data Factory 服務在執行階段用來連
 ### <a name="create-output-dataset"></a>建立輸出資料集
 在此步驟中，您會建立名為 **OutputDataset**的輸出資料集。 此資料集指向 Azure SQL Database 中 **AzureSqlLinkedService1**所代表的 SQL 資料表。 
 
-1. 再次以滑鼠右鍵按一下 方案總管 中的 資料表，指向 新增，然後按一下新增項目。
-2. 在 新增新項目 對話方塊中，選取 Azure SQL，然後按一下新增。 
+1. 再次以滑鼠右鍵按一下 [方案總管] 中的 [資料表]，指向 [新增]，然後按一下 [新增項目]。
+2. 在 [新增新項目] 對話方塊中，選取 [Azure SQL]，然後按一下 [新增]。 
 3. 將 JSON 文字取代成下列 JSON 並儲存 **AzureSqlTableLocation1.json** 檔案。
 
   ```json
@@ -223,7 +226,7 @@ Azure 儲存體連結服務會指定 Data Factory 服務在執行階段用來連
 
 目前，驅動排程的是輸出資料集。 在本教學課程中，輸出資料集設定成一小時產生一次配量。 管線具有相隔一天 (也就是 24 小時) 的開始時間和結束時間。 因此，管線會產生輸出資料集的 24 個配量。 
 
-1. 以滑鼠右鍵按一下 方案總管 中的 管線，指向 新增，然後按一下新增項目。  
+1. 以滑鼠右鍵按一下 [方案總管] 中的 [管線]，指向 [新增]，然後按一下 [新增項目]。  
 2. 選取 [新增新項目] 對話方塊中的 [複製資料管線]，並按一下 [新增]。 
 3. 將 JSON 取代為下列 JSON 並儲存 **CopyActivity1.json** 檔案。
 
@@ -414,7 +417,7 @@ Azure 儲存體連結服務會指定 Data Factory 服務在執行階段用來連
 ### <a name="add-a-configuration-file"></a>新增組態檔
 藉由執行下列步驟來新增每個環境的組態檔：   
 
-1. 在 Visual Studio 解決方案中以滑鼠右鍵按一下 Data Factory 專案，指向 新增，然後按一下新增項目。
+1. 在 Visual Studio 解決方案中以滑鼠右鍵按一下 Data Factory 專案，指向 [新增]，然後按一下 [新增項目]。
 2. 從左側的已安裝範本清單中選取 [設定]、選取 [設定檔]、輸入設定檔的 [名稱]，然後按一下 [新增]。
 
     ![新增組態檔](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
@@ -432,7 +435,7 @@ Azure 儲存體連結服務會指定 Data Factory 服務在執行階段用來連
         "AzureSqlLinkedService1": [
             {
                 "name": "$.properties.typeProperties.connectionString",
-                "value":  "Server=tcp:spsqlserver.database.windows.net,1433;Database=spsqldb;User ID=spelluru;Password=Sowmya123;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                "value":  "Server=tcp:<Azure SQL server name>.database.windows.net,1433;Database=<Azure SQL datbase>;User ID=<Username>;Password=<Password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
             }
         ]
     }

@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery 可以保護哪些工作負載？"
-description: "Azure Site Recovery 會透過協調將內部部署虛擬機器和實體伺服器複寫、容錯移轉及復原至 Azure 或次要內部部署網站，來保護您的工作負載和應用程式"
+title: "Azure Site Recovery 可以保護哪些工作負載？ | Microsoft Docs"
+description: "描述可以透過 Azure Site Recovery 服務使用災害復原來保護的工作負載。"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,20 +12,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/08/2017
+ms.date: 10/30/2017
 ms.author: raynew
-ms.openlocfilehash: d7cb95d0e099d5e0357ce8871f02c894acfdc9b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3987b50a7a1798d2094e8271ad2cc317c7f472ef
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery 可以保護哪些工作負載？
-本文說明您可以使用 Azure Site Recovery 服務進行複寫的工作負載和應用程式。
 
-在這篇文章下方或 [Azure Recovery Services Forum (Azure 復原服務論壇)](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)中張貼意見或問題。
+本文說明您可以使用 [Azure Site Recovery](site-recovery-overview.md) 服務進行複寫的工作負載和應用程式。
+
+
 
 ## <a name="overview"></a>概觀
+
 組織需要商務持續性和災害復原 (BCDR) 策略，以便讓工作負載和資料在計劃性停機與非計劃性停機期間維持安全，並儘速復原到一般運作的情況。
 
 Site Recovery 是一項有助於建立 BCDR 策略的 Azure 服務。 使用 Site Recovery，您可以將應用程式感知的複寫部署到雲端，或部署到次要站台。 不論您的應用程式是 Windows 或 Linux 型、在實體伺服器、VMware 或 Hyper-V 上執行，您都可以使用 Site Recovery 來協調複寫、執行災害復原測試，以及執行容錯移轉和容錯回復。
@@ -33,6 +35,7 @@ Site Recovery 是一項有助於建立 BCDR 策略的 Azure 服務。 使用 Sit
 Site Recovery 整合了 Microsoft 應用程式，包括 SharePoint、Exchange、Dynamics、SQL Server 和 Active Directory。 Microsoft 也與領導廠商密切合作，包括 Oracle、SAP 和 Red Hat。 您可以根據各應用程式自訂複寫解決方案。
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>為何要使用 Site Recovery 進行應用程式複寫？
+
 Site Recovery 可協助您實作應用程式層級的保護和復原，如下所示：
 
 * 應用程式無從驗證，針對在受支援電腦上執行的任何工作負載提供複寫。
@@ -157,4 +160,5 @@ Azure Site Recovery 提供災害復原，方法為將環境中的重要元件複
 [深入了解](site-recovery-citrix-xenapp-and-xendesktop.md)如何保護 Citrix XenApp 和 XenDesktop 部署。 或者，您可以參考詳述相同功能的 [Citrix 白皮書](https://aka.ms/citrix-xenapp-xendesktop-with-asr)。
 
 ## <a name="next-steps"></a>後續步驟
-[檢查必要條件](site-recovery-prereq.md)
+
+[開始使用](azure-to-azure-quickstart.md) Azure VM 複寫。

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/29/2017
+ms.date: 11/01/2017
 ms.author: arramac
-ms.openlocfilehash: c184b02f46ac2ad66c6ce607967a687c82d31477
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a399a3a7979f6165d26eb48505242976d51e64f
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 簡介：資料表 API
 
@@ -38,10 +38,10 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## <a name="premium-and-standard-table-apis"></a>進階和標準資料表 API
-如果您目前是使用表格儲存體，移至 Azure Cosmos DB「進階資料表」預覽版可獲得下列優點：
+## <a name="table-offerings"></a>表格供應項目
+如果您目前是使用 Azure 表格儲存體，移至 Azure Cosmos DB 表格 API (預覽) 可獲得下列好處：
 
-| | Azure 資料表儲存體 | Azure Cosmos DB：表格儲存體 (預覽) |
+| | Azure 表格儲存體 | Azure Cosmos DB 表格 API (預覽) |
 | --- | --- | --- |
 | Latency | 快速，但延遲沒有上限。 | 一位數毫秒的讀取和寫入延遲，並在世界各地支援任何規模的 <10 毫秒延遲讀取和 <15 毫秒延遲寫入 (第 99 個百分位數)。 |
 | Throughput | 變數輸送量模型。 資料表每秒 20,000 個作業的延展性限制。 | 高延展性且[每個資料表都有專用的保留輸送量](request-units.md) (由 SLA 支援)。 帳戶沒有輸送量上限，而且支援每個資料表每秒 > 1 千萬個作業。 |

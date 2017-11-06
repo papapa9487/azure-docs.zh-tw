@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
-ms.openlocfilehash: 070805ed4cd7e2d03a47fc04c01ea331c664e2cb
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 832cb92f07696ac5ea4df74467899adcc0de0903
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>使用 CLI 建立具有站對站 VPN 連線的虛擬網路
 
@@ -87,6 +87,11 @@ az group create --name TestRG1 --location eastus
 ## <a name="VNet"></a>3.建立虛擬網路
 
 如果您還沒有虛擬網路，請使用 [az network vnet create](/cli/azure/network/vnet#create) 命令建立一個。 在建立虛擬網路時，請確定您指定的位址空間沒有與您在內部部署網路上所擁有的任何位址空間重疊。
+
+>[!NOTE]
+>為了讓此 VNet 連線到內部部署位置，您需要與內部部署網路系統管理員協調，以切割出此虛擬網路專用的 IP 位址範圍。 否則，如果 VPN 連線的兩端存在重複的位址範圍，流量就不會正確地進行路由。
+>
+>
 
 下列範例會建立名為「TestVNet1」的虛擬網路和「Subnet1」子網路。
 

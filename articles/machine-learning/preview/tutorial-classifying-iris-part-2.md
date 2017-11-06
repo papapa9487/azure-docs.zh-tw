@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/25/2017
-ms.openlocfilehash: 5d86f3bdf19603d2f92fc1a704376beefd7323c0
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 976407daee45e2f3a8360c1316227cc3399ad43e
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="classifying-iris-part-2-build-a-model"></a>分類鳶尾花第 2 部分：建置模型
 Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家用來以雲端規模準備資料、開發測試以及部署模型。
@@ -198,11 +198,11 @@ Azure ML 可讓您輕鬆地設定額外的執行環境，例如 Docker，並在�
 
 5. 現在讓我們來試試 Spark。 Docker 基礎映像包含預先安裝和設定的 Spark 執行個體。 因為這個緣故，您可以在其中執行 PySpark 指令碼。 這是開發和測試您的 Spark 程式的簡單方式，而不需自己花費時間安裝和設定 Spark。 
 
-   開啟 `iris_pyspark.py` 檔案。 此指令碼會載入 `iris.csv` 資料檔案，並使用來自 Spark ML 程式庫的羅吉斯迴歸演算法，以分類鳶尾花資料集。 現在將執行環境變更為 **docker-spark**，以及將指令碼變更為 **iris_pyspark.py**，然後再次執行。 因為必須在 Docker 容器內建立並啟動 Spark 工作階段，可能需要較長的時間。 您也可以看到 stdout 與 `iris_pyspark.py` 的 stdout 不同。
+   開啟 `iris_spark.py` 檔案。 此指令碼會載入 `iris.csv` 資料檔案，並使用來自 Spark ML 程式庫的羅吉斯迴歸演算法，以分類鳶尾花資料集。 現在將執行環境變更為 **docker-spark**，以及將指令碼變更為 **iris_spark.py**，然後再次執行。 因為必須在 Docker 容器內建立並啟動 Spark 工作階段，可能需要較長的時間。 您也可以看到 stdout 與 `iris_spark.py` 的 stdout 不同。
 
 6. 多進行幾次執行，並使用不同的引數播放。 
 
-7. 開啟 `iris_pyspark.py` 檔案來查看使用 Spark ML 程式庫建置的簡單羅吉斯迴歸模型。 
+7. 開啟 `iris_spark.py` 檔案來查看使用 Spark ML 程式庫建置的簡單羅吉斯迴歸模型。 
 
 8. 與 [作業] 面板互動、執行歷程記錄清單檢視，以及執行跨不同執行環境執行的詳細資料檢視。
 
@@ -249,8 +249,8 @@ Azure ML 可讓您輕鬆地設定額外的執行環境，例如 Docker，並在�
    REM Execute iris_sklearn.py in local Docker container Python environment.
    az ml experiment submit -c docker-python .\iris_sklearn.py 0.01
    
-   REM Execute iris_pyspark.py in local Docker container Spark environment.
-   az ml experiment submit -c docker-spark .\iris_pyspark.py 0.1
+   REM Execute iris_spark.py in local Docker container Spark environment.
+   az ml experiment submit -c docker-spark .\iris_spark.py 0.1
    ```
 6. 在 Azure Machine Learning Workbench 中，按一下左邊工具列上的 [資料夾] 圖示來列出專案檔案，然後開啟名為 **run.py** 的 Python 指令碼。 
 
@@ -320,8 +320,8 @@ Azure ML 可讓您輕鬆地設定額外的執行環境，例如 Docker，並在�
 
 5. 在以下輸入要在遠端 Docker 容器的 Spark 執行個體中執行的命令：
    ```azureli
-   REM execute iris_pyspark.py in Spark instance on remote Docker container
-   az ml experiment submit -c myvm-spark .\iris_pyspark.py
+   REM execute iris_spark.py in Spark instance on remote Docker container
+   az ml experiment submit -c myvm-spark .\iris_spark.py
    ```
 
 ## <a name="execute-script-in-an-hdinsight-cluster"></a>在 HDInsight 叢集中執行指令碼
@@ -345,8 +345,8 @@ Azure ML 可讓您輕鬆地設定額外的執行環境，例如 Docker，並在�
 2. 執行下列命令，指令碼即會在 HDInsight 叢集中執行：
 
    ```azurecli
-   REM execute iris_pyspark on the HDI cluster
-   az ml experiment submit -c myhdi .\iris_pyspark.py
+   REM execute iris_spark on the HDI cluster
+   az ml experiment submit -c myhdi .\iris_spark.py
    ```
 
    >[!NOTE]
