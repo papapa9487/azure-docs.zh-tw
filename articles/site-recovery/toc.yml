@@ -79,8 +79,6 @@
   items:
     - name: 災害復原
       items:
-        - name: Azure 的 VMware VM 與多租用戶支援
-          href: site-recovery-multi-tenant-support-vmware-using-csp.md
         - name: Hyper-V VM 至 Azure
           href: tutorial-hyper-v-to-azure.md
         - name: 實體伺服器至 Azure
@@ -99,6 +97,8 @@
           href: tutorial-hyper-v-to-azure-failover-failback.md
         - name: 在內部部署網站之間執行容錯移轉和容錯回復
           href: tutorial-vmm-to-vmm-failover-failback.md
+        - name: Azure 的 VMware VM 與多租用戶支援
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
     - name: 容量和調整
       items:
         - name: 目的地為 Azure 之 VMware 複寫的容量規劃
@@ -203,6 +203,8 @@
           href: 'site-recovery-workload.md#protect-exchange'
         - name: SAP
           href: site-recovery-sap.md
+        - name: 檔案伺服器
+          href: file-server-disaster-recovery.md
         - name: IIS 型 Web 應用程式
           href: site-recovery-iis.md
         - name: Citrix XenApp 和 XenDesktop

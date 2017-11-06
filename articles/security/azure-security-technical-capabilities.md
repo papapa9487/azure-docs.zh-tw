@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: a32693a274c2615a515838306d72dbe64a5d1763
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7288466cf31e180a16db18f8ddfe02ace3588a8d
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 安全性技術功能
 
@@ -113,7 +113,7 @@ Azure 的身分識別管理核心功能如下︰
 
 安全性監視和警示以及機器學習式報告，會識別不一致的存取模式，可以協助您保護企業安全。 您可以使用 Azure Active Directory 的存取和使用情況報告來了解貴組織的目錄完整性和安全性。 利用此資訊，目錄管理員更能夠判斷可能發生安全性風險的位置，以便適當地規劃來減輕這些風險。
 
-在 Azure 傳統入口網站中或透過 [Azure Active Directory 入口網站](http://aad.portal.azure.com/)，[報告](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide)會以下列方式分類：
+在 Azure 入口網站或透過 [Azure Active 目錄入口網站報告](http://aad.portal.azure.com/)，會以下列方式分類[報告](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide)：
 
 - 異常報告 – 包含我們發現異常的登入事件。 我們的目標在於使您注意這類活動，並讓您能夠決定事件是否可疑。
 
@@ -161,7 +161,7 @@ Azure AD Privileged Identity Management 可讓您：
 
 ## <a name="secured-resource-access-in-azure"></a>Azure 中受保護的資源存取
 
-在 Azure 中從計費觀點著手的存取控制。 Azure 帳戶的擁有者 (藉由造訪 [Azure 帳戶中心](https://account.windowsazure.com/subscriptions)來存取) 為帳戶管理員 (AA)。 訂用帳戶是計費容器，但它們也可做為安全性界限：每個訂用帳戶都有一個服務管理員 (SA)，此管理員可以使用 [Azure 傳統入口網站](https://manage.windowsazure.com/)來新增、移除及修改該訂用帳戶中的 Azure 資源。 新訂用帳戶的預設 SA 為 AA，但 AA 可以在 Azure 帳戶中心變更 SA。
+在 Azure 中從計費觀點著手的存取控制。 Azure 帳戶的擁有者 (藉由造訪 [Azure 帳戶中心](https://account.windowsazure.com/subscriptions)來存取) 為帳戶管理員 (AA)。 訂用帳戶是計費容器，但它們也可做為安全性界限：每個訂用帳戶都有一個服務管理員 (SA)，此管理員可以使用 Azure 入口網站來新增、移除及修改該訂用帳戶中的 Azure 資源。 新訂用帳戶的預設 SA 為 AA，但 AA 可以在 Azure 帳戶中心變更 SA。
 
 ![Azure 中受保護的資源存取](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig3.png)
 

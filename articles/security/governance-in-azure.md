@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: f3fbca281dbbfca7ff9392d003429719c589afbd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c63eb15e8d575da91fd8198ca9d486f7fdb2b38d
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="governance-in-azure"></a>Azure 中的治理
 
@@ -179,7 +179,7 @@ Azure RBAC 僅支援在 Azure 入口網站和 Azure Resource Manager API 中的 
 
 Azure 原本指提供傳統部署模型。 在此模型中，每個資源會獨立存在；沒辦法將相關的資源群組在一起。 因此，您必須手動追蹤哪些資源組成您的解決方案或應用程式，並記得要以協調的方法進行管理。
 
-若要部署解決方案，您必須透過傳統入口網站個別建立每個資源，或建立會以正確的順序部署所有資源的指令碼。 若要刪除解決方案，您必須個別刪除每個資源。 您無法輕易套用和更新相關資源的存取控制原則。 最後，您無法將標記套用至資源，以可協助您監視資源和管理計費的詞彙標示資源。
+若要部署解決方案，您必須透過 Azure 入口網站個別建立每個資源，或建立會以正確的順序部署所有資源的指令碼。 若要刪除解決方案，您必須個別刪除每個資源。 您無法輕易套用和更新相關資源的存取控制原則。 最後，您無法將標記套用至資源，以可協助您監視資源和管理計費的詞彙標示資源。
 
 在 2014 年，Azure 引進了新增資源群組概念的 Resource Manager。 資源群組是共用共同生命週期的資源容器。 「資源管理員」部署模型提供數個優點：
 

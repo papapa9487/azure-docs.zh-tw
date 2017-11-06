@@ -35,9 +35,9 @@
 ### [連結 Office 365 租用戶](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [依發票支付訂用帳戶費用](billing-how-to-pay-by-invoice.md)
 ## 疑難排解
-### [註冊問題](billing-troubleshoot-azure-sign-up-issues.md)
-### [卡片遭拒](billing-credit-card-fails-during-azure-sign-up.md)
-### [登入問題](billing-cannot-login-subscription.md)
+### [註冊問題](https://support.microsoft.com/en-us/help/4042959)
+### [卡片遭拒](https://support.microsoft.com/en-us/help/4042960)
+### [登入問題](https://support.microsoft.com/en-us/help/4042961)
 ### [找不到訂用帳戶](billing-no-subscriptions-found.md)
 ### [已停用企業成本檢視](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 

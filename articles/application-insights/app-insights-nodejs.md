@@ -108,7 +108,7 @@ SDK 會自動蒐集有關 Node.js 執行階段和一些常見第三方模組的�
 * 繼續使用應用程式。 採取更多動作以產生更多遙測。
 * 按一下入口網站資源檢視中的 [重新整理]。 圖表會自行定期重新整理，但手動重新整理會強制圖表立即重新整理。
 * 確認[所需的連出連接埠](app-insights-ip-addresses.md)已開啟。
-* 使用 [搜尋][](app-insights-diagnostic-search.md) 來尋找特定的事件。
+* 使用 [搜尋](app-insights-diagnostic-search.md) 來尋找特定的事件。
 * 查看[常見問題集][FAQ]。
 
 

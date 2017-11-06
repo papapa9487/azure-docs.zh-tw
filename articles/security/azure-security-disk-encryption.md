@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2017
+ms.date: 11/01/2017
 ms.author: kakhan
-ms.openlocfilehash: eb1f3f01f896cc03fde13f11457be4740fa2720a
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: b35595d3dd91932888a26edc92dae81dd71682d8
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密
 Microsoft Azure 強烈承諾確保您的資料隱私權、資料主權，並透過一系列進階技術來加密、控制和管理加密金鑰、控制和稽核資料存取，讓您控制您的 Azure 託管資料。 這會提供 Azure 客戶靈活度，可選擇最符合其商務需求的解決方案。 本文中，我們將為您介紹新的技術解決方案「Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密」，以協助保護及保障您的資料，以便符合組織的安全性和符合性的承諾。 本文提供有關如何使用 Azure 磁碟加密功能的詳細指引，包括支援的案例和使用者體驗。
@@ -247,8 +247,8 @@ Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密解決方案包含：
 > [!NOTE]
 > $azureAdApplication.ApplicationId 是 Azure AD ClientID，而 $aadClientSecret 是用戶端密碼，您稍後應該會用該資訊來啟用 Azure 磁碟加密。 適當地保護 Azure AD 用戶端密碼。
 
-##### <a name="setting-up-the-azure-ad-client-id-and-secret-from-the-azure-classic-portal"></a>從 Azure 傳統入口網站設定 Azure AD 用戶端識別碼和密碼
-您也可以使用 [Azure 傳統入口網站]( https://manage.windowsazure.com)設定您的 Azure AD 用戶端識別碼和密碼。 若要執行這項工作，請執行下列步驟︰
+##### <a name="setting-up-the-azure-ad-client-id-and-secret-from-the-azure-portal"></a>從 Azure 入口網站設定 Azure AD 用戶端識別碼和密碼
+您也可以使用 Azure 入口網站設定您的 Azure AD 用戶端識別碼和密碼。 若要執行這項工作，請執行下列步驟︰
 
 1. 按一下 [Active Directory] 索引標籤。
 
@@ -270,8 +270,6 @@ Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密解決方案包含：
 
  ![Azure 磁碟加密](./media/azure-security-disk-encryption/disk-encryption-fig7.png)
 
- > [!NOTE]
- > 在 Azure 傳統入口網站上不支援上述流程。
 
 ##### <a name="use-an-existing-application"></a>使用現有的應用程式
 若要執行下列命令，請取得並使用 [Azure AD PowerShell 模組](https://technet.microsoft.com/library/jj151815.aspx)。
@@ -634,12 +632,12 @@ Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該�
  ```
 
 ### <a name="get-the-encryption-status-of-an-encrypted-iaas-vm"></a>取得已加密 IaaS VM 的加密狀態
-您可以使用 Azure Resource Manager、[PowerShell Cmdlet](/powershell/azure/overview) 或 CLI 命令取得加密狀態。 下列章節將說明如何使用 Azure 傳統入口網站和 CLI 命令來取得加密狀態。
+您可以使用 Azure Resource Manager、[PowerShell Cmdlet](/powershell/azure/overview) 或 CLI 命令取得加密狀態。 下列章節將說明如何使用 Azure 入口網站和 CLI 命令來取得加密狀態。
 
 #### <a name="get-the-encryption-status-of-an-encrypted-windows-vm-by-using-azure-resource-manager"></a>使用 Azure Resource Manager 取得已加密 Windows VM 的加密狀態
 您可以從 Azure Resource Manager 取得 IaaS VM 的加密狀態，請執行以下步驟：
 
-1. 登入 [Azure 傳統入口網站](https://portal.azure.com/)，然後按一下左窗格中的 [虛擬機器] 以查看您訂用帳戶中虛擬機器的摘要檢視。 您可以從 [訂用帳戶] 下拉式清單中選取訂用帳戶名稱，以篩選虛擬機器檢視。
+1. 登入 [Azure 入口網站](https://portal.azure.com/)，然後按一下左窗格中的 [虛擬機器] 以查看您訂用帳戶中虛擬機器的摘要檢視。 您可以從 [訂用帳戶] 下拉式清單中選取訂用帳戶名稱，以篩選虛擬機器檢視。
 
 2. 在 [虛擬機器] 頁面頂端，按一下 [資料行]。
 

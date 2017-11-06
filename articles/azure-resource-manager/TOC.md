@@ -71,15 +71,10 @@
 
 ## 設定資源原則
 ### [資源原則是什麼？](resource-manager-policy.md)
-### [使用 Azure 入口網站指派原則](resource-manager-policy-portal.md)
 ### [使用指令碼指派原則](resource-manager-policy-create-assign.md)
 ### 範例
 #### [標記](resource-manager-policy-tags.md)
 #### [命名慣例](resource-manager-policy-naming-convention.md)
-#### [網路](resource-manager-policy-network.md)
-#### [儲存體](resource-manager-policy-storage.md)
-#### [Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Windows VM](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## 稽核
 ### [檢視活動記錄](resource-group-audit.md)

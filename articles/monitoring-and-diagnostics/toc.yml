@@ -134,6 +134,8 @@
       items:
         - name: 封存
           href: monitoring-archive-diagnostic-logs.md
+        - name: 傳送至 Log Analytics
+          href: monitor-stream-diagnostic-logs-log-analytics.md
         - name: 串流至事件中樞
           href: monitoring-stream-diagnostic-logs-to-event-hubs.md
         - name: 使用 Resource Manager 範本啟用診斷設定
