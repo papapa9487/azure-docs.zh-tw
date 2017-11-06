@@ -66,7 +66,7 @@ ms.lasthandoff: 10/11/2017
 
 請注意，Runbook 中用來驗證的 Cmdlet (**Add-AzureRmAccount**) 會使用 ServicePrincipalCertificate 參數集。  它藉由使用服務主體憑證 (而非認證) 進行驗證。  
 
-當您**執行 Runbook** 來驗證您的執行身分帳戶時，已建立 [Runbook 作業](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal)、顯示 [作業] 刀鋒視窗，而作業狀態會顯示在 [作業摘要][](automation-runbook-execution.md) 圖格中。 作業狀態一開始會顯示為 [已排入佇列]  ，表示其正在等候雲端中的 Runbook 背景工作變為可用狀態。 然後當背景工作宣告該工作時，狀態將變更為 [正在開始]，然後 Runbook 實際開始執行時再變更為 [執行中]。  Runbook 作業完成時，我們應該會看到 [完成] 狀態。
+當您[執行 Runbook](automation-runbook-execution.md) 來驗證您的執行身分帳戶時，已建立 [Runbook 作業](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal)、顯示 [作業] 刀鋒視窗，而作業狀態會顯示在 **[作業摘要]** 圖格中。 作業狀態一開始會顯示為 [已排入佇列]  ，表示其正在等候雲端中的 Runbook 背景工作變為可用狀態。 然後當背景工作宣告該工作時，狀態將變更為 [正在開始]，然後 Runbook 實際開始執行時再變更為 [執行中]。  Runbook 作業完成時，我們應該會看到 [完成] 狀態。
 
 若要查看 Runbook 的詳細結果，請按一下 [輸出]  圖格。  在 [輸出] 刀鋒視窗上，您應會看到它已成功驗證並傳回您的訂用帳戶中所有資源群組中的所有資源清單。  
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 10/11/2017
     #Get all VMs in the subscription and return list with name of each
     Get-AzureVM | ft Name
 
-當您**執行 Runbook** 來驗證您的執行身分帳戶時，已建立 [Runbook 作業](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal)、顯示 [作業] 刀鋒視窗，而作業狀態會顯示在 [作業摘要][](automation-runbook-execution.md) 圖格中。 作業狀態一開始會顯示為 [已排入佇列]  ，表示其正在等候雲端中的 Runbook 背景工作變為可用狀態。 然後當背景工作宣告該工作時，狀態將變更為 [正在開始]，然後 Runbook 實際開始執行時再變更為 [執行中]。  Runbook 作業完成時，我們應該會看到 [完成] 狀態。
+當您[執行 Runbook](automation-runbook-execution.md) 來驗證您的執行身分帳戶時，已建立 [Runbook 作業](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal)、顯示 [作業] 刀鋒視窗，而作業狀態會顯示在 **[作業摘要]** 圖格中。 作業狀態一開始會顯示為 [已排入佇列]  ，表示其正在等候雲端中的 Runbook 背景工作變為可用狀態。 然後當背景工作宣告該工作時，狀態將變更為 [正在開始]，然後 Runbook 實際開始執行時再變更為 [執行中]。  Runbook 作業完成時，我們應該會看到 [完成] 狀態。
 
 若要查看 Runbook 的詳細結果，請按一下 [輸出]  圖格。  在 [輸出] 刀鋒視窗上，您應會看到它已驗證成功並傳回您訂用帳戶中部署的所有 Azure VM 清單 (依 VMName 列出)。  
 

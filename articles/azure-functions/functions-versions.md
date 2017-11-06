@@ -81,4 +81,4 @@ az functionapp config appsettings set --name <function_app> \
 ```
 在此程式碼中，以您的函式應用程式名稱取代 `<function_app>`。 還要以函式應用程式的資源群組名稱取代 `<my_resource_group>`。 以 1.x 執行階段的有效主要版本，或版本 2.0 的 `beta` 來取代 `<version>`。 
 
-您可以選擇上述程式碼範例中的 [試試看]，從 [Azure Cloud Shell][](../cloud-shell/overview.md) 執行此命令。 在執行 [az login](/cli/azure#az_login) 登入之後，您也可以使用[本機 Azure CLI](/cli/azure/install-azure-cli) 來執行此命令。
+您可以選擇上述程式碼範例中的 [試試看]，從 [Azure Cloud Shell](../cloud-shell/overview.md) 執行此命令。 在執行 [az login](/cli/azure#az_login) 登入之後，您也可以使用[本機 Azure CLI](/cli/azure/install-azure-cli) 來執行此命令。
