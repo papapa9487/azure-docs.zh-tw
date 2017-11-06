@@ -45,7 +45,7 @@ sections:
         items:
           - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">容器登錄異地複寫 (預覽)</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Container Registry 搭配 Azure Container Instances</a>
-          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Container Registry 搭配 Azure Container Service</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">容器登錄搭配 Azure Container Service (AKS)</a>
           - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">容器登錄搭配 Service Fabric</a>
   - title: 參考
     items:

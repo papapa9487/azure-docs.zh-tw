@@ -41,6 +41,7 @@
 ## 設定 ExpressRoute 的路由器
 ### [設定路由器](expressroute-config-samples-routing.md)
 ### [NAT 的路由設定範例](expressroute-config-samples-nat.md)
+## [設定 ExpressRoute 線路的網路效能監視器](how-to-npm.md)
 
 ## 最佳做法
 ### [網路安全性與雲端服務的最佳做法](../best-practices-network-security.md)

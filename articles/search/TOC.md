@@ -70,7 +70,7 @@
 ### Azure 搜尋服務中的篩選條件
 #### [概觀](search-filters.md)
 #### [Facet 篩選條件](search-filters-facets.md)
-#### [程式設計語言篩選條件](search-filters-language.md)
+#### [語言篩選條件](search-filters-language.md)
 #### [安全性調整](search-security-trimming-for-azure-search.md)
 #### [運算式語法參考](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 ### [分頁結果](search-pagination-page-layout.md)
@@ -78,6 +78,7 @@
 ### [建議](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [多面向導覽](search-faceted-navigation.md)
 ### [同義字預覽](search-synonyms.md)
+### [moreLikeThis 預覽](search-more-like-this.md)
 
 # 參考
 
@@ -86,7 +87,7 @@
 ## [Python (管理)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (管理)](/rest/api/searchmanagement)
-## [服務 REST (預覽)](search-api-2015-02-28-preview.md)
+## [服務 REST (預覽)](search-api-2016-09-01-preview.md)
 
 # 資源
 

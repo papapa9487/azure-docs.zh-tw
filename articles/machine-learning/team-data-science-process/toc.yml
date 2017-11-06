@@ -84,8 +84,20 @@
         - name: Azure Machine Learning 工作區
           href: ../studio/create-workspace.md
           maintainContext: true
-        - name: 設定虛擬機器
-          href: virtual-machines.md
+        - name: 設定資料科學 VM
+          items:
+            - name: 建立 Windows 資料科學 VM
+              href: ../data-science-virtual-machine/provision-vm.md
+              maintainContext: true
+            - name: 建立 Ubuntu 資料科學 VM
+              href: ../data-science-virtual-machine/dsvm-ubuntu-intro.md
+              maintainContext: true
+            - name: 建立 CentOS 資料科學 VM
+              href: ../data-science-virtual-machine/linux-dsvm-intro.md
+              maintainContext: true
+            - name: 建立深度學習 VM
+              href: ../data-science-virtual-machine/provision-deep-learning-dsvm.md
+              maintainContext: true
     - name: 分析商務需求
       items:
         - name: 識別您的案例

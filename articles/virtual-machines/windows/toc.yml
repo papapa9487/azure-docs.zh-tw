@@ -82,6 +82,13 @@
       href: maintenance-and-updates.md
     - name: 儲存體
       href: about-disks-and-vhds.md
+      items:
+        - name: 進階儲存體
+          href: premium-storage.md
+        - name: 進階儲存體效能
+          href: premium-storage-performance.md
+        - name: 標準儲存體
+          href: standard-storage.md
     - name: 網路
       href: network-overview.md
     - name: 自動調整應用程式
@@ -235,12 +242,16 @@
           href: detach-disk.md
         - name: 調整磁碟大小
           href: expand-os-disk.md
+        - name: 磁碟備份和災害復原
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: 製作磁碟的快照集
           href: snapshot-copy-managed-disk.md
         - name: 備份非受控磁碟
           href: incremental-snapshots.md
         - name: 在標準和進階間轉換磁碟
           href: convert-disk-storage.md
+        - name: 使用 Azure Site Recovery 移轉到進階儲存體
+          href: migrate-to-premium-storage-using-azure-site-recovery.md
         - name: 使用檔案儲存體
           href: mount-azure-file-storage.md
         - name: 透過範本部署磁碟

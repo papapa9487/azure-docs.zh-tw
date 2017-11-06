@@ -79,8 +79,8 @@
       href: concepts-monitoring.md
     - name: 開發
       items:
-        - name: 連線程式庫
-          href: concepts-connection-libraries.md
+        - name: 驅動程式和工具相容性
+          href: concepts-compatibility.md
         - name: XBOX Video Application Development
           href: concepts-database-application-development.md
     - name: 移轉資料庫

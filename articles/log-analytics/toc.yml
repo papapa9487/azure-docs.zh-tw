@@ -150,6 +150,12 @@
           href: log-analytics-alerts-webhooks.md
         - name: 警示管理解決方案
           href: log-analytics-solution-alert-management.md
+    - name: 管理
+      items:
+        - name: 管理工作區成本
+          href: log-analytics-manage-cost-storage.md
+        - name: 刪除工作區
+          href: log-analytics-manage-del-workspace.md
     - name: 使用解決方案
       items:
         - name: 解決方案概觀

@@ -6,6 +6,7 @@
 ## [建立 .NET 應用程式](service-fabric-quickstart-dotnet.md)
 ## [部署 Linux 容器應用程式](service-fabric-quickstart-containers-linux.md)
 ## [部署 Windows 容器應用程式](service-fabric-quickstart-containers.md)
+## [部署 Java 應用程式](service-fabric-quickstart-java.md)
 
 # 教學課程
 ## 部署 .NET 應用程式
@@ -28,7 +29,9 @@
 ### 1 - 在 Azure 上建立叢集
 #### [1a- 建立 Windows 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 #### [1b- 建立 Linux 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
-### [2 - 使用 Service Fabric 部署 API 管理](service-fabric-tutorial-deploy-api-management.md)
+### [2- 調整叢集](service-fabric-tutorial-scale-cluster.md)
+### [3- 使用 Service Fabric 部署 API 管理](service-fabric-tutorial-deploy-api-management.md)
+
 
 # 範例
 ## [程式碼範例](https://azure.microsoft.com/resources/samples/?service=service-fabric)

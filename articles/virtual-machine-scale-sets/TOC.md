@@ -36,6 +36,7 @@
 #### [使用 Azure CLI 2.0](virtual-machine-scale-sets-manage-cli.md)
 #### [使用 Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)
 ### [擴展集內的垂直縮放比例](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+### [作業系統自動升級](virtual-machine-scale-sets-automatic-upgrade.md)
 ### [擴展集的升級](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [DSC 與擴展集](virtual-machine-scale-sets-dsc.md)
 ### [適用於擴展集的網路](virtual-machine-scale-sets-networking.md)
