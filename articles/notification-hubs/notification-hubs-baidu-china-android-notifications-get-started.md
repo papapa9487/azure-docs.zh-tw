@@ -41,11 +41,11 @@ ms.lasthandoff: 10/16/2017
 ## <a name="create-a-baidu-account"></a>建立百度帳戶
 若要使用百度，您必須有百度帳戶。 如果您已經有帳戶，請登入 [百度入口網站] ，並略過下一個步驟。 否則，請參閱下列有關如何建立百度帳戶的指示。  
 
-1. 移至[百度入口網站]，然後按一下 [登录] \(**登入**) 連結。 按一下 [立即注册] (Register Now) 開始帳戶註冊程序。
+1. 移至[百度入口網站]，然後按一下 [登录] \(**登入**) 連結。 按一下 [立即注册] \(Register Now) 開始帳戶註冊程序。
    
     ![百度註冊](./media/notification-hubs-baidu-get-started/BaiduRegistration.png)
 
-2. 輸入必要的詳細資料—電話/電子郵件地址、密碼和驗證碼，然後按一下 [注册] (Signup)。
+2. 輸入必要的詳細資料—電話/電子郵件地址、密碼和驗證碼，然後按一下 [注册] \(Signup)。
    
     ![百度註冊輸入](./media/notification-hubs-baidu-get-started/BaiduRegistrationInput.png)
 
@@ -66,23 +66,23 @@ ms.lasthandoff: 10/16/2017
    
     ![註冊 - 更多](./media/notification-hubs-baidu-get-started/BaiduRegistrationMore.png)
 
-2. 向下捲動至 [站长与开发者服务] (Webmaster and Developer Services) 區段，然後按一下 [百度云推送] (Baidu Cloud Push)。
+2. 向下捲動至 [站长与开发者服务] \(Webmaster and Developer Services) 區段，然後按一下 [百度云推送] \(Baidu Cloud Push)。
    
     ![百度雲開放平台](./media/notification-hubs-baidu-get-started/BaiduOpenCloudPlatform.png)
 
-3. 在下一個頁面上，按一下右上角的 [登录] (Login)。
+3. 在下一個頁面上，按一下右上角的 [登录] \(Login)。
    
     ![百度登入](./media/notification-hubs-baidu-get-started/BaiduLogin.png)
 
-4. 然後，按一下此頁面上的 [创建应用] (Create Application)。
+4. 然後，按一下此頁面上的 [创建应用] \(Create Application)。
 
     ![百度建立應用程式](./media/notification-hubs-baidu-get-started/BaiduCreateApplication.png)
 
-5. 在下一個頁面上，按一下 [创建新应用] (Create New Application)。
+5. 在下一個頁面上，按一下 [创建新应用] \(Create New Application)。
    
     ![百度建立新的應用程式](./media/notification-hubs-baidu-get-started/BaiduCreateNewApplication.png)
 
-6. 輸入應用程式名稱，然後按一下 [创建] (Create)。
+6. 輸入應用程式名稱，然後按一下 [创建] \(Create)。
    
     ![](./media/notification-hubs-baidu-get-started/BaiduCreateApplicationDoCreate.png)
 
@@ -90,7 +90,7 @@ ms.lasthandoff: 10/16/2017
    
     ![百度推送秘密](./media/notification-hubs-baidu-get-started/BaiduGetSecrets.png)
 
-8. 按一下左窗格中的 [创建通知] (Create Notification)，以設定專案的推播通知。
+8. 按一下左窗格中的 [创建通知] \(Create Notification)，以設定專案的推播通知。
    
     ![](./media/notification-hubs-baidu-get-started/BaiduCreateNotification.png)
 
