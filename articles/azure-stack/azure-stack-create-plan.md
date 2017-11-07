@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 [方案](azure-stack-key-features.md)結合一或多項服務。 身為提供者的您可以為使用者製作方案。 使用者接著即可訂閱您的供應項目，以使用其中的方案與服務。 此範例說明如何建立一個包含計算、網路及儲存體資源提供者的方案。 此方案可讓訂閱者佈建虛擬機器。
 
-1. 登入 Azure Stack 系統管理員入口網站 (https://adminportal.local.azurestack.external)。 輸入您在[執行 PowerShell 指令碼](azure-stack-run-powershell-script.md)一節步驟 5 中所建立帳戶的認證。
+1. 登入 Azure Stack 系統管理員入口網站 ( https://adminportal.local.azurestack.external )。 輸入您在[執行 PowerShell 指令碼](azure-stack-run-powershell-script.md)一節步驟 5 中所建立帳戶的認證。
 
 2. 若要建立使用者可訂閱的方案和供應項目，請按一下 [新增] > [租用戶供應項目 + 方案] > [方案]。
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 4. 建立新的 [資源群組]或選取現有的資源群組，以作為方案的容器。
 
    ![](media/azure-stack-create-plan/image02a.png)
-5. 按一下 服務，選取 Microsoft.Compute、Microsoft.Network 及 Microsoft.Storage，然後按一下選取。
+5. 按一下 [服務]，選取 [Microsoft.Compute]、[Microsoft.Network] 及 [Microsoft.Storage]，然後按一下 [選取]。
 
    ![](media/azure-stack-create-plan/image03.png)
 6. 依序按一下 [配額]、[Microsoft.Storage (本機)]，然後選取預設配額，或按一下 [建立新的配額] 來自訂配額。
