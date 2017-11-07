@@ -195,7 +195,7 @@ TrackTrace 的優點在於您可以將較長的資料放在訊息中。 例如�
 有時候可能需要一段時間，所有事件和要求才會通過管線。
 
 ### <a name="limits"></a>保留多少資料？
-有好幾個因素會影響保留的資料量。 如需更多資訊，請參閱客戶事件計量頁面的 [限制][](app-insights-api-custom-events-metrics.md#limits) 區段。 
+有好幾個因素會影響保留的資料量。 如需更多資訊，請參閱客戶事件計量頁面的 [限制](app-insights-api-custom-events-metrics.md#limits) 區段。 
 
 ### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>我沒看到一些預期的記錄項目
 如果您的應用程式傳送大量資料，且您是使用 Application Insights SDK for ASP.NET 版本 2.0.0-beta3 或更新版本，則調適性取樣功能可能會運作，並只傳送一部分的遙測資料。 [深入了解取樣。](app-insights-sampling.md)

@@ -139,7 +139,7 @@ Azure SQL Database 可讓您使用下列 3 個選項的其中任一選項來控�
 ![建議的索引](./media/sql-database-advisor-portal/details.png)
 
 ## <a name="monitoring-performance-impact-of-index-recommendations"></a>監視索引建議的效能影響
-成功實作建議之後 (目前僅提供索引作業和參數化查詢建議)，您可以按一下 [建議詳細資料] 頁面上的 [查詢深入解析] 來開啟 [查詢效能深入解析][](sql-database-query-performance.md)，並查看排名最前面查詢對效能的影響。
+成功實作建議之後 (目前僅提供索引作業和參數化查詢建議)，您可以按一下 [建議詳細資料] 頁面上的 [查詢深入解析] 來開啟 [查詢效能深入解析](sql-database-query-performance.md) ，並查看排名最前面查詢對效能的影響。
 
 ![監視效能影響](./media/sql-database-advisor-portal/query-insights.png)
 

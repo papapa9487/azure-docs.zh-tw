@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
    
     ![新的 Visual C# Windows 傳統裝置應用程式][img-createdeviceapp]
     
-1. 在方案總管中，以滑鼠右鍵按一下 **SimulateDeviceMethods** 專案，然後按一下管理 NuGet 套件...。
+1. 在方案總管中，以滑鼠右鍵按一下 **SimulateDeviceMethods** 專案，然後按一下 [管理 NuGet 套件...]
 1. 在 [NuGet 套件管理員] 視窗中，選取 [瀏覽]，並搜尋 **microsoft.azure.devices.client**。 選取 [安裝] 來安裝 **Microsoft.Azure.Devices.Client** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 裝置 SDK][lnk-nuget-client-sdk] NuGet 套件與其相依項目，並新增對它的參考。
    
     ![NuGet 套件管理員視窗用戶端應用程式][img-clientnuget]
@@ -102,7 +102,7 @@ ms.lasthandoff: 10/11/2017
             Console.WriteLine("Error in sample: {0}", ex.Message);
         }
         
-1. 在 Visual Studio 的 方案總管 中，以滑鼠右鍵按一下您的方案，然後按一下設定啟始專案...。選取 單一啟始專案，然後選取下拉式功能表中的 **SimulateDeviceMethods** 專案。        
+1. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下您的方案，然後按一下 [設定啟始專案...]選取 [單一啟始專案]，然後選取下拉式功能表中的 **SimulateDeviceMethods** 專案。        
 
 > [!NOTE]
 > 為了簡單起見，本教學課程不會實作任何重試原則。 在生產環境程式碼中，您應該如 MSDN 文章[暫時性錯誤處理][lnk-transient-faults]所建議，實作重試原則 (例如連接重試)。
@@ -115,7 +115,7 @@ ms.lasthandoff: 10/11/2017
 1. 在 Visual Studio 中，使用 [主控台應用程式] 專案範本，將 Visual C# Windows 傳統桌面專案新增至目前的方案。 確定 .NET Framework 為 4.5.1 或更新版本。 將專案命名為 **CallMethodOnDevice**。
    
     ![新的 Visual C# Windows 傳統桌面專案][img-createserviceapp]
-2. 在 方案總管 中，以滑鼠右鍵按一下 **CallMethodOnDevice** 專案，然後按一下管理 NuGet 套件...。
+2. 在 [方案總管] 中，以滑鼠右鍵按一下 **CallMethodOnDevice** 專案，然後按一下 [管理 NuGet 套件...]
 3. 在 [Nuget 套件管理員] 視窗中選取 [瀏覽]、搜尋 **microsoft.azure.devices**、選取 [安裝] 以安裝 **Microsoft.Azure.Devices** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 服務 SDK][lnk-nuget-service-sdk] NuGet 套件與其相依項目，並新增對它的參考。
    
     ![NuGet 套件管理員視窗][img-servicenuget]
@@ -149,7 +149,7 @@ ms.lasthandoff: 10/11/2017
         Console.WriteLine("Press Enter to exit.");
         Console.ReadLine();
 
-1. 在 Visual Studio 的 方案總管 中，以滑鼠右鍵按一下您的方案，然後按一下設定啟始專案...。選取 單一啟始專案，然後選取下拉式功能表中的 **CallMethodOnDevice** 專案。
+1. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下您的方案，然後按一下 [設定啟始專案...]選取 [單一啟始專案]，然後選取下拉式功能表中的 **CallMethodOnDevice** 專案。
 
 ## <a name="run-the-applications"></a>執行應用程式
 現在您已經準備好執行應用程式。

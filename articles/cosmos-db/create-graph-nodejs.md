@@ -98,7 +98,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
     ![在 Azure 入口網站的 [金鑰] 刀鋒視窗中檢視並複製存取金鑰](./media/create-graph-nodejs/gremlin-uri.png)
 
-   如果 **Gremlin URI** 值是空的，您可以從入口網站的 [索引鍵]頁面產生值。 使用 **URI** 值、移除 https://，然後將文件變更為圖形。
+   如果 **Gremlin URI** 值是空的，您可以從入口網站的 [索引鍵]頁面產生值。 使用 **URI** 值、移除 https://， 然後將文件變更為圖形。
 
    Gremlin 端點必須是沒有通訊協定/連接埠號碼的主機名稱，像是 `mygraphdb.graphs.azure.com` (而不是 `https://mygraphdb.graphs.azure.com` 或 `mygraphdb.graphs.azure.com:433`)。
 

@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 
 您的 Azure Machine Learning Workbench 已設定為，當您在 Docker 容器中 (在本機或遠端 VM 中) 執行實驗時使用 MMLSpark。 這項功能可讓您輕鬆地使用 PySpark 模型進行偵錯和實驗，然後於叢集上按比例執行它們。 
 
-若要開始使用範例，請建立新的專案，然後選取 [MMLSpark on Adult Census] (關於成人人口普查的 MMLSpark) 組件庫範例。 從專案儀表板中，選取 [Docker] 作為計算內容，然後按一下 [執行]。 Azure Machine Learning Workbench 會建置 Docker 容器來執行 PySpark 程式，然後執行程式。
+若要開始使用範例，請建立新的專案，然後選取 [MMLSpark on Adult Census] \(關於成人人口普查的 MMLSpark) 組件庫範例。 從專案儀表板中，選取 [Docker] 作為計算內容，然後按一下 [執行]。 Azure Machine Learning Workbench 會建置 Docker 容器來執行 PySpark 程式，然後執行程式。
 
 完成執行之後，您可以在 Azure Machine Learning Workbench 的執行歷程記錄檢視中檢視結果。
 
@@ -79,7 +79,7 @@ az ml experiment prepare -c <myhdi>
 
 ## <a name="run-experiment-on-azure-hdinsight-spark-cluster"></a>在 Azure HDInsight Spark 叢集上執行實驗。
 
-返回 [MMLSpark on Adult Census] (關於成人人口普查的 MMLSpark) 範例的專案儀表板。 選取您的叢集作為計算目標，然後按一下 [執行]。
+返回 [MMLSpark on Adult Census] \(關於成人人口普查的 MMLSpark) 範例的專案儀表板。 選取您的叢集作為計算目標，然後按一下 [執行]。
 
 Azure Machine Learning Workbench 會將 Spark 作業提交至叢集。 您可以監視進度，並在執行歷程記錄檢視中檢視結果。
 
