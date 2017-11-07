@@ -159,7 +159,7 @@ ms.lasthandoff: 10/16/2017
         tools:replace="android:allowBackup,icon,theme,label">
     ```
 
-6.  下載並解壓縮 [百度推送 Android SDK][]。 複製 libs 資料夾中的 `pushservice-x.y.z jar` 檔案。 然後複製 Android 應用程式的 `src/main/jniLibs` (建立新的資料夾) 資料夾中的 `.so` 檔案。
+6.  下載並解壓縮 [百度推播 Android SDK]。 複製 libs 資料夾中的 `pushservice-x.y.z jar` 檔案。 然後複製 Android 應用程式的 `src/main/jniLibs` (建立新的資料夾) 資料夾中的 `.so` 檔案。
 
     ![Azure 通知中樞 - 百度 SDK 程式庫](./media/notification-hubs-baidu-get-started/BaiduSDKLib.png)
 
