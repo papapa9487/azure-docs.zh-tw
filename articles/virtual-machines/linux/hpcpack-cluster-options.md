@@ -13,22 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
-ms.date: 08/25/2017
+ms.date: 10/26/2017
 ms.author: danlep
-ms.openlocfilehash: 99aee6b73242d21842b02ded8c9e4e25bc5cedb4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae36e64c0261b1fe8d02d6dcb80df7cdee333db9
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="options-with-hpc-pack-to-create-and-manage-a-cluster-for-linux-hpc-workloads-in-azure"></a>使用 HPC Pack 在 Azure 中建立及管理適用於 Linux HPC 工作負載之叢集的選項
 [!INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
 
 本文著重於使用 HPC Pack 執行 Linux 的工作負載的選項。 另有[使用 HPC Pack 執行 Windows HPC 工作負載](../windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)的選項。
 
-## <a name="hpc-pack-cluster-in-azure-vms"></a>Azure VM 中的 HPC Pack 叢集
+## <a name="hpc-pack-cluster-in-azure-vms-and-vm-scale-sets"></a>Azure VM 和 VM 擴展集中的 HPC Pack 叢集
 ### <a name="azure-templates"></a>Azure 範本
 * (GitHub) [HPC Pack 2016 叢集範本](https://github.com/MsHpcPack/HPCPack2016)
+* (GitHub) [HPC Pack 2012 R2 叢集範本](https://github.com/MsHpcPack/HPCPack2012R2)
 * (Marketplace) [HPC Pack cluster for Linux workloads (適用於 Linux 工作負載的 HPC Pack 叢集)](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/)
 * (快速入門) [Create an HPC cluster with Linux compute nodes (使用 Linux 計算節點建立 HPC 叢集)](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster-linux-cn)
 

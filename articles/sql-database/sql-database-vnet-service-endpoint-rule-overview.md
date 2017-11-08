@@ -13,20 +13,27 @@ ms.custom: VNet Service endpoints
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: 
-ms.date: 10/13/2017
+ms.workload: On Demand
+ms.date: 10/30/2017
 ms.author: genemi
-ms.openlocfilehash: b15727ae6c7b4d0f1595d506cb8d0f66ec3abfe4
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 69059b6169e1fac4d0abea2770b0de502f816113
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>對 Azure SQL Database 使用虛擬網路服務端點和規則
 
 「虛擬網路規則」是一項防火牆功能，可控制 Azure SQL Database 伺服器是否接受虛擬網路中的特定子網路所傳來的通訊。 本文說明為何虛擬網路規則功能有時是讓 Azure SQL Database 安全地接受通訊的最佳選項。
 
 若要建立虛擬網路規則，必須先有[虛擬網路服務端點][vm-virtual-network-service-endpoints-overview-649d]規則可供參考。
+
+
+> [!NOTE]
+> 針對 Azure SQL Database，這項功能會以預覽形式在下列 Azure 區域中提供：
+>
+> - WestCentralUS、WestUS2 和 EastUS。
+
 
 #### <a name="how-to-create-a-virtual-network-rule"></a>如何建立虛擬網路規則
 

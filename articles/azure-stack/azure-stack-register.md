@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/27/2017
 ms.author: erikje
-ms.openlocfilehash: 3282b9d4cdf67035d966cf934a7d8574eae6ae34
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 24cde66a132ae2e1ba0eb9b1564915746e5ca448
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>使用您的 Azure 訂用帳戶註冊 Azure Stack
 
@@ -72,7 +72,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 4. 從 RegisterWithAzure.psm1 指令碼，執行 Add-AzsRegistration 模組。 取代下列預留位置： 
     - *YourCloudAdminCredential* 是 PowerShell 物件，其中包含 domain\cloudadmin 的本機網域認證 (針對開發套件，這是 azurestack\cloudadmin)。
     - *YourAzureSubscriptionID* 是您要用來註冊 Azure Stack 的 Azure 訂用帳戶。
-    - *YourAzureDirectoryTenantName* 是您要建立您的註冊資源所在的 Azure 租用戶目錄的名稱。
+    - YourAzureDirectoryTenantName 是與您的 Azure 訂用帳戶相關聯之 Azure 租用戶目錄的名稱。 註冊資源會建立在此目錄租用戶中。 
     - *YourPrivilegedEndpoint* 是[特殊權限端點](azure-stack-privileged-endpoint.md)的名稱。
 
     ```powershell

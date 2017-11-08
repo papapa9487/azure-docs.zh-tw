@@ -12,20 +12,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: c473d4adf3b87fe6dc9fa89e0bae112bf27d47ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ccc0755385d2f170939e5c19f32b168132b6839b
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>使用 Azure 入口網站和 PowerShell 監視和管理 Azure Data Factory 管線
 > [!div class="op_single_selector"]
 > * [使用 Azure 入口網站/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
 > * [使用監視及管理應用程式](data-factory-monitor-manage-app.md)
 
+> [!NOTE]
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱[在第 2 版中監視和管理 Data Factory 管線](../monitor-visually.md)。
 
 > [!IMPORTANT]
 > 監視及管理應用程式對監視及管理您的資料管線，以及針對任何問題進行疑難排解，提供更佳的支援。 如需使用應用程式的詳細資訊，請參閱[使用監視及管理應用程式來監視及管理 Data Factory 管線](data-factory-monitor-manage-app.md)。 
@@ -63,7 +65,7 @@ Data Factory 的 [圖表] 檢視提供單一窗格，可用來監視和管理 Da
 您可以將圖表配置放大、縮小、縮放至適當比例、放大到 100% 和鎖定，以及自動定位管線和資料集。 您也可以查看資料歷程資訊 (也就是顯示所選取項目的上游和下游項目)。
 
 ### <a name="activities-inside-a-pipeline"></a>管線中的活動
-1. 在管線上按一下滑鼠右鍵，然後按一下開啟管線，就能查看所有管線中的活動，以及活動的輸入和輸出資料集。 當您的管線有超過一個的活動且您想了解單一管線的作業歷程時，這個功能會非常有用。
+1. 在管線上按一下滑鼠右鍵，然後按一下 [開啟管線]，就能查看所有管線中的活動，以及活動的輸入和輸出資料集。 當您的管線有超過一個的活動且您想了解單一管線的作業歷程時，這個功能會非常有用。
 
     ![開啟管線功能表](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)     
 2. 在下列範例中，您會在具有輸入與輸出的管線中看到複製活動。 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: 062d82d1bb2126a5b135796a2b5fa00ccf02511d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df139383eb2fa20fe75ecc6b3f5e2aa0773f186c
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>使用更新資源活動更新 Azure Machine Learning 模型
 本文補充主要 Azure Data Factory - Azure Machine Learning 整合文件︰[使用 Azure Machine Learning 和 Azure Data Factory 建立預測管線](transform-data-using-machine-learning.md)。 如果您尚未檢閱主要文件，請在閱讀這篇文章之前先這麼做。 
@@ -88,7 +88,7 @@ ms.lasthandoff: 10/11/2017
 對於第二個 Azure Machine Learning 連結服務，當您的 Azure Machine Learning Web 服務是傳統的 Web 服務或新的 Web 服務時，設定是不同的。 差異會在下列各節分別進行討論。 
 
 ## <a name="web-service-is-a-classic-web-service"></a>Web 服務是傳統的 Web 服務
-如果預測 Web 服務是**傳統 Web 服務**，請使用 [Azure 入口網站](https://manage.windowsazure.com)建立第二個**非預設且可更新的端點**。 如需相關步驟，請參閱[建立端點](../machine-learning/machine-learning-create-endpoint.md)一文。 建立非預設的可更新端點之後，執行下列步驟：
+如果預測 Web 服務是**傳統 Web 服務**，請使用 Azure 入口網站來建立第二個**非預設且可更新的端點**。 如需相關步驟，請參閱[建立端點](../machine-learning/machine-learning-create-endpoint.md)一文。 建立非預設的可更新端點之後，執行下列步驟：
 
 * 按一下 [批次執行] 以取得 **mlEndpoint** JSON 屬性的 URI 值。
 * 按一下 [更新資源] 連結以取得 **updateResourceEndpoint** JSON 屬性的 URI 值。 API 金鑰本身位於端點頁面 (位於右下角)。

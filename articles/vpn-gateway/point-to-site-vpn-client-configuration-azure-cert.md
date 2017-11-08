@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: a8129678b5ee2b0b1f2a59049fc6632b6cbf3383
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 7fe8d5e473e2c8281b1d6c8d7d5423294c428678
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>建立和安裝適用於原生 Azure 憑證驗證 P2S 組態的 VPN 用戶端組態檔
 
@@ -90,6 +90,10 @@ Azure 不提供用於原生 Azure 憑證驗證的 mobileconfig 檔案。 您必�
 按一下 [新增] 來進行匯入。
 
   ![新增憑證](./media/point-to-site-vpn-client-configuration-azure-cert/addcert.png)
+  
+    >[!NOTE]
+    >按兩下憑證可能不會顯示 [新增] 對話方塊，但是憑證已安裝在正確的存放區。 您可以在憑證類別底下的登入金鑰鏈中檢查憑證。
+  
 2. 開啟 [網路喜好設定] 底下的 [網路] 對話方塊，然後按一下 [+] 建立適用於 Azure VNet P2S 連線的新 VPN 用戶端連線設定檔。
 
   [介面] 值是 [VPN]，[VPN 類型] 值則是 [IKEv2]。 在 [服務名稱] 欄位中指定設定檔名稱，然後按一下 [建立] 以建立 VPN 用戶端連線設定檔。

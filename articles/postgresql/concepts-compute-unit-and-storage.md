@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 3c8f6a66b3dd1564bc5eafbecafee6e2f1542caa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbb9f733455fa0492358b24b178c8c637ff08c71
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="explaining-compute-units-in-azure-database-for-postgresql"></a>說明適用於 PostgreSQL 的 Azure 資料庫中的計算單位
 本主題說明計算單位的概念，以及當您的工作負載到達計算單位的最高等級時會發生什麼狀況。
@@ -21,7 +21,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="what-are-compute-units"></a>什麼是計算單位？
 計算單位是 CPU 處理輸送量的量值，保證可供單一適用於 PostgreSQL 的 Azure 資料庫伺服器使用。 計算單位是 CPU 和記憶體資源的混合量值。 一般而言，50 個計算單位等於半個核心。 100 個計算單位等於一個核心。 2000 個計算單位等於 20 個保證可供您伺服器使用之處理輸送量的核心。
 
-每個計算單位的記憶體數量會針對基本和標準定價層進行最佳化。 藉由提升效能等級來使計算單位數加倍，等於讓該單一適用於 PostgreSQL 的 Azure 資料庫可用的資源集合加倍。
+每個計算單位的記憶體數量會針對基本和標準定價層進行最佳化。 藉由提升效能等級來使計算單位數加倍，等於讓該單一適用於 PostgreSQL 的 Azure 資料庫可用的 CPU 和記憶體數量加倍。
 
 例如，標準的 800 個計算單位所提供的 CPU 輸送量與記憶體，比標準的 100 個計算單位設定多 8 倍。 不過，儘管標準的 100 個計算單位會和基本的 100 個計算單位一樣提供相同的 CPU 輸送量，但是，標準定價層中預先設定的記憶體量是針對基本定價層所設定之記憶體量的兩倍。 因此，比起選取相同計算單位數的基本定價層，標準定價層提供更佳的工作負載效能與更低的交易延遲。
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory 的新增功能？ | Microsoft Docs"
-description: "使用這些版本資訊以持續接收 Azure Active Directory 中的**最新版本**、**已知問題**、**錯誤修正**、**已被取代功能**和**方案變更**。"
+title: "有哪些新功能？ Azure Active Directory 版本資訊 | Microsoft Docs"
+description: "使用這些版本資訊以持續接收 Azure Active Directory (Azure AD) 中的最新版本、已知問題、錯誤修正、已被取代功能和方案變更。"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 10/27/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0361d5b48af876af2ccc522351484d369554bfca
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 1d98233e1bfc2c9a926d7c61737286ec6e4fc422
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
-我們正為您持續改善 Azure Active Directory。 為了讓您取得最新的開發消息，本主題提供您下列相關資訊：
+我們正持續改善 Azure Active Directory。 為了讓您取得最新的開發消息，本主題提供您下列相關資訊：
 
 -   最新版本 
 -   已知問題 
@@ -76,6 +76,8 @@ Azure Active Directory 針對呈現 HTML 使用者名稱和密碼欄位的應用
 
 使用此公開預覽，MFA 的管理和報告屬於核心 Azure AD 設定體驗整體的一部分，可讓您管理 Azure AD 體驗中的 MFA 管理入口網站功能。
 
+如需詳細資訊，請參閱[在 Azure 入口網站中多重要素驗證報告的參考資訊](active-directory-reporting-activity-sign-ins-mfa.md) 
+
 
 ---
 **類型：**新功能  
@@ -112,8 +114,6 @@ Azure Active Directory 針對呈現 HTML 使用者名稱和密碼欄位的應用
 **服務類別：**存取權檢閱  
 **產品功能：**控管  
 
-
-Azure AD 的新功能？
 
 存取權檢閱 (預覽) 可讓組織有效地管理群組成員資格和企業應用程式的存取權： 
 

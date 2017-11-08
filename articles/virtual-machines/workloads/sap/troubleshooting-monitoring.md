@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/01/2016
+ms.date: 10/31/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee5be707b443cbe42bf4a492d79390e534d4b91f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5583f3d1949614dbba4d2f91d72e4ac6b4d03d1c
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="how-to-troubleshoot-and-monitor-sap-hana-large-instances-on-azure"></a>如何針對 Azure 上 SAP HANA (大型執行個體) 進行疑難排解和監視
 
@@ -41,6 +41,16 @@ SAP HANA on Azure (大型執行個體) 與任何其他 IaaS 部署並無不同 -
 **網路頻寬：**Azure VNet 閘道對於將資料移入 Azure VNet 的頻寬方面有所限制，因此監視 VNet 內所有 Azure VM 所接收的資料相當有用，可了解您有多接近所選 Azure 閘道 SKU 的限制。 在「HANA 大型執行個體」單位上，監視連入和連出網路流量，並隨著時間記錄所處理的磁碟區，是有意義的。
 
 **磁碟空間：**磁碟空間耗用量通常會隨著時間增加。 其原因有許多，但最重要的包括：資料量增加、執行交易記錄備份、儲存追蹤檔案，以及執行儲存體快照。 因此，監視磁碟空間使用量並管理與「HANA 大型執行個體」單位關聯的磁碟空間相當重要。
+
+如果是**類型 II SKU** 的 HANA 大型執行個體，伺服器會隨附預先載入的系統診斷工具。 您可以利用這些診斷工具執行系統健康情況檢查。 執行下列命令可在 /var/log/health_check 產生健康情況檢查記錄檔。
+```
+/opt/sgi/health_check/microsoft_tdi.sh
+```
+當您使用 Microsoft 支援服務小組對問題進行疑難排解時，可能也會要求您提供使用這些診斷工具的記錄檔。 您可以使用下列命令壓縮檔案。
+```
+tar  -czvf health_check_logs.tar.gz /var/log/health_check
+```
+
 
 ## <a name="monitoring-and-troubleshooting-from-hana-side"></a>從 HANA 端進行監視和疑難排解
 

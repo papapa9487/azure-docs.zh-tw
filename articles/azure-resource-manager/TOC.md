@@ -71,7 +71,6 @@
 
 ## 設定資源原則
 ### [資源原則是什麼？](resource-manager-policy.md)
-### [使用指令碼指派原則](resource-manager-policy-create-assign.md)
 ### 範例
 #### [標記](resource-manager-policy-tags.md)
 #### [命名慣例](resource-manager-policy-naming-convention.md)

@@ -12,16 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 10/15/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 092b7651543bd67e6536088952303045cfaf8717
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8398a261ca33060b7709d818cb64bb1e8e2058b1
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>使用 Data Factory 在 15 分鐘內將 1 TB 載入至 Azure SQL 資料倉儲
+> [!NOTE]
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱[使用 Data Factory 第 2 版從 Azure SQL 資料倉儲來回複製資料](../connector-azure-sql-data-warehouse.md)。
+
+
 [Azure SQL 資料倉儲](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)是一種雲端架構、相應放大的資料庫，可處理巨量關聯式與非關聯式資料。  SQL 資料倉儲是以巨量平行處理 (MPP) 架構為基礎，最適用於企業資料倉儲工作負載。  它透過單獨調整儲存體和計算的彈性，來提供雲端彈性。
 
 現在，使用 Azure SQL 資料倉儲比之前使用 **Azure Data Factory** 還要簡單。  Azure Data Factory 是一個完全受管理的雲端架構資料整合服務，可用來將現有系統的資料填入 SQL 資料倉儲，並節省評估 SQL 資料倉儲及建置分析解決方案的寶貴時間。 以下是使用 Azure Data Factory 將資料載入至 Azure SQL 資料倉儲的主要優點：

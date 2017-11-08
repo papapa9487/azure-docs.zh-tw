@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d8ad132ec47a81971a3405970eeddab3b1598ff3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eee8ee3af5918ddbe7393ff2574833f798ffcb19
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>使用資料管理閘道針對問題進行疑難排解
 本文提供使用資料管理閘道進行疑難問題排解的相關資訊。
 
 > [!NOTE]
-> 如需閘道的詳細資訊，請參閱[資料管理閘道](data-factory-data-management-gateway.md)文章。 如需使用閘道將資料從內部部署 SQL Server 資料庫移至 Microsoft Azure Blob 儲存體的逐步解說，請參閱[在內部部署與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)文章。
->
->
+> 本文適用於第 1 版 Azure Data Factory (正式運作版)。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱 [Data Factory 第 2 版中的自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。
+
+如需閘道的詳細資訊，請參閱[資料管理閘道](data-factory-data-management-gateway.md)文章。 如需使用閘道將資料從內部部署 SQL Server 資料庫移至 Microsoft Azure Blob 儲存體的逐步解說，請參閱[在內部部署與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)文章。
 
 ## <a name="failed-to-install-or-register-gateway"></a>無法安裝或註冊閘道
 ### <a name="1-problem"></a>1.問題

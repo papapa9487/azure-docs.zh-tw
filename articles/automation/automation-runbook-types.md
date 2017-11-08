@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/01/2017
 ms.author: bwren
-ms.openlocfilehash: 4bf4a3d755afeee9930204a2dbae9ff9fada3517
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2acf45187894aa3bfcaa4df639becf18605d50a5
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-automation-runbook-types"></a>Azure 自動化 Runbook 類型
 Azure 自動化支援下表中簡短描述的幾種 Runbook。  下列各節提供各種類型的進一步資訊，包括每種類別何時使用的考量。
@@ -85,8 +85,19 @@ PowerShell Workflow Runbook 是以 [Windows PowerShell 工作流程](automation-
 * 只有使用 Start-AzureAutomationRunbook Cmdlet 才能併入 PowerShell Runbook 做為子 Runbook，此 Cmdlet 會建立新的工作。
 
 ## <a name="python-runbooks"></a>Python Runbook
+Python 2 下的 Python Runbook 編譯。  您可以在 Azure 入口網站中使用文字編輯器直接編輯 Runbook 的程式碼，或是使用任何離線的文字編輯器，然後將 [unbook 匯入](http://msdn.microsoft.com/library/azure/dn643637.aspx) Azure 自動化。
 
-## <a name="bash-runbooks"></a>Bash Runbook
+### <a name="advantages"></a>優點
+* 利用 Python 的強固標準程式庫。
+
+### <a name="limitations"></a>限制
+* 必須熟悉 Python 指令碼處理。
+* 目前僅支援 Python 2，這表示使用 Python 3 特定函式將會失敗。
+
+### <a name="known-issues"></a>已知問題
+以下是 Python Runbook 目前已知的問題。
+
+* 若要使用第三方程式庫，必須在 [Windows 混合式 Runbook 背景工作角色](https://docs.microsoft.com/en-us/azure/automation/automation-windows-hrw-install)或 [Linux 混合式 Runbook 背景工作角色](https://docs.microsoft.com/en-us/azure/automation/automation-linux-hrw-install)上執行 Runbook，且必須已先在機器上安裝程式庫，再啟動 Runbook。
 
 ## <a name="considerations"></a>考量
 在決定特定 Runbook 要使用何種類型時，您應該考慮下列其他事項。

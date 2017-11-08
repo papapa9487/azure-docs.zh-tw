@@ -12,16 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 11/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: db18a9f7f68fe47a85e9a160e4e919fc57b1b8e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c22b8c07e6fb27af663c177ad4045615ab209ee1
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="data-management-gateway"></a>資料管理閘道
+> [!NOTE]
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱[第 2 版中的自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。 
+
 資料管理閘道是一個用戶端代理程式，您必須在內部部署環境中部署此代理程式，才能在雲端與內部部署資料存放區之間複製資料。 如需 Data Factory 所支援的內部部署資料存放區，請參閱 [支援的資料來源](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 一節。
 
 本文是用來補充 [在內部部署和雲端資料存放區之間移動資料](data-factory-move-data-between-onprem-and-cloud.md) 一文中的逐步解說。 在該逐步解說中，您會建立一個使用閘道將資料從內部部署 SQL Server 資料庫移到 Azure Blob 的管線。 這篇文章提供有關資料管理閘道的詳細深入資訊。 
@@ -429,7 +432,7 @@ CPU 使用率 | 閘道節點的 CPU 使用率。 這個值是近乎即時的快�
 ## <a name="encrypting-credentials"></a>加密認證
 若要在 Data Factory 編輯器中加密認證，請執行下列步驟︰
 
-1. 在「閘道機器」 上啟動網頁瀏覽器，瀏覽至 [Azure 入口網站](http://portal.azure.com)。 視需要搜尋您的 Data Factory，在 DATA FACTORY 頁面中開啟 Data Factory，然後按一下編寫及部署 來啟動 Data Factory 編輯器。   
+1. 在「閘道機器」 上啟動網頁瀏覽器，瀏覽至 [Azure 入口網站](http://portal.azure.com)。 視需要搜尋您的 Data Factory，在 [DATA FACTORY] 頁面中開啟 Data Factory，然後按一下 [編寫及部署] 來啟動 Data Factory 編輯器。   
 2. 在樹狀檢視中按一下現有的 **連結服務** ，以查看其 JSON 定義或建立需要資料管理閘道 (例如︰SQL Server 或 Oracle) 的連結服務。
 3. 在 JSON 編輯器中，為 **gatewayName** 屬性輸入閘道的名稱。
 4. 在 **connectionString** 中輸入**資料來源**屬性的伺服器名稱。

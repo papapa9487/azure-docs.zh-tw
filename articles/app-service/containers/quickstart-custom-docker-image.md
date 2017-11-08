@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 09/05/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: eadc0f7eb20b9e8d1cacc79b2907559e2b2535a2
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: c85f79cc14cdcecd2a05fc0ff91c4864b9fba277
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="run-a-custom-docker-hub-image-in-web-app-for-containers"></a>在用於容器的 Web 應用程式中執行自訂 Docker Hub 映像
 
@@ -42,7 +42,7 @@ App Service 在 Linux 上提供預先定義的應用程式堆疊，且支援特�
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name elnably/dockerimagetest
 ```
 
-在上述命令中，`--deployment-container-image-name` 指向公用 Docker Hub 映像 [https://hub.docker.com/r/elnably/dockerimagetest/](https://hub.docker.com/r/elnably/dockerimagetest/)。 您可以在[https://github.com/rachelappel/docker-image](https://github.com/rachelappel/docker-image) 檢查其內容。
+在上述命令中，`--deployment-container-image-name` 指向公用 Docker Hub 映像 [https://hub.docker.com/r/elnably/dockerimagetest/](https://hub.docker.com/r/elnably/dockerimagetest/)。 您可以在 [https://github.com/ahmedelnably/dockerimagetest](https://github.com/ahmedelnably/dockerimagetest) 檢查其內容。
 
 建立 Web 應用程式後，Azure CLI 會顯示類似下列範例的輸出：
 

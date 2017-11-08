@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: aab491f162fd4d24c6ff4d8858f2edd96dda30d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8d902b9170fee47afb038df739bbca6d2d025e0
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>教學課程：Azure Active Directory 與 Zoom 整合
 
@@ -110,7 +110,7 @@ Zoom 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<companyname>.zoom.us`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.zoom.us`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`<companyname>.zoom.us`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Zoom 客戶支援小組](https://support.zoom.us/hc)以取得這些值。 
@@ -165,7 +165,7 @@ Zoom 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-zoom-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-zoom-tutorial/create_aaduser_02.png)
 
@@ -252,8 +252,6 @@ Zoom 與 Azure AD 整合提供下列優點：
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

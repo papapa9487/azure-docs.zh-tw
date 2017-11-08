@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: chackdan
-ms.openlocfilehash: 04964175f06675a486fcf252f194f0d790acea4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7c4a00d2c9be2d6b4d3d0b4dfb152deb2d0e217
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric 叢集容量規劃考量
 對於任何生產部署而言，容量規劃都是一個很重要的步驟。 以下是一些您在該程序中必須考量的項目。
@@ -92,6 +92,11 @@ ms.lasthandoff: 10/11/2017
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>使用 Silver 或 Gold 持久性層級的建議時機
 
 針對所有裝載您預期會經常進行相應縮小 (減少 VM 執行個體計數)，且偏好延遲部署作業以簡化相應縮小作業之具狀態服務的節點類型，請使用 Silver 或 Gold 持久性。 相應放大案例 (新增 VM 執行個體) 並不會影響您對耐久性層級的選擇，只有相應縮小才會。
+
+### <a name="changing-durability-levels"></a>變更持久性層級
+- 持久性層級為 Silver 或 Gold 的節點類型無法降級為 Bronze。
+- 從 Bronze 升級至 Silver 或 Gold 可能需要幾小時的時間。
+- 變更持久性層級時，請務必同時在 VMSS 資源的 Service Fabric 擴充設定中，和 Service Fabric 叢集資源的節點類型定義中更新層級。 這些值必須相符。
 
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>針對您已設定為 Silver 或 Gold 耐久性層級之節點類型的作業建議。
 

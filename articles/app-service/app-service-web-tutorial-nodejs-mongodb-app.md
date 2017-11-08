@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6d4ef794106b27b812bfc0c5a7975fad23da1898
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 0c3f9b49c7931371bf3a4eaf1a5a3c6261dad839
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>在 Azure 中建置 Node.js 和 MongoDB Web 應用程式
 
@@ -90,7 +90,7 @@ npm start
 
 當應用程式完全載入時，您會看到類似下列的訊息：
 
-```
+```console
 --
 MEAN.JS - Development Environment
 
@@ -122,17 +122,7 @@ MEAN.js 範例應用程式會將使用者資料儲存於資料庫中。 如果�
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
-使用 [az group create](/cli/azure/group#create) 命令來建立資源群組。
-
-[!INCLUDE [Resource group intro](../../includes/resource-group.md)]
-
-下列範例會在西歐區域中建立一個資源群組。
-
-```azurecli-interactive
-az group create --name myResourceGroup --location "West Europe"
-```
-
-使用 [az appservice list-locations](/cli/azure/appservice#list-locations) Azure CLI 命令以列出可用的位置。 
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)] 
 
 ### <a name="create-a-cosmos-db-account"></a>建立 Cosmos DB 帳戶
 
@@ -192,20 +182,16 @@ Azure CLI 會顯示類似下列範例的資訊：
 <a name="devconfig"></a>
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>在 Node.js 應用程式中設定連接字串
 
-在您的 MEAN.js 存放庫中，開啟 _config/env/production.js_。
+在本機 MEAN.js 存放庫的 _config/env/_ 資料夾中，建立名為 _local-production.js_ 的檔案。 _.gitignore_ 設定為在存放庫外保留此檔案。 
 
-在 `db` 物件中，更新 `uri` 的值：
-
-* 將兩個 \<cosmosdb_name> 預留位置取代為您的 Cosmos DB 資料庫名稱。
-* 將 \<primary_master_key> 預留位置取代為您在上一個步驟中複製的索引鍵。
-
-下列程式碼顯示 `db` 物件：
+請將下列程式碼複製到其中。 務必要將這兩個 \<cosmosdb_name> 預留位置取代為您的 Cosmos DB 資料庫名稱，並將 \<primary_master_key> 預留位置取代為您在上一個步驟中複製的金鑰。
 
 ```javascript
-db: {
-  uri: 'mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false',
-  ...
-},
+module.exports = {
+  db: {
+    uri: 'mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false'
+  }
+};
 ```
 
 需要 `ssl=true` 選項，因為 [Cosmos DB 需要 SSL](../cosmos-db/connect-mongodb-account.md#connection-string-requirements)。 
@@ -220,7 +206,7 @@ db: {
 gulp prod
 ```
 
-執行下列命令以使用您在 _config/env/production.js_ 中設定的連接字串。
+執行下列命令以使用您在 _config/env/local-production.js_ 中設定的連接字串。
 
 ```bash
 NODE_ENV=production node server.js
@@ -230,7 +216,7 @@ NODE_ENV=production node server.js
 
 載入應用程式之後，請檢查以確定它正在生產環境中執行：
 
-```
+```console
 --
 MEAN.JS
 
@@ -249,70 +235,23 @@ MEAN.JS version: 0.5.0
 
 在此步驟中，您要將已與 MongoDB 連接的 Node.js 應用程式部署至 Azure App Service。
 
+### <a name="configure-a-deployment-user"></a>設定部署使用者
+
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
+
 ### <a name="create-an-app-service-plan"></a>建立應用程式服務方案
 
-在 Cloud Shell 中，使用 [az appservice plan create](/cli/azure/appservice/plan#create) 命令來建立 App Service 方案。 
-
-[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
-
-下列範例會使用**免費**定價層，建立名為 _myAppServicePlan_ 的 App Service 方案：
-
-```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
-```
-
-建立 App Service 方案後，Azure CLI 會顯示類似下列範例的資訊：
-
-```json 
-{ 
-  "adminSiteName": null,
-  "appServicePlanName": "myAppServicePlan",
-  "geoRegion": "North Europe",
-  "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan", 
-  "kind": "app",
-  "location": "North Europe",
-  "maximumNumberOfWorkers": 1,
-  "name": "myAppServicePlan",
-  ...
-  < Output has been truncated for readability >
-} 
-```
+[!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
 ### <a name="create-a-web-app"></a>建立 Web 應用程式
 
-在 Cloud Shell 中，使用 [aaz webapp create](/cli/azure/webapp#create) 命令，在 `myAppServicePlan` App Service 方案中建立 Web 應用程式。 
-
-Web 應用程式會為您提供裝載空間來部署程式碼，以及提供 URL 讓您能夠檢視已部署的應用程式。 用來建立 Web 應用程式。 
-
-在下列命令中，將 \<app_name> 預留位置取代為唯一的應用程式名稱。 這個名稱是作為 Web 應用程式預設 URL 的一部分，因此，這個名稱在 Azure App Service 的所有應用程式中必須是唯一的。 
-
-```azurecli-interactive
-az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
-```
-
-建立 Web 應用程式後，Azure CLI 會顯示類似下列範例的資訊： 
-
-```json 
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "enabled": true,
-  ...
-  < Output has been truncated for readability >
-}
-```
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
 
 ### <a name="configure-an-environment-variable"></a>設定環境變數
 
-稍早在本教學課程中，您已將資料庫連接字串硬式編碼於 _config/env/production.js_ 中。 基於安全性最佳做法，您會想要將這些敏感性資料保存在您的 Git 存放庫以外的地方。 為了在 Azure 中執行應用程式，您將改用環境變數。
+根據預設，MEAN.js 專案會將 _config/env/local-production.js_ 屏除在 Git 存放庫之外。 因此針對您的 Azure Web 應用程式，使用應用程式設定來定義 MongoDB 連接字串。
 
-在 Cloud Shell 中，您可以使用 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set) 命令將環境變數設定為「應用程式設定」。 
+若要設定應用程式設定，請在 Cloud Shell 中使用 [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) 命令。 
 
 下列範例會在 Azure Web 應用程式中設定 `MONGODB_URI` 應用程式設定。 取代 \<app_name>、\<cosmosdb_name> 和 \<primary_master_key> 預留位置。
 
@@ -322,13 +261,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 在 Node.js 程式碼中，您可以利用 `process.env.MONGODB_URI` 來存取此應用程式設定，就像存取任何環境變數一樣。 
 
-現在，使用下列命令，將您的變更復原為 _config/env/production.js_：
-
-```bash
-git checkout -- .
-```
-
-再次開啟 _config/env/production.js_。 請注意，已經將預設的 MEAN.js 應用程式設定為使用您建立的 `MONGODB_URI` 環境變數。
+在本機 MEAN.js 存放庫中，開啟 _config/env/production.js_ (而不是 _config/env/local-production.js_)，它具有生產環境特定設定。 請注意，已經將預設的 MEAN.js 應用程式設定為使用您建立的 `MONGODB_URI` 環境變數。
 
 ```javascript
 db: {
@@ -337,49 +270,9 @@ db: {
 },
 ```
 
-### <a name="configure-local-git-deployment"></a>設定本機 git 部署 
-
-在 Cloud Shell 中，使用 [az webapp deployment user set](/cli/azure/webapp/deployment/user#set) 命令來建立部署的認證。
-
-您可以使用各種方式來將應用程式部署至 Azure App Service，包括 FTP、本機 Git、GitHub、Visual Studio Team Services 和 BitBucket。 對於 FTP 和本機 Git，必須在伺服器上設定部署使用者，才能驗證您的部署。 此部署使用者是帳戶層級，與 Azure 訂用帳戶的帳戶不同。 您只需設定此部署使用者一次。
-
-在下列命令中，將 *\<user-name>* 和 *\<password>* 取代為新的使用者名稱和密碼。 使用者名稱必須是唯一的。 密碼長度必須至少為 8 個字元，包含下列三個元素其中兩個：字母、數字、符號。 如果您收到 ` 'Conflict'. Details: 409` 錯誤，請變更使用者名稱。 如果您收到 ` 'Bad Request'. Details: 400` 錯誤，請使用更強的密碼。
-
-```azurecli-interactive
-az webapp deployment user set --user-name <username> --password <password>
-```
-
-記下使用者名稱和密碼，以在您部署應用程式的稍後步驟中使用。
-
-使用 [az webapp deployment source config-local-git](/cli/azure/webapp/deployment/source#config-local-git) 命令，來設定 Azure Web 應用程式的本機 Git 存取。 
-
-```azurecli-interactive
-az webapp deployment source config-local-git --name <app_name> --resource-group myResourceGroup
-```
-
-設定部署使用者時，Azure CLI 會以下列格式顯示 Azure Web 應用程式的部署 URL：
-
-```bash 
-https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git 
-``` 
-
-複製終端機的輸出，因為下一個步驟中會使用此資訊。 
-
 ### <a name="push-to-azure-from-git"></a>從 Git 推送至 Azure
 
-在本機終端視窗中，將 Azure 遠端新增至本機 Git 存放庫。 
-
-```bash
-git remote add azure <paste_copied_url_here> 
-```
-
-推送至 Azure 遠端，以部署您的 Node.js 應用程式。 建立部署使用者時，系統會提示您輸入稍早提供的密碼。 
-
-```bash
-git push azure master
-```
-
-在部署期間，Azure App Service 會與 Git 溝通其進度。
+[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
 ```bash
 Counting objects: 5, done.

@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory 中的產品與服務方案的參考 | Microsoft Docs"
-description: "產品與服務方案的參考"
+title: "用於在 Azure Active Directory 中授權的產品名稱和服務方案識別碼 | Microsoft Docs"
+description: "識別項對應來管理 Azure 入口網站、Office 365 入口網站、PowerShell 或 Microsoft Graph 中的 Azure AD 授權"
 services: active-directory
 keywords: "Azure Active Directory 授權服務方案"
 documentationcenter: 
@@ -13,33 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/11/2017
+ms.date: 10/26/2017
 ms.author: piotrci
-ms.openlocfilehash: e796c03f4477b431907d8b5fbd6065239bb1d40e
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: b2c540c69a95f0912a71c25ddc70061fa8043aa4
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 10/27/2017
 ---
-# <a name="reference-for-products-and-service-plans-in-azure-active-directory"></a>Azure Active Directory 中的產品與服務方案的參考
+# <a name="product-names-and-service-plan-identifiers-for-licensing"></a>用於授權的產品名稱和服務方案識別碼
 
-本文提供在處理 Microsoft Online Services 授權管理時可能有用的參考資訊。
+管理 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products)或 Office 365 入口網站中的授權時，您會看到看起來像是 Office 365 Enterprise E3 的產品名稱。 當您使用 PowerShell v1.0 Cmdlet 時，會使用特定但是較不好記的名稱來識別相同的產品：ENTERPRISEPACK。 使用 PowerShell 2.0 版 Cmdlet 或 Microsoft Graph 時，會使用 GUID 值來識別相同的產品：6fd2c87f-b296-42f0-b197-1e91e994b900。 下表列出最常使用的 Microsoft Online Services 產品，並提供其各種識別碼值：
 
-## <a name="product-names-and-identifiers-used-in-azure-ad"></a>Azure AD 中使用的產品名稱和識別碼
-
-在 [Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) 或 Office 入口網站中管理授權時，您會看到易記的產品名稱，例如 Office 365 企業版 E3。 不過，當您使用 PowerShell v1.0 Cmdlet 時，會使用較不好記的名稱來識別相同的產品：ENTERPRISEPACK。 使用 PowerShell 2.0 版或 Microsoft Graph 時，會使用 GUID 值來識別相同的產品：6fd2c87f-b296-42f0-b197-1e91e994b900。 產品中包含的服務方案也是同樣情況。
-
-下表列出最常使用的 Microsoft Online Services 產品，並提供其各種識別碼值。
-
-- **產品名稱**：您會在管理入口網站中看到這些值。
-- **字串識別碼**：PowerShell v1.0 Cmdlet 會在執行授權作業時使用這些識別碼。
-- **Guid 識別碼**：Azure AD Graph 和 Microsoft Graph 會使用這些識別碼。
-- **包含的服務方案**：產品中的服務方案清單。 字串識別碼和 Guid 識別碼會列出來。
+- **產品名稱**：在管理入口網站中使用
+- **字串識別碼**：PowerShell v1.0 Cmdlet 會在執行授權作業時使用這些識別碼
+- **Guid 識別碼**：Azure AD Graph 和 Microsoft Graph 使用的 GUID
+- **包含的服務方案**：對應至字串識別碼和 GUID 之產品中的服務方案清單
 
 >[!NOTE]
->這是截至 2017 年 10 月 11 日為止的精確資訊。 此表格包含最常使用的產品精選。
+>這是截至 2017 年 10 月 11 日為止的精確資訊。
 
-| 產品名稱 | 字串識別碼 | Guid 識別碼| 包含的服務方案 |
+| 產品名稱 | 字串識別碼 | GUID | 包含的服務方案 |
 | --- | --- | --- |--- |
 | AZURE ACTIVE DIRECTORY BASIC  | AAD_BASIC | 2b9c8e7c-319c-43a2-a2a0-48c5c6161de7  | AAD_BASIC (c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe)
 | AZURE ACTIVE DIRECTORY PREMIUM P1 | AAD_PREMIUM   | 078d2b04-f1bd-4111-bbd4-b4b1b354cef4  | AAD_PREMIUM (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>MFA_PREMIUM (8a256a2b-b617-496d-b51b-e76466e88db0)
@@ -103,7 +97,7 @@ ms.lasthandoff: 10/19/2017
 
 ## <a name="service-plans-that-cannot-be-assigned-at-the-same-time"></a>無法同時指派的服務方案
 
-某些產品包含互斥的服務方案 - 不能同時將它們指派給相同的使用者。 例如，如果您的租用戶中有「Office 365 企業版 E1」和「Office 365 企業版 E3」，而您嘗試將這兩個授權指派給同一個使用者，則作業會失敗。 這是因為 E3 產品包含與其 E1 對應項目衝突的下列服務方案：
+某些產品包含不能同時將它們指派給相同使用者的服務方案。 例如，如果您的租用戶中有「Office 365 企業版 E1」和「Office 365 企業版 E3」，而您嘗試將這兩個授權指派給同一個使用者，則作業會失敗。 這是因為 E3 產品包含與其 E1 對應項目衝突的下列服務方案：
 
 -   SharePoint Online (方案 2) 與 SharePoint Online (方案 1) 衝突。
 -   Exchange Online (方案 2) 與 Exchange Online (方案 1) 衝突。
@@ -121,7 +115,7 @@ ms.lasthandoff: 10/19/2017
 
 無法一起指派下列服務方案：
 
-| 服務方案名稱 | Guid 識別碼 |
+| 服務方案名稱 | GUID |
 | --- | --- |
 | CRMIUR    | c42a56bd-9e70-4ace-be17-dc8eeae369d7 |
 | CRMPLAN1  | 119cf168-b6cf-41fb-b82e-7fee7bae5814 |
@@ -137,7 +131,7 @@ ms.lasthandoff: 10/19/2017
 
 無法一起指派下列服務方案：
 
-| 服務方案名稱 | Guid 識別碼 |
+| 服務方案名稱 | GUID |
 | --- | --- |
 | EXCHANGE_B_STANDARD   | 90927877-dcff-4af6-b346-2332c0b15bb7 |
 | EXCHANGE_L_STANDARD   | d42bdbd6-c335-4231-ab3d-c8f348d5aff5 |
@@ -152,7 +146,7 @@ ms.lasthandoff: 10/19/2017
 
 無法一起指派下列服務方案：
 
-| 服務方案名稱 | Guid 識別碼 |
+| 服務方案名稱 | GUID |
 | --- | --- |
 | INTUNE_A  | c1ec4a95-1f05-45b3-a911-aa3fa01094f5 |
 | INTUNE_A_VL   | 3e170737-c728-4eae-bbb9-3f3360f7184c |
@@ -162,7 +156,7 @@ ms.lasthandoff: 10/19/2017
 
 無法一起指派下列服務方案：
 
-| 服務方案名稱 | Guid 識別碼 |
+| 服務方案名稱 | GUID |
 | --- | --- |
 | ONEDRIVEENTERPRISE    | afcafa6a-d966-4462-918c-ec0b4e0fe642 |
 | SHAREPOINT_S_DEVELOPER    | a361d6e2-509e-4e25-a8ad-950060064ef4 |
@@ -178,7 +172,7 @@ ms.lasthandoff: 10/19/2017
 
 無法一起指派下列服務方案：
 
-| 服務方案名稱 | Guid 識別碼 |
+| 服務方案名稱 | GUID |
 | --- | --- |
 | MCOIMP    | afc06cb0-b4f4-4473-8286-d644f70d8faf |
 | MCOSTANDARD_MIDMARKET | b2669e95-76ef-4e7e-a367-002f60a39f3e |
@@ -187,7 +181,7 @@ ms.lasthandoff: 10/19/2017
 
 無法一起指派下列服務方案：
 
-| 服務方案名稱 | Guid 識別碼 |
+| 服務方案名稱 | GUID |
 | --- | --- |
 | MCOPSTN1  | 4ed3ff63-69d7-4fb7-b984-5aec7f605ca8 |
 | MCOPSTN2  | 5a10155d-f5c1-411a-a8ec-e99aae125390 |
@@ -196,7 +190,7 @@ ms.lasthandoff: 10/19/2017
 
 無法一起指派下列服務方案：
 
-| 服務方案名稱 | Guid 識別碼 |
+| 服務方案名稱 | GUID |
 | --- | --- |
 | YAMMER_ENTERPRISE | 7547a3fe-08ee-4ccb-b430-5077c5041653 |
 | YAMMER_EDU    | 2078e8df-cff6-4290-98cb-5408261a760a |

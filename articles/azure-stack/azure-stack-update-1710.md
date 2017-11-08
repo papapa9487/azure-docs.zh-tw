@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 10/26/2017
 ms.author: twooley
-ms.openlocfilehash: 6b54bb616accb926af9364865bf4108fe0aa3bc8
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: d91a23ae4eb5aee14d3d2fef74467e7f33c458cc
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-stack-1710-update-build-201710201"></a>Azure Stack 1710 更新 (組建 20171020.1)
 
@@ -55,9 +55,12 @@ ms.lasthandoff: 10/25/2017
 
 本節包含在安裝 1710 更新時可能遇到的已知問題。
 
+> [!IMPORTANT]
+> 如果更新失敗，當您稍後嘗試繼續更新，您必須從具有特殊權限的端點使用 `Resume-AzureStackUpdate` Cmdlet。 請勿使用系統管理員入口網站來繼續更新。 (這是此版本的已知問題。)如需詳細資訊，請參閱[使用具有特殊權限的端點來監視 Azure Stack 中的更新](azure-stack-monitor-update.md)。
+
 | 徵狀  | 原因  | 解決方案 |
 |---------|---------|---------|
-|當您執行更新時，可能會在更新動作方案的「儲存體主機重新啟動儲存體節點」步驟期間發生類似下列錯誤的錯誤。<br><br>**{"name":"重新啟動儲存體主機","description":"重新啟動儲存體主機。","errorMessage":"類型 'Restart' 的角色 'BareMetal' 引發了例外狀況:\n\n已略過電腦 HostName-05。無法透過 WMI 服務擷取其 LastBootUpTime，錯誤訊息如下: RPC 伺服器無法使用。(發生例外狀況於: 0x800706BA)。\nat Restart-Host** | 這個問題是由可能會在某些設定中出現的錯誤驅動程式所導致的。 | 1.登入基礎板管理控制器 (BMC) Web 介面，然後重新啟動錯誤訊息中識別出的主機。<br><br>2.繼續執行更新。 |
+|當您執行更新時，可能會在更新動作方案的「儲存體主機重新啟動儲存體節點」步驟期間發生類似下列錯誤的錯誤。<br><br>**{"name":"重新啟動儲存體主機","description":"重新啟動儲存體主機。","errorMessage":"類型 'Restart' 的角色 'BareMetal' 引發了例外狀況:\n\n已略過電腦 HostName-05。無法透過 WMI 服務擷取其 LastBootUpTime，錯誤訊息如下: RPC 伺服器無法使用。(發生例外狀況於: 0x800706BA)。\nat Restart-Host** | 這個問題是由可能會在某些設定中出現的錯誤驅動程式所導致的。 | 1.登入基礎板管理控制器 (BMC) Web 介面，然後重新啟動錯誤訊息中識別出的主機。<br><br>2.使用具有特殊權限的端點來繼續更新。 |
 | 當您執行更新時，更新程序在更新動作方案的「步驟：正在執行步驟 2.4 - 安裝更新」步驟之後似乎停止且無任何進度。<br><br>接著，此步驟後面會跟著一連串將 .nupkg 檔案複製到內部基礎結構檔案共用的程序。 例如：<br><br>**正在將 1 個檔案從 content\PerfCollector\VirtualMachines 複製到 \VirtualMachineName-ERCS03\C$\TraceCollectorUpdate\PerfCounterConfiguration**  | 這個問題是由在基礎結構虛擬機器上填滿磁碟的記錄檔，以及將在後續更新中傳遞之 Windows Server 向外延展檔案伺服器 (SOFS) 中的問題所導致的。 | 請連絡 Microsoft 客戶服務與支援中心 (CSS) 以尋求協助。 | 
 | 當您執行更新時，可能會在更新動作方案的「步驟：正在執行步驟 2.13.2 - 更新 *VM_Name*」步驟期間發生類似下列錯誤的錯誤 (虛擬機器的名稱可能不同)。<br><br>**ActionPlanInstanceWarning ece/MachineName: WarningMessage:Task: 角色 'Cloud\Fabric\WAS' 的介面 'LiveUpdate' 引動過程失敗:<br>類型 'LiveUpdate' 的角色 'WAS' 引發了例外狀況:<br>儲存體初始化期間發生錯誤: 嘗試對 Microsoft 存放裝置服務進行 API 呼叫時發生錯誤: {"Message":"與 Service Fabric 通訊時發生逾時。例外狀況類型: TimeoutException。例外狀況訊息: 作業已逾時。"}**  | 這個問題是由 Windows Server 中的 I/O 逾時所導致，將在後續更新中加以修正。 | 請連絡 Microsoft CSS 以尋求協助。
 | 當您執行更新時，可能會在「步驟 21 重新啟動 SQL Server VM」步驟期間發生類似下列的錯誤。<br><br>**類型 'LiveUpdateRestart' 的角色 'VirtualMachines' 引發了例外狀況:<br>VerboseMessage:[VirtualMachines:LiveUpdateRestart] 正在查詢 VM MachineName-Sql01。 - 10/13/2017 5:11:50 PM VerboseMessage:[VirtualMachines:LiveUpdateRestart] 已將 VM 標記為 HighlyAvailable。 - 10/13/2017 5:11:50 PM VerboseMessage:[VirtualMachines:LiveUpdateRestart] at MS.Internal.ServerClusters.ExceptionHelp.Build at MS.Internal.ServerClusters.ClusterResource.BeginTakeOffline(Boolean force) at Microsoft.FailoverClusters.PowerShell.StopClusterResourceCommand.BeginTimedOperation() at Microsoft.FailoverClusters.PowerShell.TimedCmdlet.WrappedProcessRecord() at Microsoft.FailoverClusters.PowerShell.FCCmdlet.ProcessRecord() - 10/13/2017 5:11:50 PM WarningMessage:Task: 角色 'Cloud\Fabric\VirtualMachines' 的介面 'LiveUpdateRestart' 引動過程失敗:** | 如果虛擬機器無法重新啟動，可能會發生這個問題。 | 請連絡 Microsoft CSS 以尋求協助。

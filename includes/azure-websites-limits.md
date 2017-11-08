@@ -15,11 +15,11 @@
 | 並行 [偵錯工具連接數](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md) (每個應用程式) |1 |1 |1 |5 |5 |
 | [搭配 FTP/S 和 SSL 的 azurewebsites.net 子網域](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |X |X |X |X |X |
 | [自訂網域](../articles/app-service/app-service-web-tutorial-custom-domain.md) 支援 | |X |X |X |X |
-| 自訂網域 [SSL 支援](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |無限制 |無限制，包含 5 個 SNI SSL 和 1 個 IP SSL 連接 |無限制，包含 5 個 SNI SSL 和 1 個 IP SSL 連接 |
+| 自訂網域 [SSL 支援](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |無限制的 SNI SSL 連線 |包含無限制的 SNI SSL 和 1 個 IP SSL 連線 |包含無限制的 SNI SSL 和 1 個 IP SSL 連線 |
 | 整合式負載平衡器 | |X |X |X |X |
 | [永遠開啟](../articles/app-service/web-sites-configure.md) | | |X |X |X |
 | [排定的備份](../articles/app-service/web-sites-backup.md) | | | |一天一次 |每 5 分鐘一次<sup>8</sup> |
-| [自動調整](../articles/app-service/web-sites-scale.md) | | |X |X |X |
+| [自動調整](../articles/app-service/web-sites-scale.md) | | | |X |X |
 | [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
 | [Azure 排程器](https://azure.microsoft.com/services/scheduler/) 支援 | |X |X |X |X |
 | [端點監視](../articles/app-service/web-sites-monitor.md) | | |X |X |X |

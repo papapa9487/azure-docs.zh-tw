@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
-ms.openlocfilehash: e7301532875049beabf2b97292fa69321dd9086c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f0207853097a3d31e06a722025f3964678414bf
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - 命名規則
 下表提供 Data Factory 購件命名規則。
+
+> [!NOTE]
+> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版 Data Factory 服務 (正式運作版 (GA))，請參閱 [Data Factory 第 1 版中的命名規則](v1/data-factory-naming-rules.md)。
 
 | 名稱 | 名稱唯一性 | 驗證檢查 |
 |:--- |:--- |:--- |

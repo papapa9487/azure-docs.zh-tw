@@ -15,13 +15,16 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: de40d4afce48e94df0f69c5edca46838268a5e29
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1b4cab46e0fc86d5074b6d19601cd7ff4afeb0eb
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="troubleshoot-data-factory-issues"></a>資料處理站的疑難排解
+> [!NOTE]
+> 本文適用於第 1 版 Azure Data Factory (正式運作版)。 
+
 這篇文章提供使用 Azure Data Factory 時的問題疑難排解提示。 這篇文章並未列出使用服務時的所有可能問題，但是涵蓋部分問題和一般疑難排解提示。   
 
 ## <a name="troubleshooting-tips"></a>疑難排解秘訣

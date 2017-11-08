@@ -1,6 +1,6 @@
 ---
 title: "將自訂網域新增至 CDN 端點 | Microsoft Docs"
-description: "了解如何將 Azure CDN "
+description: "了解如何將 Azure CDN 內容對應至自訂網域。"
 services: cdn
 documentationcenter: 
 author: zhangmanling
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: mazha
-ms.openlocfilehash: 8c5dd3ddd03b3531e4ffb7b622110a2ea997f9ae
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 98d4900e28f1850050dc4fbe1f97435e52afaf08
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="add-a-custom-domain-to-your-cdn-endpoint"></a>將自訂網域新增至 CDN 端點
-建立設定檔之後，通常也會建立一或多個 CDN 端點 (azureedge.net 的子網域)，用來透過 HTTP 和 HTTPS 傳遞內容。 根據預設，此端點包含在您的所有 URL 內，例如 `http(s)://contoso.azureedge.net/photo.png`。 為了方便起見，Azure CDN 提供在自訂網域 (例如，`www.contoso.com`) 與您的端點之間建立關聯的選項。 使用此選項，您可以使用自訂網域 (而不是端點) 來傳遞內容。 這個選項非常有用，例如，基於品牌目的，您想讓客戶看到您自己的網域名稱。
+建立設定檔之後，通常也會建立一或多個 CDN [端點](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint) (`azureedge.net` 的子網域)，用來透過 HTTP 和 HTTPS 傳遞內容。 根據預設，此端點包含在您的所有 URL 內 (例如，`https://contoso.azureedge.net/photo.png`)。 為了方便起見，Azure CDN 可讓您在自訂網域 (例如，`www.contoso.com`) 與您的端點之間建立關聯。 使用此選項，您可以使用自訂網域 (而不是端點) 來傳遞內容。 這個選項非常有用，例如，基於品牌目的，您想讓客戶看到您自己的網域名稱。
 
 如果您還沒有自訂網域，必須先向網域提供者購買。 取得自訂網域後，請遵循下列步驟：
 1. [存取網域提供者的 DNS 記錄](#step-1-access-dns-records-by-using-your-domain-provider)

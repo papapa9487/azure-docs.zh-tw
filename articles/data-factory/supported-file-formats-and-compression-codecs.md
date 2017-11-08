@@ -9,11 +9,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: jingwang
-ms.openlocfilehash: 758c8e73cf54cd21f4d87f19a64d8d71eee159c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4415417b0737feeb6f6285b29a59c2909d44a0d
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory 中支援的檔案格式和壓縮轉碼器
 
@@ -26,6 +26,9 @@ ms.lasthandoff: 10/11/2017
 * [Avro 格式](#avro-format)
 * [ORC 格式](#orc-format)
 * [Parquet 格式](#parquet-format)
+
+> [!NOTE]
+> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版 Data Factory 服務 (正式運作版 (GA))，請參閱 [Data Factory 第 1 版中支援的檔案和壓縮格式](v1//data-factory-supported-file-and-compression-formats.md)。
 
 ## <a name="text-format"></a>文字格式
 

@@ -16,11 +16,11 @@ ms.workload: app-service
 ms.date: 03/08/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 3254fdd57cfcd170f22374c1e3b058e6081d8e8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b587f299e7b11effd05cbbc4b15976fee3f83ffd
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell 範例
 
@@ -43,6 +43,10 @@ ms.lasthandoff: 10/11/2017
 |**將應用程式連線至資源**||
 | [將 Web 應用程式連線至 SQL Database](./scripts/app-service-powershell-connect-to-sql.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 建立 Azure Web 應用程式和 SQL Database，然後將資料庫連接字串新增至應用程式設定。 |
 | [將 Web 應用程式連線至儲存體帳戶](./scripts/app-service-powershell-connect-to-storage.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 建立 Azure Web 應用程式和儲存體帳戶，然後將儲存體連接字串新增至應用程式設定。 |
+|**備份與還原應用程式**||
+| [備份 Web 應用程式](./scripts/app-service-powershell-backup-onetime.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 建立 Azure Web 應用程式並為其建立一次性的備份。 |
+| [為 Web 應用程式建立排程備份](./scripts/app-service-powershell-backup-scheduled.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 建立 Azure Web 應用程式並為其建立排程備份。 |
+| [刪除 Web 應用程式的備份](./scripts/app-service-powershell-backup-delete.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 刪除 Web 應用程式的現有備份。 |
 |**監視應用程式**||
 | [使用 Web 伺服器記錄監視 Web 應用程式](./scripts/app-service-powershell-monitor.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 建立 Azure Web 應用程式、為其啟用記錄，並將記錄下載到本機電腦。 |
 | | |

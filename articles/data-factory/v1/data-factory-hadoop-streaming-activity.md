@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: adb7b707ab4c609e2d286707f47ed87c22f60921
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 80ff1c10f2d66f77242bcec0e17ccbaa701e6aa6
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Hadoop 資料流活動轉換資料
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -33,6 +33,10 @@ ms.lasthandoff: 10/11/2017
 > * [預存程序活動](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL 活動](data-factory-usql-activity.md)
 > * [.NET 自訂活動](data-factory-use-custom-activities.md)
+
+> [!NOTE]
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱[使用 Data Factory 第 2 版中的 Hadoop 資料流活動來轉換資料](../transform-data-using-hadoop-streaming.md)。
+
 
 您可以使用 HDInsightStreamingActivity 活動從 Azure Data Factory 管線叫用 Hadoop 串流工作。 下列 JSON 片段會示範在管線 JSON 檔案中使用 HDInsightStreamingActivity 的語法。 
 

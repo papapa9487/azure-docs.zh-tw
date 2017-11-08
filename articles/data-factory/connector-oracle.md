@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: ad9807fc72e3a6e0a6d3916d2d9e042af1fa83ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5d6cf07c52920a795c42e7f3578b1666a86d3c5
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="copy-data-from-and-to-oracle-using-azure-data-factory"></a>使用 Azure Data Factory 從 Oracle 複製資料及將資料複製到該處
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 
 您可以將資料從 Oracle 資料庫複製到任何支援的接收資料存放區，或將資料從任何支援的來源資料存放區複製到 Oracle 資料庫。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
-具體而言，這個 Oracle 連接器支援下列版本的 Oracle 資料庫：
+具體而言，這個 Oracle 連接器支援下列版本的 Oracle 資料庫，並且支援「基本」或 OID 驗證。
 
     - Oracle 12c R1 (12.1)
     - Oracle 11g R1、R2 (11.1、11.2)

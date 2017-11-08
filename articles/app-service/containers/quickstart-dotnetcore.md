@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 95383554d3fd8a1770a37a5396224c39b4f34c81
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 2a8000cadd6f6d7204e1790df62443a7ac7598c9
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>在 Linux 上的 App Service 中建立.NET Core Web 應用程式
 
@@ -87,19 +87,15 @@ git commit -m "first commit"
 
 ## <a name="create-a-web-app-with-built-in-image"></a>建立具有內建映像的 Web 應用程式
 
-使用 [az webapp create](/cli/azure/webapp#create) 命令，在 `myAppServicePlan` App Service 方案中建立 [Web 應用程式](../app-service-web-overview.md)。 別忘了以唯一的應用程式名稱取代 `<app name>`。
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-no-h.md)]
 
-下列命令中的執行階段會設定為 `DOTNETCORE|1.1`。 若要查看所有支援的執行階段，請執行 [az webapp list-runtimes](/cli/azure/webapp#list-runtimes)。
+瀏覽至您剛建立的 Web 應用程式。 以唯一的應用程式名稱取代 _&lt;app name>_。
 
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "DOTNETCORE|1.1" --deployment-local-git
+```bash
+http://<app name>.azurewebsites.net
 ```
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-result.md)]
-
 ![空的 Web 應用程式頁面](media/quickstart-dotnetcore/dotnet-browse-created.png)
-
-您已.建立空的新 Web 應用程式，其中具有內建映像並已啟用 Git 部署。
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 

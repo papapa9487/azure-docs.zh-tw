@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: dd1e22cd538d9113062b77ea2d7ecc18d63fe528
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77567302c529e6e06e58534ffc9db44c9a85bdb7
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="schedule-tasks-and-workflows-that-run-regularly-with-logic-apps"></a>使用邏輯應用程式排程定期執行的工作和工作流程
 
@@ -162,7 +162,7 @@ ms.lasthandoff: 10/11/2017
 | 每天上午 8:30 執行 (沒有開始日期和時間) | 1 | 天 | {無} | {無法使用} | 8 | 30 | 此排程根據指定的排程，在每天的上午 8:30 執行。 | 
 | 每天上午 8:30 執行 (有開始日期和時間) | 1 | 天 | *startDate*T08:30:00Z | {無法使用} | {無} | {無} | 此排程在指定開始日期的上午 8:30 開始。 | 
 | 每天上午 8:30 和下午 4:30 執行 | 1 | 天 | {無} | {無法使用} | 8, 16 | 30 | | 
-| 每天上午 8:30 和下午 4:45 執行 | 1 | 天 | {無} | {無法使用} | 8, 16 | 30, 45 | | 
+| 每天上午 8:30、上午 8:45、下午 4:30 及下午 4:45 執行 | 1 | 天 | {無} | {無法使用} | 8, 16 | 30, 45 | | 
 | 每個星期六的下午 5 點執行 (沒有開始日期和時間) | 1 | 週 | {無} | "Saturday" | 17 | 00 | 此排程在每個星期六的下午 5:00 執行。 | 
 | 每個星期六的下午 5 點執行 (有開始日期和時間) | 1 | 週 | *startDate*T17:00:00Z | "Saturday" | {無} | {無} | 此排程不會「早於」指定的開始日期和時間開始，在此案例中是 2017 年 9 月 9 日下午 5:00。 未來會在每個星期六的下午 5:00 重複執行。 | 
 | 每個星期二、星期四的下午 5 點執行 | 1 | 週 | {無} | "Tuesday", "Thursday" | 17 | {無} | 此排程在每個星期二和星期四的下午 5:00 執行。 | 

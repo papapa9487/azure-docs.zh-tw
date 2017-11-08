@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 10/30/2017
 ms.author: nisoneji
-ms.openlocfilehash: 134e17ebda3105be2b53d072fdef7aeda4a98bde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 840a559a82f3227a865d3c606b2fa321cb6144ab
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="plan-capacity-for-protecting-virtual-machines-and-physical-servers-in-azure-site-recovery"></a>針對 Azure Site Recovery 中的虛擬機器和實體伺服器保護規劃容量
+# <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>規劃使用 Site Recovery 保護 Hyper-V VM 的容量
 
-Azure Site Recovery Capacity Planner 工具可協助您釐清使用 Azure Site Recovery 複寫 Hyper-V VM、VMware VM 及 Windows/Linux 實體伺服器時的容量需求。
+Azure Site Recovery Capacity Planner 工具可協助您釐清使用 Azure Site Recovery 複寫 Hyper-V VM 時的容量需求。
 
 使用 Site Recovery Capacity Planner 工具來分析您的來源環境和工作負載，並且評估來源位置所需的頻寬需求和伺服器資源，以及在目標位置所需的資源 (虛擬機器和儲存體等等)。
 
@@ -35,11 +35,8 @@ Azure Site Recovery Capacity Planner 工具可協助您釐清使用 Azure Site R
 
 
 1. 收集您的環境的資訊，包括 VM、每個 VM 的磁碟、每個磁碟的儲存體。
-2. 識別複寫資料的每日變更 (流失) 率。 作法：
-
-   * 如果您是複寫 Hyper-V VM，請下載 [Hyper-V 容量規劃工具](https://www.microsoft.com/download/details.aspx?id=39057) 來取得變更率。 [深入了解](site-recovery-capacity-planning-for-hyper-v-replication.md) 此工具。 我們建議您執行此工具一週以上的時間來擷取平均值。
-   * 如果是複寫 VMware 虛擬機器，請使用 [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md) 算出變換率。
-   * 如果您是複寫實體伺服器，則您必須以手動方式進行預估。
+2. 識別複寫資料的每日變更 (流失) 率。 若要進行，請下載 [Hyper-V 容量規劃工具](https://www.microsoft.com/download/details.aspx?id=39057)來取得變更率。 [深入了解](site-recovery-capacity-planning-for-hyper-v-replication.md) 此工具。 我們建議您執行此工具一週以上的時間來擷取平均值。
+   
 
 ## <a name="run-the-quick-planner"></a>執行快速規劃
 1. 下載 [Azure Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel) 工具並開啟。 您必須執行選取的巨集以在出現提示時，啟用編輯和啟用內容。
@@ -50,8 +47,8 @@ Azure Site Recovery Capacity Planner 工具可協助您釐清使用 Azure Site R
 
    * 在 [選取您的案例] 中，選擇 [Hyper-V 到 Azure] 或 [VMware/實體到 Azure]。
    * 在 [平均每日資料變更率 (%)] 中，輸入您使用 [Hyper-V 容量規劃工具](site-recovery-capacity-planning-for-hyper-v-replication.md)或 [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md) 收集的資訊。  
-   *  只適用於將 VMware VM 或實體伺服器複寫到 Azure 時所提供的壓縮。 我們會評估在 30% 以上，但您可以視需要修改設定。 對於將 Hyper-V VM 複寫到 Azure 的壓縮，您可以使用協力廠商應用裝置，例如 Riverbed。
-   * 在 [保留期輸入] 中，指定保留複本的時間長度。 如果您是複寫 VMware 或實體伺服器，以天為單位輸入值。 如果您是複寫 Hyper-V，以小時為單位指定時間。
+   * 將 Hyper-V VM 複寫到 Azure 時，不使用 [壓縮] 設定。 如需壓縮，請使用第三方設備，例如 Riverbed。
+   * 在 [保留期輸入] 中，指定保留複本的時間長度 (小時)。
    * 在 [應該完成虛擬機器批次初始複寫的時數] 與 [每一初始複寫批次的虛擬機器數] 中，您輸入的設定是用於計算初始複寫需求。  部署 Site Recovery 時，應該上傳整個初始資料集。
 
    ![輸入](./media/site-recovery-capacity-planner/inputs.png)
@@ -86,7 +83,7 @@ Azure Site Recovery Capacity Planner 工具可協助您釐清使用 Azure Site R
    * 在 [連接的磁碟數] 中，指定來源伺服器的磁碟總數。
    * 在 [磁碟容量使用率] 中，指定平均使用率。
    * 在 [每日變更率 (%)] 中，指定來源伺服器的每日資料變更率。
-   * 在 [對應 Azure 大小] 中，輸入您想要對應的 Azure VM 大小。 如果您不想要手動進行，請按一下 計算 IaaS VM。如果您輸入手動設定，然後按一下計算 IaaS VM，手動設定可能會遭到覆寫，因為計算程序會自動識別最符合的 Azure VM 大小。
+   * 在 [對應 Azure 大小] 中，輸入您想要對應的 Azure VM 大小。 如果您不想要手動進行，請按一下 [計算 IaaS VM]。如果您輸入手動設定，然後按一下 [計算 IaaS VM]，手動設定可能會遭到覆寫，因為計算程序會自動識別最符合的 Azure VM 大小。
 
    ![工作負載限定性條件](./media/site-recovery-capacity-planner/workload-qualification.png)
 4. 如果您按一下 [計算 IaaS VM]  ，它會執行動作如下：
@@ -126,3 +123,7 @@ Azure Site Recovery Capacity Planner 工具可協助您釐清使用 Azure Site R
 2. 如果您想要進行變更，您必須修改 [工作負載限定性條件] 工作表，然後再按一次 [將資料提交至規劃工具]。  
 
    ![容量規劃](./media/site-recovery-capacity-planner/capacity-planner.png)
+
+## <a name="next-steps"></a>後續步驟
+
+[了解如何執行](site-recovery-capacity-planning-for-hyper-v-replication.md)容量規劃工具。

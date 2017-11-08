@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 0117398a1ad2a8519f50732d173bec9fbb7411b5
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d3178413e894c095235dde067b369e3554375aa6
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Azure VM 備份服務的相關問題
 本文包含常見問題的解答，可協助您快速了解 Azure VM 備份元件。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -59,6 +59,9 @@ ms.lasthandoff: 10/18/2017
   * 控制建立資源時的命名慣例
   * 將 VM 新增至可用性設定組
   * 任何其他只使用 PowerShell/宣告式範本定義即可達成的組態
+  
+### <a name="can-i-use-backups-of-unmanaged-disk-vm-to-restore-after-i-upgrade-my-disks-to-managed-disks"></a>我的磁碟在升級為受控磁碟後，是否可以使用非受控磁碟 VM 的備份來進行還原？
+是，您可以使用在將磁碟從非受控磁碟移轉為受控磁碟之前所擷取的備份。 根據預設，還原 VM 作業將會使用非受控磁碟來建立 VM。 您可以使用還原磁碟功能來還原磁碟，並用這些磁碟在受控磁碟上r建立 VM。 
 
 ## <a name="manage-vm-backups"></a>管理 VM 備份
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>變更 VM 的備份原則時會發生什麼狀況？

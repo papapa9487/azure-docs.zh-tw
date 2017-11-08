@@ -9,11 +9,11 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 669fc7a9ec5dfb446ef2755919c498fe6f60c9df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5ef1589e28c01d750641873d3c8482f61d90a887
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="document-collection-analysis"></a>文件集合分析
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 10/11/2017
 
 | 檔案名稱 | 類型 | 說明 |
 |-----------|------|-------------|
-| `aml_config` | 資料夾 | Azure Machine Learning Workbench 組態資料夾，請參閱[此文件](./experiment-execution-configuration-reference.md)以取得詳細的實驗執行組態 |
+| `aml_config` | 資料夾 | Azure Machine Learning Workbench 組態資料夾，請參閱[此文件](./experimentation-service-configuration-reference.md)以取得詳細的實驗執行組態 |
 | `Code` | 資料夾 | 用來儲存 Python 指令碼和 Python 套件的程式碼資料夾 |
 | `Data` | 資料夾 | 用來儲存中繼檔案的資料夾 |
 | `notebooks` | 資料夾 | Jupyter Notebook 資料夾 |
@@ -120,6 +120,7 @@ ms.lasthandoff: 10/11/2017
 | `notebooks/3_Topic_Model_Training.ipynb` | iPython Notebook | 訓練 LDA 主題模型 |
 | `notebooks/4_Topic_Model_Summarization.ipynb` | iPython Notebook | 根據定型的 LDA 主題模型摘要文件集合的內容 |
 | `notebooks/5_Topic_Model_Analysis.ipynb` | iPython Notebook | 分析文字文件集合的主題內容，以及讓主題資訊與文件集合相關聯的其他中繼資料相互關聯 |
+| `notebooks/6_Interactive_Visualization.ipynb` | iPython Notebook | 已學習主題模型的互動式視覺效果 |
 | `notebooks/winprocess.py` | Python 檔案 | Notebook 用於多工處理的 python 指令碼 |
 | `README.md` | Markdown 檔案 | Markdown 讀我檔案 |
 
@@ -224,6 +225,8 @@ perplex = topicmodeler.EvaluatePerplexity(lda)
 在 `4_Topic_Model_Summarization.ipynb` 中，它會根據定型的 LDA 主題模型來摘要文件內容。 摘要會套用至在步驟 3 中學習的 LDA 主題模型。 它會顯示如何使用主體來記載純度 (purity) 量值，以測量主題的重要性或品質。 此純度量值假設可支配所在文件的潛在主題，比起每週散佈於許多文件的潛在主題更具語意重要性。 這個概念是在 "[Latent Topic Modeling for Audio Corpus Summarization](http://people.csail.mit.edu/hazen/publications/Hazen-Interspeech11.pdf)" 這篇論文中引進。
 
 Notebook `5_Topic_Model_Analysis.ipynb` 顯示如何分析文件集合的主題內容，以及讓主題資訊與文件集合相關聯的其他中繼資料相互關聯。 此 Notebook 中引進了幾個標繪圖，可協助使用者深入了解已學習的主題和文件集合。
+
+Notebook `6_Interactive_Visualization.ipynb` 示範如何以互動方式視覺化已學習主題模型。 它包含四個互動式視覺效果工作。
 
 ## <a name="conclusion"></a>結論
 

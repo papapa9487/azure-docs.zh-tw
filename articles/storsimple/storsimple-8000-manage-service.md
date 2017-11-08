@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 51db9539451afafe7eddaaeef0e02328431611de
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 2d6c1737edbc4e69dd7de4c8ce3d7b0899bfae51
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>為 StorSimple 8000 系列裝置部署 StorSimple 裝置管理員服務
 
@@ -74,7 +74,7 @@ Azure 入口網站目前可管理 StorSimple 8000 系列。 如果您已經擁�
 
 #### <a name="before-you-transition"></a>轉換前的注意事項
 
-* 裝置需執行 Update 3.0 或更新版本。 如果您的裝置執行的是舊版本，請安裝最新的更新。 如需詳細資訊，請移至[安裝 Update 5](storsimple-8000-install-update-5.md)。 如果使用 StorSimple 雲端設備 (8010/8020)，則無法更新雲端設備。 使用最新版的軟體搭配 Update 5.0，建立新的雲端設備，然後容錯移轉至所建立的新雲端設備。
+* 裝置需執行 Update 3.0 或更新版本。 如果您的裝置執行舊版，強烈建議您透過 Hotfix 方法安裝 Update 5。 如需詳細資訊，請移至[安裝 Update 5](storsimple-8000-install-update-5.md)。 如果使用 StorSimple 雲端設備 (8010/8020)，則無法更新雲端設備。 使用最新版的軟體搭配 Update 5.0，建立新的雲端設備，然後容錯移轉至所建立的新雲端設備。
 
 * 一旦轉換至新的 Azure 入口網站，則無法使用 Azure 傳統入口網站來管理您的 StorSimple 裝置。
 

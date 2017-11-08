@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.openlocfilehash: 06b026ce06e0f16a77ac238de0af2263f272933c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f820e2e58ee0a105118e590a1206ca89bddba8f
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="actor-timers-and-reminders"></a>動作項目計時器和提醒
 動作項目可藉由註冊計時器或提醒來排程本身的週期性工作。 本文示範如何使用計時器和提醒，以及說明它們之間的差異。
@@ -133,7 +133,7 @@ public class VisualObjectActorImpl extends FabricActor implements VisualObjectAc
 當動作項目在記憶體回收期間停用時，將會停止所有的計時器。 而在此之後不會叫用任何計時器回呼。 此外，動作項目執行階段並不保留任何停用前執行中的計時器資訊。 由動作項目來決定任何未來重新啟動時所需計時器的註冊。 如需詳細資訊，請參閱 [動作項目記憶體回收](service-fabric-reliable-actors-lifecycle.md)一節。
 
 ## <a name="actor-reminders"></a>動作項目提醒
-提醒是一個會在指定時間於動作項目上觸發持續性回呼的機制。 其功能很類似計時器。 但與計時器不同的是，在所有情況下都會觸發提醒，直到動作項目明確地取消註冊它們或動作項目明確刪除為止。 具體而言，動作項目的停用和容錯移轉會觸發提醒，因為動作項目執行階段所保存的動作項目提醒相關資訊。
+提醒是一個會在指定時間於動作項目上觸發持續性回呼的機制。 其功能很類似計時器。 但與計時器不同的是，在所有情況下都會觸發提醒，直到動作項目明確地取消註冊它們或動作項目明確刪除為止。 具體而言，動作項目的停用和容錯移轉會觸發提醒，因為動作項目執行階段會使用動作項目狀態供應器來保存動作項目的提醒相關資訊。 請注意，提醒的可靠性會與狀態可靠性保證 (由動作狀態供應器提供) 繫結在一起。 這表示，如果動作項目的狀態持續性設定為「無」，提醒就不會在容錯移轉之後引發。 
 
 若要註冊提醒，動作項目會呼叫基底類別提供的 `RegisterReminderAsync` 方法，如下列範例所示：
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: saveenr
-ms.openlocfilehash: db49780e359258898a62f3b95e87f54b78055c86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bba8fff7997340e563c604f571604ee8d06eb719
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL 可程式性指南
 
@@ -29,98 +29,95 @@ U-SQL 是為巨量資料類型的工作負載所設計的查詢語言。 U-SQL �
 
 ## <a name="get-started-with-u-sql"></a>開始使用 U-SQL  
 
-我們來看看下面的 U-SQL 指令碼：
+請看下面的 U-SQL 指令碼：
 
 ```
 @a  = 
-    SELECT * FROM 
-        (VALUES
-            ("Contoso",   1500.0, "2017-03-39"),
-            ("Woodgrove", 2700.0, "2017-04-10")
-        ) AS 
-              D( customer, amount );
+  SELECT * FROM 
+    (VALUES
+       ("Contoso",   1500.0, "2017-03-39"),
+       ("Woodgrove", 2700.0, "2017-04-10")
+    ) AS D( customer, amount );
+
 @results =
-    SELECT
-        customer,
+  SELECT
+    customer,
     amount,
     date
-    FROM @a;    
+  FROM @a;    
 ```
 
-它會定義名為 @a 的資料列集，並且從 @a 建立名為 @results 的資料列集。
+此指令碼會定義兩個資料列集：`@a` 和 `@results`。 資料列集 `@results` 是透過 `@a` 所定義的。
 
 ## <a name="c-types-and-expressions-in-u-sql-script"></a>U-SQL 指令碼中的 C# 類型和運算式
 
-U-SQL 運算式是 C# 運算式，與例如 `AND`、`OR` 和 `NOT` 的 U-SQL 邏輯作業合併。 U-SQL 運算式可以與 SELECT、EXTRACT、WHERE、HAVING、GROUP BY 和 DECLARE 搭配使用。
-
-例如，下列指令碼會剖析字串，該字串是 SELECT 子句中的 DateTime 值。
+U-SQL 運算式是 C# 運算式，與例如 `AND`、`OR` 和 `NOT` 的 U-SQL 邏輯作業合併。 U-SQL 運算式可以與 SELECT、EXTRACT、WHERE、HAVING、GROUP BY 和 DECLARE 搭配使用。 例如，下列指令碼會將字串剖析為 DateTime 值。
 
 ```
 @results =
-    SELECT
-        customer,
+  SELECT
+    customer,
     amount,
     DateTime.Parse(date) AS date
-    FROM @a;    
+  FROM @a;    
 ```
 
-下列指令碼會剖析字串，該字串是 DECLARE 陳述式中的 DateTime 值。
+下列程式碼片段會將字串剖析為 DECLARE 陳述式中的 DateTime 值。
 
 ```
-DECLARE @d DateTime = ToDateTime.Date("2016/01/01");
+DECLARE @d = DateTime.Parse("2016/01/01");
 ```
 
 ### <a name="use-c-expressions-for-data-type-conversions"></a>使用 C# 運算式轉換資料類型
+
 下列範例示範如何使用 C# 運算式進行日期時間資料轉換。 在這個特別案例中，字串日期時間資料會轉換成標準日期時間，也就是以午夜 00:00:00 為準的時間標記法。
 
 ```
-DECLARE @dt String = "2016-07-06 10:23:15";
+DECLARE @dt = "2016-07-06 10:23:15";
 
 @rs1 =
-    SELECT 
-        Convert.ToDateTime(Convert.ToDateTime(@dt).ToString("yyyy-MM-dd")) AS dt,
-        dt AS olddt
-    FROM @rs0;
-OUTPUT @rs1 TO @output_file USING Outputters.Text();
+  SELECT 
+    Convert.ToDateTime(Convert.ToDateTime(@dt).ToString("yyyy-MM-dd")) AS dt,
+    dt AS olddt
+  FROM @rs0;
+
+OUTPUT @rs1 
+  TO @output_file 
+  USING Outputters.Text();
 ```
 
 ### <a name="use-c-expressions-for-todays-date"></a>使用 C# 運算式來表示今天的日期
-若要提取今天的日期，我們可以將下列 C# 運算式：
 
-```
-DateTime.Now.ToString("M/d/yyyy")
-```
+若要提取今天的日期，我們可以使用下列 C# 運算式：`DateTime.Now.ToString("M/d/yyyy")`
 
 如何在指令碼中使用此運算式的範例如下︰
 
 ```
 @rs1 =
-    SELECT
-        MAX(guid) AS start_id,
-        MIN(dt) AS start_time,
-        MIN(Convert.ToDateTime(Convert.ToDateTime(dt<@default_dt?@default_dt:dt).ToString("yyyy-MM-dd"))) AS start_zero_time,
-        MIN(USQL_Programmability.CustomFunctions.GetFiscalPeriod(dt)) AS start_fiscalperiod,
-        DateTime.Now.ToString("M/d/yyyy") AS Nowdate,
-        user,
-        des
-    FROM @rs0
-    GROUP BY user, des;
+  SELECT
+    MAX(guid) AS start_id,
+    MIN(dt) AS start_time,
+    MIN(Convert.ToDateTime(Convert.ToDateTime(dt<@default_dt?@default_dt:dt).ToString("yyyy-MM-dd"))) AS start_zero_time,
+    MIN(USQL_Programmability.CustomFunctions.GetFiscalPeriod(dt)) AS start_fiscalperiod,
+    DateTime.Now.ToString("M/d/yyyy") AS Nowdate,
+    user,
+    des
+  FROM @rs0
+  GROUP BY user, des;
 ```
-
-
-
 ## <a name="using-net-assemblies"></a>使用 .NET 組件
-U-SQL 的擴充性模型極為依賴新增自訂程式碼的能力。 目前，U-SQL 會為您提供簡單的方法，以新增您自己的 Microsoft .NET 為基礎的程式碼 (尤其是 C#)。 不過，您也可以新增以其他 .NET 語言 (例如 VB.NET 或 F#) 撰寫的自訂程式碼。 
+
+U-SQL 的擴充性模型極為依賴從 .NET 組件新增自訂程式碼的能力。 
 
 ### <a name="register-a-net-assembly"></a>註冊 .NET 組件
 
-使用 CREATE ASSEMBLY 陳述式將 .NET 組件放到 U-SQL 資料庫。 一旦組件放到資料庫，U-SQL 指令碼可以藉由使用 REFERENCE ASSEMBLY 陳述式來使用這些組件。 
+使用 `CREATE ASSEMBLY` 陳述式將 .NET 組件放到 U-SQL 資料庫。 之後，U-SQL 指令碼即可透過 `REFERENCE ASSEMBLY` 陳述式使用這些組件。 
 
 下列程式碼將說明如何註冊組件：
 
 ```
 CREATE ASSEMBLY MyDB.[MyAssembly]
-    FROM "/myassembly.dll";
+   FROM "/myassembly.dll";
 ```
 
 下列程式碼將說明如何參考組件：
@@ -140,7 +137,6 @@ U-SQL 目前使用 .Net Framework 4.5 版。 因此，請確定您自己的組�
 每個上傳的組件 DLL 和資源檔，例如不同的執行階段、原生組件或組態檔中，最多可達 400 MB。 已部署資源的大小總計 (透過 DEPLOY RESOURCE 或透過參考組件及其他檔案) 不能超過 3 GB。
 
 最後請注意，每一個 U-SQL 資料庫所包含的任何指定組件只能有一個版本。 例如，如果您同時需要第 7 版和第 8 版的 NewtonSoft Json.Net 程式庫，您需要將它們註冊到兩個不同的資料庫。 此外，每個指令碼所參考的指定組件 DLL 只能有一個版本。 在這方面，U-SQL 會遵循 C# 組件的管理和版本設定語意。
-
 
 ## <a name="use-user-defined-functions-udf"></a>使用使用者定義函式：UDF
 U-SQL 使用者定義函數 (簡稱 UDF) 會編寫常式，以接受參數、執行動作 (例如複雜計算)，以及傳回該動作結果的值。 UDF 的傳回值只能是單一純量。 U-SQL UDF 可以和任何其他 C# 純量函式一樣，在 U-SQL 基底指令碼中進行呼叫。
@@ -245,9 +241,7 @@ namespace USQL_Programmability
 
             return "Q" + FiscalQuarter.ToString() + ":" + FiscalMonth.ToString();
         }
-
     }
-
 }
 ```
 
@@ -552,7 +546,7 @@ public class MyTypeFormatter : IFormatter<MyType>
 
 做為一般的 C# 類型，U-SQL UDT 定義可包括 +/==/!= 等運算子的覆寫。 它也可以包含靜態方法。 例如，如果我們要使用此 UDT 做為 U-SQL MIN 彙總函式的參數，我們必須定義 < 運算子覆寫。
 
-本指南稍早曾示範過從格式為 Qn:Pn (Q1:P10) 之特定日期識別會計週期的範例。 下列範例將示範如何為會計週期值定義自訂類型。
+本指南稍早曾示範過從格式為 `Qn:Pn (Q1:P10)` 之特定日期識別會計週期的範例。 下列範例將示範如何為會計週期值定義自訂類型。
 
 以下是具有自訂 UDT 和 IFormatter 介面的程式碼後置區段範例︰
 
@@ -655,9 +649,9 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 }
 ```
 
-已定義的類型包含兩個數字：季度和月份。 運算子 ==/!=/>/< 和靜態方法 ToString() 定義於此。
+已定義的類型包含兩個數字：季度和月份。 運算子 `==/!=/>/<` 和靜態方法 `ToString()` 定義於此。
 
-如先前所述，UDT 可用於 SELECT 運算式中，但不能用在沒有自訂序列化的 OUTPUTTER/EXTRACTOR。 它必須使用 ToString() 序列化為字串或與自訂 OUTPUTTER/EXTRACTOR 搭配使用。
+如先前所述，UDT 可用於 SELECT 運算式中，但不能用在沒有自訂序列化的 OUTPUTTER/EXTRACTOR。 它必須使用 `ToString()` 序列化為字串或與自訂 OUTPUTTER/EXTRACTOR 搭配使用。
 
 現在我們來討論一下 UDT 的使用方式。 在程式碼後置區段中，我們已將 GetFiscalPeriod 函式變更為：
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 6d00c776da3be0f799b82160c45f4c47a965b4bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 65b5389837dc1d1693b1c4326b98264c8d75fd06
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>使用監視及管理應用程式，以監視和管理 Azure Data Factory 管線
 > [!div class="op_single_selector"]
@@ -27,6 +27,9 @@ ms.lasthandoff: 10/11/2017
 > * [使用監視及管理應用程式](data-factory-monitor-manage-app.md)
 >
 >
+
+> [!NOTE]
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱[在第 2 版中監視和管理 Data Factory 管線](../monitor-visually.md)。
 
 本文說明如何使用監視及管理應用程式來監視、管理與偵錯您的 Data Factory 管線。 同時也會提供如何建立警示以取得失敗通知的詳細資訊。 您可以藉由觀賞下列影片開始使用應用程式：
 
@@ -51,7 +54,7 @@ ms.lasthandoff: 10/11/2017
 
 在中間窗格的 [活動時段] 清單中，您會在每次執行活動時看到活動時段。 例如，如果您有活動排程在五個小時內每小時執行，您會看到與五個資料配量與相關聯的五個活動時段。 如果您沒有在底部的清單中看到活動時段，請執行下列作業：
  
-- 更新頂端的**開始時間**和**結束時間**篩選以符合管線的開始和結束時間，然後按一下套用 按鈕。  
+- 更新頂端的**開始時間**和**結束時間**篩選以符合管線的開始和結束時間，然後按一下 [套用] 按鈕。  
 - [活動時段] 清單不會自動重新整理。 按一下 [活動時段] 清單中工具列上的 [重新整理] 按鈕。  
 
 如果您還沒有用來測試這些步驟的 Data Factory 應用程式，請進行教學課程：[使用 Data Factory 將資料從 Blob 儲存體複製到 SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。

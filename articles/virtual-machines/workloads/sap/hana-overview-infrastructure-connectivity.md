@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/01/2016
+ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 177627d8f72dbd04fb918ac7ece18321246a9c62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a44fdbfb973d75c21aa87e9b9d0eea8fb2b3392
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Azure 上 SAP HANA (大型執行個體) 的基礎結構和連接 
 
@@ -40,8 +40,7 @@ ms.lasthandoff: 10/11/2017
 - 業務連絡人資訊 (包括電子郵件地址和電話號碼)
 - 技術連絡人資訊 (包括電子郵件地址和電話號碼)
 - 技術網路連絡人資訊 (包括電子郵件地址和電話號碼)
-- Azure 部署區域 (自 7 月起：美國西部、美國東部、澳洲東部、澳洲東南部、西歐和北歐) 
-- 2017)
+- Azure 部署區域 (自 2017 年 7 月起：美國西部、美國東部、澳大利亞東部、澳大力亞東南部、西歐和北歐)
 - 確認 SAP HANA on Azure (大型執行個體) SKU (組態)
 - 如「HANA 大型執行個體」的＜概觀與架構＞文件中所述，針對每個作為部署目的地的「Azure 區域」：
     - 將 Azure VNet 連接到「HANA 大型執行個體」之 ER-P2P 連線的 /29 IP 位址

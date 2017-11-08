@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 88529344eee45150503b0d0e57c92f0cb4f07598
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 995983a8e32bc01ddc1ab8bbc64345da96875941
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Hive 活動轉換資料 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -33,6 +33,9 @@ ms.lasthandoff: 10/11/2017
 > * [預存程序活動](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL 活動](data-factory-usql-activity.md)
 > * [.NET 自訂活動](data-factory-use-custom-activities.md)
+
+> [!NOTE]
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱[使用 Data Factory 第 2 版中的 Hive 活動來轉換資料](../transform-data-using-hadoop-hive.md)。
 
 Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight Hive 活動會在[您自己](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)或[隨選的](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux 架構 HDInsight 叢集上執行 Hive 查詢。 本文是根據 [資料轉換活動](data-factory-data-transformation-activities.md) 一文，它呈現資料轉換和支援的轉換活動的一般概觀。
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: ponatara
-ms.openlocfilehash: dc064352b1841ff346b705dc63186b12d79350b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52b123b598226e7b03ea9a31c40dd192fd76b191
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>使用 Azure Site Recovery 複寫多層式 Citrix XenApp 和 XenDesktop 部署
 
@@ -74,7 +74,7 @@ AD DNS 伺服器、SQL 資料庫伺服器、Citrix 傳遞控制站、StoreFront 
 
 1. 支援使用伺服器作業系統機器保護和復原內部部署來傳遞 XenApp 發佈的應用程式和 XenApp 發佈的桌面。
 
-2. 不支援使用桌面作業系統機器保護和復原內部部署來傳遞虛擬桌面的桌面 VDI，包括 Windows 10 用戶端。 這是因為 ASR 不支援使用復原使用桌面作業系統的機器。  此外，某些用戶端虛擬桌面 (例如 Windows 7) 在 Azure 中尚不支援授權。 [深入了解](https://azure.microsoft.com/pricing/licensing-faq/)如何在 Azure 中進行用戶端/伺服器桌面的授權。
+2. 不支援使用桌面作業系統機器保護和復原內部部署來傳遞虛擬桌面的桌面 VDI，包括 Windows 10 用戶端。 這是因為 ASR 不支援使用復原使用桌面作業系統的機器。  此外，某些用戶端虛擬桌面作業系統 (例如 Windows 7) 在 Azure 中尚不支援授權。 [深入了解](https://azure.microsoft.com/pricing/licensing-faq/)如何在 Azure 中進行用戶端/伺服器桌面的授權。
 
 3.  Azure Site Recovery 無法複寫和保護現有的內部部署 MCS 或 PV 複製品。
 您需要使用傳遞控制站的 Azure RM 佈建重新建立這些複製品。

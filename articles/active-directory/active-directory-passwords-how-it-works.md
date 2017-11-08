@@ -1,5 +1,5 @@
 ---
-title: "深入探討︰Azure AD SSPR | Microsoft Docs"
+title: "運作方式 Azure AD SSPR | Microsoft Docs"
 description: "Azure AD 自助式密碼重設深入探討"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: b363616792b35420644154cc0f8b878f2c83f1c7
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 71310534ec62b62bcd408d75060859c79bc470cf
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Azure AD 中的自助式密碼重設深入探討
 
@@ -39,10 +39,10 @@ SSPR 的運作方式 該選項在介面中的意義為何？ 繼續閱讀以深�
 
 請看完下列步驟，以了解密碼重設頁面背後的邏輯。
 
-1. 使用者按一下 [無法存取帳戶] 連結或直接移至 [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com)。
+1. 使用者按一下 [無法存取帳戶] 連結或直接移至 [https://aka.ms/sspr](https://passwordreset.microsoftonline.com)。
 2. 根據瀏覽器的地區設定，此體驗會以適當的語言呈現。 密碼重設體驗會當地語系化為 Office 365 支援的相同語言。
 3. 使用者輸入使用者識別碼並通過文字驗證。
-4. Azure AD 執行下列動作，驗證使用者是否能夠使用這項功能：
+4. Azure AD 執行下列檢查，驗證使用者是否能夠使用這項功能：
    * 檢查使用者是否已啟用這項功能，並已獲得 Azure AD 授權。
      * 如果使用者未啟用這項功能或未獲得授權，便會要求使用者連絡其系統管理員來重設其密碼。
    * 檢查使用者是否已按照系統管理員原則在其帳戶上定義正確的查問資料。
@@ -57,12 +57,14 @@ SSPR 的運作方式 該選項在介面中的意義為何？ 繼續閱讀以深�
 
 ## <a name="authentication-methods"></a>驗證方法
 
-如果已啟用自助式密碼重設 (SSPR)，您必須針對驗證方法至少選取下面其中一個選項。 我們強烈建議選擇至少兩個驗證方法，您的使用者才有更大的彈性。
+如果已啟用自助式密碼重設 (SSPR)，您必須針對驗證方法至少選取下面其中一個選項。 有時候您可能會聽到這些選項是指閘道。 我們強烈建議選擇至少兩個驗證方法，您的使用者才有更大的彈性。
 
 * 電子郵件
 * 行動電話
 * 辦公室電話
 * 安全性問題
+
+![驗證][Authentication]
 
 ### <a name="what-fields-are-used-in-the-directory-for-authentication-data"></a>哪些欄位使用於驗證資料的目錄中
 
@@ -81,7 +83,7 @@ SSPR 的運作方式 該選項在介面中的意義為何？ 繼續閱讀以深�
 
 ### <a name="number-of-authentication-methods-required"></a>必要驗證方法數目
 
-此選項可判斷使用者必須通過才能重設或將其密碼解除鎖定的可用驗證方法數目下限，並可設定為 1 或 2。
+此選項可判斷使用者必須通過才能重設或將其密碼解除鎖定的可用驗證方法或閘道數目下限，並可設定為 1 或 2。
 
 使用者可以選擇提供更多驗證方法 (如果是由系統管理員啟用)。
 
@@ -162,7 +164,7 @@ SSPR 的運作方式 該選項在介面中的意義為何？ 繼續閱讀以深�
 * 同盟應用程式
 * 使用 Azure AD 自訂應用程式
 
-停用這項功能仍可讓使用者手動註冊其連絡資訊，方法是造訪 [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) 或按一下存取面板中 [設定檔] 索引標籤底下的**註冊密碼重設**連結。
+停用這項功能時，使用者仍可手動註冊其連絡資訊，方法是造訪 [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) 或按一下存取面板中 [設定檔] 索引標籤底下的**註冊密碼重設**連結。
 
 > [!NOTE]
 > 使用者可以按一下 [取消] 或關閉視窗來關閉密碼重設註冊入口網站，但每次登入時都會出現提示，直到他們完成註冊為止。
@@ -188,89 +190,46 @@ SSPR 的運作方式 該選項在介面中的意義為何？ 繼續閱讀以深�
 
 ## <a name="on-premises-integration"></a>內部部署整合
 
-如果您已安裝、設定及啟用 Azure AD Connect，您會有其他的內部部署整合選項。
+如果您已安裝、設定及啟用 Azure AD Connect，就會有下列其他的內部部署整合選項。
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>將密碼寫回至內部部署目錄
 
-控制是否對此目錄啟用密碼回寫，如果回寫開啟，則表示內部部署回寫服務的狀態。 如果您想要暫時停用密碼回寫，而不重新設定 Azure AD Connect，此設定就很有用。
+控制是否對此目錄啟用密碼回寫，如果回寫開啟，則表示內部部署回寫服務的狀態。 如果您需要暫時停用密碼回寫，而不重新設定 Azure AD Connect，此設定就很有用。
 
 * 如果此參數設定為 [是]，則回寫會啟用，而且同盟和密碼雜湊同步使用者可以重設其密碼。
-* 如果此參數設定為 [否]，則回寫會停用，而且同盟和密碼雜湊同步使用者將無法重設其密碼。
+* 如果此參數設定為 [否]，則回寫會停用，而且同盟和密碼雜湊同步使用者無法重設其密碼。
 
 ### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>允許使用者在不重設密碼的情況下解除鎖定帳戶
 
-指定是否應為瀏覽密碼重設入口網站的使用者提供選項，讓他們在不重設密碼的情況下解除鎖定內部部署的 Active Directory 帳戶。 根據預設，Azure AD 執行密碼重設時會一律解除鎖定帳戶，此設定可讓您區隔這兩項作業。 
+指定是否應為瀏覽密碼重設入口網站的使用者提供選項，讓他們在不重設密碼的情況下解除鎖定內部部署的 Active Directory 帳戶。 根據預設，Azure AD 執行密碼重設時會解除鎖定帳戶，此設定可讓您區隔這兩項作業。 
 
 * 如果設為「是」，會提供使用者重設其密碼以解除鎖定帳戶的選項，或是在不重設密碼的情況下解除鎖定的選項。
 * 如果設定為「否」，使用者將只能執行合併的密碼重設和帳戶解除鎖定作業。
 
-## <a name="network-requirements"></a>網路需求
-
-### <a name="firewall-rules"></a>防火牆規則
-
-[Microsoft Office URL 和 IP 位址清單](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
-
-對於 Azure AD Connect 1.1.443.0 版和更新版本，您需要擁有下列各項的輸出 HTTPS 存取權：
-* passwordreset.microsoftonline.com
-* servicebus.windows.net
-
-如需更細微的存取，您可以在[這裡](https://www.microsoft.com/download/details.aspx?id=41653)找到已更新的 Microsoft Azure 資料中心 IP 範圍清單，該清單會每個星期三進行更新並在下一個星期一生效。
-
-### <a name="idle-connection-timeouts"></a>閒置連線逾時
-
-Azure AD Connect 工具會傳送定期 ping/keepalives 至服務匯流排端點，以確保連線保持作用中。 工具偵測到太多的連線應該被終止時，它就會自動增加 ping 至端點的頻率。 最低「ping 間隔」會下滑至每隔 60 秒 1 ping，不過，我們強烈建議讓 proxy/防火牆允許保存閒置連線至少 2-3 分鐘。 *針對較舊版本，建議 4 分鐘以上。
-
-## <a name="active-directory-permissions"></a>Active Directory 權限
-
-Azure AD Connect 公用程式中指定的帳戶必須具有重設密碼、變更密碼、lockoutTime 寫入權限和 pwdLastSet 寫入權限，以及該樹系中**每個網域**之根物件**或**您希望在 SSPR 範圍內之使用者 OU 的延伸權限。
-
-如果您不確定上述指的是哪些帳戶，請開啟 Azure Active Directory Connect 組態 UI，然後按一下 [檢視目前的組態] 選項。 您需要新增權限的帳戶會列在 [已同步處理的目錄] 底下。
-
-設定這些權限會允許每個樹系的 MA 服務帳戶代表該樹系內的使用者帳戶管理密碼。 **如果您沒有指定這些權限，則即使回寫看起來設定正確，使用者在嘗試從雲端管理其內部部署密碼時還是會遇到錯誤。**
-
-> [!NOTE]
-> 最多可能需要一小時讓這些權限複寫至您的目錄中的所有物件。
->
-
-若要設定適當權限以進行密碼回寫：
-
-1. 以具有適當網域管理權限的帳戶開啟 [Active Directory 使用者和電腦]。
-2. 從 [檢視] 功能表，確定 [進階功能] 已開啟。
-3. 在左面板中，以滑鼠右鍵按一下代表網域根目錄的物件並選擇屬性。
-    * 按一下 [安全性] 索引標籤。
-    * 然後按一下 [進階]。
-4. 從 [權限] 索引標籤，按一下 [新增]。
-5. 挑選權限套用至的帳戶 (從 Azure AD Connect 安裝程式)
-6. 在 [套用至] 下拉式方塊中選取 [下階使用者] 物件。
-7. 在 [權限] 下，核取下列方塊：
-    * 未過期密碼
-    * 重設密碼
-    * 變更密碼
-    * 寫入 lockoutTime
-    * 寫入 pwdLastSet
-8. 依序按一下 [套用] / [確定] 進行套用並結束開啟的對話方塊。
-
 ## <a name="how-does-password-reset-work-for-b2b-users"></a>B2B 使用者的密碼重設運作方式
-所有 B2B 組態完全支援密碼重設和變更。  閱讀以下內容，以了解密碼重設支援的 3 個明確 B2B 案例。
+所有 B2B 組態完全支援密碼重設和變更。 B2B 使用者密碼重設支援下列三種案例。
 
 1. **來自具備現有 Azure AD 租用戶之合作夥伴組織的使用者** - 如果您合作的組織具備現有的 Azure AD 租用戶，我們會**遵守該租用戶中啟用的任何密碼重設原則**。 若要讓密碼重設運作，合作夥伴組織只需要確定 Azure AD SSPR 已啟用，O365 客戶不須另外付費即可使用該功能，而且可以依照[開始使用密碼管理](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords)指南中的步驟加以啟用。
 2. **使用[自助式註冊](active-directory-self-service-signup.md)**功能註冊的使用者 - 如果您合作的組織使用[自助式註冊](active-directory-self-service-signup.md)功能進入租用戶，我們會讓他們利用其註冊的電子郵件進行重設。
 3. **B2B 使用者** - 任何使用新的 [Azure AD B2B 功能](active-directory-b2b-what-is-azure-ad-b2b.md)建立的新 B2B 使用者，也能夠利用其在邀請程序期間註冊的電子郵件重設其密碼。
 
-若要測試此項，只要隨著其中一個合作夥伴使用者移至 http://passwordreset.microsoftonline.com 即可。 只要他們定義了替代電子郵件或驗證電子郵件，密碼重設就會如預期般運作。
+若要測試此情節，只要隨著其中一個合作夥伴使用者移至 http://passwordreset.microsoftonline.com 即可。 只要他們定義了替代電子郵件或驗證電子郵件，密碼重設就會如預期般運作。
 
 ## <a name="next-steps"></a>後續步驟
 
 下列連結提供有關使用 Azure AD 重設密碼的其他資訊
 
-* [**快速入門**](active-directory-passwords-getting-started.md) - 開始執行 Azure AD 自助式密碼管理 
-* [**授權**](active-directory-passwords-licensing.md) - 設定 Azure AD 授權
-* [**資料**](active-directory-passwords-data.md) -了解所需的資料以及如何將它使用於密碼管理
-* [**推出**](active-directory-passwords-best-practices.md) - 使用此處提供的指引來規劃 SSPR 並部署給使用者
-* [**原則**](active-directory-passwords-policy.md) - 了解並設定 Azure AD 密碼原則
-* [**密碼回寫**](active-directory-passwords-writeback.md) - 密碼回寫如何用在您的內部部署目錄
-* [**自訂**](active-directory-passwords-customize.md) - 為您的公司自訂 SSPR 體驗的外觀與風格。
-* [**報告**](active-directory-passwords-reporting.md) - 探索您的使用者是否、何時、何地存取 SSPR 功能
-* [**常見問題集**](active-directory-passwords-faq.md) - 如何？ 原因為何？ 何事？ 何地？ 何人？ 何時？ - -您一直想要詢問之問題的答案
-* [**疑難排解**](active-directory-passwords-troubleshoot.md) - 了解如何解決我們看到的 SSPR 常見問題
+* [如何完成 SSPR 成功首度發行？](active-directory-passwords-best-practices.md)
+* [重設或變更您的密碼](active-directory-passwords-update-your-own-password.md)。
+* [註冊自助式密碼重設](active-directory-passwords-reset-register.md)。
+* [您有授權問題嗎？](active-directory-passwords-licensing.md)
+* [SSPR 使用哪些資料，以及您應該為使用者填入哪些資料？](active-directory-passwords-data.md)
+* [哪些驗證方法可供使用者使用？](active-directory-passwords-how-it-works.md#authentication-methods)
+* [使用 SSPR 的原則選項有哪些？](active-directory-passwords-policy.md)
+* [什麼是密碼回寫，且為什麼我需要了解它？](active-directory-passwords-writeback.md)
+* [如何回報 SSPR 中的活動？](active-directory-passwords-reporting.md)
+* [SSPR 中的所有選項有哪些，以及它們有何意義？](active-directory-passwords-how-it-works.md)
+* [我認為有中斷。如何針對 SSPR 進行疑難排解？](active-directory-passwords-troubleshoot.md)
+* [在其他某處並未涵蓋我的問題](active-directory-passwords-faq.md)
 
+[Authentication]: ./media/active-directory-passwords-how-it-works/sspr-authentication-methods.png "可供使用的 Azure AD 驗證方法和所需的數量"

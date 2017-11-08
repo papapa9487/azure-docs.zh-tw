@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/26/2017
 ms.author: billmath
-ms.openlocfilehash: e8321c3d16253226a5931cacbce6fa5d50b697bd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abf234caa4c26cf3554911aabb839c696b1ba8cb
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect：執行個體的特殊考量
 Azure AD Connect 最常搭配 Azure AD 和 Office 365 的全球執行個體。 但還有其他執行個體，而它們有不同的 URL 需求和其他特殊考量。
@@ -50,15 +50,12 @@ Microsoft Cloud Germany 目前沒有的功能︰
 | --- |
 | \*.microsoftonline.com |
 | \*.microsoftonline.us |
+| \*.windows.net (自動 Azure AD 政府租用戶偵測所需的項目) |
 | \*.gov.us.microsoftonline.com |
 | +憑證撤銷清單 |
 
-Azure AD Connect 無法自動偵測您的 Azure AD 租用戶是否位於 Government 雲端。 而您在安裝 Azure AD Connect 時需要採取下列動作。
-
-1. 開始 Azure AD Connect 安裝。
-2. 當您看見您應在其中接受 EULA 的第一頁時，請勿繼續進行，但讓安裝精靈保持執行。
-3. 啟動 regedit 並將登錄機碼 `HKLM\SOFTWARE\Microsoft\Azure AD Connect\AzureInstance` 變更為 `2` 值。
-4. 回到 Azure AD Connect 安裝精靈，接受 EULA 並繼續進行。 在安裝期間，務必使用 **自訂組態** 安裝路徑 (而非快速安裝)。 然後如往常一樣繼續安裝。
+> [!NOTE]
+> 到 AAD Connect 版本 1.1.647.0，在登錄中設定 AzureInstance 值不再需要 *.windows.net 必須在您的 Proxy 伺服器中開啟。
 
 Microsoft Azure Government 雲端目前沒有的功能︰
 

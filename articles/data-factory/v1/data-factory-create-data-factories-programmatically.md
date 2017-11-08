@@ -12,16 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: d51039881673189697f1826d474546f24ffd5479
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72def45d7f5085c6aa68c5236a8a274501e470ce
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>使用 Azure Data Factory .NET SDK 來建立、監視及管理 Azure Data Factory
+> [!NOTE]
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱[第 2 版中的複製活動教學課程文件](../quickstart-create-data-factory-dot-net.md)。 
+
 ## <a name="overview"></a>概觀
 您可以使用 Data Factory .NET SDK，以程式設計方式建立、監視及管理 Azure Data Factory 本文包含指導您建立範例 .NET 主控台應用程式的逐步解說，此應用程式將會建立並監視 Data Factory。 
 
@@ -107,13 +110,13 @@ ms.lasthandoff: 10/11/2017
 
 1. 使用 Visual Studio 2012/2013/2015 建立 C# .NET 主控台應用程式。
    1. 啟動 **Visual Studio** 2012/2013/2015。
-   2. 按一下 檔案，指向 新增，然後按一下專案。
+   2. 按一下 [檔案]，指向 [新增]，然後按一下 [專案]。
    3. 展開 [範本]，然後選取 [Visual C#]。 在此逐步解說中，您使用的是 C#，但您可以使用任何 .NET 語言。
    4. 從右邊的專案類型清單中選取 [主控台應用程式]  。
    5. 在 [名稱] 中輸入 **DataFactoryAPITestApp** 。
    6. 在 [位置] 中選取 **C:\ADFGetStarted**。
    7. 按一下 [確定]  以建立專案。
-2. 按一下 **工具**，指向 **NuGet 封裝管理員**，然後按一下**封裝管理員主控台**。
+2. 按一下 [**工具**]，指向 [**NuGet 封裝管理員**]，然後按一下 [**封裝管理員主控台**]。
 3. 在 [Package Manager Console] 中，輸入下列命令：
    1. 執行以下命令安裝 Data Factory 套件：`Install-Package Microsoft.Azure.Management.DataFactories`
    2. 執行下列命令安裝 Azure Active Directory 套件 (您在程式碼中使用 Active Directory API)︰`Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`

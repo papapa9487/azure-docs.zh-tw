@@ -166,7 +166,9 @@
           href: compute-linked-services.md
     - name: 控制流程
       items:
-        - name: Web 活動
+        - name: If 條件活動
+          href: control-flow-if-condition-activity.md
+        - name: 網路活動
           href: control-flow-web-activity.md
         - name: 查閱活動
           href: control-flow-lookup-activity.md

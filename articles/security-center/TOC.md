@@ -1,6 +1,5 @@
 # 概觀
 ## [什麼是 Azure 資訊安全中心？](security-center-intro.md)
-## [透過 Power BI 取得深入解析](security-center-powerbi.md)
 ## [資料安全性](security-center-data-security.md)
 ## 案例
 ### [事件回應](security-center-incident-response.md)

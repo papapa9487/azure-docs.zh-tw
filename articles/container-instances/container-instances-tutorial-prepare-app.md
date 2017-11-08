@@ -1,11 +1,11 @@
 ---
-title: "Azure Container Instances 教學課程 - 準備您的應用程式 | Azure Docs"
+title: "Azure Container Instances 教學課程 - 準備您的應用程式"
 description: "準備應用程式以便部署至 Azure Container Instances"
 services: container-instances
 documentationcenter: 
 author: seanmck
 manager: timlt
-editor: 
+editor: mmacy
 tags: 
 keywords: 
 ms.assetid: 
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 10/26/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: ca4cd00b3e9e58fd1137b896e7aac96549bf6d05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52d99411b2dc9ae9c3f2ebd3b9f346973a91e7c9
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-container-for-deployment-to-azure-container-instances"></a>建立容器以部署至 Azure Container Instances
 
-Azure Container Instances 能夠將 Docker 容器部署至 Azure 基礎結構，而不需要佈建任何虛擬機器，或採用較高層級的任何服務。 在本教學課程中，您將以 Node.js 建置簡單的 Web 應用程式，然後封裝在可使用 Azure Container Instances 來執行的容器中。 我們將討論：
+Azure Container Instances 能夠將 Docker 容器部署至 Azure 基礎結構，而不需要佈建任何虛擬機器，或採用較高層級的任何服務。 在本教學課程中，您將以 Node.js 建置小型 Web 應用程式，然後封裝在可使用 Azure Container Instances 來執行的容器中。 我們會說明︰
 
 > [!div class="checklist"]
-> * 從 GitHub 複製應用程式來源  
+> * 從 GitHub 複製應用程式來源
 > * 從應用程式來源建立容器映像
 > * 在本機 Docker 環境中測試映像
 
@@ -36,11 +36,13 @@ Azure Container Instances 能夠將 Docker 容器部署至 Azure 基礎結構，
 
 ## <a name="before-you-begin"></a>開始之前
 
-本教學課程假設使用者對核心 Docker 概念有基本認識，例如容器、容器映像和基本 Docker 命令。 如有需要，請參閱[開始使用 Docker]( https://docs.docker.com/get-started/)以取得容器基本概念入門。 
+本教學課程需要您執行 Azure CLI 2.0.20 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
+
+本教學課程假設使用者對核心 Docker 概念有基本認識，例如容器、容器映像和基本 `docker` 命令。 如有需要，請參閱[開始使用 Docker]( https://docs.docker.com/get-started/)以取得容器基本概念入門。
 
 若要完成本教學課程，您需要 Docker 開發環境。 Docker 提供可輕鬆在 [Mac](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 或 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 系統上設定 Docker 的套件。
 
-Azure Cloud Shell 不包括完成本教學課程每個步驟所需的 Docker 元件。 因此，我們建議使用完整的 Docker 開發環境。
+Azure Cloud Shell 不包括完成本教學課程每個步驟所需的 Docker 元件。 因此，我們建議您本機安裝 Azure CLI 和 Docker 開發環境。
 
 ## <a name="get-application-code"></a>取得應用程式程式碼
 
@@ -58,7 +60,7 @@ git clone https://github.com/Azure-Samples/aci-helloworld.git
 
 範例儲存庫中提供的 Dockerfile 會示範如何建置容器。 首先會使用以 [Alpine Linux](https://alpinelinux.org/) 為基礎的[官方 Node.js 映像][dockerhub-nodeimage]，這是一個很適合用於容器的小型散發。 接著會將應用程式檔案複製到容器、使用節點封裝管理員來安裝相依性，最後就啟動應用程式。
 
-```
+```Dockerfile
 FROM node:8.2.0-alpine
 RUN mkdir -p /usr/src/app
 COPY ./app/* /usr/src/app/
@@ -103,7 +105,7 @@ docker run -d -p 8080:80 aci-tutorial-app
 在本教學課程中，您已建立可部署至 Azure Container Instances 的容器映像。 已完成下列步驟：
 
 > [!div class="checklist"]
-> * 從 GitHub 複製應用程式來源  
+> * 從 GitHub 複製應用程式來源
 > * 從應用程式來源建立容器映像
 > * 在本機測試容器
 
@@ -113,7 +115,7 @@ docker run -d -p 8080:80 aci-tutorial-app
 > [將映像推送至 Azure Container Registry](./container-instances-tutorial-prepare-acr.md)
 
 <!-- LINKS -->
-[dockerhub-nodeimage]: https://hub.docker.com/r/library/node/tags/8.2.0-alpine/
+[dockerhub-nodeimage]: https://store.docker.com/images/node
 
 <!--- IMAGES --->
 [aci-tutorial-app]:./media/container-instances-quickstart/aci-app-browser.png

@@ -1,5 +1,5 @@
 ---
-title: "使用 STONITH 為 Azure 上的 SAP HANA (大型執行個體) 進行高可用性設定 | Microsoft Docs"
+title: "使用 STONITH 為 SAP HANA on Azure (大型執行個體) 進行高可用性設定 | Microsoft Docs"
 description: "使用 STONITH 在 SUSE 中為 Azure 上的 SAP HANA (大型執行個體) 建立高可用性"
 services: virtual-machines-linux
 documentationcenter: 
@@ -11,22 +11,22 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/01/2017
+ms.date: 10/31/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6db4a9308ede1744081f114c61f1ca0c303706e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9122cbb66c6089009dccccea9b985e3521d45179
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="high-availability-setup-in-suse-using-the-stonith"></a>使用 STONITH 在 SUSE 中進行高可用性設定
+# <a name="high-availability-set-up-in-suse-using-the-stonith"></a>使用 STONITH 在 SUSE 中進行高可用性設定
 本文件提供使用 STONITH 裝置在 SUSE 作業系統上進行高可用性設定的詳細逐步指示。
 
-**免責聲明：**本指南為透過在可成功運作的 Microsoft HANA 大型執行個體環境中測試設定所衍生。由於 HANA 大型執行個體的 Microsoft 服務管理小組不支援作業系統，您可能需要連絡 SUSE 以針對作業系統層進行進一步疑難排解或釐清。對於 STONITH 裝置問題，Microsoft 服務管理小組會設定 STONITH 裝置並將傾力支援，而且會參與疑難排解。
+**免責聲明：***本指南為透過在可成功運作的 Microsoft HANA 大型執行個體環境中測試設定所衍生。由於 HANA 大型執行個體的 Microsoft 服務管理小組不支援作業系統，您可能需要連絡 SUSE 以針對作業系統層進行進一步疑難排解或釐清。Microsoft 服務管理小組會設定 STONITH 裝置並傾力支援，而且會參與對於 STONITH 裝置問題的疑難排解。*
 ## <a name="overview"></a>概觀
 若要使用 SUSE 叢集進行高可用性設定，必須符合下列先決條件。
-### <a name="pre-requisites"></a>先決條件
+### <a name="pre-requisites"></a>必要條件
 - 已佈建 HANA 大型執行個體
 - 作業系統已註冊
 - HANA 大型執行個體伺服器已連線到 SMT 伺服器以取得修補程式/套件
@@ -34,9 +34,9 @@ ms.lasthandoff: 10/11/2017
 - NTP (時間伺服器) 已設定
 - 閱讀並了解有關 HA 設定的最新 SUSE 文件版本
 
-### <a name="setup-details"></a>設定詳細資料
-- 在本指南中，我們使用下列設定。
-- 作業系統：SUSE 12 SP1
+### <a name="set-up-details"></a>設定詳細資料
+- 在本指南中，我們使用下列設定：
+- 作業系統：適用於 SAP 的 SLES 12 SP1
 - HANA 大型執行個體：2xS192 (4 個插槽，2 TB)
 - HANA 版本：HANA 2.0 SP1
 - 伺服器名稱：sapprdhdb95 (node1) 和 sapprdhdb96 (node2)
@@ -46,8 +46,9 @@ ms.lasthandoff: 10/11/2017
 當您使用 HSR 設定 HANA 大型執行個體時，可以要求 Microsoft 服務管理小組設定 STONITH。 如果您是已佈建 HANA 大型執行個體的現有客戶，並需要為現有的刀鋒視窗設定 STONITH 裝置，您需要在服務要求表單 (SRF) 中向 Microsoft 服務管理小組提供下列資訊。 您可以透過技術支援專案經理或 Microsoft 連絡人索取 HANA 大型執行個體上架 SRF 表單。 新客戶可以在佈建期間要求設定 STONITH 裝置。 輸入可在佈建要求表單中取得。
 
 - 伺服器名稱和伺服器 IP 位址 (例如 myhanaserver1，10.35.0.1)
-- 位置 (例如，美國東部)
+- 位置 (例如美國東部)
 - 客戶名稱 (例如 Microsoft)
+- SID - HANA 系統識別碼 (例如 H11)
 
 設定 STONITH 裝置之後，Microsoft 服務管理小組會提供 SBD 裝置名稱與 iSCSI 儲存裝置的 IP 位址，您可以用來設定 STONITH 設定。 
 
@@ -65,14 +66,18 @@ ms.lasthandoff: 10/11/2017
 ## <a name="1---identify-the-sbd-device"></a>1. 識別 SBD 裝置
 本節說明在 Microsoft 服務管理小組設定 STONITH 之後，如何為您的設定判斷 SBD 裝置。 **本節僅適用於現有客戶**。 如果您是新客戶，Microsoft 服務管理小組會提供 SBD 裝置名稱給您，而您可以略過本節。
 
-1.1 將 */etc/iscsi/initiatorname.isci* 修改為 *iqn.1996-04.de.suse:01: <Tenant><Location><SID><NodeNumber>*。  
-Microsoft 服務管理小組會提供此字串。 請務必在這**兩個**各有不同節點編號的節點上完成。
+1.1 將 */etc/iscsi/initiatorname.isci* 修改為 
+``` 
+iqn.1996-04.de.suse:01:<Tenant><Location><SID><NodeNumber> 
+```
+
+Microsoft 服務管理小組會提供此字串。 修改這**兩個**節點上的檔案，但是每個節點的節點編號不同。
 
 ![initiatorname.png](media/HowToHLI/HASetupWithStonith/initiatorname.png)
 
-1.2 修改 */etc/iscsi/iscsid.conf*：設定 *node.session.timeo.replacement_timeout=5* 與 *node.startup = automatic*。 請務必在這**兩個**節點上完成。
+1.2 修改 */etc/iscsi/iscsid.conf*：設定 *node.session.timeo.replacement_timeout=5* 與 *node.startup = automatic*。 修改這**兩個**節點上的檔案。
 
-1.3 執行探索命令，它會顯示四個工作階段。 這務必在這兩個節點上完成。
+1.3 執行探索命令，它會顯示四個工作階段。 請在這兩個節點上執行。
 
 ```
 iscsiadm -m discovery -t st -p <IP address provided by Service Management>:3260
@@ -80,21 +85,21 @@ iscsiadm -m discovery -t st -p <IP address provided by Service Management>:3260
 
 ![iSCSIadmDiscovery.png](media/HowToHLI/HASetupWithStonith/iSCSIadmDiscovery.png)
 
-1.4 執行命令以登入 iSCSI 裝置，它會顯示四個工作階段。 請務必在這**兩個**節點上完成。
+1.4 執行命令以登入 iSCSI 裝置，它會顯示四個工作階段。 在這**兩個**節點上執行。
 
 ```
 iscsiadm -m node -l
 ```
 ![iSCSIadmLogin.png](media/HowToHLI/HASetupWithStonith/iSCSIadmLogin.png)
 
-1.5 執行重新掃描指令碼：*rescan-scsi-bus.sh*。這會顯示已為您建立新的磁碟。  請在這兩個節點上執行。 您應會看到大於零的 LUN (例如 1、2 等)。
+1.5 執行重新掃描指令碼：*rescan-scsi-bus.sh*。此指令碼會顯示為您建立的新磁碟。  請在這兩個節點上執行。 您應會看到大於零的 LUN (例如 1、2 等)。
 
 ```
 rescan-scsi-bus.sh
 ```
 ![rescanscsibus.png](media/HowToHLI/HASetupWithStonith/rescanscsibus.png)
 
-1.6 執行命令 *fdisk –l* 以取得裝置名稱。 請在這兩個節點上執行。 挑選大小為 **178MiB** 的裝置。
+1.6 執行命令 *fdisk –l* 以取得裝置名稱。 請在這兩個節點上執行。 挑選大小為 **178 MiB** 的裝置。
 
 ```
   fdisk –l
@@ -120,7 +125,7 @@ sbd -d <SBD Device Name> dump
 ## <a name="3---configuring-the-cluster"></a>3. 設定叢集
 本節說明設定 SUSE HA 叢集的步驟。
 ### <a name="31-package-installation"></a>3.1 套件安裝
-3.1.1   請確定已安裝 ha_sles 和 SAPHanaSR-doc 模式。 如果沒有，請進行安裝。 請務必在這**兩個**節點上完成。
+3.1.1   請確定已安裝 ha_sles 和 SAPHanaSR-doc 模式。 如果未安裝，請安裝它們。 在這**兩個**節點上安裝。
 ```
 zypper in -t pattern ha_sles
 zypper in SAPHanaSR SAPHanaSR-doc
@@ -141,7 +146,7 @@ zypper in SAPHanaSR SAPHanaSR-doc
 按一下 [繼續]
 
 預期值=已部署的節點數 (在此案例中為 2) ![yast-Cluster-Security.png](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png) 按一下 [下一步]
-![yast-cluster-configure-csync2.png](media/HowToHLI/HASetupWithStonith/yast-cluster-configure-csync2.png) 新增節點名稱，然後按一下Add suggested files] \(新增建議的檔案\)
+![yast-cluster-configure-csync2.png](media/HowToHLI/HASetupWithStonith/yast-cluster-configure-csync2.png) 新增節點名稱，然後按一下 [Add suggested files] \(新增建議的檔案\)
 
 按一下 [Turn csync2 ON] \(開啟 csync2\)
 
@@ -149,7 +154,7 @@ zypper in SAPHanaSR SAPHanaSR-doc
 
 ![yast-key-file.png](media/HowToHLI/HASetupWithStonith/yast-key-file.png)
 
-按一下 [確定]
+按一下 [檔案] &gt; [新增] &gt; [專案] 
 
 驗證會使用 IP 位址和 Csync2 中的預先共用金鑰執行。 金鑰檔案是使用 csync2 -k /etc/csync2/key_hagroup 產生。 檔案 key_hagroup 應在建立之後手動複製到叢集的所有成員。 **務必將檔案從 node1 複製到 node2**。
 
@@ -159,7 +164,7 @@ zypper in SAPHanaSR SAPHanaSR-doc
 ![yast-cluster-service.png](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
 
 在預設選項中，[Booting] \(開機\) 處於關閉狀態，請將它變更為 [on] \(開啟\)，以在開機時啟動 Pacemaker。 您可以根據自己的設定需求來選擇。
-按一下 [下一步] 並完成叢集設定。
+按一下 [下一步]，叢集設定就完成了。
 
 ## <a name="4---setting-up-the-softdog-watchdog"></a>4. 設定 Softdog 監視程式
 本節說明監視程式 (softdog) 的設定。
@@ -170,7 +175,7 @@ modprobe softdog
 ```
 ![modprobe-softdog.png](media/HowToHLI/HASetupWithStonith/modprobe-softdog.png)
 
-4.2 如下所示，更新這**兩個**節點上的檔案 */etc/sysconfig/sbd*
+4.2 更新這**兩個**節點上的檔案 */etc/sysconfig/sbd*，如下所示：
 ```
 SBD_DEVICE="<SBD Device Name>"
 ```
@@ -182,7 +187,7 @@ modprobe softdog
 ```
 ![modprobe-softdog-command.png](media/HowToHLI/HASetupWithStonith/modprobe-softdog-command.png)
 
-4.4 檢查並確定 softdog 正在這**兩個**節點上執行，如下所示
+4.4 檢查並確定 softdog 正在這**兩個**節點上執行，如下所示：
 ```
 lsmod | grep dog
 ```
@@ -212,7 +217,7 @@ sbd  -d <SBD Device Name> list
 ```
 ![sbd-list-message.png](media/HowToHLI/HASetupWithStonith/sbd-list-message.png)
 
-4.9 若要採用 sbd 設定，請更新檔案 */etc/sysconfig/sbd*，如下所示。 請務必在這**兩個**節點上完成
+4.9 若要採用 sbd 設定，請更新檔案 */etc/sysconfig/sbd*，如下所示。 更新這**兩個**節點上的檔案
 ```
 SBD_DEVICE=" <SBD Device Name>" 
 SBD_WATCHDOG="yes" 
@@ -256,7 +261,7 @@ crm_mon
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7.設定叢集屬性及資源 
 本節說明設定叢集資源的步驟。
-在此範例中，我們會設定下列資源，其他部分可以 (視需要) 參考 SUSE HA 指南來設定。 您只需要在**其中一個節點**執行此設定。 請在主要節點上執行。
+在此範例中，我們會設定下列資源，其他部分可以 (視需要) 參考 SUSE HA 指南來設定。 只需要在**其中一個節點**執行此設定。 請在主要節點上執行。
 
 - 叢集啟動程序
 - STONITH 裝置
@@ -264,7 +269,7 @@ crm_mon
 
 
 ### <a name="71-cluster-bootstrap-and-more"></a>7.1 叢集啟動程序以及其他
-新增叢集啟動程序。 建立檔案並新增文字如下。
+新增叢集啟動程序。 建立檔案並新增文字如下：
 ```
 sapprdhdb95:~ # vi crm-bs.txt
 # enter the following to crm-bs.txt
@@ -337,7 +342,7 @@ Service pacemaker stop
 
 
 ## <a name="9-troubleshooting"></a>9.疑難排解
-本節說明可能會在設定期間遇到的一些失敗案例。 您不一定會遇到這些問題。
+本節說明在設定期間可能會遇到的一些失敗案例。 您不一定會遇到這些問題。
 
 ### <a name="scenario-1-cluster-node-not-online"></a>案例 1：叢集節點未連線
 如果任一節點未在叢集管理員中顯示為連線，您可以嘗試下列執行動作使其連線。

@@ -15,13 +15,17 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 2e1024924b96cf2c86c9dec8d199a0b7ea2422c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 046358644abb5a83d7b8f586006e8db7ee95a453
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - 範例
+> [!NOTE]
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的第 2 版 Data Factory 服務，請參閱 [Data Factory 第 2 版的 PowerShell 範例](../samples-powershell.md)和 [Azure 程式碼範例資源庫中的程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=data-factory)。
+
+
 ## <a name="samples-on-github"></a>GitHub 上的範例
 [GitHub Azure-DataFactory 儲存機制](https://github.com/azure/azure-datafactory) 包含數個範例，可協助您快速運用 Azure Data Factory 服務，或修改指令碼並用在您自己的應用程式中。 Samples\JSON 資料夾包含常見案例的 JSON 程式碼片段。
 
@@ -82,7 +86,7 @@ ms.lasthandoff: 10/11/2017
 * 下載適用於 Visual Studio 的最新 Azure Data Factory 外掛程式：[VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) 或 [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005)。 如果您使用的是 Visual Studio 2013，您也可以執行下列步驟來更新外掛程式：在功能表上，按一下 [工具] -> [擴充功能和更新] -> [線上] -> [Visual Studio 組件庫] -> [Microsoft Azure Data Factory Tools for Visual Studio] -> [更新]。
 
 ### <a name="use-data-factory-templates"></a>使用 Data Factory 範本
-1. 在功能表上按一下 檔案，指向 新增，然後按一下專案。
+1. 在功能表上按一下 [檔案]，指向 [新增]，然後按一下 [專案]。
 2. 在 [新增專案] 對話方塊中，執行下列步驟：
 
    1. 在 [範本] 底下選取 [DataFactory]。

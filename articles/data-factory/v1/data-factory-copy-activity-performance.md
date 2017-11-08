@@ -12,16 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 11/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 155e29e467b9752d491f62973ffccc986041fcab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2aeb3820667f264e4a26860913e3f7b0e22e4c4a
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>複製活動的效能及微調指南
+> [!NOTE]
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱 [Data Factory 第 2 版的複製活動效能及微調指南](../copy-activity-performance.md)。
+
 Azure Data Factory 複製活動會提供安全、可靠、高效能的頂級資料載入解決方案。 它可讓您複製每天在各式各樣雲端和內部部署資料存放區上數十 TB 的資料。 超快的資料載入效能是可確保您能夠專注於核心「巨量資料」問題的關鍵︰建置進階的分析解決方案，並從該所有資料獲得深入解析。
 
 Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複製活動」則提供一個容易設定的高度最佳化資料載入體驗。 只要使用單一的複製活動，您便可以達成下列目的︰

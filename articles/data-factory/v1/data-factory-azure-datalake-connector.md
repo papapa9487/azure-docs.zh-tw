@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 811a2538f0a138074feea1bd4608a7ba00660fd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f74a953d04e8633e802b33903de603b39ac08e9b
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>了解如何使用 Data Factory 從 Data Lake Store 來回複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -84,9 +84,11 @@ Data Lake Store 連接器支援這些驗證類型：
 * 應用程式金鑰 
 * 租用戶識別碼
 
-> [!IMPORTANT]
-> 如果您使用「複製精靈」來撰寫資料管線，請確定您至少將 Data Lake Store 帳戶其存取控制 (識別與存取管理) 中的「讀取者」角色授與服務主體。 此外，至少將 Data Lake Store 根目錄 ("/") 及其子系的「讀取+執行」權限授與服務主體。 否則，您可能會看到「提供的認證無效」訊息。<br/><br/>
-當您建立或更新 Azure AD 中的服務主體之後，變更可能需要幾分鐘才會生效。 檢查服務主體和 Data Lake Store 存取控制清單 (ACL) 組態。 如果您仍然看見「提供的認證無效」訊息，請稍候片刻並再試一次。
+> [!TIP]
+> 請確定您將 Azure Data Lake Store 中適當的權限授與服務主體：
+>- 如果您使用「複製精靈」來撰寫管線，請在帳戶存取控制 (IAM) 中至少授與**讀取者**角色。 此外，請至少授與您 Data Lake Store 根目錄 ("/") 及其子系的**讀取 + 執行**權限。 否則，您可能會看到「提供的認證無效」訊息。
+>- 若要使用 Data Lake Store 作為來源，請至少授與**讀取 + 執行**資料存取權限，以列出和複製資料夾的內容，或授與**讀取**權限，以複製單一檔案。 在帳戶層級存取控制上沒有任何要求。
+>- 若要使用 Data Lake Store 作為接收器，請至少授與**寫入 + 執行**資料存取權限，以在資料夾中建立子項目。 如果您使用 Azure IR 來授權複製 (來源和接收器都在雲端)，為了讓 Data Factory 偵測 Data Lake Store 的區域，請在帳戶存取控制 (IAM) 中至少授與**讀取者**角色。 如果您想要避免使用此 IAM 角色，請在複製活動中以您的 Data Lake Store 位置[指定 executionLocation](data-factory-data-movement-activities.md#global)。
 
 指定下列屬性以使用服務主體驗證：
 

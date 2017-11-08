@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: a81751270075095ccb3bb80039efb9c0c6c1e02d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a1a0679b91304df5cbc3dcaec14abfeaaa25c04f
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>教學課程︰使用 Hadoop 叢集建置您的第一個管線來轉換資料
 > [!div class="op_single_selector"]
@@ -29,6 +29,10 @@ ms.lasthandoff: 10/11/2017
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager 範本](data-factory-build-your-first-pipeline-using-arm.md)
 > * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+
+
+> [!NOTE]
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱[快速入門：使用 Azure Data Factory 第 2 版來建立資料處理站](../quickstart-create-data-factory-dot-net.md)。
 
 在本教學課程中，您會使用資料管線建立您的第一個 Azure Data Factory。 管線藉由在 Azure HDInsight (Hadoop) 叢集上執行 Hive 指令碼，來將輸入資料轉換成輸出資料。  
 

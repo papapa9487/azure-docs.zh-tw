@@ -12,13 +12,13 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/27/2017
 ms.author: anwestg
-ms.openlocfilehash: 54ba07d0bbe3f509411b0e45ff06f4fdf6db04cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ad91def00ca73f91f0ffd8e57afa442a93176f6
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Azure Stack 中的 Azure App Service 伺服器角色容量規劃
 
@@ -88,16 +88,14 @@ Azure App Service 管理角色負責 App Service Azure Resource Manager 和 API 
 
 ## <a name="file-server-role"></a>檔案伺服器角色
 
-對於檔案伺服器角色，您可以使用獨立檔案伺服器來進行開發及測試。 對於生產環境用途，則應該使用預先設定的 Windows 檔案伺服器或預先設定的非 Windows 檔案伺服器。
-
-獨立檔案伺服器會包含作為「預設 Windows Azure 套件：網站」安裝的一部分。 獨立安裝會在單一機器上佈建檔案伺服器角色、為適當的帳戶設定 ACL，並建立必要的網路共用。
+針對檔案伺服器角色，您可以使用獨立檔案伺服器進行開發和測試，例如在 Azure Stack 開發套件上部署 Azure App Service 時，您可以使用此範本 - https://aka.ms/appsvconmasdkfstemplate。 對於生產環境用途，則應該使用預先設定的 Windows 檔案伺服器或預先設定的非 Windows 檔案伺服器。
 
 在生產環境中，檔案伺服器角色會遇到大量的磁碟 I/O。 該角色存放了使用者網站的所有內容與應用程式檔案，因此您應該為該角色預先設定下列其中一項：
 - Windows 檔案伺服器
 - 檔案伺服器叢集
 - 非 Windows 檔案伺服器
 - 檔案伺服器叢集
-- NAS (網路連接儲存裝置) 裝置。如需詳細資訊，請參閱[佈建檔案伺服器]()。
+- NAS (網路連接儲存裝置) 裝置。如需詳細資訊，請參閱[佈建檔案伺服器](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server)。
 
 ## <a name="next-steps"></a>後續步驟
 

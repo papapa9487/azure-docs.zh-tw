@@ -1,5 +1,5 @@
 ---
-title: "Azure App Service 方案深入概觀 | Microsoft Docs"
+title: "Azure App Service Web Apps 中的 App Service 方案 | Microsoft Docs"
 description: "了解 Azure App Service 之應用程式服務方案的運作方式，以及在管理經驗上帶來的效益。"
 keywords: "App Service, Azure App Service, 級別, 可調整, App Service方案, App Service 成本"
 services: app-service
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: byvinyal
-ms.openlocfilehash: 688f57de662fec6a04227c35d6578097c795c6da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb5b782f09bdd8c8a862eddfbd65b0f86ef8d08c
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/30/2017
 ---
-# <a name="azure-app-service-plans-in-depth-overview"></a>Azure App Service 方案深入概觀
+# <a name="app-service-plans-in-azure-app-service-web-apps"></a>Azure App Service Web Apps 中的 App Service 方案
 
 App Service 方案代表用來裝載應用程式的實體資源集合。
 

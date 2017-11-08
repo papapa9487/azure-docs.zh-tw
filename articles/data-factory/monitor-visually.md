@@ -13,16 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: shlo
-ms.openlocfilehash: f30462c62c0aad73e7a1797a8a6dcd0a2f705666
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: e3ddbb88453b3f5d5f8b4566cf91aadbefd8163f
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="visually-monitor-azure-data-factories"></a>以視覺化方式監視 Azure 資料處理站
 Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資料驅動工作流程，以便協調及自動進行資料移動和資料轉換。 使用 Azure Data Factory，您可以建立和排程資料驅動工作流程 (稱為管線)，這類工作流程可以從不同資料存放區內嵌資料，使用計算服務 (例如 Azure HDInsight Hadoop、Spark、Azure Data Lake Analytics 和 Azure Machine Learning) 來處理/轉換資料，以及將輸出資料發佈至資料存放區 (例如 Azure SQL 資料倉儲)，以供商業智慧 (BI) 應用程式使用。
 在此快速入門中，您將了解如何在不用撰寫任何程式碼的情況下，以視覺方式監視資料處理站 v2 管線。
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
+
+> [!NOTE]
+> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版 Data Factory 服務 (正式運作版 (GA))，請參閱[在 Data Factory 第 1 版中監視和管理管線](v1/data-factory-monitor-manage-app.md)。
 
 ## <a name="monitor-data-factory-v2-pipelines"></a>監視資料處理站 v2 管線
 

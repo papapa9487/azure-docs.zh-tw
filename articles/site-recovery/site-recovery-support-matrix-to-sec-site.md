@@ -12,57 +12,54 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/24/2017
+ms.date: 10/30/2017
 ms.author: raynew
-ms.openlocfilehash: 69c5d09b6608484210870e1a69c51b112b497810
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c0f86e13e21f2af323e0a306b381054b6eb76755
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>使用 Azure Site Recovery 複寫至次要網站的支援矩陣
 
-本文將摘要說明使用 Azure Site Recovery 複寫至次要內部部署網站所支援的項目。
+本文將摘要說明使用 [Azure Site Recovery ](site-recovery-overview.md) 服務複寫至次要內部部署網站時所支援的項目。
 
-## <a name="deployment-options"></a>部署選項
+## <a name="supported-scenarios"></a>支援的案例
 
-**部署** | **VMware/實體伺服器** | **Hyper-V (含/不含 SCVMM)**
---- | --- | --- | ---
-**Azure 入口網站** | 內部部署 VMware VM 至次要 VMware 網站。<br/><br/> 下載 [InMage Scout 使用者指南](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (Azure 入口網站不提供)。 | VMM 雲端中的內部部署 Hyper-V VM 至次要 VMM 雲端。<br></br> 不支援沒有 VMM 的情況  <br/><br/> 僅限標準 Hyper-V 複寫。 不支援 SAN。
-**傳統入口網站** | 僅限使用維護模式。 無法建立新的保存庫。 | 僅限使用維護模式<br></br> 不支援沒有 SCVMM 的情況
-**PowerShell** | 不支援 | 支援<br></br> 不支援沒有 SCVMM 的情況
-
-## <a name="on-premises-servers"></a>內部部署伺服器
-
-### <a name="virtualization-servers"></a>虛擬化伺服器
-
-**部署** | **支援**
+**部署** | **詳細資料** 
 --- | ---
-**VMware VM/實體伺服器** | vSphere 6.0、5.5 或 5.1 (含最新更新)
-**Hyper-V (含 VMM)** | VMM 2016 和 VMM 2012 R2
+**VMware 至 VMware** | 內部部署 VMware VM 至次要 VMware 網站的災害復原。<br/><br/> 下載 [InMage Scout 使用者指南](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)
+**Hyper-V 至 Hyper-V** | VMM 雲端中的內部部署 Hyper-V VM 至次要 VMM 雲端的災害復原。<br></br> 不支援沒有 VMM 的情況。
 
-  >[!Note]
-  > 目前不支援混用 Windows Server 2016 和 2012 R2 主機的 VMM 2016 雲端。
-  > 目前不支援包含將現有 SCVMM 2012 R2 升級至 2016 的設定。
-### <a name="host-servers"></a>主機伺服器
+
+
+  
+
+## <a name="host-servers"></a>主機伺服器
 
 **部署** | **支援**
 --- | ---
 **VMware VM/實體伺服器** | vCenter 5.5 或 6.0 (僅支援 5.5 功能)
-**Hyper-V (無 VMM)** | 不是複寫至次要網站所支援的設定
-**Hyper-V (含 VMM)** | 具有最新更新的 Windows Server 2016 和 Windows Server 2012 R2。<br/><br/> Windows Server 2016 主機應由 VMM 2016 所管理。
+**Hyper-V (含 VMM)** | 具有最新更新的 Windows Server 2016 和 Windows Server 2012 R2。<br/><br/> Windows Server 2016 主機應由 VMM 2016 所管理。<br/><br/> 目前不支援混用 Windows Server 2016 和 2012 R2 主機的 VMM 2016 雲端。<br/><br/> 目前不支援包含將現有的 VMM 2012 R2 升級為 System Center 2016 的部署。
+
 
 ## <a name="support-for-replicated-machine-os-versions"></a>支援多種複寫機器作業系統版本
-下表摘要說明使用 Azure Site Recovery 時所遇到各種部署案例中的作業系統支援。 這項支援適用於在上述 OS 中執行的任何工作負載。
+
+下表摘要說明使用 Site Recovery 複寫的機器支援的作業系統。 任何工作負載都可以在支援的作業系統上執行。
 
 **VMware/實體伺服器** | **Hyper-V (含 VMM)**
---- | --- | ---
+--- | ---
 64 位元的 Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2 (至少含 SP1)<br/><br/> Red Hat Enterprise Linux 6.7、7.1、7.2 <br/><br/> CentOS 6.5、6.6、6.7、7.0、7.1、7.2 <br/><br/> Oracle Enterprise Linux 6.4 或 6.5，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | [Hyper-V 所支援的](https://technet.microsoft.com/library/mt126277.aspx)任何一種客體作業系統
 
->[!Note]
->只有具有下列儲存體的 Linux 機器可以複寫：檔案系統 (EXT3、ETX4、ReiserFS、XFS)；多重路徑軟體裝置對應工具；磁碟區管理員 (LVM2)。
->不支援使用 HP CCISS 控制站儲存體的實體伺服器。
->只有在 SUSE Linux Enterprise Server 11 SP3 上才支援 ReiserFS 檔案系統。
+## <a name="linux-machine-storage"></a>Linux 機器儲存體
+
+只能複寫有下列儲存體的 Linux 機器：
+
+- 檔案系統 (EXT3、ETX4、ReiserFS、XFS)。
+- 多重路徑軟體裝置對應程式。
+- 磁碟區管理員 (LVM2)。
+- 不支援使用 HP CCISS 控制站儲存體的實體伺服器。
+- 只有在 SUSE Linux Enterprise Server 11 SP3 上才支援 ReiserFS 檔案系統。
 
 ## <a name="network-configuration"></a>網路組態
 
@@ -135,5 +132,5 @@ RDM | 是 | N/A
 
 ## <a name="next-steps"></a>後續步驟
 
-- [將 VMM 雲端中的 Hyper-V VM 複寫至次要網站](site-recovery-vmm-to-vmm.md)
-- [將 VMware VM 和實體伺服器複寫至次要網站](site-recovery-vmware-to-vmware.md)
+- [將 VMM 雲端中的 Hyper-V VM 複寫至次要網站](tutorial-vmm-to-vmm.md)
+- [將 VMware VM 和實體伺服器複寫至次要網站](tutorial-vmware-to-vmware.md)

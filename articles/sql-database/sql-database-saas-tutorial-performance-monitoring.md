@@ -10,17 +10,17 @@ editor:
 ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 10/31/2017
 ms.author: sstein
-ms.openlocfilehash: f05e769a8c5d26c0149dcba05c0973de4bd30313
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 1509a4f05ceb3a54aad790553183616c97b4bee2
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>監視及管理多租用戶 SaaS 應用程式中 Azure SQL Database 和集區的效能
 
@@ -126,7 +126,7 @@ Wingtip 是 SaaS 應用程式，而實際 SaaS 應用程式上的負載通常是
 在集區上設定 \>75% 使用率時觸發的警示，如下所示：
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中開啟 *Pool1* (在 *tenants1-\<使用者\>* 伺服器上)。
-1. 按一下 警示規則，然後按一下+ 加入警示：
+1. 按一下 [警示規則]，然後按一下 [+ 加入警示]：
 
    ![加入警示](media/sql-database-saas-tutorial-performance-monitoring/add-alert.png)
 
@@ -179,7 +179,7 @@ Wingtip 是 SaaS 應用程式，而實際 SaaS 應用程式上的負載通常是
     1. 按一下 [設定集區]，
     1. 將 [集區 eDTU] 設定為 [50 eDTU]。
     1. 按一下 [新增資料庫]，以查看伺服器上可以新增至 *Pool2* 的資料庫清單。
-    1. 任選 10 個資料庫以將這些資料庫移至新的集區，然後按一下選取。 如果您已在執行負載產生器，該服務已經知道您的效能設定檔需要大於預設大小 50 eDTU 的較大集區，並建議從 100 eDTU 設定著手。
+    1. 任選 10 個資料庫以將這些資料庫移至新的集區，然後按一下 [選取]。 如果您已在執行負載產生器，該服務已經知道您的效能設定檔需要大於預設大小 50 eDTU 的較大集區，並建議從 100 eDTU 設定著手。
 
     ![建議](media/sql-database-saas-tutorial-performance-monitoring/configure-pool.png)
 
@@ -204,16 +204,19 @@ Wingtip 是 SaaS 應用程式，而實際 SaaS 應用程式上的負載通常是
 1. 使用 **F5** 執行指令碼。
 
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中開啟 **Pool1**。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至 *tenants1* 伺服器上的資料庫清單。 
+1. 按一下 **contosoconcerthall** 資料庫。
+1. 按一下 **contosoconcerthall** 所在的集區。 在 [彈性資料庫集區] 區段中找出集區。
+
 1. 檢查 [彈性集區監視] 圖表，並尋找增加的集區 DTU 使用量。 在一或兩分鐘後，應該會開始產生較高的負載，且您應該會快速看到集區達到 100% 使用率。
-1. 檢查 [彈性資料庫監視] 顯示，它會顯示過去一小時內最熱門的資料庫。 contosoconcerthall 資料庫應該很快會顯示為 5 個最熱門資料庫的其中之一。
-1. **按一下彈性資料庫監視****圖表**，可以開啟 [資料庫資源使用量] 頁面，您可以在其中監視任何資料庫。 這可讓您找出 contosoconcerthall 資料庫的顯示。
-1. 從資料庫清單中，按一下 contosoconcerthall。
-1. 按一下 [定價層 (調整 DTU)] 以開啟 [設定效能] 頁面，您可以在其中設定資料庫的獨立效能等級。
-1. 按一下 [標準] 索引標籤，以開啟標準層中的調整選項。
-1. 將 [DTU] 滑桿向右滑動，以選取 **100** 個 DTU。 請注意，這符合服務目標 **S3**。
-1. 按一下 [套用] 將資料庫移出集區，並讓它成為「標準 S3」資料庫。
-1. 調整完成後，在彈性集區和資料庫刀鋒視窗上監視對 contosoconcerthall 資料庫和 Pool1 的效果。
+2. 檢查 [彈性資料庫監視] 顯示，它會顯示過去一小時內最熱門的資料庫。 contosoconcerthall 資料庫應該很快會顯示為 5 個最熱門資料庫的其中之一。
+3. **按一下彈性資料庫監視****圖表**，可以開啟 [資料庫資源使用量] 頁面，您可以在其中監視任何資料庫。 這可讓您找出 contosoconcerthall 資料庫的顯示。
+4. 從資料庫清單中，按一下 contosoconcerthall。
+5. 按一下 [定價層 (調整 DTU)] 以開啟 [設定效能] 頁面，您可以在其中設定資料庫的獨立效能等級。
+6. 按一下 [標準] 索引標籤，以開啟標準層中的調整選項。
+7. 將 [DTU] 滑桿向右滑動，以選取 **100** 個 DTU。 請注意，這符合服務目標 **S3**。
+8. 按一下 [套用] 將資料庫移出集區，並讓它成為「標準 S3」資料庫。
+9. 調整完成後，在彈性集區和資料庫刀鋒視窗上監視對 contosoconcerthall 資料庫和 Pool1 的效果。
 
 一旦 contosoconcerthall 資料庫上的高負載下降，您應該立即讓它返回到集區，以降低其成本。 如果不確定何時會發生，您應該在資料庫上設定一個當其 DTU 使用量下降到低於集區上每個資料庫最大值時觸發的警示。 練習 5 中說明如何將資料庫移入集區。
 

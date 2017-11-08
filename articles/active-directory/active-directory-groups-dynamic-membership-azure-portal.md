@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 3ff347ab23c9150246940f563e562c8de92be45d
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 958ee2f12ebbd46472972a3012ec59aecbc23126
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>在 Azure Active Directory 中針對動態群組成員資格建立以屬性為基礎的規則
 在 Azure Active Directory (Azure AD) 中，您可以建立進階規則，以對群組啟用更複雜的屬性型動態成員資格。 本文將詳細說明用以建立適用於使用者或裝置之動態成員資格規則的屬性和語法。
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > - 您可以為安全性群組或 Office 365 群組的動態成員資格設定規則。
 >
-> - 此功能要求新增到至少一個動態群組的每個使用者成員都具有 Azure AD Premium P1 授權。
+> - 此功能要求新增到至少一個動態群組的每個使用者成員都具有 Azure AD Premium P1 授權。 不一定要實際將授權指派給使用者，讓他們成為動態群組的成員，但是您必須在租用戶中有最小數量的授權，以涵蓋所有這類使用者。 例如：如果您的租用戶中所有動態群組有總計 1000 個唯一使用者，則必須至少具有 Azure AD Premium P1 或以上版本的 1000 個授權，以符合授權需求。
 >
 > - 您可以為裝置或使用者建立動態群組，但無法建立同時包含使用者和裝置物件的規則。
 
@@ -306,7 +306,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 **使用 PowerShell 變更群組上的成員資格管理**
 
 > [!NOTE]
-> 若要變更動態群組屬性，您必須使用 [Azure AD PowerShell 第 2 版](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)中的 Cmdlet。 您可以從[這裡](https://www.powershellgallery.com/packages/AzureADPreview)安裝它。
+> 若要變更動態群組屬性，您必須使用**預覽版本** [Azure AD PowerShell 第 2 版](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)中的 Cmdlet。 您可以從[這裡](https://www.powershellgallery.com/packages/AzureADPreview)安裝預覽版本。
 
 以下是在現有群組上切換成員資格管理的函式範例。 請注意，請小心並正確地操作 GroupTypes 屬性，並保留可能存在該處，與動態成員資格不相關的任何值。
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e5dcc6bf5d8c2cdbfadbbe5170b57c8e9a611b2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b179444738584e7033f0872d8ef5b721af1d3970
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Pig 活動轉換資料
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -33,6 +33,10 @@ ms.lasthandoff: 10/11/2017
 > * [預存程序活動](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL 活動](data-factory-usql-activity.md)
 > * [.NET 自訂活動](data-factory-use-custom-activities.md)
+
+> [!NOTE]
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的 Data Factory 服務第 2 版，請參閱[使用 Data Factory 第 2 版中的 Pig 活動來轉換資料](../transform-data-using-hadoop-pig.md)。
+
 
 Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight Pig 活動會在[您自己](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)或[隨選](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)的 Windows/Linux 架構 HDInsight 叢集上執行 Pig 查詢。 本文是根據 [資料轉換活動](data-factory-data-transformation-activities.md) 一文，它呈現資料轉換和支援的轉換活動的一般概觀。
 

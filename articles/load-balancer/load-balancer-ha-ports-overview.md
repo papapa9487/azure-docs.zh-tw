@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: 62d78e067e50183f25af84e547db2e11c0014f5d
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: e72fc0d4323f7a2d203fee66311c3fea10ad7a09
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="high-availability-ports-overview-preview"></a>高可用性連接埠概觀 (預覽)
 
@@ -36,7 +36,7 @@ HA 連接埠可實現虛擬網路內網路虛擬設備 (NVA) 之高可用性和�
 
 ## <a name="why-use-ha-ports"></a>為何要使用 HA 連接埠
 
-### <a name="network-virtual-appliances"></a>網路虛擬設備
+### <a name="nva"></a>網路虛擬設備
 
 您可以使用網路虛擬設備 (NVA) 來保護您的 Azure 工作負載，使其不會遭受多個類型的安全性威脅。 當您在這些案例中使用 NVA 時，它們必須具有可靠性、高可用性，並可依需要相應放大。
 
@@ -139,6 +139,8 @@ HA 連接埠可在[和 Load Balancer Standard 相同的區域](https://aka.ms/lb
 - 單一網路介面的 IP 組態可以在 HA 連接埠建立一或多個 DSR 負載平衡器規則，但前提是其各自的前端 IP 組態都是唯一的。
 - 如果所有負載平衡規則都是 HA 連接埠 (只有 DSR)，或是所有規則都是非 HA 連接埠 (DSR 與非 DSR)，則兩個 (或以上) 指向相同後端集區的負載平衡器規則可以同時存在。 如果同時使用 HA 連接埠和非 HA 連接埠規則，則兩個這類負載平衡規則不能同時存在。
 - HA 連接埠不適用於 IPv6。
+- 只有單一 NIC 支援 NVA 案例的流程對稱。 請參閱[網路虛擬設備](#nva)的描述和圖表。 
+
 
 
 ## <a name="next-steps"></a>後續步驟

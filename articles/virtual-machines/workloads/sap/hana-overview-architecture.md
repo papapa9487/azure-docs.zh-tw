@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/02/2017
+ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 63e1820033e051b72601291c5206772192e68769
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ef5ec3d8f4b96d4a318e01b449d3baad8a6324a
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Azure 上的 SAP HANA (大型執行個體) 概觀和架構
 
@@ -62,6 +62,10 @@ SAP HANA on Azure (大型執行個體) 是 Azure 獨有的解決方案。 除了
 - **SAP HANA on Azure (大型執行個體)：**Azure 中產品方案的正式名稱，此產品方案可在經 SAP HANA TDI 認證並部署在不同 Azure 區域之「大型執行個體」戳記中的硬體上執行 HANA 執行個體。 **HANA 大型執行個體**是 SAP HANA on Azure (大型執行個體) 的相關詞彙簡稱，並在本技術部署指南中廣泛使用。
 - **跨單位：**描述將 VM 部署到 Azure 訂用帳戶的案例，該訂用帳戶在內部部署資料中心與 Azure 之間具有站對站、多站台或 ExpressRoute 連線能力。 在一般 Azure 文件中，這類部署也會描述為跨單位案例。 連線的原因是為了將內部部署網域、內部部署 Active Directory/OpenLDAP 和內部部署 DNS 延伸到 Azure。 內部部署架構會擴充到 Azure 訂用帳戶的 Azure 資產。 在此擴充下，VM 可以是內部部署網域的一部分。 內部部署網域的網域使用者可以存取伺服器，並可在這些 VM 上執行服務 (例如 DBMS 服務)， 但無法在內部部署的 VM 和 Azure 部署的 VM 之間進行通訊和名稱解析。 這是部署大部分 SAP 資產時的典型案例。 如需詳細資訊，請參閱[規劃與設計 VPN 閘道](../../../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)和[使用 Azure 入口網站建立具有站對站連線的 VNet](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)的指南。
 - **租用戶：**部署於 HANA 大型執行個體戳記的客戶回隔離到「租用戶」中。 每個租用戶的網路、儲存體和計算層會彼此區隔開來。 因此，指派給不同租用戶的儲存體和計算單位無法看到彼此，也無法在 HANA 大型執行個體戳記層級上彼此通訊。 客戶可以選擇部署到不同的租用戶。 即使如此，租用戶彼此之間還是無法在 HANA 大型執行個體戳記層級上進行通訊。
+- **SKU 類別：** 對於 HANA 大型執行個體，提供下列兩種 SKU。
+    - **類型 I 類別：**S72、S72m、S144、S144m、S192 和 S192m
+    - **類型 II 類別：**S384、S384m、S384xm、S576、S768 和 S960
+
 
 針對在 Microsoft Azure 公用雲端上部署 SAP 工作負載的主題，已發佈了各種不同的額外資源。 強烈建議所有在 Azure 中規劃和執行 SAP HANA 部署的人都需有經驗，並且熟悉 Azure IaaS 的主體及 Azure IaaS 上的 SAP 工作負載部署。 下列資源提供詳細資訊，應在繼續進行之前先參考：
 
@@ -122,7 +126,7 @@ SAP HANA on Azure (大型執行個體) 的整體架構不僅提供一個經 SAP 
 
 與 Azure VM 一樣，在多個 Azure 區域中都有提供 SAP HANA on Azure (大型執行個體)。 為了提供「災害復原」功能，您可以選擇加入。 某個地理政治區域內不同的大型執行個體戳記會彼此互連。 例如，美國西部和美國東部的 HANA 大型執行個體戳記會基於 DR 複寫目的，透過專用網路連結來連線。 
 
-就像使用「Azure 虛擬機器」時您可以在不同的 VM 類型之間做選擇一樣，您也可以從針對不同 SAP HANA 工作負載類型量身打造的不同「HANA 大型執行個體」SKU 中做選擇。 SAP 會根據 Intel 處理器世代，為不同的工作負載套用記憶體與處理器插槽比例 - 提供四種不同的 SKU 類型：
+就像使用「Azure 虛擬機器」時您可以在不同的 VM 類型之間做選擇一樣，您也可以從針對不同 SAP HANA 工作負載類型量身打造的不同「HANA 大型執行個體」SKU 中做選擇。 SAP 會根據 Intel 處理器世代，為不同的工作負載對處理器插槽比例套用記憶體。 下表顯示提供的 SKU 類型。
 
 自 2017 年 7 月起，SAP HANA on Azure (大型執行個體) 適用於美國西部和美國東部、澳大利亞東部、澳大利亞東南部、西歐及北歐等 Azure 區域中的數個設定：
 
@@ -355,7 +359,7 @@ SAP HANA on Azure (大型執行個體) 的儲存體配置是由 SAP HANA on Azur
 ### <a name="encryption-of-data-at-rest"></a>待用資料加密
 用於「HANA 大型執行個體」的儲存體可允許在資料儲存於磁碟上時，對其進行透明加密。 部署 HANA 大型執行個體單位時，您可以選擇啟用這類加密。 您也可以在已部署完成之後，選擇變更成已加密的磁碟區。 從非加密到已加密磁碟區的轉移過程是透明的，並不需要停機。 
 
-利用類型 I 類別的 SKU，就會將儲存開機 LUN 的磁碟區加密。 如果是類型 II 類別的 HANA 大型執行個體 SKU，您就需要使用 OS 方法來將開機 LUN 加密。 
+利用類型 I 類別的 SKU，就會將儲存開機 LUN 的磁碟區加密。 如果是類型 II 類別的 HANA 大型執行個體 SKU，您就需要使用 OS 方法來將開機 LUN 加密。 如需詳細資訊，請連絡 Microsoft 服務管理小組。
 
 
 ## <a name="networking"></a>網路

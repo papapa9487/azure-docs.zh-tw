@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 472c3f35e2ae32550be62826407689f93101041f
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 94d725cfb072091e57c96d3b2aca7b2e73657eef
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -250,7 +250,7 @@ SAP 已針對叢集共用磁碟、Windows 容錯移轉叢集上的 SAP (A)SCS �
 * SAP (A)SCS 執行個體已叢集化，並可使用虛擬主機名稱 **< (A)SCSVirtualHostName >** 存取
 * SAP GLOBAL 檔案會置於 SMB 檔案共用，並可使用 <SAPGLOBALHost> 主機名稱 \\\\&lt;SAPGLOBALHost&gt;\sapmnt\\&lt;SID&gt;\SYS\. 加以存取。
 * SAP (A)SCS 執行個體是安裝於這兩個叢集節點上的本機磁碟
-* **<(A)SCSVirtualHostName>** 網路名稱不同於 **<SAPGLOBALHost>**
+* **<(A)SCSVirtualHostName>** 網路名稱不同於 **&lt;SAPGLOBALHost&gt;**
 
 ![圖 2：具有 SMB 檔案共用的新 SAP (A)SCS HA 架構][sap-ha-guide-figure-8004]
 

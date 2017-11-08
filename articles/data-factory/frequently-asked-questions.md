@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: shlo
-ms.openlocfilehash: b394b78b1d1a45a725c438d2cb978bb367c24894
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 2cc128e8f7792a6a363aacf50f8724d689892c83
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory 常見問題集
 本文適用於第 2 版的 Azure Data Factory 服務。 本文提供 Data Factory 常見問題集的解答。  
+
+> [!NOTE]
+> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (正式推出版本 (GA))，請參閱 [Data Factory 第 1 版常見問題集](v1/data-factory-faq.md)。
 
 ## <a name="what-is-azure-data-factory"></a>Azure 資料處理站是什麼？ 
 Data Factory 是完全受管理並以雲端為基礎的資料整合服務，用來自動化資料的移動和轉換。 就像會運轉設備以將原物料轉換成成品的工廠一樣，Azure Data Factory 會協調現有的服務來收集未經處理資料，並將其轉換成隨時可用的資訊。 

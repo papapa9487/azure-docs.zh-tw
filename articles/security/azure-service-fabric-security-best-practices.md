@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2017
+ms.date: 11/01/2017
 ms.author: tomsh
-ms.openlocfilehash: 5f02b6be1fde4026057000bed4e8014cb56ccf9a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 682ad79cc5fe4f08051477b7b90ae80981e5d595
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric 安全性最佳做法
 在 Azure 上部署應用程式很快速、輕鬆且符合成本效益。 將您的雲端應用程式部署至生產環境之前，請檢閱重要和建議最佳做法，以在應用程式中實作安全叢集。
@@ -175,7 +175,7 @@ Service Fabric 會使用 X.509 憑證來保護叢集，並提供應用程式的�
 若要深入了解如何設定 Key Vault 的相關資訊，請參閱[開始使用 Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started)。
 
 ## <a name="assign-users-to-roles"></a>將使用者指派給角色
-建立應用程式來代表您的叢集之後，請將使用者指派給 Service Fabric 所支援的角色︰唯讀和系統管理員。您可以使用 Azure 傳統入口網站來指派這些角色。
+建立應用程式來代表您的叢集之後，請將使用者指派給 Service Fabric 所支援的角色︰唯讀和系統管理員。您可以使用 Azure 入口網站來指派這些角色。
 
 >[!NOTE]
 > 如需在 Service Fabric 中使用角色的詳細資訊，請參閱[角色型存取控制 (適用於 Service Fabric 用戶端)](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-roles)。

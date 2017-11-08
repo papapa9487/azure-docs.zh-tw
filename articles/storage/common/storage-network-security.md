@@ -11,25 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 09/25/2017
+ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 8117a5ef9bc4f785256a7a7d70f459529c771a56
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: b178be71824e427d88a811d87f1aeb6e5f80dbcc
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>設定 Azure 儲存體防火牆和虛擬網路 (預覽)
 Azure 儲存體提供多層式的安全性模型，讓您保護特定允許網路集合的儲存體帳戶。  設定網路規則時，只有來自允許網路的應用程式可以存取儲存體帳戶。  從允許的網路呼叫時，應用程式仍然需要適當的權限 (有效的存取金鑰或 SAS 權杖) 才能存取儲存體帳戶。
 
 ## <a name="preview-availability-and-support"></a>預覽可用性和支援
-儲存體防火牆和虛擬網路預覽版。  這項功能目前僅供下列區域的新或現有儲存體帳戶使用：
-- 美國東部
-- 美國西部
-- 美國西部 2
-- 美國中西部
-- 澳洲東部
-- 澳大利亞東南部
+儲存體防火牆和虛擬網路預覽版。  這項功能目前適用於所有 Azure 公用雲端區域的新或現有儲存體帳戶。
 
 > [!NOTE]
 > 預覽版不支援生產工作負載。

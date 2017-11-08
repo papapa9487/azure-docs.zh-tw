@@ -1,6 +1,6 @@
 ---
 title: "使用 Azure Log Analytics 最佳化 SQL Server 環境 | Microsoft Docs"
-description: "透過 Azure Log Analytics，您可以使用 SQL 評估方案，定期評估 SQL 伺服器環境的風險和健全狀況。"
+description: "透過 Azure Log Analytics，您可以使用 SQL 健康情況檢查方案，定期評估環境的風險和健康狀況。"
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
-ms.author: banders
+ms.date: 10/27/2017
+ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d2aed3315fe60ace46dfb4176dc13aa417257b0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec66c322550ac3a7729dc1fddc8c026fb4ec1895
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
-# <a name="optimize-your-sql-server-environment-with-the-sql-assessment-solution-in-log-analytics"></a>在 Log Analytics 中使用 SQL 評估方案最佳化 SQL Server 環境
+# <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>在 Log Analytics 中使用 SQL Server 健康情況檢查方案最佳化 SQL 環境
 
-![SQL 評定符號](./media/log-analytics-sql-assessment/sql-assessment-symbol.png)
+![SQL 健康情況檢查標誌](./media/log-analytics-sql-assessment/sql-assessment-symbol.png)
 
-您可以使用 SQL 評估方案定期評估伺服器環境的風險和健全狀況。 本文將協助您安裝方案，讓您可以針對潛在問題採取修正動作。
+您可以使用 SQL 健康情況檢查方案定期評估伺服器環境的風險和健康情況。 本文將協助您安裝方案，讓您可以針對潛在問題採取修正動作。
 
 此方案能針對已部署的伺服器基礎結構提供依照優先順序排列的具體建議清單。 建議分為六個焦點領域，它們可以幫助您快速了解風險並採取修正動作。
 
@@ -33,55 +33,58 @@ ms.lasthandoff: 10/11/2017
 
 您可以選擇對組織而言最重要的焦點區域，同時追蹤經營無風險且健康狀態良好之環境的進度。
 
-加入方案且評估完成之後，系統會將焦點區域的摘要資訊顯示在環境之基礎結構的 [SQL 評估]  儀表板中。 下列章節說明如何使用 [SQL 評估]  儀表板上的資訊，您可以在這裡檢視 SQL 伺服器基礎結構的建議動作並予以實施。
+加入方案且評估完成之後，系統會將焦點區域的摘要資訊顯示在環境之基礎結構的 [SQL 健康情況檢查] 儀表板中。 下列章節說明如何使用 [SQL 健康情況檢查] 儀表板上的資訊，您可以在這裡檢視 SQL Server 基礎結構的建議動作並予以實施。
 
-![SQL 評估磚的影像](./media/log-analytics-sql-assessment/sql-assess-tile.png)
+![SQL 健康情況檢查圖格的影像](./media/log-analytics-sql-assessment/sql-healthcheck-summary-tile.png)
 
-![SQL 評估儀表板的影像](./media/log-analytics-sql-assessment/sql-assess-dash.png)
+![SQL 健康情況檢查儀表板的影像](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-01.png)
 
-## <a name="installing-and-configuring-the-solution"></a>安裝和設定方案
-SQL 評估適用於 Standard、Developer 和 Enterprise 版本之 SQL Server 目前支援的所有版本。
+## <a name="prerequisites"></a>必要條件
 
-請使用下列資訊來安裝和設定方案。
-
-* 代理程式必須安裝於已安裝 SQL Server 的伺服器上。
-* SQL 評估方案需要在具有 OMS 代理程式的每部電腦上安裝 .NET Framework 4 的支援版本。
-* 若要安裝方案，使用者在使用 Azure 入口網站時必須是系統管理員或是 Azure 訂用帳戶的參與者。 此外，使用者必須是 OMS 入口網站中 OMS 工作區參與者或系統管理員角色的成員。
-* 搭配使用 Operations Manager 代理程式和 SQL 評估時，您必須使用 Operations Manager 執行身分帳戶。 如需詳細資訊，請參閱底下的 [OMS 的 Operations Manager 執行身分帳戶](#operations-manager-run-as-accounts-for-oms) 。
+* SQL 健康情況檢查方案需要在已安裝 Microsoft Monitoring Agent (MMA) 的每部電腦上安裝 .NET Framework 4 的支援版本。  MMA 代理程式會由 System Center 2016 - Operations Manager 和 Operations Manager 2012 R2 及 Log Analytics 服務使用。  
+* 方案支援 SQL Server 2012、2014 和 2016 版本。
+* Log Analytics 工作區，可以從 Azure 入口網站中的 Azure 市集將 SQL 健康情況檢查方案新增至此。  若要安裝方案，您必須是 Azure 訂用帳戶中的系統管理員或參與者。 
 
   > [!NOTE]
-  > MMA 代理程式不支援 Operations Manager 執行身分帳戶。
+  > 您加入方案之後，AdvisorAssessment.exe 檔案會以代理程式加入伺服器中。 組態資料會先讀取後再傳送至雲端中的 Log Analytics 服務，以便進行處理。 會將邏輯套用至接收的資料，且雲端服務會記錄資料。
   >
   >
-* 使用 [從方案庫加入 Log Analytics 方案](log-analytics-add-solutions.md)中的程序，將 SQL 評估方案加入您的 OMS 工作區中。 不需要進一步的組態。
 
-> [!NOTE]
-> 您加入方案之後，AdvisorAssessment.exe 檔案會以代理程式加入伺服器中。 組態資料會先讀取後再傳送至雲端中的 OMS 服務，以便進行處理。 會將邏輯套用至接收的資料，且雲端服務會記錄資料。
+若要對您的 SQL Server 伺服器執行健康情況檢查，則這些伺服器需要代理程式，並且須連線到 Log Analytics，您可以使用下列其中一個支援方法來達成要求：
 
-## <a name="sql-assessment-data-collection-details"></a>SQL 評估資料收集詳細資料
-SQL 評估會使用您已啟用的代理程式，來收集 WMI 資料、登錄資料、效能資料和 SQL Server 動態管理檢視結果。
+1. 如果 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 已不再監視伺服器，則安裝 [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agents.md)。
+2. 如果伺服器受到 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 監視，而管理群組未與 Log Analytics 服務整合，則該伺服器可以是具有 Log Analytics 的多重主目錄，以便收集資料並轉送至該服務，且仍然受到 Operations Manager 監視。  
+3. 除此之外，如果您的 Operations Manager 管理群組已與服務整合，則在工作區中啟用方案後，您需要讓服務依循[新增代理程式管理的電腦](log-analytics-om-agents.md#connecting-operations-manager-to-oms)下的步驟，來新增網域控制站以收集資料。  
 
-下表顯示代理程式的資料收集方法、是否需要 Operations Manager (SCOM)，以及如何代理程式收集資料的頻率。
+SQL Server 上的代理程式會向 Operations Manager 管理群組報告、收集資料、轉送至其指派的管理伺服器，然後直接從管理伺服器傳送至 Log Analytics 服務。  資料並不會寫入 Operations Manager 資料庫。  
 
-| 平台 | 直接代理程式 | SCOM 代理程式 | Azure 儲存體 | SCOM 是否為必要項目？ | 透過管理群組傳送的 SCOM 代理程式資料 | 收集頻率 |
-| --- | --- | --- | --- | --- | --- | --- |
-| Windows | &#8226; | &#8226; |  |  | &#8226; |7 天 |
+如果 SQL Server 由 Operations Manager 監視，則您需要設定 Operations Manager 執行身分帳戶。 如需詳細資訊，請參閱底下的 [Log Analytics 的 Operations Manager 執行身分帳戶](#operations-manager-run-as-accounts-for-log-analytics)。
 
-## <a name="operations-manager-run-as-accounts-for-oms"></a>OMS 的 Operations Manager 執行身分帳戶
-OMS 中的 Log Analytics 會使用 Operations Manager 代理程式及管理群組，收集資料並將資料傳送給 OMS 服務。 OMS 會建立工作負載的管理套件以提供加值服務。 每個工作負載都需要具有特定的工作負載權限，才能在不同的安全性內容中執行管理套件，例如網域帳戶。 您需要藉由設定 Operations Manager 執行身分帳戶來提供認證資訊。
+## <a name="sql-health-check-data-collection-details"></a>SQL 健康情況檢查的資料收集詳細資料
+SQL 健康情況檢查會使用您已啟用的代理程式，從下列來源收集資料： 
 
-請使用下列資訊來設定 SQL 評估的 Operations Manager 執行身分帳戶。
+* Windows Management Instrumentation (WMI) 
+* 登錄 
+* 效能計數器
+* SQL Server 動態管理檢視結果 
 
-### <a name="set-the-run-as-account-for-sql-assessment"></a>設定 SQL 評估的執行身分帳戶
- 如果您已經在使用 SQL Server 管理套件，您應該使用該執行身分帳戶。
+資料會收集到 SQL Server，並每隔七天轉送給 Log Analytics。
+
+## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Log Analytics 的 Operations Manager 執行身分帳戶
+Log Analytics 會使用 Operations Manager 代理程式及管理群組來收集資料，並將資料傳送給 Log Analytics 服務。 Log Analytics 會建立工作負載的管理套件以提供加值服務。 每個工作負載都需要具有特定的工作負載權限，才能在不同的安全性內容中執行管理套件，例如網域使用者帳戶。 您需要藉由設定 Operations Manager 執行身分帳戶來提供認證資訊。
+
+請使用下列資訊來設定 SQL 健康情況檢查的 Operations Manager 執行身分帳戶。
+
+### <a name="set-the-run-as-account-for-sql-health-check"></a>設定 SQL 健康情況檢查的執行身分帳戶
+ 如果您已經在使用 SQL Server 管理套件，您應該使用該執行身分的設定。
 
 #### <a name="to-configure-the-sql-run-as-account-in-the-operations-console"></a>在 Operations 主控台中設定 SQL 執行身分帳戶
 > [!NOTE]
-> 如果您使用 OMS 直接代理程式，而不是 SCOM 代理程式，則管理組件一律會在本機系統帳戶的安全性內容中執行。 略過下列的步驟 1-5，並執行 T-SQL 或 Powershell 範例，指定 NT AUTHORITY\SYSTEM 做為使用者名稱。
+> 依預設，管理組件中的工作流程會在本機系統帳戶的安全性內容中執行。 如果您使用 Microsoft Monitoring Agent 直接連線到服務，而非直接向 Operations Manager 管理群組報告，請略過以下步驟 1-5，並執行 T-SQL 或 PowerShell 範例，指定 AUTHORITY\SYSTEM 為使用者名稱。
 >
 >
 
-1. 在 Operations Manager 中開啟 Operations 主控台，然後按一下管理 。
+1. 在 Operations Manager 中開啟 Operations 主控台，然後按一下 [管理] 。
 2. 在 [執行身分組態] 下方，按一下 [設定檔]，並開啟 [OMS SQL 評估執行身分設定檔]。
 3. 在 [執行身分帳戶] 頁面上，按一下 [新增]。
 4. 選取包含 SQL Server 所需認證的 Windows 執行身分帳戶，或按一下 [新增]  建立一個。
@@ -91,10 +94,10 @@ OMS 中的 Log Analytics 會使用 Operations Manager 代理程式及管理群�
    >
    >
 5. 按一下 [儲存] 。
-6. 修改，然後在每個 SQL Server 執行個體上執行下列 T-SQL 範例，授與執行身分帳戶所需的最小權限授以執行 SQL 評估。 不過，如果執行身分帳戶已是 SQL Server 執行個體上 sysadmin 伺服器角色的一部分，您就不需要這樣做。
+6. 修改，然後在每個 SQL Server 執行個體上執行下列 T-SQL 範例，授與執行身分帳戶所需的最小權限以執行 SQL 健康情況檢查。 不過，如果執行身分帳戶已是 SQL Server 執行個體上 sysadmin 伺服器角色的一部分，您就不需要這樣做。
 
 ```
----
+    ---
     -- Replace <UserName> with the actual user name being used as Run As Account.
     USE master
 
@@ -111,11 +114,11 @@ OMS 中的 Log Analytics 會使用 Operations Manager 代理程式及管理群�
     EXEC sp_msforeachdb N'USE [?]; CREATE USER [<UserName>] FOR LOGIN [<UserName>];'
 
 ```
+
 #### <a name="to-configure-the-sql-run-as-account-using-windows-powershell"></a>使用 Windows PowerShell 設定 SQL 執行身分帳戶
 以您的資訊更新它之後，開啟 PowerShell 視窗並執行下列指令碼：
 
 ```
-
     import-module OperationsManager
     New-SCOMManagementGroupConnection "<your management group name>"
 
@@ -154,17 +157,19 @@ OMS 中的 Log Analytics 會使用 Operations Manager 代理程式及管理群�
 
 每項建議都包含其重要性的指引。 在已知 IT 服務之本質和組織之商務需求的情況下，您應使用該指引來評估實作建議的適當性。
 
-## <a name="use-assessment-focus-area-recommendations"></a>使用評估焦點區域建議
-在使用 OMS 中的評估方案之前，您必須先安裝方案。 如需閱讀安裝方案的更多資訊，請參閱 [從方案庫加入 Log Analytics 方案](log-analytics-add-solutions.md)。 安裝之後，您可以在 OMS 中使用 [概觀] 頁面上的 [SQL 評估] 圖格檢視建議摘要。
+## <a name="use-health-check-focus-area-recommendations"></a>使用健康情況檢查焦點區域建議
+在使用 Log Analytics 中的評估方案之前，您必須先安裝方案。  安裝之後，您可以在 Azure 入口網站中的方案頁面上，使用 SQL 健康情況檢查圖格來檢視建議摘要。
 
 檢視基礎結構的總結法務遵循評估結果，然後再深入鑽研建議事項。
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>檢視的焦點區域的建議並採取更正措施
-1. 在 [概觀] 頁面上，按一下 [SQL 評估] 圖格。
-2. 在 [SQL 評估] 頁面中，檢閱任一焦點區域刀鋒視窗中的摘要資訊，然後按一下焦點區域以檢視建議。
-3. 在任一焦點區域頁面中，您可以檢視針對環境且按照優先順序排列的建議。 按一下 [受影響的物件]  下方的建議，可檢視建議提出原因的詳細資料。  
-    ![SQL 評定建議圖片](./media/log-analytics-sql-assessment/sql-assess-focus.png)
-4. 您可以採取 [建議動作] 中所建議的更正動作。 當您解決某個項目後，後續評估會記錄您實施的建議動作並提高法務遵循分數。 更正後的項目將以**通過的物件**呈現。
+1. 登入 Azure 入口網站，網址為 [https://portal.azure.com](https://portal.azure.com)。 
+2. 在 Azure 入口網站中，按一下左下角的 [更多服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
+3. 在 [Log Analytics 訂用帳戶] 窗格中，選取工作區，然後按一下 [OMS 入口網站] 圖格。  
+4. 在 [概觀] 頁面上，按一下 [SQL 健康情況檢查] 圖格。 
+5. 在 [健康情況檢查] 頁面中檢閱任一焦點區域分葉中的摘要資訊，然後按一下焦點區域以檢視建議。
+6. 在任一焦點區域頁面中，您可以檢視針對環境且按照優先順序排列的建議。 按一下 [受影響的物件]  下方的建議，可檢視建議提出原因的詳細資料。<br><br> ![SQL 健康情況檢查建議的影像](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)<br>
+7. 您可以採取 [建議動作] 中所建議的更正動作。 當您解決某個項目後，後續評估會記錄您實施的建議動作並提高法務遵循分數。 更正後的項目將以**通過的物件**呈現。
 
 ## <a name="ignore-recommendations"></a>忽略建議
 如果您有想要忽略的建議，則可以建立 OMS 將用來防止建議出現在您評估結果的文字檔。
@@ -172,45 +177,59 @@ OMS 中的 Log Analytics 會使用 Operations Manager 代理程式及管理群�
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>識別您將忽略的建議
-1. 登入您的工作區，並開啟記錄檔搜尋。 使用下列查詢來列出您環境中電腦的失敗建議。
+1. 在 Azure 入口網站中的 Log Analytics 工作區頁面上，針對您選取的工作區，按一下 [記錄搜尋] 圖格。
+2. 使用下列查詢來列出您環境中電腦的失敗建議。
 
-   ```
-   Type=SQLAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
-   ```
+    ```
+    Type=SQLAssessmentRecommendation RecommendationResult=Failed | select Computer, RecommendationId, Recommendation | sort Computer
+    ```
 
-   以下是顯示記錄檔搜尋查詢的螢幕擷取畫面︰![失敗的建議](./media/log-analytics-sql-assessment/sql-assess-failed-recommendations.png)
-2. 選擇您想要忽略的建議。 您將使用下一個程序中的 RecommendationId 值。
+    >[!NOTE]
+    > 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則以上查詢會變更如下。
+    >
+    > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+
+    以下是顯示記錄檔搜尋查詢的螢幕擷取畫面︰<br><br> ![失敗的建議](./media/log-analytics-sql-assessment/sql-assess-failed-recommendations.png)<br>
+
+3. 選擇您想要忽略的建議。 您將使用下一個程序中的 RecommendationId 值。
 
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>建立及使用 IgnoreRecommendations.txt 文字檔案
 1. 建立名為 IgnoreRecommendations.txt 的檔案。
-2. 在個別行上貼上或輸入您想要 OMS 忽略之每個建議的各個 RecommendationId，然後儲存並關閉檔案。
-3. 將檔案放在您想要 OMS 忽略建議之每一部電腦的下列資料夾中。
+2. 在個別行上貼上或輸入您想要 Log Analytics 忽略之每個建議的各個 RecommendationId，然後儲存並關閉檔案。
+3. 將檔案放在您想要 Log Analytics 忽略建議之每一部電腦的下列資料夾中。
    * 在具有 Microsoft Monitoring Agent 的電腦 (直接連線或透過 Operations Manager 連線) 上 - *SystemDrive*:\Program Files\Microsoft Monitoring Agent\Agent
    * 在 Operations Manager 管理伺服器上 - *SystemDrive*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server
+   * 在 Operations Manager 2016 管理伺服器上 - *SystemDrive*:\Program Files\Microsoft System Center 2016\Operations Manager\Server
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>驗證已忽略建議
 1. 在執行下一個排定的評估之後，依預設是每隔 7 天執行一次，指定的建議會標示為忽略，且不會出現在評估儀表板。
 2. 您可以使用下列記錄搜尋查詢列出所有已忽略的建議。
 
-   ```
-   Type=SQLAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
-   ```
+    ```
+    Type=SQLAssessmentRecommendation RecommendationResult=Ignored | select Computer, RecommendationId, Recommendation | sort Computer
+    ```
+
+    >[!NOTE]
+    > 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則以上查詢會變更如下。
+    >
+    > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+
 3. 如果您稍後決定想要查看忽略的建議，請移除任何 IgnoreRecommendations.txt 檔案，或從中移除 RecommendationID。
 
-## <a name="sql-assessment-solution-faq"></a>SQL 評估方案常見問題集
-*評估的執行頻率為何？*
+## <a name="sql-health-check-solution-faq"></a>SQL 健康情況檢查方案常見問題集
+*執行健康情況檢查的頻率為何？*
 
-* 評估會每隔 7 天執行一次。
+* 每隔七天執行檢查。
 
-*是否有設定評估執行頻率的方法？*
+*是否有設定檢查執行頻率的方法？*
 
 * 目前沒有。
 
-*如果我在加入 SQL 評估方案後探索到另一部伺服器，方案也會評估這部伺服器嗎？*
+*如果我在加入 SQL 健康情況檢查方案後探索到另一部伺服器，方案也會檢查這部伺服器嗎？*
 
-* 是的。智慧套件會在探索到該伺服器之後每隔 7 天評估一次。
+* 是的。在探索到該伺服器之後，會每隔 7 天檢查一次該伺服器。
 
-*如果把伺服器除役，何時能將它從評估中移除？*
+*如果把伺服器除役，何時能將它從健康情況檢查中移除？*
 
 * 如果伺服器在 3 週內未提交任何資料，智慧套件便會將其移除。
 
@@ -240,11 +259,11 @@ OMS 中的 Log Analytics 會使用 Operations Manager 代理程式及管理群�
 
 *為什麼只顯示前 10 項建議？*
 
-* 與其提供鉅細靡遺的工作清單，我們建議您先著重於解決優先建議事項。 解決後，智慧套件將會提供其他建議。 如果您想要查看詳細清單，可以使用 OMS 記錄搜尋來檢視所有建議。
+* 與其提供鉅細靡遺的工作清單，我們建議您先著重於解決優先建議事項。 解決後，智慧套件將會提供其他建議。 如果您想要查看詳細清單，可以使用 Log Analytics 記錄搜尋來檢視所有建議。
 
 *是否有忽略建議的方法？*
 
 * 是，請參閱上面的 [忽略建議](#ignore-recommendations) 一節。
 
 ## <a name="next-steps"></a>後續步驟
-* [搜尋記錄檔](log-analytics-log-searches.md) 以檢視詳細的 SQL 評估資料和建議。
+* [搜尋記錄](log-analytics-log-searches.md)可讓您了解如何分析詳細的 SQL 健康情況檢查資料和建議。

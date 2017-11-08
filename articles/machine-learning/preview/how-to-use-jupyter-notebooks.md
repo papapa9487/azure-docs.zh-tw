@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 07759a590e3a4e061a1c5727428d2c7c2a655f51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93850a7c9e3d9d69b0da22ebd0656ae40cee2e63
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>如何在 Azure Machine Learning Workbench 中使用 Jupyter Notebook
 
@@ -39,7 +39,7 @@ Azure Machine Learning Workbench 透過它與 Jupyter Notebook 的整合，來�
 您只需在專案的 `aml_config` 資料夾中設定執行組態和計算目標，就能在 Azure ML Workbench 中存取許多不同核心。 藉由發出 `az ml computetarget attach` 命令來新增計算目標，相當於新增核心。
 
 >[!NOTE]
->如需更多執行組態與計算目標的詳細資料，請檢閱[設定執行](experiment-execution-configuration.md)。
+>如需更多執行組態與計算目標的詳細資料，請檢閱[設定執行](experimentation-service-configuration.md)。
 
 ### <a name="kernel-naming-convention"></a>核心命名慣例
 核心通常會以 "\<專案名稱> \<執行組態名稱>" 格式來命名。 例如，如果您在名為 _myIris_ 的專案中擁有名為 _docker-python_ 的執行組態，則當您開啟 Jupyter Notebook 時，就能在核心清單中找到名為 "myIris docker-python" 的核心。
@@ -107,5 +107,5 @@ $ az ml notebook start
 
 ## <a name="next-steps"></a>後續步驟
 - 若要了解如何使用 Jupyter Notebook，請造訪 [Jupyter 官方文件](http://jupyter-notebook.readthedocs.io/en/latest/) \(英文\)。    
-- 若要更深入了解 Azure ML 實驗執行環境，請檢閱 [Azure Machine Learning 實驗執行服務概觀](experiment-execution-configuration.md)
+- 若要更深入了解 Azure ML 測試執行環境，請檢閱 [Azure Machine Learning 測試服務概觀](experimentation-service-configuration.md)
 

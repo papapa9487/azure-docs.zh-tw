@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: 0971959fb168d92096531d1c081666cf301608cf
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: e21925b8f84f0805f41fd698965cac09286b92c1
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的變更摘要支援
 
@@ -157,7 +157,7 @@ Azure Cosmos DB 使用的 [DocumentDB SDK](documentdb-sdk-dotnet.md) 提供讀�
 
 如果您有多個讀取器，可以使用 **ChangeFeedOptions** 將讀取負載分配至不同的執行緒或不同的用戶端。
 
-就這麼簡單，只要這幾行程式碼，您便可以開始讀取變更摘要。 您可以在 [azure-cosmos-db-DocumentFeed GitHub repo](https://github.com/rsarosh/azure-cosmos-db-DocumentFeed) 取得本文程式碼的完整版。
+就這麼簡單，只要這幾行程式碼，您便可以開始讀取變更摘要。 您可以從 [GitHub 儲存機制](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)取得本文中使用的完整程式碼。
 
 在上述的步驟 4 程式碼中，最後一行的 **ResponseContinuation** 中有最後一個邏輯序號 (LSN)，下一次您讀取新文件時會用到這個序號 (新文件在這個序號之後)。 利用 **ChangeFeedOption** 的 **StartTime**，可以加大取得文件的範圍。 因此，如果您的 **ResponseContinuation** 是 null，但 **StartTime** 是過去的時間，則會取得自 **StartTime** 開始變更過的所有文件。 但是，如果 **ResponseContinuation** 有值，則系統會取得自 LSN 開始的所有文件。
 
@@ -278,7 +278,7 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 
 * [資訊頁面](documentdb-sdk-dotnet-changefeed.md) 
 * [Nuget 套件](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
-* [展示上述步驟 1-6 的範例程式碼](https://github.com/rsarosh/Cosmos-ChangeFeedProcessor)
+* [展示上述步驟 1-6 的範例程式碼](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [GitHub 上的其他範例](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 如需有關透過 SDK 使用變更摘要的詳細資訊，請看下列資源：

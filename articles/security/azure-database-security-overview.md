@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 3b8038b716266326967e2cf178efe4d36f4badc5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 3c83645f61cd42c8c2b46f787c9e7531726d3fbb
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-database-security-overview"></a>Azure 資料庫安全性概觀
 
@@ -69,7 +69,7 @@ SQL Database 會使用[傳輸層安全性](https://support.microsoft.com/kb/3135
 
 在驗證程序中，TLS/SSL 用戶端會將訊息傳送至 TLS/SSL 伺服器，然後伺服器會以驗證其本身所需的資訊來回應。 用戶端和伺服器會執行其他工作階段金鑰交換，並結束 [驗證] 對話方塊。 完成驗證之後，即可使用驗證程序期間所建立的對稱式加密金鑰，在伺服器與用戶端之間開始進行 SSL 安全保護的通訊。
 
-Azure SQL Database 的所有連線，也就是任何時候只要資料需要「傳輸」進出資料庫時，都需要加密 (SSL/TLS)。 SQL Azure 使用 TLS/SSL 來驗證伺服器和用戶端，然後使用它來加密已驗證對象之間的訊息。 在您應用程式的連接字串中，您必須指定參數來加密連線，並且不要信任伺服器憑證 (這是為了如果您從 Azure 傳統入口網站將連接字串複製出去)，否則連線將不會驗證伺服器的身分識別，也可能會遭受到「攔截式」攻擊。 例如對於 ADO.NET 驅動程式，這些連接字串參數是 Encrypt=True 和 TrustServerCertificate=False。
+Azure SQL Database 的所有連線，也就是任何時候只要資料需要「傳輸」進出資料庫時，都需要加密 (SSL/TLS)。 SQL Azure 使用 TLS/SSL 來驗證伺服器和用戶端，然後使用它來加密已驗證對象之間的訊息。 在應用程式的連接字串中，您必須指定參數來加密連線且不要信任伺服器憑證 (如果您從 Azure 入口網站複製連接字串，則系統會為您執行此操作)，否則連線將不會驗證伺服器的身分識別，並且容易遭受「攔截式」攻擊。 例如對於 ADO.NET 驅動程式，這些連接字串參數是 Encrypt=True 和 TrustServerCertificate=False。
 
 ### <a name="encryption-at-rest"></a>待用加密
 您可以採取數個預防措施來協助保護資料庫，例如設定安全系統、加密機密資產，以及建置圍繞資料庫伺服器的防火牆。 不過，在實體媒體 (例如磁碟機或備份磁帶) 遭竊的案例中，惡意人士可能會直接還原或附加資料庫，然後瀏覽資料。

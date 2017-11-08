@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/11/2017
+ms.date: 10/30/2017
 ms.author: bryanla
-ms.openlocfilehash: 5a10b2314e7086800d87362156ed3efb1a21efa7
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 6e52896f0d03661eab033c5b58b86360ce346b55
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>使用 Linux VM 受管理的服務身分識別透過 SAS 認證存取 Azure 儲存體
 
@@ -30,8 +30,8 @@ ms.lasthandoff: 10/12/2017
 
 > [!div class="checklist"]
 > * 在 Linux 虛擬機器上啟用 MSI 
-> * 在 Resource Manager 中將 VM 存取權授與儲存體帳戶 SAS 
-> * 使用 VM 的身分識別取得存取權杖，並將其用於從 Resource Manager 擷取 SAS 
+> * 在資源管理員中將 VM 存取權限授與儲存體帳戶 SAS 
+> * 使用 VM 身分識別取得存取權杖，並將其用於從資源管理員取出 SAS 
 
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
@@ -87,13 +87,13 @@ ms.lasthandoff: 10/12/2017
 稍後我們將上傳和下載檔案到新的儲存體帳戶。 由於檔案需要 Blob 儲存體，我們需要建立 Blob 容器，用來儲存檔案。
 
 1. 巡覽回到您新建立的儲存體帳戶。
-2. 按一下左側面板中 [Blob 服務] 下的 [容器] 連結。
+2. 按一下左側面板 [Blob 服務] 下的 [容器] 連結。
 3. 按一下頁面上方的 [+ 容器]，[新的容器] 面板隨即會滑出。
 4. 指定容器的名稱，選取存取層級，然後按一下 [確定]。 稍後在教學課程中將會用到您指定的名稱。 
 
     ![建立儲存體容器](media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-msi-access-to-use-a-storage-sas"></a>授與 VM MSI 存取權以使用儲存體 SAS 
+## <a name="grant-your-vms-msi-access-to-use-a-storage-sas"></a>授與 VM 的 MSI 存取權來使用儲存體 SAS 
 
 Azure 儲存體原生並不支援 Azure AD 驗證。  不過，您可以使用 MSI 從 Resource Manager 擷取儲存體 SAS，然後使用該 SAS 存取儲存體。  在此步驟中，您會將 VM MSI 存取權授與儲存體帳戶 SAS。   
 
@@ -101,7 +101,7 @@ Azure 儲存體原生並不支援 Azure AD 驗證。  不過，您可以使用 M
 2. 按一下左側面板中的 [存取控制 (IAM)] 連結。  
 3. 按一下頁面頂端的 [+ 新增] 以新增 VM 的新角色指派
 4. 在頁面右側中，將 [角色] 設定為 [儲存體帳戶參與者]。 
-5. 在下一個下拉式清單中，將 [存取權指派給] 設定為資源 [虛擬機器]。  
+5. 在下一個下拉式清單中，將 [存取權指派對象為] 設定為資源 [虛擬機器]。  
 6. 接下來，請確保 [訂用帳戶] 下拉式清單中已列出適當的訂用帳戶，然後將 [資源群組] 設定為 [所有資源群組]。  
 7. 最後，在 [選取] 的下拉式清單中，選擇您的 Linux 虛擬機器，然後按一下 [儲存]。  
 
@@ -109,9 +109,9 @@ Azure 儲存體原生並不支援 Azure AD 驗證。  不過，您可以使用 M
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>使用 VM 的身分識別取得存取權杖，並使用它來呼叫 Azure Resource Manager
 
-在教學課程的其餘部分中，我們將從稍早建立的 VM 繼續進行。
+其餘課程要從稍早建立的 VM 繼續進行。
 
-若要完成這些步驟，您需要 SSH 用戶端。 如果您使用 Windows，您可以在[適用於 Linux 的 Windows 子系統](https://msdn.microsoft.com/commandline/wsl/install_guide)中使用 SSH 用戶端。
+若要完成這些步驟，您需要 SSH 用戶端。 如果您使用 Windows，您可以在[適用於 Linux 的 Windows 子系統](https://msdn.microsoft.com/commandline/wsl/install_guide)中使用 SSH 用戶端。 如果您需要設定 SSH 用戶端金鑰的協助，請參閱[如何在 Azure 上搭配 Windows 使用 SSH 金鑰](../virtual-machines/linux/ssh-from-windows.md)，或[如何在 Azure 中建立和使用 Linux VM 的 SSH 公開和私密金鑰組](../virtual-machines/linux/mac-create-ssh-keys.md)。
 
 1. 在 Azure 入口網站中，瀏覽至 [虛擬機器]，移至您的 Linux 虛擬機器，然後在 [概觀] 頁面中，按一下頂端的 [連線]。 複製字串以連線到您的 VM。 
 2. 使用 SSH 用戶端連線到 VM。  
@@ -154,7 +154,7 @@ Azure 儲存體原生並不支援 Azure AD 驗證。  不過，您可以使用 M
 }
 ```
 
-要求 SAS 認證的 POST 主體中會包含這些參數。 如需有關建立 SAS 認證參數的詳細資訊，請參閱[清單服務 SAS REST 參考](/rest/api/storagerp/storageaccounts/listservicesas)。
+要求 SAS 認證的 POST 主體中包含了這些參數。 如需有關建立 SAS 認證參數的詳細資訊，請參閱[清單服務 SAS REST 參考](/rest/api/storagerp/storageaccounts/listservicesas)。
 
 使用下列 CURL 要求取得 SAS 認證。 別忘了以您自己的值取代 `<SUBSCRIPTION ID>`、`<RESOURCE GROUP>`、`<STORAGE ACCOUNT NAME>`、`<CONTAINER NAME>`、`<EXPIRATION TIME>` 參數的值。 將 `<ACCESS TOKEN>` 值取代為您先前擷取的存取權杖。
 

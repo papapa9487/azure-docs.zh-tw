@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: robinsh
-ms.openlocfilehash: a116b4c15046e704e374ca67c5695ff3f01ba7fb
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 1046e407bb4e9d07e91014384e9eba7b0c7020a8
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>搭配使用 Azure PowerShell 與 Azure 儲存體
 
@@ -34,12 +34,11 @@ Azure PowerShell 用來從 PowerShell 命令列或在指令碼中建立和管理
 > * 保護對儲存體帳戶的存取 
 > * 啟用儲存體分析
 
-它也提供數個其他 PowerShell 儲存體文章的連結，例如如何啟用和存取儲存體分析，以及如何使用資料層 Cmdlet。
-<!-- also how to access the china and government clouds  -->
+本文提供關於儲存體之數個其他 PowerShell 文章的連結，例如如何啟用及存取儲存體分析、如何使用資料層 Cmdlet，以及如何存取 Azure 獨立雲端 (例如中國雲端、德國雲端和政府雲端)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-這個練習需要 Azure PowerShell 模組 3.6 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 
+這個練習需要 Azure PowerShell 模組 4.4 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 
 
 在此練習中，您可以將命令鍵入一般 PowerShell 視窗中，或者使用 [Windows PowerShell 整合指令碼環境 (ISE)](/powershell/scripting/getting-started/fundamental/windows-powershell-integrated-scripting-environment--ise-)，並在編輯器中鍵入命令，然後在您瀏覽範例時一次測試一或多個命令。 您可以反白顯示您要執行的資料列，然後按一下 [執行選取項目] 只執行這些命令。
 
@@ -94,7 +93,7 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 # Set the name of the storage account and the SKU name. 
 $storageAccountName = "testpshstorage"
-$skuName = "Standard\_LRS"
+$skuName = "Standard_LRS"
     
 # Create the storage account.
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
@@ -122,7 +121,7 @@ SKU 名稱指出儲存體帳戶的複寫類型，例如 LRS (本地備援儲存�
 
 您現在具有新的儲存體帳戶和其參考。 
 
-## <a name="managing-the-storage-account"></a>管理儲存體帳戶
+## <a name="manage-the-storage-account"></a>管理儲存體帳戶
 
 您現在具有新儲存體帳戶或現有儲存體帳戶的參考，下節示範一些您可用來管理儲存體帳戶的命令。
 
@@ -142,7 +141,7 @@ SKU 名稱指出儲存體帳戶的複寫類型，例如 LRS (本地備援儲存�
 
 * 只允許 HTTPS 流量。 
 
-### <a name="managing-the-access-keys"></a>管理存取金鑰
+### <a name="manage-the-access-keys"></a>管理存取金鑰
 
 Azure 儲存體帳戶會隨附兩個帳戶金鑰。 若要擷取金鑰，請使用 [Get-AzureRmStorageAccountKey](/powershell/module/AzureRM.Storage/Get-AzureRmStorageAccountKey)。 這個範例會擷取第一個金鑰。 若要擷取另一個金鑰，請使用 `Value[1]`，而非 `Value[0]`。
 
@@ -171,17 +170,17 @@ New-AzureRmStorageAccountKey -ResourceGroupName $resourceGroup `
 
 ### <a name="delete-a-storage-account"></a>刪除儲存體帳戶 
 
-若要刪除儲存體帳戶，請使用 [Remove-AzureRmStorageAccount](/powershell/module/azurerm.storage/Remove-AzureRmStorageAccount)。 
-
-> [!IMPORTANT]
-> 當您刪除儲存體帳戶時，也會一併刪除帳戶中儲存的所有資產。 如果您不小心刪除帳戶，請立即連絡支援人員，並開啟要還原儲存體帳戶的票證。 不保證復原資料，但有時可以運作。 除非已解決支援票證，否則請不要建立與舊儲存體帳戶同名的新儲存體帳戶。 
->
+若要刪除儲存體帳戶，請使用 [Remove-AzureRmStorageAccount](/powershell/module/azurerm.storage/Remove-AzureRmStorageAccount)。
 
 ```powershell
 Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccountName
 ```
 
-### <a name="protecting-your-storage-account-using-vnets-and-firewalls"></a>使用 VNet 和防火牆保護儲存體帳戶
+> [!IMPORTANT]
+> 當您刪除儲存體帳戶時，也會一併刪除帳戶中儲存的所有資產。 如果您不小心刪除帳戶，請立即連絡支援人員，並開啟要還原儲存體帳戶的票證。 不保證復原資料，但有時可以運作。 除非已解決支援票證，否則請不要建立與舊儲存體帳戶同名的新儲存體帳戶。 
+>
+
+### <a name="protect-your-storage-account-using-vnets-and-firewalls"></a>使用 VNet 和防火牆保護儲存體帳戶
 
 任何可存取網際網路的網路預設都可以存取所有儲存體帳戶。 不過，您可以設定網路規則，只允許來自特定虛擬網路的應用程式存取儲存體帳戶。 如需詳細資訊，請參閱[設定 Azure 儲存體防火牆和虛擬網路](storage-network-security.md)。 
 
@@ -190,7 +189,7 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 * [Update-AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset)
 * [Remove-AzureRmStorageAccountNetworkRule](/powershell/module/azurerm.storage/remove-azurermstorage-account-networkrule)
 
-## <a name="using-storage-analytics"></a>使用儲存體分析  
+## <a name="use-storage-analytics"></a>使用儲存體分析  
 
 [Azure 儲存體分析](storage-analytics.md)包含[儲存體分析計量](/rest/api/storageservices/about-storage-analytics-metrics)和[儲存體分析記錄](/rest/api/storageservices/about-storage-analytics-logging)。 
 
@@ -210,26 +209,34 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 
 * 如需使用儲存體計量和儲存體記錄疑難排解儲存體問題的詳細資訊，請參閱 [監控、診斷和疑難排解 Microsoft Azure 儲存體](storage-monitoring-diagnosing-troubleshooting.md)。
 
-## <a name="managing-the-data-in-the-storage-account"></a>管理儲存體帳戶中的資料
+## <a name="manage-the-data-in-the-storage-account"></a>管理儲存體帳戶中的資料
 
-您現在已了解如何使用 PowerShell 管理儲存體帳戶，下列各文章會示範如何使用 PowerShell 來存取儲存體帳戶中的資料物件。
+您現在已了解如何使用 PowerShell 管理儲存體帳戶，您可以使用下列文章來了解如何存取儲存體帳戶中的資料物件。
 
 * [如何使用 PowerShell 管理 Blob](../blobs/storage-how-to-use-blobs-powershell.md)
 * [如何使用 PowerShell 管理檔案](../files/storage-how-to-use-files-powershell.md)
 * [如何使用 PowerShell 管理佇列](../queues/storage-powershell-how-to-use-queues.md)
 
-<!--## Government Cloud and China Cloud
+## <a name="azures-independently-deployed-clouds"></a>Azure 的獨立部署雲端
 
-ROBINROBINROBIN 
+大多數人會針對其全域 Azure 部署使用 Azure 公用雲端。 也有因為主權等等原因的一些獨立部署 Microsoft Azure。 這些獨立部署稱為「環境」。 以下是可用的環境：
 
-To access the Government cloud of the China datacenters, you have to use some special steps. The following article shows how to access these special cloud accounts using PowerShell.
+* [Azure Government 雲端](https://azure.microsoft.com/features/gov/)
+* [21Vianet 在中國所操作的 Azure 中國雲端](http://www.windowsazure.cn/)
+* [Azure 德國雲端](../../germany/germany-welcome.md)
 
-* [How to manage storage accounts in Government Cloud and China](storage-powershell-govt-china.md)
--->
+如需如何使用 PowerShell 來存取這些雲端及其儲存體的詳細資訊，請參閱[使用 PowerShell 在 Azure 獨立雲端中管理儲存體](storage-powershell-independent-clouds.md)。
 
+## <a name="clean-up-resources"></a>清除資源
+
+如果您針對這個練習建立新的資源群組和儲存體帳戶，您可以藉由移除資源群組來移除您建立的所有資產。 這會同時刪除群組內含的所有資源。 在本例中，它會移除建立的儲存體帳戶和資源群組本身。
+
+```powershell
+Remove-AzureRmResourceGroup -Name $resourceGroup
+```
 ## <a name="next-steps"></a>後續步驟
 
-本做法文章涵蓋使用管理層 Cmdlet 管理儲存體帳戶的一般作業。 您會了解如何： 
+本做法文章涵蓋使用管理層 Cmdlet 管理儲存體帳戶的一般作業。 您已了解如何︰ 
 
 > [!div class="checklist"]
 > * 列出儲存體帳戶
@@ -240,9 +247,7 @@ To access the Government cloud of the China datacenters, you have to use some sp
 > * 保護對儲存體帳戶的存取 
 > * 啟用儲存體分析
 
-您也會有數篇其他文章的連結，例如如何管理資料物件、如何啟用儲存體分析。 以下是可供參考的一些其他相關文章和資源： 
-<!--, and how to access storage with PowerShell using the Government Cloud and the China Cloud.
--->
+本文也提供數個其他文章的參考，例如如何管理資料物件、如何啟用儲存體分析，以及如何存取 Azure 獨立雲端 (例如中國雲端、德國雲端和政府雲端)。 以下是可供參考的一些其他相關文章和資源：
 
 * [Azure 儲存體控制層 PowerShell Cmdlet](/powershell/module/AzureRM.Storage/)
 * [Azure 儲存體資料層 PowerShell Cmdlet](/powershell/module/azure.storage/)

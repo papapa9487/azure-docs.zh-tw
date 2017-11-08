@@ -11,16 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 10/15/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2ef4385b3307c58d97012c3d0a732da5fbf82ea8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 460785d0d3f8b3d8a0a53d544788cb1a74db8c00
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>從 Azure Data Factory 中的複製活動叫用預存程序
+> [!NOTE]
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱[使用 Data Factory 第 2 版中的預存程序活動來轉換資料](../transform-data-using-stored-procedure.md)。
+
+
 將資料複製到 [SQL Server](data-factory-sqlserver-connector.md) 或 [Azure SQL Database](data-factory-azure-sql-connector.md) 時，您可以在複製活動中設定 **SqlSink** 以叫用預存程序。 您可以使用預存程序來執行將資料插入到目的地資料表之前所需的任何額外處理 (合併資料行、查詢值、插入到多個資料表等)。 此功能會利用[資料表值參數](https://msdn.microsoft.com/library/bb675163.aspx)。 
 
 下列範例示範如何從 Data Factory 管線 (複製活動) 叫用 SQL Server 資料庫中的預存程序：  

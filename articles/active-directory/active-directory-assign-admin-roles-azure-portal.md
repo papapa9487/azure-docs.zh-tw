@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/26/2017
 ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
-ms.openlocfilehash: 3cce18d7a5cb67a53a90bd7e13c9f4c7b8c2da89
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 260462e57c53d2d41bb2bfd8381a1c184303eea1
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中指派系統管理員角色
 
@@ -33,7 +33,9 @@ ms.lasthandoff: 10/11/2017
 * **規範管理員**：此角色的使用者擁有 Office 365 安全性與法規遵循中心和 Exchange 系統管理中心。 如需詳細資訊，請參閱[關於 Office 365 管理員角色](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)。
 
 * **條件式存取系統管理員**：具有此角色的使用者能夠管理 Azure Active Directory 條件式存取設定。
-
+  > [!NOTE]
+  > 若要在 Azure 中部署 Exchange ActiveSync 條件式存取原則，使用者也必須是全域系統管理員。
+  
 * **CRM 服務管理員**︰具備此角色的使用者在有 Microsoft CRM Online 服務時，於該服務內具有全域權限，以及管理支援票證和監控服務健全狀況的能力。 如需詳細資訊，請參閱 [關於 Office 365 管理員角色](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)。
 
 * **裝置系統管理員**︰具備此角色的使用者會在所有已加入 Azure Active Directory 的 Windows 10 裝置上成為本機電腦系統管理員。 它們並沒有在 Azure Active Directory 中管理裝置物件的能力。

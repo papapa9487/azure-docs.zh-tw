@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/01/2017
+ms.date: 10/31/2017
 ms.author: cherylmc
-ms.openlocfilehash: 3b2126b1ecd1613950bbf311ae08fafd4af0d51f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d5127c7fa512bad49817fa4c8edf3a16ca2f7d60
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>使用虛擬網路閘道 SKU (舊版 SKU)
 
@@ -39,7 +39,12 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="resize"></a>調整閘道的大小 (變更閘道 SKU)
 
-您可以調整相同 SKU 系列內的閘道 SKU 大小。 例如，如果您有標準 SKU，則可以調整為高效能 SKU。 您無法調整舊 SKU 與新 SKU 系列之間的 VPN 閘道大小。 例如，您不能從標準 SKU 變成 VpnGw2 SKU。 
+您可以調整相同 SKU 系列內的閘道 SKU 大小。 例如，如果您有標準 SKU，則可以調整為高效能 SKU。 您無法調整舊 SKU 與新 SKU 系列之間的 VPN 閘道大小。 例如，您不能從標準 SKU 變成 VpnGw2 SKU。
+
+>[!IMPORTANT]
+>當您調整閘道大小時，閘道調整大小之際，會有 20-30 分鐘的停機時間。
+>
+>
 
 若要調整傳統部署模型的閘道 SKU 大小，請使用下列命令：
 

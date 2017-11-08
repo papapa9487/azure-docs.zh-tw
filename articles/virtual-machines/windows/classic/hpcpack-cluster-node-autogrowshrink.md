@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/08/2016
 ms.author: danlep
-ms.openlocfilehash: 0dc0d15c64d8951c3c457df73588c37418a3c8a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c8a5aacd19d83b26cfeb3750d57dd783687f1c4
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>在 Azure 中根據叢集工作負載自動擴增和縮減 HPC Pack 叢集資源
 如果您在 HPC Pack 叢集部署 Azure「高載」節點，或您在 Azure VM 中建立 HPC Pack 叢集，您可能會想要能夠根據叢集上的工作負載，自動增加或縮減叢集資源 (例如節點或核心)。 以這樣的方式調整叢集資源可讓您更有效率地使用您的 Azure 資源及控制其成本。
@@ -178,7 +178,7 @@ Set-HpcClusterProperty –ExcludeNodeGroups <group1,group2,group3>
     Set-HpcClusterProperty -ExtraNodesGrowRatio 10
 
 ### <a name="soa-example"></a>SOA 範例
-根據預設，**SoaJobGrowThreshold** 設為 50000，而 **SoaRequestsPerCore** 設為 200000。 如果您送出一個包含 70000 個要求的 SOA 作業，則會有一個排入佇列工作，且傳入要求為 70000。 在此情況下，HPC Pack 會針對排入佇列工作增加 1 個核心，並針對傳入要求，將增加 (70000 - 50000)/20000 = 1 核心，因此總共會為此 SOA 作業增加 2 個核心。
+根據預設，**SoaJobGrowThreshold** 設為 50000，而 **SoaRequestsPerCore** 設為 20000。 如果您送出一個包含 70000 個要求的 SOA 作業，則會有一個排入佇列工作，且傳入要求為 70000。 在此情況下，HPC Pack 會針對排入佇列工作增加 1 個核心，並針對傳入要求，將增加 (70000 - 50000)/20000 = 1 核心，因此總共會為此 SOA 作業增加 2 個核心。
 
 ## <a name="run-the-azureautogrowshrinkps1-script"></a>執行 AzureAutoGrowShrink.ps1 指令碼
 ### <a name="prerequisites"></a>必要條件

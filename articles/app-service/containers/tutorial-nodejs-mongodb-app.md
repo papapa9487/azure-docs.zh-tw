@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a92b2875df3ceaeb4de21f24aa484196a82d825d
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: a9b321fcf8a8d1234989a9433da227142d954cb4
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 Node.js 和 MongoDB Web 應用程式
 
@@ -207,7 +207,7 @@ module.exports = {
 gulp prod
 ```
 
-在本機終端機視窗中，執行下列命令，可使用您在 _config/env/production.js_ 中設定的連接字串。 忽略憑證錯誤和 config.domain 警告。
+在本機終端機視窗中，執行下列命令，可使用您在 _config/env/local-production.js_ 中設定的連接字串。 忽略憑證錯誤和 config.domain 警告。
 
 ```bash
 NODE_ENV=production node server.js
@@ -246,11 +246,11 @@ MEAN.JS version: 0.5.0
 
 ### <a name="create-a-linux-based-web-app"></a>建立 Linux 型 Web 應用程式
 
-[!INCLUDE [Create a linux based web app](../../../includes/app-service-web-create-web-app-linux-nodejs-no-h.md)]
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
 
 ### <a name="configure-an-environment-variable"></a>設定環境變數
 
-因為 _config/env/local-production.js_ 不在 Git 存放庫中。 因此針對您的 Azure Web 應用程式，使用應用程式設定來定義 MongoDB 連接字串。
+根據預設，MEAN.js 專案會將 _config/env/local-production.js_ 屏除在 Git 存放庫之外。 因此針對您的 Azure Web 應用程式，使用應用程式設定來定義 MongoDB 連接字串。
 
 若要設定應用程式設定，請在 Cloud Shell 中使用 [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) 命令。
 
@@ -262,7 +262,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 在 Node.js 程式碼中，您可以利用 `process.env.MONGODB_URI` 來存取此應用程式設定，就像存取任何環境變數一樣。 
 
-在本機 MEAN.js 存放庫中，再次開啟 _config/env/production.js_，它具有生產環境特定設定。 請注意，已經將預設的 MEAN.js 應用程式設定為使用您建立的 `MONGODB_URI` 環境變數。
+在本機 MEAN.js 存放庫中，開啟 _config/env/production.js_ (而不是 _config/env/local-production.js_)，它具有生產環境特定設定。 請注意，已經將預設的 MEAN.js 應用程式設定為使用您建立的 `MONGODB_URI` 環境變數。
 
 ```javascript
 db: {

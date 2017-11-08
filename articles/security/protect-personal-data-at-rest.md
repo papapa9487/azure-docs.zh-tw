@@ -1,7 +1,25 @@
-title: Azure 使用加密保護個人待用資料 | Microsoft Docs description: 本文是協助您使用 Azure 來保護個人資料服務之系列的一部分: security documentationcenter: na author: Barclayn manager: MBaldwin editor: TomSh
-
-ms.assetid: ms.service: security ms.devlang: na ms.topic: article ms.tgt_pltfrm: na ms.workload: na ms.date: 08/22/2017 ms.author: barclayn ms.custom: 
-
+---
+title: "Azure 使用加密來保護個人待用資料 | Microsoft Docs"
+description: "本文是一系列文章中的一篇，可協助您使用 Azure 來保護個人資料"
+services: security
+documentationcenter: na
+author: Barclayn
+manager: MBaldwin
+editor: TomSh
+ms.assetid: 
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/31/2017
+ms.author: barclayn
+ms.custom: 
+ms.openlocfilehash: 2bb8370d23d9450fb8154f21c27817666fd7852c
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-at-rest-with-encryption"></a>Azure 加密技術：使用加密保護個人待用資料
 
@@ -137,7 +155,7 @@ Azure 將會更新 VM 和金鑰保存庫設定，並設定加密的 VM。
 
 5. 在 [設定] 刀鋒視窗中，按一下 [透明資料加密] 部分以開啟 [透明資料加密] 刀鋒視窗。
 
-6. 在資料加密刀鋒視窗中，將 資料加密 按鈕移至 開啟，然後按一下儲存 (在頁面頂端) 以套用設定。 加密狀態將會粗略估算透明資料加密的進度。
+6. 在資料加密刀鋒視窗中，將 [資料加密] 按鈕移至 [開啟]，然後按一下 [儲存] (在頁面頂端) 以套用設定。 加密狀態將會粗略估算透明資料加密的進度。
 
 ![啟用資料加密](media/protect-personal-data-at-rest/turn-data-encryption-on.png)
 

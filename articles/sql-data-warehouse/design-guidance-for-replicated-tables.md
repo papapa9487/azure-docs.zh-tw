@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 10/23/2017
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 39ac9aa678464c497d9f7963bab802141ce9e854
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 413a9df6d224e53ba42313f6dc5e740710d418e3
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中使用複寫資料表的設計指引
 本文針對在「SQL 資料倉儲」結構描述中設計複寫資料表提供建議。 您可以使用這些建議來降低資料移動和查詢的複雜性，以提升查詢效能。
@@ -140,7 +140,7 @@ WHERE d.FiscalYear = 2004
 
 在執行下列動作之後，必須進行重建：
 - 載入或修改資料
-- 將資料倉儲調整成不同的 DWU 設定
+- 將資料倉儲調整成不同的[服務等級](performance-tiers.md#service-levels)
 - 更新資料表定義
 
 在執行下列動作之後，不須進行重建：

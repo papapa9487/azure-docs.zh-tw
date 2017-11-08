@@ -4,7 +4,7 @@ description: "如果 Azure 中的 Analysis Services 伺服器會連接到內部�
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: cd596155-b608-4a34-935e-e45c95d884a9
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/11/2017
+ms.date: 10/30/2017
 ms.author: owend
-ms.openlocfilehash: 47f05a22811307617f475e79145f70a0233f5895
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 0b11c005ddcf4a3416104e7cef39a7ce97957ba3
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>透過 Azure 內部部署資料閘道連線至內部部署資料來源
 內部部署資料閘道的角色如同橋接器，在內部部署資料來源和雲端中的 Azure Analysis Services 伺服器之間提供安全的資料傳輸。 除了搭配相同區域中的多部 Azure Analysis Services 伺服器運作，最新版的閘道也可以搭配 Azure Logic Apps、Power BI、Power Apps 和 Microsoft Flow運作。 您可以讓相同區域中的多項服務與單一閘道建立關聯。 
@@ -129,6 +129,9 @@ ms.lasthandoff: 10/12/2017
 
 **問**︰閘道 Windows 服務可以使用 Azure Active Directory 帳戶執行嗎？ <br/>
 **答**：否。 Windows 服務必須要有有效的 Windows 帳戶。 根據預設，此服務會使用服務 SID，NT SERVICE\PBIEgwService 執行。
+
+**問**：如何接管閘道？ <br/>
+**答**：若要接管閘道 (在 [控制台] > [程式集] 中執行 [設定/變更])，您必須在 Azure 中是該閘道資源的「擁有者」且具備修復金鑰。 您可以在 [存取控制] 中設定閘道資源「擁有者」。
 
 ### <a name="high-availability"></a>高可用性和災害復原
 

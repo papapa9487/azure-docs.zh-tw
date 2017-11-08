@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/02/2017
+ms.date: 10/31/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50917572ef8739ddc674d3592696a1ee4a8edc10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 09aa98a35fa8286828a99c49a33a80d5938afe3a
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Azure 上 SAP Hana (大型執行個體) 的高可用性和災害復原 
 
@@ -222,12 +222,12 @@ MACs hmac-sha1
 
 **非 MDC HANA 安裝程式**
 ```
-hdbuserstore set <key> <host><3[instance]15> <user> <password>
+hdbuserstore set <key> <host>:<3[instance]15> <user> <password>
 ```
 
 **MDC HANA 安裝程式**
 ```
-hdbuserstore set <key> <host><3[instance]13> <user> <password>
+hdbuserstore set <key> <host>:<3[instance]13> <user> <password>
 ```
 
 在以下範例中，使用者為 **SCADMIN01**、主機名稱為 **lhanad01**，而執行個體編號是 **01**：
@@ -385,7 +385,7 @@ Snapshot created successfully.
 可以建立的快照集備份有三種：
 - **HANA**：合併的快照集備份，其中包含 /hana/data 和 /hana/shared (也包含 /usr/sap) 的磁碟區會由協調式快照集所涵蓋。 您可以從這個快照集還原單一檔案。
 - **記錄**︰/hana/logbackups 磁碟區的快照集備份。 不會觸發 HANA 快照集來執行此儲存體快照集。 此存放磁碟區是應包含 SAP HANA 交易記錄備份的磁碟區。 SAP HANA 交易記錄備份會提高執行頻率，以限制記錄成長並防止資料遺失。 您可以從這個快照集還原單一檔案。 請勿將執行頻率降低到 5 分鐘以下。
-- **開機**：包含 HANA 大型執行個體之開機邏輯單元編號 (LUN) 的磁碟區快照集。 您只能透過 HANA 大型執行個體的 Type I SKU 來進行此快照集備份。 您無法從包含開機 LUN 之磁碟區的快照集還原單一檔案。  
+- **開機**：包含 HANA 大型執行個體之開機邏輯單元編號 (LUN) 的磁碟區快照集。 您只能透過 HANA 大型執行個體的 Type I SKU 來進行此快照集備份。 您無法從包含開機 LUN 之磁碟區的快照集還原單一檔案。 針對 HANA 大型執行個體的類型 II SKU，您可以取得作業系統層級備份，以及還原個別檔案。 請參閱[如何執行類型 II SKU 的 OS 備份](os-backup-type-ii-skus.md)文件以取得詳細資訊。
 
 
 這三種不同快照集的呼叫語法如下所示：

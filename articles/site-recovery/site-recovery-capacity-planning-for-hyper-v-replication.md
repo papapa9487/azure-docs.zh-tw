@@ -1,5 +1,5 @@
 ---
-title: "執行 Site Recovery 的 Hyper-V 容量規劃工具 | Microsoft Docs"
+title: "Azure Site Recovery 的 Hyper-V 容量規劃工具 | Microsoft Docs"
 description: "本文說明如何執行 Azure Site Recovery 的 Hyper-V 容量規劃工具"
 services: site-recovery
 documentationcenter: na
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 10/30/2017
 ms.author: nisoneji
-ms.openlocfilehash: 272b5abb5e6451164ca7900dda399b6aac65f986
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db790f9dc56605b5b752e7ab797903e32b2fc675
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="run-the-hyper-v-capacity-planner-tool-for-site-recovery"></a>執行 Site Recovery 的 Hyper-V 容量規劃工具
+# <a name="hyper-v-capacity-planner-tool-for-site-recovery"></a>Site Recovery 的 Hyper-V 容量規劃工具
 
 在 Azure Site Recovery 部署的過程中，您需要找出複寫和頻寬需求。 針對 Hyper-V 虛擬機器複寫，Site Recovery 的 Hyper-V 容量規劃工具可協助您這麼做。
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 10/11/2017
    * 在 [伺服器管理員] 中，開啟 [容錯移轉叢集管理員]。
    * 連接到叢集，反白顯示叢集名稱，然後按一下 [動作] > [設定角色] 以開啟 [高可用性] 精靈。
    * 在 [選取角色] 中，選取 [Hyper-V 複本代理人]。 在精靈中提供 [NetBIOS 名稱] 和 [IP 位址] 做為叢集的連接點 (稱為用戶端存取點)。 會設定 [Hyper-V 複本代理人]  ，產生您應該記下的用戶端存取點名稱。
-   * 確認 Hyper-V 複本代理人角色順利連線，而且可以進行叢集所有節點之間的容錯移轉。 若要這樣做，請以滑鼠右鍵按一下角色，指向 移動，然後按一下選取節點。 選取節點 > [確定]。
+   * 確認 Hyper-V 複本代理人角色順利連線，而且可以進行叢集所有節點之間的容錯移轉。 若要這樣做，請以滑鼠右鍵按一下角色，指向 [移動]，然後按一下 [選取節點]。 選取節點 > [確定]。
    * 如果您使用憑證型驗證，請確定每個叢集節點與用戶端存取點都有安裝憑證。
 2. 啟用複本伺服器：
 

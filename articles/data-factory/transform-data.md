@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: shlo
-ms.openlocfilehash: b224f5b32c9a46f797e78644c731a9cd9341da2b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 832c4f232a3821225c8086b636de713da2b967a0
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory 中的資料轉換
 > [!div class="op_single_selector"]
@@ -35,6 +35,9 @@ ms.lasthandoff: 10/11/2017
 本文說明 Azure Data Factory 中的資料轉換活動，您可用來轉換未經處理資料，並將其處理為預測和見解。 轉換活動會在計算環境中執行，例如 Azure HDInsight 叢集或 Azure Batch。 它會提供每個轉換活動的詳細資訊文章連結。
 
 Data Factory 支援下列可個別或與其他活動鏈結而加入至 [管線](concepts-pipelines-activities.md) 的資料轉換活動。
+
+> [!NOTE]
+> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (也就是正式推出版 (GA))，請參閱 [Data Factory 第 1 版中的轉換活動](v1/data-factory-data-transformation-activities.md)。
  
 
 ## <a name="hdinsight-hive-activity"></a>HDInsight Hive 活動

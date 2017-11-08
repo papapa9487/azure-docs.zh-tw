@@ -10,15 +10,15 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 7325d15cc4bec5f0df50be222e1f0988775ded2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ce1d32a2785bec1164d2a89dea9946fe113cb33
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>建立 DSVM 及 HDI Spark 叢集作為計算目標
 
-您可以輕鬆地相應增加或相應放大機器學習實驗，方法是新增其他計算目標，例如以 Ubuntu 為基礎的 DSVM (資料科學虛擬機器) 和 Apache Spark for Azure HDInsight 叢集。 本文會引導您逐步在 Azure 中建立這些計算目標。 如需 Azure ML 計算目標的詳細資訊，請參閱 [Azure Machine Learning 實驗執行服務概觀](experiment-execution-configuration.md)。
+您可以輕鬆地相應增加或相應放大機器學習實驗，方法是新增其他計算目標，例如以 Ubuntu 為基礎的 DSVM (資料科學虛擬機器) 和 Apache Spark for Azure HDInsight 叢集。 本文會引導您逐步在 Azure 中建立這些計算目標。 如需 Azure ML 計算目標的詳細資訊，請參閱 [Azure Machine Learning 測試服務概觀](experimentation-service-configuration.md)。
 
 >[!NOTE]
 >您需要先確定您具有適當的權限可建立資源 (例如 Azure 中的 VM 和 HDI 叢集)，再繼續進行。 根據設定，這兩個資源也可能會耗用許多計算核心。 請確定您的訂用帳戶有足夠的虛擬 CPU 核心容量。 您一律可以連絡 Azure 支援人員，以增加訂用帳戶中允許的核心數目上限。
@@ -155,7 +155,7 @@ Azure 中的 Linux VM 通常會隨附 30-GB 作業系統磁碟。 用作 Azure M
 
     ![find hdi](media/how-to-create-dsvm-hdi/hdi.png)
     
-3. 選擇清單中的 HDInsight，然後按一下建立 按鈕。
+3. 選擇清單中的 [HDInsight]，然後按一下 [建立] 按鈕。
 4. 在 [基本] 設定畫面的 [叢集類型] 設定中，確定您選擇 [Spark] 作為 [叢集類型]、[Linux] 作為 [作業系統]，以及 [Spark 2.1.0 (HDI 3.6)] 作為 _Version。
 
     ![configure hdi](media/how-to-create-dsvm-hdi/configure_hdi.png)
@@ -181,7 +181,7 @@ $ az ml experiment prepare -c <compute target name>
 ## <a name="next-steps"></a>後續步驟
 
 深入了解：
-- [Azure Machine Learning 實驗執行服務概觀](experiment-execution-configuration.md)
-- [Azure Machine Learning Workbench 執行設定檔](experiment-execution-configuration-reference.md)
+- [Azure Machine Learning 測試服務概觀](experimentation-service-configuration.md)
+- [Azure Machine Learning Workbench 測試服務組態檔](experimentation-service-configuration-reference.md)
 - [Apache Spark for Azure HDInsight 叢集](https://azure.microsoft.com/services/hdinsight/apache-spark/)
 - [資料科學虛擬機器](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

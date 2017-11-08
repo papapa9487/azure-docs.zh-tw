@@ -12,16 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 11/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 712b29a347e246ad5afbf842930b0e01749c1203
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39e283e4b0bb5e50d1268e1b2cac53bf9ee71028
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>利用資料管理閘道在內部部署來源和雲端之間移動資料
+> [!NOTE]
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱[使用 Data Factory 第 2 版在內部部署和雲端之間複製資料](../tutorial-hybrid-copy-powershell.md)。
+
 本文提供使用 Data Factory 整合內部部署資料存放區與雲端資料存放區資料的概觀。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文和其他 Data Factory 核心概念文章：[資料集](data-factory-create-datasets.md)和[管線](data-factory-create-pipelines.md)。
 
 ## <a name="data-management-gateway"></a>資料管理閘道
@@ -81,7 +84,7 @@ ms.lasthandoff: 10/11/2017
 1. 在 [Data Factory] 頁面中，按一下 [製作和部署] 圖格來啟動 Data Factory 的 [編輯器]。
 
     ![[製作和部署] 磚](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png)
-2. 在 Data Factory 編輯器 中，按一下工具列上的 ...**更多**，然後按一下新增資料閘道。 或者，您也可以在樹狀檢視中，以滑鼠右鍵按一下 [資料閘道]，再按一下 [新增資料閘道]。
+2. 在 [Data Factory 編輯器] 中，按一下工具列上的 [...**更多]**，然後按一下 [新增資料閘道]。 或者，您也可以在樹狀檢視中，以滑鼠右鍵按一下 [資料閘道]，再按一下 [新增資料閘道]。
 
    ![工具列上的 [新增資料閘道]](./media/data-factory-move-data-between-onprem-and-cloud/NewDataGateway.png)
 3. 在 [建立] 頁面上，輸入 **adftutorialgateway** 作為 [名稱]，然後按一下 [確定]。     
@@ -176,7 +179,7 @@ ms.lasthandoff: 10/11/2017
       ![樹狀檢視中的 SQL Server 連結服務](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)    
 
 #### <a name="add-a-linked-service-for-an-azure-storage-account"></a>新增 Azure 儲存體帳戶的連結服務
-1. 在 Data Factory 編輯器 中，按一下命令列上的 新增資料存放區，然後按一下Azure 儲存體。
+1. 在 [Data Factory 編輯器] 中，按一下命令列上的 [新增資料存放區]，然後按一下 [Azure 儲存體]。
 2. 在 [帳戶名稱] 中輸入您的 Azure 儲存體帳戶名稱。
 3. 在 [帳戶金鑰] 中輸入您的 Azure 儲存體帳戶金鑰。
 4. 按一下 [部署] 以部署 **AzureStorageLinkedService**。
@@ -209,7 +212,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="create-input-dataset"></a>建立輸入資料集
 
-1. 在 Data Factory 編輯器 中，按一下命令列上的 ...**更多**、按一下命令列上的 新增資料集，然後按一下SQL Server 資料表。
+1. 在 [Data Factory 編輯器] 中，按一下命令列上的 [...**更多]**、按一下命令列上的 [新增資料集]，然後按一下 [SQL Server 資料表]。
 2. 使用下列文字取代右窗格中的 JSON：
 
     ```JSON   
@@ -248,7 +251,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="create-output-dataset"></a>建立輸出資料集
 
-1. 在 Data Factory 編輯器 中，按一下命令列的 新增資料集，然後按一下Azure Blob 儲存體。
+1. 在 [Data Factory 編輯器] 中，按一下命令列的 [新增資料集]，然後按一下 [Azure Blob 儲存體]。
 2. 使用下列文字取代右窗格中的 JSON：
 
     ```JSON   

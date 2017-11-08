@@ -4,7 +4,7 @@ description: "Azure Active Directory Domain Services 概觀"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 0d47178f-773e-45f9-9ff4-9e8cffa4ffa2
 ms.service: active-directory-ds
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: c4a22b230cd630c413118ab798ff241527465554
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be18ee0266a97057499baccc5bb39a35224336d7
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="azure-ad-domain-services"></a>Azure AD 網域服務
+# <a name="azure-active-directory-ad-domain-services"></a>Azure Active Directory (AD) Domain Services
 ## <a name="overview"></a>概觀
 Azure 基礎結構服務可讓您以敏捷的方式部署各種不同的運算解決方案。 利用 Azure 虛擬機器，您幾乎可以進行即時部署，而且只需要以分鐘計價。 利用對 Windows、Linux、SQL Server、Oracle、IBM、SAP 和 BizTalk 的支援性，您幾乎可以在所有作業系統上使用任何語言部署所有工作負載。 這些優點可讓您將內部部署的舊版應用程式移轉至 Azure，以便節約營運費用。
 
@@ -35,6 +35,10 @@ Azure 基礎結構服務可讓您以敏捷的方式部署各種不同的運算�
 這些方法都面臨高成本和管理負擔。 系統管理員需要在 Azure 中使用虛擬機器才能部署網域控制站。 此外，他們需為這些虛擬機器進行管理、保護、修補、監視、備份和疑難排解。 太依賴與內部部署目錄之間的 VPN 連線，使 Azure 中所部署的工作負載容易發生暫時性網路問題或網路中斷。 這些網路中斷會導致執行時間降低，並減損這些應用程式的可靠性。
 
 我們將 Azure AD 網域服務設計為可提供更簡單的替代方法。
+
+### <a name="watch-an-introductory-video"></a>觀看簡介影片
+<iframe width="560" height="315" src="https://www.youtube.com/embed/T1Nd9APNceQ" frameborder="0" allowfullscreen></iframe>
+
 
 ## <a name="introducing-azure-ad-domain-services"></a>Azure AD 網域服務簡介
 Azure AD 網域服務提供受管理的網域服務，例如：加入網域、群組原則、LDAP、Kerberos/NTLM 驗證，與 Windows Server Active Directory 完全相容。 您可以取用這些網域服務，而不需要您在雲端中部署、管理和修補網域控制站。 Azure AD 網域服務與您現有的 Azure AD 租用戶整合，因此能讓使用者使用其公司認證登入。 此外，您可以使用現有的群組和使用者帳戶，安全地存取資源，以確保更順暢地將內部部署資源「隨即轉移」(lift-and-shift) 至 Azure 基礎結構服務。

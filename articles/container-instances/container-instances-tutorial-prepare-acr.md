@@ -1,5 +1,5 @@
 ---
-title: "Azure 容器執行個體教學課程 - 準備 Azure Container Registry | Microsoft Docs"
+title: "Azure 容器執行個體教學課程 - 準備 Azure Container Registry"
 description: "Azure 容器執行個體教學課程 - 準備 Azure Container Registry"
 services: container-instances
 documentationcenter: 
@@ -14,18 +14,18 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 10/26/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 7ac85bffb9593923808c77f2240e6f0e841e74cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8cb00210ee260383d546be4faf141c133661156b
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>部署和使用 Azure Container Registry
 
-這是三段式教學課程的第二段。 在[上一個步驟](./container-instances-tutorial-prepare-app.md)中，我們已針對使用 [Node.js](http://nodejs.org) 所編寫的簡單 Web 應用程式建立容器映像。 在本教學課程中，此映像會推送至 Azure Container Registry。 如果您尚未建立容器映像，請回到[教學課程 1 – 建立容器映像](./container-instances-tutorial-prepare-app.md)。 
+這是三段式教學課程的第二段。 在[上一個步驟](container-instances-tutorial-prepare-app.md)中，我們已針對使用 [Node.js](http://nodejs.org) 所編寫的簡單 Web 應用程式建立容器映像。 在本教學課程中，您會將此映像推送至 Azure Container Registry。 如果您尚未建立容器映像，請回到[教學課程 1 – 建立容器映像](container-instances-tutorial-prepare-app.md)。
 
 Azure Container Registry 是以 Azure 為基礎的私人登錄，用於裝載 Docker 容器映像。 本教學課程逐步解說如何部署 Azure Container Registry 執行個體，以及將容器映像推送至該執行個體。 完成的步驟包括：
 
@@ -38,7 +38,11 @@ Azure Container Registry 是以 Azure 為基礎的私人登錄，用於裝載 Do
 
 ## <a name="before-you-begin"></a>開始之前
 
-本教學課程需要您執行 Azure CLI 2.0.12 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+本教學課程需要您執行 Azure CLI 2.0.20 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
+
+若要完成本教學課程，您需要 Docker 開發環境。 Docker 提供可輕鬆在 [Mac](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 或 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 系統上設定 Docker 的套件。
+
+Azure Cloud Shell 不包括完成本教學課程每個步驟所需的 Docker 元件。 因此，我們建議您本機安裝 Azure CLI 和 Docker 開發環境。
 
 ## <a name="deploy-azure-container-registry"></a>部署 Azure Container Registry
 
@@ -60,7 +64,7 @@ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --s
 
 ## <a name="container-registry-login"></a>Container Registry 登入
 
-您必須先登入 ACR 執行個體，再將映像推送到它。 使用 [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) 命令來完成此作業。 您必須在建立容器登錄時，為容器登錄提供唯一名稱。
+您必須先登入 ACR 執行個體，再將映像推送到它。 使用 [az acr login](/cli/azure/acr#az_acr_login) 命令來完成此作業。 您必須在建立容器登錄時，為它提供唯一名稱。
 
 ```azurecli
 az acr login --name <acrName>
@@ -85,7 +89,7 @@ REPOSITORY                   TAG                 IMAGE ID            CREATED    
 aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
 ```
 
-若要取得 loginServer 名稱，請執行下列命令。
+若要取得 loginServer 名稱，請執行下列命令：
 
 ```azurecli
 az acr show --name <acrName> --query loginServer --output table
@@ -156,7 +160,7 @@ v1
 在本教學課程中，我們準備了 Azure Container Registry 來與 Azure 容器執行個體搭配使用，並已推送容器映像。 已完成下列步驟：
 
 > [!div class="checklist"]
-> * 部署 Azure Container Registry 執行個體
+> * 已部署 Azure Container Registry 執行個體
 > * 標記 Azure Container Registry 的容器映像
 > * 將映像上傳至 Azure Container Registry
 

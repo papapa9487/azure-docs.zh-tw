@@ -1,6 +1,6 @@
 ---
 title: "使用 Azure Log Analytics 最佳化 Active Directory 環境 | Microsoft Docs"
-description: "您可以使用 Active Directory 評估方案定期評估伺服器環境的風險和健全狀況。"
+description: "您可以使用 Active Directory 健康情況檢查方案定期評估環境的風險和健全狀況。"
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
-ms.author: banders
+ms.date: 10/27/2017
+ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 97368f0b9e89ffd0cd982b6e8670d5a1f62ad42c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e78ca1da8cafe93e76d640c0e6d5ad5309655c1b
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
-# <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>在 Log Analytics 中使用 Active Directory 評估方案來最佳化 Active Directory 環境
+# <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>在 Log Analytics 中使用 Active Directory 健康情況檢查方案來最佳化 Active Directory 環境
 
-![AD 評定符號](./media/log-analytics-ad-assessment/ad-assessment-symbol.png)
+![AD 健康情況檢查標誌](./media/log-analytics-ad-assessment/ad-assessment-symbol.png)
 
-您可以使用 Active Directory 評估方案定期評估伺服器環境的風險和健全狀況。 本文協助您安裝和使用此解決方案，讓您可以針對潛在問題採取修正動作。
+您可以使用 Active Directory 健康情況檢查方案定期評估伺服器環境的風險和健全狀況。 本文協助您安裝和使用此解決方案，讓您可以針對潛在問題採取修正動作。
 
 此方案能針對已部署的伺服器基礎結構提供依照優先順序排列的具體建議清單。 建議分為四個焦點區域，它們可以幫助您快速了解風險並採取動作。
 
@@ -33,46 +33,48 @@ ms.lasthandoff: 10/11/2017
 
 您可以選擇對組織而言最重要的焦點區域，同時追蹤經營無風險且健康狀態良好之環境的進度。
 
-加入方案且評估完成之後，系統會將焦點區域的摘要資訊顯示在環境之基礎結構的 [AD 評估]  儀表板中。 下列章節說明如何使用 [AD 評估]  儀表板上的資訊，您可以在這裡檢視 Active Directory 伺服器基礎結構的建議動作並予以實施。
+加入方案且檢查完成之後，系統會將焦點區域的摘要資訊顯示在環境之基礎結構的 [AD 健康情況檢查] 儀表板中。 下列章節說明如何使用 [AD 健康情況檢查] 儀表板上的資訊，您可以在這裡檢視 Active Directory 伺服器基礎結構的建議動作並予以實施。  
 
-![SQL 評估磚的影像](./media/log-analytics-ad-assessment/ad-tile.png)
+![AD 健康情況檢查圖格的影像](./media/log-analytics-ad-assessment/ad-healthcheck-summary-tile.png)
 
-![SQL 評估儀表板的影像](./media/log-analytics-ad-assessment/ad-assessment.png)
+![AD 健康情況檢查儀表板的影像](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-01.png)
 
-## <a name="installing-and-configuring-the-solution"></a>安裝和設定方案
-請使用下列資訊來安裝和設定方案。
+## <a name="prerequisites"></a>必要條件
 
-* 代理程式必須安裝在隸屬於要評估之網域成員的網域控制站上。
-* Active Directory 評估方案需要在具有 OMS 代理程式的每部電腦上都安裝 .NET Framework 4 (4.5.2 或以上) 的支援版本。
-* 從 [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ADAssessmentOMS?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](log-analytics-add-solutions.md)中所述的程序，將 Active Directory 評估方案新增至您的 OMS 工作區。  不需要進一步的組態。
+* Active Directory 健康情況檢查方案需要在已安裝 Microsoft Monitoring Agent (MMA) 的每部電腦上安裝 .NET Framework 4.5.2 或以上的支援版本。  MMA 代理程式會由 System Center 2016 - Operations Manager 和 Operations Manager 2012 R2 及 Log Analytics 服務使用。 
+* 方案支援執行 Windows Server 2008 和 2008 R2、Windows Server 2012 和 2012 R2 及 Windows Server 2016 的網域控制站。
+* Log Analytics 工作區，可以從 Azure 入口網站中的 Azure 市集將 Active Directory 健康情況檢查方案新增至此。  不需要進一步的組態。
 
   > [!NOTE]
-  > 您加入方案之後，AdvisorAssessment.exe 檔案會以代理程式加入伺服器中。 組態資料會先讀取後再傳送至雲端中的 OMS 服務，以便進行處理。 會將邏輯套用至接收的資料，且雲端服務會記錄資料。
+  > 您加入方案之後，AdvisorAssessment.exe 檔案會以代理程式加入伺服器中。 組態資料會先讀取後再傳送至雲端中的 Log Analytics 服務，以便進行處理。 會將邏輯套用至接收的資料，且雲端服務會記錄資料。
   >
   >
 
-## <a name="active-directory-assessment-data-collection-details"></a>Active Directory 評估資料收集詳細資訊
+若要對您的網域控制站執行健康情況檢查，以讓網域成員受到評估，則這些控制站需要代理程式，並且須連線到 Log Analytics，您可以使用下列其中一個支援方法來達成要求：
 
-Active Directory 評定會使用您已啟用的代理程式，從下列來源收集資料：
+1. 如果 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 已不再監視網域控制站，則安裝 [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agents.md)。
+2. 如果控制站受到 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 監視，而管理群組未與 Log Analytics 服務整合，則該網域控制站可以是具有 Log Analytics 的多重主目錄，以便收集資料並轉送至該服務，且仍然受到 Operations Manager 監視。  
+3. 除此之外，如果您的 Operations Manager 管理群組已與服務整合，則在工作區中啟用方案後，您需要讓服務依循[新增代理程式管理的電腦](log-analytics-om-agents.md#connecting-operations-manager-to-oms)下的步驟，來新增網域控制站以收集資料。  
 
-- 登錄收集器
-- LDAP 收集器
+網域控制站上的代理程式會向 Operations Manager 管理群組報告、收集資料、轉送至其指派的管理伺服器，然後直接從管理伺服器傳送至 Log Analytics 服務。  資料並不會寫入 Operations Manager 資料庫。  
+
+## <a name="active-directory-health-check-data-collection-details"></a>Active Directory 健康情況檢查資料收集詳細資訊
+
+Active Directory 健康情況檢查會使用您已啟用的代理程式，從下列來源收集資料：
+
+- 登錄 
+- LDAP 
 - .NET Framework
-- 事件記錄檔收集器
+- 事件記錄檔 
 - Active Directory 服務介面 (ADSI)
 - Windows PowerShell
-- 檔案資料收集器
+- 檔案資料 
 - Windows Management Instrumentation (WMI)
 - DCDIAG 工具 API
 - 檔案複寫服務 (NTFRS) API
 - 自訂 C# 程式碼
 
-
-下表顯示代理程式的資料收集方法、是否需要 Operations Manager (SCOM)，以及如何代理程式收集資料的頻率。
-
-| 平台 | 直接代理程式 | SCOM 代理程式 | Azure 儲存體 | SCOM 是否為必要項目？ | 透過管理群組傳送的 SCOM 代理程式資料 | 收集頻率 |
-| --- | --- | --- | --- | --- | --- | --- |
-| Windows |&#8226; |&#8226; |  |  |&#8226; |7 天 |
+資料會收集到網域控制站，並每隔七天轉送給 Log Analytics。  
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>了解建議的排列方式
 智慧套件會為每項建議指派加權值，該值能顯現建議的相對重要性。 只會顯示最重要的 10 個建議。
@@ -100,71 +102,76 @@ Active Directory 評定會使用您已啟用的代理程式，從下列來源收
 
 每項建議都包含其重要性的指引。 在已知 IT 服務之本質和組織之商務需求的情況下，您應使用該指引來評估實作建議的適當性。
 
-## <a name="use-assessment-focus-area-recommendations"></a>使用評估焦點區域建議
-在使用 OMS 中的評估方案之前，您必須先安裝方案。 如需閱讀安裝方案的更多資訊，請參閱 [從方案庫加入 Log Analytics 方案](log-analytics-add-solutions.md)。 安裝之後，您可以在 OMS 中使用 [概觀] 頁面上的 [評估] 圖格檢視建議摘要。
+## <a name="use-health-check-focus-area-recommendations"></a>使用健康情況檢查焦點區域建議
+安裝之後，您可以在 Azure 入口網站中的方案頁面上，使用健康情況檢查圖格來檢視建議摘要。
 
 檢視基礎結構的總結法務遵循評估結果，然後再深入鑽研建議事項。
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>檢視的焦點區域的建議並採取更正措施
-1. 在 [概觀] 頁面中，按一下伺服器基礎結構的 [評估] 圖格。
-2. 在 [ **評估** ] 頁面中檢閱任一焦點區域分葉中的摘要資訊，然後按一下焦點區域以檢視建議。
-3. 在任一焦點區域頁面中，您可以檢視針對環境且按照優先順序排列的建議。 按一下 [受影響的物件]  下方的建議，可檢視建議提出原因的詳細資料。  
-    ![評估建議的影像](./media/log-analytics-ad-assessment/ad-focus.png)
-4. 您可以採取 [建議動作] 中所建議的更正動作。 當您解決某個項目後，後續評估會記錄您實施的建議動作並提高法務遵循分數。 更正後的項目將以**通過的物件**呈現。
+1. 登入 Azure 入口網站，網址為 [https://portal.azure.com](https://portal.azure.com)。 
+2. 在 Azure 入口網站中，按一下左下角的 [更多服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
+3. 在 [Log Analytics 訂用帳戶] 窗格中，選取工作區，然後按一下 [OMS 入口網站] 圖格。  
+4. 在 [概觀] 頁面上，按一下 [AD 健康情況檢查] 圖格。 
+5. 在 [健康情況檢查] 頁面中檢閱任一焦點區域分葉中的摘要資訊，然後按一下焦點區域以檢視建議。
+6. 在任一焦點區域頁面中，您可以檢視針對環境且按照優先順序排列的建議。 按一下 [受影響的物件]  下方的建議，可檢視建議提出原因的詳細資料。<br><br> ![健康情況檢查建議的影像](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
+7. 您可以採取 [建議動作] 中所建議的更正動作。 當您解決某個項目後，後續評估會記錄您實施的建議動作並提高法務遵循分數。 更正後的項目將以**通過的物件**呈現。
 
 ## <a name="ignore-recommendations"></a>忽略建議
-如果您有想要忽略的建議，則可以建立 OMS 將用來防止建議出現在您評估結果的文字檔。
+如果您有想要忽略的建議，則可以建立 Log Analytics 將用來防止建議出現在您評估結果的文字檔。
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>識別您將忽略的建議
-1. 登入您的工作區，並開啟記錄檔搜尋。 使用下列查詢來列出您環境中電腦的失敗建議。
+1. 在 Azure 入口網站中的 Log Analytics 工作區頁面上，針對您選取的工作區，按一下 [記錄搜尋] 圖格。
+2. 使用下列查詢來列出您環境中電腦的失敗建議。
 
-   ```
-   Type=ADAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
-   ```
->[!NOTE]
-> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則以上查詢會變更如下。
->
-> `ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+    ```
+    Type=ADAssessmentRecommendation RecommendationResult=Failed | select Computer, RecommendationId, Recommendation | sort Computer
+    ```
+    >[!NOTE]
+    > 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則以上查詢會變更如下。
+    >
+    > `ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-   以下是顯示記錄檔搜尋查詢的螢幕擷取畫面︰![失敗的建議](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
-2. 選擇您想要忽略的建議。 您將使用下一個程序中的 RecommendationId 值。
+    以下是顯示記錄檔搜尋查詢的螢幕擷取畫面︰<br><br> ![失敗的建議](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
+
+3. 選擇您想要忽略的建議。 您將使用下一個程序中的 RecommendationId 值。
 
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>建立及使用 IgnoreRecommendations.txt 文字檔案
 1. 建立名為 IgnoreRecommendations.txt 的檔案。
 2. 在個別行上貼上或輸入您想要 Log Analytics 忽略之每個建議的各個 RecommendationId，然後儲存並關閉檔案。
-3. 將檔案放在您想要 OMS 忽略建議之每一部電腦的下列資料夾中。
+3. 將檔案放在您想要 Log Analytics 忽略建議之每一部電腦的下列資料夾中。
    * 在具有 Microsoft Monitoring Agent 的電腦 (直接連線或透過 Operations Manager 連線) 上 - *SystemDrive*:\Program Files\Microsoft Monitoring Agent\Agent
-   * 在 Operations Manager 管理伺服器上 - *SystemDrive*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server
+   * 在 Operations Manager 2012 R2 管理伺服器上 - *SystemDrive*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server 
+   * 在 Operations Manager 2016 管理伺服器上 - *SystemDrive*:\Program Files\Microsoft System Center 2016\Operations Manager\Server
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>驗證已忽略建議
-在執行下一個排定的評估之後，依預設是每隔 7 天執行一次，指定的建議會標示為「忽略」  ，且不會出現在評估儀表板上。
+在執行下一個排定的健康情況檢查之後 (依預設是每隔 7 天)，指定的建議會標示為 [已略過]，且不會出現在儀表板中。
 
 1. 您可以使用下列記錄搜尋查詢列出所有已忽略的建議。
 
     ```
     Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
->[!NOTE]
-> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則以上查詢會變更如下。
->
-> `ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+    >[!NOTE]
+    > 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則以上查詢會變更如下。
+    >
+    > `ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
 2. 如果您稍後決定想要查看忽略的建議，請移除任何 IgnoreRecommendations.txt 檔案，或從中移除 RecommendationID。
 
-## <a name="ad-assessment-solutions-faq"></a>AD 評估方案常見問題集
-*評估的執行頻率為何？*
+## <a name="ad-health-check-solutions-faq"></a>AD 健康情況檢查方案常見問題集
+*執行健康情況檢查的頻率為何？*
 
-* 評估會每隔 7 天執行一次。
+* 每隔七天執行檢查。
 
-*是否有設定評估執行頻率的方法？*
+*是否有設定健康情況檢查執行頻率的方法？*
 
 * 目前沒有。
 
-*如果我在加入評估方案後探索到另一部伺服器，方案也會評估這部伺服器嗎？*
+*如果我在加入健康情況檢查方案後探索到另一部伺服器，方案也會檢查這部伺服器嗎？*
 
-* 是的。智慧套件會在探索到該伺服器之後每隔 7 天評估一次。
+* 是的。在探索到該伺服器之後，會每隔 7 天檢查一次該伺服器。
 
-*如果把伺服器除役，何時能將它從評估中移除？*
+*如果把伺服器除役，何時能將它從健康情況檢查中移除？*
 
 * 如果伺服器在 3 週內未提交任何資料，智慧套件便會將其移除。
 
@@ -189,4 +196,4 @@ Active Directory 評定會使用您已啟用的代理程式，從下列來源收
 * 是，請參閱上面的 [忽略建議](#ignore-recommendations) 一節。
 
 ## <a name="next-steps"></a>後續步驟
-* 使用 [Log Analytics 中的記錄檔搜尋](log-analytics-log-searches.md) ，可檢視詳細的 AD 評估資料和建議。
+* 使用[ Log Analytics 中的記錄搜尋](log-analytics-log-searches.md)，可讓您了解如何分析詳細的 AD 健康情況檢查資料和建議。

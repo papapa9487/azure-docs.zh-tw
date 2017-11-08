@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 5346e9d872f852502890d4bd2868b5343e0045c8
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: a40dc540884454fed9c374ba1365fdf7b85e4531
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建立 Node.js Web 應用程式
 
@@ -80,9 +80,9 @@ npm start
 
 ## <a name="create-a-web-app-with-built-in-image"></a>建立具有內建映像的 Web 應用程式
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-nodejs-no-h.md)]
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)]
 
-瀏覽至網站以查看您使用內建映像新建立的 Web 應用程式。 以唯一的應用程式名稱取代 _&lt;app name>_。
+瀏覽至您剛建立的 Web 應用程式。 以唯一的應用程式名稱取代 _&lt;app name>_。
 
 ```bash
 http://<app name>.azurewebsites.net

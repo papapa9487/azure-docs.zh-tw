@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: bc7763981c27a3d37cc1bd16c0f8efc0b4c01ce0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66d192287eeaaaa82c0f61f8aa13b8bf7bf8cd47
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>使用 Azure CLI 建立和管理適用於 MySQL 的 Azure 資料庫防火牆規則
 伺服器層級的防火牆規則可讓系統管理員從指定的 IP 位址或 IP 位址範圍，管理適用於 MySQL 的 Azure 資料庫伺服器的存取。 透過方便的 Azure CLI 命令，您可以建立、更新、刪除、列出及顯示防火牆規則，以管理您的伺服器。 如需「適用於 MySQL 的 Azure 資料庫」防火牆的概觀，請參閱[適用於 MySQL 的 Azure 資料庫伺服器防火牆規則](./concepts-firewall-rules.md)
@@ -31,8 +31,8 @@ ms.lasthandoff: 10/11/2017
 命令：
 - **create**︰建立 Azure MySQL 伺服器防火牆規則。
 - **delete**︰刪除 Azure MySQL 伺服器防火牆規則。
-- **list：列出 Azure MySQL 伺服器防火牆規則。
-- **show︰顯示 Azure MySQL 伺服器防火牆規則的詳細資料。
+- **list**：列出 Azure MySQL 伺服器防火牆規則。
+- **show**︰顯示 Azure MySQL 伺服器防火牆規則的詳細資料。
 - **update**：更新 Azure MySQL 伺服器防火牆規則。
 
 ## <a name="log-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>登入 Azure 並列出適用於 MySQL 的 Azure 資料庫伺服器

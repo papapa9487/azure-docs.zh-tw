@@ -1,5 +1,5 @@
 ---
-title: "使用 Azure AD，為可存取應用程式的群組成員或使用者完成存取權檢閱 | Microsoft Docs"
+title: "使用 Azure AD，為群組成員或可存取應用程式的使用者完成存取權檢閱 | Microsoft Docs"
 description: "了解如何在 Azure Active Directory 中，完成可存取應用程式之群組成員或使用者的存取權檢閱。"
 services: active-directory
 documentationcenter: 
@@ -13,40 +13,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: e83bc42d658c4d6304f98b99d0e0942595bd65d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b301ff06c01d51c02f7d7393801b35cd8965403c
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
-# <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>在 Azure AD 中，為可存取應用程式的群組成員或使用者完成存取權檢閱
+# <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>在 Azure AD 中，為群組成員或可存取應用程式的使用者完成存取權檢閱
 
-系統管理員可以[建立存取權檢閱](active-directory-azure-ad-controls-create-access-review.md)，要求檢閱指派給應用程式的群組成員或使用者。 Azure AD 會自動將電子郵件傳給檢閱者，提示其檢閱存取權。 如果使用者未收到電子郵件，您可以在[如何檢閱存取權](active-directory-azure-ad-controls-perform-access-review.md)中傳送指示。  存取權檢閱期間結束後，或系統管理員已停止存取權檢閱之後，請依照本文的步驟來查看並套用結果。
+系統管理員可以使用 Azure Active Directory (Azure AD) 為群組成員或指派給應用程式的或使用者[建立存取權檢閱](active-directory-azure-ad-controls-create-access-review.md)。 Azure AD 會自動傳送電子郵件給檢閱者，提示其檢閱存取權。 如果使用者未收到電子郵件，您可以傳送[檢閱存取權](active-directory-azure-ad-controls-perform-access-review.md)的指示給他們。 存取權檢閱期間結束後，或如果系統管理員停止存取權檢閱，請依照本文的步驟來查看並套用結果。
 
-## <a name="viewing-an-access-review-in-the-azure-portal"></a>在 Azure 入口網站中檢視存取權檢閱
+## <a name="view-an-access-review-in-the-azure-portal"></a>在 Azure 入口網站中檢視存取權檢閱
 
-1. 移至[存取權檢閱頁面](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)，變更為 [程式集] 索引標籤，並選取包含存取權檢閱控制項的程式。
-2. 按一下管理並選取存取權檢閱控制項。  如果程式中有許多控制項，您可以篩選為特定類型的控制項、按其狀態排序，或按存取權檢閱控制項的名稱或建立它之擁有者的顯示名稱進行搜尋。 
+1. 移至[存取權檢閱頁面](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)，選取 [程式集]，並選取包含存取權檢閱控制項的程式。
 
-## <a name="stopping-a-review-that-has-not-yet-completed"></a>停止尚未完成的檢閱
+2. 選取 [管理]，並選取存取權檢閱控制項。 如果程式中有許多控制項，您可以篩選特定類型的控制項，並依其狀態排序。 您也可以依據存取權檢閱控制項的名稱或原先建立它之擁有者的顯示名稱來搜尋。 
 
-如果檢閱尚未到達排程的結束日期，系統管理員可按一下 [停止] 按鈕以提早完成，藉此停止檢閱。  如果此時有任何使用者尚未受到檢閱，在您停止檢閱之後，他們將無法受到檢閱。 在停止檢閱之後，即無法重新開始該檢閱。
+## <a name="stop-a-review-that-hasnt-finished"></a>停止尚未完成的檢閱
 
-## <a name="applying-the-changes"></a>套用變更 
+如果檢閱尚未到達排程的結束日期，系統管理員可以選取 [停止] 以提早結束檢閱。 在您停止檢閱之後，就無法再檢閱使用者。 檢閱停止後即無法重新開始。
 
-完成存取權檢閱後，因已達到結束日期或系統管理員已手動停止它，[套用] 按鈕就會藉由更新群組或應用程式來實作該檢閱的結果。 若在檢閱中拒絕使用者的存取權，則當系統管理員按一下這個按鈕時，Azure AD 將會移除其成員資格或應用程式指派。 
+## <a name="apply-the-changes"></a>套用變更 
 
-按一下 [套用] 按鈕不會影響源自內部部署目錄中的群組，或動態群組。  如果您想要變更源自於內部部署的群組，則下載結果，並將那些變更套用至該目錄中群組的表示法。
+在存取權檢閱因為到達結束日期或系統管理員手動停止而完成後，選取 [套用]。 檢閱的結果是藉由更新群組或應用程式實作。 若在檢閱中拒絕使用者的存取權，當系統管理員選取此選項時，Azure AD 會移除其成員資格或應用程式指派。 
 
-## <a name="downloading-the-results-of-the-review"></a>下載檢閱的結果
+選取 [套用] 不會影響源自內部部署目錄中的群組，或動態群組。 如果您想要變更源自於內部部署的群組，請下載結果，並將那些變更套用至該目錄中的群組圖像。
 
-若要擷取檢閱的結果，請變更 [核准] 索引標籤，然後按一下 [下載] 按鈕。  可在 Excel 中，或開啟 CSV 檔案的其他程式中檢視產生的 CSV 檔案。
+## <a name="download-the-results-of-the-review"></a>下載檢閱的結果
 
-## <a name="optional-deleting-a-review"></a>選擇性：刪除檢閱
-如果對檢閱不再有任何興趣，請刪除它。 [刪除] 按鈕會從 Azure AD 移除檢閱。
+若要擷取檢閱的結果，請選取 [核准]，然後選取 [下載]。 可在 Excel 中，或開啟 CSV 檔案的其他程式中檢視產生的 CSV 檔案。
+
+## <a name="optional-delete-a-review"></a>選擇性：刪除檢閱
+如果您對檢閱不再感興趣，可以將它刪除。 選取 [刪除] 以從 Azure AD 移除檢閱。
 
 > [!IMPORTANT]
-> 刪除執行前不會收到警告，因此請務必確定您想要刪除該檢閱。
+> 刪除執行前不會收到警告，因此請務必確定您想要刪除檢閱。
 > 
 > 
 

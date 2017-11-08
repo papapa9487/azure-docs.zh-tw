@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
-ms.author: banders
-ms.openlocfilehash: 0b0d91b130172eb3506fdebb9547ab6ba5cc3780
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/26/2017
+ms.author: magoedte;banders
+ms.openlocfilehash: 1b0d0fa1afc94d5261443f6b08cb6f0c3518f3eb
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>使用 Azure SQL Database (預覽) 監視 Log Analytics 中的 Azure SQL Database
 
@@ -47,8 +47,8 @@ Azure SQL 分析解決方案不使用代理程式連線至 Log Analytics 服務�
 ## <a name="prerequisites"></a>必要條件
 
 - Azure 訂用帳戶。 如果您沒有帳戶，您可以[免費](https://azure.microsoft.com/free/)建立一個。
-- Log Analytics 工作區。 您可以使用現有的帳戶，或者您可以在開始使用此解決方案之前[建立一個新的](log-analytics-get-started.md)。
-- 針對您的 Azure SQL Database 和彈性集區啟用 Azure 診斷，並[將其設定為傳送資料至 Log Analytics](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/)。
+- Log Analytics 工作區。 您可以使用現有的帳戶，或者您可以在開始使用此解決方案之前[建立一個新的](log-analytics-quick-create-workspace.md)。
+- 針對您的 Azure SQL Database 和彈性集區啟用 Azure 診斷，並[將其設定為傳送資料至 Log Analytics](../sql-database/sql-database-metrics-diag-logging.md)。
 
 ## <a name="configuration"></a>組態
 
@@ -60,9 +60,9 @@ Azure SQL 分析解決方案不使用代理程式連線至 Log Analytics 服務�
 3. 在 [監視 + 管理] 清單中，按一下 [檢視全部]。
 4. 在 [建議]清單中，按一下 [詳細]，然後在新的清單中，尋找 **Azure SQL 分析 (預覽)**，然後選取它。  
     ![Azure SQL 分析解決方案](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. 在 [Azure SQL 分析 (預覽)] 窗格中，按一下 [建立]。  
+5. 在 **Azure SQL 分析 (預覽)** 刀鋒視窗中，按一下 [建立]。  
     ![建立](./media/log-analytics-azure-sql/portal-create.png)
-6. 在 建立新方案 窗格中，選取您想要新增解決方案的工作區，然後按一下建立。  
+6. 在 [建立新方案] 刀鋒視窗中，選取您想要新增解決方案的工作區，然後按一下 [建立]。  
     ![新增到工作區](./media/log-analytics-azure-sql/add-to-workspace.png)
 
 
@@ -83,7 +83,7 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 ## <a name="using-the-solution"></a>使用解決方案
 
 >[!NOTE]
-> 升級 Log Analytics 工作區以取得最新版的 Azure SQL 分析。
+> 請升級 Log Analytics 以取得最新版的 Azure SQL 分析。
 >
 
 當您將解決方案新增至您的工作區時，Azure SQL 分析圖格會新增至您的工作區，而且會顯示在 [概觀] 中。 圖格會顯示 Azure SQL Database 和解決方案所連接之 Azure SQL 彈性集區的數目。
@@ -96,26 +96,17 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ![Azure SQL 分析概觀](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
-選取任何磚，以便在特定的檢視方塊中開啟向下鑽研報表。
+選取任何磚，以便在特定的檢視方塊中開啟向下鑽研報表。 一旦選取檢視方塊，向下鑽研報表隨即開啟。
 
 ![Azure SQL 分析逾時](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
 
 每個檢視方塊都會提供訂用帳戶、伺服器、彈性集區和資料庫層級的摘要。 此外，每個檢視方塊都會在右側顯示檢視方塊專屬的報表。 從清單中選取訂用帳戶、伺服器、集區或資料庫可繼續往下鑽研。
 
-| 檢視方塊 | 說明 |
-| --- | --- |
-| 資源 (依類型) | 可計算所有受監視資源的檢視方塊。 向下鑽研可提供 DTU 及 GB 計量的摘要。 |
-| 深入解析 | 可透過階層的方式，向下鑽研至 Intelligent Insights。 深入了解 Intelligent Insights。 |
-| Errors | 可透過階層的方式，向下鑽研至資料庫上發生的 SQL 錯誤。 |
-| 逾時 | 可透過階層的方式，向下鑽研至資料庫上發生的 SQL 逾時。 |
-| 封鎖 | 可透過階層的方式，向下鑽研至資料庫上發生的 SQL 封鎖。 |
-| 資料庫等候 | 可透過階層的方式，向下鑽研至資料庫層級的 SQL 等候統計資料。 包含總等候時間及每種等候類型等候時間的摘要。 |
-| 查詢持續時間 | 可透過階層的方式，向下鑽研至查詢執行統計資料，例如查詢持續時間、CPU 使用量、資料 IO 使用量、記錄 IO 使用量。 |
-| 查詢等候 | 可透過階層的方式，依等候類別，向下鑽研至查詢等候統計資料。 |
+| 檢視方塊 | 描述 | | 依據類型的資源 | 可計算所有受監視資源的檢視方塊。 向下鑽研可提供 DTU 及 GB 計量的摘要。 | | Insights | 可透過階層的方式，向下鑽研至 Intelligent Insights。 深入了解 Intelligent Insights。 | | 錯誤 | 可透過階層的方式，向下鑽研至資料庫上發生的 SQL 錯誤。 | | 逾時 | 可透過階層的方式，向下鑽研至資料庫上發生的 SQL 逾時。 | | 封鎖 | 可透過階層的方式，向下鑽研至資料庫上發生的 SQL 封鎖。 | | 資料庫等候 | 可透過階層的方式，向下鑽研至資料庫層級的 SQL 等候統計資料。 包含總等候時間及每種等候類型等候時間的摘要。 | | 查詢持續時間 | 可透過階層的方式，向下鑽研至查詢執行統計資料，例如查詢持續時間、CPU 使用量、資料 IO 使用量、記錄 IO 使用量。 | | 查詢等候 | 可透過階層的方式，依等候類別，向下鑽研至查詢等候統計資料。 |
 
 ### <a name="intelligent-insights-report"></a>Intelligent Insights 報表
 
-收集的所有 Intelligent Insights 都可以透過 Insights 檢視方塊視覺化及存取。 [按一下這裡可深入了解 Intelligent Insights](../sql-database/sql-database-intelligent-insights.md)
+收集的所有 Intelligent Insights 都可以透過 Insights 檢視方塊視覺化及存取。 
 
 ![Azure SQL 分析見解](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 
@@ -136,6 +127,9 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 ### <a name="analyze-data-and-create-alerts"></a>分析資料並建立警示
 
 您可以使用來自 Azure SQL Database 資源的資料，輕鬆建立警示。 以下是您可用於警示的一些實用[記錄搜尋](log-analytics-log-searches.md)查詢：
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+
 
 Azure SQL Database 上的高 DTU
 
@@ -159,10 +153,10 @@ AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "
 4. 執行其中一個範例查詢。
 5. 在記錄搜尋中，按一下 [警示]。  
 ![在搜尋中建立警示](./media/log-analytics-azure-sql/create-alert01.png)
-6. 在 新增警示規則 頁面上，設定您要的適當屬性和特定臨界值，然後按一下儲存。  
+6. 在 [新增警示規則] 頁面上，設定您要的適當屬性和特定臨界值，然後按一下 [儲存]。  
 ![新增警示規則](./media/log-analytics-azure-sql/create-alert02.png)
 
-## <a name="see-also"></a>另請參閱
+## <a name="next-steps"></a>後續步驟
 
 - 使用 Log Analytics 中的[記錄搜尋](log-analytics-log-searches.md)來檢視詳細的 Azure SQL 資料。
 - [建立您自己的儀表板](log-analytics-dashboards.md)來顯示 Azure SQL 資料。

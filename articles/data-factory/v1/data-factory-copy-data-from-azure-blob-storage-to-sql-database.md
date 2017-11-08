@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 66db18d2d6cb03548631a275a0a5ecf7b9d4a364
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c3a2d4b126d43017ec004bde82deb190584455c4
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>教學課程：使用 Data Factory 將資料從 Blob 儲存體複製到 SQL Database
 > [!div class="op_single_selector"]
@@ -31,6 +31,9 @@ ms.lasthandoff: 10/11/2017
 > * [Azure Resource Manager 範本](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+
+> [!NOTE]
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱[第 2 版中的複製活動教學課程文件](../quickstart-create-data-factory-dot-net.md)。 
 
 在本教學課程中，您會建立 Data Factory 與管線，以將資料從 Blob 儲存體複製到 SQL Database。
 
@@ -107,7 +110,7 @@ ms.lasthandoff: 10/11/2017
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-    **如果您的電腦上已安裝 SQL Server 2012/2014：**請遵循[使用 SQL Server Management Studio 管理 Azure SQL Database](../../sql-database/sql-database-manage-azure-ssms.md) 中的指示，連線到您的 Azure SQL Server，並執行 SQL 指令碼。 本文使用[傳統 Azure 入口網站](http://manage.windowsazure.com) (而非[新的 Azure 入口網站](https://portal.azure.com)) 來設定 Azure SQL Server 的防火牆。
+    **如果您的電腦上已安裝 SQL Server 2012/2014：**請遵循[使用 SQL Server Management Studio 管理 Azure SQL Database](../../sql-database/sql-database-manage-azure-ssms.md) 中的指示，連線到您的 Azure SQL Server，並執行 SQL 指令碼。 
 
     如果不允許您的用戶端存取 Azure SQL Server，則必須將 Azure SQL Server 的防火牆設定成允許從您的電腦 (IP 位址) 存取。 請參閱 [本文](../../sql-database/sql-database-configure-firewall-settings.md) 的步驟，為 Azure SQL Server 設定防火牆。
 

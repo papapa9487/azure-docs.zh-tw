@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a587f58fad2ec74c7633823c4d34f900e7c01f7e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 006cac5606c411c9d86b36d0069021094fcdb1db
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>使用 Visual Studio Team Services 和 IIS 建立持續整合管線
 若要將應用程式開發的組建、測試、部署階段自動化，可以使用持續整合和部署 (CI/CD) 管線。 在本教學課程中，您可以使用 Visual Studio Team Services 以及 Azure 中執行 IIS 的 Windows 虛擬機器 (VM) 建立 CI/CD 管線。 您會了解如何：
@@ -230,7 +230,7 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 > * 建立發行定義將新的 Web 部署套件發佈至 IIS
 > * 測試 CI/CD 管線
 
-前進到下一個教學課程，以了解如何使用 SSL 憑證保護 Web 伺服器。
+前往下一個教學課程，了解如何在一組 Windows 虛擬機器上安裝 SQL&#92;IIS&#92;.NET 堆疊。
 
 > [!div class="nextstepaction"]
-> [使用 SSL 保護 Web 伺服器](tutorial-secure-web-server.md)
+> [SQL&#92;IIS&#92;.NET 堆疊](tutorial-iis-sql.md)

@@ -15,13 +15,16 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6d7e9be25badbd83ee613518ba768d98334a5f4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c506ee95281e1250a721a9c150bd839b4c1fcdb
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - 函式與系統變數
+> [!NOTE]
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的 Data Factory 服務第 2 版，請參閱 [Data Factory 第 2 版中的系統變數](../control-flow-system-variables.md)。
+
 本文提供 Azure Data Factory 支援之函式和變數的相關資訊。
 
 ## <a name="data-factory-system-variables"></a>Data Factory 系統變數

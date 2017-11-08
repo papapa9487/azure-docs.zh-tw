@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d3c8c79170e2f369a89c4ab0588e057d0228b573
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93e6c87a9d445ca448509a256247fb5e4749ec1c
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="understanding-outbound-connections-in-azure"></a>了解 Azure 中的輸出連線
 
@@ -42,7 +42,7 @@ Azure 提供三種不同的方法來達成輸出連線。 每個方法都有自�
 
 SNAT 連接埠是可能會耗盡的有限資源。 請務必了解取用的方式。 每個流程會取用一個 SNAT 連接埠至單一目的地 IP 位址。 針對相同目的地 IP 位址的多個流程，每個流程取用單一 SNAT 連接埠。 這可確保自相同公用 IP 位址至相同目的地 IP 位址時，流程是唯一的。 多個各自前往不同目的地 IP 位址的流程會共用單一 SNAT 連接埠。 目的地 IP 位址會使流程唯一。
 
-您可以使用[負載平衡器的 Log Analytics](load-balancer-monitor-log.md) 和 [要監視之 SNAT 連接埠耗盡訊息的警示事件記錄檔](load-balancer-monitor-log.md#alert-event-log)。 當 SNAT 連接埠資源耗盡時，輸出流程失敗，直到現有流程釋放 SNAT 連接埠為止。 負載平衡器會使用 4 分鐘閒置逾時以收回 SNAT 連接埠。
+您可以使用[負載平衡器的記錄分析](load-balancer-monitor-log.md)和[要監視之 SNAT 連接埠耗盡訊息的警示事件記錄檔](load-balancer-monitor-log.md#alert-event-log)，來監視連出連線的健康情況。 當 SNAT 連接埠資源耗盡時，輸出流程失敗，直到現有流程釋放 SNAT 連接埠為止。 負載平衡器會使用 4 分鐘閒置逾時以收回 SNAT 連接埠。  請檢閱下一節[具有執行個體層級公用 IP 位址的 VM (無論是否有負載平衡器)](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer)，以及[管理 SNAT 耗盡](#snatexhaust)。
 
 ## <a name="load-balanced-vm-with-no-instance-level-public-ip-address"></a>無執行個體層級公用 IP 位址的負載平衡 VM
 
@@ -52,11 +52,11 @@ SNAT 連接埠是可能會耗盡的有限資源。 請務必了解取用的方�
 
 SNAT 連接埠是可能會耗盡的有限資源。 請務必了解取用的方式。 每個流程會取用一個 SNAT 連接埠至單一目的地 IP 位址。 針對相同目的地 IP 位址的多個流程，每個流程取用單一 SNAT 連接埠。 這可確保自相同公用 IP 位址至相同目的地 IP 位址時，流程是唯一的。 多個各自前往不同目的地 IP 位址的流程會共用單一 SNAT 連接埠。 目的地 IP 位址會使流程唯一。
 
-您可以使用[負載平衡器的 Log Analytics](load-balancer-monitor-log.md) 和 [要監視之 SNAT 連接埠耗盡訊息的警示事件記錄檔](load-balancer-monitor-log.md#alert-event-log)。 當 SNAT 連接埠資源耗盡時，輸出流程失敗，直到現有流程釋放 SNAT 連接埠為止。 負載平衡器會使用 4 分鐘閒置逾時以收回 SNAT 連接埠。
+您可以使用[負載平衡器的記錄分析](load-balancer-monitor-log.md)和[要監視之 SNAT 連接埠耗盡訊息的警示事件記錄檔](load-balancer-monitor-log.md#alert-event-log)，來監視連出連線的健康情況。 當 SNAT 連接埠資源耗盡時，輸出流程失敗，直到現有流程釋放 SNAT 連接埠為止。 負載平衡器會使用 4 分鐘閒置逾時以收回 SNAT 連接埠。  請檢閱下一節及[管理 SNAT 耗盡](#snatexhaust)。
 
 ## <a name="vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer"></a>具有執行個體層級公用 IP 位址的 VM (無論是否有負載平衡器)
 
-在此案例中，VM 具有指派給它的執行個體層級公用 IP (ILPIP)。 VM 進行負載平衡與否並不重要。 使用 ILPIP 時，不會使用來源網路位址轉譯 (SNAT)。 VM 會針對所有輸出流程使用 ILPIP。 如果您的應用程式起始許多輸出流程且遇到 SNAT 耗盡，您應該考慮指派 ILPIP 以避免 SNAT 限制。
+在此案例中，VM 具有指派給它的執行個體層級公用 IP (ILPIP)。 VM 進行負載平衡與否並不重要。 使用 ILPIP 時，不會使用來源網路位址轉譯 (SNAT)。 VM 會針對所有輸出流程使用 ILPIP。 如果您的應用程式起始許多輸出流程而發生 SNAT 耗盡的情況，您應該考慮指派 ILPIP 來緩和 SNAT 限制的問題。
 
 ## <a name="discovering-the-public-ip-used-by-a-given-vm"></a>探索指定 VM 使用的公用 IP
 
@@ -66,14 +66,31 @@ SNAT 連接埠是可能會耗盡的有限資源。 請務必了解取用的方�
 
 ## <a name="preventing-public-connectivity"></a>防止公用連線
 
-有時並不想允許 VM 建立輸出流程，或可能需要管理可以使用輸出流程到達的目的地。 在此情況下，您使用[網路安全性群組 (NSG)](../virtual-network/virtual-networks-nsg.md) 來管理 VM 可到達的目的地。 當您將 NSG 套用到負載平衡的 VM 時，需要注意[預設標籤](../virtual-network/virtual-networks-nsg.md#default-tags)和[預設規則](../virtual-network/virtual-networks-nsg.md#default-rules)。
+有時您並不想允許 VM 建立輸出流程，或可能需要管理可使用輸出流程來連線到哪些目的地，或哪些目的地可以發起輸入流程。 在此情況下，您需使用[網路安全性群組 (NSG)](../virtual-network/virtual-networks-nsg.md) 來管理 VM 可連線的目的地，以及哪些公用目的地可以起始輸入流程。 當您將 NSG 套用到負載平衡的 VM 時，需要注意[預設標籤](../virtual-network/virtual-networks-nsg.md#default-tags)和[預設規則](../virtual-network/virtual-networks-nsg.md#default-rules)。
 
 您必須確定 VM 可以從 Azure Load Balancer 接收健康情況探查要求。 如果 NSG 封鎖來自 AZURE_LOADBALANCER 預設標籤的健全狀況探查要求，您的 VM 健全狀況探查會失敗，且會將 VM 標示為離線。 負載平衡器會停止將新的流程傳送到該 VM。
+
+## <a name="snatexhaust"></a>管理 SNAT 耗盡
+
+如[無執行個體層級公用 IP 位址的獨立 VM](#standalone-vm-with-no-instance-level-public-ip-address)和[無執行個體層級公用 IP 位址的負載平衡 VM](#standalone-vm-with-no-instance-level-public-ip-address)中所述，用於 SNAT 的暫時連接埠是可耗盡的資源。  
+
+如果您知道將會對相同的目的地起始許多連出連線、觀察到失敗的連出連線，或是支援人員告知您 SNAT 連接埠將耗盡，您有數個可緩和這些問題的一般選項。  請檢閱這些選項並判斷哪一個最適合您的案例。  可能會有一或多個選項有助於管理此案例。
+
+### <a name="assign-an-instance-level-public-ip-to-each-vm"></a>指派執行個體層級公用 IP 給每個 VM
+這會將您的案例變更為 [VM 的執行個體層級公用 IP](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer)。  用於每個 VM 的所有公用 IP 暫時連接埠都可供 VM 使用 (與公用 IP 暫時連接埠會與個別後端集區之所有相關 VM 共用的案例相反)。
+
+### <a name="modify-application-to-use-connection-pooling"></a>將應用程式修改成使用連線共用
+您可以在應用程式中使用連線共用，以降低對用於 SNAT 之暫時連接埠的需求。  傳送到相同目的地的額外流程將會取用額外的連接埠。  如果您重複使用相的同流程來進行多個要求，則多個要求將會取用單一連接埠。
+
+### <a name="modify-application-to-use-less-aggressive-retry-logic"></a>將應用程式修改成使用較不積極的重試邏輯
+您可以使用較不積極的重試邏輯，以降低對暫時連接埠的需求。  當用於 SNAT 的暫時連接埠耗盡時，不含衰減和降速邏輯的積極或暴力重試會造成耗盡情況持續存在。  暫時連接埠有 4 分鐘的閒置逾時 (無法調整)，如果重試太過積極，耗盡情況就沒有機會進行自我清理。
 
 ## <a name="limitations"></a>限制
 
 若[多個 (公用) IP 位址與負載平衡器關聯](load-balancer-multivip-overview.md)這些公用 IP 位址中的任一位址都可以是輸出流程的候選項。
 
 Azure 會使用演算法，根據集區的大小決定可用的 SNAT 連接埠數目。  目前無法進行設定。
+
+連出連線有 4 分鐘的閒置逾時。  此值無法調整。
 
 請務必記住，可用的 SNAT 連接埠號碼不會直接轉譯為連線數目。 如需何時及如何配置 SNAT 連接埠以及如何管理這個可耗盡資源的詳細資料，請參閱上述內容。

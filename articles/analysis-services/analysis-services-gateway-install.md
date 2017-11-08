@@ -4,7 +4,7 @@ description: "了解如何安裝及設定內部部署資料閘道。"
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 10/30/2017
 ms.author: owend
-ms.openlocfilehash: 71c4c8929a80a46ba2b9ba204f5666d40607f303
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ba36c4cf932cab2e449b12a307639184feab049
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安裝及設定內部部署資料閘道
 如果相同區域中有一或多部 Analysis Services 伺服器連線到內部部署資料來源，則需要一個內部部署閘道。 若要深入了解閘道，請參閱[內部部署資料閘道](analysis-services-gateway.md)。
@@ -53,7 +53,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 執行安裝程式。
 
-2. 選取位置，接受條款，然後按一下安裝。
+2. 選取位置，接受條款，然後按一下 [安裝]。
 
    ![安裝位置和授權條款](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
 
@@ -72,6 +72,9 @@ ms.lasthandoff: 10/11/2017
     ![註冊](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
 2. 輸入您的閘道名稱和復原金鑰。 根據預設，閘道會使用您訂用帳戶的預設區域。 如果您需要選取不同的區域，請選取 [變更區域]。
+
+    > [!IMPORTANT]
+    > 將您的修復金鑰儲存在安全的地方。 必須要有修復金鑰，才能接管、移轉或還原閘道。 
 
    ![註冊](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
@@ -105,7 +108,7 @@ ms.lasthandoff: 10/11/2017
 
    ![將伺服器連線至閘道](media/analysis-services-gateway-install/aas-gateway-connect-server.png)
 
-2. 在 挑選要連線的內部部署資料閘道 中，選取您的閘道資源，然後按一下連線選取的閘道。
+2. 在 [挑選要連線的內部部署資料閘道] 中，選取您的閘道資源，然後按一下 [連線選取的閘道]。
 
    ![將伺服器連線至閘道資源](media/analysis-services-gateway-install/aas-gateway-connect-resource.png)
 

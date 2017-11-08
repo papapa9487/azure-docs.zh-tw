@@ -3,8 +3,8 @@ title: "在 Azure 中建立靜態 HTML Web 應用程式 | Microsoft Docs"
 description: "藉由部署靜態 HTML 範例應用程式，了解如何在 Azure App Service 中執行 Web 應用程式。"
 services: app-service\web
 documentationcenter: 
-author: rick-anderson
-manager: wpickett
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.service: app-service-web
@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/26/2017
-ms.author: riande
+ms.date: 10/26/2017
+ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a4b6e0578bb0b45b6be5bdf28af5936d627b1c74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bd1b3ad946274bfa6a312d7c2373d45dbcb44541
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>在 Azure 中建立靜態 HTML Web 應用程式
 
@@ -45,7 +45,11 @@ ms.lasthandoff: 10/11/2017
 git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
 
-您可使用這個終端機視窗來執行本快速入門中的所有命令。
+變更為包含範例程式碼的目錄。
+
+```bash
+cd html-docs-hello-world
+```
 
 ## <a name="view-the-html"></a>HTML 檢視
 
@@ -64,10 +68,6 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
 
 ![空的 Web 應用程式頁面](media/app-service-web-get-started-html/app-service-web-service-created.png)
-
-您已在 Azure 中建立空的新 Web 應用程式。
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -99,11 +99,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 ## <a name="browse-to-the-app"></a>瀏覽至應用程式
 
-在瀏覽器中，移至 Azure Web 應用程式 URL：
-
-```
-http://<app_name>.azurewebsites.net
-```
+在瀏覽器中，移至 Azure Web 應用程式 URL：`http://<app_name>.azurewebsites.net`。
 
 此頁面目前作為 Azure App Service Web 應用程式執行。
 
@@ -115,7 +111,7 @@ http://<app_name>.azurewebsites.net
 
 在文字編輯器中開啟 *index.html* 檔案，並對標記進行變更。 例如，將 H1 標題從「Azure App Service - 範例靜態 HTML 網站」變更為只剩下「Azure App Service」。
 
-在 Git 中認可您的變更，然後將程式碼變更推送至 Azure。
+在本機終端機視窗中，在 Git 中認可您的變更，然後將程式碼變更推送至 Azure。
 
 ```bash
 git commit -am "updated HTML"

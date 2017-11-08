@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 202cd5441401a91736a55ccba095fa08dc95aa26
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3000acf91a66af3ec512af52362f7f1e2ba0019b
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒體服務版本資訊
 這些版本資訊彙總了舊版的變更和已知問題。
@@ -35,14 +35,46 @@ ms.lasthandoff: 10/11/2017
 | 有幾個常用的 HTTP 標頭未提供於 REST API 中。 |如果您使用 REST API 開發媒體服務應用程式，您會發現有些常用的 HTTP 標頭欄位 (包括 CLIENT-REQUEST-ID、REQUEST-ID 和 RETURN-CLIENT-REQUEST-ID) 不受支援。 這些標頭將在未來的更新中加入。 |
 | 不允許 percent-encoding。 |建置串流內容的 URL (例如，http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters) 時，媒體服務會使用 IAssetFile.Name 屬性的值。基於這個理由，不允許 percent-encoding。 **Name** 屬性的值不能有下列任何[百分比編碼保留字元](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#[]"。 此外，只能有一個 ‘.’ 在檔案名稱的副檔名。 |
 | 屬於 Azure Storage SDK 3.x 版的 ListBlobs 方法無法運作。 |媒體服務會根據 [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) 版本產生 SAS URL。 如果您要使用 Azure Storage SDK 列出 Blob 容器中的 Blob，請使用屬於 Azure Storage SDK 2.x 版的 [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) 方法。 屬於 Azure Storage SDK 3.x 版的 ListBlobs 方法將會失敗。 |
-| 媒體服務節流機制會針對向服務發出過多要求的應用程式限制資源使用量。 服務可能會傳回「服務無法使用 (503)」HTTP 狀態碼。 |如需詳細資訊，請參閱 [Azure 媒體服務錯誤碼](media-services-encoding-error-codes.md) 主題中 503 HTTP 狀態碼的說明。 |
+| 媒體服務節流機制會針對向服務發出過多要求的應用程式限制資源使用量。 服務可能會傳回「服務無法使用 (503)」HTTP 狀態碼。 |如需詳細資訊，請參閱 [Azure 媒體服務錯誤碼](media-services-encoding-error-codes.md) 一文中 503 HTTP 狀態碼的說明。 |
 | 查詢項目時，有一次最多傳回 1000 個實體的限制，因為公用 REST v2 有 1000 個查詢結果數目的限制。 |您需要使用 **Skip** 和 **Take** (.NET)/ **top** (REST)，如[此 .NET 範例](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities)和[此 REST API 範例](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)中所述。 |
 | 某些用戶端在 Smooth Streaming 資訊清單中可能會遇到重複標記問題。 |如需詳細資訊，請參閱 [本節](media-services-deliver-content-overview.md#known-issues) 。 |
 | Azure 媒體服務 .NET SDK 物件無法序列化，因此無法與 Azure 快取搭配運作。 |如果您嘗試序列化 SDK AssetCollection 物件以將其新增至 Azure 快取，將會擲回例外狀況。 |
-| 編碼工作失敗，並顯示訊息字串「階段︰DownloadFile。 代碼：System.NullReferenceException」。 |典型的編碼工作流程是將輸入視訊檔案上傳至輸入資產，然後提交該輸入資產的一個或多個編碼工作，而不需要進一步修改該輸入資產。 不過，如果您修改輸入資產 (例如新增/刪除/重新命名資產內的檔案)，後續的工作可能會失敗並伴隨「DownloadFile」錯誤。 解決方法是刪除輸入資產，然後將輸入檔案重新上傳到新的資產。 |
+
 
 ## <a id="rest_version_history"></a>REST API 版本歷程記錄
 如需媒體服務 REST API 版本歷程記錄的相關資訊，請參閱 [Azure 媒體服務 REST API 參考]。
+
+## <a name="october-2017-release"></a>2017 年 10 月版本
+> [!IMPORTANT] 
+> 提醒：Azure 媒體服務將會淘汰 ACS 驗證金鑰的支援。  從 2018 年 6 月 1 日起，您就無法再透過使用 ACS 金鑰的程式碼，以 AMS 後端進行驗證。 您必須依據 [Azure Active Directory (Azure AD) 型驗證](media-services-use-aad-auth-to-access-ams-api.md)一文，更新您的程式碼以使用 Azure Active Directory (AAD)。 您也會在 Azure 入口網站中收到這項變更的警告。
+
+### <a name="updates-for-october-2017-include"></a>2017 年 10 月更新包括：
+#### <a name="sdks"></a>SDK
+* .NET SDK 更新為支援 AAD 驗證。  我們移除了對於從 Nuget.org 上的最新 .NET SDK 進行 ACS 驗證的支援，鼓勵更快速地移轉至 AAD。 
+* JAVA SDK 更新為支援 AAD 驗證。  我們將 AAD 驗證的支援新增至 Java SDK。 您可以在下列文章中閱讀如何以 AMS 使用 Java SDK 的詳細資料：[開始使用適用於 Azure Media Services 的 Java 用戶端 SDK](media-services-java-how-to-use.md)
+
+#### <a name="file-based-encoding"></a>檔案型編碼
+1.  您現在可以使用進階編碼器，將內容編碼至 H.265(HEVC) 影片轉碼器。 透過像是 H.264 的其他轉碼器選擇 H.265，沒有價格影響。 請參閱[線上服務條款](https://azure.microsoft.com/support/legal/)，以取得有關 HEVC 專利授權的重要注意事項。
+2.  如果您有使用 H.265(HEVC) 影片轉碼器編碼的來源影片，例如使用 iOS11 或 GoPro Hero 6 擷取的影片，您現在可以使用進階編碼器或標準編碼器來編碼這些影片。 請參閱[線上服務條款](https://azure.microsoft.com/support/legal/)，以取得有關專利授權的重要注意事項。
+3.  如果您有包含多重語言音軌的內容，則只要根據對應的檔案格式規格 (例如 ISO MP4) 正確地標示語言值，您就可以使用標準編碼器來編碼內容以進行串流。 結果串流定位器會列出可用的音訊語言。
+4.  標準編碼器現在支援兩個新的僅限音訊系統預設值，「AAC 音訊」和「AAC 音訊品質 (佳)」。 兩者都會產生立體聲 AAC 輸出，分別為 128 kbps 和 192 kbps 位元速率。
+5.  進階編碼器現在支援 QuickTime/MOV 檔案格式作為輸入，只要視訊轉碼器是[這裡列出的 Apple ProRes 標註](https://docs.microsoft.com/en-us/azure/media-services/media-services-media-encoder-standard-formats)的其中之一，音訊可以是 AAC 或 PCM。
+
+> [!NOTE]
+> 進階編碼器不支援，例如 QuickTime/MOV 檔案中包裝的 DVC/DVCPro 影片作為輸入。  不過，標準編碼器支援這些影片轉碼器。
+>
+>
+
+6.  編碼器中的錯誤修正：
+    * 您現在可以使用「輸入資產」提交作業，完成之後，修改資產 (例如藉由新增/刪除/重新命名「資產」中的檔案)，然後提交其他作業。 
+    * 標準編碼器產生的改善品質 JPEG 縮圖
+    * 標準編碼器對於短片的改進。 更完善地處理短片中的輸入中繼資料和縮圖產生。
+    * 改善標準編碼器中使用的 H.264 解碼器，清除特定罕見構件。 
+
+#### <a name="media-analytics"></a>媒體分析
+* Azure Media Redactor 的 GA - 此媒體處理器 (MP) 會透過將所選個人的臉部模糊化執行影片匿名，相當適合公共安全及新聞媒體案例用途。 如需此新處理器的概觀，請參閱[這裡](https://azure.microsoft.com/blog/azure-media-redactor/)的部落格文章。 如需詳細的文件和設定，請參閱[使用 Azure 媒體分析修訂臉部](media-services-face-redaction.md)。
+
+
 
 ## <a name="june-2017-release"></a>2017 年 6 月版本
 
@@ -58,19 +90,19 @@ ms.lasthandoff: 10/11/2017
 您現在可以使用 Azure 媒體標準或媒體編碼器高階工作流程來[建立會產生 fMP4 區塊的編碼工作](media-services-generate-fmp4-chunks.md)。 
 
 
-## <a name="febuary-2017-release"></a>2017 年 2 月版本
+## <a name="february-2017-release"></a>2017 年 2 月版本
 
 從 2017 年 4 月 1 日起，您的帳戶中任何超過 90 天的作業記錄以及其相關工作記錄都會自動刪除，即使記錄總數低於配額上限亦然。 如果您需要封存作業/工作資訊，您可以使用[這裡](media-services-dotnet-manage-entities.md)所述的程式碼。
 
 ## <a name="january-2017-release"></a>2017 年 1 月版本
 
-在「Microsoft Azure 媒體服務」(AMS) 中，「串流端點」代表可以直接將內容傳遞給用戶端播放程式應用程式，或傳遞給「內容傳遞網路」(CDN) 以進行進一步散發的串流服務。 媒體服務也提供順暢的 Azure CDN 整合。 來自 StreamingEndpoint 服務的輸出資料流可以是即時資料流、隨選視訊，也可以是媒體服務帳戶中漸進式的資產下載。 每個「Azure 媒體服務」帳戶皆包含一個預設的 StreamingEndpoint。 您可以在該帳戶下建立額外的 StreamingEndpoint。 StreamingEndpoint 有 1.0 和 2.0 兩個版本。 從 2017 年 1 月 10 日開始，所有新建立的 AMS 帳戶都會包含 2.0 版**預設** StreamingEndpoint。 您新增到此帳戶的額外串流端點也將會是 2.0 版。 這項變更不會影響現有的帳戶，現有的 StreamingEndpoint 會是 1.0 版並可升級到 2.0 版。 隨著這項變更，將會有行為、計費及功能變更 (如需詳細資訊，請參閱[這個](media-services-streaming-endpoints-overview.md)主題)。
+在「Microsoft Azure 媒體服務」(AMS) 中，「串流端點」代表可以直接將內容傳遞給用戶端播放程式應用程式，或傳遞給「內容傳遞網路」(CDN) 以進行進一步散發的串流服務。 媒體服務也提供順暢的 Azure CDN 整合。 來自 StreamingEndpoint 服務的輸出資料流可以是即時資料流、隨選視訊，也可以是媒體服務帳戶中漸進式的資產下載。 每個「Azure 媒體服務」帳戶皆包含一個預設的 StreamingEndpoint。 您可以在該帳戶下建立額外的 StreamingEndpoint。 StreamingEndpoint 有 1.0 和 2.0 兩個版本。 從 2017 年 1 月 10 日開始，所有新建立的 AMS 帳戶都會包含 2.0 版**預設** StreamingEndpoint。 您新增到此帳戶的額外串流端點也將會是 2.0 版。 這項變更不會影響現有的帳戶，現有的 StreamingEndpoint 會是 1.0 版並可升級到 2.0 版。 隨著這項變更，將會有行為、計費及功能變更 (如需詳細資訊，請參閱[這篇](media-services-streaming-endpoints-overview.md)文章)。
 
 此外，從 2.15 版開始，「Azure 媒體服務」還在「串流端點」實體新增了下列屬性：**CdnProvider**、**CdnProfile**、**FreeTrialEndTime**、**StreamingEndpointVersion**。 如需這些屬性的詳細概觀，請參閱[這裡](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)。 
 
 ## <a name="december-2016-release"></a>2016 年 12 月版本
 
-「Azure 媒體服務」現在可讓您存取其服務的遙測/計量資料。 目前的 AMS 版本可讓您收集直播 Channel、StreamingEndpoint 及即時 Archive 實體的遙測資料。 如需詳細資訊，請參閱 [這個](media-services-telemetry-overview.md) 主題。
+「Azure 媒體服務」現在可讓您存取其服務的遙測/計量資料。 目前的 AMS 版本可讓您收集直播 Channel、StreamingEndpoint 及即時 Archive 實體的遙測資料。 如需詳細資訊，請參閱[本篇文章](media-services-telemetry-overview.md)。
 
 ## <a id="july_changes16"></a>2016 年 7 月版本
 ### <a name="updates-to-manifest-file-ism-generated-by-encoding-tasks"></a>編碼工作產生之資訊清單檔案 (*.ISM) 更新
@@ -289,7 +321,7 @@ Media Services SDK for .NET 目前的版本為 3.0.0.8。
 Media Services SDK for .NET 目前的版本為 3.0.0.7。
 
 ### <a id="sept_14_breaking_changes"></a>重大變更
-* **原始來源** 已重新命名為 [CustomHostNames]。
+* **原始來源** 已重新命名為 [StreamingEndpoint]。
 * 使用「Azure 入口網站」來編碼並發行 MP4 檔案時的預設行為已變更。
 
 過去，在使用 Azure 傳統入口網站發佈單一檔案 MP4 視訊資產時，會建立 SAS URL (SAS URL 可讓您從 Blob 儲存體下載視訊)。 現在，當您使用 Azure 傳統入口網站編碼並發佈單一檔案 MP4 視訊資產時，產生的 URL 會指向 Azure 媒體服務串流端點。  這項變更並不會影響未由 Azure 媒體服務編碼、而直接上傳至媒體服務並發佈的 MP4 視訊。
@@ -301,17 +333,17 @@ Media Services SDK for .NET 目前的版本為 3.0.0.7。
 
 ### <a id="sept_14_GA_changes"></a>GA 版本中的新功能/案例
 * **索引器媒體處理器**。 如需詳細資訊，請參閱 [使用 Azure 媒體索引器編製媒體檔案的索引]。
-* [CustomHostNames] 實體現在可讓您新增自訂網域 (主機) 名稱。
+* [StreamingEndpoint] 實體現在可讓您新增自訂網域 (主機) 名稱。
   
     對於要作為媒體服務串流端點名稱的自訂網域名稱，您必須將自訂主機名稱新增至您的串流端點。 請使用媒體服務 REST API 或 .NET SDK 來新增自訂主機名稱。
   
     您必須考量下列事項：
   
   * 您必須具有自訂網域名稱的擁有權。
-  * 網域名稱的擁有權必須通過 Azure 媒體服務的驗證。 若要驗證網域，請建立對應 <MediaServicesAccountId>.<parent domain> 的 CName。 到 verifydns.<mediaservices-dns-zone>。 
+  * 網域名稱的擁有權必須通過 Azure 媒體服務的驗證。 若要驗證網域，請建立對應 <MediaServicesAccountId>.<parent domain> 的 CName。 以確認 dns.<mediaservices-dns-zone>。 
   * 您必須建立另一個 CName，將自訂主機名稱 (例如，sports.contoso.com) 對應到您的媒體服務 StreamingEndpont 主機名稱 (例如，amstest.streaming.mediaservices.windows.net)。
 
-    如需詳細資訊，請參閱 **StreamingEndpoint** 主題中的 [CustomHostNames] 屬性。
+    如需詳細資訊，請參閱 [StreamingEndpoint] 一文中的 **CustomHostNames** 屬性。
 
 ### <a id="sept_14_preview_changes"></a>公用預覽版本中的新功能/案例
 * 即時資料流預覽。 如需詳細資訊，請參閱 [使用 Azure 媒體服務即時資料流]。
@@ -323,7 +355,7 @@ Media Services SDK for .NET 目前的版本為 3.0.0.7。
 * 串流儲存體加密資產。 如需詳細資訊，請參閱 [串流儲存體加密內容]。
 
 ## <a id="august_changes_14"></a>2014 年 8 月版本
-當您為資產編碼時，在完成編碼工作時將會產生輸出資產。 在此版本之前，Azure Media Services Encoder 會產生輸出資產的相關中繼資料。 自此版本開始，編碼程式會同時產生輸入資產的相關中繼資料。 如需詳細資訊，請參閱[輸入中繼資料]和[輸出中繼資料]主題。
+當您為資產編碼時，在完成編碼工作時將會產生輸出資產。 在此版本之前，Azure Media Services Encoder 會產生輸出資產的相關中繼資料。 自此版本開始，編碼程式會同時產生輸入資產的相關中繼資料。 如需詳細資訊，請參閱[輸入中繼資料]和[輸出中繼資料]文章。
 
 ## <a id="july_changes_14"></a>2014 年 7 月版本
 Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
@@ -379,7 +411,7 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 
 媒體服務 SDK 目前的最新版本為 3.0.0.0。 您可以從 Nuget 下載最新套件，或從 [Github]取得。
 
-從媒體服務 SDK 3.0.0.0 版開始，您可以重複使用 [Azure Active Directory 存取控制服務 (ACS)] 權杖。 如需詳細資訊，請參閱 [使用 Media Services SDK for .NET 連接到媒體服務] 主題中的「重複使用存取控制服務權杖」一節。
+從媒體服務 SDK 3.0.0.0 版開始，您可以重複使用 [Azure Active Directory 存取控制服務 (ACS)] 權杖。 如需詳細資訊，請參閱[使用 Media Services SDK for .NET 連接到媒體服務]一文中的「重複使用存取控制服務權杖」一節。
 
 ### <a name="dec_13_donnet_ext_changes"></a>Azure 媒體服務 .NET SDK 延伸模組 2.0.0.0
 Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，可簡化您的程式碼以及使用 Azure 媒體服務進行開發的工作。 您可以從 [Azure 媒體服務 .NET SDK 延伸]取得最新版本。
@@ -531,7 +563,7 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 [輸出中繼資料]: http://msdn.microsoft.com/library/azure/dn783217.aspx
 [傳遞內容]: http://msdn.microsoft.com/library/azure/hh973618.aspx
 [使用 Azure 媒體索引器編製媒體檔案的索引]: http://msdn.microsoft.com/library/azure/dn783455.aspx
-[CustomHostNames]: http://msdn.microsoft.com/library/azure/dn783468.aspx
+[StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
 [使用 Azure 媒體服務即時資料流]: http://msdn.microsoft.com/library/azure/dn783466.aspx
 [使用 AES-128 動態加密和金鑰傳遞服務]: http://msdn.microsoft.com/library/azure/dn783457.aspx
 [使用 PlayReady 動態加密和授權傳遞服務]: http://msdn.microsoft.com/library/azure/dn783467.aspx

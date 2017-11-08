@@ -13,16 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: a130907fe6cf2ae6498502644949290bc838f239
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d9ec6325e25477bf4ee0475caeca64b75b1f89f
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>使用 Azure 監視器來監視 Data Factory  
 雲端應用程式相當複雜，且具有許多移動組件。 監視會提供資料，以確保應用程式持續運作並以健全的狀態執行。 它也可協助您預防潛在問題，或是針對過去所發生的問題進行疑難排解。 除此之外，您還可以使用監視資料來取得應用程式的深入解析。 這項知識可協助您提升應用程式效能或維護性，或是將原本需要手動介入的動作自動化。
 
 Azure 監視器可針對 Microsoft Azure 中的大多數服務提供基本等級的基礎結構計量與記錄。 如需詳細資訊，請參閱[監視概觀](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor)。 Azure 診斷記錄是資源所發出的記錄，會經常提供有關該資源之作業的豐富資料。 Data Factory 會在 Azure 監視器中輸出診斷記錄。 
+
+> [!NOTE]
+> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版 Data Factory 服務 (正式運作版 (GA))，請參閱[在 Data Factory 第 1 版中監視和管理管線](v1/data-factory-monitor-manage-pipelines.md)。
 
 ## <a name="diagnostic-logs"></a>診斷記錄檔
 
