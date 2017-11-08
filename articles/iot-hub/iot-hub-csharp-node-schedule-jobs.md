@@ -66,7 +66,7 @@ ms.lasthandoff: 10/11/2017
 
     ![新的 Visual C# Windows 傳統桌面專案][img-createapp]
 
-1. 在 方案總管 中，以滑鼠右鍵按一下 **ScheduleJob** 專案，然後按一下管理 NuGet 套件...。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 **ScheduleJob** 專案，然後按一下 [管理 NuGet 套件....]
 1. 在 [Nuget 套件管理員] 視窗中選取 [瀏覽]、搜尋 **microsoft.azure.devices**、選取 [安裝] 以安裝 **Microsoft.Azure.Devices** 套件，並接受使用規定。 此步驟會下載及安裝 [Azure IoT 服務 SDK][lnk-nuget-service-sdk] NuGet 套件與其相依項目，並加入對它的參考。
 
     ![NuGet 封裝管理員視窗][img-servicenuget]
