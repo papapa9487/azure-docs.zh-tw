@@ -221,7 +221,7 @@ SAP HANA 支援預設啟用的 Just-In-Time 佈建。
 
 3. 按一下 [新增] 來新增 SAML IDP，然後按一下 [確定] 來選取適當的 SAML IDP。
 
-4. 新增 [外部識別] (例如 這裡的 BrittaSimon)，或選擇 [任何]並按一下 [確定]。
+4. 新增 [外部識別] \(例如 這裡的 BrittaSimon)，或選擇 [任何]並按一下 [確定]。
 
     >[!Note]
     >如果未核取 [任何] 核取方塊，則 HANA 中的使用者名稱必須完全符合 UPN 中網域尾碼前面的使用者名稱 (也就是 BrittaSimon@contoso.com 會在 HANA 中變成 BrittaSimon)。

@@ -73,7 +73,7 @@ ms.lasthandoff: 10/11/2017
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_search.png)
 
-5. 在結果面板中，選取 Recognize，然後按一下新增 按鈕以新增應用程式。
+5. 在結果面板中，選取 [Recognize]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_addfromgallery.png)
 
@@ -218,7 +218,7 @@ ms.lasthandoff: 10/11/2017
    
    a. 對於 [已啟用同步處理] 選取 **ON**。
    
-   b. 對於 [Choose sync provider] (選擇同步處理提供者)，選取 [Microsoft / Office 365]。
+   b. 對於 [Choose sync provider] \(選擇同步處理提供者)，選取 [Microsoft / Office 365]。
    
    c. 按一下 [Run User Sync] \(執行使用者同步處理)。
 
