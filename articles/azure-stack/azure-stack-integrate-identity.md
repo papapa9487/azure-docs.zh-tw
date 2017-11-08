@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.author: victorh
 keywords: 
-ms.openlocfilehash: 56cf1fad074754f1ddf9452d6d96f3d6c1028afe
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: e43b9c7a854bc7150247a2b92d2d37ad6d74c705
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 資料中心整合 - 身分識別
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/20/2017
 |身分識別|必須是 AD FS|Azure AD 或 AD FS|
 |Marketplace 摘要整合|目前無法使用|支援<br>BYOL 授權|
 |註冊|建議，需要卸除式媒體<br> 及個別的連接裝置。|自動化|
-|修補和更新|必要，需要卸除式媒體<br> 及個別的連接裝置。|可以直接從網際網路<br> 下載更新套件至 Azure Stack。|
+|修補和更新|必要，需要卸除式媒體<br> 及個別的連接裝置。|可以直接從網際網路將更新套件下載到 Azure Stack。<br> from the Internet to Azure Stack.|
 
 > [!IMPORTANT]
 > 若沒有重新部署整個 Azure Stack 解決方案，則無法切換身分識別提供者。
@@ -57,7 +57,7 @@ ms.lasthandoff: 10/20/2017
 
 |元件|需求|
 |---------|---------|
-|Graph|Microsoft Active Directory 2012/2012 R2/2016|
+|圖形|Microsoft Active Directory 2012/2012 R2/2016|
 |AD FS|Windows Server 2012/2012 R2/2016|
 
 ## <a name="setting-up-graph-integration"></a>設定 Graph 整合
@@ -67,7 +67,7 @@ ms.lasthandoff: 10/20/2017
 
 |參數|說明|範例|
 |---------|---------|---------|
-|CustomADGlobalCatalog|您想要整合的<br>目標 Active Directory 樹系的 FQDN|Contoso.com|
+|CustomADGlobalCatalog|您想要整合之目標 Active Directory 樹系的 FQDN<br>that you want to integrate with|Contoso.com|
 |CustomADAdminCredentials|具有 LDAP 讀取權限的使用者|YOURDOMAIN\graphservice|
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>在現有 Active Directory 中建立使用者帳戶 (選擇性)
@@ -112,7 +112,7 @@ Azure Stack 中的 Graph 服務會使用下列通訊協定和連接埠來與目�
 
 ## <a name="setting-up-ad-fs-integration-by-downloading-federation-metadata"></a>藉由下載同盟中繼資料來設定 AD FS 整合
 
-需要下列資訊，做為自動化參數的輸入：
+需要下列資訊，作為自動化參數的輸入：
 
 
 |參數|說明|範例|
@@ -147,7 +147,7 @@ Azure Stack 中的 Graph 服務會使用下列通訊協定和連接埠來與目�
 - 相較於 Azure Stack 中的其他所有端點，憑證鏈結對 AD FS 而言不同。
 - 從 Azure Stack 的 AD FS 執行個體到現有 AD FS 伺服器沒有網路連線。
 
-需要下列資訊，做為自動化參數的輸入：
+需要下列資訊，作為自動化參數的輸入：
 
 
 |參數|說明|範例|
