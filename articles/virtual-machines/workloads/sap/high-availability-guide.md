@@ -724,7 +724,7 @@ _**圖 11：**設定 SAP 高可用性 Azure Resource Manager 參數_
 >
 
 ### <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> 使用公司網路連線能力 (跨單位) 部署虛擬機器以用於生產環境中
-針對生產環境 SAP 系統，使用 Azure 站對站 VPN 或 Azure ExpressRoute，部署具有 [公司網路連線能力 (跨單位)][][planning-guide-2.2] 的 Azure 虛擬機器。
+針對生產環境 SAP 系統，使用 Azure 站對站 VPN 或 Azure ExpressRoute，部署具有 [公司網路連線能力 (跨單位)][planning-guide-2.2] 的 Azure 虛擬機器。
 
 > [!NOTE]
 > 您可以使用您的 Azure 虛擬網路執行個體。 虛擬網路和子網路已建立並備妥。
