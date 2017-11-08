@@ -15,13 +15,16 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 75213a4d0297c96ec32200158d8b60db4b8b2da4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2987b37d0146a68635c9190cf42ac7aeac48ed5
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="process-large-scale-datasets-using-data-factory-and-batch"></a>使用 Data Factory 和 Batch 處理大型資料集
+> [!NOTE]
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的 Data Factory 服務第 2 版，請參閱 [Data Factory 第 2 版中的自訂活動](../transform-data-using-dotnet-custom-activity.md)。
+
 本文說明範例解決方案的架構，此解決方案能以自動且排程的方式移動和處理大型資料集。 本文也提供如何使用 Azure Data Factory 和 Azure Batch 實作解決方案的端對端逐步解說。
 
 這篇文章比我們的一般文章還長，因為它包含整個範例解決方案的逐步解說。 如果您不熟悉 Batch 和 Data Factory，您可以了解這兩項服務以及它們如何搭配運作。 如果您已對這兩項服務有所了解，而且要設計/架構解決方案，則可以將焦點純粹放在文章內的[架構章節](#architecture-of-sample-solution)，如果您正在開發原型或解決方案，或許也會想試試[逐步解說](#implementation-of-sample-solution)中的逐步指示。 歡迎您對此內容以及您如何使用它提出看法。
@@ -85,7 +88,7 @@ Data Factory 中有內建的活動，例如複製活動，其可將資料從來�
 在本教學課程中，您會使用 Azure 儲存體帳戶來儲存資料。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../../storage/common/storage-create-storage-account.md#create-a-storage-account)。 範例解決方案會使用 Blob 儲存體。
 
 #### <a name="azure-batch-account"></a>Azure Batch 帳戶
-使用 [Azure 入口網站](http://manage.windowsazure.com/) 建立 Azure Batch 帳戶。 請參閱 [建立和管理 Azure Batch 帳戶](../../batch/batch-account-create-portal.md)。 請記下 Azure Batch 帳戶名稱和帳戶金鑰。 您也可以使用 [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) Cmdlet 建立 Azure Batch 帳戶。 如需使用此 Cmdlet 的詳細指示，請參閱 [開始使用 Azure Batch PowerShell Cmdlet](../../batch/batch-powershell-cmdlets-get-started.md) 。
+使用 [Azure 入口網站](http://portal.azure.com/) 建立 Azure Batch 帳戶。 請參閱 [建立和管理 Azure Batch 帳戶](../../batch/batch-account-create-portal.md)。 請記下 Azure Batch 帳戶名稱和帳戶金鑰。 您也可以使用 [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) Cmdlet 建立 Azure Batch 帳戶。 如需使用此 Cmdlet 的詳細指示，請參閱 [開始使用 Azure Batch PowerShell Cmdlet](../../batch/batch-powershell-cmdlets-get-started.md) 。
 
 範例解決方案會使用 Azure Batch (透過 Azure Data Factory 管線間接使用)，以平行方式處理計算節點集區 (受管理的虛擬機器集合) 上的資料。
 
@@ -156,13 +159,13 @@ public IDictionary<string, string> Execute(
 1. 在 Visual Studio 中建立 .NET 類別庫專案。
 
    1. 啟動 **Visual Studio 2012**/**2013/2015**。
-   2. 按一下 檔案，指向 新增，然後按一下專案。
+   2. 按一下 [檔案]，指向 [新增]，然後按一下 [專案]。
    3. 展開 [範本]，然後選取 [Visual C#]**\#**。 在此逐步解說中，您使用 C\# 中，但您可以使用任何 .NET 語言來開發自訂活動。
    4. 從右邊的專案類型清單中選取 [類別庫]。
    5. 針對 [名稱] 輸入 **MyDotNetActivity**。
    6. 在 [位置] 中選取 **C:\\ADF**。 建立資料夾 **ADF** (如果不存在)。
    7. 按一下 [確定]  以建立專案。
-2. 按一下 **工具**，指向 **NuGet 封裝管理員**，然後按一下**封裝管理員主控台**。
+2. 按一下 [**工具**]，指向 [**NuGet 封裝管理員**]，然後按一下 [**封裝管理員主控台**]。
 3. 在 [封裝管理員主控台] 中，執行下列命令匯入 **Microsoft.Azure.Management.DataFactories**。
 
     ```powershell

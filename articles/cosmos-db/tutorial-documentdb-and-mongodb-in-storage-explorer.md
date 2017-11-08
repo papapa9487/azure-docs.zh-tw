@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: Jiaj-Li
-ms.openlocfilehash: 2cd3656156b77c71be85a1a18567232f4466fc68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e695cdd7c51e18a386764ab8444d3336366ae265
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>在 Azure 儲存體總管 (預覽版本) 中管理 Azure Cosmos DB
 
@@ -32,8 +32,11 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="prerequisites"></a>必要條件
 
-- SQL (DocumentDB) 或 MongoDB 資料庫的 Azure Cosmos DB 帳戶。 若您還沒有帳戶，您可以根據[Azure Cosmos DB：使用 .NET 及 Azure 入口網站建置 DocumentDB API Web 應用程式](create-documentdb-dotnet.md)中的描述，在 Azure 入口網站中建立帳戶。
-- 安裝最新版本的 Azure 儲存體總管。 您可以使用下列連結進行安裝：[Linux](https://go.microsoft.com/fwlink/?linkid=858559)，[Mac](https://go.microsoft.com/fwlink/?linkid=858561)，[Windows](https://go.microsoft.com/fwlink/?linkid=858562)。
+SQL (DocumentDB) 或 MongoDB 資料庫的 Azure Cosmos DB 帳戶。 若您還沒有帳戶，您可以根據[Azure Cosmos DB：使用 .NET 及 Azure 入口網站建置 DocumentDB API Web 應用程式](create-documentdb-dotnet.md)中的描述，在 Azure 入口網站中建立帳戶。
+
+## <a name="installation"></a>安裝
+
+在這裡安裝最新的 Azure 儲存體總管位元：[Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)，我們現在支援 Windows、Linux 及 MAC 版本。
 
 ## <a name="connect-to-an-azure-subscription"></a>連線到 Azure 訂用帳戶
 
@@ -41,7 +44,7 @@ ms.lasthandoff: 10/11/2017
        
    ![外掛程式圖示](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/plug-in-icon.png)
  
-2. 選取 新增 Azure 帳戶，然後按一下登入。
+2. 選取 [新增 Azure 帳戶]，然後按一下 [登入]。
 
    ![連線到 Azure 訂用帳戶](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connect-to-azure-subscription.png)
 
@@ -49,7 +52,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Sign in](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/sign-in.png)
 
-3. 從清單中選取您的訂用帳戶，然後按一下套用。
+3. 從清單中選取您的訂用帳戶，然後按一下 [套用]。
 
     ![套用](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/apply-subscription.png)
 
@@ -67,7 +70,7 @@ ms.lasthandoff: 10/11/2017
 
     ![使用連接字串連線到 Azure Cosmos DB](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connect-to-db-by-connection-string.png)
 
-2. 選擇適用於您帳戶類型的**預設體驗**，其可能是 **DocumentDB** 或 **MongoDB**，將您的**連接字串**貼上，然後按一下確定 來連線到 Azure Cosmos DB 帳戶。 如需擷取連接字串的資訊，請參閱[取得連接字串](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string)。
+2. 選擇適用於您帳戶類型的**預設體驗**，其可能是 **DocumentDB** 或 **MongoDB**，將您的**連接字串**貼上，然後按一下 [確定] 來連線到 Azure Cosmos DB 帳戶。 如需擷取連接字串的資訊，請參閱[取得連接字串](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string)。
 
     ![連接字串](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connection-string.png)
 
@@ -127,29 +130,27 @@ ms.lasthandoff: 10/11/2017
 ### <a name="document-management"></a>文件管理
 
 #### <a name="create-and-modify-documents"></a>建立及修改文件
-若要建立新文件，請在左邊視窗中開啟 文件，按一下 新增文件，在右邊窗格中編輯內容，然後按一下儲存。 您可以也更新現有的文件，然後按一下儲存。 按一下 [捨棄] 以捨棄變更。
+若要建立新文件，請在左邊視窗中開啟 [文件]，按一下 [新增文件]，在右邊窗格中編輯內容，然後按一下 [儲存]。 您可以也更新現有的文件，然後按一下 [儲存]。 按一下 [捨棄] 以捨棄變更。
 
 ![文件](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/document.png)
 
 #### <a name="delete-a-document"></a>刪除文件
 按一下 [刪除] 按鈕來刪除選取的文件。
 #### <a name="query-for-documents"></a>查詢文件
-輸入 [SQL 查詢](documentdb-sql-query.md)，然後按一下套用 來編輯文件篩選。
+輸入 [SQL 查詢](documentdb-sql-query.md)，然後按一下 [套用] 來編輯文件篩選。
 
 ![Filter](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/filter.png)
 
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>管理預存程序、觸發程序和 UDF
-* 若要建立預存程序，請在左邊的樹狀目錄中，以滑鼠右鍵按一下 預存程序，選擇 建立預存程序，在左邊輸入名稱，在右邊的視窗中輸入預存程序指令碼，然後按一下建立。 
-* 您也可以透過按兩下現有的預存程序，進行更新，然後按一下更新 以儲存，或按一下 捨棄 以取消變更，來編輯現有的預存程序。
+* 若要建立預存程序，請在左邊的樹狀目錄中，以滑鼠右鍵按一下 [預存程序]，選擇 [建立預存程序]，在左邊輸入名稱，在右邊的視窗中輸入預存程序指令碼，然後按一下 [建立]。 
+* 您也可以透過按兩下現有的預存程序，進行更新，然後按一下 [更新] 以儲存，或按一下 [捨棄] 以取消變更，來編輯現有的預存程序。
 
 ![預存程序](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/stored-procedure.png)
 
 * 針對**觸發程序**及 **UDF** 的操作與**預存程序**的操作雷同。
 
-## <a name="demo"></a>示範
-* 請觀看下列影片以了解如何在 Azure 儲存體總管中使用 Azure Cosmos DB：[在 Azure 儲存體總管中使用 Azure Cosmos DB](https://go.microsoft.com/fwlink/?linkid=858710)。
-
 ## <a name="next-steps"></a>後續步驟
 
-現在，您已經將 Azure 儲存體總管連線到您的 Azure Cosmos DB 帳戶，您可以在[開始使用儲存體總管 (預覽版本) ](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer)中深入了解儲存體總管，並連線至更多服務。
+* 請觀看下列影片以了解如何在 Azure 儲存體總管中使用 Azure Cosmos DB：[在 Azure 儲存體總管中使用 Azure Cosmos DB](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be)。
+* 在[開始使用儲存體總管 (預覽)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer) 中深入了解儲存體總管並連線更多服務。
 

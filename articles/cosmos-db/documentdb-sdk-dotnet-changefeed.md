@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 10/31/2017
 ms.author: maquaran
-ms.openlocfilehash: 239b590a1e3a83fe0205dd8169697db745d7f75e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8c5a081105d37b8f1c78e90d9ccb8d945099b621
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="documentdb-net-change-feed-processor-sdk-download-and-release-notes"></a>DocumentDB .NET 變更摘要處理器 SDK：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -31,21 +31,20 @@ ms.lasthandoff: 10/11/2017
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [REST 資源提供者](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> 
-> 
 
-<table>
-
-<tr><td>**SDK 下載**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)</td></tr>
-
-<tr><td>**API 文件**</td><td>[變更摘要處理器程式庫 API 參考文件](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)</td></tr>
-
-<tr><td>**開始使用**</td><td>[開始使用 DocumentDB 變更摘要處理器 .NET SDK](change-feed.md)</td></tr>
-
-<tr><td>**目前支援的架構**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
-</table></br>
+|   |   |
+|---|---|
+|**SDK 下載**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
+|**API 文件**|[變更摘要處理器程式庫 API 參考文件](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
+|**開始使用**|[開始使用 DocumentDB 變更摘要處理器 .NET SDK](change-feed.md)|
+|**目前支援的架構**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>版本資訊
+
+### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
+* 新增 .NET Standard 2.0 的支援。 套件現在支援 `netstandard2.0` 和 `net451` Framework Moniker。
+* 與 [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) 1.17.0 或以上版本相容。
+* 與 [DocumentDB .NET Core SDK](documentdb-sdk-dotnet-core.md) 1.5.1 或以上版本相容。
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
 * 變更摘要為空白或沒有已暫止的工作時，會修正計算剩餘工作估計的問題。
@@ -70,6 +69,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [1.2.0](#1.2.0) |2017 年 10 月 31 日 |--- |
 | [1.1.1](#1.1.1) |2017 年 8 月 29 日 |--- |
 | [1.1.0](#1.1.0) |2017 年 8 月 13 日 |--- |
 | [1.0.0](#1.0.0) |2017 年 7 月 7 日 |--- |

@@ -13,18 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 10963ab0b84b48c35df3022649363bbc8fc112a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b28e15d643497dbdf827b3976ad7dcdc73507b1
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 密碼管理的報告選項
 
 部署後，許多組織想要知道如何或是否真的使用 SSPR。 Azure AD 會提供報告功能，協助您使用現成的報告回答問題，而如果您已獲得適當授權，則可讓您建立自訂查詢。
+
+![報告][Reporting]
 
 存在於 [Azure 入口網站] (https://portal.azure.com/) 中的報告可以回答下列問題。
 
@@ -39,6 +41,10 @@ ms.lasthandoff: 10/11/2017
 * 當使用者或系統管理員嘗試使用密碼重設時所面臨的常見問題是什麼？
 * 哪些系統管理員經常重設自己的密碼？
 * 密碼重設時是否有任何可疑的活動？
+
+## <a name="power-bi-content-pack"></a>Power BI 內容套件
+
+如果您是 Power BI 使用者，可使用 Azure AD 的內容套件，其中包含 SSPR 的易用報告。 請在[如何使用 Azure Active Directory Power BI 內容套件](active-directory-reporting-power-bi-content-pack-how-to.md)文章中尋找有關如何使用和部署內容套件的詳細資訊。 接著，您可以建立自己的儀表板，並與貴組織中的其他人共用。
 
 ## <a name="how-to-view-password-management-reports-in-the-azure-portal"></a>如何在 Azure 入口網站中檢視密碼管理報告
 
@@ -94,77 +100,6 @@ Azure AD 報告和事件 API 支援擷取密碼重設和密碼重設註冊報告
 | 欄 | 允許的值及其意義 |
 | --- | --- |
 | 已註冊資料 |**備用電子郵件** – 使用者用來驗證的備用電子郵件或驗證電子郵件<p><p>**辦公室電話** – 使用者用來驗證的辦公室電話<p>**行動電話** – 使用者用來驗證的行動電話或驗證電話<p>**安全性問題** – 使用者用來驗證的安全性問題<p>**屬於上述任何組合 (例如替代電子郵件 + 行動電話)** – 當指定 2 個閘道原則時會發生這種情況，且會顯示使用者用來驗證其密碼重設要求的兩種方法。 |
-
-## <a name="view-password-reset-activity-in-the-classic-portal"></a>在傳統入口網站中檢視密碼重設活動
-
-此報告會顯示您的組織中發生的所有密碼重設嘗試。
-
-* **時間範圍上限**：30 天
-* **資料列數目上限**：75,000
-* **可下載**：是，透過 CSV 檔案
-
-### <a name="description-of-report-columns-in-azure-classic-portal"></a>Azure 傳統入口網站中報告資料行的說明
-
-下列清單詳細說明每個報告資料行：
-
-1. **使用者** – 嘗試密碼重設作業的使用者 (根據使用者重設密碼時提供的 [使用者識別碼] 欄位)。
-2. **角色** – 使用者在目錄中的角色。
-3. **日期和時間** – 嘗試的日期和時間。
-4. **使用的方法** – 使用者用於此重設作業的驗證方法。
-5. **結果** – 密碼重設作業的結果。
-6. **詳細資料** – 為什麼密碼重設會導致所產生的值的詳細資料。  也包含任何防範措施，您可能會採取以解決未預期的錯誤。
-
-### <a name="description-of-report-values-in-azure-classic-portal"></a>Azure 傳統入口網站中報告值的說明
-
-下表描述每個資料行允許的不同值：
-
-| 欄 | 允許的值及其意義 |
-| --- | --- |
-| 使用方法 |**備用電子郵件** – 使用者用來驗證的備用電子郵件或驗證電子郵件<p>**辦公室電話** – 使用者用來驗證的辦公室電話<p>**行動電話** – 使用者用來驗證的行動電話或驗證電話<p>**安全性問題** – 使用者用來驗證的安全性問題<p>**屬於上述任何組合 (例如替代電子郵件 + 行動電話)** – 當指定 2 個閘道原則時會發生這種情況，且會顯示使用者用來驗證其密碼重設要求的兩種方法。 |
-| 結果 |**已放棄** – 使用者開始重設密碼，但是又中途停止而未完成<p>**已封鎖** – 由於在 24 小時期間內嘗試使用密碼重設頁面或單一密碼重設閘道太多次，因此已防止使用者帳戶使用密碼重設<p>**已取消** – 使用者開始重設密碼，但是隨後按一下 [取消] 按鈕，在中途取消工作階段 <p>**已聯絡管理員** – 使用者在其工作階段期間有無法解決的問題，所以使用者按一下 [請連絡您的系統管理員] 連結，而不是完成密碼重設流程<p>**失敗** – 使用者無法重設密碼，可能是因為未設定讓使用者使用該功能 (例如，沒有授權、遺失驗證資訊、在內部部署環境管理密碼但已關閉回寫)。<p>**成功** – 密碼重設成功。 |
-| 詳細資料 |請參閱下表 |
-
-### <a name="allowed-values-for-details-column"></a>允許的詳細資料資料行的值
-
-以下是使用密碼重設活動報告時，您預期的結果類型清單：
-
-| 詳細資料 | 結果類型 |
-| --- | --- |
-| 在完成電子郵件驗證選項之後使用者已放棄 |Abandoned |
-| 在完成行動 SMS 驗證選項之後使用者已放棄 |Abandoned |
-| 在完成行動語音通話驗證選項之後使用者已放棄 |Abandoned |
-| 在完成辦公室語音通話驗證選項之後使用者已放棄 |Abandoned |
-| 在完成安全性問題選項之後使用者已放棄 |Abandoned |
-| 在輸入其使用者識別碼之後使用者已放棄 |Abandoned |
-| 在開始電子郵件驗證選項之後使用者已放棄 |Abandoned |
-| 在開始行動 SMS 驗證選項之後使用者已放棄 |Abandoned |
-| 在開始行動語音通話驗證選項之後使用者已放棄 |Abandoned |
-| 在開始辦公室語音通話驗證選項之後使用者已放棄 |Abandoned |
-| 在開始安全性問題選項之後使用者已放棄 |Abandoned |
-| 選取新密碼之前使用者已放棄 |Abandoned |
-| 選取新密碼之際使用者已放棄 |Abandoned |
-| 使用者輸入太多無效的 SMS 驗證碼，因此封鎖 24 小時 |Blocked |
-| 使用者嘗試行動電話語音驗證太多次，因此封鎖 24 小時 |Blocked |
-| 使用者嘗試辦公室電話語音驗證太多次，因此封鎖 24 小時 |Blocked |
-| 使用者嘗試回答安全性問題太多次，因此封鎖 24 小時 |Blocked |
-| 使用者嘗試驗證電話號碼太多次，因此封鎖 24 小時 |Blocked |
-| 在傳遞必要的驗證方法之前使用者已取消 |Canceled |
-| 在提交新密碼之前使用者已取消 |Canceled |
-| 在嘗試電子郵件驗證選項之後使用者連絡系統管理員 |Contacted admin |
-| 在嘗試行動 SMS 驗證選項之後使用者連絡系統管理員 |Contacted admin |
-| 在嘗試行動語音通話驗證選項之後使用者連絡系統管理員 |Contacted admin |
-| 在嘗試辦公室語音通話驗證選項之後使用者連絡系統管理員 |Contacted admin |
-| 在嘗試安全性問題驗證選項之後使用者連絡系統管理員 |Contacted admin |
-| 這位使用者未啟用密碼重設。 在 [設定] 索引標籤底下啟用密碼重設以解決此問題 |Failed |
-| 使用者沒有授權。 您可以新增授權給使用者以解決此問題 |Failed |
-| 使用者嘗試從未啟用 cookie 的裝置重設 |Failed |
-| 使用者的帳戶已定義驗證方法不足。 新增驗證資訊以解決此問題 |Failed |
-| 使用者的密碼是在內部部署進行管理。 您可以啟用密碼回寫以解決此問題 |Failed |
-| 我們無法取得您的內部部署密碼重設服務。 請檢查您的同步處理電腦的事件記錄檔 |Failed |
-| 我們在重設使用者的內部部署密碼時發現問題。 請檢查您的同步處理電腦的事件記錄檔 |Failed |
-| 此使用者不是密碼重設使用者群組的成員。 將此使用者加入至該群組中以解決此問題。 |Failed |
-| 已針對此租用戶完全停用密碼重設。 若要解決這個問題，請參閱 [這裡](http://aka.ms/ssprtroubleshoot) 。 |Failed |
-| 使用者成功重設密碼 |Succeeded |
 
 ## <a name="self-service-password-management-activity-types"></a>自助式密碼管理活動類型
 
@@ -263,15 +198,16 @@ Azure AD 報告和事件 API 支援擷取密碼重設和密碼重設註冊報告
 
 ## <a name="next-steps"></a>後續步驟
 
-下列連結提供有關使用 Azure AD 重設密碼的其他資訊
+* [如何完成 SSPR 成功首度發行？](active-directory-passwords-best-practices.md)
+* [重設或變更您的密碼](active-directory-passwords-update-your-own-password.md)。
+* [註冊自助式密碼重設](active-directory-passwords-reset-register.md)。
+* [您有授權問題嗎？](active-directory-passwords-licensing.md)
+* [SSPR 使用哪些資料，以及您應該為使用者填入哪些資料？](active-directory-passwords-data.md)
+* [哪些驗證方法可供使用者使用？](active-directory-passwords-how-it-works.md#authentication-methods)
+* [使用 SSPR 的原則選項有哪些？](active-directory-passwords-policy.md)
+* [什麼是密碼回寫，且為什麼我需要了解它？](active-directory-passwords-writeback.md)
+* [SSPR 中的所有選項有哪些，以及它們有何意義？](active-directory-passwords-how-it-works.md)
+* [我認為有中斷。如何針對 SSPR 進行疑難排解？](active-directory-passwords-troubleshoot.md)
+* [在其他某處並未涵蓋我的問題](active-directory-passwords-faq.md)
 
-* [使用者管理稽核記錄的捷徑](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Audit) - 直接移至您租用戶的使用者管理稽核記錄
-* [**快速入門**](active-directory-passwords-getting-started.md) - 開始執行 Azure AD 自助式密碼管理 
-* [**授權**](active-directory-passwords-licensing.md) - 設定 Azure AD 授權
-* [**資料**](active-directory-passwords-data.md) -了解所需的資料以及如何將它使用於密碼管理
-* [**推出**](active-directory-passwords-best-practices.md) - 使用此處提供的指引來規劃 SSPR 並將它部署至使用者
-* [**自訂**](active-directory-passwords-customize.md) - 為您的公司自訂 SSPR 體驗的外觀與風格。
-* [**技術性深入探討**](active-directory-passwords-how-it-works.md) - 深入探索以了解其運作方式
-* [**常見問題集**](active-directory-passwords-faq.md) - 如何？ 原因為何？ 何事？ 何地？ 何人？ 何時？ - -您一直想要詢問之問題的答案
-* [**疑難排解**](active-directory-passwords-troubleshoot.md) - 了解如何解決我們看到的 SSPR 常見問題
-* [**原則**](active-directory-passwords-policy.md) - 了解並設定 Azure AD 密碼原則
+[Reporting]: ./media/active-directory-passwords-reporting/sspr-reporting.png "Azure AD 中 SSPR 活動稽核記錄的範例"

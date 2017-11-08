@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: e4f92c0c4d9307837ef6c760acd8eaa846938ded
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e6e56dd7ce1a16cadf35f9efe959ac490a65071
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Data Lake Store 或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,6 +51,11 @@ ms.lasthandoff: 10/11/2017
 - 應用程式識別碼
 - 應用程式金鑰
 - 租用戶識別碼
+
+[!TIP]
+> 請確定您將 Azure Data Lake Store 中適當的權限授與服務主體：
+>- 作為來源，請至少授與**讀取 + 執行**資料存取權限，以列出和複製資料夾的內容，或授與**讀取**權限，以複製單一檔案。 在帳戶層級存取控制上沒有任何要求。
+>- 作為接收器，請至少授與**寫入 + 執行**資料存取權限，以在資料夾中建立子項目。 如果您使用 Azure IR 來授權複製 (來源和接收器都在雲端)，為了讓 Data Factory 偵測 Data Lake Store 的區域，請在帳戶存取控制 (IAM) 中至少授與**讀取者**角色。 如果您需要避免此 IAM 角色，請以 Data Lake Store 的位置[建立 Azure IR](create-azure-integration-runtime.md#create-azure-ir)，並如下列範例，在 Data Lake Store 連結的服務中建立關聯。
 
 以下是支援的屬性：
 

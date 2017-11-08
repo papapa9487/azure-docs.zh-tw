@@ -12,19 +12,19 @@ ms.custom: scale out apps
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: data-management
+ms.workload: Inactive
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 099f40d00753b7c86ba726a818f17d440a125221
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 356c4223ff3ae844552b7bee40aa3ffc6aad7ea0
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>將現有的資料庫移轉到相應放大的資料庫
-使用 Azure SQL Database 資料庫工具 (例如 [彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md))，輕鬆地管理現有相應放大的分區化資料庫。 您必須先轉換現有的資料庫，才能使用 [分區對應管理員](sql-database-elastic-scale-shard-map-management.md)。 
+使用 Azure SQL Database 資料庫工具 (例如 [彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md))，輕鬆地管理現有相應放大的分區化資料庫。 請先轉換現有的資料庫，才能使用[分區對應管理員](sql-database-elastic-scale-shard-map-management.md)。 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 若要移轉現有的分區化資料庫︰ 
 
 1. 準備 [分區對應管理員資料庫](sql-database-elastic-scale-shard-map-management.md)。
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 如需 ShardMapManager 的詳細資訊，請參閱 [分區對應管理](sql-database-elastic-scale-shard-map-management.md)。 如需彈性資料庫工具的概觀，請參閱 [彈性資料庫功能概觀](sql-database-elastic-scale-introduction.md)。
 
 ## <a name="prepare-the-shard-map-manager-database"></a>準備分區對應管理員資料庫
-分區對應管理員是一個特殊的資料庫，其中包含用以管理相應放大之資料庫的資料。 您可以使用現有的資料庫，或建立新的資料庫。 請注意，做為分區對應管理員的資料庫不應該是與分區相同的資料庫。 也請注意，PowerShell 指令碼不會為您建立資料庫。 
+分區對應管理員是一個特殊的資料庫，其中包含用以管理相應放大之資料庫的資料。 您可以使用現有的資料庫，或建立新的資料庫。 作為分區對應管理員的資料庫不應該是與分區相同的資料庫。 PowerShell 指令碼不會為您建立資料庫。 
 
 ## <a name="step-1-create-a-shard-map-manager"></a>步驟 1︰建立分區對應管理員
     # Create a shard map manager. 
@@ -60,7 +60,7 @@ ms.lasthandoff: 10/11/2017
 
 
 ## <a name="step-2-create-the-shard-map"></a>步驟 2︰建立分區對應
-您必須選取要建立的分區對應類型。 請依據資料庫結構進行選擇︰ 
+選取要建立的分區對應類型。 請依據資料庫結構進行選擇︰ 
 
 1. 每個資料庫有一個租用戶 (相關詞彙，請參閱 [詞彙](sql-database-elastic-scale-glossary.md))。 
 2. 每個資料庫有多個租用戶 (兩種類型)︰
@@ -71,7 +71,7 @@ ms.lasthandoff: 10/11/2017
 
 ![清單對應][1]
 
-多租用戶模型會將數個租用戶指派給單一資料庫 (而且您可以跨多個資料庫散發租用戶的群組)。 預期每個租用戶有小型資料需求時，請使用此模型。 在此模型中，我們使用 **範圍對應**將某範圍的租用戶指派給資料庫。 
+多租用戶模型會將數個租用戶指派給單一資料庫 (而且您可以跨多個資料庫散發租用戶的群組)。 預期每個租用戶有小型資料需求時，請使用此模型。 在此模型中，使用**範圍對應**將某範圍的租用戶指派給資料庫。 
 
 ![範圍對應][2]
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 10/11/2017
 
 
 ### <a name="option-2-create-a-shard-map-for-a-range-mapping"></a>選項 2︰建立範圍對應的分區對應
-請注意，若要利用此對應模式，租用戶 ID 值需要是連續的範圍，而且可接受範圍中有間距，方法為只在建立資料庫時略過範圍。
+若要利用此對應模式，租用戶 ID 值需要是連續的範圍，而且可接受範圍中有間距，方法為在建立資料庫時略過範圍。
 
     # $ShardMapManager is the shard map manager object 
     # 'RangeShardMap' is the unique identifier for the range shard map.  
@@ -141,7 +141,7 @@ ms.lasthandoff: 10/11/2017
 
 
 ### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-a-single-database"></a>步驟 4 選項 3︰對應單一資料庫上多個租用戶的資料
-對於每個租用戶，執行 Add-ListMapping (上面的選項 1)。 
+對於每個租用戶，執行 Add-ListMapping (選項 1)。 
 
 ## <a name="checking-the-mappings"></a>檢查對應
 您可以使用下列命令來查詢現有分區以及與其相關聯之對應的相關資訊 ︰  
@@ -164,7 +164,7 @@ ms.lasthandoff: 10/11/2017
 如需多租用戶型軟體即服務 (SaaS) 資料庫應用程式的常見資料架構模式的資訊，請參閱 [多租用戶 SaaS 應用程式與 Azure SQL Database 的設計模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)。
 
 ## <a name="questions-and-feature-requests"></a>問題和功能要求
-如有問題，請透過 [SQL Database 論壇](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)與我們連絡，如需要求增加功能，請將這些功能新增至 [SQL Database 意見反應論壇](https://feedback.azure.com/forums/217321-sql-database/)。
+如有問題，請使用 [SQL Database 論壇](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)，如需要求增加功能，請將這些功能新增至 [SQL Database 意見反應論壇](https://feedback.azure.com/forums/217321-sql-database/)。
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png

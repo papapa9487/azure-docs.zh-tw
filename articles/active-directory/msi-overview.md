@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 10/31/2017
 ms.author: skwan
-ms.openlocfilehash: 803d0ad64d331dd331e5bab718484cb2fc8247d5
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 473a9e3aa3b6ad79a5f50a37c8aadc1bba79f5ae
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/01/2017
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>受管理的服務識別 (MSI) (適用於 Azure 資源)
 
@@ -50,12 +50,14 @@ ms.lasthandoff: 10/17/2017
 <br><br>
 | 從啟用 MSI 的資源 | 了解如何 |
 | ------- | -------- |
-| Azure VM (Windows) | [使用 Windows VM 受管理的服務身分識別存取 Azure Resource Manager](msi-tutorial-windows-vm-access-arm.md) |
+| Azure VM (Windows) | [使用 Windows VM 受管理的服務識別來存取 Azure Data Lake Store](msi-tutorial-windows-vm-access-datalake.md) |
+|                    | [使用 Windows VM 受管理的服務身分識別存取 Azure Resource Manager](msi-tutorial-windows-vm-access-arm.md) |
+|                    | [使用 Windows VM 受管理的服務身分識別存取 Azure SQL](msi-tutorial-windows-vm-access-sql.md) |
 |                    | [透過存取金鑰與 Windows VM 受管理的服務身分識別存取 Azure 儲存體](msi-tutorial-windows-vm-access-storage.md) |
 |                    | [透過 SAS 與 Windows VM 受管理的服務身分識別存取 Azure 儲存體](msi-tutorial-windows-vm-access-storage-sas.md) |
-|                    | [使用 Windows VM 受管理的服務身分識別存取 Azure SQL](msi-tutorial-windows-vm-access-sql.md) |
 |                    | [使用 Windows VM 受管理的服務身分識別和 Azure Key Vault 存取非 Azure AD 資源](msi-tutorial-windows-vm-access-nonaad.md) |
-| Azure VM (Linux)   | [使用 Linux VM 受管理的服務身分識別存取 Azure Resource Manager](msi-tutorial-linux-vm-access-arm.md) |
+| Azure VM (Linux)   | [使用 Linux VM 受管理的服務識別來存取 Azure Data Lake Store](msi-tutorial-linux-vm-access-datalake.md) |
+|                    | [使用 Linux VM 受管理的服務身分識別存取 Azure Resource Manager](msi-tutorial-linux-vm-access-arm.md) |
 |                    | [透過存取金鑰與 Linux VM 受管理的服務身分識別存取 Azure 儲存體](msi-tutorial-linux-vm-access-storage.md) |
 |                    | [透過 SAS 與 Linux VM 受管理的服務身分識別存取 Azure 儲存體](msi-tutorial-linux-vm-access-storage-sas.md) |
 |                    | [使用 Linux VM 受管理的服務身分識別和 Azure Key Vault 存取非 Azure AD 資源](msi-tutorial-linux-vm-access-nonaad.md) |

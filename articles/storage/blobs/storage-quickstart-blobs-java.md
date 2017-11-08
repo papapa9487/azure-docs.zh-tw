@@ -113,7 +113,7 @@ Press the 'Enter' key while in the console to delete the sample files, example c
 
 在本節中，您要建立物件的執行個體、建立新的容器，然後設定容器上的權限，以便公開 Blob 並使用 URL 即可存取。 容器名為 **quickstartblobs**。 
 
-因為我們想要在每次執行範例時建立新的容器，所以此範例會使用 **CreateIfNotExists**。 在整個應用程式都使用相同容器的生產環境中，最好只呼叫一次 **CreateIfNotExists**。 或者，您可以事先建立容器，就不需要在程式碼中建立。
+因為我們需要在每次執行範例時建立新的容器，所以此範例會使用 **CreateIfNotExists**。 在整個應用程式都使用相同容器的生產環境中，最好只呼叫一次 **CreateIfNotExists**。 或者，您可以事先建立容器，就不需要在程式碼中建立。
 
 ```java
 CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);

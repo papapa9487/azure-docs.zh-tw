@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: ac6afa9d2e5a838623754fbcb7d5cf68f7a9ad95
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: a25f91d092c2f72ea1cbc174d1bf8bf48885788a
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>部署 Azure Container Service (AKS) 叢集
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/26/2017
 
 如果您選擇在本機安裝和使用 CLI，本快速入門會要求您執行 Azure CLI 2.0.20 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
-## <a name="enabling-aks-preview-for-your-azure-subscription"></a>為您的 Azure 訂用帳戶啟用 AKS 預覽
+## <a name="enabling-aks-preview-for-your-azure-subscription"></a>啟用您 Azure 訂用帳戶的 AKS 預覽
 雖然 AKS 處於預覽狀態，但是建立新叢集需要訂用帳戶的功能旗標。 您可以為您想要使用之任意數量的訂用帳戶要求這項功能。 使用 `az provider register` 命令來註冊 AKS 提供者：
 
 ```azurecli-interactive
@@ -83,10 +83,10 @@ az aks create --resource-group myResourceGroup --name myK8sCluster --agent-count
 
 若要管理 Kubernetes 叢集，請使用 Kubernetes 命令列用戶端：[kubectl](https://kubernetes.io/docs/user-guide/kubectl/)。
 
-如果您是使用 Azure CloudShell，則已安裝 kubectl。 如果您想要在本機進行安裝，請執行下列命令。
+如果您是使用 Azure Cloud Shell，則已安裝 kubectl。 如果您想要在本機進行安裝，請執行下列命令。
 
 
-```azurecli-interactive
+```azurecli
 az aks install-cli
 ```
 

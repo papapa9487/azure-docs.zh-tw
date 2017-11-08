@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/18/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e233547ce2add2d3eab1e9c46c4d7e701df72495
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 58ebf74e166cdcae2c54b134cb99552333fafa24
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>存取 Azure AD 報告 API 的必要條件
 
@@ -110,6 +110,11 @@ ms.lasthandoff: 10/18/2017
 6. 在頂端工具列中，按一下 [儲存]。
 
     ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/15.png)
+
+7. 按一下 [授與權限]，然後按一下 [是]。
+
+    ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/17.png)
+
 
 ## <a name="gather-configuration-settings"></a>收集組態設定 
 本節說明如何從您的目錄取得下列設定︰

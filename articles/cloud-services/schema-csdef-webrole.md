@@ -13,11 +13,11 @@ caps.latest.revision: "60"
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: b18b6f02f14db352289e3ab7e8b07a220868ce76
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2873f61dcab9a14089949f27f40ca5bedaf14ee
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Azure 雲端服務定義 WebRole 結構描述
 Azure Web 角色是專為 IIS 7 所支援之 Web 應用程式的程式設計 (例如，ASP.NET、PHP、Windows Communication Foundation 及 FastCGI) 所自訂的角色。
@@ -197,7 +197,7 @@ Azure Web 角色是專為 IIS 7 所支援之 Web 應用程式的程式設計 (�
 | --------- | ---- | ----------- |  
 |名稱|字串|必要。 本機存放區的唯一名稱。|  
 |cleanOnRoleRecycle|布林值|選用。 指出當角色重新啟動時，是否應清除本機存放區。 預設值為 `true`。|  
-|sizeInMb|int|選用。 想要配置給本機存放區的儲存體空間數量，以 MB 為單位。 若未指定，則預設配置的儲存體空間是 100 MB。 可配置的儲存體空間最小數量為 1 MB。<br /><br /> 本機資源的最大大小取決於虛擬機器大小。 如需詳細資訊，請參閱[雲端服務的虛擬機器大小](cloud-services-sizes-specs.md)。|  
+|sizeInMb|int|選用。 想要配置給本機存放區的儲存體空間數量，以 MB 為單位。 若未指定，則預設配置的儲存體空間是 100 MB。 可配置的儲存體空間最小數量為 1 MB。<br /><br /> 本機資源最大的大小取決於虛擬機器大小。 如需詳細資訊，請參閱[雲端服務的虛擬機器大小](cloud-services-sizes-specs.md)。|  
   
 配置給本機儲存資源之目錄的名稱會對應至提供給名稱屬性的值。
 
@@ -297,7 +297,7 @@ Azure Web 角色是專為 IIS 7 所支援之 Web 應用程式的程式設計 (�
 |permissionLevel|字串|選用。 指定提供給角色處理序的存取權限。 如果您希望只有提升權限的處理序能夠存取私密金鑰，則請指定 `elevated` 權限。 `limitedOrElevated` 權限可讓所有角色處理序存取私密金鑰。 可能的值為 `limitedOrElevated` 或 `elevated`。 預設值為 `limitedOrElevated`。|  
 
 ##  <a name="Imports"></a> Imports  
-`Imports` 元素會說明在客體作業系統中新增元件之 Web 角色的匯入模組集合。 此元素是 `Import` 元素的父代。 這是選用元素，一個角色只能有一個執行階段區塊。
+`Imports` 元素會說明在客體作業系統中新增元件之 Web 角色的匯入模組集合。 此元素是 `Import` 元素的父代。 這是選用元素，一個角色只能有一個匯入區塊。 
 
 在使用 Azure SDK 1.3 版或更新版本時，才能使用 `Imports` 元素。
 
@@ -339,7 +339,7 @@ Azure Web 角色是專為 IIS 7 所支援之 Web 應用程式的程式設計 (�
 |value|字串|選用。 要為環境變數設定的值。 您必須包含值屬性或 `RoleInstanceValue` 元素。|  
 
 ##  <a name="RoleInstanceValue"></a> RoleInstanceValue  
-`RoleInstanceValue`元素會指定要從中擷取變數值的 xPath。
+`RoleInstanceValue` 元素會指定要從中擷取變數值的 xPath。
 
 下表說明 `RoleInstanceValue` 元素的屬性。
 

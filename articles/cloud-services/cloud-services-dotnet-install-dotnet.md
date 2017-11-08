@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/24/2017
+ms.date: 10/31/2017
 ms.author: adegeo
-ms.openlocfilehash: a9cffa275ae6b9315b821d3160b17a997a1523f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc4b62bc554757e6e394b78334f52f45aa08efe8
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>在 Azure 雲端服務角色上安裝 .NET
 本文說明如何安裝未隨附於 Azure 客體 OS 的 .NET Framework 版本。 若要設定雲端服務 web 和背景工作角色，您可以在客體 OS 上使用 .NET。
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="add-the-net-installer-to-your-project"></a>將 .NET 安裝程式加入至專案
 若要下載 .NET framework 的 Web 安裝程式，請選擇您需要安裝的版本：
 
-* [.NET 4.7 web 安裝程式](http://go.microsoft.com/fwlink/?LinkId=825298)
+* [.NET 4.7.1 web 安裝程式](http://go.microsoft.com/fwlink/?LinkId=852095)
 * [.NET 4.6.1 web 安裝程式](http://go.microsoft.com/fwlink/?LinkId=671729)
 
 若要新增 web 角色的安裝程式：
@@ -85,7 +85,7 @@ ms.lasthandoff: 10/11/2017
 2. 建立名為 **install.cmd** 的檔案，並將下列安裝指令碼新增至檔案。
 
     指令碼會透過查詢登錄來檢查指定的 .NET Framework 版本是否已在電腦上安裝。 如果未安裝該 .NET 版本，.Net Web 安裝程式就會開啟。 為協助針對任何問題進行疑難排解，該指令碼會將所有活動記錄到 startuptasklog-(目前日期和時間).txt 的檔案 (儲存於 **InstallLogs** 本機儲存體)。
-
+  
     > [!IMPORTANT]
     > 使用 Windows 記事本之類的基本文字編輯器來建立 install.cmd 檔案。 如果您是使用 Visual Studio 來建立文字檔案，然後將副檔名變更為 .cmd，檔案可能仍會包含 UTF-8 位元組順序標記。 執行指令碼的第一行時，此標記可能會導致錯誤。 若要避免這個錯誤，請在指令碼的第一行使用 REM 陳述式，位元組順序處理就可以跳過。 
     > 
@@ -98,21 +98,23 @@ ms.lasthandoff: 10/11/2017
     REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" *****
     REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" *****
     REM ***** To install .NET 4.7 set the variable netfx to "NDP47" *****
-    set netfx="NDP47"
-
+    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP47" *****
+    set netfx="NDP471"
+    
     REM ***** Set script start timestamp *****
     set timehour=%time:~0,2%
     set timestamp=%date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2%
     set "log=install.cmd started %timestamp%."
-
+    
     REM ***** Exit script if running in Emulator *****
     if %ComputeEmulatorRunning%=="true" goto exit
-
+    
     REM ***** Needed to correctly install .NET 4.6.1, otherwise you may see an out of disk space error *****
     set TMP=%PathToNETFXInstall%
     set TEMP=%PathToNETFXInstall%
-
+    
     REM ***** Setup .NET filenames and registry keys *****
+    if %netfx%=="NDP471" goto NDP471
     if %netfx%=="NDP47" goto NDP47
     if %netfx%=="NDP462" goto NDP462
     if %netfx%=="NDP461" goto NDP461
@@ -120,25 +122,32 @@ ms.lasthandoff: 10/11/2017
         set "netfxinstallfile=NDP452-KB2901954-Web.exe"
         set netfxregkey="0x5cbf5"
         goto logtimestamp
-
+    
     :NDP46
     set "netfxinstallfile=NDP46-KB3045560-Web.exe"
     set netfxregkey="0x6004f"
     goto logtimestamp
-
+    
     :NDP461
     set "netfxinstallfile=NDP461-KB3102438-Web.exe"
     set netfxregkey="0x6040e"
     goto logtimestamp
-
+    
     :NDP462
     set "netfxinstallfile=NDP462-KB3151802-Web.exe"
     set netfxregkey="0x60632"
-
-    :NDP47
+    goto logtimestamp
+    
+    :NPD47
     set "netfxinstallfile=NDP47-KB3186500-Web.exe"
     set netfxregkey="0x707FE"
-
+    goto logtimestamp
+    
+    :NDP471
+    set "netfxinstallfile=NDP471-KB4033344-Web.exe"
+    set netfxregkey="0x709fc"
+    goto logtimestamp
+    
     :logtimestamp
     REM ***** Setup LogFile with timestamp *****
     md "%PathToNETFXInstall%\log"
@@ -148,7 +157,7 @@ ms.lasthandoff: 10/11/2017
     echo Logfile generated at: %startuptasklog% >> %startuptasklog%
     echo TMP set to: %TMP% >> %startuptasklog%
     echo TEMP set to: %TEMP% >> %startuptasklog%
-
+    
     REM ***** Check if .NET is installed *****
     echo Checking if .NET (%netfx%) is installed >> %startuptasklog%
     set /A netfxregkeydecimal=%netfxregkey%
@@ -156,7 +165,7 @@ ms.lasthandoff: 10/11/2017
     FOR /F "usebackq skip=2 tokens=1,2*" %%A in (`reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" /v Release 2^>nul`) do @set /A foundkey=%%C
     echo Minimum required key: %netfxregkeydecimal% -- found key: %foundkey% >> %startuptasklog%
     if %foundkey% GEQ %netfxregkeydecimal% goto installed
-
+    
     REM ***** Installing .NET *****
     echo Installing .NET with commandline: start /wait %~dp0%netfxinstallfile% /q /serialdownload /log %netfxinstallerlog%  /chainingpackage "CloudService Startup Task" >> %startuptasklog%
     start /wait %~dp0%netfxinstallfile% /q /serialdownload /log %netfxinstallerlog% /chainingpackage "CloudService Startup Task" >> %startuptasklog% 2>>&1
@@ -165,25 +174,20 @@ ms.lasthandoff: 10/11/2017
         if %ERRORLEVEL%== 3010 goto restart
         if %ERRORLEVEL%== 1641 goto restart
         echo .NET (%netfx%) install failed with Error Code %ERRORLEVEL%. Further logs can be found in %netfxinstallerlog% >> %startuptasklog%
-
+    
     :restart
     echo Restarting to complete .NET (%netfx%) installation >> %startuptasklog%
     EXIT /B %ERRORLEVEL%
-
+    
     :installed
     echo .NET (%netfx%) is installed >> %startuptasklog%
-
+    
     :end
     echo install.cmd completed: %date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2% >> %startuptasklog%
-
+    
     :exit
     EXIT /B 0
     ```
-   
-   > [!NOTE]
-   > 此指令碼會示範如何安裝 .NET 4.5.2 或 4.6 版以取得持續性，即使 Azure 客體 OS 上已有 .NET 4.5.2 可供使用。 您應該直接安裝 .NET 4.6.1 而不是 4.6 版，如[知識庫文章 3118750](https://support.microsoft.com/kb/3118750) 中所述。
-   > 
-   > 
 
 3. 將 install.cmd 檔案新增至每個角色，方法是使用 [方案總管] 中的 [新增] > [現有項目]如本主題中稍早所述。 
 
@@ -214,9 +218,9 @@ ms.lasthandoff: 10/11/2017
 * [判斷安裝的 .NET Framework 版本][How to: Determine Which .NET Framework Versions Are Installed]
 * [針對 .NET Framework 安裝進行疑難排解][Troubleshooting .NET Framework Installations]
 
-[How to: Determine Which .NET Framework Versions Are Installed]: https://msdn.microsoft.com/library/hh925568.aspx
-[Installing the .NET Framework]: https://msdn.microsoft.com/library/5a4x27ek.aspx
-[Troubleshooting .NET Framework Installations]: https://msdn.microsoft.com/library/hh925569.aspx
+[How to: Determine Which .NET Framework Versions Are Installed]: /dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed
+[Installing the .NET Framework]: /dotnet/framework/install/guide-for-developers
+[Troubleshooting .NET Framework Installations]: /dotnet/framework/install/troubleshoot-blocked-installations-and-uninstallations
 
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png

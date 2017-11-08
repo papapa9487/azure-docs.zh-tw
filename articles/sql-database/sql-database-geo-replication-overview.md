@@ -12,14 +12,14 @@ ms.custom: business continuity
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: NA
+ms.workload: Active
 ms.date: 10/11/2017
 ms.author: sashan
-ms.openlocfilehash: 0b424e2b260ec527f33cdbfe49d1d981b14edfda
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: ef9463e464928b8fa8e64019037a41711cb77830
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>概觀︰容錯移轉群組和主動式異地複寫
 主動式異地複寫可讓您在相同或不同資料中心位置 (區域) 中設定最多 4 個可讀取的次要資料庫。 在資料中心中斷或在無法連線至主要資料庫的情況下，便可使用次要資料庫進行查詢和容錯移轉。 容錯移轉必須由使用者的應用程式手動起始。 容錯移轉之後，新的主要資料庫會有不同的連接端點。 
@@ -116,6 +116,8 @@ Azure SQL Database 的自動容錯移轉群組 (預覽版) 是一項 SQL Databas
 請注意，DR 區域中的應用程式不一定非得使用不同的連接字串。  
 - **對資料遺失做好心理準備**：如果系統偵測到服務中斷，SQL 會在就我們所知並無資料遺失時，自動觸發讀寫容錯移轉。 否則，它會等候您透過 **GracePeriodWithDataLossHours** 所指定的這段時間。 如果您指定了 **GracePeriodWithDataLossHours**，請做好可能會遺失資料的心理準備。 服務中斷期間，Azure 一般會傾向維持可用性。 如果您無法承擔資料遺失情況，請務必將 **GracePeriodWithDataLossHours** 設定為足夠大的數字，例如 24 小時。 
 
+> [!IMPORTANT]
+> 具有 800 個或更少 DTU 且使用異地複寫的資料庫超過 250 個的彈性集區，可能會遇到的問題包括規劃的容錯移轉較久且效能降低。  當地理複寫端點依地理位置廣泛相隔，或當每個資料庫使用多個次要端點時，較可能會發生這些寫入大量工作負載的問題。  異地複寫延遲隨時間而增加時，就可看出這些問題的徵兆。  您可以使用 [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) 來監視這個延遲。  如果發生這些問題，則風險降低方式包括增加集區 DTU 數目，或減少相同集區內異地複寫的資料庫數目。
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>升級或降級主要資料庫
 您可以將主要資料庫升級或降級至不同的效能層級 (在相同的服務層內)，而不會中斷連接任何次要資料庫。 升級時，我們建議您先升級次要資料庫，然後再升級主要資料庫。 降級時，順序相反︰先降級主要資料庫，然後再降級次要資料庫。 當您將資料庫升級或降級到不同的服務層時，會強制執行這項建議。 

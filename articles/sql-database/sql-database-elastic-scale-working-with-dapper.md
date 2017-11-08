@@ -8,20 +8,20 @@ author: torsteng
 ms.assetid: 463d2676-3b19-47c2-83df-f8c50492c9d2
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: f0efd37a39c1a60eee7b47304483c27727ca8833
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c258b1859e14d9783a3dfa75431b69bef4d640fd
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>搭配使用彈性資料庫用戶端程式庫與 Dapper
-本文件適用於下列開發人員︰依賴 Dapper 建置應用程式，但也想利用 [彈性資料庫工具](sql-database-elastic-scale-introduction.md) 建立應用程式，經由實作分區化來相應放大資料層。  這份文件說明為了與彈性資料庫工具整合，Dapper 應用程式中需要做的變更。 重點在於使用 Dapper 撰寫彈性資料庫分區管理和資料相依路由。 
+本文件適用於下列開發人員︰依賴 Dapper 建置應用程式，但也想利用[彈性資料庫工具](sql-database-elastic-scale-introduction.md)建立應用程式，經由實作分區化來相應放大資料層。  這份文件說明為了與彈性資料庫工具整合，Dapper 應用程式中需要做的變更。 重點在於使用 Dapper 撰寫彈性資料庫分區管理和資料相依路由。 
 
 **範例程式碼**： [Azure SQL Database - Dapper 整合的彈性資料庫工具](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f)。
 
@@ -45,13 +45,13 @@ Dapper 以及 DapperExtensions 的另一個好處就是應用程式可控制資�
 
 分區對應管理員可防止使用者檢視 Shardlet 資料時出現不一致，這種情況發生於資料庫正在進行並行 Shardlet 管理作業時。 在作法上，分區對應會代理以程式庫建置的應用程式的資料庫連接。 當分區管理作業可能影響 Shardlet 時，即可允許分區對應功能自動終止資料庫連線。 
 
-我們需要使用 [OpenConnectionForKey 方法](http://msdn.microsoft.com/library/azure/dn824099.aspx)來為 Dapper 建立連接，而不使用傳統的方式。 這可確保所有驗證都會發生，而且在分區之間移動任何資料時會適當地管理連線。
+您需要使用 [OpenConnectionForKey 方法](http://msdn.microsoft.com/library/azure/dn824099.aspx)來為 Dapper 建立連線，而不使用傳統的方式。 這可確保所有驗證都會發生，而且在分區之間移動任何資料時會適當地管理連線。
 
 ### <a name="requirements-for-dapper-integration"></a>Dapper 整合需求
-當使用彈性資料庫用戶端程式庫和 Dapper API 時，我們希望保留下列屬性：
+當使用彈性資料庫用戶端程式庫和 Dapper API 時，您需要保留下列屬性：
 
-* **相應放大**：我們想要依需要在分區化應用程式資料層中新增或移除資料庫，以滿足應用程式的容量需求。 
-* **一致性**：由於使用分區化相應放大我們的應用程式，所以我們必須執行資料相依路由。 我們想使用程式庫的資料相依路由功能來執行此作業。 尤其是，我們想要保留透過分區對應管理員代理的連接所提供的驗證和一致性保證，以避免查詢結果損毀或錯誤。 這可確保如果 (例如) Shardlet 目前已使用分割/合併 API 移至不同的分區，則會拒絕或停止對特定 Shardlet 的連線。
+* **相應放大**：我們要依需要在分區化應用程式資料層中新增或移除資料庫，以滿足應用程式的容量需求。 
+* **一致性**：由於使用分區化相應放大應用程式，所以您必須執行資料相依路由。 我們需要使用程式庫的資料相依路由功能來執行此作業。 尤其是，您需要保留透過分區對應管理員代理的連線所提供的驗證和一致性保證，以避免查詢結果損毀或錯誤。 這可確保如果 (例如) Shardlet 目前已使用分割/合併 API 移至不同的分區，則會拒絕或停止對特定 Shardlet 的連線。
 * **物件對應**：我們想要保留 Dapper 所提供的對應便利性，以轉換應用程式和基礎資料庫結構中的類別。 
 
 下一節針對以 **Dapper** 和 **DapperExtensions** 為基礎的應用程式，提供這些需求的指導。
@@ -110,7 +110,7 @@ Dapper 以及 DapperExtensions 的另一個好處就是應用程式可控制資�
 ## <a name="data-dependent-routing-with-dapper-and-dapperextensions"></a>Dapper 和 DapperExtensions 的資料相依路由
 Dapper 隨附其他延伸模組的生態系統，可在開發資料庫應用程式時從資料庫提供進一步的便利性和抽象概念。 DapperExtensions 就是一個範例。 
 
-在您的應用程式中使用 DapperExtensions，不會改變建立和管理資料庫連線的方式。 仍然由應用程式負責開啟連線，而延伸方法預期會有標準 SQL 用戶端連線物件。 我們可以如上所述依賴 [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) 。 如下列程式碼範例所示，唯一的改變就是我們不再需要撰寫 T-SQL 陳述式：
+在您的應用程式中使用 DapperExtensions，不會改變建立和管理資料庫連線的方式。 仍然由應用程式負責開啟連線，而延伸方法預期會有標準 SQL 用戶端連線物件。 我們可以如上所述依賴 [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) 。 如下列程式碼範例所示，唯一的改變就是您不再需要撰寫 T-SQL 陳述式：
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId2, 

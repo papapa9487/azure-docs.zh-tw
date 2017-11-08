@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/23/2017
+ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 7f9574bc3d811d413b68d97ebe710858af8eb919
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 4bcca3ee5862a0455b6064d0f9c0a91388db9516
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory 條件式存取的技術參考
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/24/2017
 
 您可以將條件式存取原則指派給下列 Microsoft 的雲端應用程式：
 
-- [Azure 資訊保護](https://docs.microsoft.com/information-protection/get-started/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+- Azure 資訊保護 - [進一步了解](https://docs.microsoft.com/information-protection/get-started/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - Azure RemoteApp
 
 - Microsoft Dynamics 365
@@ -149,21 +149,22 @@ Azure AD 條件式存取支援下列裝置平台：
 
 | 用戶端應用程式| 目標服務| 平台 |
 | --- | --- | --- |
-| 應用程式適用的 Azure Multi-Factor Authentication 和位置原則 (不支援裝置型原則)| 任何 My Apps 應用程式服務| Android、iOS|
-| Azure RemoteApp| Azure RemoteApp 服務| Windows 10、Windows 8.1、Windows 7、iOS、Android、macOS|
-| Dynamics 365 應用程式| Dynamics 365| Windows 10、Windows 8.1、Windows 7、iOS、Android|
-| Microsoft Office 365 Teams (控制支援 Microsoft Teams 及其所有用戶端應用程式的所有服務：Windows 桌面、iOS、Android、Windows Phone 和 Web 用戶端)| Microsoft Teams| Windows 10、Windows 8.1、Windows 7、iOS、Android|
-| 郵件/行事曆/連絡人應用程式、Outlook 2016、Outlook 2013 (已啟用新式驗證)、商務用 Skype (採用新式驗證)| Office 365 Exchange Online| Windows 10|
+| Azure 遠端應用程式| Azure 遠端應用程式服務| Windows 10、Windows 8.1、Windows 7、iOS、Android 和 Mac OS X|
+| Dynamics CRM 應用程式| Dynamics CRM| Windows 10、Windows 8.1、Windows 7、iOS 和 Android|
+| [電子郵件]/[行事曆]/[人員] 應用程式、Outlook 2016、Outlook 2013 (使用新式驗證)| Office 365 Exchange Online| Windows 10|
+| 應用程式的 MFA 和位置原則。 不支援裝置型原則。| 任何 My Apps 應用程式服務| Android 和 iOS|
+| Microsoft Teams Services - 這會控制支援 Microsoft Teams 及其所有用戶端應用程式的所有服務 - Windows 桌面、iOS、Android、WP 和 Web 用戶端| Microsoft Teams| Windows 10、Windows 8.1、Windows 7、iOS 和 Android|
+| Office 2016 應用程式、Office 2013 (具備新式驗證)、OneDrive 同步處理用戶端 (請參閱[附註](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1、Windows 7|
+| Office 2016 應用程式、通用 Office 應用程式、Office 2013 (具備新式驗證)、OneDrive 同步處理用戶端 (請參閱[附註](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))、預計未來提供的 Office Groups 支援、預計未來提供的 SharePoint 應用程式支援| Office 365 SharePoint Online| Windows 10|
+| macOS 版 Office 2016 (僅限 Word、Excel、PowerPoint、OneNote)。 未來規劃支援商務用 OneDrive| Office 365 SharePoint Online| Mac OS X|
+| Office 行動應用程式| Office 365 SharePoint Online| iOS、Android|
+| Office Yammer 應用程式| Office 365 Yammer| Windows 10、iOS、Android|
+| Outlook 2016 (macOS 版 Office)| Office 365 Exchange Online| Mac OS X|
 | Outlook 2016、Outlook 2013 (已啟用新式驗證)、商務用 Skype (採用新式驗證)| Office 365 Exchange Online| Windows 8.1、Windows 7|
 | Outlook 行動應用程式| Office 365 Exchange Online| iOS|
-| Outlook 2016 (macOS 版 Office)| Office 365 Exchange Online| macOS|
-| Office 2016 應用程式、通用 Office 應用程式、Office 2013 (具備新式驗證)、[OneDrive](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 同步處理用戶端、未來規劃支援 Office Groups 和 SharePoint 應用程式| Office 365 SharePoint Online| Windows 10|
-| Office 2016 應用程式、Office 2013 (具備新式驗證)、[OneDrive](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 同步處理用戶端| Office 365 SharePoint Online| Windows 8.1、Windows 7|
-| Office 行動應用程式| Office 365 SharePoint Online| iOS、Android|
-| macOS 版 Office 2016 (僅支援 Word、Excel、PowerPoint、OneNote)、未來規劃支援商務用 OneDrive| Office 365 SharePoint Online| macOS|
-| Office Yammer 應用程式| Office 365 Yammer| Windows 10、iOS、Android|
-| Power BI 應用程式 (目前在 Android 上不受支援)| PowerBI service| Windows 10、Windows 8.1、Windows 7 及 iOS|
-| Visual Studio Team Services 應用程式| Visual Studio Team Services| Windows 10、Windows 8.1、Windows 7、iOS、Android|
+| PowerBI 應用程式。 適用於 Android 的 Power BI 應用程式目前不支援裝置型條件式存取。| PowerBI service| Windows 10、Windows 8.1、Windows 7 及 iOS|
+| 商務用 Skype| Office 365 Exchange Online| Android、iOS|
+| Visual Studio Team Services 應用程式| Visual Studio Team Services| Windows 10、Windows 8.1、Windows 7、iOS 和 Android|
 
 
 

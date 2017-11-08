@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/27/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 1a5e97e2a6aca440c9643569014ffce41a614324
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f175f5711b9798153d209f6645aa8bae9f2a00b
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="help-i-forgot-my-azure-ad-password"></a>忘記 Azure AD 密碼的說明
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
    > 如果您需要將帳戶解除鎖定，請在此時選擇 [我知道密碼，但卻無法登入] 選項。
    >
 
-3. 根據 IT 人員所使用的 SSPR 設定方式而定，您會看到下列一或多個項目。 您或您的 IT 人員之前已使用[註冊自助式密碼重設](active-directory-passwords-reset-register.md)一文來填入下列某幾項資訊。
+3. 根據 IT 人員所使用的 SSPR 設定方式而定，您會看到下列一或多個驗證方法。 您或您的 IT 人員之前已使用[註冊自助式密碼重設](active-directory-passwords-reset-register.md)一文來填入下列某幾項資訊。
 
    * **寄電子郵件到我的備用電子郵件地址**
    * **傳簡訊到我的行動電話**
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
    ![確認驗證資料][Verification]
 
 4. 您的 IT 人員可能需要更多的驗證，因此您可能必須使用不同的選項來重複執行步驟 3。
-5. 在 選擇新密碼 頁面上輸入新的密碼，確認您的密碼，然後按一下完成。 我們建議的密碼是 8-16 個字元，並具有大小寫字母、數字和特殊字元。
+5. 在 [選擇新密碼] 頁面上輸入新的密碼，確認您的密碼，然後按一下 [完成]。 我們建議的密碼是 8-16 個字元，並具有大小寫字母、數字和特殊字元。
 6. 當您看到**您的密碼已經重設**時，可以使用您的新密碼登入。
 
     ![您的密碼已經重設][Complete]
@@ -84,7 +84,7 @@ ms.lasthandoff: 10/11/2017
 1. 使用現有的密碼登入 [Office 365 帳戶](https://www.office.com)
 2. 按一下您右上方的設定檔，然後按一下 [檢視帳戶]
 3. 按一下 [安全性與隱私權] > [密碼]
-4. 輸入舊密碼，設定並確認新密碼，然後按一下提交
+4. 輸入舊密碼，設定並確認新密碼，然後按一下 [提交]
 
 ### <a name="change-your-password-from-the-azure-access-panel"></a>從 Azure 存取面板變更您的密碼
 
@@ -93,7 +93,7 @@ ms.lasthandoff: 10/11/2017
 1. 使用您的現有密碼，登入 [Azure 存取入口網站](https://myapps.microsoft.com/)
 2. 按一下您右上方的設定檔，然後按一下 [設定檔]
 3. 按一下 [變更密碼]
-4. 輸入舊密碼，設定並確認新密碼，然後按一下提交
+4. 輸入舊密碼，設定並確認新密碼，然後按一下 [提交]
 
 ## <a name="common-problems-and-their-solutions"></a>常見問題及其解決方案
 

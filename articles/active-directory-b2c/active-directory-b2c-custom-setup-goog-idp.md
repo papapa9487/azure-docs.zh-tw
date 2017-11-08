@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.openlocfilehash: e0aaf710d230f7667fff32b50ddb64104509d740
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d84dde1f70023abcfd0c15f5425d3cbaeb8c765
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C︰使用自訂原則新增 Google+ 作為 OAuth2 識別提供者
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Google+ 帳戶 - 建立新的專案](media/active-directory-b2c-custom-setup-goog-idp//goog-add-new-app2.png)
 
-5.  輸入 專案名稱，然後按一下建立。
+5.  輸入 [專案名稱]，然後按一下 [建立]。
 
     ![Google+ 帳戶 - 新增專案](media/active-directory-b2c-custom-setup-goog-idp//goog-app-name.png)
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Google+ 帳戶 - 選取新的專案](media/active-directory-b2c-custom-setup-goog-idp//goog-select-app2.png)
 
-8.  在左側導覽中，按一下 API 管理員，然後按一下認證。
+8.  在左側導覽中，按一下 [API 管理員]，然後按一下 [認證]。
 9.  按一下位於頂端的 [OAuth 同意畫面]  索引標籤。
 
     ![Google+ 帳戶 - 設定 OAuth 同意畫面](media/active-directory-b2c-custom-setup-goog-idp/goog-add-cred.png)
@@ -98,7 +98,7 @@ ms.lasthandoff: 10/11/2017
 4.  針對 [選項] 使用 [手動]。
 5.  針對 [名稱] 使用 `GoogleSecret`。  
     可能會自動加入前置詞 `B2C_1A_`。
-6.  在 [祕密] 方塊中，從 https://apps.dev.microsoft.com 輸入您的 Microsoft 應用程式祕密
+6.  在 [祕密] 方塊中，從您在上方複製的 [Google 開發人員主控台](https://console.developers.google.com/)輸入 Google 應用程式祕密。
 7.  針對 [金鑰使用方法] 使用 [簽章]。
 8.  按一下 [建立] 
 9.  確認您已建立金鑰 `B2C_1A_GoogleSecret`。

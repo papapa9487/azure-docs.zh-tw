@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5445a479fd6893048eb8ff356fa829a3dcd5f7d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db849cd1e9da634064f79fbc041098542580ad02
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Azure AD 自助式密碼重設的授權需求
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 * Microsoft 365 E3
 * Microsoft 365 E5
 
-> [!NOTE]
+> [!WARNING]
 > 獨立的 Office 365 授權方案**不支援密碼回寫**，而且需要上述其中一個方案，這項功能才能運作。
 
 在下列頁面可以找到額外的授權資訊 (包括成本)：
@@ -58,13 +58,14 @@ Azure AD 現在支援以群組為基礎的授權，允許系統管理員將大�
 
 ## <a name="next-steps"></a>後續步驟
 
-下列連結提供有關使用 Azure AD 重設密碼的其他資訊
-
-* [**快速入門**](active-directory-passwords-getting-started.md) - 開始執行 Azure AD 自助式密碼管理 
-* [**資料**](active-directory-passwords-data.md) - 了解所需的資料以及如何將它使用於密碼管理
-* [**推出**](active-directory-passwords-best-practices.md) - 使用此處提供的指引來規劃 SSPR 並將它部署至使用者
-* [**自訂**](active-directory-passwords-customize.md) - 為您的公司自訂 SSPR 體驗的外觀與風格。
-* [**報告**](active-directory-passwords-reporting.md) - 探索您的使用者是否、何時、何地存取 SSPR 功能
-* [**技術性深入探討**](active-directory-passwords-how-it-works.md) - 深入探索以了解其運作方式
-* [**常見問題集**](active-directory-passwords-faq.md) - 如何？ 原因為何？ 何事？ 何地？ 何人？ 何時？ - -您一直想要詢問之問題的答案
-* [**疑難排解**](active-directory-passwords-troubleshoot.md) - 了解如何解決我們看到的 SSPR 常見問題
+* [如何完成 SSPR 成功首度發行？](active-directory-passwords-best-practices.md)
+* [重設或變更您的密碼](active-directory-passwords-update-your-own-password.md)。
+* [註冊自助式密碼重設](active-directory-passwords-reset-register.md)。
+* [SSPR 使用哪些資料，以及您應該為使用者填入哪些資料？](active-directory-passwords-data.md)
+* [哪些驗證方法可供使用者使用？](active-directory-passwords-how-it-works.md#authentication-methods)
+* [使用 SSPR 的原則選項有哪些？](active-directory-passwords-policy.md)
+* [什麼是密碼回寫，且為什麼我需要了解它？](active-directory-passwords-writeback.md)
+* [如何回報 SSPR 中的活動？](active-directory-passwords-reporting.md)
+* [SSPR 中的所有選項有哪些，以及它們有何意義？](active-directory-passwords-how-it-works.md)
+* [我認為有中斷。如何針對 SSPR 進行疑難排解？](active-directory-passwords-troubleshoot.md)
+* [在其他某處並未涵蓋我的問題](active-directory-passwords-faq.md)

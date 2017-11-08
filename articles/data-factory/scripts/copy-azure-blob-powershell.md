@@ -12,24 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: spelluru
-ms.openlocfilehash: ad97a40c5c12aa5a8f69a8d56750bd6f39725be0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c564491e0f30e0e898bc03eecb29710edeb267f6
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-in-the-cloud"></a>使用 PowerShell 建立資料處理站管線，以在雲端中複製資料
 
-這個範例 PowerShell 指令碼會建立 Azure Cosmos DB API 帳戶。 
+這個範例 PowerShell 指令碼會在 Azure Data Factory 中建立管線，以將資料從 Azure Blob 儲存體中的一個位置複製到另一個位置。
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+
+## <a name="prerequisites"></a>必要條件
+* **Azure 儲存體帳戶**。 您需要使用 Blob 儲存體作為**來源**和**接收**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../../storage/common/storage-create-storage-account.md#create-a-storage-account)來建立帳戶。 
+* 在 Blob 儲存體中建立一個 **Blob 容器**，在容器中建立一個輸入**資料夾**，然後上傳一些檔案到資料夾中。 您可以使用 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)之類的工具連線到 Azure Blob 儲存體，建立 Blob 容器，上傳輸入檔，以及驗證輸出檔。
 
 ## <a name="sample-script"></a>範例指令碼
 
 > [!IMPORTANT]
 > 這個指令碼會建立 JSON 檔案，該檔案定義硬碟上 c:\ 資料夾中的 Data Factory 實體 (已連結的服務、資料集和管線)。
 
-[!code-powershell[main](../../../powershell_scripts/data-factory/copy-from-azure-blob-to-blob/copy-from-azure-blob-to-blob.ps1?highlight=9,12-15,18,21-23,26-29,32-37 "Copy from Blob Storage -> Blob Storage")]
+[!code-powershell[main](../../../powershell_scripts/data-factory/copy-from-azure-blob-to-blob/copy-from-azure-blob-to-blob.ps1 "Copy from Blob Storage -> Blob Storage")]
 
 
 ## <a name="clean-up-deployment"></a>清除部署
@@ -37,12 +41,12 @@ ms.lasthandoff: 10/11/2017
 執行範例指令碼之後，您可以使用下列命令以移除資源群組及與其相關聯的所有資源：
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourceGroupName
 ```
 若要從資源群組移除資料處理站，請執行下列命令： 
 
 ```powershell
-Remove-AzureRmDataFactoryV2 -Name "<data factory name>" -ResourceGroupName "<resource group name>"
+Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>指令碼說明
@@ -65,4 +69,4 @@ Remove-AzureRmDataFactoryV2 -Name "<data factory name>" -ResourceGroupName "<res
 
 如需有關 Azure PowerShell 的詳細資訊，請參閱 [Azure PowerShell 文件](https://docs.microsoft.com/powershell/)。
 
-您可以在 [Azure Cosmos DB PowerShell 指令碼](../samples-powershell.md)中找到其他 Azure Cosmos DB PowerShell 指令碼範例。
+您可以在 [Azure Data Factory PowerShell 範例](../samples-powershell.md)中，找到其他 Azure Data Factory PowerShell 指令碼範例。

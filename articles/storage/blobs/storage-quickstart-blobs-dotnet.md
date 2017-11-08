@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/01/2017
 ms.author: robinsh
-ms.openlocfilehash: 97bacc2c1285fe4a467a54f224bb9fabbd851fee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fdba4588fbb2c46efb3fc4de1a9e53414264444a
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>使用 .NET 在 Azure Blob 儲存體之間傳送物件
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 若要完成本快速入門：
 
-* 使用下列工作負載安裝 [Visual Studio 2017](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)：
+* 使用下列工作負載安裝 [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)：
     - **Azure 開發**
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
 12. 選取 `Location` 供儲存體帳戶使用。
 13. 核取 [釘選到儀表板] 並按一下 [建立] 以建立儲存體帳戶。 
 
-儲存體帳戶建立之後，就會釘選到儀表板。 按一下開啟它。 按一下 [設定] 下的 [存取金鑰]。 選取金鑰，並將連接字串複製到剪貼簿，然後貼到 [記事本] 供日後使用。
+儲存體帳戶建立之後，就會釘選到儀表板。 按一下開啟它。 按一下 [設定] 下的 [存取金鑰]。 選取金鑰，並將連接字串複製到剪貼簿，然後貼到 [文字編輯器] 供日後使用。
 
 ## <a name="download-the-sample-application"></a>下載範例應用程式
 
@@ -68,7 +68,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 
 ## <a name="configure-your-storage-connection-string"></a>設定儲存體連接字串
 
-在應用程式，您必須提供儲存體帳戶的連接字串。 從 Visual Studio 的方案總管開啟 `app.config` 檔案。 尋找 StorageConnectionString 項目。 針對 [值]，從 Azure 入口網站以存在 [記事本] 中的連接字串，取代連接字串的整個值。 完成後應該會看到類似下面的內容。
+在應用程式，您必須提供儲存體帳戶的連接字串。 從 Visual Studio 的方案總管開啟 `app.config` 檔案。 尋找 `StorageConnectionString` 項目。 針對 [值]，將連接字串的整個值取代為從 Azure 入口網站儲存的連接字串。 您的 `storageConnectionString` 看起來應該會像下面這樣：
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -78,8 +78,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
     </startup>
   <appSettings>
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;
-    AccountName=youraccountname;
-    AccountKey=7NGE5jasdfdRzASDFNOMEx1u20W/thisisjustC/anexampleZK/Rt5pz2xNRrDckyv8EjB9P1WGF==" />
+    AccountName=<NameHere>;
+    AccountKey=<KeyHere>" />
   </appSettings>
 </configuration>
 ```
@@ -98,7 +98,7 @@ https://mystorage.blob.core.windows.net/quickstartblobs/QuickStart_cbd5f95c-6ab8
 Downloading blob to C:\Users\azureuser\Documents\QuickStart_cbd5f95c-6ab8-4cbf-b8d2-a58e85d7a8e8_DOWNLOADED.txt
 ```
 
-當您按任意鍵繼續時，它會刪除儲存體容器和檔案。 在繼續之前，請先檢查 [我的文件] 是否有這兩個檔案，您可以開啟它們並看到它們是完全相同的。 複製主控台視窗的 Blob URL，將它貼至瀏覽器以檢視 Blob 儲存體中的檔案內容。
+當您按任意鍵繼續時，它會刪除儲存體容器和檔案。 在繼續之前，請檢查 MyDocuments 找出這兩個檔案。 您可以開啟它們，並查看它們是否相同。 複製主控台視窗的 Blob URL，將它貼至瀏覽器以檢視 Blob 儲存體中的檔案內容。
 
 您也可以使用 [Azure 儲存體總管](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 之類的工具來檢視 Blob 儲存體中的檔案。 Azure 儲存體總管是免費的跨平台工具，可讓您存取儲存體帳戶資訊。 
 
@@ -108,17 +108,17 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_cbd5f95c-6ab8-4cbf-b
 
 第一件事是建立用來存取和管理 Blob 儲存體的物件參考。 這些物件是互為建置基礎，各自都為清單中的下一個物件所使用。
 
-* 具現化指向儲存體帳戶的 **CloudStorageAccount** 物件。 
+* 建立指向儲存體帳戶之 **CloudStorageAccount** 物件的執行個體。 
 
-* 具現化 **CloudBlobClient** 物件，它會指向您儲存體帳戶中的 Blob 服務。 
+* 建立 **CloudBlobClient** 物件的執行個體，它會指向您儲存體帳戶中的 Blob 服務。 
 
-* 具現化 **CloudBlobContainer** 物件，它代表您要存取的容器。 容器是用來組織 Blob，就像在電腦上用資料夾組織檔案一樣。
+* 建立 **CloudBlobContainer** 物件的執行個體，它代表您要存取的容器。 容器是用來組織 Blob，就像在電腦上用資料夾組織檔案一樣。
 
-只要有了 **CloudBlobContainer**，您就可以具現化 **CloudBlockBlob** 物件，指向您感興趣的特定 Blob 並執行上傳、下載、複製等等作業。
+只要您有 **CloudBlobContainer**，就可以建立 **CloudBlockBlob** 物件的執行個體，指向您感興趣的特定 Blob 並執行上傳、下載、複製等等作業。
 
-在本節中，您要具現化物件、建立新的容器，然後設定容器上的權限，以便公開 Blob 並使用 URL 即可存取。 容器名為 **quickstartblobs**。 
+在本節中，您要建立物件的執行個體、建立新的容器，然後設定容器上的權限，以便公開 Blob 並使用 URL 即可存取。 容器名為 **quickstartblobs**。 
 
-因為我們想要在每次執行範例時建立新的容器，所以此範例會使用 CreateIfNotExists。 在整個應用程式都使用相同容器的生產環境中，最好只呼叫一次 CreateIfNotExists，或事先建立容器，如此即不需要在程式碼中建立。
+因為我們需要在每次執行範例時建立新的容器，所以此範例會使用 **CreateIfNotExists**。 在整個應用程式都使用相同容器的生產環境中，最好只呼叫一次 **CreateIfNotExists**。 或者，若要事先建立容器，以便您不需要在程式碼中加以建立。
 
 ```csharp
 // Create a CloudStorageAccount instance pointing to your storage account.
@@ -161,11 +161,11 @@ await blockBlob.UploadFromFileAsync(fileAndPath);
 
 有數個上傳方法可以搭配 Blob 儲存體使用。 例如，如果有記憶體資料流，則您可以使用 UploadFromStreamAsync 方法，而不是 UploadFromFileAsync 方法。 
 
-區塊 Blob 可以大到 4.7 TB，而且可以是 Excel 試算表到大型視訊檔案的任何一種。 分頁 Blob 主要用於備份 IaaS VM 所用的 VHD 檔案。 附加 Blob 是用於記錄，例如當您想要寫入檔案，並繼續新增更多資訊時。 儲存在 Blob 儲存體中的大部分物件都是區塊 Blob。
+區塊 blob 可以是任何類型的文字或二進位檔案。 分頁 Blob 主要用於備份 IaaS VM 所用的 VHD 檔案。 附加 Blob 是用於記錄，例如當您想要寫入檔案，並繼續新增更多資訊時。 儲存在 Blob 儲存體中的大部分物件都是區塊 Blob。
 
 ## <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
 
-使用 [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync) 取得容器中的檔案清單。 下列程式碼會擷取 Blob 的清單，透過它們執行迴圈，顯示找到的 Blob URI。 您可以複製命令視窗中的 URI，將它貼入至瀏覽器來檢視檔案。
+您可以使用 [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync) 來取得容器中的檔案清單。 下列程式碼會擷取 Blob 的清單，透過它們執行迴圈，顯示找到的 Blob URI。 您可以複製命令視窗中的 URI，將它貼入至瀏覽器來檢視檔案。
 
 如果容器中有 5,000 個或更少的 Blob，呼叫一次 ListBlobsSegmentedAsync 即可擷取所有的 Blob 名稱。 如果容器中有 5000 個以上的 Blob，服務會以 5000 為一組擷取清單，直到擷取所有的 Blob 名稱。 因此第一次呼叫此 API 時，它會傳回第一組的 5000 個 Blob 名稱和接續權杖。 第二次，您要提供權杖，服務會擷取下一組的 Blob 名稱，一直反復到接續權杖為 null 為止，這表示已擷取所有的 Blob 名稱。 
 

@@ -12,13 +12,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/31/2017
 ms.author: danlep
-ms.openlocfilehash: 8a1097353d24ad4c807803511e93c90394816138
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 7624a905f81024fa87f15164efc56a300843972d
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>在 Batch 集區中使用具備 RDMA 功能或已啟用 GPU 功能的執行個體
 
@@ -49,11 +49,11 @@ ms.lasthandoff: 10/11/2017
 
 | 大小 | 功能 | 作業系統 | 必要的軟體 | 集區設定 |
 | -------- | -------- | ----- |  -------- | ----- |
-| [H16r、H16mr、A8、A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | SUSE Linux Enterprise Server 12 HPC 或<br/>CentOS 型 HPC<br/>(Azure Marketplace) | Intel MPI 5 | 啟用節點間通訊、停用並行工作執行 |
-| [NC 系列*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms) | NVIDIA Tesla K80 GPU | Ubuntu 16.04 LTS。<br/>Red Hat Enterprise Linux 7.3，或<br/>CentOS 型 7.3<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit 8.0 驅動程式 | N/A | 
-| [NV 系列](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS<br/>Red Hat Enterprise Linux 7.3<br/>CentOS 型 7.3<br/>(Azure Marketplace) | NVIDIA GRID 4.3 驅動程式 | N/A |
+| [H16r、H16mr、A8、A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS、<br/>SUSE Linux Enterprise Server 12 HPC 或<br/>CentOS 型 HPC<br/>(Azure Marketplace) | Intel MPI 5 | 啟用節點間通訊、停用並行工作執行 |
+| [NC 系列*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms) | NVIDIA Tesla K80 GPU | Ubuntu 16.04 LTS、<br/>Red Hat Enterprise Linux 7.3，或<br/>CentOS 型 7.3<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit 9.0 驅動程式 | N/A | 
+| [NV 系列](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS、<br/>Red Hat Enterprise Linux 7.3，或<br/>CentOS 型 7.3<br/>(Azure Marketplace) | NVIDIA GRID 4.3 驅動程式 | N/A |
 
-*具有 Intel MPI 的 CentOS 型 7.3 HPC 可支援在 NC24r VM 上進行 RDMA 連線。
+*具有 Intel MPI 的 Ubuntu 16.04 LTS 或以 CentOS 作為基礎的 7.3 HPC (從 Azure Marketplace) 可支援在 NC24r VM 上進行 RDMA 連線。
 
 
 
@@ -62,10 +62,10 @@ ms.lasthandoff: 10/11/2017
 | 大小 | 功能 | 作業系統 | 必要的軟體 | 集區設定 |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r、H16mr、A8、A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 或<br/>Windows Server 2012 (Azure Marketplace) | Microsoft MPI 2012 R2 或更新版本，或<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM 擴充功能 | 啟用節點間通訊、停用並行工作執行 |
-| [NC 系列*](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla K80 GPU | Windows Server 2016 或 <br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA Tesla 驅動程式或 CUDA Toolkit 8.0 驅動程式| N/A | 
+| [NC 系列*](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla K80 GPU | Windows Server 2016 或 <br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA Tesla 驅動程式或 CUDA Toolkit 9.0 驅動程式| N/A | 
 | [NV 系列](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 或<br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA GRID 4.3 驅動程式 | N/A |
 
-*具有 HpcVMDrivers 擴充功能和 Microsoft MPI 或 Intel MPI 的 Windows Server 2012 R2 可支援在 NC24r VM 上進行 RDMA 連線。
+*具有 HpcVMDrivers 擴充功能和 Microsoft MPI 或 Intel MPI 的 Windows Server 2012 R2 (從 Azure Marketplace) 可支援在 NC24r VM 上進行 RDMA 連線。
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Windows 集區 - 雲端服務組態
 
@@ -119,9 +119,9 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="example-nvidia-tesla-drivers-on-nc-vm-pool"></a>範例：NC VM 集區上的 NVIDIA Tesla 驅動程式
 
-若要在 Linux NC 節點所構成的集區上執行 CUDA 應用程式，您必須在節點上安裝 CUDA Toolkit 8.0。 此工具組會安裝所需的 NVIDIA Tesla GPU 驅動程式。 以下的步驟範例可供您部署具有 GPU 驅動程式的自訂 Ubuntu 16.04 LTS 映像：
+若要在 Linux NC 節點所構成的集區上執行 CUDA 應用程式，您必須在節點上安裝 CUDA Toolkit 9.0。 此工具組會安裝所需的 NVIDIA Tesla GPU 驅動程式。 以下的步驟範例可供您部署具有 GPU 驅動程式的自訂 Ubuntu 16.04 LTS 映像：
 
-1. 部署執行 Ubuntu 16.04 LTS 的 Azure NC6 VM。 例如，在美國中南部區域建立 VM。 請確定您在建立 VM 時使用的是標準儲存體，而且「未使用」受控磁碟。
+1. 部署執行 Ubuntu 16.04 LTS 的 Azure NC6 VM。 例如，在美國中南部區域建立 VM。 請確定您是使用受管理的磁碟建立 VM。
 2. 遵循步驟來連線至 VM 並[安裝 CUDA 驅動程式](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms)。
 3. 將 Linux 代理程式取消佈建，然後[擷取 Linux VM 映像](../virtual-machines/linux/capture-image.md)。
 4. 在支援 NC VM 的區域建立 Batch 帳戶。

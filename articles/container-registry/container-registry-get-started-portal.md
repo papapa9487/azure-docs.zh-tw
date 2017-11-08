@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 10/31/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: e38a92fc48636476f00fe18c735901d906799fde
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 514fa3490e480647f0923c99bd9606a3726d4d30
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>使用 Azure 入口網站建立容器登錄庫
 
@@ -65,11 +65,11 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
 
 發送和提取容器映像之前，您必須登入 ACR 執行個體。 若要這樣做，請使用 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 命令。 將*使用者名稱*、*密碼*和*登入伺服器*取代為您在上一個步驟中記下的值。
 
-```
+```bash
 docker login --username <username> --password <password> <login server>
 ```
 
-此命令在完成之後會傳回「登入成功」。
+完成後，此命令會傳回 `Login Succeeded`。 您也可能會看到安全性警告，建議您使用 `--password-stdin` 參數。 其使用超出本文的範圍時，建議您遵循此最佳做法。 如需詳細資訊，請參閱 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 命令參考。
 
 ## <a name="push-image-to-acr"></a>推送映像到 ACR
 

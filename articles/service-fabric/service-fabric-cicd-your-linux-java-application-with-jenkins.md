@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: saysa
-ms.openlocfilehash: 8ba108ed107e2e023867bcc3b3b1b8cc159377ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d9870fafab3df3ab0ec72305e76a4d3547cc5b2c
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-java-application"></a>使用 Jenkins 建置和部署您的 Linux Java 應用程式
 Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 Jenkins 建置和部署 Azure Service Fabric 應用程式的方式。
@@ -37,60 +37,65 @@ Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 J
   ```sh
   sudo apt-get install wget
   wget -qO- https://get.docker.io/ | sh
-  ```
-2. 使用下列步驟將 Service Fabric 容器應用程式部署至叢集：
+  ``` 
+
+   > [!NOTE]
+   > 請確定您已將 8081 連接埠指定為叢集上的自訂端點。
+   >
+2. 使用下列步驟複製應用程式：
 
   ```sh
 git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
 cd service-fabric-java-getting-started/Services/JenkinsDocker/
 ```
 
-3. 您需要 Azure 儲存體檔案共用的連線選項詳細資料，這是您要保存 Jenkins 容器執行個體狀態的位置。 如果您使用 Microsoft Azure 入口網站來進行相同的操作，請依照步驟來建立 Azure 儲存體帳戶 (例如 ``sfjenkinsstorage1``)。 在該儲存體帳戶底下建立一個「檔案共用」(例如 ``sfjenkins``)。 針對該檔案共用按一下 [連接]，並記下 [正在從 Linux 連線] 底下顯示的值，例如這會看起來如下：
+3. 在檔案共用中保存 Jenkins 容器的狀態：
+  * 以 ``sfjenkinsstorage1`` 之類的名稱，在和叢集**相同的區域**中建立 Azure 儲存體帳戶。
+  * 以 ``sfjenkins`` 之類的名稱，在儲存體帳戶下建立**檔案共用**。
+  * 針對該檔案共用按一下 [連接]，並記下 [正在從 Linux 連線] 底下顯示的值，該值看起來應該如下所示：
 ```sh
 sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
 ```
 
 > [!NOTE]
-> 若要掛接 cifs 共用，您需要在叢集節點中安裝 cifs Utils 套件。 
+> 若要掛接 cifs 共用，您需要在叢集節點中安裝 cifs Utils 套件。         
 >
 
-4. 將 ```setupentrypoint.sh``` 指令碼中的預留位置值更新成對應的 Azure 儲存體詳細資料。
+4. 將 ```setupentrypoint.sh``` 指令碼中的預留位置值更新為從步驟 3 取得的 Azure 儲存體詳細資料。
 ```sh
 vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
 ```
-以來自上述第 3 點中連線輸出的 ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` 值取代 ``[REMOTE_FILE_SHARE_LOCATION]``。
-以來自上述第 3 點的 ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` 值取代 ``[FILE_SHARE_CONNECT_OPTIONS_STRING]``。
+  * 以來自上述步驟 3 中連線輸出的 ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` 值取代 ``[REMOTE_FILE_SHARE_LOCATION]``。
+  * 以來自上述步驟 3 的 ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` 值取代 ``[FILE_SHARE_CONNECT_OPTIONS_STRING]``。
 
 5. 連線至叢集並安裝容器應用程式。
-```azurecli
+```sh
 sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # cluster connect command
 bash Scripts/install.sh
 ```
 這會在叢集上安裝 Jenkins 容器，您可以使用 Service Fabric Explorer 加以監視。
 
-### <a name="steps"></a>步驟
-1. 從瀏覽器中，前往 ``http://PublicIPorFQDN:8081``。 它會提供登入所需之初始管理密碼的路徑。 您可以繼續使用 Jenkins 做為管理員使用者。 或者您可以在使用初始管理帳戶登入之後建立及變更使用者。
-
    > [!NOTE]
-   > 建立應用程式時，請確定 8081 連接埠已指定為應用程式端點連接埠 (而且叢集中的連接埠已開啟)。
+   > Jenkins 映像可能需要幾分鐘的時間才能下載到叢集上。
    >
 
-2. 使用 ``docker ps -a`` 取得容器執行個體識別碼。
-3. 以 Secure Shell (SSH) 登入容器，並貼上您在 Jenkins 入口網站中看到的路徑。 例如，如果在入口網站中它顯示路徑 `PATH_TO_INITIAL_ADMIN_PASSWORD`，執行下列命令︰
+### <a name="steps"></a>步驟
+1. 從瀏覽器中，前往 ``http://PublicIPorFQDN:8081``。 它會提供登入所需之初始管理密碼的路徑。 
+2. 查看 Service Fabric Explorer，以確定 Jenkins 容器是在哪個節點上執行。 透過安全殼層 (SSH) 登入此節點。
+```sh
+ssh user@PublicIPorFQDN -p [port]
+``` 
+3. 使用 ``docker ps -a`` 取得容器執行個體識別碼。
+4. 以 Secure Shell (SSH) 登入容器，並貼上您在 Jenkins 入口網站中看到的路徑。 例如，如果在入口網站中它顯示路徑 `PATH_TO_INITIAL_ADMIN_PASSWORD`，執行下列命令︰
 
   ```sh
   docker exec -t -i [first-four-digits-of-container-ID] /bin/bash   # This takes you inside Docker shell
-  cat PATH_TO_INITIAL_ADMIN_PASSWORD
   ```
-
-4. 設定 GitHub 以 Jenkins，方法為使用[產生新的 SSH 金鑰，並將它新增至 SSH 代理程式](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)中提到的步驟。
-    * 使用 GitHub 所提供的指示產生 SSH 金鑰，並將 SSH 金鑰新增至裝載存放庫的 GitHub 帳戶。
-    * 在 Jenkins Docker 殼層 (而非在主機上) 執行上述連結內所提到的命令。
-    * 若要從主機登入 Jenkins 殼層，請使用下列命令：
-
   ```sh
-  docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
+  cat PATH_TO_INITIAL_ADMIN_PASSWORD # This displays the pasword value
   ```
+5. 在 [Jenkins 入門] 頁面上，選擇 [選取要安裝的外掛程式] 選項，選取 [無] 核取方塊，然後按一下 [安裝]。
+6. 建立使用者，或選擇繼續使用系統管理員身分。
 
 ## <a name="set-up-jenkins-outside-a-service-fabric-cluster"></a>在 Service Fabric 叢集外設定 Jenkins
 
@@ -133,7 +138,7 @@ bash Scripts/install.sh
 
 1. 移至 ``http://PublicIPorFQDN:8081``。
 2. 從 Jenkins 儀表板中，選取 [管理 Jenkins] > [管理外掛程式] > [進階]。
-在這裡，您可以上傳外掛程式。 選取 [選擇檔案]，然後選取 **serviceFabric.hpi** 檔案，您已在「必要條件」下載該檔案。 當您選取 [上傳] 時，Jenkins 會自動安裝外掛程式。 在系統要求時允許重新啟動。
+在這裡，您可以上傳外掛程式。 選取 [選擇檔案]，然後選取 **serviceFabric.hpi** 檔案，您已在「必要條件」下載該檔案，或者，您也可以[在此](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi)下載。 當您選取 [上傳] 時，Jenkins 會自動安裝外掛程式。 在系統要求時允許重新啟動。
 
 ## <a name="create-and-configure-a-jenkins-job"></a>建立及設定 Jenkins 作業
 
@@ -141,7 +146,7 @@ bash Scripts/install.sh
 2. 輸入項目名稱 (例如，**MyJob**)。 選取 [自由樣式專案]，然後按一下 [確定]。
 3. 前往 [作業] 頁面，並按一下 [設定]。
 
-   a. 在 [GitHub 專案] 下的 [一般] 區段中，指定您的 GitHub 專案 URL。 此 URL 會裝載您想要與 Jenkins 連續整合、連續部署 (CI/CD) 流程整合的 Service Fabric Java 應用程式 (例如，``https://github.com/sayantancs/SFJenkins``)。
+   a. 在 [一般] 區段中，選取 [GitHub 專案] 的核取方塊，然後指定您的 GitHub 專案 URL。 此 URL 會裝載您想要與 Jenkins 連續整合、連續部署 (CI/CD) 流程整合的 Service Fabric Java 應用程式 (例如，``https://github.com/sayantancs/SFJenkins``)。
 
    b. 在 [原始程式碼管理] 區段底下，選取 [Git]。 指定存放庫 URL，它會裝載您想要與 Jenkins CI/CD 流程整合的 Service Fabric Java 應用程式 (例如，``https://github.com/sayantancs/SFJenkins.git``)。 您也可以在這裡指定要建置哪些分支 (例如，**/master**)。
 4. 設定您的 *GitHub* (裝載存放庫者)，讓它能夠與 Jenkins 溝通。 請使用下列步驟：
@@ -156,7 +161,7 @@ bash Scripts/install.sh
 
    e. 在 [組建觸發程序] 區段下，選取您想要的建置選項。 針對此範例，您要每當發生某些推送至存放庫時觸發組建。 因此，您選取 [GITScm 輪詢的 GitHub 攔截觸發程序]。 (在先前，此選項稱為**當變更推送至 GitHub 時建置**。)
 
-   f. 在 [建置] 區段底下，從下拉式清單 [新增建置步驟]，選取 [叫用 Gradle 指令碼] 選項。 在隨附的 Widget 中，針對您的應用程式指定 [根建置指令碼] 的路徑。 它會從指定的路徑挑選 build.gradle，並據以運作。 如果您建立名為 ``MyActor`` 的專案 (使用 Eclipse 外掛程式或 Yeoman 產生器)，則根建置指令碼應該包含 ``${WORKSPACE}/MyActor``。 請參閱下列螢幕擷取畫面，查看像這樣的範例︰
+   f. 在 [建置] 區段底下，從下拉式清單 [新增建置步驟]，選取 [叫用 Gradle 指令碼] 選項。 在出現的小工具中開啟進階功能表，針對您的應用程式指定 [根建置指令碼] 的路徑。 它會從指定的路徑挑選 build.gradle，並據以運作。 如果您建立名為 ``MyActor`` 的專案 (使用 Eclipse 外掛程式或 Yeoman 產生器)，則根建置指令碼應該包含 ``${WORKSPACE}/MyActor``。 請參閱下列螢幕擷取畫面，查看像這樣的範例︰
 
     ![Service Fabric Jenkins 建置動作][build-step]
 

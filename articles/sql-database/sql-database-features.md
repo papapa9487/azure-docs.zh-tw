@@ -12,14 +12,14 @@ ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 10/23/2017
+ms.workload: Active
+ms.date: 10/25/2017
 ms.author: carlrab
-ms.openlocfilehash: c5853b7f4af02e096a0678de14abd5c0b3d7ab0c
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: 1505b85a8828cd64045a982ece48e49d85ea3314
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-sql-database-features"></a>Azure SQL Database 功能
 
@@ -41,6 +41,8 @@ Azure SQL Database 與 SQL Server 共用通用基底程式碼，並在資料庫�
 | [AlwaysOn 可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | 每個資料庫皆包含高可用性。 [Azure SQL Database 的業務連續性概觀](sql-database-geo-replication-overview.md)會討論災害復原 |
 | [連結資料庫](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | 否 |
 | [應用程式角色](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | 是 |
+|[稽核](/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [是](sql-database-auditing.md)|
+| [自動微調](/sql/relational-databases/automatic-tuning/automatic-tuning)| [是](sql-database-automatic-tuning.md)|
 | [BACPAC 檔案 (匯出)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | 是 - 請參閱 [SQL Database 匯出](sql-database-export.md) |
 | [BACPAC 檔案 (匯入)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | 是 - 請參閱 [SQL Database 匯入](sql-database-import.md) |
 | [備份命令](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | 否 - 請參閱[自動備份](sql-database-automated-backups.md) |
@@ -69,6 +71,7 @@ Azure SQL Database 與 SQL Server 共用通用基底程式碼，並在資料庫�
 | [DML 陳述式](https://docs.microsoft.com/sql/t-sql/queries/queries) | 是 |
 | [DML 觸發程序](https://docs.microsoft.com/en-us/sql/relational-databases/triggers/create-dml-triggers) | 大部分 - 請參閱個別陳述式 | 
 | [DMV](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | 部分 - 請參閱個別 DMV |
+|[動態資料遮罩](/sql/relational-databases/security/dynamic-data-masking)|[是](sql-database-dynamic-data-masking-get-started.md)|
 | [事件通知](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | 否 - 請參閱[警示](sql-database-insights-alerts-portal.md) |
 | [運算式](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |是 |
 | [擴充事件](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | 部分請參閱 [SQL Database 中的擴充事件](sql-database-xevent-db-diff-from-svr.md) |

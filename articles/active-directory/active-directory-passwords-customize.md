@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 1b6e368df4914e58eb3f8d6481132f25d27312b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 030fb1d87547a4fc78d54a855bca961202f28837
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="customize-azure-ad-functionality-for-self-service-password-reset"></a>自訂 Azure AD 的自助式密碼重設功能
 
@@ -28,7 +28,11 @@ IT 專業人員期待部署自助式密碼重設可以自訂體驗以符合他�
 
 ## <a name="customize-the-contact-your-administrator-link"></a>自訂「連絡您的系統管理員」連結
 
-即使未啟用 SSPR，使用者在密碼重設入口網站上仍會看到「連絡您的系統管理員」連結。  按一下此連結會寄電子郵件給系統管理員，請他協助關變更使用者的密碼。 這封電子郵件會依下列順序傳送給下列收件者︰
+即使未啟用 SSPR，使用者在密碼重設入口網站上仍會看到「連絡您的系統管理員」連結。  按一下此連結會寄電子郵件給系統管理員，請他協助關變更使用者的密碼，或將您的使用者傳送至您指定的 URL。 建議您將這個設為如電子郵件地址或您的使用者用來支援使用的網站等項目。
+
+![連絡人][Contact]
+
+這封電子郵件會依下列順序傳送給下列收件者︰
 
 1. 如果已指派**密碼系統管理員**角色，具有此角色的系統管理員會收到通知
 2. 如果未指派密碼系統管理員，則具有**使用者系統管理員**角色的系統管理員會收到通知
@@ -96,16 +100,17 @@ ADFS 系統管理員可以使用在[新增登入分頁描述](https://docs.micro
 
 ## <a name="next-steps"></a>後續步驟
 
-下列連結提供有關使用 Azure AD 重設密碼的其他資訊
+* [如何完成 SSPR 成功首度發行？](active-directory-passwords-best-practices.md)
+* [重設或變更您的密碼](active-directory-passwords-update-your-own-password.md)。
+* [註冊自助式密碼重設](active-directory-passwords-reset-register.md)。
+* [您有授權問題嗎？](active-directory-passwords-licensing.md)
+* [SSPR 使用哪些資料，以及您應該為使用者填入哪些資料？](active-directory-passwords-data.md)
+* [哪些驗證方法可供使用者使用？](active-directory-passwords-how-it-works.md#authentication-methods)
+* [使用 SSPR 的原則選項有哪些？](active-directory-passwords-policy.md)
+* [什麼是密碼回寫，且為什麼我需要了解它？](active-directory-passwords-writeback.md)
+* [如何回報 SSPR 中的活動？](active-directory-passwords-reporting.md)
+* [SSPR 中的所有選項有哪些，以及它們有何意義？](active-directory-passwords-how-it-works.md)
+* [我認為有中斷。如何針對 SSPR 進行疑難排解？](active-directory-passwords-troubleshoot.md)
+* [在其他某處並未涵蓋我的問題](active-directory-passwords-faq.md)
 
-* [**快速入門**](active-directory-passwords-getting-started.md) - 開始執行 Azure AD 自助式密碼管理 
-* [**授權**](active-directory-passwords-licensing.md) - 設定 Azure AD 授權
-* [**資料**](active-directory-passwords-data.md) -了解所需的資料以及如何將它使用於密碼管理
-* [**推出**](active-directory-passwords-best-practices.md) - 使用此處提供的指引來規劃 SSPR 並部署給使用者
-* [**原則**](active-directory-passwords-policy.md) - 了解並設定 Azure AD 密碼原則
-* [**密碼回寫**](active-directory-passwords-writeback.md) - 密碼回寫如何使用您的內部部署目錄
-* [**報告**](active-directory-passwords-reporting.md) - 探索您的使用者是否、何時、何地存取 SSPR 功能
-* [**技術性深入探討**](active-directory-passwords-how-it-works.md) - 深入探索以了解其運作方式
-* [**常見問題集**](active-directory-passwords-faq.md) - 如何？ 原因為何？ 何事？ 何地？ 何人？ 何時？ - -您一直想要詢問之問題的答案
-* [**疑難排解**](active-directory-passwords-troubleshoot.md) - 了解如何解決我們看到的 SSPR 常見問題
-
+[Contact]: ./media/active-directory-passwords-customize/sspr-contact-admin.png "連絡您的系統管理員以協助重設您的密碼電子郵件範例"

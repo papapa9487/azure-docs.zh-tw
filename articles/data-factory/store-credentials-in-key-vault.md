@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: jingwang
-ms.openlocfilehash: cb4545dcd41fe9a2c73bc86096843b717d61a785
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 193d7c77f01384106b3e0d932d02ba6cdff9e750
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="store-credential-in-azure-key-vault"></a>在 Azure Key Vault 中儲存認證
 
-您可以在 [Azure Key Vault](../key-vault/key-vault-whatis.md) 中為資料存放區儲存認證。 執行活動 (該活動使用資料存放區) 時，Azure Data Factory 會擷取認證。
+您可以在 [Azure Key Vault](../key-vault/key-vault-whatis.md) 中為資料存放區儲存認證。 執行活動 (該活動使用資料存放區) 時，Azure Data Factory 會擷取認證。 目前，只有[動態連接器](connector-dynamics-crm-office-365.md)支援這項功能。
 
 > [!NOTE]
-> 目前，只有[動態連接器](connector-dynamics-crm-office-365.md)支援這項功能。
+> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您是使用第 1 版的 Data Factory 服務 (正式推出版本 (GA))，請參閱 [Data Factory 第 1 版文件](v1/data-factory-introduction.md)。
 
 ## <a name="steps"></a>步驟
 

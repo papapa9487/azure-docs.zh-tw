@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 11/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: bc0a7127457b2203e3a351d7825d203bba69f4ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 74ee639af5e941c098cbdd1fafd96a0e1ce1b036
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>使用 Azure Data Factory 從 MySQL 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -43,7 +43,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 > 如需連接/閘道器相關問題的疑難排解秘訣，請參閱 [針對閘道問題進行疑難排解](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) 。
 
 ## <a name="supported-versions-and-installation"></a>支援的版本和安裝
-若要讓資料管理閘道連線至 MySQL 資料庫，您必須在與資料管理閘道相同的系統上，安裝 [MySQL 連接器/Net for Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (6.6.5 版或更新版本)。 支援 MySQL 版本 5.1 和以上版本。
+若要讓資料管理閘道連線至 MySQL 資料庫，您必須在與資料管理閘道相同的系統上，安裝 [MySQL 連接器/Net for Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (6.6.5 版或更新版本)。 這個 32 位元驅動程式可與 64 位元資料管理閘道相容。 支援 MySQL 版本 5.1 和以上版本。
 
 > [!TIP]
 > 如果您遇到錯誤「驗證失敗，因為遠端合作對象已關閉傳輸串流」，請考慮將 MySQL 連接器/Net 更新為更高版本。

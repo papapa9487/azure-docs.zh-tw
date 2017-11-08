@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: d33e516628c56a7aa038e37b4498461de17f8433
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24b8a9852395c26a40adb406bd706283e1a96d5d
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="how-to-troubleshoot-self-service-password-reset"></a>如何針對自助式密碼重設進行疑難排解
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 10/11/2017
 | 內部部署未啟動密碼重設服務，Azure AD Connect 電腦的應用程式事件記錄檔中有錯誤 6800。 <br> <br> 上架之後，同盟或密碼雜湊同步使用者無法重設其密碼。 | 啟用密碼回寫時，同步處理引擎會與雲端上架服務交談，呼叫回寫資源庫來執行設定 (上架)。 在上架期間或啟動密碼回寫的 WCF 端點時遇到的任何錯誤，會導致 Azure AD Connect 電腦的事件記錄中出現錯誤。 <br> <br> 在 ADSync 服務重新啟動期間，若已設定回寫，則會啟動 WCF 端點。 不過，如果端點啟動失敗，我們會記錄事件 6800，並讓同步處理服務啟動。 出現此事件表示密碼回寫端點並未啟動。 此事件 (6800) 的事件記錄詳細資料以及 PasswordResetService 元件所產生的事件記錄項目會指出為何無法啟動端點。 如果密碼回寫仍然無法運作，請檢閱這些事件記錄錯誤，並嘗試重新啟動 Azure AD Connect。 如果此問題持續發生，請嘗試先停用再重新啟用密碼回寫。
 | 當使用者嘗試在已啟用密碼回寫時重設密碼或解除鎖定帳戶，作業會失敗。 <br> <br> 此外，在解除鎖定作業發生之後，您會在 Azure AD Connect 事件記錄檔中看到事件，其中包含：「Synchronization Engine returned an error hr=800700CE, message=The filename or extension is too long」。 | 尋找 Azure AD Connect 的 Active Directory 帳戶，並將密碼重設成包含不超過 127 個字元。 然後從 [開始] 功能表開啟 [同步處理服務]。 瀏覽至 [連接器]，然後尋找 [Active Directory 連接器]。 選取它，然後按一下 [屬性]。 瀏覽至 [認證] 頁面，然後輸入新密碼。 選取 [確定] 以關閉頁面。 |
 | 在 Azure AD Connect 安裝程序的最後一個步驟時，您看到錯誤指出無法設定密碼回寫。 <br> <br> Azure AD Connect 應用程式事件記錄檔包含錯誤 32009 以及「取得授權權杖時發生錯誤」文字。 | 下列兩種情況會發生此錯誤：<br> <br> a. 針對在 Azure AD Connect 安裝程序開始時所指定的全域系統管理員帳戶，指定了錯誤的密碼。<br> b.這是另一個 C# 主控台應用程式。 針對在 Azure AD Connect 安裝程序開始時所指定的全域系統管理員帳戶，嘗試使用同盟使用者。<br> <br> 若要修正此錯誤，請確定您並未針對在 Azure AD Connect 安裝程序開始時所指定的全域系統管理員使用同盟帳戶，而且所指定的密碼正確無誤。 |
-| Azure AD Connect 電腦的事件記錄檔包含 PasswordResetService 所擲回的錯誤 32002。 <br> <br> 這個錯誤的內容是：「連線到 ServiceBus 時發生錯誤。權杖提供者無法提供安全性權杖...」 | 您的內部部署環境無法連線到雲端的服務匯流排端點。 這個錯誤是因為防火牆規則封鎖連往特定連接埠或網址的輸出連線所導致。 如需詳細資訊，請參閱[網路需求](active-directory-passwords-how-it-works.md#network-requirements)。 一旦您更新這些規則後，請重新啟動 Azure AD Connect 電腦，密碼回寫應該就會再次開始工作。 |
+| Azure AD Connect 電腦的事件記錄檔包含 PasswordResetService 所擲回的錯誤 32002。 <br> <br> 這個錯誤的內容是：「連線到 ServiceBus 時發生錯誤。權杖提供者無法提供安全性權杖...」 | 您的內部部署環境無法連線到雲端的服務匯流排端點。 這個錯誤是因為防火牆規則封鎖連往特定連接埠或網址的輸出連線所導致。 如需詳細資訊，請參閱[連線必要條件](./connect/active-directory-aadconnect-prerequisites.md)。 一旦您更新這些規則後，請重新啟動 Azure AD Connect 電腦，密碼回寫應該就會再次開始工作。 |
 | 在運作一段時間後，同盟或密碼雜湊同步使用者無法重設其密碼。 | 在某些罕見情況下，重新啟動 Azure AD Connect 時可能無法重新啟動密碼回寫服務。 在這些情況下，請先檢查內部部署是否已啟用密碼回寫。 若要執行此作業，請使用 Azure AD Connect 精靈或 PowerShell (請參閱上面的「作法」章節)。如果此功能已啟用，請嘗試透過 UI 或 PowerShell 再次啟用或停用功能。 如果這麼做沒有效，請嘗試完整解除安裝再重新安裝 Azure AD Connect。 |
 | 同盟或密碼雜湊同步使用者若嘗試重設其密碼，會在送出密碼後看到錯誤指出服務發生問題。 <br ><br> 此外，在密碼重設作業期間，您可能會在內部部署的事件記錄檔中看到關於管理代理程式存取遭拒的錯誤。 | 如果您在事件記錄中看到這些錯誤，請確認 AD MA 帳戶 (在設定時於精靈中所指定) 有密碼回寫的必要權限。 <br> <br> **一旦給予此權限，最多要 1 小時的時間，此權限才會透過 DC 上的 sdprop 背景工作往下傳遞。** <br> <br> 若要讓密碼重設正常運作，必須在要重設密碼的使用者物件安全性描述元上為權限加上戳記。 在使用者物件上出現此權限之前，密碼重設會繼續因存取遭拒而失敗。 |
 | 同盟或密碼雜湊同步使用者若嘗試重設其密碼，會在送出密碼後看到錯誤指出服務發生問題。 <br> <br> 此外，在密碼重設作業期間，您可能會在 Azure AD Connect 服務的事件記錄檔中看到錯誤指出「找不到物件」錯誤。 | 這個錯誤通常表示同步處理引擎找不到 AAD 連接器空間中的使用者物件，或連結的 MV 或 AD 連接器空間物件。 <br> <br> 若要疑難排解這個問題，請確定使用者已確實透過 Azure AD Connect 的目前執行個體從內部部屬同步處理到 AAD，並檢查連接器空間和 MV 中物件的狀態。 確認 AD CS 物件透過 “Microsoft.InfromADUserAccountEnabled.xxx” 規則連線到 MV 物件。|
@@ -164,7 +164,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="confirm-network-connectivity"></a>檢查網路連線
 
-最常見的失敗點是防火牆和 Proxy 連接埠，以及閒置逾時的設定不正確。 如需詳細資訊，請檢閱文件 [Azure AD 中的自助式密碼重設深入探討](active-directory-passwords-how-it-works.md#network-requirements)中的網路需求。
+最常見的失敗點是防火牆和 Proxy 連接埠，以及閒置逾時的設定不正確。 如需詳細資訊，請在 [Azure AD Connect 的必要條件](./connect/active-directory-aadconnect-prerequisites.md)一文中檢閱連線必要條件。
 
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>重新啟動 Azure AD Connect 同步處理服務
 
@@ -190,7 +190,7 @@ ms.lasthandoff: 10/11/2017
 5. 在 [選用功能] 對話方塊上，取消核取 [密碼回寫] 核取方塊。
 6. 在其餘的對話方塊頁面上逐一點選 [下一步] 而不變更任何項目，直到到達 [準備好設定] 頁面為止。
 7. 確認設定頁面顯示**密碼回寫選項為停用**，然後按一下綠色的 [設定] 按鈕來認可變更。
-8. 在 已完成 對話方塊上，取消選取 立即同步處理 選項，然後按一下完成 來關閉精靈。
+8. 在 [已完成] 對話方塊上，取消選取 [立即同步處理] 選項，然後按一下 [完成] 來關閉精靈。
 9. 重新開啟 [Azure AD Connect 設定精靈]。
 10. **重複步驟 2-8**，但請確定您已在 [選用功能] 畫面上**勾選 [密碼回寫] 選項** 來重新啟用服務。
 
@@ -269,13 +269,14 @@ Azure AD Connect 需要 AD **重設密碼**權限才能執行密碼回寫。 若
 
 下列連結提供有關使用 Azure AD 重設密碼的其他資訊
 
-* [**快速入門**](active-directory-passwords-getting-started.md) - 開始執行 Azure AD 自助式密碼管理
-* [**授權**](active-directory-passwords-licensing.md) - 設定 Azure AD 授權
-* [**資料**](active-directory-passwords-data.md) -了解所需的資料以及如何將它使用於密碼管理
-* [**推出**](active-directory-passwords-best-practices.md) - 使用此處提供的指引來規劃 SSPR 並將它部署至使用者
-* [**自訂**](active-directory-passwords-customize.md) - 為您的公司自訂 SSPR 體驗的外觀及操作方式。
-* [**原則**](active-directory-passwords-policy.md) - 了解並設定 Azure AD 密碼原則
-* [**密碼回寫**](active-directory-passwords-writeback.md) - 密碼回寫如何使用您的內部部署目錄
-* [**報告**](active-directory-passwords-reporting.md) - 探索您的使用者是否、何時、何地存取 SSPR 功能
-* [**技術性深入探討**](active-directory-passwords-how-it-works.md) - 深入探索以了解其運作方式
-* [**常見問題集**](active-directory-passwords-faq.md) - 如何？ 原因為何？ 何事？ 何地？ 何人？ 何時？ - 您一直想要詢問之問題的答案
+* [如何完成 SSPR 成功首度發行？](active-directory-passwords-best-practices.md)
+* [重設或變更您的密碼](active-directory-passwords-update-your-own-password.md)。
+* [註冊自助式密碼重設](active-directory-passwords-reset-register.md)。
+* [您有授權問題嗎？](active-directory-passwords-licensing.md)
+* [SSPR 使用哪些資料，以及您應該為使用者填入哪些資料？](active-directory-passwords-data.md)
+* [哪些驗證方法可供使用者使用？](active-directory-passwords-how-it-works.md#authentication-methods)
+* [使用 SSPR 的原則選項有哪些？](active-directory-passwords-policy.md)
+* [什麼是密碼回寫，且為什麼我需要了解它？](active-directory-passwords-writeback.md)
+* [如何回報 SSPR 中的活動？](active-directory-passwords-reporting.md)
+* [SSPR 中的所有選項有哪些，以及它們有何意義？](active-directory-passwords-how-it-works.md)
+* [在其他某處並未涵蓋我的問題](active-directory-passwords-faq.md)

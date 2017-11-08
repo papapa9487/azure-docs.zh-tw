@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: e460e734973622fb0d5745adfc4c1aa0178dd22e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ce4d6d9024dc4ce3956220eb0678a6295b0b7ab
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="password-writeback-overview"></a>密碼回寫概觀
 
@@ -90,11 +90,41 @@ ms.lasthandoff: 10/11/2017
 6. 在 [選用功能] 畫面中，勾選 [密碼回寫] 旁邊的方塊，然後按 [下一步]。
    ![在 Azure AD Connect 中啟用密碼回寫][Writeback]
 7. 在 [準備好設定] 畫面中，按一下 [設定]，然後等待設定程序完成。
-8. 當您看到「設定完成」時，您可以按一下 **[結束]**
+8. 當您看到「設定完成」時，按一下 [結束]
+
+## <a name="active-directory-permissions"></a>Active Directory 權限
+
+Azure AD Connect 公用程式中指定的帳戶必須具有重設密碼、變更密碼、lockoutTime 寫入權限和 pwdLastSet 寫入權限，以及該樹系中**每個網域**之根物件**或**您希望在 SSPR 範圍內之使用者 OU 的延伸權限。
+
+如果您不確定上述指的是哪些帳戶，請開啟 Azure Active Directory Connect 組態 UI，然後按一下 [檢視目前的組態] 選項。 您需要新增權限的帳戶會列在 [已同步處理的目錄] 底下。
+
+設定這些權限會允許每個樹系的 MA 服務帳戶代表該樹系內的使用者帳戶管理密碼。 **如果您沒有指定這些權限，則即使回寫看起來設定正確，使用者在嘗試從雲端管理其內部部署密碼時還是會遇到錯誤。**
+
+> [!NOTE]
+> 最多可能需要一小時讓這些權限複寫至您的目錄中的所有物件。
+>
+
+若要設定適當權限以進行密碼回寫：
+
+1. 以具有適當網域管理權限的帳戶開啟 [Active Directory 使用者和電腦]。
+2. 從 [檢視] 功能表，確定 [進階功能] 已開啟。
+3. 在左面板中，以滑鼠右鍵按一下代表網域根目錄的物件並選擇屬性。
+    * 按一下 [安全性] 索引標籤。
+    * 然後按一下 [進階]。
+4. 從 [權限] 索引標籤，按一下 [新增]。
+5. 挑選權限套用至的帳戶 (從 Azure AD Connect 安裝程式)
+6. 在 [套用至] 下拉式方塊中選取 [下階使用者] 物件。
+7. 在 [權限] 下，核取下列方塊：
+    * 未過期密碼
+    * 重設密碼
+    * 變更密碼
+    * 寫入 lockoutTime
+    * 寫入 pwdLastSet
+8. 依序按一下 [套用] / [確定] 進行套用並結束開啟的對話方塊。
 
 ## <a name="licensing-requirements-for-password-writeback"></a>密碼回寫的授權需求
 
-如需授權相關資訊，請參閱[密碼回寫所需的授權](active-directory-passwords-licensing.md#licenses-required-for-password-writeback)主題或下列網站
+如需授權相關資訊，請參閱[密碼回寫所需的授權](active-directory-passwords-licensing.md#licenses-required-for-password-writeback)或下列網站
 
 * [Azure Active Directory 價格網站](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
@@ -159,9 +189,9 @@ ms.lasthandoff: 10/11/2017
 以下說明在使用者提交密碼重設要求之後，在其抵達您的內部部署環境之前，該項要求所要經歷的加密步驟，以確保最高的服務可靠性和安全性。
 
 * **步驟 1- 採用 2048 位元 RSA 金鑰的密碼加密** - 使用者一旦提交要寫回內部部署環境的密碼，首先，所提交的密碼本身會以 2048 位元 RSA 金鑰進行加密。
-* **步驟 2 - 採用 AES-GCM 的套件層級加密** - 然後會使用 AES-GCM 將整個套件 (密碼 + 必要的中繼資料) 加密。 這可防止任何可直接存取基礎 ServiceBus 通道的人員檢視/竄改內容。
-* **步驟 3 - 所有通訊都會透過 TLS / SSL 進行** - 所有與 ServiceBus 的通訊都會在 SSL/TLS 通道中進行。 這可保護內容，免於遭到未經授權的第三方存取。
-* **每 6 個月自動變換金鑰**- 每 6 個月或每一次在 Azure AD Connect 上停用 / 重新啟用密碼回寫時，我們都會自動變換所有金鑰，以確保最高的服務安全性。
+* **步驟 2 - 採用 AES-GCM 的套件層級加密** - 然後會使用 AES-GCM 將整個套件 (密碼 + 必要的中繼資料) 加密。 這個加密可防止任何可直接存取基礎 ServiceBus 通道的人員檢視/竄改內容。
+* **步驟 3 - 所有通訊都會透過 TLS / SSL 進行** - 所有與 ServiceBus 的通訊都會在 SSL/TLS 通道中進行。 這個加密可保護內容，免於遭到未經授權的第三方存取。
+* **每 6 個月自動變換金鑰** - 每 6 個月或每一次在 Azure AD Connect 上停用 / 重新啟用密碼回寫時，我們都會自動變換所有金鑰，以確保最高的服務安全性。
 
 ### <a name="password-writeback-bandwidth-usage"></a>密碼回寫頻寬使用量
 
@@ -182,17 +212,16 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-下列連結提供有關使用 Azure AD 重設密碼的其他資訊
-
-* [**快速入門**](active-directory-passwords-getting-started.md) - 開始執行 Azure AD 自助式密碼管理 
-* [**授權**](active-directory-passwords-licensing.md) - 設定 Azure AD 授權
-* [**資料**](active-directory-passwords-data.md) -了解所需的資料以及如何將它使用於密碼管理
-* [**推出**](active-directory-passwords-best-practices.md) - 使用此處提供的指引來規劃 SSPR 並將它部署至使用者
-* [**自訂**](active-directory-passwords-customize.md) - 為您的公司自訂 SSPR 體驗的外觀及操作方式。
-* [**原則**](active-directory-passwords-policy.md) - 了解並設定 Azure AD 密碼原則
-* [**報告**](active-directory-passwords-reporting.md) - 探索您的使用者是否、何時、何地存取 SSPR 功能
-* [**技術性深入探討**](active-directory-passwords-how-it-works.md) - 深入探索以了解其運作方式
-* [**常見問題集**](active-directory-passwords-faq.md) - 如何？ 原因為何？ 何事？ 何地？ 何人？ 何時？ - -您一直想要詢問之問題的答案
-* [**疑難排解**](active-directory-passwords-troubleshoot.md) - 了解如何解決我們看到的 SSPR 常見問題
+* [如何完成 SSPR 成功首度發行？](active-directory-passwords-best-practices.md)
+* [重設或變更您的密碼](active-directory-passwords-update-your-own-password.md)。
+* [註冊自助式密碼重設](active-directory-passwords-reset-register.md)。
+* [您有授權問題嗎？](active-directory-passwords-licensing.md)
+* [SSPR 使用哪些資料，以及您應該為使用者填入哪些資料？](active-directory-passwords-data.md)
+* [哪些驗證方法可供使用者使用？](active-directory-passwords-how-it-works.md#authentication-methods)
+* [使用 SSPR 的原則選項有哪些？](active-directory-passwords-policy.md)
+* [如何回報 SSPR 中的活動？](active-directory-passwords-reporting.md)
+* [SSPR 中的所有選項有哪些，以及它們有何意義？](active-directory-passwords-how-it-works.md)
+* [我認為有中斷。如何針對 SSPR 進行疑難排解？](active-directory-passwords-troubleshoot.md)
+* [在其他某處並未涵蓋我的問題](active-directory-passwords-faq.md)
 
 [Writeback]: ./media/active-directory-passwords-writeback/enablepasswordwriteback.png "在 Azure AD Connect 中啟用密碼回寫"

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/03/2017
 ms.author: billmath
-ms.openlocfilehash: 370f8973b9b8a0cd0c5220a35218efe81bfd07e0
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: 51cdb60d1967f2a4a4ebadbd2717fd580a79da6b
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect︰版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。
@@ -33,6 +33,17 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 從 Azure AD Connect 升級的步驟 | [從舊版升級到最新版本](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect 的多種方法。
 所需的權限 | 如需套用更新所需權限的詳細資訊，請參閱[帳戶和權限](./active-directory-aadconnect-accounts-permissions.md#upgrade)。
 下載| [下載 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)。
+
+
+## <a name="116490"></a>1.1.649.0
+狀態：2017 年 10 月 27 日
+
+>[!NOTE]
+>此組建無法透過 Azure AD Connect 自動升級功能提供客戶使用。
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+#### <a name="fixed-issue"></a>已修正的問題
+* 已修正 Azure AD Connect 與 Azure AD Connect Health Agent (適用於同步) 之間的版本相容性問題。 此問題會影響要執行 Azure AD Connect 就地升級到 1.1.647.0 版，但目前擁有的是健康情況代理程式 3.0.127.0 版的客戶。 升級之後，健康情況代理程式就不會再將有關 Azure AD Connect 同步處理服務的健康情況資料傳送至 Azure AD 健康情況服務。 透過此修正，就會在 Azure AD Connect 就地升級期間安裝健康情況代理程式 3.0.129.0 版。 健康情況代理程式 3.0.129.0 版與 Azure AD Connect 1.1.649.0 版 沒有相容性問題。
 
 
 ## <a name="116470"></a>1.1.647.0

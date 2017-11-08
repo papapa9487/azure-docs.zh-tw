@@ -4,7 +4,7 @@ description: "了解並解決現有 Azure AD Domain Services 受管理的網域�
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 10/30/2017
 ms.author: maheshu
-ms.openlocfilehash: 118773be1f03701246051b8832695c591d76b1e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c9a47e9b3050eb7f41202d6a4b9202ba0f379df
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>解決現有 Azure AD Domain Services 受管理的網域的不相符目錄錯誤
 您有使用 Azure 傳統入口網站啟用的現有受管理的網域。 當您瀏覽至新的 Azure 入口網站並檢視受管理的網域時，您會看到下列錯誤訊息：
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 
 ![不相符租用戶設定](./media/getting-started/mismatched-tenant-config.png)
 
-因此，在受管理的網域和在其中啟用的虛擬網路分別屬於兩個不同 Azure AD 租用戶的案例中，您會看到這個錯誤。
+因此，當受管理的網域和在其中啟用的虛擬網路分別屬於兩個不同 Azure AD 租用戶時，您會看到這個錯誤。
 
 下列規則適用於資源管理員環境：
 - Azure AD 目錄有多個 Azure 訂用帳戶。
@@ -55,9 +55,9 @@ ms.lasthandoff: 10/11/2017
 ## <a name="resolution"></a>解決方案
 您有兩個選項可以用來解決不相符目錄錯誤。 您可以：
 
-- 按一下 [刪除] 按鈕，刪除現有的受管理的網域。 使用 [Azure 入口網站](https://portal.azure.com)重新建立，讓受管理的網域和可用的虛擬網路屬於 Azure AD 目錄。 您必須重新加入新建立的受管理網域，先前的所有機器加入已刪除網域。
+- 按一下 [刪除] 按鈕，刪除現有的受管理的網域。 使用 [Azure 入口網站](https://portal.azure.com)重新建立，讓受管理的網域和可用的虛擬網路屬於 Azure AD 目錄。 將先前加入已刪除網域的所有機器加入新建立的受管理網域。
 
-- 請連絡 Azure 支援中心，將包含虛擬網路的 Azure 訂用帳戶移至受管理的網域所屬的 Azure AD 目錄。 按一下 [新增支援要求] 並且在支援要求的 [詳細資料] 區段中指定**不相符目錄**。 包含錯誤訊息中提供的資訊作為支援要求的一部分。
+- 將包含虛擬網路的 Azure 訂用帳戶移至受管理的網域所屬的 Azure AD 目錄。 請遵循[將 Azure 訂用帳戶的擁有權轉移給另一個帳戶](../billing/billing-subscription-transfer.md)一文中的步驟。
 
 
 ## <a name="related-content"></a>相關內容

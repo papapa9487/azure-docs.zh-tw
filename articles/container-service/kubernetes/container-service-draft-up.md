@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 8cef40f4360c6b9c9ab734171a4cca2a21a4c711
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: d1cb92e15109775fd120d82df6cfa94b7023d5b9
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>使用 Draft 搭配 Azure Container Service 與 Azure Container Registry，可將應用程式建置及部署至 Kubernetes
 
@@ -271,16 +271,16 @@ Draft 會針對其所建立的每個 Helm 圖表，以及您在使用每個應�
   }
   ```
 5. 重新安裝 **draft**
-  1. 輸入 `helm delete --purge draft` 以從叢集中移除 **draft**。 
-  2. 使用相同的 `draft-init` 命令 (但加上 `--ingress-enabled` 選項) 來重新安裝 **draft**：
+
+   1. 輸入 `helm delete --purge draft` 以從叢集中移除 **draft**。 
+   2. 使用相同的 `draft-init` 命令 (但加上 `--ingress-enabled` 選項) 來重新安裝 **draft**：
     ```bash
     draft init --ingress-enabled
     ```
-以您先前於上述步驟中的回應方式來回應提示。 不過，您有額外一個問題需要回應，這必須使用您利用 Azure DNS 設定的完整網域路徑。
-```bash
-4. Enter your top-level domain for ingress (e.g. draft.example.com): draft.squillace.io
-```
-5. 當您這次呼叫 `draft up` 時，您將能在以 `<appname>.draft.<domain>.<top-level-domain>` 作為格式的 URL 上看到您的應用程式 (或對它進行 `curl`)。 在此範例中，URL 將會是 `http://handy-labradoodle.draft.squillace.io`。 
+   以您先前於上述步驟中的回應方式來回應提示。 不過，您有額外一個問題需要回應，這必須使用您利用 Azure DNS 設定的完整網域路徑。
+
+6. 輸入您用於輸入的最上層網域 (例如 draft.example.com)：draft.squillace.io
+7. 當您這次呼叫 `draft up` 時，您將能在以 `<appname>.draft.<domain>.<top-level-domain>` 作為格式的 URL 上看到您的應用程式 (或對它進行 `curl`)。 在此範例中，URL 將會是 `http://handy-labradoodle.draft.squillace.io`。 
 ```bash
 curl -s http://handy-labradoodle.draft.squillace.io
 Hello World, I'm Java!

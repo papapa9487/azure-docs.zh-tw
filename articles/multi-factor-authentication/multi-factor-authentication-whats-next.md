@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: alexwe
-ms.openlocfilehash: 65a149b0d291bc650e0937c7ef3f90600f54c669
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 8ff991ffb05bb92f047cc8dfc40e80b704379898
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>設定 Azure Multi-Factor Authentication 設定 - 公開預覽
 
@@ -160,7 +160,10 @@ ms.lasthandoff: 10/17/2017
 5. 在 [多重要素驗證] 底下選取 [管理服務設定]。
 6. 在 [服務設定] 頁面之 [信任的 IP] 下方，您有兩個選擇：
    
-   * **適用於從我的內部網路產生的同盟使用者提出的要求** – 勾選此方塊。 所有從公司網路登入的同盟使用者，將會使用 AD FS 所發行的宣告來略過雙步驟驗證。
+   * **適用於從我的內部網路產生的同盟使用者提出的要求** – 勾選此方塊。 所有從公司網路登入的同盟使用者，將會使用 AD FS 所發行的宣告來略過雙步驟驗證。 請確定 AD FS 有規則可用於將內部網路宣告新增至適當的流量。 如果 AD FS 中還沒有下列規則，請加以建立："c:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
+
+
+
    * **適用於從特定公用 IP 範圍提出的要求**– 在提供的文字方塊中，使用 CIDR 表示法輸入 IP 位址。 例如：xxx.xxx.xxx.0/24 代表介於 xxx.xxx.xxx.1 – xxx.xxx.xxx.254 之範圍內的 IP 位址；xxx.xxx.xxx.xxx/32 代表一個 IP 位址。 您最多可以輸入 50 個 IP 位址範圍。 從這些 IP 位址登入的使用者會略過雙步驟驗證。
 7. 按一下 [儲存] 。
 8. 套用更新之後，按一下 [關閉]。
