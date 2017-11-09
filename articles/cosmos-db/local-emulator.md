@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2017
 ms.author: arramac
-ms.openlocfilehash: a6124a8fa630424558c0812edbf12d5ad25d6bf6
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: 5ea254110a24ea3315d614ebca2d43bda0e1a674
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos DB 模擬器進行本機開發和測試
 
@@ -86,7 +86,7 @@ Azure Cosmos DB 模擬器的硬體和軟體需求如下︰
   * 10 GB 可用硬碟空間
 
 ## <a name="installation"></a>安裝
-您可以從 [Microsoft 下載中心](https://aka.ms/cosmosdb-emulator)下載並安裝 Azure Cosmos DB 模擬器，或執行 Emulator on Docker for Windows。 如需有關使用 Emulator on Docker for Windows 的指示，請參閱[在 Docker 上執行](#running-on-docer)。 
+您可以從 [Microsoft 下載中心](https://aka.ms/cosmosdb-emulator)下載並安裝 Azure Cosmos DB 模擬器，或執行 Emulator on Docker for Windows。 如需有關使用 Emulator on Docker for Windows 的指示，請參閱[在 Docker 上執行](#running-on-docker)。 
 
 > [!NOTE]
 > 若要安裝、設定和執行 Azure Cosmos DB 模擬器，您必須具備電腦的系統管理權限。

@@ -12,18 +12,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2017
+ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: 3030336f5efca5029e0e790372495df11cdc8aeb
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: fa25f0435df79a78d39e8f89d702d3b64db79d65
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="understand-azure-active-directory-architecture"></a>了解 Azure Active Directory 架構
-Azure Active Directory (Azure AD) 可讓您安全地管理您使用者的 Azure 服務和資源存取權。 Azure AD 隨附一套完整的身分識別管理功能。 如需 Azure AD 功能的詳細資訊，請參閱[什麼是 Azure Active Directory？](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis)
+Azure Active Directory (Azure AD) 可讓您安全地管理您使用者的 Azure 服務和資源存取權。 Azure AD 隨附一套完整的身分識別管理功能。 如需 Azure AD 功能的詳細資訊，請參閱[什麼是 Azure Active Directory？](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
 
-您可以使用 Azure AD，建立及管理使用者和群組，並啟用權限以允許和拒絕企業資源存取。 如需身分識別管理的相關資訊，請參閱 [Azure 身分識別管理的基本概念](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity)。
+您可以使用 Azure AD，建立及管理使用者和群組，並啟用權限以允許和拒絕企業資源存取。 如需身分識別管理的相關資訊，請參閱 [Azure 身分識別管理的基本概念](https://docs.microsoft.com/azure/active-directory/fundamentals-identity)。
 
 ## <a name="azure-ad-architecture"></a>Azure AD 架構
 Azure AD 分佈各地的架構結合了廣泛監視、自動化重設路徑、容錯移轉和復原功能，可讓我們為客戶提供企業層級的可用性和效能。
@@ -79,7 +79,7 @@ Azure AD 會針對權杖發行和目錄讀取維持零[復原時間目標 (RTO)]
 
 ### <a name="data-centers"></a>資料中心
 
-Azure AD 的複本會儲存在位於世界各地的資料中心。 如需詳細資訊，請參閱 [Azure 資料中心](https://azure.microsoft.com/en-us/overview/datacenters)。
+Azure AD 的複本會儲存在位於世界各地的資料中心。 如需詳細資訊，請參閱 [Azure 資料中心](https://azure.microsoft.com/overview/datacenters)。
 
 Azure AD 跨越具下列特性的資料中心運作︰
 
@@ -113,8 +113,8 @@ Azure AD 會實作所有資料的每日備份，因此可以在任何邏輯刪�
 
 **安全作業**
 
-我們會運用任何作業的作業控制項 (例如 Multi-Factor Authentication (MFA))，以及稽核所有的作業。 此外，我們使用即時提高權限系統，隨時對任何操作工作授與必要的暫時存取權。 如需詳細資訊，請參閱[受信任的雲端](https://azure.microsoft.com/en-us/support/trust-center)。
+我們會運用任何作業的作業控制項 (例如 Multi-Factor Authentication (MFA))，以及稽核所有的作業。 此外，我們使用即時提高權限系統，隨時對任何操作工作授與必要的暫時存取權。 如需詳細資訊，請參閱[受信任的雲端](https://azure.microsoft.com/support/trust-center)。
 
 ## <a name="next-steps"></a>後續步驟
-[Azure Active Directory 開發人員指南](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+[Azure Active Directory 開發人員指南](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 

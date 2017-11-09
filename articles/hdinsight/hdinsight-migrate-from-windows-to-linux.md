@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: f2695d4f15fe984cd02cba9ff66033b90d0a4dc3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3bba2cfd765505a167fe4776f81d06445a8c39c
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>從以 Windows 為基礎的 HDInsight 叢集移轉至以 Linux 為基礎的叢集
 
@@ -188,8 +188,8 @@ Pig 和 MapReduce 工作負載在 Linux 為基礎的叢集上很相似。 不過
 以 Linux 為基礎的 HDInsight 不提供遠端桌面功能。 您可以改用 SSH 來遠端連線至叢集前端節點。 如需詳細資訊，請參閱下列文件：
 
 * [搭配 SSH 使用 Hive](hdinsight-hadoop-use-hive-ssh.md)
-* [搭配 SSH 使用 Pig](hdinsight-hadoop-use-pig-ssh.md)
-* [搭配 SSH 使用 MapReduce](hdinsight-hadoop-use-mapreduce-ssh.md)
+* [搭配 SSH 使用 Pig](hadoop/apache-hadoop-use-pig-ssh.md)
+* [搭配 SSH 使用 MapReduce](hadoop/apache-hadoop-use-mapreduce-ssh.md)
 
 ### <a name="hive"></a>Hive
 
@@ -200,11 +200,11 @@ Pig 和 MapReduce 工作負載在 Linux 為基礎的叢集上很相似。 不過
 
 | 以 Windows 為基礎時，我是使用... | 以 Linux 為基礎時... |
 | --- | --- |
-| **Hive 編輯器** |[Ambari 中的 Hive 檢視](hdinsight-hadoop-use-hive-ambari-view.md) |
+| **Hive 編輯器** |[Ambari 中的 Hive 檢視](hadoop/apache-hadoop-use-hive-ambari-view.md) |
 | `set hive.execution.engine=tez;` 以啟用 Tez |Tez 是以 Linux 為基礎之叢集的預設執行引擎，因此已不再需要 SET 陳述式。 |
 | C# 使用者定義函數 | 如需驗證以 Linux 為基礎之 HDInsight 的 C# 元件詳細資訊，請參閱[將 .NET 方案移轉至以 Linux 為基礎的 HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | 伺服器上的 CMD 檔案或指令碼是做為 Hive 工作的一部分進行叫用 |使用 Bash 指令碼 |
-| `hive` 命令 |使用 [Beeline](hdinsight-hadoop-use-hive-beeline.md) 或是[來自 SSH 工作階段的 Hive](hdinsight-hadoop-use-hive-ssh.md) |
+| `hive` 命令 |使用 [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) 或是[來自 SSH 工作階段的 Hive](hdinsight-hadoop-use-hive-ssh.md) |
 
 ### <a name="pig"></a>Pig
 
@@ -233,7 +233,7 @@ Oozie 工作流程允許殼層動作。 殼層動作會使用作業系統的預�
 
 | 以 Windows 為基礎時，我是使用... | 以 Linux 為基礎時... |
 | --- | --- |
-| Storm Dashboard |無法使用 Storm Dashboard。 請參閱 [在以 Linux 為基礎的 HDInsight 上部署與管理 Storm 拓撲](hdinsight-storm-deploy-monitor-topology-linux.md) ，以了解提交拓撲的方法。 |
+| Storm Dashboard |無法使用 Storm Dashboard。 請參閱 [在以 Linux 為基礎的 HDInsight 上部署與管理 Storm 拓撲](storm/apache-storm-deploy-monitor-topology-linux.md) ，以了解提交拓撲的方法。 |
 | Storm UI |Storm UI 可以在 https://CLUSTERNAME.azurehdinsight.net/stormui 使用 |
 | Visual Studio 以建立、部署及管理 C# 或混合式拓撲 |在以 Linux 作為基礎的 Storm on HDInsight 上，可以使用 Visual Studio 來建立、部署和管理 C# (SCP.NET) 或混合式拓撲。 僅能搭配使用 10/28/2016 之後建立的叢集。 |
 

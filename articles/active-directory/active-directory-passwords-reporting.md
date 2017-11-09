@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5b28e15d643497dbdf827b3976ad7dcdc73507b1
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 1e715b54c78d42d88d2082e9b0e9f942bec72abd
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 密碼管理的報告選項
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/31/2017
 存在於 [Azure 入口網站] (https://portal.azure.com/) 中的報告可以回答下列問題。
 
 > [!NOTE]
-> 您必須是[全域管理員](active-directory-assign-admin-roles.md#assign-or-remove-administrator-roles)且至少必須已瀏覽一次報告索引標籤或稽核記錄，以決定代表您的組織蒐集此資料。 在此之前，不會為您的組織收集資料。
+> 您必須是[全域管理員](active-directory-assign-admin-roles.md)且至少必須已瀏覽一次報告索引標籤或稽核記錄，以決定代表您的組織蒐集此資料。 在此之前，不會為您的組織收集資料。
 
 * 有多少人已註冊密碼重設？
 * 有誰已註冊密碼重設？
@@ -78,13 +78,7 @@ Azure AD 報告和事件 API 支援擷取密碼重設和密碼重設註冊報告
 
 如果您需要擷取或儲存比這個期間更早的資料，建議將資料保存在外部資料庫，並利用 API 來查詢產生的差異。 我們的建議是在組織中開始使用 SSPR 時，就開始擷取此資料，並保存在外部，然後從這一點開始持續追蹤差異。
 
-## <a name="how-to-download-password-reset-registration-events-quickly-with-powershell"></a>如何使用 PowerShell 快速下載密碼重設註冊事件
-
-除了直接使用 Azure AD 報告和事件 API，您也可以使用下列 PowerShell 指令碼，擷取目錄中最近的註冊事件。 如果您想要查看最近是誰註冊，或想要確保密碼重設如預期般展開，這非常有用。
-
-* [Azure AD SSPR 註冊活動 PowerShell 指令碼](https://gallery.technet.microsoft.com/scriptcenter/azure-ad-self-service-e31b8aee)
-
-### <a name="description-of-report-columns-in-azure-portal"></a>Azure 入口網站中報告資料行的說明
+## <a name="description-of-report-columns-in-azure-portal"></a>Azure 入口網站中報告資料行的說明
 
 下列清單詳細說明每個報告資料行：
 
@@ -93,7 +87,7 @@ Azure AD 報告和事件 API 支援擷取密碼重設和密碼重設註冊報告
 * **日期和時間** – 嘗試的日期和時間。
 * **已註冊資料** – 使用者在密碼重設註冊期間提供哪些驗證資料。
 
-### <a name="description-of-report-values-in-azure-portal"></a>Azure 入口網站中報告值的說明
+## <a name="description-of-report-values-in-azure-portal"></a>Azure 入口網站中報告值的說明
 
 下表描述每個資料行允許的不同值：
 

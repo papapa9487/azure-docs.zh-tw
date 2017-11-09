@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: ad9aa6aee0a9f6407da6e9f45df71f8feb8b1500
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df6cd9651d63ccea175fc8417d9f7dd2a9161f57
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="authorize-users-for-ambari-views"></a>授權 Ambari 檢視的使用者
 
-[已加入網域的 HDInsight 叢集](hdinsight-domain-joined-introduction.md)可提供企業級功能，包括以 Azure Active Directory 為基礎的驗證。 您可以同步處理新使用者
+[已加入網域的 HDInsight 叢集](./domain-joined/apache-domain-joined-introduction.md)可提供企業級功能，包括以 Azure Active Directory 為基礎的驗證。 您可以同步處理新使用者
 <!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> added to Azure AD groups that have been provided access to the cluster, allowing those specific users to perform certain actions. Currently, working with users, groups, and permissions in Ambari is only supported when using a domain-joined HDInsight cluster.
 
 Active Directory 使用者可以使用其網域認證來登入叢集節點。 他們也可以使用其網域認證來驗證叢集與其他已核准之端點 (例如 Hue、Ambari 檢視、ODBC、JDBC、PowerShell 和 REST API) 的互動。
@@ -32,7 +32,7 @@ Active Directory 使用者可以使用其網域認證來登入叢集節點。 �
 > [!WARNING]
 > 請勿變更以 Linux 為基礎之 HDInsight 叢集上的 Ambari 看門狗 (hdinsightwatchdog) 密碼。 變更密碼會破壞在叢集上使用指令碼動作或執行調整作業的能力。
 
-如果您尚未這麼做，請依照[這些指示](hdinsight-domain-joined-configure.md)來佈建一個已加入網域的新叢集。
+如果您尚未這麼做，請依照[這些指示](./domain-joined/apache-domain-joined-configure.md)來佈建一個已加入網域的新叢集。
 
 ## <a name="access-the-ambari-management-page"></a>存取 Ambari 管理頁面
 
@@ -123,7 +123,7 @@ Tez 檢視執行個體可讓使用者對所有 Tez 作業 (由 Hive 查詢和 Pi
 
     ![[角色] 清單檢視 - 使用者](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-* [List] \(清單\) 檢視的 [Groups] \(群組\) 類別會顯示所有群組，以及指派給每個群組的角色。 在我們的範例中，群組清單是透過同步處理，從叢集 [Domain] \(網域\) 設定之 [Access user group] \(存取使用者群組\) 屬性中指定的 Azure AD 群組取得。 請參閱[建立 HDInsight 叢集](hdinsight-domain-joined-configure.md#create-hdinsight-cluster)。
+* [List] \(清單\) 檢視的 [Groups] \(群組\) 類別會顯示所有群組，以及指派給每個群組的角色。 在我們的範例中，群組清單是透過同步處理，從叢集 [Domain] \(網域\) 設定之 [Access user group] \(存取使用者群組\) 屬性中指定的 Azure AD 群組取得。 請參閱[建立 HDInsight 叢集](./domain-joined/apache-domain-joined-configure.md#create-hdinsight-cluster)。
 
     ![[角色] 清單檢視 - 群組](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 
@@ -143,8 +143,8 @@ Tez 檢視執行個體可讓使用者對所有 Tez 作業 (由 Hive 查詢和 Pi
 
 ## <a name="next-steps"></a>後續步驟
 
-* [在已加入網域的 HDInsight 中設定 Hive 原則](hdinsight-domain-joined-run-hive.md)
-* [管理已加入網域的 HDInsight 叢集](hdinsight-domain-joined-manage.md)
-* [在 HDInsight 中搭配 Hadoop 使用 Hive 檢視](hdinsight-hadoop-use-hive-ambari-view.md)
+* [在已加入網域的 HDInsight 中設定 Hive 原則](./domain-joined/apache-domain-joined-run-hive.md)
+* [管理已加入網域的 HDInsight 叢集](./domain-joined/apache-domain-joined-manage.md)
+* [在 HDInsight 中搭配 Hadoop 使用 Hive 檢視](hadoop/apache-hadoop-use-hive-ambari-view.md)
 
 <!-- * [Synchronize Azure AD users to the cluster](hdinsight-sync-aad-users-to-cluster.md) -->

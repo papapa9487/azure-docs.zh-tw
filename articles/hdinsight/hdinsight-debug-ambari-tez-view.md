@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: c0ea91ae6e03429b197eeb3767b709fb03aa0dc8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0df58c24653d60e7594a70b911540662548a236
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>在 HDInsight 上使用 Ambari 檢視來為 Tez 作業偵錯
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="prerequisites"></a>必要條件
 
-* 以 Linux 為基礎的 HDInsight 叢集。 如需建立叢集的步驟，請參閱[開始使用以 Linux 為基礎的 HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)。
+* 以 Linux 為基礎的 HDInsight 叢集。 如需建立叢集的步驟，請參閱[開始使用以 Linux 為基礎的 HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)。
 * 支援 HTML5 的新式網頁瀏覽器。
 
 ## <a name="understanding-tez"></a>了解 Tez
@@ -58,7 +58,7 @@ Tez 檢視只有在使用 Tez 引擎的作業目前正在執行，或先前曾�
 
     ![選取 [Hive 檢視]](./media/hdinsight-debug-ambari-tez-view/selecthive.png)
 
-3. 當 Hive 檢視載入之後，在查詢編輯器中貼上下列查詢，然後按一下執行。
+3. 當 Hive 檢視載入之後，在查詢編輯器中貼上下列查詢，然後按一下 [執行]。
 
         select market, state, country from hivesampletable where deviceplatform='Android' group by market, country, state;
 
@@ -106,7 +106,7 @@ Tez 檢視只有在使用 Tez 引擎的作業目前正在執行，或先前曾�
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已了解如何使用 Tez 檢視，請深入了解 [在 HDInsight 上使用 Hive](hdinsight-use-hive.md)。
+既然您已了解如何使用 Tez 檢視，請深入了解 [在 HDInsight 上使用 Hive](hadoop/hdinsight-use-hive.md)。
 
 如需 Tez 的詳細技術資訊，請參閱 [Hortonworks 的 Tez 頁面](http://hortonworks.com/hadoop/tez/)。
 

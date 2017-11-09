@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 9fec253fbf9136cf86a84a6c7b407ea522996226
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a4b32af3f92744fe0543d9984c4845391a6180f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>移轉至以 Azure Resource Manager 為基礎的開發工具 (適用於 HDInsight 叢集)
 
@@ -56,11 +56,11 @@ Azure CLI 提供用來搭配使用 Azure Service Management (ASM) 與 HDInsight 
 ### <a name="deprecated-commands"></a>已取代的命令
 如果您使用 `azure hdinsight job` 命令將工作提交至 HDInsight 叢集，便無法透過 ARM 的命令來使用。 如果您需要以程式設計方式，自指令碼將工作提交至 HDInsight，您應該改用 HDInsight 所提供的 REST API。 如需有關如何使用 REST API 提交工作的詳細資訊，請參閱下列文件。
 
-* [使用 Curl 搭配執行 MapReduce 工作與 HDInsight 上的 Hadoop](hdinsight-hadoop-use-mapreduce-curl.md)
-* [使用 Curl 搭配執行 Hive 查詢 與 HDInsight 上的 Hadoop](hdinsight-hadoop-use-hive-curl.md)
-* [使用 Curl 搭配執行 Pig 工作與 HDInsight 上的 Hadoop](hdinsight-hadoop-use-pig-curl.md)
+* [使用 Curl 搭配執行 MapReduce 工作與 HDInsight 上的 Hadoop](hadoop/apache-hadoop-use-mapreduce-curl.md)
+* [使用 Curl 搭配執行 Hive 查詢 與 HDInsight 上的 Hadoop](hadoop/apache-hadoop-use-hive-curl.md)
+* [使用 Curl 搭配執行 Pig 工作與 HDInsight 上的 Hadoop](hadoop/apache-hadoop-use-pig-curl.md)
 
-如需有關執行 MapReduce、Hive 和 Pig 互動方式的其他方法，請參閱[搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)、[搭配使用 Hive 與 HDInsight 上的 Hadoop](hdinsight-use-hive.md) 和[搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)。
+如需有關執行 MapReduce、Hive 和 Pig 互動方式的其他方法，請參閱[搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hadoop/hdinsight-use-mapreduce.md)、[搭配使用 Hive 與 HDInsight 上的 Hadoop](hadoop/hdinsight-use-hive.md) 和[搭配使用 Pig 與 HDInsight 上的 Hadoop](hadoop/hdinsight-use-pig.md)。
 
 ### <a name="examples"></a>範例
 **建立叢集**
@@ -220,9 +220,9 @@ Azure PowerShell ARM Cmdlet 可與 ASM Cmdlet 並存安裝。 來自兩種模式
 
 #### <a name="other-samples"></a>其他範例
 * [建立 HDInsight 叢集](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-* [提交 Hive 工作](hdinsight-hadoop-use-hive-powershell.md)
-* [提交 Pig 工作](hdinsight-hadoop-use-pig-powershell.md)
-* [提交 Sqoop 工作](hdinsight-hadoop-use-sqoop-powershell.md)
+* [提交 Hive 工作](hadoop/apache-hadoop-use-hive-powershell.md)
+* [提交 Pig 工作](hadoop/apache-hadoop-use-pig-powershell.md)
+* [提交 Sqoop 工作](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
 ## <a name="migrating-to-the-arm-based-hdinsight-net-sdk"></a>移轉至以 ARM 為基礎的 HDInsight .NET SDK
 以 Azure Service Management (ASM) 為基礎的 [HDInsight.NET SDK](https://msdn.microsoft.com/library/azure/mt416619.aspx) 現在已被取代。 建議您使用以 Azure Resource Management (ARM) 為基礎的 [HDInsight.NET SDK](https://msdn.microsoft.com/library/azure/mt271028.aspx)。 下列以 ASM 為基礎的 HDInsight 封裝會被取代。
@@ -236,11 +236,11 @@ Azure PowerShell ARM Cmdlet 可與 ASM Cmdlet 並存安裝。 來自兩種模式
 | --- | --- |
 | 使用 .NET SDK 建立 HDInsight 叢集 |請參閱 [使用.NET SDK 來建立 HDInsight 叢集](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |
 | 搭配使用指令碼動作與 .NET SDK 來自訂叢集 |請參閱 [使用指令碼動作來自訂 HDInsight Linux 叢集](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action) |
-| 搭配使用 Azure Active Directory 與 .NET SDK，以互動方式驗證應用程式 |請參閱 [使用 .NET SDK 執行 Hive 查詢](hdinsight-hadoop-use-hive-dotnet-sdk.md)。 在本文中的程式碼片段會使用互動式驗證方法。 |
+| 搭配使用 Azure Active Directory 與 .NET SDK，以互動方式驗證應用程式 |請參閱 [使用 .NET SDK 執行 Hive 查詢](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)。 在本文中的程式碼片段會使用互動式驗證方法。 |
 | 搭配使用 Azure Active Directory 與 .NET SDK，以非互動方式驗證應用程式 |請參閱 [建立 HDInsight 的非互動式應用程式](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
-| 使用 .NET SDK 提交 Hive 作業 |請參閱 [提交 Hive 工作](hdinsight-hadoop-use-hive-dotnet-sdk.md) |
-| 使用 .NET SDK 提交 Pig 作業 |請參閱 [提交 Pig 工作](hdinsight-hadoop-use-pig-dotnet-sdk.md) |
-| 使用 .NET SDK 提交 Sqoop 作業 |請參閱 [提交 Sqoop 工作](hdinsight-hadoop-use-sqoop-dotnet-sdk.md) |
+| 使用 .NET SDK 提交 Hive 作業 |請參閱 [提交 Hive 工作](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) |
+| 使用 .NET SDK 提交 Pig 作業 |請參閱 [提交 Pig 工作](hadoop/apache-hadoop-use-pig-dotnet-sdk.md) |
+| 使用 .NET SDK 提交 Sqoop 作業 |請參閱 [提交 Sqoop 工作](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md) |
 | 使用 .NET SDK 列出 HDInsight 叢集 |請參閱 [列出 HDInsight 叢集](hdinsight-administer-use-dotnet-sdk.md#list-clusters) |
 | 使用.NET SDK 調整 HDInsight 叢集 |請參閱 [調整 HDInsight 叢集](hdinsight-administer-use-dotnet-sdk.md#scale-clusters) |
 | 使用.NET SDK 授與/撤銷存取至 HDInsight 叢集 |請參閱 [「授與/撤銷存取至 HDInsight 叢集」](hdinsight-administer-use-dotnet-sdk.md#grantrevoke-access) |

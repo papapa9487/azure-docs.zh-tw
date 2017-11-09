@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: v-jamebr
-ms.openlocfilehash: 08ff972349c7763d71acdd11ce5a1359403e1fa0
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 3af7fbfb9740e00d9ff9c2b077cb444a8057b8c3
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="get-started-with-device-management-netnet"></a>開始使用裝置管理 (.NET/.NET)
 
@@ -137,7 +137,7 @@ ms.lasthandoff: 10/14/2017
             {
                 Console.WriteLine("Rebooting!");
 
-                // Update device twim with reboot time. 
+                // Update device twin with reboot time. 
                 TwinCollection reportedProperties, reboot, lastReboot;
                 lastReboot = new TwinCollection();
                 reboot = new TwinCollection();
@@ -181,7 +181,7 @@ ms.lasthandoff: 10/14/2017
             Console.WriteLine("Error in sample: {0}", ex.Message);
         }
         
-8. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下您的方案，然後按一下 [設定啟始專案...]。選取 [單一啟始專案]，然後選取下拉式功能表中的 [SimulateManagedDevice] 專案。 建置方案。       
+8. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下您的方案，然後按一下 [設定啟始專案...]選取 [單一啟始專案]，然後選取下拉式功能表中的 [SimulateManagedDevice] 專案。 建置方案。       
 
 > [!NOTE]
 > 為了簡單起見，本教學課程不會實作任何重試原則。 在實際程式碼中，您應該如 MSDN 文章[暫時性錯誤處理][lnk-transient-faults]所建議，實作重試原則 (例如指數型輪詢)。

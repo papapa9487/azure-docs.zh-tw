@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: 7198fa8d1a512d10ca7022078aa2ea7bde3a4c02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76179b6a8eb7066c90828d33729b557f5e37c17a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-windows-vms"></a>Azure 中繼資料服務：Windows VM 的已排定事件 (預覽)
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 排定的事件是 Azure 中繼資料服務下的其中一項子服務， 其會呈現即將發生的事件 (例如，重新開機) 相關資訊，以便應用程式做好準備並限制中斷造成的影響。 它適用於所有 Azure 虛擬機器類型 (包括 PaaS 和 IaaS)。 排定的事件讓虛擬機器有時間執行預防性工作，以將事件的影響降至最低。 
 
-排定的事件適用於 Linux 和 Window VM。 如需 Linux 上已排定事件的資訊，請參閱 [Linux VM 的已排定事件](../windows/scheduled-events.md)。
+排定的事件適用於 Linux 和 Window VM。 如需 Linux 上已排定事件的資訊，請參閱 [Linux VM 的已排定事件](../linux/scheduled-events.md)。
 
 ## <a name="why-scheduled-events"></a>為什麼要使用排定的事件？
 

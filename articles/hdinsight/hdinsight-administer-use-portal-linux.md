@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: ashishtha
-ms.openlocfilehash: d08a9a7cc82095b0a90abd98bd4f6d13cdadb671
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 704d76808fbc5f7bde98d2fca291ac7c2796db88
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 HDInsight 上的 Hadoop 叢集
 
@@ -163,7 +163,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
     >balancer
     ```
 
-    如需使用 HBase 殼層的詳細資訊，請參閱[開始使用 HDInsight 中的 Apache HBase 範例](hdinsight-hbase-tutorial-get-started-linux.md)。
+    如需使用 HBase 殼層的詳細資訊，請參閱[開始使用 HDInsight 中的 Apache HBase 範例](hbase/apache-hbase-tutorial-get-started-linux.md)。
 
 * Storm
 
@@ -209,7 +209,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
 * 使用 Azure Data Factory。 如需建立隨選 HDInsight 連結服務，請參閱 [使用 Azure Data Factory 在 HDInsight 中建立 Linux 型隨選 Handooop 叢集](hdinsight-hadoop-create-linux-clusters-adf.md) 。
 * 使用 Azure PowerShell。  請參閱 [分析航班延誤資料](hdinsight-analyze-flight-delay-data.md)。
 * 使用 Azure CLI。 請參閱 [使用 Azure CLI 管理 HDInsight 叢集](hdinsight-administer-use-command-line.md)。
-* 使用 HDInsight .NET SDK。 請參閱 [提交 Hadoop 工作](hdinsight-submit-hadoop-jobs-programmatically.md)。
+* 使用 HDInsight .NET SDK。 請參閱 [提交 Hadoop 工作](hadoop/submit-apache-hadoop-jobs-programmatically.md)。
 
 如需定價資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。 若要從入口網站刪除叢集，請參閱 [刪除叢集](#delete-clusters)
 
@@ -233,7 +233,7 @@ HDInsight 叢集可以有兩個使用者帳戶。 HDInsight 叢集使用者帳�
 >
 
 1. 使用 HDInsight 叢集使用者認證登入 Ambari Web UI。 預設的使用者名稱為 **admin**。URL 是 **https://&lt;HDInsight 叢集名稱>azurehdinsight.net**。
-2. 按一下頂端功能表中的 管理  ，然後按一下管理 Ambari。
+2. 按一下頂端功能表中的 [管理]  ，然後按一下 [管理 Ambari]。
 3. 按一下左側功能表中的 [使用者] 。
 4. 按一下 Admin 。
 5. 按一下 [變更密碼] 。
@@ -298,7 +298,7 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 
 ## <a name="find-the-storage-accounts"></a>尋找儲存體帳戶
 
-HDInsight 叢集使用 Azure 儲存體帳戶或 Azure Data Lake Store 來儲存資料。 每個 HDInsight 叢集可以有一個預設儲存體帳戶及一些連結的儲存體帳戶。 若要列出儲存體帳戶，您會先從入口網站中開啟叢集，然後按一下儲存體帳戶：
+HDInsight 叢集使用 Azure 儲存體帳戶或 Azure Data Lake Store 來儲存資料。 每個 HDInsight 叢集可以有一個預設儲存體帳戶及一些連結的儲存體帳戶。 若要列出儲存體帳戶，您會先從入口網站中開啟叢集，然後按一下 [儲存體帳戶]：
 
 ![HDInsight 叢集儲存體帳戶](./media/hdinsight-administer-use-portal-linux/hdinsight-storage-accounts.png)
 
@@ -317,7 +317,7 @@ HDInsight 叢集使用 Azure 儲存體帳戶或 Azure Data Lake Store 來儲存�
     ![HDInsight Hive 檢視](./media/hdinsight-administer-use-portal-linux/hdinsight-hive-view.png)
 
 3. 按一下頂端功能表中的 [查詢]  。
-4. 在 查詢編輯器 中輸入 Hive 查詢，然後按一下執行。
+4. 在 [查詢編輯器] 中輸入 Hive 查詢，然後按一下 [執行]。
 
 ## <a name="monitor-jobs"></a>監視工作
 請參閱 [使用 Ambari Web UI 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md#monitoring)。
@@ -341,7 +341,7 @@ HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用
 
 ## <a name="connect-to-a-cluster"></a>連接到叢集
 
-* [〈搭配 HDInsight 使用 Hivet〉](hdinsight-hadoop-use-hive-ambari-view.md)
+* [〈搭配 HDInsight 使用 Hivet〉](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [搭配使用 SSH 與 HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## <a name="next-steps"></a>後續步驟
@@ -353,10 +353,10 @@ HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用
 * [建立 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)
 * [深入了解使用 Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
 * [使用 Ambari REST API 的詳細資料](hdinsight-hadoop-manage-ambari-rest-api.md)
-* [在 HDInsight 中使用 Hive](hdinsight-use-hive.md)
-* [在 HDInsight 中使用 Pig](hdinsight-use-pig.md)
-* [在 HDInsight 中使用 Sqoop](hdinsight-use-sqoop.md)
-* [開始使用 Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [在 HDInsight 中使用 Hive](hadoop/hdinsight-use-hive.md)
+* [在 HDInsight 中使用 Pig](hadoop/hdinsight-use-pig.md)
+* [在 HDInsight 中使用 Sqoop](hadoop/hdinsight-use-sqoop.md)
+* [開始使用 Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Azure HDInsight 提供 Hadoop 的什麼版本？](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com

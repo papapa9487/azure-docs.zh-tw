@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 1e286044fb1a1b367fcac2dc14c47f68d5ed120d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a6a7c6bdf3deaee3a3949fe409a7fab6b7664695
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="sign-in-microsoft-account--azure-ad-users-in-a-single-app"></a>以單一應用程式登入 Microsoft 帳戶和 Azure AD 使用者
 在過去，想要同時支援個人之 Microsoft 帳戶和得自 Azure Active Directory 之公司帳戶的應用程式開發人員必須整合這兩個不同的系統。  **Azure AD v2.0 端點**引進了新的驗證 API 版本，可讓您在進行過一次簡單的整合後，就能同時登入這兩種帳戶。  使用 v2.0 端點的應用程式也可以利用這其中一種帳戶，從 [Microsoft Graph](https://graph.microsoft.io) 取用 REST API。
@@ -49,13 +49,8 @@ ms.lasthandoff: 10/11/2017
 * [v2.0 端點的範圍和同意](active-directory-v2-scopes.md)
 * [Microsoft Graph](https://graph.microsoft.io)
 
-## <a name="help--support"></a>說明及支援
-以下是取得在 Azure Active Directory 開發之協助的最佳位置。
-
-* [Stack Overflow 的 `azure-active-directory` 和 `adal` 標籤](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)
-* [Azure Active Directory 的意見反應](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)
-
-
 > [!NOTE]
 > 如果您只需要從 Azure Active directory 登入公司及學校帳戶，則應該先閱讀我們的 [Azure AD 開發人員指南](active-directory-developers-guide.md)。  v2.0 端點的適用對象是明確需要登入 Microsoft 個人帳戶的開發人員。
 
+
+[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/06/2017
+ms.date: 10/01/2017
 ms.author: maroche
-ms.openlocfilehash: 7259505b68202f3741e64e86555d2e3f968b8951
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2eab8ce96399c7d6da9b4afbccdfd8b836f0c9f3
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Azure 資料目錄的新功能
 **Azure 資料目錄** 的更新會定期發行。 並非所有發行版本都會包含新的使用者對應功能，某些版本會著重在後端服務功能。 本頁特別強調已加入 Azure 資料目錄服務的新使用者對應功能。
@@ -239,7 +239,7 @@ Azure 資料目錄於 2017 年 9 月新增了下列功能：
 * 支援註冊與探索 Azure SQL 資料倉儲物件和資料庫。 如需 Azure SQL 資料倉儲的詳細資訊，請參閱 [SQL 資料倉儲](https://azure.microsoft.com/services/sql-data-warehouse/)。
 * 支援將 SQL Server Analysis Services 模型和 SQL Server Reporting Services 伺服器做為容器來進行註冊與探索。 註冊 SSAS 和 SSRS 物件時，Azure 資料目錄會針對 SSAS 模型和 SSRS 伺服器，以及報告和其他物件建立項目。 您可以使用 Azure 資料目錄入口網站來探索容器，並為其加上註解。 除了搜尋和篩選目錄的內容之外，使用者也可以搜尋和篩選模型或伺服器的內容。
 * 支援透過 HTTP/HTTPS 註冊和探索 SQL Server Analysis Servics 物件。 使用者現在可以使用 URL (例如 https://servername/olap/msmdpump.dll) 連接至 SSAS 伺服器，而無需使用伺服器名稱，而且可使用 Windows 驗證以外的基本驗證與匿名連線。 如需 HTTP/HTTPS 連線至 SSAS 的其他資訊，請參閱 [設定 Analysis Services 的 HTTP 存取](https://msdn.microsoft.com/library/gg492140.aspx)。
-* 針對 HDInsight 提供 Hive 資料來源支援。 使用者現可在 HDInsight 資料來源的 Hadoop 中，註冊並探索適用於 Apache Hive 的 Hive 資料表。 如需 HDInsight 上 Hive 的其他資訊，請參閱 [HDInsight 文件中心](../hdinsight/hdinsight-use-hive.md)。
+* 針對 HDInsight 提供 Hive 資料來源支援。 使用者現可在 HDInsight 資料來源的 Hadoop 中，註冊並探索適用於 Apache Hive 的 Hive 資料表。 如需 HDInsight 上 Hive 的其他資訊，請參閱 [HDInsight 文件中心](../hdinsight/hadoop/hdinsight-use-hive.md)。
 * 支援註冊與探索 Oracle 資料庫及 HDFS 叢集以做為容器。 註冊 Oracle 資料表和檢視或 HDFS 時，Azure 資料目錄會建立資料庫、資料表及檢視的項目。 您可以使用 Azure 資料目錄入口網站來探索資料庫，並為其加上註解。 除了搜尋和篩選目錄內容之外，使用者亦可搜尋和篩選資料庫或叢集的內容。
 * 支援手動註冊未知的資料來源類型。 使用者可透過 Azure 資料目錄入口網站手動輸入資料來源資訊，如此即可為資料來源註冊工具未明確支援的資料來源加上註解並加以探索。
 * 支援註冊與探索 SQL Server 資料庫以做為容器。 註冊 SQL Server 資料表和檢視時，Azure 資料目錄會建立資料庫、資料表及檢視的項目。 您可以使用 Azure 資料目錄入口網站來探索資料庫，並為其加上註解。 除了搜尋和篩選目錄的內容之外，使用者也可以搜尋和篩選資料庫的內容。

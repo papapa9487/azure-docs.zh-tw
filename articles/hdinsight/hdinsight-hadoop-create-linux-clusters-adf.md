@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: spelluru
-ms.openlocfilehash: c1061811d205494969047fa3f91cbf449a25d8ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9b73f6691af957e42236ef9a223411a0296f96f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>使用 Azure Data Factory 在 HDInsight 中建立隨選 Handooop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -496,7 +496,7 @@ FolderPath 會指定包含輸出資料的資料夾路徑︰
 3. 按一下您在 PowerShell 指令碼中建立的資源群組名稱。 如果列出太多的資源群組，請使用篩選器。 會在新的刀鋒視窗中開啟資源群組。
 4. 除非您與其他專案共用資源群組，否則 [資源]  圖格應列出預設儲存體帳戶和 Data Factory。
 5. 按一下刀鋒視窗頂端的 [刪除]。 這麼做會刪除儲存體帳戶和此儲存體帳戶中儲存的資料。
-6. 輸入資源群組名稱以確認刪除，然後按一下刪除。
+6. 輸入資源群組名稱以確認刪除，然後按一下 [刪除]。
 
 如果您不想在刪除資源群組時刪除儲存體帳戶，可以考慮以下區隔商務資料與預設儲存體帳戶的架構。 在此情況下，您會有一個資源群組用於包含商務資料的儲存體帳戶，而另一個資源群組則用於 HDInsight 連結服務的預設儲存體帳戶和 Data Factory。 當您刪除第二個資源群組時，並不會影響商務資料儲存體帳戶。 若要這樣做：
 
@@ -564,7 +564,7 @@ FolderPath 會指定包含輸出資料的資料夾路徑︰
 ## <a name="next-steps"></a>後續步驟
 在本文中，您已學會如何使用 Azure Data Factory 來建立隨選 HDInsight 叢集來處理 Hive 作業。 若要閱讀更多資訊︰
 
-* [Hadoop 教學課程：開始在 HDInsight 中使用以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Hadoop 教學課程：開始在 HDInsight 中使用以 Linux 為基礎的 Hadoop](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [在 HDInsight 中建立以 Linux 為基礎的 Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md)
 * [HDInsight 文件](https://azure.microsoft.com/documentation/services/hdinsight/)
 * [Data Factory 文件](https://azure.microsoft.com/documentation/services/data-factory/)

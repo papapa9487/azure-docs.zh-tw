@@ -59,18 +59,8 @@
       href: site-recovery-support-matrix-to-sec-site.md
     - name: 工作負載的災害復原
       href: site-recovery-workload.md
-    - name: 使用 Azure Site Recovery 進行移轉
+    - name: 移轉至 Azure
       href: site-recovery-migrate-to-azure.md
-    - name: Azure 至 Azure 網路 (預覽)
-      href: site-recovery-azure-to-azure-networking-guidance.md
-    - name: 容錯移轉至 Azure 後的 VM 連線
-      href: concepts-on-premises-to-azure-networking.md
-    - name: 容錯移轉至次要網站後的 VM 連線
-      href: concepts-on-premises-to-on-premises-networking.md
-    - name: Azure VM 複寫的網路對應
-      href: site-recovery-network-mapping-azure-to-azure.md
-    - name: 目的地為 Azure 之 Hyper-V VM 複寫的網路對應
-      href: site-recovery-network-mapping.md
     - name: 角色型存取權限
       href: site-recovery-role-based-linked-access-control.md
     - name: 常見問題集
@@ -115,6 +105,16 @@
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
     - name: 設定
       items:
+        - name: 設定 Azure VM 災害復原 (預覽) 的網路功能
+          href: site-recovery-azure-to-azure-networking-guidance.md
+        - name: 設定容錯移轉至 Azure 之後存取的 IP 位址
+          href: concepts-on-premises-to-azure-networking.md
+        - name: 設定容錯移轉至次要網站之後存取的 IP 位址
+          href: concepts-on-premises-to-on-premises-networking.md
+        - name: 設定 Azure VM 災害復原 (預覽) 的網路對應功能
+          href: site-recovery-network-mapping-azure-to-azure.md
+        - name: 準備 Azure 之 Hyper-V VM 複寫的網路對應
+          href: site-recovery-network-mapping.md
         - name: 設定來源環境
           items:
             - name: 從 VMware 到 Azure 的來源環境

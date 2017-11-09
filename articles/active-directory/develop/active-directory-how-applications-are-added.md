@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 02/09/2016
 ms.author: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: 6ffcfcb7ed071a12b0b3495ad534fd00f6d6ad99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a97c6af38b1d3191447ad16a789a034a9d475422
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>將應用程式加入至 Azure AD 的方式和原因
 在 Azure Active Directory 的執行個體中檢視應用程式清單時，最初令人感到困惑的其中一件事情是了解應用程式的來源以及其存在目的。  本文將提供應用程式如何在目錄中呈現的高階概觀，並提供內容來協助您了解應用程式如何出現在您的目錄中。
@@ -84,8 +84,8 @@ ms.lasthandoff: 10/11/2017
   * 宣告轉換規則
   * 屬性對應 (使用者佈建)
 * 如需服務主體與應用程式物件的詳細資訊，請參閱 Azure AD Graph REST API 參考文件。  *提示*：目前可用的 Azure AD 結構描述參考中，Azure AD Graph API 文件是最有用的資源。  
-  * [應用程式](https://msdn.microsoft.com/library/azure/dn151677.aspx)
-  * [服務主體](https://msdn.microsoft.com/library/azure/dn194452.aspx)
+  * [應用程式](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
+  * [服務主體](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="how-are-apps-added-to-my-azure-ad-instance"></a>如何將應用程式加入 Azure AD 執行個體？
 有很多方式可以將應用程式加入 Azure AD：

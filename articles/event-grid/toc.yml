@@ -4,6 +4,8 @@
   items:
     - name: 關於 Event Grid
       href: overview.md
+    - name: 比較訊息服務
+      href: compare-messaging-services.md
 - name: 快速入門
   items:
     - name: 路由 Blob 儲存體事件 - Azure CLI

@@ -12,21 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 11/01/2017
 ms.author: nitinme
-ms.openlocfilehash: 92ddf9619a0db398f7866aab60e834f09add3e7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 35b737cf5b53f0ad0dbe4a50772fdcaa2e14ca5e
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>使用 Azure 串流分析將來自 Azure 儲存體 Blob 的資料串流處理至 Data Lake Store
 在這篇文章中，您將了解如何使用 Azure Data Lake Store 做為 Azure 串流分析作業的輸出。 這篇文章示範從 Azure 儲存體 Blob (輸入) 讀取資料以及將資料寫入至 Data Lake Store (輸出) 的簡單案例。
-
-> [!NOTE]
-> 目前只有在 [Azure 傳統入口網站](https://manage.windowsazure.com)支援建立及設定串流分析的 Data Lake Store 輸出。 因此，此教學課程的部份內容會使用 Azure 傳統入口網站。
->
->
 
 ## <a name="prerequisites"></a>必要條件
 開始進行本教學課程之前，您必須具備下列條件：
@@ -42,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 從左窗格中，按一下 串流分析作業，然後按一下新增。
+2. 從左窗格中，按一下 [串流分析作業]，然後按一下 [新增]。
 
     ![建立串流分析作業](./media/data-lake-store-stream-analytics/create.job.png "建立串流分析作業")
 
@@ -52,7 +47,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-a-blob-input-for-the-job"></a>建立作業的 Blob 輸入
 
-1. 開啟「串流分析作業」頁面，在左窗格中按一下 輸入 索引標籤，然後按一下新增。
+1. 開啟「串流分析作業」頁面，在左窗格中按一下 [輸入] 索引標籤，然後按一下 [新增]。
 
     ![將輸入新增至您的作業](./media/data-lake-store-stream-analytics/create.input.1.png "將輸入新增至您的作業")
 
@@ -75,7 +70,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-a-data-lake-store-output-for-the-job"></a>建立作業的 Data Lake Store 輸出
 
-1. 開啟「串流分析作業」頁面，按一下 輸出 索引標籤，然後按一下新增。
+1. 開啟「串流分析作業」頁面，按一下 [輸出] 索引標籤，然後按一下 [新增]。
 
     ![將輸出新增至您的作業](./media/data-lake-store-stream-analytics/create.output.1.png "將輸出新增至您的作業")
 

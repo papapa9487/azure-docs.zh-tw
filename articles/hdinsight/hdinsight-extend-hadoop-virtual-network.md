@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/21/2017
 ms.author: larryfr
-ms.openlocfilehash: 17059c5861962a56ed2011a8f8874fc23673ed68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5835d4ac83b54648b4f7885de577f90008018baa
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虛擬網路延伸 Azure HDInsight
 
@@ -671,8 +671,8 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 ## <a name="next-steps"></a>後續步驟
 
 * 如需設定 HDInsight 連線至內部部署網路的端對端範例，請參閱[將 HDInsight 連線至內部部署網路](./connect-on-premises-network.md)。
-* 如需在 Azure 虛擬網路中設定 Hbase 叢集，請參閱[在 Azure 虛擬網路的 HDInsight 上建立 HBase 叢集](./hdinsight-hbase-provision-vnet.md)。
-* 如需設定 HBase 異地複寫，請參閱[設定 Azure 虛擬網路中的 HBase 叢集複寫](./hdinsight-hbase-replication.md)。
+* 如需在 Azure 虛擬網路中設定 Hbase 叢集，請參閱[在 Azure 虛擬網路的 HDInsight 上建立 HBase 叢集](hbase/apache-hbase-provision-vnet.md)。
+* 如需設定 HBase 異地複寫，請參閱[設定 Azure 虛擬網路中的 HBase 叢集複寫](hbase/apache-hbase-replication.md)。
 * 如需 Azure 虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
 
 * 如需網路安全性群組的詳細資訊，請參閱[網路安全性群組](../virtual-network/virtual-networks-nsg.md)。

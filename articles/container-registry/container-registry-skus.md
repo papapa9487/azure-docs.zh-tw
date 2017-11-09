@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/16/2017
 ms.author: stevelas
-ms.openlocfilehash: 630bc088fcb6d3c7e5bb3a9713107c3fb6653ec6
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: dae97084bdaab77efd38169cdf7e70c827b0b5ab
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-container-registry-skus"></a>Azure Container Registry SKU
 
 Azure Container Registry (ACR) 具有多個服務層 (稱為SKU)。 這些 SKU 提供可預測的定價，以及幾個選項，讓您指定要如何在 Azure 中使用私用 Docker 登錄。 選擇較高層級的 SKU 可提供更多的效能和延展性。 不過，所有 SKU 都提供相同的程式設計功能，讓開發人員開始使用「基本」，並在登錄使用增加時轉換為「標準」和「進階」。
 
 ## <a name="basic"></a>基本
-了解 Azure Container Registry 之開發人員的成本最佳化進入點。 「基本」登錄具有與「標準」和「進階」相同的程式設計功能 (Azure Active Directory 驗證整合、映像刪除和 Webhook)；不過，具有其大小和使用方式條件約束。
+適用於正在學習 Azure Container Registry 之開發人員的成本最佳化進入點。 「基本」登錄具有與「標準」和「進階」相同的程式設計功能 (Azure Active Directory 驗證整合、映像刪除和 Webhook)；不過，它具有大小和使用方式上的條件約束。
 
 ## <a name="standard"></a>標準
-「標準」登錄提供與「基本」相同的功能，並且提高儲存體限制和映像輸送量。 「標準」登錄應該滿足大部分實際執行案例的需求。
+「標準」登錄提供與「基本」相同的功能，並且提高儲存體限制和映像輸送量。 「標準」登錄應該能滿足大部分實際執行案例的需求。
 
 ## <a name="premium"></a>進階
 「進階」登錄提供較高的條件約束限制 (例如儲存體和並行作業)，以啟用大量案例。 除了更高的映像輸送量容量之外，「進階」也會新增[異地複寫](container-registry-geo-replication.md)這類功能，來管理多個區域的單一登錄，並維護每個部署的網路關閉登錄。
@@ -43,21 +43,7 @@ Azure Container Registry (ACR) 具有多個服務層 (稱為SKU)。 這些 SKU �
 
 下表詳述「基本」、「標準」和「進階」服務層的功能和限制。
 
-| 功能 | 基本 | 標準 | 進階 |
-|---|---|---|---|---|
-| 儲存體 | 10 GiB | 100 GiB| 500 GiB |
-| 每分鐘的 ReadOps<sup>1、2</sup> | 1 K | 300 K | 10,000 K |
-| 每分鐘的 WriteOps<sup>1、3</sup> | 100 | 500 | 2 K |
-| 下載頻寬 Mbps<sup>1</sup> | 30 | 60 | 100 |
-| 上傳頻寬 Mbps<sup>1</sup> | 10 | 20 | 50 |
-| Webhook | 2 | 10 | 100 |
-| 異地複寫 | N/A | N/A | [支援 (預覽)](container-registry-geo-replication.md) |
-
-<sup>1</sup> *ReadOps*、*WriteOps* 和「頻寬」是最小預估值。 ACR 致力於改善需要使用時的效能。
-
-<sup>2</sup> [docker pull](https://docs.docker.com/registry/spec/api/#pulling-an-image) 會根據映像中的圖層數目以及資訊清單擷取，來轉譯為多個讀取作業。
-
-<sup>3</sup> [docker push](https://docs.docker.com/registry/spec/api/#pushing-an-image) 會根據必須推送的圖層數目，來轉譯為多個寫入作業。 `docker push` 包含 *ReadOps*，以擷取現有映像的資訊清單。
+[!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 
 ## <a name="manage-registry-size"></a>管理登錄大小
 每個 SKU 的儲存體條件約束都要符合典型案例：「基本」可用於開始使用、「標準」可用於大部分的實際執行應用程式，而「進階」可進行大規模效能和[異地複寫](container-registry-geo-replication.md)。 在整個登錄生命週期，您應該定期刪除未使用的內容來管理其大小。

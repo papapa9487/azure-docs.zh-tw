@@ -8,6 +8,41 @@
 ### [部署預先設定的解決方案](iot-suite-remote-monitoring-deploy.md)
 ### [行預先設定的解決方案](iot-suite-remote-monitoring-explore.md)
 
+## 遠端監視 (舊版)
+### [什麼是預先設定的解決方案？](iot-suite-v1-what-are-preconfigured-solutions.md)
+### [常見問題集](iot-suite-v1-faq.md)
+
+### 開始使用
+#### [開始使用預先設定的解決方案](iot-suite-v1-getstarted-preconfigured-solutions.md)
+#### [azureiotsuite.com 的權限](iot-suite-v1-permissions.md)
+#### [遠端監視解決方案的逐步解說](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
+#### [連接您的 Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
+##### 使用 C
+###### [模擬的資料](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
+###### [使用真實的感應器](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
+###### [實作韌體更新](iot-suite-v1-raspberry-pi-kit-c-get-started-advanced.md)
+##### 使用 Node.js
+###### [模擬的資料](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
+###### [使用真實的感應器](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
+###### [實作韌體更新](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
+#### 連線您的 Intel NUC 閘道
+##### [模擬的資料](iot-suite-v1-gateway-kit-get-started-simulator.md)
+##### [使用真實的感應器](iot-suite-v1-gateway-kit-get-started-sensortag.md)
+
+### 作法
+#### 連接模擬的裝置
+##### [Windows 上的 C](iot-suite-v1-connecting-devices.md)
+##### [Linux 上的 C](iot-suite-v1-connecting-devices-linux.md)
+##### [Node.js](iot-suite-v1-connecting-devices-node.md)
+#### [將邏輯應用程式連接到遠端監視解決方案](iot-suite-v1-logic-apps-tutorial.md)
+#### [自訂預先設定的方案](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
+#### [搭配使用動態遙測與遠端監視解決方案](iot-suite-v1-dynamic-telemetry.md)
+#### [在遠端監視解決方案中建立自訂規則](iot-suite-v1-custom-rule.md)
+#### [遠端監視解決方案中的裝置資訊](iot-suite-v1-remote-monitoring-device-info.md)
+
+
+
+
 ## 預測性維護
 ### [預測性維護解決方案概觀](iot-suite-predictive-overview.md)
 ### [預防性維護解決方案的逐步解說](iot-suite-predictive-walkthrough.md)
@@ -52,7 +87,7 @@
 # 相關參考
 ## [串流分析](/azure/stream-analytics/)
 ## [事件中樞](/azure/event-hubs/)
-## [IoT 中樞](/azure/iot-hub/)
+## [IoT 中心](/azure/iot-hub/)
 ## [IoT 中心](/azure/index#pivot=services&panel=iot)
 ## [Machine Learning](/azure/machine-learning/)
 

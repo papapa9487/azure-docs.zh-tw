@@ -20,6 +20,7 @@
 ## [安裝及設定內部部署資料閘道](analysis-services-gateway-install.md)
 ## [取得用戶端程式庫](analysis-services-data-providers.md)
 ## [備份與還原](analysis-services-backup.md)
+## [設定向外擴充查詢複本](analysis-services-scale-out.md)
 ## [與 Excel 連線](analysis-services-connect-excel.md)
 ## [與 Power BI 連線](analysis-services-connect-pbi.md)
 ## [建立 .odc 檔案](analysis-services-odc.md)

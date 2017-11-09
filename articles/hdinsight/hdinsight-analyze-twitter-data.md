@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: e678d5d332b7fbbfeeebbea86efd7931bda15bb1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5f97dfa084291cefde9bf27b5639926de1bc80e
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>在 HDInsight 中使用 Hive 分析 Twitter 資料
 社群網站是驅使採用巨量資料的其中一個主要動力。 像 Twitter 之類的網站所提供的公開 API，是分析和了解流行趨勢的一項實用的資料來源。
@@ -86,7 +86,7 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。 OAuth 是一項驗�
    |  名稱 |MyHDInsightApp |
    |  說明 |MyHDInsightApp |
    |  網站 |http://www.myhdinsightapp.com |
-4. 核取 是，我同意 然後按一下建立 Twitter 應用程式。
+4. 核取 [是，我同意] 然後按一下 [建立 Twitter 應用程式]。
 5. 按一下 [權限]  索引標籤。預設權限為 [唯讀] 。 本教學課程使用預設值即可。
 6. 按一下 **[金鑰和存取權杖** ] 索引標籤。
 7. 按一下 [Create my access token] 。
@@ -100,7 +100,7 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。 OAuth 是一項驗�
 
 **取得推文**
 
-1. 開啟 Windows PowerShell 整合式指令碼環境 (ISE)。 (在 Windows 8 的 開始 畫面上輸入 **PowerShell_ISE**，然後按一下Windows PowerShell ISE。 請參閱[在 Windows 8 和 Windows 上啟動 Windows PowerShell][powershell-start]。)
+1. 開啟 Windows PowerShell 整合式指令碼環境 (ISE)。 (在 Windows 8 的 [開始] 畫面上輸入 **PowerShell_ISE**，然後按一下 [Windows PowerShell ISE]。 請參閱[在 Windows 8 和 Windows 上啟動 Windows PowerShell][powershell-start]。)
 2. 將下列指令碼複製到指令碼窗格中：
 
     ```powershell
@@ -561,10 +561,10 @@ Write-Host "==================================" -ForegroundColor Green
 [powershell-script]: http://technet.microsoft.com/library/ee176961.aspx
 
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-storage-powershell]:hdinsight-hadoop-use-blob-storage.md#access-blobs-using-azure-powershell
 [hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
-[hdinsight-power-query]: hdinsight-connect-excel-power-query.md
-[hdinsight-hive-odbc]: hdinsight-connect-excel-hive-odbc-driver.md
+[hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
+[hdinsight-power-query]:hadoop/apache-hadoop-connect-excel-power-query.md
+[hdinsight-hive-odbc]:hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md

@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/01/2017
+ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: b19aaa652f2c15573ded632ca1348e1a6752f080
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a63a15782b85a48552fd913d5d3f8aaaae7db44
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>使用 ASP.NET Core 建置應用程式的 Web 服務前端
 根據預設，Azure Service Fabric 服務不提供 Web 的公用介面。 若要對 HTTP 用戶端公開應用程式的功能，您必須建立 Web 專案來作為進入點，然後從該處與個別服務通訊。
@@ -210,12 +210,6 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
     ![在瀏覽器中顯示的具狀態計數器值][browser-aspnet-counter-value]
    
     定期重新整理瀏覽器，以查看計數器值更新。
-
-## <a name="kestrel-and-weblistener"></a>Kestrel 和 WebListener
-
-預設的 ASP.NET Core 網頁伺服器，稱為 Kestrel，[目前不支援處理直接的網際網路流量](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel)。 因此，Service Fabric 的 ASP.NET Core 無狀態服務範本會使用[ WebListener](https://docs.microsoft.com/aspnet/core/fundamentals/servers/weblistener)。 
-
-若要深入了解 Service Fabric 中的 Kestrel 和 WebListener，請參閱 [Service Fabric Reliable Services 中的 ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)。
 
 ## <a name="connecting-to-a-reliable-actor-service"></a>連線至 Reliable Actor 服務
 本教學課程著重於新增會與具狀態服務通訊的 Web 前端。 但是您可以依照非常類似的模型來與動作項目交談。 當您建立 Reliable Actor 專案時，Visual Studio 會自動替您產生介面專案。 您可以使用該介面在 Web 專案中產生動作項目 Proxy 來與動作項目進行通訊。 系統會自動提供通訊通道。 因此您不需要如同在本教學課程中處理具狀態服務一樣，建立 `ServiceRemotingListener` 。

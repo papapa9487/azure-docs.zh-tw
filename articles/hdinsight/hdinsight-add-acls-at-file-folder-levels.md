@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 42d617ffeb8c2fee6be6d747b39d80b09774a1c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ca91721e691eca239478c4ac8b85e2652babdfd
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-user-permissions-at-the-file-and-folder-levels"></a>管理檔案與資料夾層級的使用者權限
 
-[已加入網域的 HDInsight 叢集](hdinsight-domain-joined-introduction.md)會搭配 Azure Active Directory (Azure AD) 使用者使用增強式驗證，也會針對各種服務 (例如 YARN 和 Hive) 使用*角色型存取控制* (RBAC) 原則。 如果您的叢集預設資料存放區是「Azure 儲存體」或「Windows Azure 儲存體 Blob」(WASB)，則您也可以強制執行檔案層級與資料夾層級的權限。 您可以使用 Apache Ranger，針對已同步的 Azure AD 使用者和群組，控制對叢集檔案的存取權。
+[已加入網域的 HDInsight 叢集](./domain-joined/apache-domain-joined-introduction.md)會搭配 Azure Active Directory (Azure AD) 使用者使用增強式驗證，也會針對各種服務 (例如 YARN 和 Hive) 使用*角色型存取控制* (RBAC) 原則。 如果您的叢集預設資料存放區是「Azure 儲存體」或「Windows Azure 儲存體 Blob」(WASB)，則您也可以強制執行檔案層級與資料夾層級的權限。 您可以使用 Apache Ranger，針對已同步的 Azure AD 使用者和群組，控制對叢集檔案的存取權。
 <!-- [synchronized Azure AD users and groups](hdinsight-sync-aad-users-to-cluster.md). -->
 
 已加入網域之 HDInsight 叢集的 Apache Ranger 執行個體已預先設定了 Ranger-WASB 服務。 Ranger-WASB 服務是一個與 Ranger-HDFS 類似的原則管理引擎，但在 Ranger 存取原則的強制執行方面有所不同。 在 Ranger-WASB 服務中，如果連入的資源要求沒有相符的 Ranger 原則，預設回應就會是 DENY。 Ranger 服務不會將權限檢查移交給 WASB。
@@ -69,7 +69,7 @@ resource: path=/app-logs/{USER}, user: {USER}, recursive=true, permissions: all,
 
 ## <a name="manage-file-and-folder-level-permissions-with-apache-ranger"></a>使用 Apache Ranger 來管理檔案層級與資料夾層級的權限
 
-如果您尚未這麼做，請依照[這些指示](hdinsight-domain-joined-configure.md)來佈建一個已加入網域的新叢集。
+如果您尚未這麼做，請依照[這些指示](./domain-joined/apache-domain-joined-configure.md)來佈建一個已加入網域的新叢集。
 
 請瀏覽至 `https://<YOUR CLUSTER NAME>.azurehdinsight.net/ranger/`來開啟 Ranger-WASB。 輸入您建立叢集時所定義的叢集系統管理員使用者名稱和密碼。
 
@@ -117,8 +117,8 @@ Apache Ranger [原則評估流程](#permission-and-policy-model)可讓您指定�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [在已加入網域的 HDInsight 中設定 Hive 原則](hdinsight-domain-joined-run-hive.md)
-* [管理已加入網域的 HDInsight 叢集](hdinsight-domain-joined-manage.md)
+* [在已加入網域的 HDInsight 中設定 Hive 原則](./domain-joined/apache-domain-joined-run-hive.md)
+* [管理已加入網域的 HDInsight 叢集](./domain-joined/apache-domain-joined-manage.md)
 * [管理 Ambari - 授權使用者存取 Ambari](hdinsight-authorize-users-to-ambari.md)
 
 <!-- * [Synchronize Azure AD users and groups](hdinsight-sync-aad-users-to-cluster.md) -->

@@ -15,16 +15,17 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: huvalo
-ms.openlocfilehash: 283a296fb39863c2801be1093cc4f56904786abd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01fa162d41e03e29f3b6f0ca128e7cc49aa91abb
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="django-hello-world-web-app-on-a-windows-server-vm"></a>Windows Server VM 上的 Django Hello World Web 應用程式
 
 > [!IMPORTANT] 
 > Azure 建立和處理資源的部署模型有二種：[Azure Resource Manager 和傳統部署模型](../../../resource-manager-deployment-model.md)。 本文說明傳統部署模型。 我們建議讓大部分的新部署使用 Resource Manager 模型。
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 本教學課程會示範如何在 Azure 虛擬機器中裝載 Windows Server 中以 Django 作為基礎的網站。 在教學課程中，我們假設沒有 Azure 的使用經驗。 當您完成教學課程時，將可在雲端啟動並執行以 Django 作為基礎的應用程式。
 
@@ -47,7 +48,7 @@ ms.lasthandoff: 10/11/2017
 2. 設定 Azure 將連接埠 80 的流量從 Web 導向虛擬機器上的連接埠 80：
    
    1. 在 Azure 入口網站中，移至儀表板，然後選取您新建立的虛擬機器。
-   2. 選取 端點，然後按一下新增。
+   2. 選取 [端點]，然後按一下 [新增]。
 
      ![新增端點。](./media/python-django-web-app/django-helloworld-add-endpoint-new-portal.png)
 

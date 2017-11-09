@@ -136,11 +136,30 @@
 ## [與 API 管理整合](service-fabric-api-management-overview.md)
 
 ## 監視與診斷
-### [概觀](service-fabric-diagnostics-overview.md)
-### [健康情況模型](service-fabric-health-introduction.md)
-### [可設定狀態 Reliable Services 中的診斷](service-fabric-reliable-services-diagnostics.md)
-### [Reliable Actors 中的診斷](service-fabric-reliable-actors-diagnostics.md)
-### [適用於 Reliable Services 遠端的效能計數器](service-fabric-reliable-serviceremoting-diagnostics.md)
+### [監視與診斷應用程式](service-fabric-diagnostics-overview.md)
+### 產生事件
+#### [產生平台層級活動](service-fabric-diagnostics-event-generation-infra.md)
+##### [作業通道](service-fabric-diagnostics-event-generation-operational.md)
+##### [Reliable Services 事件](service-fabric-reliable-services-diagnostics.md)
+##### [Reliable Actors 事件](service-fabric-reliable-actors-diagnostics.md)
+##### [效能計量](service-fabric-diagnostics-event-generation-perf.md)
+##### [監視服務遠端處理](service-fabric-reliable-serviceremoting-diagnostics.md)
+#### [產生應用程式層級事件](service-fabric-diagnostics-event-generation-app.md)
+### 檢查應用程式與叢集健全狀況
+#### [監視 Service Fabric 健全狀況](service-fabric-health-introduction.md)
+#### [回報和檢查服務健全狀況](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+#### [新增自訂健全狀況報表](service-fabric-report-health.md)
+#### [使用系統健全狀況報表進行疑難排解](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+#### [檢視健全狀況報表](service-fabric-view-entities-aggregated-health.md)
+### 彙總事件
+#### [使用 EventFlow 彙總事件](service-fabric-diagnostics-event-aggregation-eventflow.md)
+#### 使用 Azure 診斷彙總事件
+##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
+##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
+### 分析事件
+#### [使用 Application Insights 分析事件](service-fabric-diagnostics-event-analysis-appinsights.md)
+#### [使用 OMS 分析事件](service-fabric-diagnostics-event-analysis-oms.md)
+### [針對本機叢集進行疑難排解](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # 使用說明指南
 ## 設定開發環境
@@ -317,30 +336,12 @@
 #### [服務動作](service-fabric-cluster-resource-manager-movement-cost.md)
 
 ## 監視與診斷
-### [監視與診斷應用程式](service-fabric-diagnostics-overview.md)
-### 產生事件
-#### [產生平台層級活動](service-fabric-diagnostics-event-generation-infra.md)
-##### [作業通道](service-fabric-diagnostics-event-generation-operational.md)
-##### [Reliable Services 事件](service-fabric-reliable-services-diagnostics.md)
-##### [Reliable Actors 事件](service-fabric-reliable-actors-diagnostics.md)
-##### [效能計量](service-fabric-diagnostics-event-generation-perf.md)
-#### [產生應用程式層級事件](service-fabric-diagnostics-event-generation-app.md)
-### 檢查應用程式與叢集健全狀況
-#### [監視 Service Fabric 健全狀況](service-fabric-health-introduction.md)
-#### [回報和檢查服務健全狀況](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
-#### [新增自訂健全狀況報表](service-fabric-report-health.md)
-#### [使用系統健全狀況報表進行疑難排解](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-#### [檢視健全狀況報表](service-fabric-view-entities-aggregated-health.md)
-#### [監視 Windows Server 容器](service-fabric-diagnostics-containers-windowsserver.md)
-### 彙總事件
-#### [使用 EventFlow 彙總事件](service-fabric-diagnostics-event-aggregation-eventflow.md)
-#### 使用 Azure 診斷彙總事件
-##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
-##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
-### 分析事件
-#### [使用 Application Insights 分析事件](service-fabric-diagnostics-event-analysis-appinsights.md)
-#### [使用 OMS 分析事件](service-fabric-diagnostics-event-analysis-oms.md)
-### [針對本機叢集進行疑難排解](service-fabric-troubleshoot-local-cluster-setup.md)
+### OMS
+#### [設定 OMS Log Analytics](service-fabric-diagnostics-oms-setup.md)
+#### [新增 OMS 代理程式](service-fabric-diagnostics-oms-agent.md)
+#### [監視容器](service-fabric-diagnostics-oms-containers.md)
+### 效能監視
+#### [使用 WAD 進行效能監視](service-fabric-diagnostics-perf-wad.md)
 
 # 參考
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)

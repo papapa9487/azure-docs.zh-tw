@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 174ab97ac14f4c05690306691df5ee4b6d33dd93
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a3c9422887592c29c2eae8bd75cf960865808fd
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-storage-delete-errors-in-resource-manager-deployment"></a>針對 Resource Manager 部署中的儲存體刪除錯誤進行疑難排解
 本文章提供疑難排解指引，協助您排解在 Azure Resource Manager 部署中嘗試刪除 Azure 儲存體帳戶、容器或 Blob 時發生的以下任一錯誤。
@@ -84,7 +84,7 @@ Azure VM 中使用的虛擬硬碟是以分頁 Blob 儲存在 Azure 標準或進�
 2. 在 [中樞] 功能表上，選取 [虛擬機器]。
 3. 選取連接 VHD 的 VM。
 4. 確定沒有正在使用虛擬機器的項目，而且您不再需要虛擬機器。
-5. 在 虛擬機器詳細資料 刀鋒視窗頂端，選取 刪除，然後按一下是 進行確認。
+5. 在 [虛擬機器詳細資料] 刀鋒視窗頂端，選取 [刪除]，然後按一下 [是] 進行確認。
 6. VM 應該會遭到刪除，但 VHD 應該會保留下來。 不過，VHD 應該不會再連接 VM 或再有租用。 釋放租用可能需要幾分鐘的時間。 若要確認租用已釋放，請瀏覽至 Blob 位置；在 [Blob 屬性] 窗格中，[租用狀態] 應該會是 [可用]。
 
 ### <a name="step-3-detach-data-disk-from-the-vm"></a>步驟 3：中斷資料磁碟與 VM 的連線

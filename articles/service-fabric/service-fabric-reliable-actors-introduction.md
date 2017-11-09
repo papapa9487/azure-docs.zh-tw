@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: e89be04a0d6fe90a89e293e67d42f0204eb7000a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 640e051a909b1b9457b20cbd507b418342297c6e
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Service Fabric Reliable Actor 簡介
 Reliable Actors 是以 [Virtual Actor](http://research.microsoft.com/en-us/projects/orleans/) 模式為基礎的 Service Fabric 應用程式架構。 Reliable Actors API 提供單一執行緒的程式設計模型，此模型立基於 Service Fabric 所提供的延展性和可靠性保證上。
@@ -143,7 +143,7 @@ Reliable Actors 執行階段會提供簡單的回合式存取模型來存取動�
 動作項目執行階段在控制叫用這些方法的狀況下，提供這些並行保證。 例如，動作項目執行階段會對為回應用戶端要求而進行的方法叫用，以及對計時器與提醒回呼提供這些保證。 然而，如果動作項目程式碼在動作項目執行階段提供的機制之外直接叫用這些方法，則執行階段無法提供任何並行保證。 例如，如果在某個與動作項目方法所傳回的工作不相關聯的工作內容中叫用方法，則執行階段無法提供並行保證。 如果從動作項目自行建立的執行緒叫用方法，則執行階段也無法提供並行保證。 因此，若要執行背景作業，動作項目應使用遵守回合式並行的 [動作項目計時器和動作項目提醒](service-fabric-reliable-actors-timers-reminders.md) 。
 
 ## <a name="next-steps"></a>後續步驟
-* 從建置您的第一個 Reliable Actors 服務開始著手：
+從建置您的第一個 Reliable Actors 服務開始著手：
    * [開始在 .NET 上使用 Reliable Actors](service-fabric-reliable-actors-get-started.md)
    * [開始在 Java 上使用 Reliable Actors](service-fabric-reliable-actors-get-started-java.md)
 

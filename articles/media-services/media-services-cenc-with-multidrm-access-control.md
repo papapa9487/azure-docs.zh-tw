@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 730917b6859f8dbd800ef2cb141062f45d7779ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e4a53d053a4c792f54e215c19a8f0c4064815839
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>具有多重 DRM 及存取控制的 CENC：Azure 與 Azure 媒體服務的參考設計和實作
  
@@ -207,7 +207,7 @@ DRM 子系統可能包含下列元件：
 
 Azure 媒體服務團隊的 George Trifonov 所撰寫的部落格提供針對 ASP.NET MVC 播放器應用程式來設定 Azure Active Directory 的詳細步驟： [Integrate Azure Media Services OWIN MVC based app with Azure Active Directory and restrict content key delivery based on JWT claims (整合 Azure 媒體服務 OWIN MVC 型應用程式與 Azure Active Directory，並根據 JWT 宣告來限制內容金鑰傳遞)](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)。
 
-George 也撰寫了一篇相關的部落格文章： [JWT token Authentication in Azure Media Services and Dynamic Encryption (Azure 媒體服務和動態加密中的 JWT 權杖驗證)](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)。 以下是他 [整合 Azure AD 與 Azure 媒體服務金鑰傳遞的範例](https://github.com/AzureMediaServicesSamples/Key-delivery-with-AAD-integration/)。
+George 也撰寫了一篇相關的部落格文章： [JWT token Authentication in Azure Media Services and Dynamic Encryption (Azure 媒體服務和動態加密中的 JWT 權杖驗證)](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)。  
 
 如需 Azure Active Directory 的詳細資訊：
 

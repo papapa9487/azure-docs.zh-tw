@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 5c3e4a4d98922533bcf901108d58329cb951b01c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c48c0931ede6d17078c64cbb1e1dacd21098f792
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>使用 Azure Data Lake Store 處理巨量資料需求
 巨量資料處理有四個主要階段︰
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/11/2017
 以下是您可以使用的工具︰
 
 * [Azure 串流分析](../stream-analytics/stream-analytics-data-lake-output.md) - 內嵌到「事件中樞」的事件可以透過 Azure Data Lake Store 輸出被寫入 Azure Data Lake 中。
-* [Azure HDInsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md) - 您可以從 Storm 叢集將資料直接寫入 Data Lake Store 中。
+* [Azure HDInsight Storm](../hdinsight/storm/apache-storm-write-data-lake-store.md) - 您可以從 Storm 叢集將資料直接寫入 Data Lake Store 中。
 * [EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) - 您可以從「事件中樞」接收事件，然後使用 [Data Lake Store .NET SDK](data-lake-store-get-started-net-sdk.md) 將事件寫入 Data Lake Store 中。
 
 ### <a name="relational-data"></a>關聯式資料

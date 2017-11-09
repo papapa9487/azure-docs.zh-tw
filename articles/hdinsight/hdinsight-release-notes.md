@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: nitinme
-ms.openlocfilehash: 96b2b4976729da5b7d8b75909dbe099090240c08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8a8b62e2cdf9f4f6c41b041ac20694303203531b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Azure HDInsight 上 Hadoop 元件的版本資訊
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 10/11/2017
 
 * **Hive 的新功能**。 請參閱 [Hortonworks 文件](https://hortonworks.com/apache/hive/#section_4)。
 
-* **Hive CLI 取代**︰Hive CLI 已被取代，建議客戶改用 Beeline。 如需詳細資訊，請參閱 [Apache 文件](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline)。 如需有關如何使用 Beeline 搭配 HDInsight 的指示，請參閱[搭配 HDInsight Hadoop 叢集使用 Beeline](hdinsight-hadoop-use-hive-beeline.md)。
+* **Hive CLI 取代**︰Hive CLI 已被取代，建議客戶改用 Beeline。 如需詳細資訊，請參閱 [Apache 文件](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline)。 如需有關如何使用 Beeline 搭配 HDInsight 的指示，請參閱[搭配 HDInsight Hadoop 叢集使用 Beeline](hadoop/apache-hadoop-use-hive-beeline.md)。
 
 * **Apache Phoenix 和 HBase 的新功能**。
     * 儲存配額支援︰通常用在多租用戶環境中，允許在個別資料表和個別命名空間等級上維持有限的儲存空間。

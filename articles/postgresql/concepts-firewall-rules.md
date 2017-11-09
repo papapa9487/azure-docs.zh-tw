@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/10/2017
-ms.openlocfilehash: a8e1980900b430e56b0c01a4446dc525d25698da
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 11/03/2017
+ms.openlocfilehash: 7fec71f621ffeff2fc42a5a9464ae9011b2e2fee
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-server-firewall-rules"></a>適用於 PostgreSQL 的 Azure 資料庫伺服器防火牆規則
 「適用於 PostgreSQL 的 Azure 資料庫」伺服器防火牆會防止對您資料庫伺服器進行的所有存取，直到您指定哪些電腦擁有權限為止。 此防火牆會根據每一個要求的來源 IP 位址來授與伺服器存取權。

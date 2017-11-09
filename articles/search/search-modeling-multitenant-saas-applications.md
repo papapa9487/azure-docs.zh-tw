@@ -13,11 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2016
 ms.author: ashmaka
-ms.openlocfilehash: fd1b0c7cc8210d27fdc500bf4e5641bedfe93cff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33897e7966de5d467602f6cb36fe16caf0786ffd
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>多租用戶 SaaS 應用程式與 Azure 搜尋服務的設計模式
 多租用戶應用程式是為不能查看或共用任何其他租用戶之資料的租用戶提供相同服務和功能的應用程式，其中租用戶的數目並無限制。 本文件將討論以「Azure 搜尋服務」建置的多租用戶應用程式的租用戶隔離策略。
@@ -44,7 +44,7 @@ Azure 搜尋服務有幾個不同的[定價層](https://azure.microsoft.com/pric
 |  | 基本 | Standard1 | Standard2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
 | 每項服務的複本數目上限 |3 |12 |12 |12 |12 |
-| 每項服務的資料分割數目上限 |1 |12 |12 |12 |1 |
+| 每項服務的資料分割數目上限 |1 |12 |12 |12 |3 |
 | 每項服務的搜尋單位數目上限 (複本數*資料分割數) |3 |36 |36 |36 |36 (最多 3 個資料分割) |
 | 每項服務的文件數目上限 |100 萬 |1 億 8000 萬 |7 億 2000 萬 |140 億 |6 億 |
 | 每項服務的儲存體上限 |2 GB |300 GB |1.2 TB |2.4 TB |600 GB |

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: d1cb92e15109775fd120d82df6cfa94b7023d5b9
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 08fd66ed68b651bd24bc1bc58ec9631106665381
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>使用 Draft 搭配 Azure Container Service 與 Azure Container Registry，可將應用程式建置及部署至 Kubernetes
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/30/2017
 
 2. 使用 [az acr create](/cli/azure/acr#create) 建立 ACR 映像登錄，並確定 `--admin-enabled` 選項已設定為 `true`。
       ```azurecli
-      az acr create --resource-group draft --name draftacs --sku Basic --admin-enabled true 
+      az acr create --resource-group draft --name draftacs --sku Basic
       ```
 
 

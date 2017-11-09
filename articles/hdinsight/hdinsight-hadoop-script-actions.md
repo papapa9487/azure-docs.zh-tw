@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0e182e6b43fd2d17524c1da36cf4c204bb1b865a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1b10887bcfa7f7c25375bd990ec5e97d0fefbacf
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>開發 HDInsight Windows 型叢集指令碼動作指令碼
 了解如何寫入 HDInsight 的指令碼動作指令碼 如需使用指令碼動作指令碼的資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md)。 如需針對 Linux 型 HDInsight 叢集撰寫的相同文章，請參閱[開發 HDInsight 的指令碼動作指令碼](hdinsight-hadoop-script-actions-linux.md)。
@@ -245,12 +245,12 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 
 ## <a name="debug-custom-scripts"></a>偵錯自訂指令碼
 指令碼錯誤記錄檔會與其他輸出一起儲存在您建立叢集時為其指定的預設儲存體帳戶中。 記錄檔是以 *u<\cluster-name-fragment><\time-stamp>setuplog* 的名稱儲存在資料表中。 這些是彙總的記錄檔，包含來自指令碼執行所在之所有叢集節點 (前端節點和背景工作節點) 的記錄。
-檢查記錄檔的簡單方法是使用 HDInsight Tools for Visual Studio。 如需安裝工具，請參閱 [開始使用 Visual Studio Hadoop tools for HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md#install-data-lake-tools-for-visual-studio)
+檢查記錄檔的簡單方法是使用 HDInsight Tools for Visual Studio。 如需安裝工具，請參閱 [開始使用 Visual Studio Hadoop tools for HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#install-data-lake-tools-for-visual-studio)
 
 **使用 Visual Studio 檢查記錄檔**
 
 1. 開啟 Visual Studio。
-2. 按一下 檢視，然後按一下伺服器總管。
+2. 按一下 [檢視]，然後按一下 [伺服器總管]。
 3. 以滑鼠右鍵按一下 [Azure]、按一下 [連接到 Microsoft Azure 訂用帳戶] ，然後輸入您的認證。
 4. 依序展開**儲存體**、做為預設檔案系統的 Azure 儲存體帳戶及**資料表**，然後按兩下資料表名稱。
 

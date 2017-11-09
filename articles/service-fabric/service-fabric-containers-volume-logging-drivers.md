@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: cf7b0dd3a81c35be4907dbba85b72ce4f87e3a9f
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 7464611e669165d9ec1f0de7422b20b3f3b8c2b5
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="using-volume-plugins-and-logging-drivers-in-your-container"></a>使用容器的磁碟區外掛程式和記錄驅動程式
 
@@ -29,7 +29,7 @@ Service Fabric 支援為容器服務指定 [Docker 磁碟區外掛程式](https:
 如果電腦未安裝 Docker 磁碟區/記錄驅動程式，請透過 RDP/SSH 登入電腦，或透過 VMSS 啟動指令碼手動安裝。 例如，為了安裝 Docker 磁碟區驅動程式，SSH 登入電腦並執行：
 
 ```bash
-docker plugin install --alias azure --grant-all-permissions docker4x/17.09.0-ce-azure1  \
+docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:17.09.0-ce-azure1  \
     CLOUD_PLATFORM=AZURE \
     AZURE_STORAGE_ACCOUNT="[MY-STORAGE-ACCOUNT-NAME]" \
     AZURE_STORAGE_ACCOUNT_KEY="[MY-STORAGE-ACCOUNT-KEY]" \
@@ -77,7 +77,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/17.09.0-ce-
 指定磁碟區外掛程式時，Service Fabric 會使用指定的參數自動建立磁碟區。 `Source` 標記是磁碟區的名稱，而 `Driver` 標記會指定磁碟區驅動程式的外掛程式。 您可以使用 `DriverOption` 標記指定選項，如下列程式碼片段所示：
 
 ```xml
-<Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azurefile" IsReadOnly="true">
+<Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azure" IsReadOnly="true">
            <DriverOption Name="share" Value="models"/>
 </Volume>
 ```

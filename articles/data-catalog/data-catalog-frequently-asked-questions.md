@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/15/2017
+ms.date: 10/15/2017
 ms.author: maroche
-ms.openlocfilehash: 11e4bc7e71b4a94c3a0eda4275745b1beb44974d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7aa0f9b292a98c6137ecf4ae957b3cb86062f250
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Azure 資料目錄的常見問題集
 這篇文章提供與 Azure 資料目錄服務相關的常見問題集解答。
@@ -97,7 +97,7 @@ ms.lasthandoff: 10/11/2017
 在註冊過程中，您也可以提供一些中繼資料，例如專家和標記。 在資料目錄發佈服務中提供的值，將會套用到當時註冊的所有資產。 若要在入口網站中檢視最近註冊的物件以另外標註，請在資料目錄發佈應用程式的最後一個畫面中選取 [檢視入口網站] 按鈕。
 
 ## <a name="how-do-i-delete-my-registered-data-objects"></a>如何刪除我已註冊的資料物件？
-您可以從資料目錄中刪除物件，只要在入口網站中選取物件，然後按一下刪除 按鈕即可。 移除物件會從資料目錄中移除其中繼資料，但不會影響基礎資料來源。
+您可以從資料目錄中刪除物件，只要在入口網站中選取物件，然後按一下 [刪除] 按鈕即可。 移除物件會從資料目錄中移除其中繼資料，但不會影響基礎資料來源。
 
 ## <a name="what-is-an-expert"></a>什麼是專家？
 專家是指對資料物件具有獨特見解的人。 一個物件可能有多個專家。 專家不見得是物件的「擁有者」，而只是知道應該如何運用資料的人。
@@ -121,7 +121,7 @@ ms.lasthandoff: 10/11/2017
 我們正積極擴充資料目錄的功能。 如果您希望在註冊期間從資料來源擷取其他中繼資料，請在 [Azure 資料目錄論壇](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)提出建議 (如果已有人建議，請投票支持)。 未來，我們將允許協力廠商透過擴充性 API 加入新的資料來源類型。
 
 ## <a name="how-do-i-restrict-the-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>如何限制已註冊之資料資產的可見性，以限制只有特定人員才能探索它們？
-在資料目錄中選取資料資產，然後按一下取得擁有權 按鈕。 資料目錄中的資料資產擁有者可以變更可見性設定，可能變更為允許所有使用者探索擁有的資產，或限定只有特定使用者才能看見。
+在資料目錄中選取資料資產，然後按一下 [取得擁有權] 按鈕。 資料目錄中的資料資產擁有者可以變更可見性設定，可能變更為允許所有使用者探索擁有的資產，或限定只有特定使用者才能看見。
 
 ## <a name="how-do-i-update-the-registration-for-a-data-asset-so-that-changes-in-the-data-source-are-reflected-in-the-catalog"></a>如何更新資料資產的註冊，讓資料來源中的變更反映在目錄中？
 若要更新已在目錄中註冊之資料資產的中繼資料，只要重新註冊包含這些資產的資料來源即可。 資料來源中的任何變更 (例如在資料表或檢視中新增或移除資料行) 都會在目錄中更新，但會保留使用者提供的任何註解。

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 4264af14370557c55050b0c4951812090d33d7a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0794952fdfbcc49cc66273be2d46484014ae1677
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>在 Azure 資料處理站管線中使用自訂活動
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -106,7 +106,7 @@ public IDictionary<string, string> Execute(
 1. 建立 **.NET 類別庫** 專案。
    <ol type="a">
      <li>啟動 <b>Visual Studio 2017</b> 或 <b>Visual Studio 2015</b> 或 <b>Visual Studio 2013</b> 或 <b>Visual Studio 2012</b>。</li>
-     <li>按一下 檔案<b></b>，指向 新增<b></b>，然後按一下專案<b></b>。</li>
+     <li>按一下 [檔案]<b></b>，指向 [新增]<b></b>，然後按一下 [專案]<b></b>。</li>
      <li>展開 [範本]<b></b>，然後選取 [Visual C#]<b></b>。 在此逐步解說中，您使用 C# 中，但您可以使用任何 .NET 語言來開發自訂活動。</li>
      <li>從右邊的專案類型清單中選取 [類別庫]<b></b>。 在 VS 2017 中，選擇 <b>類別庫 (.NET Framework)</b> </li>
      <li>在 [名稱]<b></b> 輸入 <b>MyDotNetActivity</b>。</li>
@@ -659,7 +659,7 @@ test custom activity Microsoft test custom activity Microsoft
 如果您在 Visual Studio 中建立 Data Factory 專案，請執行下列額外步驟︰
  
 1. 將 Data Factory 專案新增至包含自訂活動專案的 Visual Studio 解決方案。 
-2. 從 Data Factory 專案將參考新增至 .NET 活動專案。 以滑鼠右鍵按一下 Data Factory 專案，指向 新增，然後按一下參考。 
+2. 從 Data Factory 專案將參考新增至 .NET 活動專案。 以滑鼠右鍵按一下 Data Factory 專案，指向 [新增]，然後按一下 [參考]。 
 3. 在 [新增參考] 對話方塊中，選取 **MyDotNetActivity** 專案，然後按一下 [確定]。
 4. 建置及發佈解決方案。
 

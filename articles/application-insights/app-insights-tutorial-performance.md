@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 1176e6ac33db5b9428a323c3a6271818807afc72
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 0edec15c7f14ee5338555b03700b7be32c3a1023
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>使用 Azure Application Insights 尋找並診斷效能問題
 
@@ -35,7 +35,7 @@ Azure Application Insights 會從您的應用程式收集遙測，以協助分�
     - ASP.NET 和 Web 開發
     - Azure 開發
 - 將 .NET 應用程式部署至 Azure，並[啟用 Application Insights SDK](app-insights-asp-net.md)。
-- [啟用應用程式的 Application Insights Profiler](app-insights-profiler.md#enable-the-profiler)。
+- [啟用應用程式的 Application Insights Profiler](app-insights-profiler.md#installation)。
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 登入 Azure 入口網站，網址為 [https://portal.azure.com](https://portal.azure.com)。

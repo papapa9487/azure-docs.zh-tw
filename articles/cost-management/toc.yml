@@ -21,6 +21,8 @@
       href: tutorial-user-access.md
     - name: 3 - 預測的花費
       href: tutorial-forecast-spending.md
+    - name: 4 - 管理成本
+      href: tutorial-manage-costs.md
 - name: 資源
   items:
     - name: 成本管理影片

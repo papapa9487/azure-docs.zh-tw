@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
-ms.openlocfilehash: 412fc8b76d2b5ac45532d3ccb7a2ab7361d53596
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1098ea7f7ab7765f9769dd2e398eb3b62c5557b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>可以搭配 HDInsight 使用的 Hadoop 元件和版本有哪些？
 
@@ -174,7 +174,7 @@ Azure HDInsight 提供兩種類型的巨量資料雲端提供項目：_標準_�
 
 | HDInsight Premium 功能 | 說明 |
 | --- | --- |
-| 已加入網域的 HDInsight 叢集 |將 HDInsight 叢集加入 Azure Active Directory (Azure AD) 網域，以獲得企業級安全性。 在 HDInsight Premium 中，您可以設定企業員工清單，指出可透過 Azure AD 進行驗證以登入 HDInsight 叢集的員工。 企業系統管理員可以使用 [Apache Ranger](http://hortonworks.com/apache/ranger/) \(英文\)，針對 Hive 安全性設定角色型存取控制，並將資料存取限制為只有在需要時使用。 最後，系統管理員可以稽核員工所存取的資料，以及對存取控制原則所做的變更，因而達到高度的公司資源控管。 如需詳細資訊，請參閱[設定已加入網域的 HDInsight 叢集](hdinsight-domain-joined-configure.md)。 |
+| 已加入網域的 HDInsight 叢集 |將 HDInsight 叢集加入 Azure Active Directory (Azure AD) 網域，以獲得企業級安全性。 在 HDInsight Premium 中，您可以設定企業員工清單，指出可透過 Azure AD 進行驗證以登入 HDInsight 叢集的員工。 企業系統管理員可以使用 [Apache Ranger](http://hortonworks.com/apache/ranger/) \(英文\)，針對 Hive 安全性設定角色型存取控制，並將資料存取限制為只有在需要時使用。 最後，系統管理員可以稽核員工所存取的資料，以及對存取控制原則所做的變更，因而達到高度的公司資源控管。 如需詳細資訊，請參閱[設定已加入網域的 HDInsight 叢集](./domain-joined/apache-domain-joined-configure.md)。 |
 
 ### <a name="cluster-types-supported-in-hdinsight-premium"></a>HDInsight Premium 中支援的叢集類型
 下表列出 HDInsight Premium 中支援的叢集類型。

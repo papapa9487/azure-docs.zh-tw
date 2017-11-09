@@ -29,12 +29,15 @@
       href: concepts-service.md
     - name: 安全性概念
       href: concepts-security.md
+    - name: 安全性
 - name: 使用說明指南
   items:
     - name: 管理裝置註冊
       href: how-to-manage-enrollments.md
     - name: 使用 HSM 與 SDK
       href: use-hsm-with-sdk.md
+    - name: 控制佈建服務的存取
+      href: how-to-control-access.md
 - name: 參考
   items:
     - name: REST

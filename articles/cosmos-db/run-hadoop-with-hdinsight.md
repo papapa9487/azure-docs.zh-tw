@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 427864fc4e494c19fcda4cfd454a9923499f6337
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c8789f08a37466862120dda88a0bce7da3e9a91
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>使用 Azure Cosmos DB 和 HDInsight 執行 Apache Hive、Pig 或 Hadoop 作業
 本教學課程示範如何在 Azure HDInsight 上，使用 Cosmos DB 的 Hadoop 連接器來執行 [Apache Hive][apache-hive]、[Apache Pig][apache-pig] 和 [Apache Hadoop][apache-hadoop] MapReduce 作業。 Cosmos DB 的 Hadoop 連接器可讓 Cosmos DB 同時做為 Hive、Pig 和 MapReduce 作業的來源和接收。 本教學課程將使用 Cosmos DB 同時作為 Hadoop 作業的資料來源和目的地。
@@ -79,7 +79,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 登入 [Azure 入口網站][azure-portal]。
 2. 按一下左側導覽頂端的 [+ 新增]，然後在 [新增] 刀鋒視窗的頂端搜尋列中搜尋 **HDInsight**。
-3. **Microsoft** 所發佈的 **HDInsight** 就會出現在 [結果] 頂端。 對它按一下，然後按一下建立 。
+3. **Microsoft** 所發佈的 **HDInsight** 就會出現在 [結果] 頂端。 對它按一下，然後按一下 [建立] 。
 4. 在 [新的 HDInsight 叢集建立] 刀鋒視窗中，輸入您的**叢集名稱**，然後選取您要用來佈建此資源的 [訂用帳戶]。
 
     <table border='1'>
@@ -144,7 +144,7 @@ DNS 名稱的開頭與結尾都必須是英數字元，且可包含連字號。<
 1. 安裝 Azure PowerShell。 您可以在[這裡][powershell-install-configure]找到指示。
 
    > [!NOTE]
-   > 或者，您可以使用 HDInsight 的線上 Hive 編輯器 (僅限 Hive 查詢)。 若要這樣做，請登入 [Azure 入口網站][azure-portal]，按一下左側窗格中的 [HDInsight]，以檢視您的 HDInsight 叢集清單。 按一下您要執行 Hive 查詢的叢集，然後按一下 **查詢主控台**。
+   > 或者，您可以使用 HDInsight 的線上 Hive 編輯器 (僅限 Hive 查詢)。 若要這樣做，請登入 [Azure 入口網站][azure-portal]，按一下左側窗格中的 [HDInsight]，以檢視您的 HDInsight 叢集清單。 按一下您要執行 Hive 查詢的叢集，然後按一下 [ **查詢主控台**]。
    >
    >
 2. 開啟 Azure PowerShell 整合式指令碼環境：
@@ -420,13 +420,13 @@ DNS 名稱的開頭與結尾都必須是英數字元，且可包含連字號。<
 [import-data]: import-data.md
 
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md
-[hdinsight-develop-deploy-java-mapreduce]: ../hdinsight/hdinsight-develop-deploy-java-mapreduce-linux.md
+[hdinsight-develop-deploy-java-mapreduce]:../hdinsight/hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 [hdinsight-hadoop-customize-cluster]: ../hdinsight/hdinsight-hadoop-customize-cluster.md
 [hdinsight-get-started]: ../hdinsight/hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-storage]: ../hdinsight/hdinsight-hadoop-use-blob-storage.md
-[hdinsight-use-hive]: ../hdinsight/hdinsight-use-hive.md
-[hdinsight-use-mapreduce]: ../hdinsight/hdinsight-use-mapreduce.md
-[hdinsight-use-pig]: ../hdinsight/hdinsight-use-pig.md
+[hdinsight-use-hive]:../hdinsight/hadoop/hdinsight-use-hive.md
+[hdinsight-use-mapreduce]:../hdinsight/hadoop/hdinsight-use-mapreduce.md
+[hdinsight-use-pig]:../hdinsight/hadoop/hdinsight-use-pig.md
 
 [image-customprovision-page1]: ./media/run-hadoop-with-hdinsight/customprovision-page1.png
 [image-hive-query-results]: ./media/run-hadoop-with-hdinsight/hivequeryresults.PNG

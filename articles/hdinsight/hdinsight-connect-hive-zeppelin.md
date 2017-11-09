@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: jgao
-ms.openlocfilehash: b44321619f2aa94a6d98624ab1ee35a598fb6fc8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b2ca9dd60187904d9d22e8308e31ed46b1213e6
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-zeppelin-to-run-hive-queries-in-azure-hdinsight"></a>使用 Zeppelin 在 Azure HDInsight 中執行 Hive 查詢 
 
@@ -29,7 +29,7 @@ HDInsight 互動式查詢叢集納入了 Zeppelin 筆記本，以供您用來執
 ## <a name="prerequisites"></a>必要條件
 在閱讀本文之前，您必須有下列各項：
 
-* **HDInsight 互動式查詢叢集**。 請參閱[建立叢集](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster)以建立 HDInsight 叢集。  請務必選擇互動式查詢類型。 
+* **HDInsight 互動式查詢叢集**。 請參閱[建立叢集](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)以建立 HDInsight 叢集。  請務必選擇互動式查詢類型。 
 
 ## <a name="create-a-zeppelin-note"></a>建立 Zeppelin 記事
 
@@ -76,9 +76,9 @@ HDInsight 互動式查詢叢集納入了 Zeppelin 筆記本，以供您用來執
 ## <a name="next-steps"></a>後續步驟
 在本文中，您已了解如何使用 Power BI 將 HDInsight 中的資料視覺化。  若要深入了解，請參閱下列文章：
 
-* [在 Azure HDInsight 中使用 Microsoft Power BI 將 Hive 資料視覺化](./hdinsight-connect-hive-power-bi.md)。
-* [使用 Microsoft Hive ODBC 驅動程式將 Excel 連線到 HDInsight](./hdinsight-connect-excel-hive-odbc-driver.md)。
-* [使用 Power Query 將 Excel 連線到 Hadoop](./hdinsight-connect-excel-power-query.md)。
-* [使用 Data Lake Tools for Visual Studio 連線至 Azure HDInsight 及執行 Hive 查詢](./hdinsight-hadoop-visual-studio-tools-get-started.md)。
+* [在 Azure HDInsight 中使用 Microsoft Power BI 將 Hive 資料視覺化](hadoop/apache-hadoop-connect-hive-power-bi.md)。
+* [使用 Microsoft Hive ODBC 驅動程式將 Excel 連線到 HDInsight](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)。
+* [使用 Power Query 將 Excel 連線到 Hadoop](hadoop/apache-hadoop-connect-excel-power-query.md)。
+* [使用 Data Lake Tools for Visual Studio 連線至 Azure HDInsight 及執行 Hive 查詢](hadoop/apache-hadoop-visual-studio-tools-get-started.md)。
 * [使用適用於 Visual Studio Code 的 Azure HDInsight 工具](hdinsight-for-vscode.md)。
 * [將資料上傳至 HDInsight](./hdinsight-upload-data.md)。

@@ -3,7 +3,7 @@ title: "設定 Azure MFA | Microsoft Docs"
 description: "這是描述 Azure Multi-factor Authentication 後續步驟的 MFA 頁面。  其內容包括報告、詐騙警示、一次性略過、自訂語音訊息、快取、信任的 IP 及應用程式密碼。"
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
-ms.author: kgremban
-ms.openlocfilehash: 9d77b9329116afcf2fdde48d672c95020738138c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: joflore
+ms.openlocfilehash: 527bdd492561ab11784a0b23384d17e055cb3f5c
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>設定 Azure Multi-Factor Authentication 設定
 既然您已啟動並執行 Azure Multi-Factor Authentication，本文將協助您進行管理。  本文涵蓋各種主題，協助您充分發揮 Azure Multi-Factor Authentication 的功效。  並非所有版本的 Azure Multi-Factor Authentication 均提供所有這些功能。
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 - Azure AD Premium 
 - Enterprise Mobility + Security
 
-若要透過 [MFA 服務設定] 頁面存取 MFA 管理入口網站，請以系統管理員身分登入 Azure 傳統入口網站，並選取 [Active Directory] 選項。 按一下您的目錄，然後按一下設定  索引標籤。在 Multi-Factor Authentication 區段底下，選取 管理服務設定 。 在 [MFA 服務設定] 頁面底部，按一下 [移至入口網站]  連結。
+若要透過 [MFA 服務設定] 頁面存取 MFA 管理入口網站，請以系統管理員身分登入 Azure 傳統入口網站，並選取 [Active Directory] 選項。 按一下您的目錄，然後按一下 [設定]  索引標籤。在 [Multi-Factor Authentication] 區段底下，選取 [管理服務設定] 。 在 [MFA 服務設定] 頁面底部，按一下 [移至入口網站]  連結。
 
 
 ## <a name="fraud-alert"></a>詐騙警示

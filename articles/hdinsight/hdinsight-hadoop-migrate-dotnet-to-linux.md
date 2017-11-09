@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: df931d0f76498506cfc946501e4d385d0dfead80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 978606aa5f16842f8198ee67a65b476b4f560ab7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>將以 Windows 為基礎的 HDInsight 適用的 .NET 方案移轉至以 Linux 為基礎的 HDInsight
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 如需 Mono 與 .NET 之間的相容性詳細資訊，請參閱 [Mono 相容性 (英文) (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) 文件。
 
 > [!IMPORTANT]
-> SCP.NET 架構與 Mono 相容。 如需搭配 Mono 使用 SCP.NET 的詳細資訊，請參閱[使用 Visual Studio 開發適用於 Apache Storm on HDInsight 的 C# 拓撲](hdinsight-storm-develop-csharp-visual-studio-topology.md)。
+> SCP.NET 架構與 Mono 相容。 如需搭配 Mono 使用 SCP.NET 的詳細資訊，請參閱[使用 Visual Studio 開發適用於 Apache Storm on HDInsight 的 C# 拓撲](storm/apache-storm-develop-csharp-visual-studio-topology.md)。
 
 ## <a name="automated-portability-analysis"></a>自動化的可攜性分析
 
@@ -74,8 +74,8 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-* [在 HDInsight 上搭配 MapReduce 使用 C#](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
+* [在 HDInsight 上搭配 MapReduce 使用 C#](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [搭配 Hive 和 Pig 使用 C# 使用者定義函式](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [搭配 Hive 和 Pig 使用 C# 使用者定義函式](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [開發適用於 Storm on HDInsight 的 C# 拓撲](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+* [開發適用於 Storm on HDInsight 的 C# 拓撲](storm/apache-storm-develop-csharp-visual-studio-topology.md)

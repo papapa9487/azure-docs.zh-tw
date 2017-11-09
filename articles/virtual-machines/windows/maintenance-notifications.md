@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: zivr
-ms.openlocfilehash: fec64b3c499577af6b1d6eddb1c761ee0af73772
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: cf9a624574cc5d63e17537d07d23bf38cc9d442a
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>處理 Windows 虛擬機器預定進行的維修作業通知
 
@@ -72,7 +72,7 @@ Get-AzureRmVM -ResourceGroupName rgName -Name vmName -Status
 您也可以使用 [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) 而不指定 VM 來取得資源群組中所有 VM 的維修狀態。
  
 ```powershell
-Get-AzureRmVM -ResourceGroupName rgName --Status
+Get-AzureRmVM -ResourceGroupName rgName -Status
 ```
 
 下列 PowerShell 函式會取得您的訂用帳戶識別碼，並印出已排定進行維修的 VM 清單。

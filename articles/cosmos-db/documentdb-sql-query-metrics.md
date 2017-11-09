@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: c6c929c568cf7246c2c2e414723a38429727df36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f057ee80e8a26595c17e6610a2aaaad08d0346b5
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 調整查詢效能
 Azure Cosmos DB 提供一個[適用於查詢資料的 SQL API](documentdb-sql-query.md)，而不需結構描述或次要索引。 本文可為開發人員提供下列資訊：
@@ -253,7 +253,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `documentLoadTimeInMs` | 毫秒 | 載入文件所花費的時間  | 
 | `systemFunctionExecuteTimeInMs` | 毫秒 | 執行系統 (內建) 函式所花費的總時間，以毫秒為單位  | 
 | `userFunctionExecuteTimeInMs` | 毫秒 | 執行使用者定義函式所花費的總時間，以毫秒為單位 | 
-| `retrievedDocumentCount` | 毫秒 | 擷取的文件總數  | 
+| `retrievedDocumentCount` | 計數 | 擷取的文件總數  | 
 | `retrievedDocumentSize` | 位元組 | 擷取的文件大小總計，以位元組為單位  | 
 | `outputDocumentCount` | 計數 | 輸出文件數目 | 
 | `writeOutputTimeInMs` | 毫秒 | 查詢執行時間，以毫秒為單位 | 

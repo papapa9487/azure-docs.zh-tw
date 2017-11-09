@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/11/2017
 ms.author: larryfr
-ms.openlocfilehash: 574ccaa8b2d9448a60ddf8adc7f92fa3683b1d61
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53db03029ffca724638871b22a12dfa7f160fc64
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>搭配 Hortonworks 沙箱使用 Azure Data Lake tools for Visual Studio
 
@@ -29,7 +29,7 @@ Azure Data Lake 包含使用於一般 Hadoop 叢集的工具。 針對在本機�
 
 ## <a name="prerequisites"></a>先決條件
 
-* 在您的開發環境上虛擬機器中執行的 Hortonworks 沙箱。 此文件是使用在 Oracle VirtualBox 上執行的沙箱所撰寫並測試。 若要了解沙箱的設定，請參閱 [Hortonworks 沙箱使用者入門](hdinsight-hadoop-emulator-get-started.md) 文件。
+* 在您的開發環境上虛擬機器中執行的 Hortonworks 沙箱。 此文件是使用在 Oracle VirtualBox 上執行的沙箱所撰寫並測試。 若要了解沙箱的設定，請參閱 [Hortonworks 沙箱使用者入門](hadoop/apache-hadoop-emulator-get-started.md) 文件。
 
 * Visual Studio 2013、Visual Studio 2015 或 Visual Studio 2017 (任一版本)。
 
@@ -39,7 +39,7 @@ Azure Data Lake 包含使用於一般 Hadoop 叢集的工具。 針對在本機�
 
 ## <a name="configure-passwords-for-the-sandbox"></a>設定沙箱的密碼
 
-確定 Hortonworks 沙箱正在執行。 依照 [Hortonworks 沙箱使用者入門](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords)文件中的步驟執行。 這些步驟會設定 SSH `root` 帳戶以及 Ambari `admin` 帳戶的密碼。 從 Visual Studio 連線至沙箱時會使用這些密碼。
+確定 Hortonworks 沙箱正在執行。 依照 [Hortonworks 沙箱使用者入門](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords)文件中的步驟執行。 這些步驟會設定 SSH `root` 帳戶以及 Ambari `admin` 帳戶的密碼。 從 Visual Studio 連線至沙箱時會使用這些密碼。
 
 ## <a name="connect-the-tools-to-the-sandbox"></a>將工具連線至沙箱
 

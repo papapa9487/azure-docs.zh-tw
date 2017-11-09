@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.openlocfilehash: 6e6e7a199547135bd9695ff0867e8d5a98341b12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ec2eaaf4e8d54e7b1ea3d272c47eac96451f317
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>資料科學 Team 專案的平台和工具
 
@@ -61,7 +61,7 @@ Apache Spark 是一個開放原始碼平行處理架構，可支援記憶體內�
 
 當您在 HDInsight 中建立 Spark 叢集時，就是建立了已安裝及設定 Spark 的 Azure 計算資源。 在 HDInsight 中建立 Spark 叢集需要約 10 分鐘。 系統會將要處理的資料儲存在 Azure Blob 儲存體。 如需關於搭配叢集使用 Azure Blob 儲存體的詳細資訊，請參閱[在 HDInsight 上搭配 Hadoop 使用 HDFS 相容的 Azure Blob 儲存體](../../hdinsight/hdinsight-hadoop-use-blob-storage.md)。
 
-Microsoft 的 TDSP 小組已發佈兩個端對端逐步解說，示範如何使用 Azure HDInsight Spark 叢集來建立資料科學解決方案，其中一個使用 Python，而另一個使用 Scala。 如需 Azure HDInsight **Spark 叢集**的詳細資訊，請參閱[概觀：HDInsight Linux 上的 Apache Spark](../../hdinsight/hdinsight-apache-spark-overview.md)。 若要了解如何在 Azure HDInsight Spark 叢集上使用 **Python** 來建立資料科學解決方案，請參閱[在 Azure HDInsight 上使用 Spark 的資料科學概觀](spark-overview.md)。 若要了解如何在 Azure HDInsight Spark 叢集上使用 **Scala** 來建立資料科學解決方案，請參閱[在 Azure 上使用 Scala 與 Spark 的資料科學](scala-walkthrough.md)。 
+Microsoft 的 TDSP 小組已發佈兩個端對端逐步解說，示範如何使用 Azure HDInsight Spark 叢集來建立資料科學解決方案，其中一個使用 Python，而另一個使用 Scala。 如需 Azure HDInsight **Spark 叢集**的詳細資訊，請參閱[概觀：HDInsight Linux 上的 Apache Spark](../../hdinsight/spark/apache-spark-overview.md)。 若要了解如何在 Azure HDInsight Spark 叢集上使用 **Python** 來建立資料科學解決方案，請參閱[在 Azure HDInsight 上使用 Spark 的資料科學概觀](spark-overview.md)。 若要了解如何在 Azure HDInsight Spark 叢集上使用 **Scala** 來建立資料科學解決方案，請參閱[在 Azure 上使用 Scala 與 Spark 的資料科學](scala-walkthrough.md)。 
 
 
 ##  <a name="azure-sql-data-warehouse"></a>Azure SQL 資料倉儲
@@ -86,7 +86,7 @@ Hive 可讓您將結構投影在大量非結構化資料上。 定義結構後�
 
 對於資料科學家，Hive 可以在 Hive 查詢中執行 Python 使用者定義函式 (UDF) 以處理記錄。 這項能力會大幅擴充資料分析中 Hive 查詢的功能。 具體來說，它可讓資料科學家以幾乎完全熟悉的語言執行擴充功能工程：類似 SQL 的 HiveQL 和 Python。 
 
-如需有關 Azure HDInsight Hive 叢集的詳細資訊，請參閱[在 HDInsight 中將 Hive 和 HiveQL 與 Hadoop 搭配使用](../../hdinsight/hdinsight-use-hive.md)。 若要了解如何使用 Azure HDInsight Hive 叢集來建置可調整端對端資料科學解決方案，請參閱 [Team 資料科學程序實務：使用 HDInsight Hadoop 叢集](hive-walkthrough.md)。
+如需有關 Azure HDInsight Hive 叢集的詳細資訊，請參閱[在 HDInsight 中將 Hive 和 HiveQL 與 Hadoop 搭配使用](../../hdinsight/hadoop/hdinsight-use-hive.md)。 若要了解如何使用 Azure HDInsight Hive 叢集來建置可調整端對端資料科學解決方案，請參閱 [Team 資料科學程序實務：使用 HDInsight Hadoop 叢集](hive-walkthrough.md)。
 
 
 ## <a name="azure-file-storage"></a>Azure 檔案儲存體 

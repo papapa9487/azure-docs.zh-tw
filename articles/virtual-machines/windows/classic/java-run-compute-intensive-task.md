@@ -15,15 +15,16 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 8c51c0bb37e25ad61fe58a85dd641dabe0a1958c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a71efa7ff052c7c69de2b9aba3c1ed9328538e3f
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>如何在虛擬機器上以 Java 執行大量運算工作
 > [!IMPORTANT] 
 > Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Azure 可讓您利用虛擬機器處理大量運算工作。 例如，虛擬機器可以處理工作並將結果傳遞給用戶端機器或行動裝置應用程式。 閱讀此文章後，您將了解如何建立一個執行大量運算之 Java 應用程式 (此應用程式又可由另一個 Java 應用程式監視) 的虛擬機器。
 
@@ -88,11 +89,11 @@ Azure 可讓您利用虛擬機器處理大量運算工作。 例如，虛擬機�
 
 1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
 2. 在 Azure 傳統入口網站左下方的瀏覽窗格中，按一下 [服務匯流排、存取控制和快取]。
-3. 在 Azure 傳統入口網站的左上方窗格中，按一下 服務匯流排 節點，然後按一下新增 按鈕。  
+3. 在 Azure 傳統入口網站的左上方窗格中，按一下 [服務匯流排] 節點，然後按一下 [新增] 按鈕。  
    ![Service Bus Node screenshot][svc_bus_node]
 4. 在 [建立新的服務命名空間] 對話方塊中輸入一個**命名空間**，然後確認它是唯一的，再按一下 [檢查可用性] 按鈕。  
    ![Create a New Namespace screenshot][create_namespace]
-5. 確定命名空間名稱可用之後，選擇要裝載命名空間的國家或地區，然後按一下建立命名空間  按鈕。  
+5. 確定命名空間名稱可用之後，選擇要裝載命名空間的國家或地區，然後按一下 [建立命名空間]  按鈕。  
    
    然後，您建立的命名空間就會出現在 Azure 傳統入口網站中，稍待片刻就會生效。 等到狀態變成 [作用中]  之後，再繼續下一個步驟。
 

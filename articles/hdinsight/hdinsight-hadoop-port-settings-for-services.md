@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: larryfr
-ms.openlocfilehash: 1ad536a53d64b0144f6396393830bc0c5cbe4fb1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d474cce902dad1390d55ed7bad556d9b0610605f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>HDInsight 上 Hadoop 服務所使用的連接埠
 
@@ -48,17 +48,17 @@ HDInsight 叢集中的所有節點都位於 Azure 虛擬網路中，無法直接
 | sshd |23 |SSH |將用戶端連接到次要前端節點上的 sshd。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。 |
 | Ambari |443 |HTTPS |Ambari Web UI。 請參閱 [使用 Ambari Web UI 管理 HDInsight](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |Ambari REST API。 請參閱 [使用 Ambari REST API 管理 HDInsight](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat |443 |HTTPS |HCatalog REST API。 請參閱[搭配使用 Hive 與 Curl](hdinsight-hadoop-use-pig-curl.md)、[搭配使用 Pig 與 Curl](hdinsight-hadoop-use-pig-curl.md)、[搭配使用 MapReduce 與 Curl](hdinsight-hadoop-use-mapreduce-curl.md) |
-| HiveServer2 |443 |ODBC |使用 ODBC 連接至 Hive。 請參閱 [使用 Microsoft ODBC 驅動程式將 Excel 連接到 HDInsight](hdinsight-connect-excel-hive-odbc-driver.md)。 |
-| HiveServer2 |443 |JDBC |使用 JDBC 連接至 Hive。 請參閱 [使用 Hive JDBC 驅動程式連接到 HDInsight 上的 Hive](hdinsight-connect-hive-jdbc-driver.md) |
+| WebHCat |443 |HTTPS |HCatalog REST API。 請參閱[搭配使用 Hive 與 Curl](hadoop/apache-hadoop-use-pig-curl.md)、[搭配使用 Pig 與 Curl](hadoop/apache-hadoop-use-pig-curl.md)、[搭配使用 MapReduce 與 Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| HiveServer2 |443 |ODBC |使用 ODBC 連接至 Hive。 請參閱 [使用 Microsoft ODBC 驅動程式將 Excel 連接到 HDInsight](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)。 |
+| HiveServer2 |443 |JDBC |使用 JDBC 連接至 Hive。 請參閱 [使用 Hive JDBC 驅動程式連接到 HDInsight 上的 Hive](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 
 下列各項適用於特定叢集類型︰
 
 | 服務 | 連接埠 | 通訊協定 | 叢集類型 | 說明 |
 | --- | --- | --- | --- | --- |
-| Stargate |443 |HTTPS |HBase |HBase REST API。 請參閱 [開始使用 HBase](hdinsight-hbase-tutorial-get-started-linux.md) |
-| Livy |443 |HTTPS |Spark |Spark REST API。 請參閱 [使用 Livy 從遠端提交 Spark 作業](hdinsight-apache-spark-livy-rest-interface.md) |
-| Storm |443 |HTTPS |Storm |Storm Web UI。 請參閱 [部署和管理 HDInsight 上的 Storm 拓撲](hdinsight-storm-deploy-monitor-topology-linux.md) |
+| Stargate |443 |HTTPS |HBase |HBase REST API。 請參閱 [開始使用 HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
+| Livy |443 |HTTPS |Spark |Spark REST API。 請參閱 [使用 Livy 從遠端提交 Spark 作業](spark/apache-spark-livy-rest-interface.md) |
+| Storm |443 |HTTPS |Storm |Storm Web UI。 請參閱 [部署和管理 HDInsight 上的 Storm 拓撲](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
 ### <a name="authentication"></a>驗證
 

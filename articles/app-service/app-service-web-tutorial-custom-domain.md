@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ac105b82b9bc25e6cc9f5cdf21f34400a09b3934
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d7c99b1b02a0450cae406e2bc70a7e5563e2ac2
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>將現有的自訂 DNS 名稱對應至 Azure Web Apps
 
@@ -279,10 +279,10 @@ ms.lasthandoff: 10/11/2017
 下列命令會在 App Service 應用程式中新增所設定的自訂 DNS 名稱。 
 
 ```bash 
-az appservice web config hostname add \
-    --webapp <app_name> \
+az webapp config hostname add \
+    --webapp-name <app_name> \
     --resource-group <resource_group_name> \ 
-    --name <fully_qualified_domain_name> 
+    --hostname <fully_qualified_domain_name> 
 ``` 
 
 如需詳細資訊，請參閱[將自訂網域對應至 Web 應用程式](scripts/app-service-cli-configure-custom-domain.md)。 

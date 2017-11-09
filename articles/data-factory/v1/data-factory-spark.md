@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 5220ca664d5c7584f3aada0bb707099f91d5650f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 0eff48ec65a01a2fc3fa9f7652dd8e1a0fc8dd2a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>從 Azure Data Factory 叫用 Spark 程式管線
 
@@ -56,7 +56,7 @@ Spark 活動是 Azure Data Factory 所支援的其中一個[資料轉換活動](
 
 ### <a name="prerequisites"></a>必要條件
 1. 依照逐步解說：[建立儲存體帳戶](../../storage/common/storage-create-storage-account.md#create-a-storage-account)中的指示，建立**一般用途的 Azure 儲存體帳戶**。  
-2. 依照教學課程：[在 Azure HDInsight 中建立 Apache Spark 叢集](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md)中的指示**在 Azure HDInsight 中建立 Apache Spark 叢集**。 將您在步驟 1 中建立的 Azure 儲存體帳戶與此叢集產生關聯。  
+2. 依照教學課程：[在 Azure HDInsight 中建立 Apache Spark 叢集](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)中的指示**在 Azure HDInsight 中建立 Apache Spark 叢集**。 將您在步驟 1 中建立的 Azure 儲存體帳戶與此叢集產生關聯。  
 3. 下載並檢閱 python 指令碼檔案 **test.py**，該檔案位於：[https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py)。  
 3.  將 **test.py** 上傳至您的Azure Blob 儲存體 **adfspark** 容器中的 **pyFiles** 資料夾。 建立容器和資料夾 (如果不存在)。
 
@@ -234,7 +234,7 @@ Spark 活動是 Azure Data Factory 所支援的其中一個[資料轉換活動](
     ![Jupyter 查詢結果](media/data-factory-spark/jupyter-notebook-results.png)
 
 <!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
-如需詳細指示，請參閱[執行 Spark SQL 查詢](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md)區段。 
+如需詳細指示，請參閱[執行 Spark SQL 查詢](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)區段。 
 
 ### <a name="troubleshooting"></a>疑難排解
 因為您將 **getDebugInfo** 設定為 **Always**，您會在 Azure Blob 容器的 **pyFiles** 資料夾中看到一個 **log** 子資料夾。 log 資料夾中的記錄檔會提供其他詳細資料。 發生錯誤時，此記錄檔特別有用。 在生產環境中，您可能想要將它設定為**失敗**。

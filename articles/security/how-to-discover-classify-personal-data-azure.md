@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 6ccb064a9a76e7041d4f365b3997673dc9182e0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d60a5ca6229939e5d368c216688e4964261f85c7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>在 Microsoft Azure 中探索、識別並分類個人資料
 
@@ -150,13 +150,13 @@ Hadoop 是開放原始碼 Apache 儲存體和大型資料集的處理服務，�
 
 #### <a name="how-do-i-use-excel-power-query-to-import-hadoop-clusters-in-azure-hdinsight-into-excel"></a>如何使用 Excel Power Query 將 Azure HDInsight 中的 Hadoop 叢集匯入 Excel 中？
 
-HDInsight 教學課程將引導您完成這整個程序。 它會說明必要條件，並包含[開始使用 Azure HDInsight](../hdinsight/hdinsight-hadoop-linux-tutorial-get-started.md) 教學課程的連結。 指示涵蓋 Excel 2016 以及 2013 和 2010 (舊版本 Excel 的步驟會稍有不同)。 如果您沒有 Excel Power Query 增益集，本教學課程會告訴您如何完成設定。 您會在 Excel 中開始教學課程，且必須具有與您叢集相關聯的 Azure Blob 儲存體帳戶。
+HDInsight 教學課程將引導您完成這整個程序。 它會說明必要條件，並包含[開始使用 Azure HDInsight](../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md) 教學課程的連結。 指示涵蓋 Excel 2016 以及 2013 和 2010 (舊版本 Excel 的步驟會稍有不同)。 如果您沒有 Excel Power Query 增益集，本教學課程會告訴您如何完成設定。 您會在 Excel 中開始教學課程，且必須具有與您叢集相關聯的 Azure Blob 儲存體帳戶。
 
   ![在 Excel 中的查詢](media/how-to-discover-classify-personal-data-azure/excel.png)
 
-若要了解如何執行這項操作，請造訪[使用 Power Query 將 Excel 連線到 Hadoop](../hdinsight/hdinsight-connect-excel-power-query.md) 教學課程。
+若要了解如何執行這項操作，請造訪[使用 Power Query 將 Excel 連線到 Hadoop](../hdinsight/hadoop/apache-hadoop-connect-excel-power-query.md) 教學課程。
 
-來源：[使用 Power Query 將 Excel 連線到 Hadoop](../hdinsight/hdinsight-connect-excel-power-query.md)
+來源：[使用 Power Query 將 Excel 連線到 Hadoop](../hdinsight/hadoop/apache-hadoop-connect-excel-power-query.md)
 
 ## <a name="azure-information-protection-personal-data-classification-for-documents-and-email"></a>Azure 資訊保護：文件和電子郵件的個人資料分類
 

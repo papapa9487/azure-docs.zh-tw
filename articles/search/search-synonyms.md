@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/07/2016
 ms.author: nateko
-ms.openlocfilehash: 739a0ad77c68ea74ec25bc80c7539ac8b3f18201
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 447abc48cca3dee398e641f8458e52a5b2cb8e42
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="synonyms-in-azure-search-preview"></a>Azure 搜尋服務的同義字 (預覽)
 
 搜尋引擎中與對等詞彙相關聯的同義字，讓使用者不必實際提供詞彙，就能以隱含方式擴充查詢範圍。 例如，給定詞彙「狗」與關聯的同義字「犬科動物」和「小狗」，任何包含「狗」、「犬科動物」和「小狗」的文件都會包含在查詢範圍內。
 
-在 Azure 搜尋服務中，同義字擴充在查詢同時就已完成。 您可以在不中斷現有作業的情況下，新增同義字地圖至服務中。 您無需重建索引，就可以將 synonymMaps 屬性新增至欄位定義。 如需詳細資訊，請參閱[更新索引](https://docs.microsoft.com/rest/api/searchservice/update-index)。
+在 Azure 搜尋服務中，同義字擴充在查詢同時就已完成。 您可以在不中斷現有作業的情況下，新增同義字地圖至服務中。 您無需重建索引，就可以將 synonymMaps 屬性新增至欄位定義。
 
 ## <a name="feature-availability"></a>功能可用性
 
@@ -78,14 +78,14 @@ Azure 搜尋服務是根據您定義並上傳至服務的同義字地圖，提�
 
 Solr 格式支援對等且明確的對應同義字。 對應規則需遵守 Apache Solr 的開放來源同義字篩選條件規格，規則如[關鍵字篩選條件](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter)文件所述。 以下是對等同義字的樣本規則。
 ```
-              USA, United States, United States of America
+USA, United States, United States of America
 ```
 
 根據上述規則，搜尋「USA」時，會擴充搜尋「USA」或「United States」以及「United States of America」。
 
 明確的對應由箭號「=>」表示。 當指定時，符合「=>」左手邊搜尋查詢的詞彙序列，將會被右手邊的替代詞彙取代。 根據下列規則，搜尋查詢「Washington」、「Wash.」 或「WA」，都會重寫為「WA」。 明確對應只會套用在指定的方向，而且在此案例中，不會在查詢「WA」時重寫為「Washington」。
 ```
-              Washington, Wash., WA => WA
+Washington, Wash., WA => WA
 ```
 
 #### <a name="list-synonym-maps-under-your-service"></a>您服務中的同義字地圖清單。

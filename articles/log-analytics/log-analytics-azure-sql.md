@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 1b0d0fa1afc94d5261443f6b08cb6f0c3518f3eb
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: a1214d8327075ee081124d42aeb78846e09ff588
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>使用 Azure SQL Database (預覽) 監視 Log Analytics 中的 Azure SQL Database
 
@@ -102,7 +102,16 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 每個檢視方塊都會提供訂用帳戶、伺服器、彈性集區和資料庫層級的摘要。 此外，每個檢視方塊都會在右側顯示檢視方塊專屬的報表。 從清單中選取訂用帳戶、伺服器、集區或資料庫可繼續往下鑽研。
 
-| 檢視方塊 | 描述 | | 依據類型的資源 | 可計算所有受監視資源的檢視方塊。 向下鑽研可提供 DTU 及 GB 計量的摘要。 | | Insights | 可透過階層的方式，向下鑽研至 Intelligent Insights。 深入了解 Intelligent Insights。 | | 錯誤 | 可透過階層的方式，向下鑽研至資料庫上發生的 SQL 錯誤。 | | 逾時 | 可透過階層的方式，向下鑽研至資料庫上發生的 SQL 逾時。 | | 封鎖 | 可透過階層的方式，向下鑽研至資料庫上發生的 SQL 封鎖。 | | 資料庫等候 | 可透過階層的方式，向下鑽研至資料庫層級的 SQL 等候統計資料。 包含總等候時間及每種等候類型等候時間的摘要。 | | 查詢持續時間 | 可透過階層的方式，向下鑽研至查詢執行統計資料，例如查詢持續時間、CPU 使用量、資料 IO 使用量、記錄 IO 使用量。 | | 查詢等候 | 可透過階層的方式，依等候類別，向下鑽研至查詢等候統計資料。 |
+| 檢視方塊 | 說明 |
+| --- | --- |
+| 資源 (依類型) | 可計算所有受監視資源的檢視方塊。 向下鑽研可提供 DTU 及 GB 計量的摘要。 |
+| 深入解析 | 可透過階層的方式，向下鑽研至 Intelligent Insights。 深入了解 Intelligent Insights。 |
+| Errors | 可透過階層的方式，向下鑽研至資料庫上發生的 SQL 錯誤。 |
+| 逾時 | 可透過階層的方式，向下鑽研至資料庫上發生的 SQL 逾時。 |
+| 封鎖 | 可透過階層的方式，向下鑽研至資料庫上發生的 SQL 封鎖。 |
+| 資料庫等候 | 可透過階層的方式，向下鑽研至資料庫層級的 SQL 等候統計資料。 包含總等候時間及每種等候類型等候時間的摘要。 |
+| 查詢持續時間 | 可透過階層的方式，向下鑽研至查詢執行統計資料，例如查詢持續時間、CPU 使用量、資料 IO 使用量、記錄 IO 使用量。 |
+| 查詢等候 | 可透過階層的方式，依等候類別，向下鑽研至查詢等候統計資料。 |
 
 ### <a name="intelligent-insights-report"></a>Intelligent Insights 報表
 
