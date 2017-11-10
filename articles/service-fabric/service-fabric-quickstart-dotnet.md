@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/02/2017
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3be8836ae6b877bc4caa98f0467147b008c42aa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdb5fdb094a185db12ee08969a12e556dab96389
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>在 Azure 中建立 .NET Service Fabric 應用程式
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理可調整和可信賴的微服務與容器。 
@@ -57,12 +57,14 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ## <a name="run-the-application-locally"></a>在本機執行應用程式
 以滑鼠右鍵按一下 [開始] 功能表中的 Visual Studio 圖示，然後選擇 [以系統管理員身分執行]。 若要將偵錯工具附加至您的服務，您需要以系統管理員身分執行 Visual Studio。
 
-從您複製的存放庫開啟 **Voting.sln** Visual Studio 方案。
+從您複製的存放庫開啟 **Voting.sln** Visual Studio 方案。  
+
+根據預設，投票應用程式設定為在連接埠 8080 上接聽。  應用程式連接埠設定於 */VotingWeb/PackageRoot/ServiceManifest.xml* 檔案中。  更新 [端點] 元素的 [連接埠] 屬性，即可變更應用程式連接埠。  若要在本機上部署並執行應用程式，則必須在您的電腦上開啟此應用程式連接埠並讓連接埠可供使用。  如果您變更了應用程式連接埠，請以新的應用程式連接埠值取代本篇文章中所有的 "8080"。
 
 若要部署應用程式，請按 **F5**。
 
 > [!NOTE]
-> 您第一次執行及部署應用程式時，Visual Studio 會建立本機叢集以供偵錯。 這項作業可能需要一些時間。 叢集建立狀態會顯示在 Visual Studio 輸出視窗中。
+> 您第一次執行及部署應用程式時，Visual Studio 會建立本機叢集以供偵錯。 這項作業可能需要一些時間。 叢集建立狀態會顯示在 Visual Studio 輸出視窗中。  在輸出中，會出現如下的訊息：「應用程式 URL 未設定或不是 HTTP/HTTPS URL，所以瀏覽器不會開啟應用程式。」  此訊息不表示發生錯誤，而是代表瀏覽器將無法自動啟動。
 
 部署完成之後，啟動瀏覽器並開啟此頁面：`http://localhost:8080` - 應用程式的 Web 前端。
 
@@ -114,14 +116,15 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 若要停止偵錯工作階段，請按 **Shift+F5**。
 
 ## <a name="deploy-the-application-to-azure"></a>將應用程式部署至 Azure
-若要將應用程式部署到 Azure 中的叢集，您可以選擇建立自己的叢集，或使用合作對象叢集。
+若要將應用程式部署至 Azure，您需要執行該應用程式的 Service Fabric 叢集。 
 
-合作對象的叢集是免費的限時 Service Fabric 叢集，裝載於 Azure 上，並且由任何人都可以部署應用程式並了解平台的 Service Fabric 小組執行。 若要存取合作對象叢集，請[遵循指示](http://aka.ms/tryservicefabric)。 
+### <a name="join-a-party-cluster"></a>加入合作對象叢集
+合作對象的叢集是免費的限時 Service Fabric 叢集，裝載於 Azure 上，並且由任何人都可以部署應用程式並了解平台的 Service Fabric 小組執行。 
 
-如需建立您自己叢集的資訊，請參閱[在 Azure 上建立您的第一個 Service Fabric 叢集](service-fabric-get-started-azure-cluster.md)。
+登入並[加入 Windows 叢集](http://aka.ms/tryservicefabric) \(英文\)。 請記下 [連接端點] 的值，以便於用後續步驟。
 
 > [!Note]
-> Web 前端服務設定為在連接埠 8080 上接聽傳入流量。 請確定您的叢集中已開啟該連接埠。 如果您使用合作對象叢集，此連接埠已開啟。
+> 根據預設，Web 前端服務設定為在連接埠 8080 上接聽傳入流量。 在合作對象叢集中，會開啟連接埠 8080。  如果您需要變更應用程式連接埠，請將它變更為合作對象叢集中開啟的連接埠之一。
 >
 
 ### <a name="deploy-the-application-using-visual-studio"></a>使用 Visual Studio 部署應用程式
@@ -129,9 +132,11 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 1. 以滑鼠右鍵按一下方案總管中的 [投票]，並選擇 [發行]。 [發行] 對話方塊隨即出現。
 
-    ![[發行] 對話方塊](./media/service-fabric-quickstart-dotnet/publish-app.png)
+    ![[發佈] 對話方塊](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-2. 在 [連接端點] 欄位中鍵入叢集的連接端點，然後按一下 [發行]。 註冊合作對象叢集時，會在瀏覽器中提供連接端點， 例如 `winh1x87d1d.westus.cloudapp.azure.com:19000`。
+2. 將合作對象叢集頁面上的 [連接端點] 複製到 [連接端點] 欄位，並按一下 [發行]。 例如： `winh1x87d1d.westus.cloudapp.azure.com:19000`。
+
+    叢集中的每個應用程式都必須有一個唯一的名稱。  合作對象叢集是公用的共用環境，可能會與現有的應用程式發生衝突。  如果發生名稱衝突，請將 Visual Studio 專案重新命名並再次部署。
 
 3. 開啟瀏覽器並輸入叢集位址，再加上 ': 8080' 以連接叢集中的應用程式 - 例如，`http://winh1x87d1d.westus.cloudapp.azure.com:8080`。 您現在應該會看到應用程式在 Azure 的叢集中執行。
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: a3d4e5367dd41ce2ade7033cefcc774dcec9c82c
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 1f0d50331aa3986e80542902fd528f98e1c91bc2
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools for Visual Studio  
 
@@ -35,11 +35,9 @@ Azure Functions Tools 提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-[Visual Studio 2017 15.3](https://www.visualstudio.com/vs/) 及其以上版本之 Azure 開發工作負載包含了 Azure Functions 工具。 在安裝 Visual Studio 2017 15.3 版時，務必包含 **Azure 開發**工作負載：
+[Visual Studio 2017 15.4 版](https://www.visualstudio.com/vs/) 與更新版本的 Azure 開發工作負載中包含了 Azure Functions 工具。 請確認您的 Visual Studio 2017 安裝中包含了 **Azure 開發**工作負載：
 
 ![安裝包含 Azure 開發工作負載的 Visual Studio 2017](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
-
-[!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-install-note.md)] 
 
 若要建立及部署函數，您也需要：
 
