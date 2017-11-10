@@ -15,17 +15,18 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: 9336743b92130e37b1df2992aab806696f8276aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96e332504509ae98e280d1c8585b0b294e0e07cb
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>將隨選「高載」節點新增至 Azure 中的 HPC Pack 叢集
 如果您在 Azure 中設定 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 叢集，您可能想迅速相應增加或相應減少叢集容量，而不用維護一組預先設定的計算節點 VM。 本文說明如何將隨選「高載」節點 (在雲端服務中執行的背景工作角色執行個體) 新增至 Azure 中的前端節點作為運算資源。 
 
 > [!IMPORTANT] 
 > Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ![高載節點][burst]
 
@@ -42,10 +43,10 @@ ms.lasthandoff: 10/11/2017
 * **核心配額** - 您可能需要增加核心的配額，特別是當您選擇部署數個具有多核心大小的 Azure 節點時。 若要增加配額，請 [開立線上客戶支援要求](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) (免費)。
 
 ## <a name="step-1-create-a-cloud-service-and-a-storage-account-for-the-azure-nodes"></a>步驟 1：為 Azure 節點建立雲端服務和儲存體帳戶
-使用 Azure 傳統入口網站或對等工具，以設定下列在部署 Azure 節點時所需的資源：
+使用 Azure 入口網站或對等工具，以設定下列在部署 Azure 節點時所需的資源：
 
-* 新的 Azure 雲端服務
-* 新的 Azure 儲存體帳戶
+* 新的 Azure 雲端服務 (傳統)
+* 新的 Azure 儲存體帳戶 (傳統)
 
 > [!NOTE]
 > 請勿重複使用您訂用帳戶中現有的雲端服務。 
@@ -60,7 +61,11 @@ ms.lasthandoff: 10/11/2017
 ## <a name="step-2-configure-an-azure-management-certificate"></a>步驟 2：設定 Azure 管理憑證
 若要將 Azure 節點新增為運算資源，您在前端節點上必須要有管理憑證，且必須將對應的憑證上傳至用於部署的 Azure 訂用帳戶。
 
-針對這個案例，您可以選擇 HPC Pack 在前端節點上自動安裝及設定的 **預設 HPC Azure 管理憑證** 。 此憑證可用於測試及概念證明部署。 若要使用此憑證，請將檔案 C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer 從前端節點 VM 上傳至訂用帳戶。 若要上傳憑證，請在 [Azure 傳統入口網站](https://manage.windowsazure.com)中，按一下 [設定] > [管理憑證]。
+針對這個案例，您可以選擇 HPC Pack 在前端節點上自動安裝及設定的 **預設 HPC Azure 管理憑證** 。 此憑證可用於測試及概念證明部署。 若要使用此憑證，請將檔案 C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer 從前端節點 VM 上傳至訂用帳戶。 在 [Azure 入口網站](https://portal.azure.com)中上傳憑證：
+
+1. 按一下 [訂用帳戶] > 您的訂用帳戶名稱。
+
+2. 按一下 [管理憑證] > [上傳]。
 
 如需設定管理憑證的其他選項，請參閱 [為 Azure 高載部署設定 Azure 管理憑證的案例](http://technet.microsoft.com/library/gg481759.aspx)。
 
