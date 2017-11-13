@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: c319979cce23da69965d4fbab037919461f67b3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f4c0b11039bbdaf29c90ec2358934dc1c24af90
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory 中的管道執行和觸發程序 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -177,7 +177,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
         "interval": <<int>>,             // optional, how often to fire (default to 1)
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
-        "timeZone": <<default UTC>>
+        "timeZone": "UTC"
         "schedule": {                    // optional (advanced scheduling specifics)
           "hours": [<<0-24>>],
           "weekDays": ": [<<Monday-Sunday>>],
@@ -189,6 +189,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
                     "occurrence": <<1-5>>
                }
            ] 
+        }
       }
     },
    "pipelines": [
@@ -202,7 +203,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
                         "type": "Expression",
                         "value": "<parameter 1 Value>"
                     },
-                    "<parameter 2 Name> : "<parameter 2 Value>"
+                    "<parameter 2 Name>" : "<parameter 2 Value>"
                 }
            }
       ]
@@ -210,17 +211,57 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 }
 ```
 
+> [!IMPORTANT]
+>  **parameters** 屬性是**管線**內的必要屬性。 即使您的管線不接受任何參數，屬性仍需包含空的 json，因為參數必須存在。
+
+
 ### <a name="overview-scheduler-trigger-schema"></a>概觀：排程器觸發程序結構描述
 下表提供與觸發程序中的週期和排程相關之主要元素的高階概觀：
 
 JSON 屬性 |     說明
 ------------- | -------------
 startTime | startTime 是日期時間。 在簡單的排程中，startTime 是第一次執行。 在複雜的排程中，觸發程序一到 startTime 就會啟動。
+EndTime | 指定觸發程序的結束日期時間。 觸發程序在此時間之後不會執行。 已過去的 endTime 無效。
+timeZone | 目前支援僅 UTC。 
 週期 | recurrence 物件指定觸發程序的週期規則。 recurrence 物件支援的元素：frequency、interval、endTime、count 和 schedule。 如果定義 recurrence，則 frequency 為必要元素，而 recurrence 的其他元素則為選用元素。
 frequency | 代表觸發程序一再執行的頻率單位。 支援的值為：`minute`、`hour`、`day`、`week` 或 `month`。
 interval | interval 是正整數。 代表用來決定觸發程序執行頻率的頻率間隔。 比方說，如果 interval 為 3，而 frequency 為 "week"，則觸發程序每隔 3 週重複執行一次。
-EndTime | 指定觸發程序的結束日期時間。 觸發程序在此時間之後不會執行。 已過去的 endTime 無效。
 schedule | 具有指定頻率的觸發程序會根據週期排程來改變其週期。 schedule 包含根據分鐘數、小時數、星期幾數、月日數和週數的修改。
+
+
+### <a name="schedule-trigger-example"></a>排程觸發程序範例
+
+```json
+{
+    "properties": {
+        "name": "MyTrigger",
+        "type": "ScheduleTrigger",
+        "typeProperties": {
+            "recurrence": {
+                "frequency": "Hour",
+                "interval": 1,
+                "startTime": "2017-11-01T09:00:00-08:00",
+                "endTime": "2017-11-02T22:00:00-08:00"
+            }
+        },
+        "pipelines": [{
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToBlobPipeline"
+                },
+                "parameters": {}
+            },
+            {
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToAzureSQLPipeline"
+                },
+                "parameters": {}
+            }
+        ]
+    }
+}
+```
 
 ### <a name="overview-scheduler-trigger-schema-defaults-limits-and-examples"></a>概觀：排程觸發程序結構描述的預設值、限制和範例
 
@@ -262,9 +303,9 @@ JSON 名稱 | 說明 | 有效值
 --------- | ----------- | ------------
 minutes | 一小時內觸發程序執行的分鐘數。 | <ul><li>Integer</li><li>一連串整數</li></ul>
 hours | 一天內觸發程序執行的小時數。 | <ul><li>Integer</li><li>一連串整數</li></ul>
-weekDays | 觸發程序執行的星期幾。 只能搭配 weekly 頻率指定。 | <ul><li>Monday、Tuesday、Wednesday、Thursday、Friday、Saturday 或 Sunday</li><li>任何上述值的陣列 (最大陣列大小為 7)</li></p>不區分大小寫</p>
+weekDays | 觸發程序執行的星期幾。 只能搭配 weekly 頻率指定。 | <ul><li>Monday、Tuesday、Wednesday、Thursday、Friday、Saturday 或 Sunday</li><li>任何值的陣列 (最大陣列大小為 7)</li></p>不區分大小寫</p>
 monthlyOccurrences | 決定在當月哪幾天執行觸發程序。 只能搭配 monthly 頻率指定。 | monthlyOccurence 物件的陣列︰`{ "day": day,  "occurrence": occurence }`。 <p> day 是觸發程序執行的星期幾，例如，`{Sunday}` 是當月的每個星期日。 必要。<p>Occurrence 是當月第幾個星期幾，例如 `{Sunday, -1}` 是當月的最後一個星期日。 選用。
-monthDays | 觸發程序執行的月日。 只能搭配 monthly 頻率指定。 | <ul><li><= -1 和 >= -31 的任何值</li><li>>= 1 和 <= 31 任何值</li><li>上述值的陣列</li>
+monthDays | 觸發程序執行的月日。 只能搭配 monthly 頻率指定。 | <ul><li><= -1 和 >= -31 的任何值</li><li>>= 1 和 <= 31 任何值</li><li>值的陣列</li>
 
 
 ## <a name="examples-recurrence-schedules"></a>範例：週期排程

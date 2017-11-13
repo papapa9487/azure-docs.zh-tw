@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 11/03/2017
 ms.author: yurid
-ms.openlocfilehash: 6cd6c822eb255893feac2536d7bae034380094b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 95af26a655e72a9cc370f339da5ecedbed441997
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>使用 Azure 資訊安全中心進行事件回應
 許多組織都了解如何只在遭受攻擊之後回應安全性事件。 為了降低成本和損害，一定要在攻擊發生前備妥事件回應計劃。 您可以在不同階段的事件回應使用 Azure 資訊安全中心。
@@ -96,7 +96,7 @@ Sam 會收到來自 Judy 的案例，開始檢閱資訊安全中心所建議的�
 ![事件回應生命週期](./media/security-center-incident-response/security-center-incident-response-fig6.png)
 
 ### <a name="additional-resources"></a>其他資源
-事件回應小組也可以利用 [[安全性中心 Power BI](security-center-powerbi.md)] 功能的優勢，查看不同類型的報告。 這些報告可以在進一步調查時，幫助他們視覺化、分析和篩選建議和安全性警示。 對於在調查過程中使用其安全性資訊和事件管理 (SIEM) 解決方案的公司而言，他們也可以[整合資訊安全中心與其解決方案](security-center-integrating-alerts-with-log-integration.md)。 您也可以使用 [Azure 記錄整合工具](https://blogs.msdn.microsoft.com/azuresecurity/2016/07/21/microsoft-azure-log-integration-preview/)來整合 Azure 稽核記錄檔和虛擬機器 (VM) 安全性事件。 若要調查攻擊，您可以搭配使用此資訊與資訊安全中心所提供的資訊。
+對於在調查過程中使用其安全性資訊和事件管理 (SIEM) 解決方案的公司而言，他們也可以[整合資訊安全中心與其解決方案](security-center-integrating-alerts-with-log-integration.md)。 您也可以使用 [Azure 記錄整合工具](https://blogs.msdn.microsoft.com/azuresecurity/2016/07/21/microsoft-azure-log-integration-preview/)來整合 Azure 稽核記錄檔和虛擬機器 (VM) 安全性事件。 若要調查攻擊，您可以搭配使用此資訊與資訊安全中心所提供的資訊。 您也可以使用資訊安全中心中的[調查](https://docs.microsoft.com/azure/security-center/security-center-investigation)功能，協助您判斷事件的根本原因。
 
 ## <a name="conclusion"></a>結論
 事件發生前召集小組對組織而言非常重要，可正面影響事件的處理方式。 擁有可監視資源的適當工具，有助於這個小組採取正確的步驟來修復安全性事件。 資訊安全中心[偵測功能](security-center-detection-capabilities.md)會協助 IT 部門快速地回應安全性事件並修復安全性問題。

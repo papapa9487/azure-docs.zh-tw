@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: bcf42ebb081517d247690ee57c2be274784ef29d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc021d2277c419dd5a892aacd7bff0707e5564fa
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>部署您的內部部署 StorSimple 裝置 (Update 3 和更新版本)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/11/2017
 | [步驟 1：建立新的服務](#step-1-create-a-new-service) |設定雲端管理和 StorSimple 裝置的儲存體。 *如果您現在已經有針對其他 StorSimple 裝置的服務，請略過此步驟*。 |
 | [步驟 2：取得服務註冊金鑰](#step-2-get-the-service-registration-key) |使用此金鑰註冊並將 StorSimple 裝置與管理服務連接。 |
 | [步驟 3：透過 Windows PowerShell for StorSimple 設定和註冊裝置](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |使用管理服務將裝置連線到您的網路，並使用 Azure 註冊以完成設定。 |
-| [步驟 4：完成最小量裝置設定](#step-4-complete-minimum-device-setup)</br>[選用：更新您的 StorSimple 裝置](#scan-for-and-apply-updates) |使用管理服務來完成裝置設定並啟用裝置以提供儲存體。 |
+| [步驟 4：完成最小量裝置設定](#step-4-complete-minimum-device-setup)</br>[最佳做法：更新您的 StorSimple 裝置](#scan-for-and-apply-updates) |使用管理服務來完成裝置設定並啟用裝置以提供儲存體。 |
 | [步驟 5：建立磁碟區容器](#step-5-create-a-volume-container) |建立容器以佈建磁碟區。 磁碟區容器具有其中所含之所有磁碟區的儲存體帳戶、頻寬及加密設定。 |
 | [步驟 6：建立磁碟區](#step-6-create-a-volume) |在您伺服器的 StorSimple 裝置上，佈建儲存體磁碟區。 |
 | [步驟 7：掛接、初始化及格式化磁碟區](#step-7-mount-initialize-and-format-a-volume)</br>[選用：設定 MPIO。](storsimple-8000-configure-mpio-windows-server.md) |將您的伺服器連接至裝置提供的 iSCSI 儲存體。 選擇性地設定 MPIO 確保您的伺服器可以容許連結、網路和介面失敗。 |
@@ -127,6 +127,8 @@ StorSimple 裝置管理員服務可以管理多個 StorSimple 裝置。 執行�
 
 [!INCLUDE [storsimple-8000-complete-minimum-device-setup-u2](../../includes/storsimple-8000-complete-minimum-device-setup-u2.md)]
 
+完成最低裝置設定之後，它就是[掃描及套用最新更新](#scan-for-and-apply-updates)的最佳做法。
+
 ## <a name="step-5-create-a-volume-container"></a>步驟 5：建立磁碟區容器
 磁碟區容器具有其中所含之所有磁碟區的儲存體帳戶、頻寬及加密設定。 您必須建立磁碟區容器，才能開始在 StorSimple 裝置上佈建磁碟區。
 
@@ -181,7 +183,7 @@ StorSimple 裝置管理員服務可以管理多個 StorSimple 裝置。 執行�
 [!INCLUDE [Use PuTTY to connect to the device serial console](../../includes/storsimple-use-putty.md)]
 
 ## <a name="scan-for-and-apply-updates"></a>掃描並套用更新
-更新裝置可能需要數小時的時間。 如需有關如何安裝最新更新的詳細步驟，請移至[安裝 Update 4](storsimple-8000-install-update-4.md)。
+更新裝置可能需要數小時的時間。 如需有關如何安裝最新更新的詳細步驟，請移至[安裝 Update 5](storsimple-8000-install-update-5.md)。
 
 
 ## <a name="get-the-iqn-of-a-windows-server-host"></a>取得 Windows Server 主機的 IQN

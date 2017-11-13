@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2017
+ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: 6a399a3a7979f6165d26eb48505242976d51e64f
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 68c9f37b6e241d39911acff9c12aa4c978b4215d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 簡介：資料表 API
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 11/02/2017
 * 保證高可用性。
 * [自動次要索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)。
 
-這些應用程式可使用資料表 API (不變更程式碼) 來移轉至 Azure Cosmos DB，並且利用進階功能。 資料表 API 適用於 .NET 和 Python。
+針對 Azure 資料表儲存體所撰寫的應用程式可使用資料表 API (不變更程式碼) 來移轉至 Azure Cosmos DB，並且利用進階功能。 資料表 API 有一部用戶端 SDK 可供 .NET 使用。
 
-建議觀看下列影片，Aravind Ramachandran 會在影片中說明如何開始使用 Azure Cosmos DB 的資料表 API：
+建議觀看下列影片，Aravind Ramachandran 會在影片中說明如何開始使用 Azure Cosmos DB 資料表 API：
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Table-API-for-Azure-Cosmos-DB/player]
 > 
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/02/2017
 ## <a name="table-offerings"></a>表格供應項目
 如果您目前是使用 Azure 表格儲存體，移至 Azure Cosmos DB 表格 API (預覽) 可獲得下列好處：
 
-| | Azure 表格儲存體 | Azure Cosmos DB 表格 API (預覽) |
+| | Azure 資料表儲存體 | Azure Cosmos DB 表格 API (預覽) |
 | --- | --- | --- |
 | Latency | 快速，但延遲沒有上限。 | 一位數毫秒的讀取和寫入延遲，並在世界各地支援任何規模的 <10 毫秒延遲讀取和 <15 毫秒延遲寫入 (第 99 個百分位數)。 |
 | Throughput | 變數輸送量模型。 資料表每秒 20,000 個作業的延展性限制。 | 高延展性且[每個資料表都有專用的保留輸送量](request-units.md) (由 SLA 支援)。 帳戶沒有輸送量上限，而且支援每個資料表每秒 > 1 千萬個作業。 |
@@ -64,5 +64,5 @@ ms.lasthandoff: 11/02/2017
 * [使用資料表 API 來查詢資料表資料](tutorial-query-table.md)
 * [了解如何使用資料表 API 來設定 Azure Cosmos DB 全域發佈](tutorial-global-distribution-table.md)
 * [Azure Cosmos DB 資料表 .NET API](table-sdk-dotnet.md)
-* [適用於 Python 的 Azure Cosmos DB 資料表](table-sdk-python.md)
+
 

@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 09/26/2017
 ms.author: jingwang
-ms.openlocfilehash: 82c6f69e886bfe86b2839e7efc3579782c8c3dce
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 04b8e0b30bf85c8bafd193c942a6a86f2166c1e7
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-powershell"></a>使用 PowerShell 建立資料處理站和管線
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -85,7 +85,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
         ```
 
     * 若要建立 Data Factory 執行個體，您必須是 Azure 訂用帳戶的參與者或系統管理員。
-    * 目前，Data Factory V2 只允許您在**美國東部**或**美國東部 2** 區域中建立資料處理站。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
+    * 目前，Data Factory V2 只允許您在美國東部、美國東部 2 和西歐區域中建立資料處理站。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 
 ## <a name="create-a-linked-service"></a>建立連結的服務
 

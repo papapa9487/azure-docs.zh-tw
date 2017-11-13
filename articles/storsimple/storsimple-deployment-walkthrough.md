@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/17/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 2063acbafd6766d00dee9509ee7def73bdc5b982
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a056bf1ef6b13a2989922e135b99d31d84637c7
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device"></a>部署內部部署 StorSimple 裝置
+> [!NOTE]
+> 已取代 StorSimple 的傳統入口網站。 按照淘汰排程，StorSimple 裝置管理員會自動移至新的 Azure 入口網站。 您將收到關於此移動的電子郵件和入口網站通知。 本文件也很快就會淘汰。 若有關於移動的任何問題，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
+
 > [!div class="op_single_selector"]
 > * [Update 2](storsimple-deployment-walkthrough-u2.md)
 > * [Update 1](storsimple-deployment-walkthrough-u1.md)
@@ -259,7 +262,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。 針對第一次
 > 
 
 #### <a name="to-update-your-device"></a>若要更新裝置
-1. 在裝置的 [快速入門] 頁面上，按一下 [裝置]。 選取實體裝置，按一下 維護，然後按一下掃描更新。  
+1. 在裝置的 [快速入門] 頁面上，按一下 [裝置]。 選取實體裝置，按一下 [維護]，然後按一下 [掃描更新]。  
 2. 系統會建立掃描可用更新的工作。 如果有可用的更新，[掃描更新] 會變更為 [安裝更新]。 按一下 [安裝更新] 。 系統可能會要求您在安裝更新前停用 Data 2 和 Data 3。 您必須停用這些網路介面，否則更新會失敗。
 3. 更新工作將會建立。 巡覽至 [工作] 以監視更新的狀態。
    

@@ -12,16 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 06/14/2017
+ms.date: 11/02/2017
 ms.author: sethm
-ms.openlocfilehash: d15c30dad9fb4bbe9082d6a3c72cd20ed42bbc3e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77bb769a094c2a619c0c75363e23ae3ee561c1e4
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>使用 Azure WCF 轉送的 .NET 內部部署/雲端混合式應用程式
-## <a name="introduction"></a>簡介
 
 本文示範如何使用 Microsoft Azure 和 Visual Studio 建置混合式雲端應用程式。 本教學課程假設您先前沒有使用 Azure 的經驗。 不用 30 分鐘，您就會獲得一個使用多個 Azure 資源，於雲端上啟動並執行的應用程式。
 
@@ -52,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 開始開發 Azure 應用程式之前，請先下載工具並設定開發環境：
 
 1. 從 SDK [下載頁面](https://azure.microsoft.com/downloads/)安裝 Azure SDK for .NET。
-2. 在 **.NET** 資料行中，按一下您所使用的 [Visual Studio](http://www.visualstudio.com) 版本。 本教學課程中的步驟使用 Visual Studio 2015，但也可使用 Visual Studio 2017。
+2. 在 **.NET** 資料行中，按一下您所使用的 [Visual Studio](http://www.visualstudio.com) 版本。 本教學課程中的步驟使用 Visual Studio 2017。
 3. 當系統提示您執行或儲存安裝程式時，按一下 [執行]。
 4. 在 **Web Platform Installer** 中，按一下 [安裝] 並繼續進行安裝。
 5. 完成安裝後，您將具有開始進行開發所需的一切。 SDK 包含可讓您在 Visual Studio 輕易開發 Azure 應用程式的工具。
@@ -69,21 +68,21 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="create-the-project"></a>建立專案
 
-1. 使用系統管理員權限，啟動 Microsoft Visual Studio。 若要這樣做，請以滑鼠右鍵按一下 Visual Studio 程式圖示，然後按一下以系統管理員身分執行。
-2. 在 Visual Studio 的 檔案 功能表，按一下 新增，然後按一下專案。
+1. 使用系統管理員權限，啟動 Microsoft Visual Studio。 若要這樣做，請以滑鼠右鍵按一下 Visual Studio 程式圖示，然後按一下 [以系統管理員身分執行]。
+2. 在 Visual Studio 的 [檔案] 功能表，按一下 [新增]，然後按一下 [專案]。
 3. 從 [已安裝的範本] 的 [Visual C#] 下，按一下 [主控台應用程式 (.NET Framework]。 在 [名稱] 方塊中，鍵入名稱 **ProductsServer**：
 
    ![][11]
 4. 按一下 [確定] 以建立 **ProductsServer** 專案。
 5. 如果已安裝 Visual Studio 的 NuGet 套件管理員，請跳至下一個步驟。 否則，請造訪 [NuGet][NuGet]，然後按一下[安裝 NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)。 按照提示安裝 NuGet 套件管理員，然後重新啟動 Visual Studio。
 6. 在 [方案總管] 中，以滑鼠右鍵按一下 **ProductsServer** 專案，然後按一下 [管理 NuGet 套件]。
-7. 按一下 [瀏覽] 索引標籤，然後搜尋 `Microsoft Azure Service Bus`。 選取 [WindowsAzure.ServiceBus] 套件。
+7. 按一下 [瀏覽] 索引標籤，然後搜尋 **WindowsAzure.ServiceBus**。 選取 [WindowsAzure.ServiceBus] 套件。
 8. 按一下 [安裝] 並接受使用條款。
 
    ![][13]
 
    請注意，現在會參考必要的用戶端組件。
-8. 新增產品連絡人的新類別。 在 方案總管 的 **ProductsServer** 專案上按一下滑鼠右鍵、按一下 新增，然後按一下類別。
+8. 新增產品連絡人的新類別。 在 [方案總管] 的 **ProductsServer** 專案上按一下滑鼠右鍵、按一下 [新增]，然後按一下 [類別]。
 9. 在 [名稱] 方塊中，鍵入名稱 **ProductsContract.cs**。 然後按一下 [ **新增**]。
 10. 在 **ProductsContract.cs** 中，將命名空間定義取代為下列程式碼，以定義服務的連絡人。
 
@@ -198,6 +197,8 @@ ms.lasthandoff: 10/11/2017
       </behaviors>
     </system.serviceModel>
     ```
+    "transportClientEndpointBehavior" 所造成的錯誤只是警告，而不是此範例的封鎖問題。
+    
 13. 仍是在 App.config 中，請以您先前從入口網站取得的連接字串來取代 `<appSettings>` 元素中的連接字串值。
 
     ```xml
@@ -216,7 +217,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="create-the-project"></a>建立專案
 
 1. 確定 Visual Studio 是以系統管理員權限來執行。
-2. 在 Visual Studio 的 檔案 功能表，按一下 新增，然後按一下專案。
+2. 在 Visual Studio 的 [檔案] 功能表，按一下 [新增]，然後按一下 [專案]。
 3. 從 [已安裝的範本] 的 [Visual C#] 下，按一下 [ASP.NET Web 應用程式 (.NET Framework)]。 將專案命名為 **ProductsPortal**。 然後按一下 [確定] 。
 
    ![][15]
@@ -225,12 +226,12 @@ ms.lasthandoff: 10/11/2017
 
    ![][16]
 
-6. 按一下 [變更驗證] 按鈕。 在 變更驗證 對話方塊中，確定已選取 不需要驗證，然後按一下確定。 在本教學課程中，您會部署不需要使用者登入的應用程式。
+6. 按一下 [變更驗證] 按鈕。 在 [變更驗證] 對話方塊中，確定已選取 [不需要驗證]，然後按一下 [確定]。 在本教學課程中，您會部署不需要使用者登入的應用程式。
 
     ![][18]
 
 7. 回到 [新增 ASP.NET Web 應用程式] 對話方塊，按一下 [確定] 以建立 MVC 應用程式。
-8. 您現在必須設定新 Web 應用程式的 Azure 資源。 完成[本文的「發佈至 Azure」一節](../app-service/app-service-web-get-started-dotnet.md)中的步驟。 然後，回到本教學課程並繼續進行下一個步驟。
+8. 您現在必須設定新 Web 應用程式的 Azure 資源。 完成[本文的「發佈至 Azure」一節](../app-service/app-service-web-get-started-dotnet.md#publish-to-azure)中的步驟。 然後，回到本教學課程並繼續進行下一個步驟。
 10. 在 [方案總管] 中，於 [模型] 上按一下滑鼠右鍵、按一下 [新增]，再按一下 [類別]。 在 [名稱] 方塊中，鍵入名稱 **Product.cs**。 然後按一下 [ **新增**]。
 
     ![][17]
@@ -274,7 +275,7 @@ ms.lasthandoff: 10/11/2017
     }
     ```
 4. 在 [方案總管] 中，展開 Views\Shared 資料夾，然後按兩下 **_Layout.cshtml** 檔案以在 Visual Studio 編輯器中開啟。
-5. 將所有出現的 **My ASP.NET Application** 變更為 **LITWARE's Products**。
+5. 將所有出現的 [我的 ASP.NET 應用程式] 變更為 [Northwind Traders 產品]。
 6. 移除 [首頁]、[關於] 和 [連絡人] 連結。 在下列範例中，刪除反白顯示的程式碼。
 
     ![][41]
@@ -332,7 +333,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 請在 Visual Studio 重新開啟您在[建立 ASP.NET 應用程式](#create-an-aspnet-application)一節中建立的 **ProductsPortal** 專案 (如果尚未開啟)。
 2. 類似於＜建立內部部署伺服器＞一節中的步驟，將 NuGet 套件新增至專案參考。 在 [方案總管] 中，以滑鼠右鍵按一下 **ProductsPortal** 專案，然後按一下 [管理 NuGet 套件]。
-3. 搜尋「服務匯流排」並選取 [WindowsAzure.ServiceBus] 項目。 然後完成安裝並關閉此對話方塊。
+3. 搜尋 **WindowsAzure.ServiceBus** 並選取 **WindowsAzure.ServiceBus** 項目。 然後完成安裝並關閉此對話方塊。
 4. 在 [方案總管] 的 **ProductsPortal** 專案上按一下滑鼠右鍵，再按一下 [新增]，然後按一下 [現有項目]。
 5. 從 **ProductsServer** 主控台專案導覽至 **ProductsContract.cs** 檔案。 按一下以反白顯示 ProductsContract.cs。 按一下 [新增] 旁邊的向下箭頭，然後按一下 [新增做為連結]。
 
@@ -425,7 +426,7 @@ ms.lasthandoff: 10/11/2017
 
 在雲端執行此應用程式之前，您必須確定 **ProductsPortal** 是從 Visual Studio 內以 Web 應用程式的形式啟動。
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下 **ProductsPortal** 專案，然後按一下屬性。
+1. 在 Visual Studio 中，以滑鼠右鍵按一下 **ProductsPortal** 專案，然後按一下 [屬性]。
 2. 在左側欄中，按一下 [Web]。
 3. 在 [起始動作] 區段中，按一下 [起始 URL] 按鈕，然後在文字方塊中輸入您先前部署的 Web 應用程式的 URL，例如 `http://productsportal1234567890.azurewebsites.net/`。
 
@@ -455,7 +456,7 @@ ms.lasthandoff: 10/11/2017
 若要深入了解 Azure 轉送，請參閱下列資源︰  
 
 * [什麼是 Azure 轉送？](relay-what-is-it.md)  
-* [如何使用轉送](service-bus-dotnet-how-to-use-relay.md)  
+* [如何使用 Azure 轉送](relay-wcf-dotnet-get-started.md)  
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png

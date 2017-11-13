@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 11/07/2017
 ms.author: owend
-ms.openlocfilehash: c6be396f22ee364e7746038b2243162e775c8c54
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 350f95b2f9ec8dc4a3e2dc8f7d390f841b248fa1
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>什麼是 Azure Analysis Services？
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -46,9 +46,18 @@ Azure Analysis Services 與許多 Azure 服務整合，讓您能建置複雜的�
 建立伺服器後，您可以在 Azure 入口網站中建立表格式模型。 您可以使用新的 (預覽) [網頁設計工具功能](analysis-services-create-model-portal.md)，連線到 Azure SQL Database、Azure SQL 資料倉儲資料來源或匯入 Power BI Desktop .pbix 檔案。 系統會自動建立資料表之間的關聯性，而您可以從瀏覽器建立量值或編輯 json 格式的 model.bim 檔案。
 
 ## <a name="scale-to-your-needs"></a>調整您的需求
+
+### <a name="the-right-tier-when-you-need-it"></a>當您需要時在右層
+
 Azure Analysis Services 會以開發人員、基本及標準層提供。 每一層中的計劃成本會依據處理能力、QPU 及記憶體大小而有所不同。 當您建立伺服器時，可以選取一個層級內的計劃。 您可以在同一層內上下調動計劃，或升級為較高層，但是無法從較高層降級為較低層。
 
-相應增加、相應減少或暫停您的伺服器。 使用 Azure 入口網站或使用 PowerShell 即時完全掌控各種狀況。 您只需依據使用量付費。 若要深入了解不同的計劃和層級，並使用價格計算機來決定適合您的計劃，請參閱 [Azure Analysis Services 價格](https://azure.microsoft.com/pricing/details/analysis-services/)。
+增加、減少或暫停您的伺服器。 使用 Azure 入口網站或使用 PowerShell 即時完全掌控各種狀況。 您只需依據使用量付費。 若要深入了解不同的計劃和層級，並使用價格計算機來決定適合您的計劃，請參閱 [Azure Analysis Services 價格](https://azure.microsoft.com/pricing/details/analysis-services/)。
+
+### <a name="scale-out-resources-for-fast-query-responses"></a>向外延展資源以快速查詢回應
+
+透過 Azure Analysis Services 向外延展，用戶端查詢會在查詢集區中分散到多個查詢複本。 查詢複本已同步處理您表格式模型的副本。 透過分配查詢工作負載，可以降低在高度查詢工作負載期間的回應時間。 模型處理作業可與查詢集區分開處理，確保用戶端查詢不會受到處理作業的不良影響。 您可以建立一個多達七個額外查詢複本的查詢集區 (總共八個，包含您的伺服器)。 
+
+如同變更層級，您也可以根據您的需求將查詢複本向外延展。 在入口網站或使用 REST API 來設定向外延展。 若要深入了解，請參閱 [Azure Analysis Services 向外延展](analysis-services-scale-out.md)。
 
 ## <a name="keep-your-data-close"></a>將您的資料放在鄰近區域
 您可以在下列 [Azure 區域](https://azure.microsoft.com/regions/)中建立 Azure Analysis Services 伺服器：
@@ -92,11 +101,17 @@ Azure Analysis 服務的使用者驗證由 [Azure Active Directory (AAD)](../act
 #### <a name="data-security"></a>資料安全性
 Azure Analysis Services 利用 Azure Blob 儲存體來保留 Analysis Services 資料庫的儲存體和中繼資料。 Blob 內的資料檔案是使用 Azure Blob 伺服器端加密 (SSE) 來加密。 使用直接查詢模式時，只會儲存中繼資料。 查詢時會從資料來源存取實際資料。
 
+#### <a name="firewall"></a>防火牆
+
+Azure Analysis Services 防火牆會封鎖規則中所指定以外的所有用戶端連線。 設定指定依個別用戶端 IP 或依範圍允許之 IP 位址的規則。 Power BI (服務) 連線也可以允許或封鎖允許。 
+
 #### <a name="on-premises-data-sources"></a>內部部署資料來源
 透過安裝和設定[內部部署資料閘道](analysis-services-gateway.md)，即可安全地存取您組織中的內部部署資料。 閘道提供直接查詢和記憶體內部模式的資料存取。 當 Azure Analysis Services 模型連接至內部部署資料來源時，會建立一個查詢，以及內部部署資料來源的加密認證。 閘道雲端服務會分析該查詢，並將要求推送至 Azure 服務匯流排。 內部部署閘道會輪詢 Azure 服務匯流排是否有待處理的要求。 閘道接著收到查詢、解密認證，並連接至資料來源來執行。 結果會從資料來源傳送回閘道，然後再到 Azure Analysis Services 資料庫。
 
 Azure Analysis Services 受 [Microsoft Online Services 條款](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)和 [Microsoft Online Services 隱私權聲明](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx)。
 若要深入了解「Azure 資訊安全」，請參閱 [Microsoft 信任中心](https://www.microsoft.com/trustcenter/Security/AzureSecurity)。
+
+
 
 ## <a name="supports-the-latest-client-tools"></a>支援最新的用戶端工具
 ![資料視覺效果](./media/analysis-services-overview/aas-overview-clients.png)

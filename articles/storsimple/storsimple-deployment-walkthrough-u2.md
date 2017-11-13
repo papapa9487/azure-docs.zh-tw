@@ -12,21 +12,24 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 3286db40856c9f0eb2564c01f1483870952a19e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6107f64ae86af9b0ee873c8313ebba5371737f4d
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-2"></a>部署您的內部部署 StorSimple 裝置 (Update 2)
+
+> [!NOTE]
+> 已取代 StorSimple 的傳統入口網站。 按照淘汰排程，StorSimple 裝置管理員會自動移至新的 Azure 入口網站。 您將收到關於此移動的電子郵件和入口網站通知。 本文件也很快就會淘汰。 若要檢視這版的文章以查看新的 Azure 入口網站，請移至[部署您的內部部署 StorSimple 裝置 (Update 2)](storsimple-8000-deployment-walkthrough-u2.md)。 若有關於移動的任何問題，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
+
+
 > [!div class="op_single_selector"]
 > * [Update 2 和更新版本](storsimple-deployment-walkthrough-u2.md)
 > * [Update 1](storsimple-deployment-walkthrough-u1.md)
 > * [GA 版本](storsimple-deployment-walkthrough.md)
-> 
-> 
 
 ## <a name="overview"></a>Overview
 歡迎使用 Microsoft Azure StorSimple 裝置部署。 這些部署教學課程適用於 StorSimple 8000 Series Update 2。 這一系列的教學課程包含 StorSimple 裝置的設定檢查清單、設定必要條件，以及詳細的設定步驟。
@@ -195,7 +198,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。 請執行下列
 <!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
 #### <a name="to-update-your-device"></a>若要更新裝置
-1. 在裝置的 [快速入門] 頁面上，按一下 [裝置]。 選取實體裝置，按一下 維護，然後按一下掃描更新。  
+1. 在裝置的 [快速入門] 頁面上，按一下 [裝置]。 選取實體裝置，按一下 [維護]，然後按一下 [掃描更新]。  
 2. 系統會建立掃描可用更新的工作。 如果有可用的更新，[掃描更新] 會變更為 [安裝更新]。 按一下 [安裝更新] 。 
 3. 更新工作將會建立。 巡覽至 [工作] 以監視更新的狀態。
    

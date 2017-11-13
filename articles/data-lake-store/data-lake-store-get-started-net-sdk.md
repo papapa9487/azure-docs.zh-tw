@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 10/13/2017
 ms.author: nitinme
-ms.openlocfilehash: fb9be26d3affe898bbbb66ead242dbdb59436bb6
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 018cf772f458bb29712ef9516c3af4e969a94564
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-net-sdk"></a>使用 .NET SDK 在 Data Lake Store 上進行帳戶管理作業
 > [!div class="op_single_selector"]
@@ -105,7 +105,7 @@ ms.lasthandoff: 10/12/2017
 * 如需讓應用程式進行使用者驗證，請參閱[使用 .NET SDK 向 Data Lake Store 進行使用者驗證](data-lake-store-end-user-authenticate-net-sdk.md)。
 * 如需讓應用程式進行服務對服務驗證，請參閱[使用 .NET SDK 向 Data Lake Store 進行服務對服務驗證](data-lake-store-service-to-service-authenticate-net-sdk.md)。
 
-## <a name="create-client-objects"></a>建立用戶端物件
+## <a name="create-client-object"></a>建立用戶端物件
 下列程式碼片段會建立 Data Lake Store 帳戶用戶端物件，此物件用於對服務發出帳戶管理要求，例如建立帳戶、刪除帳戶等。
 
     // Create client objects and set the subscription ID

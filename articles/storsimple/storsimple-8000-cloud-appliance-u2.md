@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/10/2017
+ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 1ece5b1b2ba8e4d26fe633fe7c7c60f4187f9d6b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 46b1be5bdd4fa400f437bca274e7f3f6e0dfec08
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>部署和管理 Azure 中的 StorSimple 雲端設備 (Update 3 和更新版本)
 
@@ -183,6 +183,18 @@ StorSimple Snapshot Manager 軟體位於您的 Windows 主機上，而且可讓�
 [!INCLUDE [Create public endpoints on a cloud appliance](../../includes/storsimple-8000-create-public-endpoints-cloud-appliance.md)]
 
 建議您從相同虛擬網路內部的另一部虛擬機器進行連接，因為此做法可將虛擬網路上的公用端點數降到最低。 在此情況下，透過遠端桌面工作階段連線到虛擬機器，然後依照您在區域網路上設定任何其他 Windows 用戶端的方式，將該虛擬機器進行設定即可。 您不需要附加公用連接埠號碼，因為該連接埠是已知的。
+
+## <a name="get-private-ip-for-the-cloud-appliance"></a>取得雲端設備的私人 IP
+
+若要將雲端應用裝置連線至相同虛擬網路中的主機伺服器，您需要雲端應用裝置的內部或私人 IP 位址。 執行下列步驟來取得雲端應用裝置的私人 IP 位址
+
+1. 移至您雲端應用裝置的基礎虛擬機器。 虛擬機器與您的雲端應用裝置具有相同的名稱。 移至 [所有資源]，提供雲端應用裝置的名稱和訂用帳戶，然後選取作為虛擬機器的類型。 在所呈現的虛擬機器清單中，選取及按一下對應至雲端應用裝置的虛擬機器。
+
+     ![選取您雲端應用裝置的虛擬機器](./media/storsimple-8000-cloud-appliance-u2/sca-vm.png)
+
+2. 移至 [設定 > 網路]。 在右窗格中，您會看到雲端應用裝置的私人 IP 位址。 請將此記下。
+
+    ![取得您雲端應用裝置的私人 IP 位址](./media/storsimple-8000-cloud-appliance-u2/sca-private-ip-vm-networking.png)
 
 ## <a name="work-with-the-storsimple-cloud-appliance"></a>使用 StorSimple 雲端設備
 

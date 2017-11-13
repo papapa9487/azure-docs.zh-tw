@@ -3,7 +3,7 @@ title: "適用於 Azure ExpressRoute 的路由需求 |Microsoft Docs"
 description: "此頁面提供用來設定和管理 ExpressRoute 循環路由的詳細需求。"
 documentationcenter: na
 services: expressroute
-author: osamazia
+author: ganesr
 manager: ganesr
 editor: 
 ms.assetid: 5b382e79-fa3f-495a-a764-c5ff86af66a2
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
-ms.author: osamam
-ms.openlocfilehash: a7d1e177e08d37913afa3cb203f0e4085c171f70
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.date: 11/03/2017
+ms.author: ganesr
+ms.openlocfilehash: 088147060eeeba5c900cdcdc3fb38fc1d4ccfc58
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 路由需求
 若要使用 ExpressRoute 連線到 Microsoft 雲端服務，您必須設定和管理路由。 有些連線提供者會以受管理的服務形式提供路由的設定和管理。 請洽詢您的連線服務提供者，以查看他們是否提供這類服務。 如果沒有，您必須遵循下列需求：
@@ -174,6 +174,8 @@ ExpressRoute 不能設定為傳輸路由器。 您必須依賴連線提供者的
 | 西歐 | 12076:51002 |
 | 英國南部 | 12076:51024 |
 | 英國西部 | 12076:51025 |
+| 法國中部 | 12076:51030 |
+| 法國南部 | 12076:51031 |
 | **亞太地區** | |
 | 東亞 | 12076:51010 |
 | 東南亞 | 12076:51011 |

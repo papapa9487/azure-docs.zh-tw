@@ -1,12 +1,13 @@
 | 類別 | 資料存放區 | 支援作為來源 | 支援作為接收器 | 受 [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) 支援 | 受[自我裝載 IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) 支援 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **Azure** |[Azure Blob 儲存體](../articles/data-factory/connector-azure-blob-storage.md) |✓  |✓  |✓  |✓  |
+| **Azure** |[Azure Blob 儲存體](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓  |✓  |✓  |
 | &nbsp; |[Azure Cosmos DB](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓  |✓  |✓   |
-| &nbsp; |[Azure Data Lake Store](../articles/data-factory/connector-azure-data-lake-store.md) |✓  |✓  |✓  |✓   |
+| &nbsp; |[Azure Data Lake Store](../articles/data-factory/connector-azure-data-lake-store.md) |✓  |✓  |✓  |✓  |
+| &nbsp; |[Azure 檔案儲存體](../articles/data-factory/connector-azure-file-storage.md) |✓ |✓  |✓  |✓   |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |✓  |✓  |✓  |✓   |
 | &nbsp; |[Azure SQL 資料倉儲](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓  |✓  |✓  |✓   |
 | &nbsp; |[Azure 搜尋服務索引](../articles/data-factory/connector-azure-search.md) | |✓  |✓  |✓  |
-| &nbsp; |[Azure 表格儲存體](../articles/data-factory/connector-azure-table-storage.md) |✓  |✓  |✓  |✓   |
+| &nbsp; |[Azure 資料表儲存體](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓  |✓  |✓   |
 | **資料庫** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓  | |✓  |✓  |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |✓ | |✓  |✓  |
 | &nbsp; |[Informix](../articles/data-factory/connector-odbc.md#ibm-informix-source) |✓ | | |✓  |

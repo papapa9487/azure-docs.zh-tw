@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 10/06/2017
 ms.author: spelluru
-ms.openlocfilehash: a225b9285294f32fd7183390a73f55ae64bf232a
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 434c1de8a7310036fb1bb93d45c6b1364ba1fe6a
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure"></a>將 SQL Server Integration Services 套件部署至 Azure
 
@@ -45,6 +45,9 @@ ms.lasthandoff: 10/27/2017
     - 新增用戶端電腦的 IP 位址或 IP 位址範圍，其中包含資料庫伺服器之防火牆設定中用戶端電腦 IP 位址到用戶端 IP 位址清單。 如需詳細資訊，請參閱 [Azure SQL Database 伺服器層級和資料庫層級防火牆規則](../sql-database/sql-database-firewall-configure.md) 
 - **Azure PowerShell**(英文)。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/install-azurerm-ps) 中的指示。 您需要使用 PowerShell 來執行指令碼，以佈建在雲端中執行 SSIS 套件的 Azure-SSIS 整合執行階段。 
 
+> [!NOTE]
+> 如需 Azure Data Factory V2 和 Azure SSIS Integration Runtime 所支援的區域清單，請參閱[依區域提供的產品](https://azure.microsoft.com/regions/services/)。 展開 [資料 + 分析] 以查看 **Data Factory V2** 和 **SSIS Integration Runtime**。
+
 ## <a name="launch-windows-powershell-ise"></a>啟動 Windows PowerShell ISE
 以系統管理權限啟動 **Windows PowerShell ISE**。 
 
@@ -56,13 +59,11 @@ $SubscriptionName = "<Azure subscription name>"
 $ResourceGroupName = "<Azure resource group name>"
 # Data factory name. Must be globally unique
 $DataFactoryName = "<Data factory name>" 
-# In public preview, only EastUS amd EastUS2 are supported.
 $DataFactoryLocation = "EastUS" 
 
 # Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages
 $AzureSSISName = "<Specify a name for your Azure-SSIS IR>"
 $AzureSSISDescription = "<Specify description for your Azure-SSIS IR"
-# In public preview, only EastUS and NorthEurope are supported.
 $AzureSSISLocation = "EastUS" 
  # In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
 $AzureSSISNodeSize = "Standard_A4_v2"
@@ -208,20 +209,20 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 > [!NOTE]
 > 此指令碼會連線到 Azure SQL Database，以準備 SSIS 目錄資料庫 (SSISDB)。 若已指定，則指令碼也會設定您 VNet 的權限和設定，並將 Azure-SSIS 整合執行階段的新執行個體加入到 VNet。
 
-如需 Azure SQL Database 支援的**定價層**清單，請參閱 [SQL Database 資源限制](../sql-database/sql-database-resource-limits.md)。
+如需 Azure SQL Database 支援的**定價層**清單，請參閱 [SQL Database 資源限制](../sql-database/sql-database-resource-limits.md)。 
+
+如需 Azure Data Factory V2 和 Azure SSIS Integration Runtime 所支援的區域清單，請參閱[依區域提供的產品](https://azure.microsoft.com/regions/services/)。 展開 [資料 + 分析] 以查看 **Data Factory V2** 和 **SSIS Integration Runtime**。
 
 ```powershell
 $SubscriptionName = "<Azure subscription name>"
 $ResourceGroupName = "<Azure resource group name>"
 # Data factory name. Must be globally unique
 $DataFactoryName = "<Data factory name>" 
-# In public preview, only EastUS amd EastUS2 are supported.
 $DataFactoryLocation = "EastUS" 
 
 # Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages
 $AzureSSISName = "<Specify a name for your Azure-SSIS (IR)>"
 $AzureSSISDescription = "<Specify description for your Azure-SSIS IR"
-# In public preview, only EastUS and NorthEurope are supported.
 $AzureSSISLocation = "EastUS" 
  # In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
 $AzureSSISNodeSize = "Standard_A4_v2"

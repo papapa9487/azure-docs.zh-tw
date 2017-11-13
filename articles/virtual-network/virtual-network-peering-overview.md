@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: f055f1e87e73733b3f2ecfa87e4d372ade8a7868
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 7d3e6a34b5851a5a35a530b18efc3db3e2249274
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="virtual-network-peering"></a>虛擬網路對等互連
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/24/2017
 
 ## <a name="requirements-constraints"></a>需求和限制
 
-* 在一般情況下，可以為相同地區中的虛擬網路建立對等互連。 美國中西部、加拿大中部，和美國西部 2 可以使用為不同地區中虛擬網路建立對等互連的預覽版功能。 [註冊訂用帳戶](virtual-network-create-peering.md)可以獲得預覽版。
+* 在一般情況下，可以為相同地區中的虛擬網路建立對等互連。 美國中西部、加拿大中部，和美國西部 2 可以使用為不同地區中虛擬網路建立對等互連的預覽版功能。 在不同的區域中將虛擬網路對等互連之前，您必須先[註冊您的訂用帳戶](virtual-network-create-peering.md#register)以進行預覽。 如果您尚未完成預覽的註冊，嘗試在不同區域中的虛擬網路之間建立對等互連就會失敗。
     > [!WARNING]
     > 與公開上市版相比，跨區域建立之虛擬網路對等互連的可用性和可靠性較低。 虛擬網路對等互連的功能可能有限，而且可能只有部分 Azure 區域能進行對等互連。 如需此功能可用性和狀態的最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network) 頁面。
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 10/24/2017
 
 您可以設定使用者定義的路由，指向對等互連虛擬網路中當做「下一個躍點」IP 位址的虛擬機器，以啟用服務鏈結。 服務鏈結可讓您透過使用者定義的路由，將流量從一個虛擬網路導向對等互連虛擬網路中的虛擬設備。
 
-您也可以有效地建立中樞和輪輻類型的環境，讓中樞得以裝載網路虛擬應用裝置等基礎結構元件。 所有輪輻虛擬網路可以接著與中樞虛擬網路對等互連。 流量可以通過在中樞虛擬網路中執行的網路虛擬設備。 簡單來說，虛擬網路 對等互連可讓使用者定義路由上的下一個躍點 IP 位址成為對等互連虛擬網路中虛擬機器的 IP 位址。 若要深入了解使用者定義的路由，請參閱[使用者定義的路由概觀](virtual-networks-udr-overview.md)。 若要了解如何建立中樞和輪輻網路拓撲，請參閱[中樞和輪輻網路拓撲](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering)
+您也可以有效地建立中樞和輪輻類型的環境，讓中樞得以裝載網路虛擬應用裝置等基礎結構元件。 所有輪輻虛擬網路可以接著與中樞虛擬網路對等互連。 流量可以通過在中樞虛擬網路中執行的網路虛擬設備。 簡單來說，虛擬網路 對等互連可讓使用者定義路由上的下一個躍點 IP 位址成為對等互連虛擬網路中虛擬機器的 IP 位址。 若要深入了解使用者定義的路由，請參閱[使用者定義的路由概觀](virtual-networks-udr-overview.md)。 若要了解如何建立中樞和輪輻網路拓撲，請參閱[中樞和輪輻網路拓撲](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering)。
 
 ## <a name="gateways-and-on-premises-connectivity"></a>閘道及內部部署連線能力
 

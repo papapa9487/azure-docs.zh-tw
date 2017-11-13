@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 11/02/2017
 ms.author: nitinme
-ms.openlocfilehash: 7f6319dcf1ae66a686dd1c2ea2810b3041183098
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: a5d446986f810993d65c7e73eb95eeb2283c39a3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-net-sdk"></a>使用 .NET SDK 在 Azure Data Lake Store 上進行檔案系統作業
 > [!div class="op_single_selector"]
@@ -40,6 +40,8 @@ ms.lasthandoff: 10/12/2017
 * **Azure Data Lake Store 帳戶**。 如需有關如何建立帳戶的指示，請參閱 [開始使用 Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
 ## <a name="create-a-net-application"></a>建立 .NET 應用程式
+[GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) 上可用的程式碼範例會逐步引導您完成在存放區中建立檔案，串連檔案、下載檔案，以及刪除存放區中一些檔案的程序。 本節文章會逐步解說程式碼的主要部分。
+
 1. 開啟 Visual Studio，建立主控台應用程式。
 2. 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。
 3. 在 [ **新增專案**] 中，輸入或選取下列值：
@@ -49,32 +51,32 @@ ms.lasthandoff: 10/12/2017
    | 類別 |範本/Visual C#/Windows |
    | 範本 |主控台應用程式 |
    | 名稱 |CreateADLApplication |
+
 4. 按一下 [確定]  以建立專案。
+
 5. 將 NuGet 套件新增至您的專案。
 
    1. 在方案總管中以滑鼠右鍵按一下專案名稱，然後按一下 [ **管理 NuGet 封裝**]。
    2. 在 [NuGet 套件管理員] 索引標籤中，確定 [套件來源] 設為 [nuget.org]，且已選取 [包含發行前版本] 核取方塊。
    3. 搜尋並安裝下列 NuGet 封裝：
 
-      * `Microsoft.Azure.Management.DataLake.Store` - 本教學課程使用 v2.1.3-preview。
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - 本教學課程使用 v2.2.12。
+      * `Microsoft.Azure.DataLake.Store` - 本教學課程使用 v1.0.0。
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - 本教學課程使用 v2.3.1。
+    
+    關閉 [NuGet 套件管理員]。
 
-        ![新增 NuGet 來源](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "建立新的 Azure Data Lake 帳戶")
-   4. 關閉 [NuGet 套件管理員]。
 6. 開啟 **Program.cs**，刪除現有的程式碼，然後納入下列陳述式以新增命名空間的參考。
 
         using System;
-        using System.IO;
+        using System.IO;using System.Threading;
         using System.Linq;
         using System.Text;
-        using System.Threading;
         using System.Collections.Generic;
         using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
                 
         using Microsoft.Rest;
         using Microsoft.Rest.Azure.Authentication;
-        using Microsoft.Azure.Management.DataLake.Store;
-        using Microsoft.Azure.Management.DataLake.Store.Models;
+        using Microsoft.Azure.DataLake.Store;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 7. 宣告變數如下，並提供預留位置的值。 此外，請確定電腦上有此處提供的本機路徑和檔案名稱。
@@ -83,23 +85,7 @@ ms.lasthandoff: 10/12/2017
         {
             class Program
             {
-                private static DataLakeStoreFileSystemManagementClient _adlsFileSystemClient;
-
-                private static string _adlsAccountName;
-                private static string _resourceGroupName;
-                private static string _location;
-
-                private static async void Main(string[] args)
-                {
-                    _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; // TODO: Replace this value with the name of your existing Data Lake Store account.
-                    _resourceGroupName = "<RESOURCE-GROUP-NAME>"; // TODO: Replace this value with the name of the resource group containing your Data Lake Store account.
-                    _location = "East US 2";
-
-                    string localFolderPath = @"C:\local_path\"; // TODO: Make sure this exists and can be overwritten.
-                    string localFilePath = Path.Combine(localFolderPath, "file.txt"); // TODO: Make sure this exists and can be overwritten.
-                    string remoteFolderPath = "/data_lake_path/";
-                    string remoteFilePath = Path.Combine(remoteFolderPath, "file.txt");
-                }
+                private static string _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; //Replace this value with the name of your existing Data Lake Store account.        
             }
         }
 
@@ -111,125 +97,83 @@ ms.lasthandoff: 10/12/2017
 * 如需讓應用程式進行服務對服務驗證，請參閱[使用 .NET SDK 向 Data Lake Store 進行服務對服務驗證](data-lake-store-service-to-service-authenticate-net-sdk.md)。
 
 
-## <a name="create-client-objects"></a>建立用戶端物件
-下列程式碼片段會建立 Data Lake Store 帳戶和檔案系統用戶端物件，以便對服務發出要求。
+## <a name="create-client-object"></a>建立用戶端物件
+下列程式碼片段會建立 Data Lake Store 檔案系統用戶端物件，以便對服務發出要求。
 
     // Create client objects
-    _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(adlCreds);
+    AdlsClient client = AdlsClient.CreateClient(_adlsAccountName, adlCreds);
 
-## <a name="create-a-directory"></a>建立目錄
-將下列方法新增至您的類別。 此程式碼片段顯示的 `CreateDirectory()` 方法可用於在 Data Lake Store 帳戶中建立目錄。
+## <a name="create-a-file-and-directory"></a>建立檔案和目錄
+將下列程式碼片段新增至應用程式。 這個程式碼片段會新增與檔案任何不存在的父目錄。
 
-    // Create a directory
-    public static void CreateDirectory(string path)
-    {
-            _adlsFileSystemClient.FileSystem.Mkdirs(_adlsAccountName, path);
-    }
-
-將下列程式碼片段新增至您的 `Main()` 方法以叫用 `CreateDirectory()` 方法。
-
-    CreateDirectory(remoteFolderPath);
-    Console.WriteLine("Created a directory in the Data Lake Store account. Press any key to continue ...");
-    Console.ReadLine();
-
-## <a name="upload-a-file"></a>上傳檔案
-將下列方法新增至您的類別。 此程式碼片段顯示的 `UploadFile()` 方法可用於將檔案上傳到 Data Lake Store 帳戶。 SDK 支援在本機檔案路徑與 Data Lake Store 檔案路徑之間進行遞迴上傳和下載。
-
-    // Upload a file
-    public static void UploadFile(string srcFilePath, string destFilePath, bool force = true)
-    {
-        _adlsFileSystemClient.FileSystem.UploadFile(_adlsAccountName, srcFilePath, destFilePath, overwrite:force);
-    }
-
-將下列程式碼片段新增至您的 `Main()` 方法以叫用 `UploadFile()` 方法。
-
-    UploadFile(localFilePath, remoteFilePath, true);
-    Console.WriteLine("Uploaded file in the directory. Press any key to continue...");
-    Console.ReadLine();
+    // Create a file - automatically creates any parent directories that don't exist
     
-
-## <a name="get-file-or-directory-info"></a>取得檔案或目錄資訊
-下列程式碼片段顯示的 `GetItemInfo()` 方法可用於擷取 Data Lake Store 中可用檔案或目錄的相關資訊。
-
-    public static FileStatusProperties GetItemInfo(string path)
+    string fileName = "/Test/testFilename1.txt";
+    using (var streamWriter = new StreamWriter(client.CreateFile(fileName, IfExists.Overwrite)))
     {
-        return _adlsFileSystemClient.FileSystem.GetFileStatus(_adlsAccountName, path).FileStatus;
+        streamWriter.WriteLine("This is test data to write");
+        streamWriter.WriteLine("This is line 2");
     }
-
-將下列程式碼片段新增至您的 `Main()` 方法以叫用 `GetItemInfo()` 方法。
-
-    
-    var fileProperties = GetItemInfo(remoteFilePath);
-    Console.WriteLine("The owner of the file at the path is:", fileProperties.Owner);
-    Console.WriteLine("Press any key to continue...");
-    Console.ReadLine();
-
-## <a name="list-file-or-directories"></a>列出檔案或目錄
-下列程式碼片段顯示的 `ListItems()` 方法可用於列出 Data Lake Store 帳戶中的檔案和目錄。
-
-    // List files and directories
-    public static List<FileStatusProperties> ListItems(string directoryPath)
-    {
-        return _adlsFileSystemClient.FileSystem.ListFileStatus(_adlsAccountName, directoryPath).FileStatuses.FileStatus.ToList();
-    }
-
-將下列程式碼片段新增至您的 `Main()` 方法以叫用 `ListItems()` 方法。
-
-    var itemList = ListItems(remoteFolderPath);
-    var fileMenuItems = itemList.Select(a => String.Format("{0,15} {1}", a.Type, a.PathSuffix));
-    Console.WriteLine(String.Join("\r\n", fileMenuItems));
-    Console.WriteLine("Files and directories listed. Press any key to continue ...");
-    Console.ReadLine();
-
-## <a name="concatenate-files"></a>串連檔案
-下列程式碼片段顯示的 `ConcatenateFiles()` 方法可用於串連檔案。
-
-    // Concatenate files
-    public static void ConcatenateFiles(string[] srcFilePaths, string destFilePath)
-    {
-        _adlsFileSystemClient.FileSystem.Concat(_adlsAccountName, destFilePath, srcFilePaths);
-    }
-
-將下列程式碼片段新增至您的 `Main()` 方法以叫用 `ConcatenateFiles()` 方法。 此程式碼片段假設您已上傳其他檔案至 Data Lake Store 帳戶，且在 *anotherRemoteFilePath* 字串中提供檔案路徑。
-
-    string[] stringOfFiles = new String[] {remoteFilePath, anotherRemoteFilePath};
-    string destFilePath = Path.Combine(remoteFolderPath, "Concatfile.txt");
-    ConcatenateFiles(stringOfFiles, destFilePath);
-    Console.WriteLine("Files concatinated. Press any key to continue ...");
-    Console.ReadLine();
 
 ## <a name="append-to-a-file"></a>附加到檔案
-下列程式碼片段顯示的 `AppendToFile()` 方法可用於將資料附加到 Data Lake Store 帳戶中已儲存的檔案。
+下列程式碼片段會將資料附加至 Data Lake Store 帳戶中的現有檔案。
 
-    // Append to file
-    public static void AppendToFile(string path, string content)
+    // Append to existing file
+    using (var streamWriter = new StreamWriter(client.GetAppendStream(fileName)))
     {
-        using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(content)))
+        streamWriter.WriteLine("This is the added line");
+    }
+
+## <a name="read-a-file"></a>讀取檔案
+下列程式碼片段會讀取 Data Lake Store 中的檔案內容。
+
+    //Read file contents
+    using (var readStream = new StreamReader(client.GetReadStream(fileName)))
+    {
+        string line;
+        while ((line = readStream.ReadLine()) != null)
         {
-            _adlsFileSystemClient.FileSystem.AppendAsync(_adlsAccountName, path, stream);
+            Console.WriteLine(line);
         }
     }
 
-將下列程式碼片段新增至您的 `Main()` 方法以叫用 `AppendToFile()` 方法。
+## <a name="get-file-properties"></a>取得檔案屬性
+下列程式碼片段會傳回與檔案或目錄相關聯的屬性。
 
-    AppendToFile(remoteFilePath, "123");
-    Console.WriteLine("Content appended. Press any key to continue ...");
-    Console.ReadLine();
+    // Get file properties
+    var directoryEntry = client.GetDirectoryEntry(fileName);
+    PrintDirectoryEntry(directoryEntry);
 
-## <a name="download-a-file"></a>下載檔案
-下列程式碼片段顯示的 `DownloadFile()` 方法可用於從 Data Lake Store 帳戶下載檔案。
+`PrintDirectoryEntry` 方法的定義可隨著 [Github 上](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)的範例一起提供。 
 
-    // Download file
-    public static void DownloadFile(string srcFilePath, string destFilePath)
+## <a name="rename-a-file"></a>重新命名檔案
+下列程式碼片段會將 Data Lake Store 帳戶中的現有檔案重新命名。
+
+    // Rename a file
+    string destFilePath = "/Test/testRenameDest3.txt";
+    client.Rename(fileName, destFilePath, true);
+
+## <a name="enumerate-a-directory"></a>列舉目錄
+下列程式碼片段會列舉 Data Lake Store 帳戶中的目錄
+
+    // Enumerate directory
+    foreach (var entry in client.EnumerateDirectory("/Test"))
     {
-        _adlsFileSystemClient.FileSystem.DownloadFile(_adlsAccountName, srcFilePath, destFilePath, overwrite:true);
+        PrintDirectoryEntry(entry);
     }
 
-將下列程式碼片段新增至您的 `Main()` 方法以叫用 `DownloadFile()` 方法。
+`PrintDirectoryEntry` 方法的定義可隨著 [Github 上](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)的範例一起提供。
 
-    DownloadFile(destFilePath, localFilePath);
-    Console.WriteLine("File downloaded. Press any key to continue ...");
-    Console.ReadLine();
+## <a name="delete-directories-recursively"></a>以遞迴方式刪除目錄
+下列程式碼片段會以遞迴方式刪除目錄，以及其所有子目錄。
+
+    // Delete a directory and all it's subdirectories and files
+    client.DeleteRecursive("/Test");
+
+## <a name="samples"></a>範例
+以下是幾個有關如何使用 Data Lake Store Filesystem SDK 的範例。
+* [GitHub 上的基本範例](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
+* [Github 上的進階範例](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
 ## <a name="see-also"></a>另請參閱
 * [使用 .NET SDK 在 Data Lake Store 上進行帳戶管理作業](data-lake-store-get-started-net-sdk.md)
