@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: e28324fe0d7e52f1721af6cd835369f024d4c58f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 0be1616f5df915e566dc73c15dbea2e53177aa1c
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="how-to-successfully-rollout-self-service-password-reset"></a>如何成功推出自助式密碼重設
 
@@ -32,14 +32,14 @@ ms.lasthandoff: 10/31/2017
 4. [指派和驗證所需的授權](active-directory-passwords-licensing.md)。
 5. 如果您想要漸進式地推出 SSPR，您可以限制使用者群組的存取權，讓您可以對特定群組進行試驗。 若要這麼做，請將 [已啟用自助式密碼重設] 切換開關設定為 [已選取]，然後選取要啟用密碼重設的安全性群組。 
 6. 為您的使用者填入[驗證資料](active-directory-passwords-data.md)，例如其辦公室電話、行動電話和備用電子郵件地址。
-7. [自訂 Azure AD 登入體驗以包含您公司的商標。](active-directory-passwords-customize.md)。
+7. [自訂 Azure AD 登入體驗以包含您公司的商標](active-directory-passwords-customize.md)。
 8. 將如何註冊及如何重設的指示傳送給使用者，教導他們如何使用 SSPR。
 9. 您可以選擇在任何時間點強制註冊，並要求使用者在一段時間後重新確認其驗證資訊。
 10. 經過一段時間，藉由檢視 [Azure AD 所提供的報告](active-directory-passwords-reporting.md)，來檢閱使用者的註冊和使用情形。
 11. 當您準備好時，就可以為所有使用者啟用密碼重設，將 [已啟用自助式密碼重設] 切換開關設定為 [全部]。 
 
-    > [!IMPORTANT]
-    > 以使用者並非系統管理員測試 SSPR，因為 Microsoft 會強制執行 Azure 系統管理員類型帳戶的強式驗證需求。 如需有關系統管理員密碼原則的詳細資訊，請參閱我們的[深入探討文章](active-directory-passwords-how-it-works.md)。
+   > [!IMPORTANT]
+   > 以使用者並非系統管理員測試 SSPR，因為 Microsoft 會強制執行 Azure 系統管理員類型帳戶的強式驗證需求。 如需有關系統管理員密碼原則的詳細資訊，請參閱我們的[密碼原則文章](active-directory-passwords-policy.md#administrator-password-policy-differences)。
 
 ## <a name="email-based-rollout"></a>以電子郵件為基礎的啟用
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 10/31/2017
 * [什麼是密碼回寫，且為什麼我需要了解它？](active-directory-passwords-writeback.md)
 * [如何回報 SSPR 中的活動？](active-directory-passwords-reporting.md)
 * [SSPR 中的所有選項有哪些，以及它們有何意義？](active-directory-passwords-how-it-works.md)
-* [我認為有中斷。我該如何針對 SSPR 進行疑難排解？](active-directory-passwords-troubleshoot.md)
+* [我認為有中斷。如何針對 SSPR 進行疑難排解？](active-directory-passwords-troubleshoot.md)
 * [在其他某處並未涵蓋我的問題](active-directory-passwords-faq.md)
 
 [Email]: ./media/active-directory-passwords-best-practices/sspr-emailtemplates.png "自訂這些電子郵件範本，以符合您組織的需求"
