@@ -152,10 +152,10 @@
           href: azure-diagnostics-streaming-event-hubs.md
         - name: 疑難排解
           href: azure-diagnostics-troubleshooting.md
-    - name: 使用 Azure 監視器計量瀏覽器
-      items:
-        - name: 建立計量圖表
-          href: monitoring-metric-charts.md
+    - name: 在計量瀏覽器中建立計量圖表
+      href: monitoring-metric-charts.md
+    - name: 將計量傳送至 Grafana
+      href: monitor-send-to-grafana.md
 - name: 參考
   items:
     - name: Azure CLI

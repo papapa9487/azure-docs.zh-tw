@@ -38,6 +38,8 @@
       href: integrate-with-application-gateway.md
     - name: 從範本建立 ASE
       href: create-from-template.md
+    - name: 強制通道配置
+      href: forced-tunnel-support.md
 - name: 參考
   items:
     - name: 管理位址

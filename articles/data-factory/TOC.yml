@@ -55,10 +55,12 @@
       href: concepts-integration-runtime.md
 - name: 使用說明指南
   items:
-    - name: 移動資料
+    - name: 複製資料
       items:
-        - name: 複製活動概觀
+        - name: 將資料從支援的來源複製到目的地
           href: copy-activity-overview.md
+        - name: 讀取或寫入分割的資料
+          href: how-to-read-write-partitioned-data.md
         - name: 連接器
           items:
             - name: Amazon Redshift
@@ -71,6 +73,8 @@
               href: connector-azure-cosmos-db.md
             - name: Azure Data Lake Store
               href: connector-azure-data-lake-store.md
+            - name: 適用於 MySQL 的 Azure 資料庫
+              href: connector-azure-database-for-mysql.md
             - name: Azure 檔案儲存體
               href: connector-azure-file-storage.md
             - name: Azure 搜尋服務
@@ -168,6 +172,8 @@
       items:
         - name: If 條件活動
           href: control-flow-if-condition-activity.md
+        - name: Until 活動
+          href: control-flow-until-activity.md
         - name: 網路活動
           href: control-flow-web-activity.md
         - name: 查閱活動
@@ -178,6 +184,8 @@
           href: control-flow-execute-pipeline-activity.md
         - name: For Each 活動
           href: control-flow-for-each-activity.md
+        - name: Wait 活動
+          href: control-flow-wait-activity.md
         - name: 運算式語言
           href: control-flow-expression-language-functions.md
         - name: 系統變數
@@ -190,6 +198,8 @@
           href: store-credentials-in-key-vault.md
         - name: 對自我託管的整合執行階段認證進行加密
           href: encrypt-credentials-self-hosted-integration-runtime.md
+        - name: 資料處理站服務識別
+          href: data-factory-service-identity.md
     - name: 監視及管理
       items:
         - name: 使用 SDK

@@ -88,7 +88,7 @@
 ## [串流分析](/azure/stream-analytics/)
 ## [事件中樞](/azure/event-hubs/)
 ## [IoT 中心](/azure/iot-hub/)
-## [IoT 中心](/azure/index#pivot=services&panel=iot)
+## [Microsoft IoT 中心](/azure/index#pivot=services&panel=iot)
 ## [Machine Learning](/azure/machine-learning/)
 
 # 資源

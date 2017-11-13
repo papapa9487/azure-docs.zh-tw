@@ -71,9 +71,7 @@
 
 ## 設定資源原則
 ### [資源原則是什麼？](resource-manager-policy.md)
-### 範例
-#### [標記](resource-manager-policy-tags.md)
-#### [命名慣例](resource-manager-policy-naming-convention.md)
+### [命名慣例](resource-manager-policy-naming-convention.md)
 
 ## 稽核
 ### [檢視活動記錄](resource-group-audit.md)
@@ -89,6 +87,7 @@
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### 虛擬機器部署錯誤

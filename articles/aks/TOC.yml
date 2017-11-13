@@ -51,12 +51,14 @@
       href: /rest/api/aks
 - name: 資源
   items:
-    - name: Azure 藍圖
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: 價格
-      href: 'https://azure.microsoft.com/pricing/details/container-service/'
     - name: 區域可用性
       href: 'https://azure.microsoft.com/regions/services/'
+    - name: 價格
+      href: 'https://azure.microsoft.com/pricing/details/container-service/'
+    - name: 藍圖
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 提供產品意見反應
+      href: 'https://github.com/Azure/AKS/issues'
     - name: 堆疊溢位
       href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
     - name: 影片

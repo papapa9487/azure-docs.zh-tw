@@ -15,14 +15,12 @@
       href: container-instances-quickstart-powershell.md
 - name: 教學課程
   items:
-    - name: 建置和部署容器
-      items:
-        - name: 1 - 建立容器映像
-          href: container-instances-tutorial-prepare-app.md
-        - name: 2 - 建立容器登錄
-          href: container-instances-tutorial-prepare-acr.md
-        - name: 3 - 部署應用程式
-          href: container-instances-tutorial-deploy-app.md
+    - name: 1 - 建立容器映像
+      href: container-instances-tutorial-prepare-app.md
+    - name: 2 - 建立容器登錄
+      href: container-instances-tutorial-prepare-acr.md
+    - name: 3 - 部署應用程式
+      href: container-instances-tutorial-deploy-app.md
 - name: 概念
   items:
     - name: 區域和可用性
@@ -35,11 +33,11 @@
   items:
     - name: 部署多個容器群組
       href: container-instances-multi-container-group.md
-    - name: 透過 Azure 檔案共用來管理狀態
+    - name: 透過 Azure 檔案保存資料
       href: container-instances-mounting-azure-files-volume.md
     - name: 從 Azure Container Registry 進行部署
       href: container-instances-using-azure-container-registry.md
-    - name: 針對 Azure Container Instances 進行疑難排解
+    - name: 針對部署進行疑難排解
       href: container-instances-troubleshooting.md
 - name: 參考
   items:
@@ -49,13 +47,19 @@
       href: /rest/api/container-instances
     - name: PowerShell
       href: '/powershell/module/azurerm.containerinstance#container_instances'
+    - name: Resource Manager 範本
+      href: /azure/templates/microsoft.containerinstance/containergroups
 - name: 資源
   items:
-    - name: Azure 藍圖
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: 範本 - 容器執行個體
-      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance'
-    - name: 定價計算機
-      href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 區域可用性
       href: 'https://azure.microsoft.com/regions/services/'
+    - name: 價格
+      href: 'https://azure.microsoft.com/pricing/details/container-instances/'
+    - name: 藍圖
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 提供產品意見反應
+      href: 'https://feedback.azure.com/forums/602224-azure-container-instances'
+    - name: 堆疊溢位
+      href: 'http://stackoverflow.com/questions/tagged/azure-container-instances'
+    - name: 影片
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'

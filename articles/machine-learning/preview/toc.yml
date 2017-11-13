@@ -118,6 +118,8 @@
           href: scenario-tdsp-biomedical-recognition.md
         - name: 美國所得分類 - TDSP 專案
           href: scenario-tdsp-classifying-us-incomes.md
+        - name: 使用 CNTK 進行影像分類
+          href: scenario-image-classification-using-cntk.md
 - name: 參考
   items:
     - name: 資料準備
@@ -162,6 +164,8 @@
       items:
         - name: Sprint 0 - 2017 年 10 月
           href: release-notes-sprint-0.md
+        - name: Sprint 1 - 2017 年 11 月
+          href: release-notes-sprint-1.md
 - name: 資源
   items:
     - name: 常見問題集

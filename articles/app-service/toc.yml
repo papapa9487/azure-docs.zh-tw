@@ -143,6 +143,8 @@
           href: web-sites-enable-diagnostic-log.md
     - name: 管理應用程式
       items:
+        - name: 管理主機方案
+          href: app-service-plan-manage.md
         - name: 備份應用程式
           href: web-sites-backup.md
         - name: 還原備份

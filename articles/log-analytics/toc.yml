@@ -28,7 +28,13 @@
 - name: 概念
   items:
     - name: 工作區升級
-      href: log-analytics-log-search-upgrade.md
+      items:
+        - name: 升級概觀
+          href: log-analytics-log-search-upgrade.md
+        - name: 變更摘要
+          href: log-analytics-log-search-upgrade-changes.md
+        - name: 升級常見問題
+          href: log-analytics-log-search-faq.md
     - name: Log Analytics 常見問題集
       href: log-analytics-faq.md
     - name: 資料耗用量
@@ -41,8 +47,6 @@
       items:
         - name: 記錄檔搜尋概觀
           href: log-analytics-log-search-new.md
-        - name: 記錄搜尋常見問題
-          href: log-analytics-log-search-faq.md
         - name: 記錄搜尋入口網站
           href: log-analytics-log-search-portals.md
 - name: 使用說明指南

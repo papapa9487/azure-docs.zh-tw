@@ -87,7 +87,6 @@
 #### [Azure AD 中的產品與服務方案的參考](active-directory-licensing-product-and-service-plan-reference.md)
 ### [設定 Office 365 群組到期時間](active-directory-groups-lifecycle-azure-portal.md)
 ### [檢視全部群組](active-directory-groups-view-azure-portal.md)
-### [啟用專用群組](active-directory-accessmanagement-dedicated-groups.md)
 ### [新增 SaaS 應用程式的群組存取權](active-directory-accessmanagement-group-saasapps.md)
 ### [還原已刪除的 Office 365 群組](active-directory-groups-restore-azure-portal.md)
 ### 管理群組設定
@@ -254,7 +253,6 @@
 ##### [傳統入口網站](active-directory-add-manage-domain-names.md)
 ### [管理目錄](active-directory-administer.md)
 ### [多個目錄](active-directory-licensing-directory-independence.md)
-### [O365 目錄](active-directory-manage-o365-subscription.md)
 ### [自助式註冊](active-directory-self-service-signup.md)
 #### [接管未受管理的目錄](domains-admin-takeover.md)
 ### [企業狀態漫遊](active-directory-windows-enterprise-state-roaming-overview.md)

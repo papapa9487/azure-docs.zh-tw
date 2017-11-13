@@ -1,7 +1,7 @@
 # 概觀
 ## [開發人員指南](azure-developer-guide.md) 
-## [Azure 服務概觀](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
-## [入口網站概觀](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
+## [Azure 服務概觀](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
+## [入口網站概觀](../../azure-portal-overview.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [SDK 及工具](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # 快速入門
@@ -107,6 +107,7 @@
 ## [計費](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
 # 資源
+## [Azure 限制和配額](../../azure-subscription-service-limits.md)
 ## [Azure 區域](https://azure.microsoft.com/regions/)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
