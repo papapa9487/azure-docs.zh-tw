@@ -46,6 +46,15 @@
       href: subscription-creation-schema.md
     - name: 結構描述
       href: event-schema.md
+      items:
+        - name: Azure 訂用帳戶
+          href: event-schema-subscriptions.md
+        - name: Blob 儲存體
+          href: event-schema-blob-storage.md
+        - name: 事件中樞
+          href: event-schema-event-hubs.md
+        - name: 資源群組
+          href: event-schema-resource-groups.md
 - name: 資源
   items:
     - name: Azure 藍圖

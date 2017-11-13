@@ -20,8 +20,6 @@
       items:
         - name: 儲存體選項
           href: r-server-storage.md
-        - name: 安裝 R Studio
-          href: r-server-install-r-studio.md
         - name: 計算內容
           href: r-server-compute-contexts.md
         - name: ScaleR 和 SparkR
