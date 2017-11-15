@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 8b2f806b81bbc6d9328ab179644b79b97d68e7b9
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 39023712f72d5ac874de1f20a110bef9703ed5e8
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="consuming-web-services"></a>取用 Web 服務
 將模型部署為即時 Web 服務後，您就可以對它傳送資料，並從各種不同的平台和應用程式取得預測。 即時 Web 服務會公開用來取得預測的 REST API。 您可以透過單一資料列或多重資料列格式將資料傳送給 Web 服務，以便一次取得一或多個預測。
 
-在 Azure Machine Learning Web 服務中，外部應用程式會藉由對服務 URL 發出 HTTP POST 呼叫，來與預測模型進行同步通訊。 若要發出 Web 服務呼叫，用戶端應用程式必須指定您在部署預測時所建立的 API 金鑰，並將要求資料放入 POST 要求本文。
+使用 [Azure Machine Learning Web 服務](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy)，外部應用程式會藉由對服務 URL 發出 HTTP POST 呼叫，來與預測模型進行同步通訊。 若要發出 Web 服務呼叫，用戶端應用程式必須指定您在部署預測時所建立的 API 金鑰，並將要求資料放入 POST 要求本文。
 
 請注意，叢集部署模式才會有 API 金鑰。 本機 Web 服務不會有金鑰。
 

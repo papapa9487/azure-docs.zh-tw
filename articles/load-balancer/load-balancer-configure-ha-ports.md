@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 11/02/2017
 ms.author: kumud
-ms.openlocfilehash: 7256548b988812c64ca9a9f8a84fec377646635d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4cd65c01d75af8539f5fa13dbbd2aaec548aea0b
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>如何設定內部負載平衡器的高可用性連接埠
 
-本文提供如何在內部負載平衡器上部署高可用性 (HA) 連接埠的範例。 如需網路虛擬設備特有的組態，請參閱對應的提供者網站。
+本文提供如何在內部負載平衡器上部署高可用性 (HA) 連接埠的範例。 如需網路虛擬設備 (NVA) 特有的組態，請參閱對應的提供者網站。
 
 >[!NOTE]
 > 高可用性連接埠概觀目前為預覽版。 在預覽階段，功能可能沒有與正式發行版本功能相同層級的可用性和可靠性。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 圖 1 會說明本文所述部署範例的下列組態：
 - NVA 部署在 HA 連接埠組態背後之內部負載平衡器的後端集區中。 
-- 套用在 DMZ 子網路的 UDR 會將下一個躍點設為內部負載平衡器的虛擬 IP，以將所有流量路由傳送至 <?>。 
+- 套用在 DMZ 子網路的 UDR 會將下一個躍點設為內部負載平衡器的虛擬 IP，以將所有流量路由傳送至 NVA。 
 - 內部負載平衡器會根據 LB 演算法，將流量分散到其中一個作用中的 NVA。
 - NVA 處理流量，並將流量轉送到後端子網路中的原始目的地。
 - 如果在後端子網路設定了對應的 UDR，則傳回路徑也可採用相同的路由。 
@@ -41,19 +41,13 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="preview-sign-up"></a>註冊預覽
 
-若要參加 Load Balancer Standard SKU 中 HA 連接埠功能的預覽，請使用 PowerShell 或 Azure CLI 2.0 來註冊您的訂用帳戶以獲得存取。
+若要參加 Load Balancer Standard 中 HA 連接埠功能的預覽，請使用 Azure CLI 2.0 或 PowerShell 來註冊您的訂用帳戶以獲得存取。  請註冊訂用帳戶以獲得
 
-- 使用 PowerShell 註冊
+1. [Load Balancer Standard 預覽版](https://aka.ms/lbpreview#preview-sign-up)和 
+2. [HA 連接埠預覽版](https://aka.ms/haports#preview-sign-up)。
 
-   ```powershell
-   Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-
-- 使用 Azure CLI 2.0 註冊
-
-    ```cli
-  az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network  
-    ```
+>[!NOTE]
+>若要使用此功能，除了「HA 連接埠」之外，您必須也註冊 Load Balancer [Standard 預覽版](https://aka.ms/lbpreview#preview-sign-up)。 註冊「HA 連接埠」或 Load Balancer Standard 預覽版最多可能需要一小時的時間。
 
 ## <a name="configuring-ha-ports"></a>設定 HA 連接埠
 
@@ -68,6 +62,39 @@ Azure 入口網站包含 [HA 連接埠] 選項，勾選核取方塊即可啟用�
 ![透過 Azure 入口網站設定 HA 連接埠組態](./media/load-balancer-configure-ha-ports/haports-portal.png)
 
 圖 2 - 透過入口網站設定 HA 連接埠
+
+### <a name="configure-ha-ports-lb-rule-via-resource-manager-template"></a>透過 Resource Manager 範本設定 HA 連接埠 LB 規則
+
+您可以使用適用於 Load Balancer 資源中之 Microsoft.Network/loadBalancers 的 2017-08-01 API 版本，來設定 HA 連接埠。 下列 JSON 程式碼片段示範透過 REST API 來變更 HA 連接埠的 Load Balancer 設定。
+
+```json
+    {
+        "apiVersion": "2017-08-01",
+        "type": "Microsoft.Network/loadBalancers",
+        ...
+        "sku":
+        {
+            "name": "Standard"
+        },
+        ...
+        "properties": {
+            "frontendIpConfigurations": [...],
+            "backendAddressPools": [...],
+            "probes": [...],
+            "loadBalancingRules": [
+             {
+                "properties": {
+                    ...
+                    "protocol": "All",
+                    "frontendPort": 0,
+                    "backendPort": 0
+                }
+             }
+            ],
+       ...
+       }
+    }
+```
 
 ### <a name="configure-ha-ports-load-balancer-rule-with-powershell"></a>使用 PowerShell 設定 HA 連接埠負載平衡器規則
 

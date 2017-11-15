@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: f39faea6b7e0886d63085b752f9532a7010ea941
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: e1ce5d337e8dea6e1dc48f04238ecb31c31909b1
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - 已知問題和疑難排解指南 
 本文可協助您尋找和修正使用 Azure Machine Learning Workbench 應用程式過程中遇到的錯誤與失敗。 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/23/2017
 您可以將這些目錄的內容壓縮，然後傳送給我們進行診斷。
 
 ### <a name="workbench-desktop-app"></a>Workbench 傳統型應用程式
-如果 Workbench 傳統型應用程式當機，您可以在以下位置找到記錄檔：
+如果您無法登入，或如果 Workbench 傳統型應用程式當機，就可以在以下位置找到記錄檔：
 ```
 # Windows
 %APPDATA%\AmlWorkbench
@@ -83,6 +83,23 @@ $ az ml experiment diagnostics -r <run_id> -t <target_name>
 - Mac 不支援文字叢集轉換。
 
 - 只有在 Windows 和 Linux (在 Docker 容器中) 上支援 RevoScalePy 程式庫。 在 macOS 上不提供支援。
+
+## <a name="delete-experimentation-account"></a>刪除測試帳戶
+您可以使用 CLI 來刪除測試帳戶，但是必須先刪除子工作區和子工作區內的子專案。
+
+```azure-cli
+# delete a project
+$ az ml project delete -g <resource group name> -a <experimentation account name> -w <worksapce name> -n <project name>
+
+# delete a workspace 
+$ az ml workspace delete -g <resource group name> -a <experimentation account name> -n <worksapce name>
+
+# delete an experimentation account
+$ az ml account experimentation delete -g <resource group name> -n <experimentation account name>
+```
+
+您也可以從 Workbench 應用程式內刪除專案和工作區。
+
 
 ## <a name="file-name-too-long-on-windows"></a>檔案名稱在 Windows 上太長
 如果您在 Windows 上使用 Workbench，您可能會遇到預設最大 260 個字元的檔案名稱長度限制，這可能讓人誤解成「系統找不到指定的路徑」錯誤。 您可以修改登錄機碼設定，以允許更長的檔案路徑名稱。 檢閱[本文](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath)，以取得有關如何設定 _MAX_PATH_ 登錄機碼的詳細資訊。

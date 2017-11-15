@@ -11,13 +11,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
-ms.author: willzhan;juliako
-ms.openlocfilehash: 1c62857699fb29b3583363e1c6f2dc7874635f40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/02/2017
+ms.author: willzhan;juliako;johndeu
+ms.openlocfilehash: e5d7a5ec1c28a552420aba5e2cd6c8c7bbf4213d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>使用 Azure AD 驗證搭配 REST 存取 Azure 媒體服務 API
 
@@ -86,21 +86,14 @@ Azure 媒體服務團隊針對 Azure 媒體服務的存取發行了 Azure Active
 |應用程式類型 |應用程式 |JWT 屬性 |
 |---|---|---|
 |用戶端 |客戶應用程式或解決方案 |appid: "02ed1e8e-af8b-477e-af3d-7e7219a99ac6"。 您將在下一節註冊至 Azure AD 之應用程式的用戶端識別碼。 |
-|身分識別提供者 (IDP) | 作為 IDP 的 Azure AD |idp: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/"。  GUID 是 Microsoft 租用戶的識別碼 (microsoft.onmicrosoft.com)。 每個租用戶都有專屬的唯一識別碼。 |
+|身分識別提供者 (IDP) | 作為 IDP 的 Azure AD |idp："https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/"  GUID 是 Microsoft 租用戶 (microsoft.onmicrosoft.com) 的識別碼。 每個租用戶都有專屬的唯一識別碼。 |
 |安全性權杖服務 (STS)/OAuth 伺服器 |作為 STS 的 Azure AD | iss: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/"。 GUID 是 Microsoft 租用戶的識別碼 (microsoft.onmicrosoft.com)。 |
 |資源 | 媒體服務 REST API |aud: "https://rest.media.azure.net"。 存取權杖的收件者或對象。 |
 
 ## <a name="steps-for-setup"></a>設定的步驟
 
-若要註冊和設定 Azure AD 應用程式以進行 Azure AD 驗證，並取得用於呼叫 Azure 媒體服務 REST API 端點的存取權杖，請完成下列步驟：
+若要註冊和設定 Azure Active Directory (AAD) 應用程式，以及取得呼叫 Azure 媒體服務 REST API 端點的索引鍵，請參閱[使用 Azure 入口網站開始使用 Azure AD 驗證](media-services-portal-get-started-with-aad.md)
 
-1.  在 [Azure 傳統入口網站](http://go.microsoft.com/fwlink/?LinkID=213885)中，向 Azure AD 租用戶 (例如，microsoft.onmicrosoft.com) 註冊 Azure AD 應用程式 (例如，wzmediaservice)。 註冊為 Web 應用程式或原生應用程式都可以。 此外，您可以選擇任何登入 URL 和回覆 URL (例如，http://wzmediaservice.com)。
-2. 在 [Azure 傳統入口網站](http://go.microsoft.com/fwlink/?LinkID=213885)中，移至應用程式的 [設定] 索引標籤。 記下 [用戶端識別碼]。 然後，在 [金鑰]之 下，產生一個 [用戶端金鑰] (用戶端祕密)。 
-
-    > [!NOTE] 
-    > 記下用戶端祕密。 它將不會再次顯示。
-    
-3.  在 [Azure 入口網站](http://ms.portal.azure.com)中，移至媒體服務帳戶。 選取 [存取控制] (IAM) 窗格。 加入具有「擁有者」或「參與者」角色的新成員。 針對主體，搜尋您在步驟 1 中註冊的應用程式名稱 (此範例中為 wzmediaservice)。
 
 ## <a name="info-to-collect"></a>要收集的資訊
 
@@ -138,9 +131,9 @@ Azure 媒體服務團隊針對 Azure 媒體服務的存取發行了 Azure Active
 
 某些讀者可能會問：重新整理權杖是什麼？ 為何不在此使用重新整理權杖？
 
-重新整理權杖的用途不是重新整理存取權杖。 相反地，它被設計為當稍早的權杖到期時略過使用者驗證或使用者的介入，並仍可獲得有效的存取權杖。 比重新整理權杖更適合的名稱可能是像「略過使用者重新登入權杖」的名稱。
+重新整理權杖的用途不是重新整理存取權杖。 它被設計為當稍早的權杖到期時略過使用者驗證，並仍可獲得有效的存取權杖。 比重新整理權杖更適合的名稱可能是像「略過使用者重新登入權杖」的名稱。
 
-如果您使用 OAuth 2.0 授權授與流程 (使用者名稱和密碼，可代表使用者)，重新整理權杖可協助您在不需要求使用者介入的情況下取得更新的存取權杖。 不過，針對本文中說明的 OAuth 2.0 用戶端認證授與流程，用戶端是代表自己的身分。 您不需要使用者介入，而且授權伺服器不需要 (也不會) 提供您重新整理權杖。 如果您對 **GetUrlEncodedJWT** 方法進行偵錯，您會發現來自權杖端點的回應具有存取權杖，而非重新整理權杖。
+如果您使用 OAuth 2.0 授權授與流程 (使用者名稱和密碼，可代表使用者)，重新整理權杖可協助您在不需要求使用者介入的情況下取得更新的存取權杖。 不過，針對本文中說明的 OAuth 2.0 用戶端認證授與流程，用戶端是代表自己的身分。 您不需要使用者介入，而且授權伺服器不需要提供您重新整理權杖。 如果您對 **GetUrlEncodedJWT** 方法進行偵錯，您會發現來自權杖端點的回應具有存取權杖，而非重新整理權杖。
 
 ## <a name="next-steps"></a>後續步驟
 

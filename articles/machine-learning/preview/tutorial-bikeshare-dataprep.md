@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 6d1845e27c6b0fff66b80a683f59d14238e2ad71
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 4918a820ca07a7d83dfb544ee9f0bbeb66d22722
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>自行車共享教學課程：使用 Azure Machine Learning Workbench 的進階資料準備
 Azure Machine Learning 服務 (預覽) 是一套整合性的端對端資料科學，以及進階分析解決方案，適用於專業資料科學家準備資料、開發實驗並部署雲規模模型。
@@ -493,7 +493,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合性的端對端資料科�
 
 ### <a name="remove-columns"></a>移除資料行
 
-在路線資料中，每個資料列代表自行車取用事件。 對於此教學課程，您只需要 **starttime** 和 **start station** 資料行。 複選這兩個資料行，以滑鼠右鍵按一下資料行標頭，然後選取 [保留資料行]，以移除其他資料行。 即可移除其他資料行。
+在路線資料中，每個資料列代表自行車取用事件。 對於此教學課程，您只需要 **starttime** 和 **start station id** 資料行。 複選這兩個資料行，以滑鼠右鍵按一下資料行標頭，然後選取 [保留資料行]，以移除其他資料行。 即可移除其他資料行。
 
 ![保留資料行選項的映像](media/tutorial-bikeshare-dataprep/tripdatakeepcolumn.png)
 

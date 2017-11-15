@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 11/02/2017
 ms.author: bwren
-ms.openlocfilehash: f27f038e0507270c0bfe200cb8c86622ebac5372
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 17a59a38b6a445a7f42df171a711669f95fc84c2
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Log Analytics 記錄檔搜尋中的電腦群組
 
@@ -109,13 +109,29 @@ Log Analytics 中的電腦群組中可讓您將[記錄檔搜尋](log-analytics-l
 
 
 ## <a name="using-a-computer-group-in-a-log-search"></a>在記錄檔搜尋中使用電腦群組
-您可以將電腦群組的別名當作函式，以在查詢中使用電腦群組，所使用的語法一般如下：
+您可以將電腦群組的別名當作函式，在查詢中使用從記錄檔搜尋建立的電腦群組，所使用的語法一般如下：
 
   `Table | where Computer in (ComputerGroup)`
 
 例如，您可以使用下列語法，僅傳回 mycomputergroup 電腦群組中之電腦的 UpdateSummary 記錄。
  
   `UpdateSummary | where Computer in (mycomputergroup)`
+
+
+匯入的電腦群組及其包含的電腦會儲存在 **ComputerGroup** 資料表中。  例如，下列查詢會從 Active Directory 傳回一份網域電腦群組中的電腦清單。 
+
+  `ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer`
+
+下列查詢只會針對網域電腦中的電腦，傳回 UpdateSummary 記錄。
+
+  ```
+  let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
+  UpdateSummary | where Computer in (ADComputers)
+  ```
+
+
+
+  
 
 >[!NOTE]
 > 如果您的工作區仍在使用[舊版 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，您可以使用下列語法在記錄搜尋中參考電腦群組。  指定 **Category** 是選擇性的，只有當您在不同類別中有相同名稱的電腦群組時，才需要指定。 

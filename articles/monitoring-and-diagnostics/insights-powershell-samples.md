@@ -1,8 +1,8 @@
 ---
 title: "Azure 監視器 PowerShell 快速入門範例 | Microsoft Docs"
 description: "使用 PowerShell 存取 Azure 監視器的功能，例如自動調整、警示、webhook 和搜尋活動記錄檔。"
-author: kamathashwin
-manager: orenr
+author: rboucher
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
-ms.author: ashwink
-ms.openlocfilehash: 48f064884c2a6d0a55cc58a44169ed03c62de46d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: robb
+ms.openlocfilehash: 60048ab8e0118bc67850aa6ad91c82dcf8122b1d
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure 監視器 PowerShell 快速入門範例
-本文說明可協助您存取 Azure 監視器 功能的範例 PowerShell 命令。 Azure 監視器可讓您根據設定的遙測資料值、自動調整雲端服務、虛擬機器和 Web Apps，以及傳送警示通知，或呼叫 Web URL。
+本文說明可協助您存取 Azure 監視器 功能的範例 PowerShell 命令。 Azure 監視器可讓您自動調整雲端服務、虛擬機器和 Web 應用程式的規模。 它也可讓您依據已設定遙測資料的值來傳送警示通知或呼叫 Web URL。
 
 > [!NOTE]
-> 自 2016 年 9 月 25 日起，「Azure 監視器」是以前所謂「Azure Insights」的新名稱。 不過，命名空間和下列命令中仍包含 "insights"。
+> 自 2016 年 9 月 25 日起，「Azure 監視器」是以前所謂「Azure Insights」的新名稱。 不過，命名空間和下列命令中仍包含 "insights" 一字。
 > 
 > 
 
@@ -41,13 +41,13 @@ ms.lasthandoff: 10/11/2017
 Login-AzureRmAccount
 ```
 
-這會要求您登入。 一旦登入之後，就會顯示您的帳戶、TenantID 和預設的訂用帳戶識別碼。 所有 Azure Cmdlet 都會在您的預設訂用帳戶內容中運作。 若要檢視您具有存取權的訂用帳戶的清單，請使用下列命令。
+您會看到登入畫面。 一旦登入之後，就會顯示您的帳戶、TenantID 和預設的訂用帳戶識別碼。 所有 Azure Cmdlet 都會在您的預設訂用帳戶內容中運作。 若要檢視您具有存取權的訂用帳戶的清單，請使用下列命令：
 
 ```PowerShell
 Get-AzureRmSubscription
 ```
 
-若要將使用中的內容變更為不同的訂用帳戶，請使用下列命令。
+若要將使用中的內容變更為不同的訂用帳戶，請使用下列命令：
 
 ```PowerShell
 Set-AzureRmContext -SubscriptionId <subscriptionid>
@@ -141,7 +141,7 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 ## <a name="create-metric-alerts"></a>建立計量警示
 您可以使用 `Add-AlertRule` Cmdlet 建立、更新或停用警示規則。
 
-您可以分別使用 `New-AzureRmAlertRuleEmail` 和 `New-AzureRmAlertRuleWebhook` 建立電子郵件和 Webhook 屬性。 在警示規則 Cmdlet 中，將這些屬性當做動作，指派給警示規則的 [動作]  屬性。
+您可以分別使用 `New-AzureRmAlertRuleEmail` 和 `New-AzureRmAlertRuleWebhook` 建立電子郵件和 Webhook 屬性。 在警示規則 Cmdlet 中，將這些屬性當做動作，指派給警示規則的 [動作] 屬性。
 
 下表描述使用計量建立警示所使用的參數和值。
 
@@ -201,10 +201,10 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 `Get-AzureRmMetricDefinition` 的可用選項完整清單可在 [Get MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx)取得。
 
 ## <a name="create-and-manage-autoscale-settings"></a>建立和管理自動調整設定
-諸如 Web 應用程式、VM、雲端服務或虛擬機器擴展集之類的資源只能設定一個自動調整設定。
+Web 應用程式、VM、雲端服務或虛擬機器擴展集之類的資源只能設定一個自動調整設定。
 不過，每個自動調整設定都可以有多個設定檔。 例如，一個用於以效能為基礎的調整設定檔，以及一個用於以排程為基礎的設定檔。 每個設定檔都可以設定多個規則。 如需有關自動調整的詳細資訊，請參閱 [如何自動調整應用程式](../cloud-services/cloud-services-how-to-scale.md)。
 
-以下是我們將使用的步驟：
+以下是要使用的步驟：
 
 1. 建立規則。
 2. 建立將您先前所建立的規則對應到設定檔的設定檔。
@@ -243,7 +243,7 @@ $webhook_scale = New-AzureRmAutoscaleWebhook -ServiceUri "https://example.com?my
 $notification1= New-AzureRmAutoscaleNotification -CustomEmails ashwink@microsoft.com -SendEmailToSubscriptionAdministrators SendEmailToSubscriptionCoAdministrators -Webhooks $webhook_scale
 ```
 
-最後，建立自動調整設定來新增您在以上建立的設定檔。
+最後，建立自動調整設定來新增您先前建立的設定檔。 
 
 ```PowerShell
 Add-AzureRmAutoscaleSetting -Location "East US" -Name "MyScaleVMSSSetting" -ResourceGroup big2 -TargetResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -AutoscaleProfiles $profile1 -Notifications $notification1
@@ -289,7 +289,7 @@ Remove-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 ```
 
 ## <a name="manage-log-profiles-for-activity-log"></a>管理活動記錄檔的記錄檔設定檔
-您可以建立*記錄檔設定檔*，並將資料從活動記錄檔匯出至儲存體帳戶，而且您可以為其設定資料保留期。 或者，您也可以將資料串流至事件中樞。 請注意，此功能目前處於預覽狀態，而且每個訂用帳戶只能建立一個記錄檔設定檔。 您可以使用下列 Cmdlet 搭配您目前的訂用帳戶來建立和管理記錄檔設定檔。 您也可以選擇特定的訂用帳戶。 PowerShell 預設為目前的訂用帳戶，但是您隨時可以使用 `Set-AzureRmContext`加以變更。 您可以設定活動記錄檔，將資料路由至任何儲存體帳戶或該訂用帳戶內的事件中樞。 資料會以 JSON 格式的 Blob 檔案寫入。
+您可以建立*記錄檔設定檔*，並將資料從活動記錄檔匯出至儲存體帳戶，而且您可以為其設定資料保留期。 或者，您也可以將資料串流至事件中樞。 此功能目前處於預覽狀態，而且每個訂用帳戶只能建立一個記錄檔設定檔。 您可以使用下列 Cmdlet 搭配您目前的訂用帳戶來建立和管理記錄檔設定檔。 您也可以選擇特定的訂用帳戶。 PowerShell 預設為目前的訂用帳戶，但是您隨時可以使用 `Set-AzureRmContext`加以變更。 您可以設定活動記錄檔，將資料路由至任何儲存體帳戶或該訂用帳戶內的事件中樞。 資料會以 JSON 格式的 Blob 檔案寫入。
 
 ### <a name="get-a-log-profile"></a>取得記錄檔設定檔
 若要擷取現有的記錄檔設定檔，請使用 `Get-AzureRmLogProfile` Cmdlet。
@@ -312,14 +312,19 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 ```
 
 ### <a name="add-log-profile-with-retention-and-eventhub"></a>新增包含保留期與 EventHub 的記錄檔設定檔
-除了將資料路由至儲存體帳戶之外，您也可以將它串流到事件中樞。 請注意，在此預覽版本中，儲存體帳戶設定是強制性的，但事件中樞設定則是選擇性的。
+除了將資料路由至儲存體帳戶之外，您也可以將它串流到事件中樞。 在此預覽版本中，儲存體帳戶設定是強制性的，但事件中樞設定則是選擇性的。
 
 ```PowerShell
 Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
 ```
 
 ## <a name="configure-diagnostics-logs"></a>設定診斷記錄檔
-許多 Azure 服務都提供額外的記錄檔和遙測，並可設定為將資料儲存在 Azure 儲存體帳戶、傳送至事件中樞，和/或傳送到 OMS Log Analytics 工作區。 該作業只能在資源層級執行，而且儲存體帳戶或事件中樞應該存在於進行診斷設定所在目標資源的相同區域中。
+許多 Azure 服務提供額外的記錄檔和遙測，可執行下列一或多個作業： 
+ - 設定將資料儲存在 Azure 儲存體帳戶
+ - 傳送至事件中樞
+ - 傳送至 OMS Log Analytics 工作區。 
+
+作業只能在資源層級執行。 儲存體帳戶或事件中樞應該存在於進行診斷設定所在目標資源的相同區域中。
 
 ### <a name="get-diagnostic-setting"></a>取得診斷設定
 ```PowerShell

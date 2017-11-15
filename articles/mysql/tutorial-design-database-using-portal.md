@@ -8,13 +8,13 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: tutorial
-ms.date: 06/06/2017
+ms.date: 11/03/2017
 ms.custom: mvc
-ms.openlocfilehash: 92ae809646cb956b0b7cb71cf2a21610bb2d610f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f38484e000b05a57cad9bc95abb255414d0162
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>設計您第一個適用於 MySQL 資料庫的 Azure 資料庫
 「適用於 MySQL 的 Azure 資料庫」是一個受管理的服務，可讓您在雲端執行、管理及調整高可用性 MySQL 資料庫。 使用 Azure 入口網站，您可以輕鬆管理伺服器和設計資料庫。
@@ -39,9 +39,9 @@ ms.lasthandoff: 10/11/2017
 1. 瀏覽至 [資料庫] > [Azure Database for MySQL]。 如果您在 [資料庫] 類別底下找不到「MySQL 伺服器」，請按一下 [查看全部] 以顯示所有可用的資料庫服務。 您也可以在搜尋方塊中輸入 [Azure Database for MySQL] 以快速找到此服務。
 ![2-1 瀏覽至 MySQL](./media/tutorial-design-database-using-portal/2_1-Navigate-to-MySQL.png)
 
-2. 按一下 Azure Database for MySQL 圖格，然後按一下建立。
+2. 按一下 [Azure Database for MySQL] 圖格，然後按一下 [建立]。
 
-在我們的範例中，於「適用於 MySQL 的 Azure 資料庫」表單中填入下列資訊：
+在此範例中，於「適用於 MySQL 的 Azure 資料庫」表單中填入下列資訊：
 
 | **設定** | **建議的值** | **欄位描述** |
 |---|---|---|
@@ -60,7 +60,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="configure-firewall"></a>設定防火牆
 「適用於 MySQL 的 Azure 資料庫」會受到防火牆保護。 依預設，伺服器與其內部資料庫的所有連線皆會遭拒。 第一次連線到 Azure Database for MySQL 之前，請設定防火牆來新增用戶端的公用網路 IP 位址 (或 IP 位址範圍)。
 
-1. 按一下您新建立的伺服器，然後按一下連線安全性。
+1. 按一下您新建立的伺服器，然後按一下 [連線安全性]。
    ![3-1 連線安全性](./media/tutorial-design-database-using-portal/3_1-Connection-security.png)
 2. 您可以在這裡 [新增我的 IP]，或設定防火牆規則。 請記得在建立規則後按一下 [儲存]。
 您現在可以使用 mysql 命令列工具或 MySQL Workbench GUI 工具來連線到伺服器。
@@ -98,9 +98,9 @@ USE mysampledb;
 ```
 
 ## <a name="create-tables-in-the-database"></a>在資料庫中建立資料表
-既然您已知道如何連線到「適用於 MySQL 資料庫的 Azure 資料庫」，我們可以了解一下如何完成一些基本工作。
+既然您已經知道如何連線到「適用於 MySQL 資料庫的 Azure 資料庫」，就可以完成一些基本工作：
 
-首先，我們可以建立資料表並在其中載入一些資料。 我們將建立一個儲存清查資訊的資料表。
+首先，建立資料表並在其中載入一些資料。 我們將建立一個儲存清查資訊的資料表。
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -110,7 +110,7 @@ CREATE TABLE inventory (
 ```
 
 ## <a name="load-data-into-the-tables"></a>將資料載入到資料表
-既然我們已有資料表，我們可以在其中插入一些資料。 在開啟的命令提示字元視窗，執行下列查詢以插入幾列資料。
+既然您已經有資料表，請在其中插入一些資料。 在開啟的命令提示字元視窗，執行下列查詢以插入幾列資料。
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);

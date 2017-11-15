@@ -3,7 +3,7 @@ title: "使用現有的 NPS 伺服器提供 Azure MFA 功能 | Microsoft Docs"
 description: "Azure Multi-Factor Authentication 的網路原則伺服器擴充功能是可將雲端式雙步驟驗證功能新增至現有驗證基礎結構的簡單解決方案。"
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 42b0bda033b1721ba5c0f575ea2ce6b0933f0f45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e5e0a852ae9b245ef69fcbff2e87712a31197790
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>將現有的 NPS 基礎結構與 Azure Multi-Factor Authentication 整合
 
@@ -52,7 +52,7 @@ NPS 擴充功能是為了搭配現有基礎結構來運作。 請確定您已備
 
 ### <a name="licenses"></a>授權
 
-Azure MFA 的 NPS 擴充功能可透過 [Azure Multi-Factor Authentication 授權](multi-factor-authentication.md) (隨附於 Azure AD Premium、EMS 或 MFA 訂用帳戶) 來提供給客戶使用。
+Azure MFA 的 NPS 擴充功能可透過 [Azure Multi-Factor Authentication 授權](multi-factor-authentication.md) (隨附於 Azure AD Premium、EMS 或 MFA 訂用帳戶) 來提供給客戶使用。 Azure MFA 以使用情況為基礎的授權 (例如每位使用者或每次驗證授權) 與 NPS 擴充功能並不相容。 
 
 ### <a name="software"></a>軟體
 

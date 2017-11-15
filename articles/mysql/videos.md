@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/05/2017
-ms.openlocfilehash: 49d81c5b449b9af7ac025296982aa5ff82aa8b09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/03/2017
+ms.openlocfilehash: 88a3114271088ad49a3d4231facc88ee6f89b54b
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-mysql-videos"></a>Azure Database for MySQL 影片
 
@@ -21,4 +21,4 @@ ms.lasthandoff: 10/11/2017
 
 <iframe src="https://channel9.msdn.com/Events/Build/2017/B8045/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
 
-在 2017 Microsoft //Build 大會提供的這段影片中，了解 Azure 中 Microsoft 的受控 MySQL 供應項目。 我們逐步解說 Microsoft 在 Azure 中支援開放原始碼資料庫系統的策略。 我們會討論這對於身為開發人員的您在 Azure 中開發或部署使用 MySQL 的應用程式有何意義。 我們顯示服務架構的概觀，並示範 Azure Database for MySQL 如何與其他 Azure 服務 (例如 Web Apps) 整合。
+在 2017 Microsoft //Build 大會提供的這段影片中，了解 Azure 中 Microsoft 的受控 MySQL 供應項目。 這段影片逐步解說 Microsoft 在 Azure 中支援開放原始碼資料庫系統的策略。 該影片討論在 Azure 中開發或部署使用 MySQL 的應用程式對於開發人員所代表的意義。 其中顯示服務架構的概觀，並示範適用於 MySQL 的 Azure 資料庫如何與其他 Azure 服務 (例如 Web Apps) 整合。

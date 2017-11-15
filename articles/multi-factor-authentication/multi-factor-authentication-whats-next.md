@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: alexwe
-ms.openlocfilehash: 8ff991ffb05bb92f047cc8dfc40e80b704379898
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 723bd7135a59bcc0bce648460f871a841a684d3c
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>設定 Azure Multi-Factor Authentication 設定 - 公開預覽
 
@@ -29,6 +29,7 @@ ms.lasthandoff: 10/30/2017
 
 | 功能 | 說明 | 
 |:--- |:--- |
+| [封鎖/解除封鎖使用者](#block/unblock-users) |封鎖/解除封鎖使用者可以防止使用者接收驗證要求。 |
 | [詐騙警示](#fraud-alert) |您可以設定詐騙警示，讓使用者得以針對存取其資源的詐騙嘗試提出報告。 |
 | [一次性略過](#one-time-bypass) |一次性略過可讓使用者「略過」Multi-Factor Authentication 來通過驗證一次。 |
 | [自訂語音訊息](#custom-voice-messages) |自訂語音訊息可讓您將自己的錄音或問候語用於 Multi-Factor Authentication。 |
@@ -37,6 +38,23 @@ ms.lasthandoff: 10/30/2017
 | [應用程式密碼](#app-passwords) |應用程式密碼允許非 MFA 感知應用程式略過 Multi-Factor Authentication 並繼續運作。 |
 | [針對已記住的裝置和瀏覽器，記住其 Multi-Factor Authentication](#remember-multi-factor-authentication-for-devices-that-users-trust) |可讓您在使用者使用 MFA 成功登入後的設定天數內記住裝置。 |
 | [可選取的驗證方法](#selectable-verification-methods) |可讓您選擇可供使用者使用的驗證方法。 |
+
+## <a name="blockunblock-users"></a>封鎖/解除封鎖使用者
+使用封鎖/解除封鎖使用者，可以防止使用者接收驗證要求。 系統會自動拒絕已封鎖使用者的任何驗證嘗試。 封鎖的使用者自封鎖時間開始，將持續封鎖 90 天。
+
+### <a name="block-a-user"></a>封鎖使用者
+1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
+2. 瀏覽至 **Azure Active Directory** > **MFA Server** > **封鎖/解除封鎖使用者**。
+3. 按一下 [新增] 以封鎖使用者。
+4. 選取 [複寫群組]，以 **username@domain.com** 格式輸入封鎖的使用者名稱，並在 [原因] 欄位中輸入註解。
+5. 按一下 [新增] 完成封鎖使用者。
+
+### <a name="unblock-a-user"></a>解除封鎖使用者
+1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
+2. 瀏覽至 **Azure Active Directory** > **MFA Server** > **封鎖/解除封鎖使用者**。
+3. 在您想解除封鎖之使用者旁的 [動作] 資料行中，按一下 [解除封鎖]。
+4. 在 [解除封鎖的原因] 欄位中輸入註解。
+5. 按一下 [解除封鎖] 完成解除封鎖使用者。
 
 ## <a name="fraud-alert"></a>詐騙警示
 您可以設定詐騙警示，讓使用者得以針對存取其資源的詐騙嘗試提出報告。  使用者可以透過行動應用程式或電話來報告詐騙活動。

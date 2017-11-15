@@ -10,20 +10,23 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 7e8d97657e03b0eaff76365d3988f51c773e3b55
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a85e288fa6f7d6c7138b7fea8319bd8dee01c2c
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>根據效能資料或排程建立自動調整 Azure 資源規模設定
 
-自動調整規模設定可讓您根據預先設定的條件新增/移除服務的執行個體。 這些設定可透過入口網站來建立。 此方法提供瀏覽器型使用者介面，可用於建立及設定自動調整規模設定。 此教學課程說明逐步說明完成下列動作的步驟：
+自動調整規模設定可讓您根據預先設定的條件新增/移除服務的執行個體。 這些設定可透過入口網站來建立。 此方法提供瀏覽器型使用者介面，可用於建立及設定自動調整規模設定。 
 
-1. 建立 App Service
-2. 設定自動調整規模設定
-3. 觸發相應放大動作
-4. 觸發相應縮小動作
+在本教學課程中，您將： 
+> [!div class="checklist"]
+> * 建立 Web 應用程式與 App Service 方案
+> * 設定自動調整規模規則，以依據 Web 應用程式接收的要求數目相應縮小和相應放大
+> * 觸發相應放大動作，觀察執行個體數目的增加
+> * 觸發相應縮小動作，觀察執行個體的數目的減少
+> * 清除資源
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
@@ -32,12 +35,15 @@ ms.lasthandoff: 10/11/2017
 登入 [Azure 入口網站](https://portal.azure.com/)。
 
 ## <a name="create-a-web-app-and-app-service-plan"></a>建立 Web 應用程式與 App Service 方案
-1. 按一下左邊瀏覽窗格中的 [新增] 選項
-2. 搜尋並選取 [Web 應用程式] 項目，然後按一下 [建立]
-3. 選取如 *MyTestScaleWebApp*的應用程式名稱。 建立新資源群組 *myResourceGroup' 並將它放到您想要的資源群組中。
-4. 在數分鐘內，系統應該就會佈建您的資源。 我們會在此教學課程剩餘部分參考剛剛建立的 Web 應用程式與對應的 App Service 方案。
+按一下左邊瀏覽窗格中的 [新增] 選項
 
-    ![在入口網站中建立新的應用程式服務](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
+搜尋並選取 [Web 應用程式] 項目，然後按一下 [建立]
+
+選取如 *MyTestScaleWebApp*的應用程式名稱。 建立新資源群組 *myResourceGroup' 並將它放到您想要的資源群組中。
+
+在數分鐘內，系統應該就會佈建您的資源。 在此教學課程剩餘部分使用 Web 應用程式與對應的 App Service 方案。
+
+    ![Create a new app service in the portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
 
 ## <a name="navigate-to-autoscale-settings"></a>瀏覽到自動調整規模設定
 1. 從左邊的瀏覽窗格，選取 [監視器] 選項。 一旦頁面載入，請選取 [自動調整規模] 索引標籤。
@@ -54,12 +60,12 @@ ms.lasthandoff: 10/11/2017
  ## <a name="configure-default-profile"></a>設定預設設定檔
 1. 為動調整規模設定提供**名稱**
 2. 在預設設定檔中，確定 [縮放模式] 是設定為 [調整為特定執行個體計數]
-3. 將執行個體計數設定為 1。 此設定可確保當沒有其他設定檔為使用中或作用中時，預設設定檔會將執行個體計數還原為 1。
+3. 將執行個體計數設定為 **1**。 此設定可確保當沒有其他設定檔為使用中或作用中時，預設設定檔會將執行個體計數還原為 1。
 
   ![瀏覽到自動調整規模設定](./media/monitor-tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
-## <a name="create-recurrence-profile"></a>建立循環設定檔
+## <a name="create-recurrance-profile"></a>建立循環設定檔
 
 1. 按一下預設設定檔下的 [加入調整規模條件]
 
@@ -67,11 +73,11 @@ ms.lasthandoff: 10/11/2017
 
 3. 確定 [縮放模式] 是設定為 [依據計量調整規模]
 
-4. 針對 [執行個體限制]，請將 [最小值] 設定為 '1'，將 [最大值] 設定為 '2'，並將 [預設值] 設定為 '1'。 這樣可確保此設定檔不會自動將服務的規模調整為少於 1 個執行個體或多於 2 個執行個體。 若設定檔沒有足夠的資料可做出決策，它會使用預設執行個體數目 (在此範例中為 1)。
+4. 針對 [執行個體限制]，請將 [最小值] 設定為 '1'，將 [最大值] 設定為 '2'，並將 [預設值] 設定為 '1'。 此設定可確保此設定檔不會自動將服務的規模調整為少於 1 個執行個體或多於 2 個執行個體。 若設定檔沒有足夠的資料可做出決策，它會使用預設執行個體數目 (在此範例中為 1)。
 
 5. 針對 [排程]，請選取 [重複特定的日期]
 
-6. 將設定檔設定為在星期一到星期五的 09:00 (太平洋時間) 到 18:00 (太平洋時間) 重複。 這樣可確保此設定檔只會在星期一到星期五的上午 9 點到下午 6 點為作用中並有效。 在所有其他時間，「預設」設定檔是自動調整規模設定所使用的設定檔。
+6. 將設定檔設定為在星期一到星期五的 09:00 (太平洋時間) 到 18:00 (太平洋時間) 重複。 此設定可確保此設定檔只會在星期一到星期五的上午 9 點到下午 6 點為作用中並有效。 在所有其他時間，「預設」設定檔是自動調整規模設定所使用的設定檔。
 
 ## <a name="create-a-scale-out-rule"></a>建立相應放大規則
 
@@ -150,7 +156,7 @@ ms.lasthandoff: 10/11/2017
 
 6. 您會看到一個圖表，該圖表反映 App Service 方案隨時間經過的執行個體計數。
 
-7. 在數分鐘內，執行個體計數應該會從 2 降低為 1。 此程序至少需要十分鐘才能完成。  
+7. 在數分鐘內，執行個體計數應該會從 2 降低為 1。 此程序至少需要 100 分鐘才能完成。  
 
 8. 在該圖表下，所顯示的是由此自動調整規模設定採取之每個調整規模動作的對應活動記錄項目集合
 
@@ -160,15 +166,24 @@ ms.lasthandoff: 10/11/2017
 
 1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後選取在此教學課程中建立的 Web 應用程式。
 
-2. 在您的資源頁面上，按一下 刪除在文字方塊中輸入**是**以確認刪除，然後按一下刪除。
+2. 在您的資源頁面上，按一下 [刪除]在文字方塊中輸入**是**以確認刪除，然後按一下 [刪除]。
 
 3. 接著，選取 App Service 方案資源並按一下 [刪除]
 
-4. 在文字方塊中輸入**是**以確認刪除，然後按一下刪除 。
+4. 在文字方塊中輸入**是**以確認刪除，然後按一下 [刪除 ]。
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已建立簡單 Web 應用程式與 App Service 方案。 接著，您建立自動調整規模設定，以根據 Web 應用程式收到的要求數目來調整 App Service 方案規模。 若要深入了解自動調整規模設定，請繼續閱讀自動調整規模概觀。
+在本教學課程中，您：  
+> [!div class="checklist"]
+> * 建立 Web 應用程式與 App Service 方案
+> * 設定自動調整規模規則，以依據 Web 應用程式接收的要求數目相應縮小和相應放大
+> * 觸發相應放大動作，觀察執行個體數目的增加
+> * 觸發相應縮小動作，觀察執行個體數目的減少
+> * 清除資源
+
+
+若要深入了解自動調整規模設定，請繼續閱讀[自動調整規模概觀](monitoring-overview-autoscale.md)。
 
 > [!div class="nextstepaction"]
-> [封存監視資料](./monitor-tutorial-archive-monitoring-data.md)
+> [封存監視資料](monitor-tutorial-archive-monitoring-data.md)

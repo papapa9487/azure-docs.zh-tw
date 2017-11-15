@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 0f8c8e2c22310f6de9f5bedff79a87b887bc0fb1
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 36eee42b7b10dfb62e569d665f62a94fc94365be
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Azure Logic Apps 的工作流程定義語言結構描述
 
@@ -264,7 +264,6 @@ ms.lasthandoff: 10/31/2017
 |json|將參數轉換成 JSON 類型值並且與 `string()` 相反。 例如，此函式會傳回 `[1,2,3]` 做為陣列，而不是字串︰ <p>`json('[1,2,3]')` <p>同樣地，您可以將字串轉換成物件。 例如，此函式會傳回 `{ "abc" : "xyz" }`： <p>`json('{"abc" : "xyz"}')` <p> **參數編號**：1 <p> **名稱**：字串 <p> **描述**︰必要。 轉換成原生類型值的字串。 <p>`json()` 函式也支援 XML 輸入。 例如，參數值︰ <p>`<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>` <p>轉換成此 JSON： <p>`{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |float|將參數引數轉換成浮點數。 例如，此函式會傳回 `10.333`： <p>`float('10.333')` <p> **參數編號**：1 <p> **名稱**︰值 <p> **描述**︰必要。 轉換成浮點數的值。|  
 |布林|將參數轉換成布林值。 例如，此函式會傳回 `false`： <p>`bool(0)` <p> **參數編號**：1 <p> **名稱**︰值 <p> **描述**︰必要。 轉換成布林值的值。|  
-|coalesce|傳回傳入的引數中第一個非 null 的物件。 **注意**︰空字串不是 null。 例如，如果未定義參數 1 和 2，此函式會傳回 `fallback`：  <p>`coalesce(parameters('parameter1'), parameters('parameter2') ,'fallback')` <p> **參數編號**：1 ... *n* <p> **名稱**：物件*n* <p> **描述**︰必要。 要檢查其是否有 null 的物件。|  
 |base64|傳回輸入字串的 base64 表示法。 例如，此函式會傳回 `c29tZSBzdHJpbmc=`： <p>`base64('some string')` <p> **參數編號**：1 <p> **名稱**︰字串 1 <p> **描述**︰必要。 要編碼為 base64 表示法的字串。|  
 |base64ToBinary|傳回 base64 編碼字串的二進位表示法。 例如，此函式會傳回 `some string` 的二進位表示法： <p>`base64ToBinary('c29tZSBzdHJpbmc=')` <p> **參數編號**：1 <p> **名稱**：字串 <p> **描述**︰必要。 base64 編碼的字串。|  
 |base64ToString|傳回 based64 編碼字串的字串表示法。 例如，此函式會傳回 `some string`： <p>`base64ToString('c29tZSBzdHJpbmc=')` <p> **參數編號**：1 <p> **名稱**：字串 <p> **描述**︰必要。 base64 編碼的字串。|  
@@ -280,7 +279,6 @@ ms.lasthandoff: 10/31/2017
 |uriComponentToBinary|傳回 URI 編碼字串的二進位表示法。 例如，此函式會傳回 `You Are:Cool/Awesome` 的二進位表示法： <p>`uriComponentToBinary('You+Are%3ACool%2FAwesome')` <p> **參數編號**：1 <p> **名稱**：字串<p> **描述**︰必要。 URI 編碼的字串。|  
 |uriComponentToString|傳回 URI 編碼字串的字串表示法。 例如，此函式會傳回 `You Are:Cool/Awesome`： <p>`uriComponentToBinary('You+Are%3ACool%2FAwesome')` <p> **參數編號**：1<p> **名稱**：字串<p> **描述**︰必要。 URI 編碼的字串。|  
 |xml|傳回值的 XML 表示法。 例如，此函式會傳回 `'\<name>Alan\</name>'` 所表示的 XML 內容： <p>`xml('\<name>Alan\</name>')` <p>`xml()` 函式也支援 JSON 物件輸入。 例如，參數 `{ "abc": "xyz" }` 轉換成 XML 內容︰`\<abc>xyz\</abc>` <p> **參數編號**：1<p> **名稱**︰值<p> **描述**︰必要。 要轉換成 XML 的值。|  
-|xpath|傳回符合值 (xpath 運算式進行評估) 之 xpath 運算式的 XML 節點陣列。 <p> **範例 1** <p>假設參數 `p1` 的值是此 XML 的字串表示法： <p>`<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>` <p>此程式碼：`xpath(xml(parameters('p1'), '/lab/robot/name')` <p>傳回 <p>`[ <name>R1</name>, <name>R2</name> ]` <p>當此程式碼： <p>`xpath(xml(parameters('p1'), ' sum(/lab/robot/parts)')` <p>傳回 <p>`13` <p> <p> **範例 2** <p>指定下列 XML 內容： <p>`<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>` <p>此程式碼：`@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')` <p>或此程式碼： <p>`@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')` <p>傳回 <p>`<Location xmlns="http://abc.com">xyz</Location>` <p>和此程式碼：`@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')` <p>傳回 <p>``xyz`` <p> **參數編號**：1 <p> **名稱**：Xml <p> **描述**︰必要。 要評估 XPath 運算式的 XML。 <p> **參數編號**：2 <p> **名稱**：XPath <p> **描述**︰必要。 要評估的 XPath 運算式。|  
 |array|將參數轉換成陣列。 例如，此函式會傳回 `["abc"]`： <p>`array('abc')` <p> **參數編號**：1 <p> **名稱**︰值 <p> **描述**︰必要。 轉換成陣列的值。|
 |createArray|從參數建立陣列。 例如，此函式會傳回 `["a", "c"]`： <p>`createArray('a', 'c')` <p> **參數編號**：1 ... *n* <p> **名稱**︰任何 *n* <p> **描述**︰必要。 要結合到陣列的值。|
 |triggerFormDataValue|從表單資料或表單編碼觸發程序輸出，傳回符合索引鍵名稱的單一值。  如果有多個符合項目，則會發生錯誤。  例如，以下將會傳回 `bar`：`triggerFormDataValue('foo')`<br /><br />**參數編號**：1<br /><br />**名稱**︰索引鍵名稱<br /><br />**描述**︰必要。 要傳回之表單資料值的索引鍵名稱。|
@@ -289,6 +287,18 @@ ms.lasthandoff: 10/31/2017
 |formDataValue|從表單資料或表單編碼動作輸出，傳回符合索引鍵名稱的單一值。  如果有多個符合項目，則會發生錯誤。  例如，以下將會傳回 `bar`：`formDataValue('someAction', 'foo')`<br /><br />**參數編號**：1<br /><br />**名稱**︰動作名稱<br /><br />**描述**︰必要。 具有表單資料或表單編碼回應的動作名稱。<br /><br />**參數編號**：2<br /><br />**名稱**︰索引鍵名稱<br /><br />**描述**︰必要。 要傳回之表單資料值的索引鍵名稱。|
 |formDataMultiValues|從表單資料或表單編碼動作輸出，傳回符合索引鍵名稱的值陣列。  例如，以下將會傳回 `["bar"]`：`formDataMultiValues('someAction', 'foo')`<br /><br />**參數編號**：1<br /><br />**名稱**︰動作名稱<br /><br />**描述**︰必要。 具有表單資料或表單編碼回應的動作名稱。<br /><br />**參數編號**：2<br /><br />**名稱**︰索引鍵名稱<br /><br />**描述**︰必要。 要傳回之表單資料值的索引鍵名稱。|
 |multipartBody|傳回動作多部分輸出中部分的內文。<br /><br />**參數編號**：1<br /><br />**名稱**︰動作名稱<br /><br />**描述**︰必要。 具有多部分回應的動作名稱。<br /><br />**參數編號**：2<br /><br />**名稱**︰索引<br /><br />**描述**︰必要。 要擷取之部分的索引。|
+
+### <a name="manipulation-functions"></a>操作函式
+ 
+這些函式適用於 XML 和物件。
+ 
+|函式名稱|說明|  
+|-------------------|-----------------| 
+|coalesce|傳回傳入的引數中第一個非 null 的物件。 **注意**︰空字串不是 null。 例如，如果未定義參數 1 和 2，此函式會傳回 `fallback`：  <p>`coalesce(parameters('parameter1'), parameters('parameter2') ,'fallback')` <p> **參數編號**：1 ... *n* <p> **名稱**：物件*n* <p> **描述**︰必要。 要檢查其是否有 null 的物件。|
+|addProperty|傳回具有其他屬性的物件。 如果在執行階段已經存在此屬性，就會擲回錯誤。 例如，此函式會傳回物件 `{ "abc" : "xyz", "def": "uvw" }`： <p>`addProperty(json('{"abc" : "xyz"}'), 'def', 'uvw')` <p> **參數編號**：1 <p> **名稱**：物件 <p> **描述**︰必要。 要在其中加入新屬性的物件。 <p> **參數編號**：2 <p> **名稱**：屬性名稱 <p> **描述**︰必要。 新屬性的名稱。 <p> **參數編號**：3 <p> **名稱**︰值 <p> **描述**︰必要。 要指派給新屬性的值。|
+|setProperty|傳回具有其他屬性的物件，或傳回設定為指定值的現有屬性。 例如，此函式會傳回物件 `{ "abc" : "uvw" }`： <p>`setProperty(json('{"abc" : "xyz"}'), 'abc', 'uvw')` <p> **參數編號**：1 <p> **名稱**：物件 <p> **描述**︰必要。 要在其中設定屬性的物件。<p> **參數編號**：2 <p> **名稱**：屬性名稱<p> **描述**︰必要。 新屬性或現有屬性的名稱。 <p> **參數編號**：3 <p> **名稱**︰值 <p> **描述**︰必要。 要指派給屬性的值。|
+|removeProperty|傳回屬性已移除的物件。 如果要移除的屬性不存在，則會傳回原始物件。 例如，此函式會傳回物件 `{ "abc" : "xyz" }`： <p>`removeProperty(json('{"abc" : "xyz", "def": "uvw"}'), 'def')` <p> **參數編號**：1 <p> **名稱**：物件 <p> **描述**︰必要。 要從中移除屬性的物件。<p> **參數編號**：2 <p> **名稱**：屬性名稱 <p> **描述**︰必要。 要移除之屬性的名稱。 <p>|
+|xpath|傳回符合值 (xpath 運算式進行評估) 之 xpath 運算式的 XML 節點陣列。 <p> **範例 1** <p>假設參數 `p1` 的值是此 XML 的字串表示法： <p>`<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>` <p>此程式碼：`xpath(xml(parameters('p1')), '/lab/robot/name')` <p>傳回 <p>`[ <name>R1</name>, <name>R2</name> ]` <p>當此程式碼： <p>`xpath(xml(parameters('p1')), ' sum(/lab/robot/parts)')` <p>傳回 <p>`13` <p> <p> **範例 2** <p>指定下列 XML 內容： <p>`<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>` <p>此程式碼：`@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')` <p>或此程式碼： <p>`@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')` <p>傳回 <p>`<Location xmlns="http://abc.com">xyz</Location>` <p>和此程式碼：`@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')` <p>傳回 <p>``xyz`` <p> **參數編號**：1 <p> **名稱**：Xml <p> **描述**︰必要。 要評估 XPath 運算式的 XML。 <p> **參數編號**：2 <p> **名稱**：XPath <p> **描述**︰必要。 要評估的 XPath 運算式。|
 
 ### <a name="math-functions"></a>數學函式  
 
@@ -305,9 +315,9 @@ ms.lasthandoff: 10/31/2017
 |max|有兩個不同的模式可以呼叫此函式。 <p>這裡 `max` 會採用陣列，而函式會傳回 `2`： <p>`max([0,1,2])` <p>或者，此函式可以採用值的以逗號分隔清單，也傳回 `2`： <p>`max(0,1,2)` <p> **注意**︰所有值都必須是數字，如果參數是陣列，則陣列只能有數字。 <p> **參數編號**：1 <p> **名稱**：集合或值 <p> **描述**︰必要。 要尋找最大值的值陣列，或集合的第一個值。 <p> **參數編號**：2 ... *n* <p> **名稱**：值 *n* <p> **描述**︰選擇性。 如果第一個參數是一個值，則您可以傳遞其他值，然後會傳回所有傳遞值的最大值。|  
 |range|從特定數字開始產生整數的陣列。 您會定義傳回之陣列的長度。 <p>例如，此函式會傳回 `[3,4,5,6]`： <p>`range(3,4)` <p> **參數編號**：1 <p> **名稱**：開始索引 <p> **描述**︰必要。 陣列中的第一個整數。 <p> **參數編號**：2 <p> **名稱**：計數 <p> **描述**︰必要。 這個值是陣列中的整數數目。|  
 |rand|在指定範圍內 (僅含開頭) 產生隨機整數。 例如，此函式可傳回 `0` 或 '1'： <p>`rand(0,2)` <p> **參數編號**：1 <p> **名稱**︰最小值 <p> **描述**︰必要。 可以傳回的最小整數。 <p> **參數編號**：2 <p> **名稱**︰最大值 <p> **描述**︰必要。 這個值是可以傳回的最大整數之下一個整數。|  
-  
+ 
 ### <a name="date-functions"></a>日期函式  
-  
+
 |函式名稱|說明|  
 |-------------------|-----------------|  
 |utcnow|傳回目前的時間戳記做為字串，例如︰`2017-03-15T13:27:36Z`： <p>`utcnow()` <p> **參數編號**：1 <p> **名稱**︰格式 <p> **描述**︰選擇性。 [單一格式規範字元](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自訂格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指出如何格式化這個時間戳記值。 如果未提供格式，則會使用 ISO 8601 格式 ("o")。|  

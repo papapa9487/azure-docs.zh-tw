@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/02/2017
 ms.author: bwren
-ms.openlocfilehash: bf48cbc52a1ed96ed1bb49b1879d5cd7aece945c
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 1ec815a12cea98228dd4b7ac7361fe5e3554b5d3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Log Analytics 新記錄搜尋常見問題集與已知問題
 
@@ -38,13 +38,6 @@ ms.lasthandoff: 10/18/2017
 
 ### <a name="question-im-getting-errors-when-trying-to-use-computer-groups--has-their-syntax-changed"></a>問題：嘗試使用電腦群組發生錯誤。  其語法是否已變更？
 是，升級您的工作區時，使用電腦群組的語法已變更。  如需詳細資訊，請參閱 [Log Analytics 記錄檔搜尋中的電腦群組](log-analytics-computer-groups.md)。
-
-### <a name="known-issue-groups-imported-from-active-directory"></a>已知問題：從 Active Directory 匯入的群組
-您目前無法建立使用從 Active Directory 匯入之電腦群組的查詢。  作為修正此問題的因應措施，請使用匯入的 Active Directory 群組建立新的電腦群組，然後在您的查詢中使用新群組。
-
-建立包含已匯入 Active Directory 群組之新電腦群組的範例查詢如下所示：
-
-    ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "AD Group Name" and TimeGenerated >= ago(24h) | distinct Computer
 
 
 ## <a name="dashboards"></a>儀表板
@@ -76,11 +69,6 @@ ms.lasthandoff: 10/18/2017
     | evaluate autocluster_v2()
 
 
-### <a name="known-issue-search-results-in-a-list-may-include-properties-with-no-data"></a>已知問題：清單中的搜尋結果可能包含沒有資料的屬性
-清單中的記錄搜尋結果可能會顯示沒有資料的屬性。  升級之前，不會包含這些屬性。  未來將修正此問題，以避免顯示空白屬性。
-
-### <a name="known-issue-selecting-a-value-in-a-chart-doesnt-display-detailed-results"></a>已知問題：選取圖表中的值不會顯示詳細結果
-升級之前，當您選取圖表中的值，會傳回符合所選取值的詳細記錄清單。  升級之後，只會傳回單一的摘要行。  目前正在調查此問題。
 
 ## <a name="log-search-api"></a>記錄檔搜尋 API
 
@@ -109,11 +97,9 @@ ms.lasthandoff: 10/18/2017
 ## <a name="power-bi"></a>Power BI
 
 ### <a name="question-does-anything-change-with-powerbi-integration"></a>問題：PowerBI 整合有任何變更嗎？
-是。  一旦升級您的工作區，將 Log Analytics 資料匯出至 Power BI 的程序就無法再運作。  您在升級之前建立的任何現有排程將會變成停用。  升級之後，Azure Log Analytics 會使用與 Application Insights 相同的平台，您使用如同[將 Application Insights 查詢匯出至 Power BI 的程序](../application-insights/app-insights-export-power-bi.md#export-analytics-queries)的相同程序，將 Log Analytics 查詢匯出至 Power BI。
+是。  一旦升級您的工作區，將 Log Analytics 資料匯出至 Power BI 的程序就無法再運作。  您在升級之前建立的任何現有排程將會變成停用。  
 
-### <a name="known-issue-power-bi-request-size-limit"></a>已知問題：Power BI 要求大小限制
-目前匯出 Log Analytics 查詢至 Power BI 的大小限制為 8 MB。  此限制即將放寬。
-
+升級之後，Azure Log Analytics 會使用與 Application Insights 相同的平台，您使用如同[將 Application Insights 查詢匯出至 Power BI 的程序](../application-insights/app-insights-export-power-bi.md#export-analytics-queries)的相同程序，將 Log Analytics 查詢匯出至 Power BI。  匯出至 Power BI 現在會直接呼叫 API 端點。 這可讓您取得最多 500,000 個資料列或 64,000,000 個位元組的資料、匯出長時間查詢，以及自訂查詢逾時 (預設逾時為 3 分鐘，且最大逾時為 10 分鐘)。
 
 ## <a name="powershell-cmdlets"></a>PowerShell Cmdlet
 
@@ -153,14 +139,11 @@ ms.lasthandoff: 10/18/2017
 ### <a name="question-will-my-solutions-continue-to-work"></a>問題：我的解決方案能繼續運作嗎？
 所有解決方案將會在升級的工作區中繼續運作，如果其轉換為新的查詢語言，將改善其效能。  本節中所述之現有解決方案目前已知存在問題。
 
-### <a name="known-issue-capacity-and-performance-solution"></a>已知問題：容量與效能解決方案
-[容量與效能] [](log-analytics-capacity.md)檢視中的某些部分可能是空白的。  近期內將提供此問題的修正。
-
-### <a name="known-issue-application-insights-connector"></a>已知問題：Application Insights Connector
-已升級工作區目前不支援 [Application Insights Connector 解決方案](log-analytics-app-insights-connector.md)中的檢視方塊。  此問題的修正目前正在進行分析。
+### <a name="known-issue-perspectives-in-application-insights-connector"></a>已知問題：Application Insights Connector 中的檢視方塊
+Application Insights Connector 解決方案不再支援 [Application Insights Connector 解決方案](log-analytics-app-insights-connector.md)中的檢視方塊。  您可以使用檢視設計工具建立包含 Application Insights 資料的自訂檢視。
 
 ### <a name="known-issue-backup-solution"></a>已知問題：備份解決方案
-備份解決方案不會收集升級工作區中的資料。 可搭配升級工作區使用的新備份解決方案很快就會公佈。
+如果在升級工作區之前已安裝備份解決方案，則可能無法收集資料。 解除安裝解決方案，然後再安裝最新的版本。  新版本的解決方案不支援傳統的備份保存庫，因此您也必須升級為復原服務保存庫，才能繼續使用該解決方案。
 
 ## <a name="upgrade-process"></a>升級程序
 
@@ -182,9 +165,6 @@ ms.lasthandoff: 10/18/2017
 
 ### <a name="question-how-do-i-create-a-new-view-with-view-designer"></a>問題：如何使用檢視設計工具建立新的檢視？
 升級之前，您可以從主要儀表板上的圖格，使用檢視設計工具建立新的檢視。  升級您的工作區時，會移除此圖格。  您可以按一下左側功能表中綠色的 + 按鈕，以在 OMS 入口網站中使用檢視設計工具建立新的檢視。
-
-### <a name="known-issue-see-all-option-for-line-charts-in-views-doesnt-result-in-a-line-chart"></a>已知問題：折線圖的檢視全部選項不會產生折線圖
-當您在視圖中折線圖部分的底部按一下 [檢視全部] 選項，會出現資料表。  升級之前，會出現折線圖。  目前正在分析此問題以進行可能的修改。
 
 
 ## <a name="next-steps"></a>後續步驟

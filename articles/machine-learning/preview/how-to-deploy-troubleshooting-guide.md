@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2017
-ms.openlocfilehash: b9287c7151c96aaccbcda81c111cfe36ead5ab38
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: b43ed29bda4412fb57bcb772da00f6405c3f1c26
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>針對服務部署和環境設定進行疑難排解
 下列資訊可協助判斷在設定模型管理環境時的錯誤原因。
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/13/2017
 在設定命令中使用 `--debug` 和 `--verbose` 旗標，以在佈建環境時顯示偵錯和追蹤資訊。
 
 ```
-az ml env setup -l <loation> -n <name> -c --debug --verbose 
+az ml env setup -l <location> -n <name> -c --debug --verbose 
 ```
 
 ## <a name="service-deployment"></a>服務部署
@@ -89,7 +89,9 @@ Python 範例：
 ```
 
 ## <a name="other-common-problems"></a>其他常見問題
-- 如果 `env setup` 命令失敗，請確定您的訂用帳戶中有足夠的可用核心。
-- 請勿在 Web 服務名稱中使用底線 ( _ ) (如 my_webservice)。
-- 如果您在呼叫 Web 服務時收到 **502 錯誤的閘道**錯誤，請重試。 這通常表示容器尚未部署到叢集中。
-- 如果您在建立服務時收到 **CrashLoopBackOff** 錯誤，請檢查您的記錄。 這通常是因為在 **init** 函式中缺少相依性。
+- 如果 `env setup` 命令因 `LocationNotAvailableForResourceType` 而失敗，您可能為機器學習資源使用錯誤的位置 (區域)。 請確定您使用 `-l` 參數指定的位置是 `eastus2`、`westcentralus` 或 `australiaeast`。
+- 如果 `env setup` 命令因 `Resource quota limit exceeded` 而失敗，請確定您的訂用帳戶中有足夠的核心，而且其他處理序沒有耗盡您的資源。
+- 如果 `env setup` 命令因 `Invalid environment name. Name must only contain lowercase alphanumeric characters` 而失敗，請確定服務名稱不包含大寫字母、符號或底線 (_) (如 *my_environment*)。
+- 如果 `service create` 命令因 `Service Name: [service_name] is invalid. The name of a service must consist of lower case alphanumeric characters (etc.)` 而失敗，請確定服務名稱的長度是 3 到 32 個字元、開頭和結尾都是小寫的英數字元，而且不包含大寫字母、除了連字號 ( - ) 和句號( . ) 或底線 (_) 以外的符號 (如*my_webservice*)。
+- 如果您在呼叫 Web 服務時收到 `502 Bad Gateway` 錯誤，請重試。 這通常表示容器尚未部署到叢集中。
+- 如果您在建立服務時收到 `CrashLoopBackOff` 錯誤，請檢查您的記錄。 這通常是因為在 **init** 函式中缺少相依性。

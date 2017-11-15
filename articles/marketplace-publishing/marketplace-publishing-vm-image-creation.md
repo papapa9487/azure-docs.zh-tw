@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 046ce7af40301014746c6aef07d08d81ab4adcc2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e37c55dbcc8de49aee32272b2f51b0792bef132c
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>建立 Azure Marketplace 的虛擬機器映像的指南
 本文的 **步驟 2**會逐步引導您準備您將部署到 Azure Marketplace 的虛擬硬碟 (VHD)。 您的 VHD 是 SKU 的基礎。 這個程序會因為您是否提供以 Linux 或 Windows 為基礎的 SKU 而有所不同。 本文將探討這兩種狀況。 這個程序可與[帳戶建立和註冊][link-acct-creation]同步執行。
@@ -246,7 +246,7 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 認證工具可使用於 Windows 和 Linux VM。 它會透過 PowerShell 連接至 Windows 型 VM，並透過 SSH.Net 連接至 Linux VM：
 
 1. 首先，請在 [Microsoft 下載網站][link-msft-download]下載認證工具。
-2. 開啟認證工具，然後按一下啟動新測試  按鈕。
+2. 開啟認證工具，然後按一下 [啟動新測試]  按鈕。
 3. 從 [測試資訊]  畫面，輸入執行測試的名稱。
 4. 選擇您的 VM 位於 Linux 或 Windows。 根據您的選擇，選取後續選項。
 
@@ -289,6 +289,8 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 在發行期間，您會指定統一資源識別項 (URI)，這些 URI 會指向您為 SKU 所建立的每個 VHD。 Microsoft 需要在認證程序期間存取這些 VHD。 因此，您必須建立每個 VHD 的共用存取簽章 URI。 此為要在發佈入口網站的 [映像]  標籤中輸入的 URI。
 
 建立的共用存取簽章 URI 應符合下列需求：
+
+注意：以下指示只適用於未受管理的磁碟，也是唯一支援的一種。
 
 * 為 VHD 產生共用存取簽章 URI 時，必須有足夠的列出和讀取權限。 不提供寫入或刪除存取權。
 * 存取期間應為建立共用存取簽章 URI 起至少三個 (3) 星期。
@@ -334,7 +336,7 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 
     ![繪圖](media/marketplace-publishing-vm-image-creation/img5.2_07.png)
 
-9.  在 Blob 容器安全性 對話方塊中，保留 存取層級 索引標籤上的預設值，然後按一下共用存取簽章 索引標籤。
+9.  在 [Blob 容器安全性] 對話方塊中，保留 [存取層級] 索引標籤上的預設值，然後按一下 [共用存取簽章] 索引標籤。
 
     ![繪圖](media/marketplace-publishing-vm-image-creation/img5.2_08.png)
 
@@ -430,7 +432,7 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 
 2.  下載之後，請安裝
 
-3.  使用下列程式碼建立 PowerShell 檔案，並將它儲存在本機
+3.  使用下列程式碼建立 PowerShell (或其他指令碼可執行檔) 檔案，並將它儲存在本機
 
           $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
           azure storage container list vhds -c $conn
@@ -442,9 +444,9 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 
     b.這是另一個 C# 主控台應用程式。 **`<Storage Account Key>`**：提供您的儲存體帳戶金鑰
 
-    c. **`<Permission Start Date>`**：為了確保使用 UTC 時間，請選取目前日期之前的日期。 例如，如果目前日期為 2016 年 10 月 26 日，則值應該為 10/25/2016
+    c. **`<Permission Start Date>`**：為了確保使用 UTC 時間，請選取目前日期之前的日期。 例如，如果目前日期為 2016 年 10 月 26 日，則值應該為 10/25/2016。 如果使用 Azure CLI 2.0 (az 命令)，請在 [開始日期] 和 [結束日期] 中提供日期和時間，例如：10-25-2016T00:00:00Z。
 
-    d. **`<Permission End Date>`**：選取至少在 [開始日期] 之後 3 個星期的日期。 所以值應該為 **11/02/2016**。
+    d. **`<Permission End Date>`**：選取至少在 [開始日期] 之後 3 個星期的日期。 此值應該是 **11/02/2016**。 如果使用 Azure CLI 2.0 (az 命令)，請在 [開始日期] 和 [結束日期] 中同時提供日期和時間，例如：11-02-2016T00:00:00Z。
 
     以下是更新適當參數之後的範例程式碼
 
@@ -452,7 +454,7 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
           azure storage container list vhds -c $conn
           azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
 
-4.  使用「以系統管理員身分執行」模式下開啟 Powershell 編輯器，並在步驟 #3 中開啟檔案。
+4.  使用「以系統管理員身分執行」模式下開啟 Powershell 編輯器，並在步驟 #3 中開啟檔案。 您可以使用作業系統上可取得的任何指令碼編輯器。
 
 5.  執行指令碼，它會提供容器層級存取的 SAS URL 給您
 
@@ -515,7 +517,7 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 |複製映像失敗 - SAS url 中沒有 “sp=rl”|失敗︰複製映像。 無法使用提供的 SAS Uri 下載 blob|更新 SAS Url，將權限設定為「讀取」和「列出」|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |複製映像失敗 - SAS url 中的 vhd 名稱含有空格|失敗︰複製映像。 無法使用提供的 SAS Uri 下載 blob。|更新 SAS Url，不能含有空格|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |複製映像失敗 – SAS Url 授權錯誤的|失敗︰複製映像。 因為發生授權錯誤，無法下載 blob|重新產生 SAS Url|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-
+|複製映像失敗 – SAS Url "st" 和 "se" 參數沒有完整的日期時間規格|失敗︰複製映像。 因為 SAS Url 不正確，無法下載 blob |SAS Url 的開始和結束日期參數 ("st"、"se") 必須有完整的日期時間規格，例如 11-02-2017T00:00:00Z，而不能只有日期或縮短的時間版本。 使用 Azure CLI 2.0 (az 命令) 可能會遇到此狀況。 請務必提供完整的日期時間規格，並重新產生 SAS Url。|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>後續步驟
 完成 SKU 詳細資料之後，您可以移至 [Azure Marketplace 行銷內容指南][link-pushstaging]。 在發佈程序的該步驟中，您會在 **步驟 3：在預備環境中測試您的 VM 供應項目**之前提供行銷內容、價格和其他必要資訊，而您會在該步驟中測試各種使用案例，然後再將供應項目部署到 Azure Marketplace 以供公開查看和購買。  

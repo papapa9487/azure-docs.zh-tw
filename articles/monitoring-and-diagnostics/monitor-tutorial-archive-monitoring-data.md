@@ -10,15 +10,23 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: 445901a740920a74f259aaa9c6b862680c1c807e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f19cf8fddd9ffcf08b8ce18db070a7482ce012df
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="archive-azure-monitoring-data"></a>封存 Azure 監視資料
 
 Azure 環境的許多層會產生記錄和計量資料，可封存至 Azure 儲存體帳戶。 當 Log Analytics 或 Azure 監視器中一段時間的監視資料超過保留期之後，建議您將此資料的記錄保留在低成本、不可搜尋的存放區。 本教學課程逐步引導您設定 Azure 環境，以將資料封存至儲存體帳戶。
+
+> [!div class="checklist"]
+> * 建立儲存體帳戶以放置監視資料
+> * 將訂用帳戶記錄路由傳送至儲存體帳戶 
+> * 將資源資料路由傳送至儲存體帳戶 
+> * 將虛擬機器 (客體 OS) 資料路由傳送至儲存體帳戶 
+> * 檢視其中的監視資料 
+> * 清除資源 
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
@@ -60,7 +68,7 @@ Azure 環境的許多層會產生記錄和計量資料，可封存至 Azure 儲�
 
 1. 按一下左側瀏覽清單上的 [監視] 按鈕，然後按一下 [診斷設定]。 在這裡，您會看到訂用帳戶中所有透過 Azure 監視器而產生監視資料的資源清單。 如果您在這份清單中沒有任何資源，您可以先[建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)，再繼續進行，這樣就有可進行診斷設定的資源。
 
-2. 按一下清單中的資源，然後按一下開啟診斷。
+2. 按一下清單中的資源，然後按一下 [開啟診斷]。
    
    ![開啟診斷](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-turn-on.png)
 
@@ -152,13 +160,24 @@ Azure 環境的許多層會產生記錄和計量資料，可封存至 Azure 儲�
 
 3. 瀏覽至您在先前的**將虛擬機器 (客體 OS) 資料路由傳送至儲存體帳戶**步驟中設定之虛擬機器上的 [診斷設定] 區段，然後在 [代理程式] 索引標籤下按一下 [移除] \(在 [移除 Azure 診斷代理程式] 區段下方)。
 
-4. 瀏覽至您在先前的**建立儲存體帳戶**步驟中建立的儲存體帳戶，然後按一下 [刪除儲存體帳戶]。 輸入儲存體帳戶的名稱，然後按一下刪除。
+4. 瀏覽至您在先前的**建立儲存體帳戶**步驟中建立的儲存體帳戶，然後按一下 [刪除儲存體帳戶]。 輸入儲存體帳戶的名稱，然後按一下 [刪除]。
 
 5. 如果您在先前的步驟中也建立虛擬機器或邏輯應用程式，請一併刪除。
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何從 Azure 環境 (訂用帳戶、資源及客體 OS) 設定要封存至儲存體帳戶的監視資料。 若要從資料找出更多意義並深入解析，也請嘗試將資料傳送至 Log Analytics。
+在本教學課程中，您已了解如何從 Azure 環境 (訂用帳戶、資源及客體 OS) 設定要封存至儲存體帳戶的監視資料。 
+
+
+> [!div class="checklist"]
+> * 建立儲存體帳戶以放置監視資料
+> * 將訂用帳戶記錄路由傳送至儲存體帳戶 
+> * 將資源資料路由傳送至儲存體帳戶 
+> * 將虛擬機器 (客體 OS) 資料路由傳送至儲存體帳戶 
+> * 檢視其中的監視資料 
+> * 清除資源 
+
+為了更妥善利用您的資料和衍生額外的深入解析，也請將資料傳送到 Log Analytics。
 
 > [!div class="nextstepaction"]
 > [開始使用 Log Analytics](../log-analytics/log-analytics-get-started.md)

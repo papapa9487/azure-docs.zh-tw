@@ -5,16 +5,17 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
+editor: jasonwhowell
 ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: tutorial
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ms.custom: mvc
-ms.openlocfilehash: 0e6a92eeb9711b086359ab2cd1aea87a57f1fc36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dcd59442c0b3aa5d6ed1a9ef287949d1d17fa80f
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>設計您第一個適用於 MySQL 資料庫的 Azure 資料庫
 
@@ -23,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 > [!div class="checklist"]
 > * 建立適用於 MySQL 的 Azure 資料庫
 > * 設定伺服器防火牆
-> * 使用 [mysql 命令列工具](https://dev.mysql.com/doc/refman/5.6/en/mysql.html)來建立資料庫
+> * 使用 [mysql 命令列工具](https://dev.mysql.com/doc/refman/5.6/en/mysql.html)建立資料庫
 > * 載入範例資料
 > * 查詢資料
 > * 更新資料
@@ -33,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本主題會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，本文會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
 
 如果您有多個訂用帳戶，請選擇資源所在或作為計費對象的適當訂用帳戶。 使用 [az account set](/cli/azure/account#set) 命令來選取您帳戶底下的特定訂用帳戶 ID。
 ```azurecli-interactive
@@ -102,7 +103,7 @@ az mysql server show --resource-group mycliresource --name mycliserver
 ```
 
 ## <a name="connect-to-the-server-using-mysql"></a>使用 mysql 來連線到伺服器
-使用 [mysql 命令列工具](https://dev.mysql.com/doc/refman/5.6/en/mysql.html)來建立對「適用於 MySQL 的 Azure 資料庫」伺服器的連線。 在此範例中，命令是：
+使用 [mysql 命令列工具](https://dev.mysql.com/doc/refman/5.6/en/mysql.html)建立對「適用於 MySQL 的 Azure 資料庫」伺服器的連線。 在此範例中，命令是：
 ```cmd
 mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
 ```
@@ -119,9 +120,9 @@ mysql> USE mysampledb;
 ```
 
 ## <a name="create-tables-in-the-database"></a>在資料庫中建立資料表
-既然您已知道如何連線到「適用於 MySQL 資料庫的 Azure 資料庫」，我們可以了解一下如何完成一些基本工作。
+既然您已經知道如何連線到「適用於 MySQL 資料庫的 Azure 資料庫」，請完成一些基本工作：
 
-首先，我們可以建立資料表並在其中載入一些資料。 我們將建立一個儲存清查資訊的資料表。
+首先，建立資料表並在其中載入一些資料。 我們將建立一個儲存清查資訊的資料表。
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -131,7 +132,7 @@ CREATE TABLE inventory (
 ```
 
 ## <a name="load-data-into-the-tables"></a>將資料載入到資料表
-既然我們已有資料表，我們可以在其中插入一些資料。 在開啟的命令提示字元視窗，執行下列查詢以插入幾列資料。
+既然您已經有資料表，請在其中插入一些資料。 在開啟的命令提示字元視窗，執行下列查詢以插入幾列資料。
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
@@ -176,7 +177,7 @@ az mysql server restore --resource-group mycliresource --name mycliserver-restor
 > [!div class="checklist"]
 > * 建立適用於 MySQL 的 Azure 資料庫
 > * 設定伺服器防火牆
-> * 使用 [mysql 命令列工具](https://dev.mysql.com/doc/refman/5.6/en/mysql.html)來建立資料庫
+> * 使用 [mysql 命令列工具](https://dev.mysql.com/doc/refman/5.6/en/mysql.html)建立資料庫
 > * 載入範例資料
 > * 查詢資料
 > * 更新資料

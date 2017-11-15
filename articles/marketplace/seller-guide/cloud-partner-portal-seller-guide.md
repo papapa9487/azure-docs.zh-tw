@@ -1,30 +1,35 @@
 ---
 title: "Azure Marketplace 賣方指南 | Microsoft Docs"
-description: "本指南適用於商務使用者和獨立軟體廠商 (ISV) 的產品經理，他們有興趣向 IT 專業人員和開發人員銷售 Azure 認證的虛擬機器映像。"
+description: "本指南適用於有興趣向 IT 專業人員和開發人員銷售 Azure 認證的虛擬機器映像和受管理應用程式的商務使用者和獨立軟體廠商 (ISV) 產品經理。"
 documentationcenter: 
-author: rupeshazure
-manager: hamidm
+author: divacc
+manager: prkumar
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
-ms.author: rupesk@microsoft.com
-ms.robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: c78708687fbb5716e3e8d62967013310d6ccc735
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/03/2017
+ms.author: divacc@microsoft.com
+ms.openlocfilehash: 0985c7da429202cc6003df73c6ca17714b5a1287
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-marketplace-seller-guide"></a>Azure Marketplace 賣方指南
 
-歡迎使用 Azure Marketplace 賣方指南。 本指南針對商務使用者和獨立軟體廠商 (ISV) 的產品經理而設計，他們有興趣向 IT 專業人員和開發人員銷售 Azure 認證的虛擬機器映像。 透過世界各地的 Azure 客戶，[Marketplace](https://azuremarketplace.microsoft.com/) 可以為您的產品提供絕佳的觸角和曝光機會。
-
+歡迎使用 Azure Marketplace 賣方指南。 本指南是針對有興趣向 IT 專業人員和開發人員銷售 Azure 認證虛擬機器映像和受管理應用程式的商務使用者和獨立軟體廠商 (ISV) 產品經理而設計。 透過世界各地的 Azure 客戶，[Azure Marketplace](https://azuremarketplace.microsoft.com/) 可以為您的產品提供絕佳的觸角和曝光機會。
 
 > [!NOTE]
-> 如果您有興趣將完成的軟體即服務 (SaaS) 產品銷售給商務使用者，您可以調查各種選項並將它們列在 [AppSource](https://appsource.microsoft.com) 中。
+> 如果您想要銷售您[受管理的應用程式](https://docs.microsoft.com/en-us/azure/managed-applications/overview)，便應該遵循指示在 Azure Marketplace 的[這裡](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app)列出它們。
+
+> [!NOTE]
+> 如果您想要將完成的軟體即服務 (SaaS) 產品銷售給 _IT 專業人員和開發人員_，則可以連絡 saas-on-amp@microsoft.com 以深入了解您的選項。
+
+> [!NOTE]
+> 如果您想要將完成的軟體即服務 (SaaS) 產品銷售給_商務使用者_，則可以調查各種選項並將它們列在 [AppSource](https://appsource.microsoft.com) 中。
+
 
 在本指南結束時，您會知道哪裡可以找到下列主題的詳細資訊︰
 
@@ -43,9 +48,9 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="whats-the-azure-marketplace"></a>什麼是 Azure Marketplace？
 
-Azure Marketplace 是一個線上應用程式和服務市集，可讓 ISV (包括新創公司及各個企業) 為全球的 Azure 客戶提供解決方案。 透過 Marketplace，Azure 發行者可以將其虛擬機器映像散佈及販售給其他想要在 Azure 中快速開發其雲端應用程式和行動解決方案的專業人員。 Marketplace 支援各種供應項目：從具備資料處理、資料儲存體及分析層的端對端資料分析應用程式，以至分層式電子商務應用程式 (資料、服務和網際網路)。
+Azure Marketplace 是一個線上應用程式和服務市集，可讓 ISV (包括新創公司及各個企業) 為全球的 Azure 客戶提供解決方案。 透過 Marketplace，Azure 發行者可以散佈和販售其虛擬機器映像、受管理的應用程式以及 SaaS 應用程式給其他想要在 Azure 中快速開發其雲端應用程式和行動解決方案的專業人員。 Azure Marketplace 支援各種供應項目：從具備資料處理、資料儲存體及分析層的端對端資料分析應用程式，以至分層式電子商務應用程式 (資料、服務和網際網路)。
 
-雲端客戶在搜尋解決方案來符合其獨特需求時會面臨一些挑戰。 Marketplace 提供方法來解決這些挑戰及連結客戶與創新 ISV 解決方案，如下表所說明：
+雲端客戶在搜尋解決方案來符合其獨特需求時會面臨一些挑戰。 Azure Marketplace 提供方法來解決這些挑戰及連結客戶與創新 ISV 解決方案，如下表所說明：
 
 | 客戶需求 | Azure Marketplace 解決方案 |
 | --- | --- |
@@ -54,14 +59,14 @@ Azure Marketplace 是一個線上應用程式和服務市集，可讓 ISV (包�
 | 需要適用於第三方應用程式和服務的可調整部署機制 | 能夠建立及設定可調整的第三方應用程式和服務部署 |
 | 需求新的應用程式和服務與現有的解決方案整合及搭配運作 | 輕鬆地整合第三方應用程式和服務與 Azure 上的現有解決方案 |
 
-Marketplace 讓全球客戶可以享受 Azure 合作夥伴生態系統的品質、多元選擇和優勢。 主要優點包括：
+Azure Marketplace 讓全球客戶可以享受 Azure 合作夥伴生態系統的品質、多元選擇和優勢。 主要優點包括：
 
 - 統一提供來自 Microsoft 和合作夥伴之以 Azure 為基礎的供應項目。
 - 超過 5,000 個供應項目。
 - 整合式平台經驗。
 - 流暢的設定、部署與管理。
 
-## <a name="is-the-marketplace-right-for-my-business"></a>Marketplace 適合我的企業嗎？
+## <a name="is-azure-marketplace-right-for-my-business"></a>Azure Marketplace 適合我的企業嗎？
 
 您現在可能很疑惑 Azure Marketplace 是否適合您的企業。 如果適合，您可以獲得哪些好處？ Marketplace 可為您創造新的銷售機會：
 
@@ -74,23 +79,32 @@ Marketplace 讓全球客戶可以享受 Azure 合作夥伴生態系統的品質�
 
 Marketplace 的客戶非常多元。 而且，Azure 是客戶群成長最快速的雲端提供者之一。 您可以接觸任職於各種公司 (從新創公司以至企業)、各個產業，以及公營和私營機構的 IT 專業人員和開發人員。
 
-## <a name="how-does-the-marketplace-work"></a>Marketplace 如何運作？
+## <a name="how-does-marketplace-work"></a>Marketplace 如何運作？
 
-其實很簡單。 經過過核准之後，您可建立 Azure 認證虛擬機器映像，並將它發佈至 Marketplace。 Azure 客戶可以在其中迅速尋找、購買及部署您的產品。 更棒的是，客戶對部署您的解決方案深具信心。 他們了解環境已設定完成，以便順利使用 Azure，且基礎結構也已準備好在數分鐘內投入運作。
+其實很簡單。 經過過核准之後，您可建立 Azure 認證的虛擬機器映像或受管理的應用程式，並將它發佈至 Marketplace。 Azure 客戶可以在其中迅速尋找、購買及部署您的產品。 更棒的是，客戶對部署您的解決方案深具信心。 他們了解環境已設定完成，以便順利使用 Azure，且基礎結構也已準備好在數分鐘內投入運作。
 
-Cloud Partner 入口網站是在 Marketplace 上建立供應項目的中樞。 虛擬機器映像是預先設定的映像，包含完整安裝的作業系統以及一或多個應用程式。 若要認證您的映像，使其準備好進行發行，您必須符合特定必要條件。 我們將在下一節中討論這些必要條件。
+Cloud Partner 入口網站是在 Marketplace 上建立供應項目的中樞。 若要認證您的供應項目，使其準備好進行發佈，您必須符合特定必要條件。 我們將在下一節中討論這些必要條件。
 
 
 ## <a name="whats-next"></a>後續步驟
 
-您可能會思考 Azure Marketplace 是否真的適合您的產品。 所以應該如何開始呢？ 本節說明如何藉由下列方式在 Marketplace 上運作 (圖 1)： 
+您可能會思考 Azure Marketplace 是否真的適合您的產品。 所以應該如何開始呢？ 本節著重於在 Marketplace 上 (圖 1) 透過以下方式，針對虛擬機器映像做準備和運作： 
 * 獲得 Azure 認證。
 * 獲准銷售您的產品。
-* 在 Cloud Partner 入口網站中建立供應項目。 
+* 透過 Cloud Partner 入口網站建立和發佈您的供應項目。 
 
 ![在 Azure Marketplace 上銷售的程序](./media/cloud-partner-portal-seller-guide/processforselling.png)
 
 圖 1︰在 Azure Marketplace 上銷售的程序
+
+您所遵循的發佈供應項目程序，會因計畫發佈的工作負載 (虛擬機器或受管理的應用程式) 而異。 下列內容著重於發佈_虛擬機器供應項目_。
+
+> [!NOTE]
+> 如果您想要銷售您[受管理的應用程式](https://docs.microsoft.com/en-us/azure/managed-applications/overview)，便應該遵循指示在 Azure Marketplace 的[這裡](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app)列出它們。
+
+> [!NOTE]
+> 如果您想要將完成的軟體即服務 (SaaS) 產品銷售給 _IT 專業人員和開發人員_，則可以連絡 saas-on-amp@microsoft.com 以深入了解您的選項。
+
 
 您要先符合一組技術性和非技術性必要條件，並準備您的虛擬機器映像。 然後您會指定產品並註冊為賣方。 最後，您會新增行銷內容和提交進行發佈。 讓供應項目在 Marketplace 上線之前，您可以在預覽/預備環境中檢閱供應項目。
 
@@ -103,6 +117,7 @@ Cloud Partner 入口網站是在 Marketplace 上建立供應項目的中樞。 �
 ![獲得 Azure 認證的需求](./media/cloud-partner-portal-seller-guide/azurecertified.png)
 
 圖 2︰獲得 Azure 認證的需求
+
 
 ### <a name="technical-prerequisites"></a>技術性必要條件
 
@@ -147,13 +162,15 @@ Cloud Partner 入口網站是在 Marketplace 上建立供應項目的中樞。 �
 
 ## <a name="how-do-i-nominate-my-product-and-get-approved"></a>如何提名我的產品並獲得核准？
 
-現在是獲得核准以在 Marketplace 上銷售產品 (圖 3) 的時候。 Microsoft 讓您輕鬆地提名您的產品，完成發佈程序，並註冊成為賣方。
+現在是獲得核准以在 Marketplace 上銷售產品 (圖 3) 的時候。 
+
+Microsoft 讓您輕鬆地提名您的產品，完成發佈程序，並註冊成為賣方。 您所遵循的提名程序，會因計畫發佈的工作負載 (虛擬機器或受管理的應用程式) 而異。
 
 ![獲准在 Azure Marketplace 上銷售](./media/cloud-partner-portal-seller-guide/gettingapprovedsteps.png)
 
 圖 3：獲准在 Azure Marketplace 上銷售的步驟
 
-要獲得核准的第一個步驟是先[提名](https://createopportunity.azurewebsites.net/)您的產品，然後進行註冊和發佈。 核准可能需要_多達三個工作天_。
+如果您想要發佈_虛擬機器供應項目_，就要在[這裡](https://createopportunity.azurewebsites.net/) \(英文\) 提名您的產品。 核准可能需要_多達三個工作天_。
 
 一旦核准，您就會收到下列各項︰
 
@@ -172,17 +189,19 @@ Cloud Partner 入口網站是在 Marketplace 上建立供應項目的中樞。 �
 
 ## <a name="what-about-best-practices"></a>關於最佳做法
 
-以下的工具和最佳做法可協助您充分利用成為 Marketplace 賣方的優勢。
+以下是一些可協助您充分利用優勢以成為 Marketplace 賣方的最佳做法。
 
 ### <a name="azure-test-drives"></a>Azure 試用產品
 
 [Azure 試用產品](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/test-drives?page=1)很適合用來向潛在客戶展示您的產品，讓他們在購買前有試用選項。 試用產品有助於增加轉換及開發潛在客戶。
 
-客戶在提供其連絡資訊之後，便可以存取您預先建置的試用產品。 他們可以體驗實際操作、以自學方式試用您的產品，包括在真實情況中操作主要功能並體驗各項優點。
+客戶在提供其連絡資訊之後，便可以存取您預先建置的試用產品。 他們可以體驗實際操作、以自學方式試用您的產品，包括在真實情況中操作主要功能並體驗各項優點。 更棒？ 發佈與您的供應項目相關的試用產品，您最多可以多獲得 36% 的潛在客戶。
 
-目前只能在傳統發佈入口網站上發佈試用產品。 移至[如何發佈新的試用產品](https://github.com/Azure/AzureTestDrive/wiki)文件進一步了解。
+我們會在上架期間提供您在 Cloud Partner 入口網站中發佈試用產品所需的所有指導方針。 深入了解 [Azure 試用產品](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf)。
 
-深入了解 [Azure 試用產品](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf)。
+###<a name="lead-generation"></a>產生潛在客戶
+
+在 Azure Marketplace 上列出產品的關鍵價值訴求之一，就是我們會針對對您的產品有興趣或已部署產品的客戶，傳送給您極具潛力的潛在客戶。 更棒的是我們會將這些潛在客戶直接傳送給您的 CRM，以便您可以快速採取動作和進行追蹤，建立更多機會並達成更多交易。 產生潛在客戶的整合需要幾分鐘的時間，而且會在 Cloud Partner 入口網站中的發佈期間完成。
 
 ### <a name="go-to-market-checklist"></a>上市檢查清單
 
@@ -198,21 +217,20 @@ Cloud Partner 入口網站是在 Marketplace 上建立供應項目的中樞。 �
 
 ## <a name="what-about-reports"></a>關於報告
 
-Marketplace 會提供有關訂單、使用量和客戶的報告，您可透過 Marketplace 的[發行者報告入口網站](https://reports.azure.com) 存取這些報告。 除了實用的深入解析和分析，系統還會透過可瀏覽的資料表提供未經處理的資料，並可以 CSV 或 XLS 檔案形式下載。
+Marketplace 會提供有關訂單、使用量和客戶的報告，您可以透過 Cloud Partner 入口網站的 [Insights] 區段存取這些報告。 除了實用的深入解析和分析，系統還會透過可瀏覽的資料表提供未經處理的資料，並可以 CSV 或 XLS 檔案形式下載。
 
-此[影片](https://player.vimeo.com/video/200859918)提供報告功能和優點搶先看，其中包含：
+Insights 的部分功能與優點包括：
 
-- 報告類型︰首頁上的訂單、使用量及客戶趨勢的摘要快照。
+- 報告類型︰Insights 首頁上的訂單、使用量、部署及客戶趨勢的摘要快照。
 - 詳細的訂單、使用量及客戶資料。
 - 以每月摘要或六個月的趨勢檢視方式顯示訂單和使用量。
-- 顯示為標準的數個深入解析。
 - 依據下列各項顯示的使用量/訂單︰
   - 市場
   - 通道
   - 帶領潮流的供應項目
   - Marketplace 授權類型
 
-詳細的報告會顯示客戶資訊，例如公司名稱和地理位置 (包含郵遞區號)，以供您比較客戶。 下列清單包含我們提供的客戶相關特定屬性︰
+詳細的報告會顯示客戶資訊，例如公司名稱和地理位置 (包含郵遞區號)，以供您比較客戶和免費提供給賣方。 下列清單包含我們提供的客戶相關特定屬性︰
 
 - Reseller
 - 名字
@@ -221,7 +239,7 @@ Marketplace 會提供有關訂單、使用量和客戶的報告，您可透過 M
 - CompanyName
 - TransactionDate
 - SubscriptionName
-- AzureSubscriptionId
+- AzureSubscriptionId (僅 PAYG 客戶)
 - CloudInstanceName
 - OrderCount
 - CustomerCountryRegion
@@ -229,7 +247,7 @@ Marketplace 會提供有關訂單、使用量和客戶的報告，您可透過 M
 - CustomerCommunicationCulture
 - CustomerZipCode
 
-我們也會透過說明文件、詞彙和錄製的示範來提供訓練。 如果您需要協助或支援您的報告，您可以開啟[支援票證](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=15635&ccsid=636233723471685249)。
+我們也會透過說明文件、詞彙和錄製的示範來提供訓練。 如果您需要報告的協助或支援，便可以隨時透過 Cloud Partner 入口網站開啟支援票證。
 
 歡迎您使用我們的 ISV 賣方社群，期待看到您的供應項目。
 

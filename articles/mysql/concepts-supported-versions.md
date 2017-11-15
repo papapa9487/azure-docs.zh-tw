@@ -8,15 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 05/10/2017
-ms.openlocfilehash: da7a5b48a68626f06aef23729f55ba52029779d7
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.date: 11/02/2017
+ms.openlocfilehash: dc9f98218a95f1f24a45f208b0da7b945f4c9663
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>支援的適用於 MySQL 的 Azure 資料庫伺服器版本
-適用於 MySQL 的 Azure 資料庫是使用 InnoDB 引擎，從 MySQL Community Edition [MySQL Community Edition (英文)](https://www.mysql.com/products/community/) 開發的。  適用於 MySQL 的 Azure 資料庫目前支援下列版本。
+適用於 MySQL 的 Azure 資料庫是使用 InnoDB 引擎，從 MySQL Community Edition [MySQL Community Edition (英文)](https://www.mysql.com/products/community/) 開發的。  適用於 MySQL 的 Azure 資料庫目前支援下列版本：
 
 ## <a name="mysql-version-5635"></a>MySQL 版本 5.6.35
 請參閱 MySQL [文件] (https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-35.html)，以深入了解 MySQL 5.6.35 中的增強功能與修正。

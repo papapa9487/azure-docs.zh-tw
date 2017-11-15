@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/13/2017
-ms.openlocfilehash: 2164562af60442375b96a51f820a65d4d4a6f257
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/02/2017
+ms.openlocfilehash: 36ffa7082ce60093cbd90d0c12187e28f517646d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>使用匯入和匯出移轉您的 MySQL 資料庫
 本文說明使用 MySQL Workbench 將資料匯入與匯出適用於 MySQL 伺服器的 Azure 資料庫的兩個常見方式。 
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 在下列案例中，使用 MySQL 工具將資料庫匯入與匯出 Azure MySQL 資料庫。 在其他案例中，您可能反而會受益於使用[傾印和還原](concepts-migrate-dump-restore.md)方法。 
 
 - 當您需要選擇性地選擇從現有 MySQL 資料庫匯入至 Azure MySQL 資料庫的一些資料表時，最好使用匯入和匯出技術。  如此一來，您可以從移轉省略任何不必要的資料表，以節省時間和資源。 例如，搭配使用 `--include-tables` 或 `--exclude-tables` 參數與 [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables) 以及搭配使用 `--tables` 參數與 [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables)。
-- 移動資料表以外的資料庫物件時，明確建立這些項目。 包含限制式 (主索引鍵、外部索引鍵、索引)、檢視、函式、程序、觸發程序和其他您想要移轉的資料庫物件。
+- 移動資料表以外的資料庫物件時，明確建立這些物件。 包含限制式 (主索引鍵、外部索引鍵、索引)、檢視、函式、程序、觸發程序和其他您想要移轉的資料庫物件。
 - 當您從 MySQL 資料庫以外的外部資料來源移轉資料時，建立一般檔案，並且使用 [mysqlimport](https://dev.mysql.com/doc/refman/5.7/en/mysqlimport.html) 來匯入它們。
 
 將資料載入至適用於 MySQL 的 Azure 資料庫時，請確定資料庫中的所有資料表都使用 InnoDB 儲存引擎。 適用於 MySQL 的 Azure 資料庫僅支援 InnoDB 儲存引擎，因此不支援其他儲存引擎。 如果您的資料表需要其他儲存引擎，請確定將它們轉換成 InnoDB 引擎格式，然後再移轉至適用於 MySQL 的 Azure 資料庫。 

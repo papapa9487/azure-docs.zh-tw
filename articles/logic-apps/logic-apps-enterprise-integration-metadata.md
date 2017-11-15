@@ -15,15 +15,15 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 11/21/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 28bb8296ddd820ec5aa9793dc0928b4b1e67bf6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 473da6436ad39709359b579162a6b60efc38d61f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>在 Logic Apps 的整合帳戶中管理構件中繼資料
 
-您可以在整合帳戶中定義構件的自訂中繼資料，並在邏輯應用程式的執行階段期間擷取該中繼資料。 例如，您可以指定構件的中繼資料，例如，合作夥伴、合約、結構描述及對應，這些全都會使用索引鍵值組來儲存中繼資料。 構件目前無法透過 UI 來建立中繼資料，但您可以使用 REST API 來建立中繼資料。 若要在您於 Azure 入口網站中建立或選取合作夥伴、合約或結構描述時新增中繼資料，可選擇 [編輯為 JSON]。 若要擷取邏輯應用程式中的構件中繼資料，您可以使用整合帳戶構件查閱功能。
+您可以在整合帳戶中定義構件的自訂中繼資料，並在邏輯應用程式的執行階段期間擷取該中繼資料。 例如，您可以指定構件的中繼資料，例如，合作夥伴、合約、結構描述及對應，這些全都會使用索引鍵值組來儲存中繼資料。 構件目前無法透過 UI 來建立中繼資料，但您可以使用 REST API 來建立中繼資料。 若要在 Azure 入口網站中建立或選取合作夥伴、合約或結構描述時新增中繼資料，請選擇 [編輯]。 若要擷取邏輯應用程式中的構件中繼資料，您可以使用整合帳戶構件查閱功能。
 
 ## <a name="add-metadata-to-artifacts-in-integration-accounts"></a>將中繼資料新增至整合帳戶中的構件
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 2. 將構件新增至您的整合帳戶，例如，[合作夥伴](logic-apps-enterprise-integration-partners.md#how-to-create-a-partner)、[合約](logic-apps-enterprise-integration-agreements.md#how-to-create-agreements)或[結構描述](logic-apps-enterprise-integration-schemas.md)。
 
-3.  選取構件、選擇 [編輯為 JSON]，然後輸入中繼資料詳細資訊。
+3.  選取構件、選擇 [編輯]，然後輸入中繼資料詳細資訊。
 
     ![輸入中繼資料](media/logic-apps-enterprise-integration-metadata/image1.png)
 

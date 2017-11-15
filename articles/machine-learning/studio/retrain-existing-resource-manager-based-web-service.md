@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 11/07/2017
 ms.author: v-donglo
-ms.openlocfilehash: e7663f931594c0626a173562b846f3f9324d8ba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40079da0e04520477771a11a1e4111768cf18280
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>重新定型現有的預測 Web 服務
 本文件描述下列案例的重新定型程序︰
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 
 接下來您必須將訓練實驗部署為可產生訓練模型與模型評估結果的 Web 服務。  
 
-在實驗畫布底端，按一下 [設定 Web 服務]，然後選取 [部署 Web 服務 [新式]]。 Azure Machine Learning Web Services 入口網站會開啟 [部署 Web 服務] 頁面。 輸入您的 Web 服務名稱，選擇付款方案，然後按一下部署 。 您只能使用批次執行方法來建立定型模型。
+在實驗畫布底端，按一下 [設定 Web 服務]，然後選取 [部署 Web 服務 [新式]]。 Azure Machine Learning Web Services 入口網站會開啟 [部署 Web 服務] 頁面。 輸入您的 Web 服務名稱，選擇付款方案，然後按一下 [部署] 。 您只能使用批次執行方法來建立定型模型。
 
 ## <a name="retrain-the-model-with-new-data-by-using-bes"></a>使用 BES 以新資料重新定型模型
 在此範例中，我們使用 C# 建立重新訓練應用程式。 您也可以使用 Python 或 R 範例程式碼來完成這項工作。
@@ -86,9 +86,10 @@ ms.lasthandoff: 10/11/2017
 ### <a name="update-the-azure-storage-information"></a>更新 Azure 儲存體資訊
 BES 範例程式碼會將檔案從本機磁碟機 (例如，C:\temp\CensusIpnput.csv) 上傳至 Azure 儲存體、加以處理後，再將結果寫回 Azure 儲存體。  
 
-若要更新 Azure 儲存體資訊，您必須從 Azure 傳統入口網站擷取儲存體帳戶名稱、金鑰，以及儲存體帳戶的容器資訊，然後更新對應項目。執行實驗之後，產生的工作流程應該會如下所示︰
+若要更新 Azure 儲存體資訊，您必須從 Azure 傳統入口網站擷取儲存體帳戶的儲存體帳戶名稱、金鑰和容器資訊，然後更新程式碼中的對應值。
+執行實驗後，產生的工作流程應該如下：
 
-![執行後產生的工作流程][4]程式碼中的 ng 值。
+![執行後產生的工作流程][4]
 
 1. 登入 Azure 傳統入口網站。
 2. 在左側導覽中，按一下 [儲存體] 。
@@ -119,7 +120,9 @@ BES 範例程式碼會將檔案從本機磁碟機 (例如，C:\temp\CensusIpnput
             }
         },
 
-以下是重新定型輸出的範例︰![重新定型輸出][6]
+以下是重新定型輸出的範例︰
+
+![重新定型輸出][6]
 
 ## <a name="evaluate-the-retraining-results"></a>評估重新定型結果
 當您執行應用程式時，輸出會包含存取評估結果所需的 URL 和共用存取簽章權杖。

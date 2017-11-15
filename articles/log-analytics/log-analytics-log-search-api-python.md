@@ -4,23 +4,26 @@ description: "Log Analytics 記錄搜尋 API 可讓任何 REST API 用戶端從 
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/28/2017
+ms.date: 11/03/2017
 ms.author: bwren
-ms.openlocfilehash: 56d7c6dc648a01e7b0efc167cb65c94bac5468ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8a4ec7a6ddf2daeca6ead11460fa076a7eb5c94
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="retrieve-data-from-log-analytics-with-a-python-script"></a>使用 Python 指令碼從 Log Analytics 擷取資料
 [Log Analytics 記錄搜尋 API](log-analytics-log-search-api.md) 可讓任何 REST API 用戶端從 Log Analytics 工作區擷取資料。  本文呈現可使用 Log Analytics 記錄搜尋 API 的範例 Python 指令碼。  
+
+>[!NOTE]
+> 本文在 Log Analytics 中使用記錄檔搜尋 API 作為舊版查詢語言。  本文將針對已經升級到 [ 新 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)的工作區提供更新。
 
 ## <a name="authentication"></a>驗證
 此指令碼會在 Azure Active Directory 中使用服務主體來驗證工作區。  服務主體可讓用戶端應用程式要求服務驗證帳戶，即使用戶端沒有帳戶名稱亦然。 執行此指令碼之前，您必須使用[使用入口網站來建立可存取資源的 Active Directory 應用程式和服務主體](../azure-resource-manager/resource-group-create-service-principal-portal.md)中的程序來建立服務主體。  您必須將應用程式識別碼、租用戶識別碼及驗證金鑰提供給指令碼。 
