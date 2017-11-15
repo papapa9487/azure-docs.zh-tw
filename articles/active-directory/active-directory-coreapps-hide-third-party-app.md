@@ -15,20 +15,20 @@ ms.date: 10/11/2017
 ms.author: billmath
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 28b6885e7e74a44f4d00f4a804a93e74f6eec685
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 976cbb1341493186b9996d250ebca8f2f3688fdf
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="hide-a-third-party-application-from-users-experience-in-azure-active-directory"></a>從 Azure Active Directory 的使用者體驗中隱藏第三方應用程式
 
 如果您有不想顯示在使用者的存取面板或 Office 365 啟動器上的第三方應用程式 (由 Microsoft 以外的廠商發行的應用程式)，則可以選擇隱藏這類應用程式磚。 隱藏應用程式之後，使用者仍然有應用程式的權限，但是在應用程式啟動器中看不到這些應用程式。 您必須具備適當的權限，才能管理企業應用程式，而且必須是目錄的全域管理員。
 
-## <a name="hiding-a-users-access-panel"></a>隱藏使用者的存取面板
-使用下列步驟來隱藏使用者的存取面板和 Office 365 應用程式啟動器
+## <a name="hiding-a-third-party-app-from-a-users-experience"></a>從使用者的體驗中隱藏第三方應用程式
+請使用下列步驟，從使用者的存取面板和 Office 365 應用程式啟動器中隱藏第三方應用程式
 
-### <a name="how-do-i-hide-an-app-from-users-access-panel-and-o365-app-launchers"></a>如何從使用者的存取面板和 Office 365 應用程式啟動器中隱藏應用程式？
+### <a name="how-do-i-hide-a-third-party-app-from-users-access-panel-and-o365-app-launchers"></a>如何從使用者的存取面板和 O365 應用程式啟動器中隱藏第三方應用程式？
 
 1.  使用具備目錄全域管理員身分的帳戶來登入 [Azure 入口網站](https://portal.azure.com) 。
 2.  選取 [更多服務]，在文字方塊中輸入 **Azure Active Directory**，然後選取 **Enter**。

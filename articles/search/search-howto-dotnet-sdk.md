@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/22/2017
 ms.author: brjohnst
-ms.openlocfilehash: 552a7ab193e12d2e72da494166d774e974c85d47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7273ae6a698f2af52e78ea2aae9ca5cd80f6a2b1
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>如何從 .NET 應用程式使用 Azure 搜尋服務
 本文會逐步指引您學會如何使用 [Azure 搜尋服務 .NET SDK](https://aka.ms/search-sdk)。 您可以透過 .NET SDK，利用 Azure 搜尋服務在應用程式中實作豐富的搜尋經驗。
@@ -33,7 +33,7 @@ SDK 包含用戶端程式庫 `Microsoft.Azure.Search`。 該程式庫可讓您�
 
 目前的 Azure 搜尋服務 .NET SDK 版本現在正式推出。 如果您想提供意見反應給我們，讓我們可以將您的意見併入下一個版本中，請瀏覽我們的 [意見回應頁面](https://feedback.azure.com/forums/263029-azure-search/)。
 
-.NET SDK 支援 `2016-09-01` 版的 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/)。 此版本現在包含自訂分析器支援及 Azure Blob 和 Azure 資料表索引子支援。 「不」屬於此版本的預覽功能 (例如 JSON 和 CSV 檔案編製索引支援) 處於[預覽](search-api-2015-02-28-preview.md)狀態，並可透過較舊的 [2.0 預覽版 .NET SDK](https://aka.ms/search-sdk-preview) 取得。
+.NET SDK 支援 `2016-09-01` 版的 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/)。 此版本現在包含自訂分析器支援及 Azure Blob 和 Azure 資料表索引子支援。 *不*屬於此版本的預覽功能 (例如 JSON 和 CSV 檔案編製索引支援) 處於[預覽](search-api-2016-09-01-preview.md)狀態，並可透過 [4.0.1-preview 版 .NET SDK](https://aka.ms/search-sdk-preview) 取得。
 
 此 SDK 不支援[管理作業](https://docs.microsoft.com/rest/api/searchmanagement/)，例如建立及調整搜尋服務和管理 API 金鑰。 如果您需要從 .NET 應用程式管理搜尋資源，您可以使用 [Azure 搜尋服務 .NET 管理 SDK](https://aka.ms/search-mgmt-sdk)。
 

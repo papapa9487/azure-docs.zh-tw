@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
+ms.date: 11/07/2017
 ms.author: sethm
-ms.openlocfilehash: 00f9f38fbae028486270053dedb4df580a3f1a44
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bea3b56cea81362b25e696a672bf2a00e26d3ef
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>服務匯流排佇列、主題和訂用帳戶
 
-Microsoft Azure 服務匯流排支援一組以雲端為基礎、訊息導向的中介軟體技術，包括可靠的訊息佇列和持久的發佈/訂閱訊息。 這些「代理」傳訊功能可以視為低耦合傳訊功能，這些功能可使用「服務匯流排」訊息網狀架構來支援發佈-訂閱、時脈解離及負載平衡案例。 低耦合通訊有許多優點︰例如，用戶端和伺服器可視需要連接並以非同步方式執行其作業。
+Microsoft Azure 服務匯流排支援一組以雲端為基礎、訊息導向的中介軟體技術，包括可靠的訊息佇列和持久的發佈/訂閱訊息。 這些「代理」傳訊功能可以視為去耦傳訊功能，這些功能可使用「服務匯流排」傳訊工作負載來支援發佈-訂閱、時態性去耦及負載平衡案例。 低耦合通訊有許多優點︰例如，用戶端和伺服器可視需要連接並以非同步方式執行其作業。
 
 構成「服務匯流排」中傳訊功能核心的傳訊實體是佇列、主題與訂用帳戶，以及規則/動作。
 
@@ -30,7 +30,7 @@ Microsoft Azure 服務匯流排支援一組以雲端為基礎、訊息導向的�
 
 如果有一或多個競爭取用者，佇列會採取「先進先出」(FIFO) 訊息傳遞機制。 亦即，通常預計由接收者依訊息加入佇列的順序來接收和處理訊息，而且每則訊息只能由一個訊息取用者接收和處理。 使用佇列的主要優點是達成應用程式元件的「時脈解離」。 換句話說，產生者 (傳送者) 和取用者 (接收者) 不必同時傳送和接收訊息，因為訊息會長期儲存在佇列中。 此外，產生者不必等待取用者的回覆，即可繼續處理及傳送訊息。
 
-相關的優點是「負載調節」，這可讓產生者和取用者以不同的速率傳送和接收訊息。 在許多應用程式中，系統負載會隨時間改變；然而，處理每個工作單位所需的時間卻通常固定不變。 有佇列作為訊息生產者與取用者之間的中間者後，只需佈建取用方應用程式，就能夠處理平均負載而非尖峰負載。 佇列的深度會隨著連入負載的改變而增加和縮短。 就處理應用程式負載所需的基礎結構數量而言，如此可直接節省金錢。 當負載增加時，可以新增更多的背景工作角色程序來讀取佇列中的訊息。 每個訊息僅由其中一個背景工作程序處理。 此外，這個提取型負載平衡機制可讓背景工作電腦獲得最佳利用，即使背景工作電腦的處理能力有所不同也一樣，因為背景工作電腦將以自己的最大速率提取訊息。 此模式通常稱為「競爭取用者」模式。
+相關的優點是「負載調節」，這可讓產生者和取用者以不同的速率傳送和接收訊息。 在許多應用程式中，系統負載會隨時間改變；然而，處理每個工作單位所需的時間卻通常固定不變。 有佇列作為訊息生產者與取用者之間的中間者後，只需佈建取用方應用程式，就能夠處理平均負載而非尖峰負載。 佇列的深度會隨著連入負載的改變而增加和縮短。 就處理應用程式負載所需的基礎結構數量而言，如此可直接節省金錢。 當負載增加時，可以新增更多的背景工作角色程序來讀取佇列中的訊息。 每個訊息僅由其中一個背景工作程序處理。 此外，這個提取型負載平衡機制可讓背景工作電腦獲得最佳利用，即使背景工作電腦的處理能力有所不同也一樣，因為背景工作電腦會以自己的最大速率提取訊息。 此模式通常稱為「競爭取用者」模式。
 
 使用佇列在訊息產生者與取用者之間居中協調，可提供元件之間的固有鬆散結合。 因為產生者和取用者不知道彼此的存在，所以取用者可以升級，而不會對產生者造成任何影響。
 
@@ -52,7 +52,7 @@ MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateS
 QueueClient myQueueClient = factory.CreateQueueClient("TestQueue");
 ```
 
-您接著可以將訊息傳送至佇列。 例如，如果您有稱為 `MessageList` 的代理訊息清單，程式碼會如下所示︰
+您接著可以將訊息傳送至佇列。 例如，如果您有稱為 `MessageList` 的代理訊息清單，程式碼會如以下範例所示︰
 
 ```csharp
 for (int count = 0; count < 6; count++)
@@ -82,7 +82,7 @@ while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 0, secon
 
 如果應用程式因為某些原因無法處理訊息，它可以呼叫所接收訊息上的 [Abandon](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) 方法 (而不是 [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete))。 這可讓服務匯流排將訊息解除鎖定，讓此訊息可被相同的取用者或其他競爭取用取再次接收。 其次，鎖定有相關聯的逾時，如果應用程式無法在鎖定逾時到期之前處理訊息 (例如，如果應用程式當機)，則服務匯流排會將訊息解除鎖定，並讓訊息可以被重新接收 (根據預設，基本上會執行 [Abandon](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) 作業)。
 
-請注意，如果應用程式在處理訊息之後，尚未發出 **Complete** 要求時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。 這通常稱為「至少一次」處理機制；也就是說，會至少將每個訊息都處理一次。 不過，但在特定狀況下，可能會重新傳遞相同訊息。 如果此案例不容許重複處理，則應用程式中需要額外的邏輯才能根據訊息的 **MessageId** 屬性偵測可達成的重複項目，而該屬性在所有傳遞嘗試中維持不變。 這就是所謂的「剛好一次」處理。
+請注意，如果應用程式在處理訊息之後，尚未發出 **Complete** 要求時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。 這通常稱為「至少一次」處理機制；也就是說，會至少將每個訊息都處理一次。 不過，但在特定狀況下，可能會重新傳遞相同訊息。 如果此案例不容許重複處理，則應用程式中需要額外的邏輯才能根據訊息的 **MessageId** 屬性偵測可達成的重複項目，而該屬性在各傳遞嘗試之間維持不變。 這就是所謂的「剛好一次」處理。
 
 ## <a name="topics-and-subscriptions"></a>主題和訂用帳戶
 有別於佇列，佇列中的每個訊息只會由單一取用者處理，「主題」和「訂用帳戶」採用「發佈/訂閱」模式，提供一對多的通訊形式。 適合用於相應增加為非常大量的收件者，每個發佈的訊息都會提供給每個已註冊主題的訂用帳戶。 根據可依每個訂用帳戶設定的篩選規則，訊息會傳送至主題並傳遞給一或多個相關聯的訂用帳戶。 訂用帳戶可以使用其他篩選器來限制他們想要接收的訊息。 訊息會以其傳送至佇列的相同方式傳送至主題，但不會從主題直接接收訊息。 反而會從訂用帳戶接收。 主題訂用帳戶類似於虛擬佇列，同樣可接收已傳送到主題的訊息複本。 從佇列接收訊息的方式就像從訂用帳戶接收訊息一樣。
@@ -155,7 +155,7 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 
 使用此訂用帳戶篩選器時，只有 `StoreName` 屬性設定為 `Store1` 的訊息才會複製到 `Dashboard` 訂用帳戶的虛擬佇列。
 
-如需可能篩選值的詳細資訊，請參閱 [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) 和 [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) 類別的文件。 此外，請參閱[代理傳訊︰進階篩選器](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)和[主題篩選器](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)範例。
+如需可能篩選值的詳細資訊，請參閱 [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) 和 [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) 類別的文件。 此外，請參閱[代理傳訊︰進階篩選器](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)和[主題篩選器](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/TopicFilters)範例。
 
 ## <a name="next-steps"></a>後續步驟
 如需詳細資訊及有關使用「服務匯流排」傳訊的範例，請參閱下列進階主題。
@@ -163,6 +163,5 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 * [服務匯流排訊息概觀](service-bus-messaging-overview.md)
 * [服務匯流排代理傳訊 .NET 教學課程](service-bus-brokered-tutorial-dotnet.md)
 * [服務匯流排代理傳訊 REST 教學課程](service-bus-brokered-tutorial-rest.md)
-* [主題篩選器範例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/TopicFilters)
 * [代理傳訊︰進階篩選器範例](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 

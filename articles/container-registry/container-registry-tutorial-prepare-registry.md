@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 88feffc13690a3a33f757a43972c5ef1fe967b7f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 75408dc88b23b615971a23dc6235c563229d75aa
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="prepare-a-geo-replicated-azure-container-registry"></a>準備異地複寫的 Azure Container Registry
 
@@ -247,10 +247,10 @@ v1: digest: sha256:c515bcebf249b591b558318e2d0ec21d1320340dbf335730eb32372ff7d34
 > * 從應用程式來源建置 Docker 容器映像
 > * 將容器映像推送至登錄
 
-若要了解如何使用異地複寫來提供本地的映像，以將容器部署至多個 Azure App Service 執行個體，請前往下一個教學課程。
+若要了解如何使用異地複寫來提供本地的映像，以將容器部署至多個「用於容器的 Web 應用程式」執行個體，請前往下一個教學課程。
 
 > [!div class="nextstepaction"]
-> [將容器部署到 Azure App Service](container-registry-tutorial-deploy-app.md)
+> [從 Azure Container Registry 部署 Web 應用程式](container-registry-tutorial-deploy-app.md)
 
 <!-- IMAGES -->
 [tut-portal-01]: ./media/container-registry-tutorial-prepare-registry/tut-portal-01.png

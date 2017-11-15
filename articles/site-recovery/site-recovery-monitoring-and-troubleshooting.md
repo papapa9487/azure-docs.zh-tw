@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: rajanaki
-ms.openlocfilehash: 5bcb5dcb6afc3909e34dde31f845e014e7c539e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad1e0bcb2e2c073c8fb186f5a9d8bcb0bac588a0
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="monitor-and-troubleshoot-protection-for-virtual-machines-and-physical-servers"></a>監視和疑難排解虛擬機器與實體伺服器的保護
 此監視與疑難排解指南協助您了解如何追蹤複寫健康情況和 Azure Site Recovery 的疑難排解技術。
 
 ## <a name="understand-the-components"></a>了解元件
 ### <a name="vmware-virtual-machine-or-physical-server-site-deployment-for-replication-between-on-premises-and-azure"></a>用於在內部部署和 Azure 之間複寫的 VMware 虛擬機器或實體網站部署
-若要設定內部部署 VMware 虛擬機器或實體伺服器與 Azure 之間的資料庫復原，您需要在虛擬機器或伺服器上設定組態伺服器、主要目標伺服器和處理伺服器元件。 當您啟用來源伺服器的保護時，Azure Site Recovery 會安裝 Microsoft Azure App Service 的 Mobile Apps 功能。 在內部部署中斷和來源伺服器容錯移轉至 Azure 之後，客戶必須在 Azure 中設定處理伺服器，並在內部部署中設定主要目標伺服器，以便在內部部署中重建來源伺服器。
+若要設定內部部署 VMware 虛擬機器或實體伺服器與 Azure 之間的資料庫復原，您需要在虛擬機器或伺服器上設定組態伺服器、主要目標伺服器和處理伺服器元件。 當您啟用來源伺服器的保護時，如果尚未部署最新的版本，則 Azure Site Recovery 會從選擇的處理伺服器安裝行動服務。 在內部部署中斷和來源伺服器容錯移轉至 Azure 之後，客戶必須在 Azure 中設定處理伺服器，並在內部部署中設定主要目標伺服器，以便在內部部署中重建來源伺服器。
 
 ![VMware/Physical site deployment for replication between on-premises and Azure](media/site-recovery-monitoring-and-troubleshooting/image18.png)
 
@@ -55,7 +55,7 @@ Azure Site Recovery 中的每個作業都是在 [作業] 索引標籤下稽核�
 
 ![Dialog box that shows error details for a specific job](media/site-recovery-monitoring-and-troubleshooting/image5.png)
 
-在前一個範例中，另一個進行中的作業似乎導致保護組態失敗。 根據建議來解決問題，然後按一下重新啟動 重新起始作業。
+在前一個範例中，另一個進行中的作業似乎導致保護組態失敗。 根據建議來解決問題，然後按一下 [重新啟動] 重新起始作業。
 
 ![The RESTART button in the JOBS tab](media/site-recovery-monitoring-and-troubleshooting/image6.png)
 
@@ -64,7 +64,7 @@ Azure Site Recovery 中的每個作業都是在 [作業] 索引標籤下稽核�
 ![The CANCEL button](media/site-recovery-monitoring-and-troubleshooting/image7.png)
 
 ## <a name="monitor-replication-health-for-virtual-machines"></a>監視虛擬機器的複寫健康情況
-您可以使用 Azure 入口網站從遠端監視 Azure Site Recovery 提供者的每個受保護實體。 按一下 受保護項目，然後按一下VMM 雲端 或 保護群組。 [VMM 雲端] 索引標籤只適用於以 Virtual Machine Manager 為基礎的部署。 在其他情況下，受保護實體都在 [保護群組] 索引標籤底下。
+您可以使用 Azure 入口網站從遠端監視 Azure Site Recovery 提供者的每個受保護實體。 按一下 [受保護項目]，然後按一下 [VMM 雲端] 或 [保護群組]。 [VMM 雲端] 索引標籤只適用於以 Virtual Machine Manager 為基礎的部署。 在其他情況下，受保護實體都在 [保護群組] 索引標籤底下。
 
 ![The VMM Clouds and PROTECTION GROUPS options](media/site-recovery-monitoring-and-troubleshooting/image8.png)
 
@@ -88,11 +88,11 @@ Azure Site Recovery 中的每個作業都是在 [作業] 索引標籤下稽核�
 
 ![Option to view replication health in the Hyper-V manager console](media/site-recovery-monitoring-and-troubleshooting/image12.png)
 
-在此案例中，[複寫健康情況] 是 [嚴重]。 以滑鼠右鍵按一下虛擬機器，然後按一下複寫 > 檢視複寫健康情況，以檢視詳細資訊。
+在此案例中，[複寫健康情況] 是 [嚴重]。 以滑鼠右鍵按一下虛擬機器，然後按一下 複寫 > 檢視複寫健康情況，以檢視詳細資訊。
 
 ![Replication health for a specific virtual machine](media/site-recovery-monitoring-and-troubleshooting/image13.png)
 
-如果虛擬機器已暫停複寫，請以滑鼠右鍵按一下虛擬機器，然後按一下複寫 > 繼續複寫。
+如果虛擬機器已暫停複寫，請以滑鼠右鍵按一下虛擬機器，然後按一下 [複寫] > [繼續複寫]。
 
 ![Option to resume replication in the Hyper-V manager console](media/site-recovery-monitoring-and-troubleshooting/image19.png)
 
@@ -107,7 +107,7 @@ Azure Site Recovery 中的每個作業都是在 [作業] 索引標籤下稽核�
 | **Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** (Hyper-V 主機) |提供有用的記錄，可針對許多 Hyper-V 虛擬機器管理問題進行疑難排解。 <br/> ![Location of Virtual Machine Manager event source for Hyper-V host](media/site-recovery-monitoring-and-troubleshooting/eventviewer01.png) |
 
 ### <a name="hyper-v-replication-logging-options"></a>Hyper-V 複寫記錄選項
-與 Hyper-V 複寫有關的所有事件都記錄在位於 Applications and Services Logs\\Microsoft\\Windows 底下的 Hyper-V-VMMS\\Admin 記錄中。 此外，您還可以啟用 Hyper-V 虛擬機器管理服務的分析記錄檔。 若要啟用此記錄檔，先讓 [分析] 與 [偵錯] 記錄檔可在 [事件檢視器] 中檢視。 開啟 事件檢視器，然後按一下檢視 > 顯示分析與偵錯記錄檔。
+與 Hyper-V 複寫有關的所有事件都記錄在位於 Applications and Services Logs\\Microsoft\\Windows 底下的 Hyper-V-VMMS\\Admin 記錄中。 此外，您還可以啟用 Hyper-V 虛擬機器管理服務的分析記錄檔。 若要啟用此記錄檔，先讓 [分析] 與 [偵錯] 記錄檔可在 [事件檢視器] 中檢視。 開啟 [事件檢視器]，然後按一下 [檢視] > [顯示分析與偵錯記錄檔]。
 
 ![The Show Analytic and Debug Logs option](media/site-recovery-monitoring-and-troubleshooting/image14.png)
 

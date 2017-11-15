@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: e4fe86b80d8a786da15cdea37619e54e55102e3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 630d9022da0d51e533534ea43f50f27e8eb09a78
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>使用 Azure Functions 建立無伺服器 API
 
@@ -61,7 +61,8 @@ ms.lasthandoff: 10/11/2017
 1. 在左側導覽中按一下函式的名稱，返回開發頁面。
 1. 按一下 [取得函式 URL] 並複製 URL。 您應該會看到它現在使用 `/api/hello` 路由。
 1. 將 URL 複製到新的瀏覽器索引標籤或您慣用的 REST 用戶端。 根據預設，瀏覽器會使用 GET。
-1. 執行函式，確認它可以運作。 您可能需要提供 "name" 參數作為查詢字串，以滿足快速入門程式碼。
+1. 在您的 URL 的查詢字串中新增參數，例如 `/api/hello/?name=John`
+1. 按 Enter 鍵以確認它可以運作。 您應該會看到 "*Hello John*" 回應
 1. 您也可以嘗試使用另一個 HTTP 方法呼叫端點，以確認不會執行此函式。 為此，您必須使用 REST 用戶端，例如 cURL、Postman 或 Fiddler。
 
 ## <a name="proxies-overview"></a>Proxy 概觀
@@ -85,9 +86,8 @@ Proxy 可以指向任何 HTTP 資源，例如︰
 重複[建立函式應用程式](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app)的步驟建立新的函式應用程式，您將在其中建立您的 Proxy。 這個新的應用程式 URL 將作為我們 API 的前端，而您先前編輯的函式應用程式將作為後端。
 
 1. 在入口網站中瀏覽至新的前端函式應用程式。
-1. 選取 [Settings] \(設定) 。 然後，將 [啟用 Azure Functions Proxy (預覽)] 切換為 [開啟]。
-1. 選取 [平台設定]，然後選擇 [應用程式設定]。
-1. 向下捲動至 [應用程式設定]，並使用金鑰 "HELLO_HOST" 建立新的設定。 將值設定為後端函式應用程式的主機，例如 `<YourBackendApp>.azurewebsites.net`。 這是您先前測試 HTTP 函式時複製之 URL 的一部分。 稍後，您將在設定中參考這項設定。
+1. 選取 [平台功能]，然後選擇 [應用程式設定]。
+1. 向下捲動至儲存機碼/值組的 [應用程式設定]，然後使用機碼 "HELLO_HOST" 來建立新的設定。 將值設定為後端函式應用程式的主機，例如 `<YourBackendApp>.azurewebsites.net`。 這是您先前測試 HTTP 函式時複製之 URL 的一部分。 稍後，您將在設定中參考這項設定。
 
     > [!NOTE] 
     > 建議使用應用程式設定作為主機設定，以避免 Proxy 依賴硬式編碼的環境。 使用應用程式設定表示您可以在不同環境之間移動 Proxy 設定，將會套用環境特定的應用程式設定。
@@ -120,7 +120,7 @@ Proxy 可以指向任何 HTTP 資源，例如︰
 
 接下來，您將使用 Proxy 為您的方案建立模擬 API。 這樣可以開始進行用戶端開發，而不需完全實作後端。 在開發過程中，稍後您可以建立新的函式應用程式來支援此邏輯，並將您的 Proxy 重新導向此應用程式。
 
-為了建立這個模擬 API，我們將建立新的 proxy，這次會使用 [App Service 編輯器](https://github.com/projectkudu/kudu/wiki/App-Service-Editor)。 若要開始，請在入口網站中瀏覽至您的函式應用程式。 選取 [平台功能]，找出 [App Service 編輯器]。 按一下此選項會在新的索引標籤中開啟 App Service 編輯器。
+為了建立這個模擬 API，我們將建立新的 proxy，這次會使用 [App Service 編輯器](https://github.com/projectkudu/kudu/wiki/App-Service-Editor)。 若要開始，請在入口網站中瀏覽至您的函式應用程式。 選取 [平台功能]，然後在 [開發工具] 底下尋找 [App Service 編輯器]。 按一下此選項會在新的索引標籤中開啟 App Service 編輯器。
 
 在左側導覽中，選取 `proxies.json`。 此檔案儲存您的所有 Proxy 的設定。 如果您使用其中一個 [Functions 部署方法](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment)，則這是您在原始檔控制中維護的檔案。 若要深入了解此檔案，請參閱 [Proxy 進階組態](https://docs.microsoft.com/azure/azure-functions/functions-proxies#advanced-configuration)。
 
@@ -178,7 +178,7 @@ Proxy 可以指向任何 HTTP 資源，例如︰
 
 這會新增 Proxy "GetUserByName"，但不含 backendUri 屬性。 它會使用回應覆寫修改 Proxy 的預設回應，而不是呼叫另一個資源。 要求和回應覆寫也可以搭配後端 URL 一起使用。 當代理至舊版系統時 (您可能需要修改標頭、查詢參數等)，這特別有用。若要深入了解要求和回應覆寫，請參閱[在 Proxy 中修改要求和回應](https://docs.microsoft.com/azure/azure-functions/functions-proxies#a-namemodify-requests-responsesamodifying-requests-and-responses)。
 
-使用瀏覽器或您最愛的 REST 用戶端呼叫 `/api/users/{username}` 端點，以測試您的模擬 API。 請務必以代表使用者名稱的字串值取代 _{username}_。
+使用瀏覽器或您最愛的 REST 用戶端呼叫 `<YourProxyApp>.azurewebsites.net/api/users/{username}` 端點，以測試您的模擬 API。 請務必以代表使用者名稱的字串值取代 _{username}_。
 
 ## <a name="next-steps"></a>後續步驟
 

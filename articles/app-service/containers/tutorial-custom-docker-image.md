@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 8660bd09ea09e2c4c81da9c3ef66a1a448d3db43
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 4ba53dd1239290c64907ed431d404b2d1be66c36
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>針對用於容器的 Web 應用程式使用自訂 Docker 映像
 
@@ -48,7 +48,7 @@ cd docker-django-webapp-linux
 
 ## <a name="build-the-image-from-the-docker-file"></a>從 Docker 檔案建立映像
 
-在 Git 存放庫中，看看 _Dockerfile_。 此檔案會描述執行我們應用程式所需的 Python 環境。 此外，映像會設定 [SSH](https://www.ssh.com/ssh/protocol/) 伺服器，以在容器與主機之間進行安全通訊。
+在 Git 存放庫中，看看 _Dockerfile_。 此檔案會描述執行您應用程式所需的 Python 環境。 此外，映像會設定 [SSH](https://www.ssh.com/ssh/protocol/) 伺服器，以在容器與主機之間進行安全通訊。
 
 ```docker
 FROM python:3.4
@@ -279,7 +279,7 @@ SSH 可讓容器和用戶端之間進行安全通訊。 您必須將自訂的 Do
     > [!NOTE]
     > 此設定不允許容器的外部連線。 SSH 只能透過 Kudu/SCM 站台提供。 Kudu/SCM 站台會向發佈認證進行驗證。
 
-* [複製](https://docs.docker.com/engine/reference/builder/#copy)指示會指示 Docker 引擎將 [sshd_config](http://man.openbsd.org/sshd_config) 檔案複製到 /etc/ssh/ 目錄。 您的組態檔應該以 [這個 sshd_config 檔案](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config)作為基礎。
+* [複製](https://docs.docker.com/engine/reference/builder/#copy)指示會指示 Docker 引擎將 [sshd_config](http://man.openbsd.org/sshd_config) 檔案複製到 /etc/ssh/ 目錄。 您的組態檔應該以 [這個 sshd_config 檔案](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config)作為基礎。
 
     ```docker
     COPY sshd_config /etc/ssh/
@@ -329,7 +329,7 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 77 root      20   0   21920   2304   1972 R  0.0  0.1   0:00.00 top
 ```
 
-恭喜！ 您已針對 Web App for Containers 設定自訂 Docker 映像。
+恭喜！ 您已針對「用於容器的 Web App」設定自訂 Docker 映像。
 
 ## <a name="use-a-private-image-from-docker-hub-optional"></a>從 Docker Hub 使用私人映像(選擇性)
 
@@ -493,7 +493,7 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-在 Cloud Shell 中，執行 [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set) 命令，可將自訂的 Docker 映像指派給 Web 應用程式。 取代 \<app_name>、\<docker-registry-server-url>、_<registry-username>_ 和 _<password>_。 針對 Azure Container Registry，\<docker-registry-server-url> 的格式為 `https://<azure-container-registry-name>.azurecr.io`。 
+在 Cloud Shell 中，執行 [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set) 命令，可將自訂的 Docker 映像指派給 Web 應用程式。 取代 *\<app_name>*、*\<docker-registry-server-url>*、_\<registry-username>_ 及 _\<password>_。 針對 Azure Container Registry，\<docker-registry-server-url> 的格式為 `https://<azure-container-registry-name>.azurecr.io`。 
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
@@ -534,4 +534,5 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 
 ## <a name="next-steps"></a>後續步驟
 
-[Linux 上的 Azure App Service 常見問題集](app-service-linux-faq.md)
+> [!div class="nextstepaction"]
+> [在 Azure 中建置 Docker Python 和 PostgreSQL Web 應用程式](tutorial-docker-python-postgresql-app.md)

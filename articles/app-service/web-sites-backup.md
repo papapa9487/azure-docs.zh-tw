@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 041847f2f341528c742d127f5d624e60c26e01fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6047528b56c220a410a602422604c1453024903
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="back-up-your-app-in-azure"></a>在 Azure 中備份應用程式
-[Azure App Service](app-service-web-overview.md) 中的「備份與還原」功能可讓您以手動或透過排程方式輕鬆建立應用程式備份。 您可以透過覆寫現有的應用程式或還原到另一個應用程式，將應用程式還原到先前狀態的快照。 
+[Azure App Service](app-service-web-overview.md) 中的「備份與還原」功能可讓您以手動或透過排程方式，輕鬆建立應用程式備份。 您可以透過覆寫現有的應用程式或還原到另一個應用程式，將應用程式還原到先前狀態的快照。 
 
 如需從備份還原應用程式的相關資訊，請參閱 [在 Azure 中還原應用程式](web-sites-restore.md)。
 
@@ -49,54 +49,54 @@ App Service 可以將下列資訊備份到您已設定讓應用程式使用的 A
 <a name="requirements"></a>
 
 ## <a name="requirements-and-restrictions"></a>需求和限制
-* 若要使用「備份與還原」功能，App Service 方案必須屬於「標準」層或「進階」層。 如需有關調整 App Service 方案以使用更高階層的詳細資訊，請參閱 [在 Azure 中調整應用程式規模](web-sites-scale.md)。  
+* 若要使用「備份與還原」功能，App Service 方案必須屬於**標準**層或**進階**層。 如需有關調整 App Service 方案以使用更高階層的詳細資訊，請參閱 [在 Azure 中調整應用程式規模](web-sites-scale.md)。  
   「進階」層所允許的每日備份數量比「標準」層多。
-* 您的 Azure 儲存體帳戶和容器必須與所要備份之應用程式位於相同的訂用帳戶。 如需 Azure 儲存體帳戶的詳細資訊，請參閱本文結尾處的 [連結](#moreaboutstorage) 。
+* 您需要與您即將備份之應用程式隸屬於相同訂用帳戶的 Azure 儲存體帳戶和容器。 如需 Azure 儲存體帳戶的詳細資訊，請參閱本文結尾處的 [連結](#moreaboutstorage) 。
 * 備份上限是 10 GB 的應用程式和資料庫內容。 如果備份大小超出此限制，您就會收到錯誤。
 
 <a name="manualbackup"></a>
 
 ## <a name="create-a-manual-backup"></a>建立手動備份
-1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您應用程式的刀鋒視窗，並選取 [備份]。 [備份]  刀鋒視窗隨即顯示。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您的應用程式頁面，然後選取 [備份]。 [備份] 頁面隨即顯示。
    
     ![Backups page][ChooseBackupsPage]
    
    > [!NOTE]
-   > 如果您看到下列訊息，請按一下訊息升級您的 App Service 方案，才可以繼續進行備份。
-   > 如需詳細資訊，請參閱 [在 Azure 中調整應用程式規模](web-sites-scale.md) 。  
+   > 如果您看到下列訊息，必須先按一下該訊息來升級 App Service 方案，才能繼續進行備份。
+   > 如需詳細資訊，請參閱[在 Azure 中為應用程式進行相應增加](web-sites-scale.md)。  
    > ![Choose storage account](./media/web-sites-backup/01UpgradePlan1.png)
    > 
    > 
 
-2. 在 [備份] 刀鋒視窗中，按一下 [設定]
+2. 在 [備份] 頁面中，按一下 [設定]
 ![按一下 [設定]](./media/web-sites-backup/ClickConfigure1.png)
-3. 在 [備份設定] 刀鋒視窗中，按一下 [儲存體: 未設定] 以設定儲存體帳戶。
+3. 在 [備份設定] 頁面中，按一下 [儲存體: 未設定] 以設定儲存體帳戶。
    
     ![Choose storage account][ChooseStorageAccount]
-4. 選取 [儲存體帳戶] 和 [容器]，以選擇您的備份目的地。 此儲存體帳戶必須與您要備份之應用程式隸屬於相同的訂用帳戶。 如果您希望的話，也可以在個別的刀鋒視窗中，建立新的儲存體帳戶或新的容器。 完成後，按一下 [選取] 。
+4. 選取 [儲存體帳戶] 和 [容器]，以選擇您的備份目的地。 此儲存體帳戶必須與您要備份之應用程式隸屬於相同的訂用帳戶。 如果您希望的話，也可以在個別頁面中，建立新的儲存體帳戶或新的容器。 完成後，按一下 [選取] 。
    
     ![Choose storage account](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
-5. 在仍處於開啟狀態的 [備份設定] 刀鋒視窗中，您可以設定 [備份資料庫]，然後選取您想要包含在備份中的資料庫 (SQL Database 或 MySQL)，然後按一下 [確定]。  
+5. 在仍處於開啟狀態的 [備份設定] 頁面中，您可以設定 [備份資料庫]，然後選取您想要包含在備份中的資料庫 (SQL Database 或 MySQL)，然後按一下 [確定]。  
    
     ![Choose storage account](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
-   > 若要讓資料庫出現在此清單中，其連接字串必須存在於您的應用程式之 [應用程式設定] 刀鋒視窗的 [連接字串] 區段中。
+   > 若要讓資料庫出現在此清單中，其連接字串必須存在於您應用程式之 [應用程式設定] 頁面的 [連接字串] 區段中。
    > 
    > 
-6. 在 [備份設定] 刀鋒視窗中，按一下 [儲存]。    
-7. 在 [備份] 刀鋒視窗中，按一下 [備份]。
+6. 在 [備份設定] 頁面中，按一下 [儲存]。    
+7. 在 [備份] 頁面中，按一下 [備份]。
    
     ![BackUpNow button][BackUpNow]
    
     在備份過程中，您會看見進度訊息。
 
-設定儲存體帳戶和容器之後，您隨時可以起始手動備份。  
+設定儲存體帳戶和容器之後，您可以隨時起始手動備份。  
 
 <a name="automatedbackups"></a>
 
 ## <a name="configure-automated-backups"></a>設定自動備份
-1. 在 [備份設定] 刀鋒視窗中，將 [排定的備份] 設定為 [開啟]。 
+1. 在 [備份設定] 頁面中，將 [排定的備份] 設定為 [開啟]。 
    
     ![Choose storage account](./media/web-sites-backup/05ScheduleBackup1.png)
 2. 將會顯示備份排程選項，請將 [排定的備份] 設定為 [開啟]，然後視需要設定備份排程，並按一下 [確定]。
@@ -106,7 +106,7 @@ App Service 可以將下列資訊備份到您已設定讓應用程式使用的 A
 <a name="partialbackups"></a>
 
 ## <a name="configure-partial-backups"></a>設定部分備份
-您有時不想要備份應用程式上的所有項目。 以下是一些範例：
+有時您並不想要備份應用程式上的所有項目。 以下是一些範例：
 
 * 您為包含永不變更的靜態內容 (例如舊部落格文章或影像) 的應用程式 [設定每週備份](web-sites-backup.md#configure-automated-backups) 。
 * 您應用程式的內容超過 10 GB (這是一次可備份的數量上限)。
@@ -121,7 +121,7 @@ App Service 可以將下列資訊備份到您已設定讓應用程式使用的 A
 
 ![使用入口網站時的 Kuku][kudu-portal]
 
-識別您想要從備份中排除的資料夾。  例如，您想要篩選出醒目提示的資料夾和檔案。
+識別您想要從備份中排除的資料夾。  例如，您想要篩選掉醒目提示的資料夾和檔案。
 
 ![Images 資料夾][ImagesFolder]
 
@@ -146,14 +146,23 @@ App Service 可以將下列資訊備份到您已設定讓應用程式使用的 A
 <a name="aboutbackups"></a>
 
 ## <a name="how-backups-are-stored"></a>備份的儲存方式
-在您為應用程式建立一或多個備份之後，這些備份就會顯示在您儲存體帳戶及應用程式的 [容器] 刀鋒視窗中。 在儲存體帳戶中，每個備份都是由一個 `.zip` 檔案 (包含備份資料) 和一個 `.xml` 檔案 (包含 `.zip` 檔案內容的資訊清單) 所組成。 如果您要存取備份而不實際執行應用程式還原，則可以將這些檔案解壓縮並加以瀏覽。
+在您為應用程式建立一或多個備份之後，這些備份就會顯示在您儲存體帳戶及應用程式的 [容器] 頁面中。 在儲存體帳戶中，每個備份都是由一個 `.zip` 檔案 (包含備份資料) 和一個 `.xml` 檔案 (包含 `.zip` 檔案內容的資訊清單) 所組成。 如果您要存取備份而不實際執行應用程式還原，則可以將這些檔案解壓縮並加以瀏覽。
 
-應用程式的資料庫備份則是儲存在 .zip 檔案的根目錄中。 若是 SQL 資料庫，這會是 BACPAC 檔案 (無副檔名)，而且可以匯入。 若要根據 BACPAC 匯出內容建立的 SQL Database，請參閱[匯入 BACPAC 檔案以建立新的使用者資料庫](http://technet.microsoft.com/library/hh710052.aspx)。
+應用程式的資料庫備份則儲存在 .zip 檔案的根目錄中。 若是 SQL 資料庫，這會是 BACPAC 檔案 (無副檔名)，而且可以匯入。 若要根據 BACPAC 匯出內容建立的 SQL Database，請參閱[匯入 BACPAC 檔案以建立新的使用者資料庫](http://technet.microsoft.com/library/hh710052.aspx)。
 
 > [!WARNING]
 > 對 **websitebackups** 容器中的檔案進行任何變更，都可能導致備份失效，進而無法還原。
 > 
 > 
+
+## <a name="automate-with-scripts"></a>使用指令碼進行自動化
+
+您可以使用 [Azure CLI](/cli/azure/install-azure-cli) 或 [Azure PowerShell](/powershell/azure/overview)，透過指令碼將備份管理作業自動化。
+
+例如，請參閱：
+
+- [Azure CLI 範例](app-service-cli-samples.md)
+- [Azure PowerShell 範例](app-service-powershell-samples.md)
 
 <a name="nextsteps"></a>
 

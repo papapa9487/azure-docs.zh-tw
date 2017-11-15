@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/27/2017
+ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4cf30130907151ade9eaf9db28748b8141dac8e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40849e7f0c8a76bdd8a0e03d0780534569d9874a
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory 中的條件式存取
 
@@ -131,18 +131,13 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="device-platforms"></a>裝置平台
 
-裝置平台的特點是您裝置執行的作業系統：
+裝置平台會以您裝置上執行的作業系統為特徵：除了定義從原則豁免的裝置平台之外，您也可以定義原則所包含的裝置平台。  
+若要使用原則中的裝置平台，請先將 [設定] 切換為 [是]，然後選取原則套用至的所有或個別裝置平台。 如果您選取個別的裝置平台，原則就只會影響這些平台。 在此情況下，其他支援平台的登入不受此原則影響。
 
-- Android
-- iOS
-- Windows Phone
-- Windows
-- macOS (預覽)。 
 
 ![條件](./media/active-directory-conditional-access-azure-portal/02.png)
 
-您可以定義包含的裝置平台以及從原則中豁免的裝置平台。  
-若要使用原則中的裝置平台，請先將 [設定] 切換為 [是]，然後選取原則套用至的所有或個別裝置平台。 如果您選取個別的裝置平台，原則就只會影響這些平台。 在此情況下，其他支援平台的登入不受此原則影響。
+如需支援的裝置平台完整清單，請參閱[裝置平台條件](active-directory-conditional-access-technical-reference.md#device-platform-condition)。
 
 
 ### <a name="locations"></a>位置

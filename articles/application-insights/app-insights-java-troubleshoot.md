@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: 5a729139e122693b4199607919c876bda45fd4b5
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6b1cfa2b52e8e9e2b6a8ab87be6d4269cbe3f1cf
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Application Insights for Java 的疑難排解和問答集
 [Java 中的 Azure Application Insights][java] 疑問或問題？ 以下是一些秘訣。
@@ -124,6 +124,13 @@ ms.lasthandoff: 11/01/2017
 **資料保留在入口網站多久的時間？是否安全？**
 
 請參閱[資料保留和隱私權][data]。
+
+## <a name="debug-logging"></a>偵錯記錄
+Application insights 會使用 `org.apache.http`。 這會重新配置在 Application Insights 核心 Jar 內的 `com.microsoft.applicationinsights.core.dependencies.http` 命名空間底下。 這可讓 Application Insights 處理相同 `org.apache.http` 的不同版本都存在於一個核心程式碼基底中的情況。 
+
+>[!NOTE]
+>如果您針對應用程式中的所有命名空間啟用 DEBUG 層級的記錄功能，它將適用於所有執行中的模組，包括已重新命名為 `com.microsoft.applicationinsights.core.dependencies.http` 的 `org.apache.http`。 Application Insights 將無法針對這些呼叫套用篩選，因為正在由 Apache 程式庫發出記錄呼叫。 DEBUG 層級記錄會產生相當大量的記錄資料，因此不建議用於即時生產環境執行個體。
+
 
 ## <a name="next-steps"></a>後續步驟
 **設定 Java 伺服器應用程式的 Application Insights。我還可以做什麼？**

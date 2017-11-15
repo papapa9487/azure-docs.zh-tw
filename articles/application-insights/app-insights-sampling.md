@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0ed612a0e2101397fb1074de61db07d2361f8463
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: af184574bdfa7d3a11baf75d8cdfbf80f1544dde
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights 中的取樣
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 11/01/2017
 
 遭到取樣捨棄的資料點將無法在任何 Application Insights 功能中使用，例如 [連續匯出](app-insights-export-telemetry.md)。
 
-進行 SDK 自適性或固定速率取樣時，不執行擷取取樣。 如果 SDK 的取樣率小於 100%，則忽略您設定的擷取取樣率。
+進行 SDK 自適性或固定速率取樣時，不執行擷取取樣。 請注意，當 Visual Studio 中已啟用 ASP.NET SDK 時或是使用「狀態監視器」時，預設會啟用調適型取樣，而擷取取樣則為停用。 如果 SDK 的取樣率小於 100%，則忽略您設定的擷取取樣率。
 
 > [!WARNING]
 > 圖格上顯示的值會指出您要為擷取取樣的值。 如果 SDK 取樣在運作中，這並不代表實際的取樣率。

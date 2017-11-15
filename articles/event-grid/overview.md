@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/02/2017
 ms.author: babanisa
-ms.openlocfilehash: e798a1e751cb9e789bc479a6f842fb7f8f703bbf
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: a0bcc9650fda10c099887b74b408551b12cde667
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Azure Event Grid 簡介
 
@@ -50,6 +50,8 @@ Azure Event Grid 中有五個概念可讓您開始進行：
 * **高輸送量** - 在每秒支援數百萬個事件的 Event Grid 上建置大量的工作負載。
 * **內建事件** - 利用資源定義的內建事件來快速地啟動並執行。
 * **自訂事件** - 使用 Event Grid 路由、篩選並在應用程式中可靠地傳遞自訂事件。
+
+如需事件格線、事件中樞和服務匯流排的比較，請參閱[選擇傳遞訊息的 Azure 服務](compare-messaging-services.md)。
 
 ## <a name="built-in-publisher-and-handler-integration"></a>內建的發行者和處理常式整合
 
@@ -100,14 +102,6 @@ Event Grid 可讓您加快自動化速度並簡化原則強制執行。 例如�
 ![應用程式整合](./media/overview/app_integration.png)
 
 Event Grid 可連線您的應用程式與其他服務。 例如，建立自訂主體，將應用程式的事件資料傳送至 Event Grid，並利用其可靠的傳遞、進階路由以及與 Azure 的直接整合。 或者，您可以使用 Event Grid 搭配 Logic Apps 隨處處理資料，而不需撰寫程式碼。 
-
-## <a name="how-is-event-grid-different-from-other-azure-integration-services"></a>Event Grid 與其他 Azure 整合服務有何不同？
-
-Event Grid 是可供進行回應式事件導向程式設計的事件背板。 它不僅與 Azure 服務緊密整合，並可與第三方服務整合。 事件訊息中包含了您必須對服務和應用程式中的變更做出回應的資訊。 Event Grid 不是資料管線，因此並不會傳遞已更新的實際物件。
-
-服務匯流排很適合需要交易、排序、重複偵測和瞬間一致性的傳統企業應用程式使用。 Event Grid 則是設計來為回應式模型提供速度、擴充性、廣度和低成本。 它很適合無伺服器架構使用。
-
-Event Grid 可彌補其他 Azure 服務 (例如 Logic Apps 和事件中樞) 的不足。 Event Grid 會觸發邏輯應用程式，使其開始進行其工作流程。 事件中樞可與 Event Grid 搭配運作，讓您能夠回應來自「事件中心擷取」的事件，並建立資料輸入和轉換管線。
 
 ## <a name="how-much-does-event-grid-cost"></a>Event Grid 的費用有多少？
 

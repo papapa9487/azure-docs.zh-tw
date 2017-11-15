@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2017
+ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 4bcca3ee5862a0455b6064d0f9c0a91388db9516
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 316157a7a8ed920e9f3b15e24e15035db4cefc6c
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory 條件式存取的技術參考
 
@@ -82,11 +82,7 @@ ms.lasthandoff: 11/01/2017
 
 ## <a name="device-platform-condition"></a>裝置平台條件
 
-在條件式存取原則中，您可以設定裝置平台條件，將原則繫結到用戶端上的作業系統。
-
-![將存取原則繫結至用戶端作業系統](./media/active-directory-conditional-access-technical-reference/41.png)
-
-Azure AD 條件式存取支援下列裝置平台：
+在條件式存取原則中，您可以設定裝置平台條件，將原則繫結到用戶端上的作業系統。 Azure AD 條件式存取支援下列裝置平台：
 
 - Android
 
@@ -96,7 +92,12 @@ Azure AD 條件式存取支援下列裝置平台：
 
 - Windows
 
-- macOS (預覽)
+- macOS
+
+
+![將存取原則繫結至用戶端作業系統](./media/active-directory-conditional-access-technical-reference/41.png)
+
+
 
 
 
@@ -131,11 +132,11 @@ Azure AD 條件式存取支援下列裝置平台：
 | Windows Server 2016    | Chrome                      | 敬請期待 |
 | Windows Server 2012 R2 | Internet Explorer、Chrome   | ![勾選][1] |
 | Windows Server 2008 R2 | Internet Explorer、Chrome   | ![勾選][1] |
-| macOS                  | Safari                      | ![勾選][1] |
-| macOS                  | Chrome                      | 敬請期待 |
+| macOS                  | Chrome、Safari              | ![勾選][1] |
+
 
 > [!NOTE]
-> 如需 Chrome 支援，您必須使用 muse Chrome 支援 Windows 10 Creators Update (1703 版) 或更新版本。<br>
+> 如需 Chrome 支援，您必須使用 Windows 10 Creators Update (1703 版) 或更新版本。<br>
 > 您可以安裝[這個擴充功能](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji)。
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>支援的行動裝置應用程式和桌面用戶端
@@ -153,7 +154,7 @@ Azure AD 條件式存取支援下列裝置平台：
 | Dynamics CRM 應用程式| Dynamics CRM| Windows 10、Windows 8.1、Windows 7、iOS 和 Android|
 | [電子郵件]/[行事曆]/[人員] 應用程式、Outlook 2016、Outlook 2013 (使用新式驗證)| Office 365 Exchange Online| Windows 10|
 | 應用程式的 MFA 和位置原則。 不支援裝置型原則。| 任何 My Apps 應用程式服務| Android 和 iOS|
-| Microsoft Teams Services - 這會控制支援 Microsoft Teams 及其所有用戶端應用程式的所有服務 - Windows 桌面、iOS、Android、WP 和 Web 用戶端| Microsoft Teams| Windows 10、Windows 8.1、Windows 7、iOS 和 Android|
+| Microsoft Teams Services - 這會控制支援 Microsoft Teams 及其所有用戶端應用程式的所有服務 - Windows 桌面、iOS、Android、WP 和 Web 用戶端| Microsoft Teams| Windows 10、Windows 8.1、Windows 7、iOS、Android 及 macOS|
 | Office 2016 應用程式、Office 2013 (具備新式驗證)、OneDrive 同步處理用戶端 (請參閱[附註](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1、Windows 7|
 | Office 2016 應用程式、通用 Office 應用程式、Office 2013 (具備新式驗證)、OneDrive 同步處理用戶端 (請參閱[附註](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))、預計未來提供的 Office Groups 支援、預計未來提供的 SharePoint 應用程式支援| Office 365 SharePoint Online| Windows 10|
 | macOS 版 Office 2016 (僅限 Word、Excel、PowerPoint、OneNote)。 未來規劃支援商務用 OneDrive| Office 365 SharePoint Online| Mac OS X|
@@ -165,6 +166,7 @@ Azure AD 條件式存取支援下列裝置平台：
 | PowerBI 應用程式。 適用於 Android 的 Power BI 應用程式目前不支援裝置型條件式存取。| PowerBI service| Windows 10、Windows 8.1、Windows 7 及 iOS|
 | 商務用 Skype| Office 365 Exchange Online| Android、iOS|
 | Visual Studio Team Services 應用程式| Visual Studio Team Services| Windows 10、Windows 8.1、Windows 7、iOS 和 Android|
+
 
 
 

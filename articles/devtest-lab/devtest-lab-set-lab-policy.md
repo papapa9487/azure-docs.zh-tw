@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 11/03/2017
 ms.author: tarcher
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 328a4d893637d7150807855e118b485a2c3bbfc5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03cd09e37ff7dd0b7731eee19810ada7aed1a875
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中管理實驗室的所有原則
 
@@ -28,7 +28,11 @@ Azure DevTest Labs 讓您管理每個實驗室的原則 (設定)，以控制實�
 ## <a name="set-allowed-virtual-machine-sizes"></a>設定允許的虛擬機器大小
 設定允許的 VM 大小的原則有助於將實驗室的成本浪費降至最低，方式是讓您指定實驗室中允許的 VM 大小。 如果啟用此原則，就只能使用此清單中的 VM 大小來建立 VM。
 
-1. 在實驗室的 [組態和原則] 刀鋒視窗上，選取 [允許的虛擬機器大小]。
+1. 在 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)中，選取實驗室，然後選取 [設定與原則]。
+
+    ![存取實驗室的設定與原則](./media/devtest-lab-set-lab-policy/policies-menu.png)
+
+1. 在實驗室的 [設定與原則] 窗格上，選取 [允許的虛擬機器大小]。
    
     ![允許的虛擬機器大小](./media/devtest-lab-set-lab-policy/allowed-vm-sizes.png)
 
@@ -39,9 +43,9 @@ Azure DevTest Labs 讓您管理每個實驗室的原則 (設定)，以控制實�
 1. 選取 [ **儲存**]。
 
 ## <a name="set-virtual-machines-per-user"></a>設定每位使用者的虛擬機器數目
-[每位使用者的虛擬機器數目]  原則可讓您指定個別使用者可以建立的 VM 數目上限。 當達到使用者限制時，如果使用者嘗試建立或宣告 VM，就會顯示錯誤訊息，指出無法建立/宣告 VM。 
+[每位使用者的虛擬機器數] 原則可讓您指定個別使用者可以建立的 VM 數目上限。 當達到使用者限制時，如果使用者嘗試建立或宣告 VM，就會顯示錯誤訊息，指出無法建立/宣告 VM。 
 
-1. 在實驗室的 [組態和原則] 功能表上，選取 [每位使用者的虛擬機器數目]。
+1. 在實驗室的 [設定與原則] 窗格上，選取 [每位使用者的虛擬機器數]。
    
     ![每位使用者的虛擬機器數目](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
 
@@ -52,9 +56,9 @@ Azure DevTest Labs 讓您管理每個實驗室的原則 (設定)，以控制實�
 1. 選取 [ **儲存**]。
 
 ## <a name="set-virtual-machines-per-lab"></a>設定每個實驗室的虛擬機器數目
-[每個實驗室的虛擬機器數目]  原則可讓您指定可為目前實驗室建立的 VM 數目上限。 當達到實驗室限制時，如果使用者嘗試建立 VM，就會顯示錯誤訊息，指出無法建立 VM。 
+[每個實驗室的虛擬機器數] 原則可讓您指定可為目前實驗室建立的 VM 數目上限。 當達到實驗室限制時，如果使用者嘗試建立 VM，就會顯示錯誤訊息，指出無法建立 VM。 
 
-1. 在實驗室的 [組態和原則] 功能表上，選取 [每個實驗室的虛擬機器數目]。
+1. 在實驗室的 [設定與原則] 窗格上，選取 [每個實驗室的虛擬機器數]。
    
     ![每個實驗室的虛擬機器數目](./media/devtest-lab-set-lab-policy/max-vms-per-lab.png)
 
@@ -65,9 +69,9 @@ Azure DevTest Labs 讓您管理每個實驗室的原則 (設定)，以控制實�
 1. 選取 [ **儲存**]。
 
 ## <a name="set-auto-shutdown"></a>設定自動關機
-自動關機原則有助於將實驗室的成本浪費降至最低，方式是讓您指定這個實驗室中 VM 的關機時間。
+[自動關機] 原則有助於將實驗室的成本浪費降至最低，方式是讓您指定這個實驗室之 VM 的關機時間。
 
-1. 在實驗室的 [組態和原則] 刀鋒視窗上，選取 [自動關機]。
+1. 在實驗室的 [設定與原則] 窗格上，選取 [自動關機]。
    
     ![自動關機](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 
@@ -75,16 +79,16 @@ Azure DevTest Labs 讓您管理每個實驗室的原則 (設定)，以控制實�
 
 1. 如果您啟用這個原則，請指定時間 (和時區) 以關閉目前實驗室中的所有 VM。
 
-1. 對於在指定的自動關機時間之前 15 分鐘傳送通知的選項中，指定 [是] 或 [否]。 如果您指定 [是]，請輸入要接收通知的 webhook URL 端點。 如需 webhook 的詳細資訊，請參閱[建立 webhook 或 API Azure 函式](../azure-functions/functions-create-a-web-hook-or-api-function.md)。 
+1. 對於在指定的自動關機時間之前 15 分鐘傳送通知的選項中，指定 [是] 或 [否]。 如果您指定 [是]，請輸入要張貼或傳送通知的 Webhook URL 端點或電子郵件地址。 如需 webhook 的詳細資訊，請參閱[建立 webhook 或 API Azure 函式](../azure-functions/functions-create-a-web-hook-or-api-function.md)。 
 
 1. 選取 [ **儲存**]。
 
-    根據預設，這個原則一經啟用，就會套用到目前實驗室的所有 VM。 若要移除特定 VM 的這項設定，請開啟 VM 的刀鋒視窗並變更其 [自動關機]  設定。 
+根據預設，這個原則一經啟用，就會套用到目前實驗室的所有 VM。 若要從特定的 VM 移除這項設定，請開啟 VM 的管理窗格並變更其 [自動關機] 設定。
 
 ## <a name="set-auto-start"></a>設定自動啟動
-自動啟動原則可讓您指定目前實驗室 VM 應該啟動的時間。  
+[自動啟動] 原則可讓您指定目前實驗室中的 VM 應該於何時啟動。  
 
-1. 在實驗室的 [組態和原則] 刀鋒視窗上，選取 [自動啟動]。
+1. 在實驗室的 [設定與原則] 窗格上，選取 [自動啟動]。
    
     ![自動啟動](./media/devtest-lab-set-lab-policy/auto-start.png)
 
@@ -94,10 +98,10 @@ Azure DevTest Labs 讓您管理每個實驗室的原則 (設定)，以控制實�
 
 4. 選取 [ **儲存**]。
 
-    這個原則一經啟用，就不會自動套用到目前實驗室中的任何 VM。 若要將這項設定套用至特定的 VM，請開啟 VM 的刀鋒視窗並變更其 [自動啟動]  設定。 
+這個原則一經啟用，就不會自動套用到目前實驗室中的任何 VM。 若要將這項設定套用至特定的 VM，請開啟 VM 的管理窗格並變更其 [自動啟動] 設定。
 
 ## <a name="set-expiration-date"></a>設定到期日期
-當您[建立 VM](devtest-lab-add-vm.md)時，可以設定到期日期。 在進階設定中，選擇行事曆圖示，以指定 VM 將會自動刪除的日期。  根據預設，VM 永遠不會到期。
+當您[建立 VM](devtest-lab-add-vm.md)時，可以設定到期日期。 在 [進階設定] 中，選擇行事曆圖示來指定要自動刪除 VM 的日期。 根據預設，VM 永遠不會到期。
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

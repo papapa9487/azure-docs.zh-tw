@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5c33f08e54d522e0eea13a3e267f14f407fc59b6
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9d61f46070e6956c60f1135b98a9ebe71011b922
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>密碼原則和 Azure Active Directory 中的限制
 
@@ -94,7 +94,7 @@ Microsoft 會對任何系統管理員角色 (全域管理員、技術支援系�
 
 ## <a name="set-password-expiration-policies-in-azure-active-directory"></a>在 Azure Active Directory 中設定密碼到期原則
 
-Microsoft 雲端服務的全域管理員可以使用「適用於 Windows PowerShell 的 Microsoft Azure Active Directory 模組」，將使用者密碼設為不會到期。 您亦可使用 Windows PowerShell Cmdlet 移除永不到期組態，或是查看哪些使用者密碼設為不會到期。 本指引適用於其他提供者 (例如 Microsoft Intune 和 Office 365)，他們也仰賴 Microsoft Azure Active Directory 提供身分識別和目錄服務。
+Microsoft 雲端服務的全域管理員可以使用「適用於 Windows PowerShell 的 Microsoft Azure Active Directory 模組」，將使用者密碼設為不會到期。 您亦可使用 Windows PowerShell Cmdlet 移除永不到期組態，或是查看哪些使用者密碼設為不會到期。 本指引適用於其他提供者 (例如 Microsoft Intune 和 Office 365)，他們也仰賴 Microsoft Azure Active Directory 提供身分識別和目錄服務。 這是原則中唯一可變更的部分。
 
 > [!NOTE]
 > 您僅可將未透過目錄同步作業執行同步處理的使用者帳戶密碼，設定為不會到期。 如需有關目錄同步作業，請參閱 [Connect AD 與 Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)。
@@ -127,6 +127,9 @@ Microsoft 雲端服務的全域管理員可以使用「適用於 Windows PowerSh
 
    * 若要將某位使用者的密碼設為永久有效，請透過使用使用者主體名稱 (UPN) 或使用者的使用者識別碼，來執行下列 Cmdlet： `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
    * 若要將組織中所有使用者的密碼設為永久有效，請執行下列 Cmdlet： `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
+
+   > [!WARNING]
+   > 如果您設定 `-PasswordNeverExpires $true`，密碼仍然會根據 `pwdLastSet` 屬性計算時效。 這意謂著如果您將密碼設定為永不過期，接著根據 `pwdLastSet` 經過 90 多天，然後您變更 `-PasswordNeverExpires $false`，則所有 `pwdLastSet` 超過 90 天的密碼在下次登入時都必須變更。 這項變更可能會影響到大量的使用者。 
 
 ## <a name="next-steps"></a>後續步驟
 

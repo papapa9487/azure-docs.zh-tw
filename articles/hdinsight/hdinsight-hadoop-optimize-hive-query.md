@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/26/2016
+ms.date: 11/03/2017
 ms.author: jgao
-ms.openlocfilehash: edbf797e6277a65b5311e4939f5ab72776b11557
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4bd7f5b584030f9c1554b56895493837d2eac357
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>將 Azure HDInsight 中的 Hive 查詢最佳化
 
@@ -53,7 +53,7 @@ Tez 比較迅速，因為：
 * **重複使用容器**。 Tez 會儘可能重複使用容器，確保減少因為啟動容器而產生的延遲。
 * **連續最佳化技巧**。 習慣上，是在編譯階段進行最佳化。 但是有更多關於輸入的資訊可用，所以在執行階段進行最佳化比較理想。 Tez 會使用連續最佳化技巧，進一步在執行階段將計劃最佳化。
 
-如需這些概念的詳細資訊，請參閱 [Apache Tez](http://hortonworks.com/hadoop/tez/)。
+如需這些概念的詳細資訊，請參閱 [Apache TEZ](http://hortonworks.com/hadoop/tez/)。
 
 在查詢的前面加上以下設定，即可啟用任何 Hive 查詢 Tez：
 
@@ -110,7 +110,7 @@ Hive 分割的實作方法是將未經處理的資料重新整理成新的目錄
               L_QUANTITY as L_QUANTITY, L_EXTENDEDPRICE as L_EXTENDEDPRICE,
              L_DISCOUNT as L_DISCOUNT, L_TAX as L_TAX, L_RETURNFLAG as           L_RETURNFLAG, L_LINESTATUS as L_LINESTATUS, L_SHIPDATE as           L_SHIPDATE_PS, L_COMMITDATE as L_COMMITDATE, L_RECEIPTDATE as      L_RECEIPTDATE, L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as      L_SHIPMODE, L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
 
-如需詳細資訊，請參閱 [分割的資料表](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables)。
+如需詳細資訊，請參閱[資料分割資料表](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables) \(英文\)。
 
 ## <a name="use-the-orcfile-format"></a>使用 ORCFile 格式
 Hive 支援不同的檔案格式。 例如：
@@ -180,11 +180,11 @@ ORC (最佳化的資料列單欄式) 格式是儲存 Hive 資料的高效率方�
 ## <a name="next-steps"></a>後續步驟
 在本文中，您學到幾種常見的 Hive 查詢最佳化方法。 若要深入了解，請參閱下列文章：
 
-* [在 HDInsight 中使用 Apache Hive](hdinsight-use-hive.md)
+* [在 HDInsight 中使用 Apache Hive](hadoop/hdinsight-use-hive.md)
 * [在 HDInsight 中使用 Hive 分析航班延誤資料](hdinsight-analyze-flight-delay-data.md)
 * [在 HDInsight 中使用 Hive 分析 Twitter 資料](hdinsight-analyze-twitter-data.md)
-* [在 HDInsight 的 Hadoop 上使用 Hive 查詢主控台分析感應器資料](hdinsight-hive-analyze-sensor-data.md)
-* [使用 HDInsight 上的 Hive 分析網站的記錄](hdinsight-hive-analyze-website-log.md)
+* [在 HDInsight 的 Hadoop 上使用 Hive 查詢主控台分析感應器資料](hadoop/apache-hive-analyze-sensor-data.md)
+* [使用 HDInsight 上的 Hive 分析網站的記錄](hadoop/apache-hive-analyze-website-log.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png

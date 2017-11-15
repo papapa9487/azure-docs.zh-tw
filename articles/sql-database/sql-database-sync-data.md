@@ -1,6 +1,6 @@
 ---
-title: "同步資料 (預覽) | Microsoft Docs"
-description: "本概觀介紹 Azure SQL 資料同步 (預覽)。"
+title: "Azure SQL 資料同步 (預覽) | Microsoft Docs"
+description: "本概觀介紹 Azure SQL 資料同步 (預覽)"
 services: sql-database
 documentationcenter: 
 author: douglaslms
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 34bc9588745eb24d8b8c2e81389a9e5144497b34
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 5c4509bc1d05bc422f6bc5599d4635020ded63e9
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/08/2017
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>使用 SQL 資料同步，跨多個雲端和內部部署資料庫同步資料
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-azure-sql-data-sync-preview"></a>使用 Azure SQL 資料同步 (預覽)，跨多個雲端和內部部署資料庫同步處理資料
 
 「SQL 資料同步」是一種建置在 Azure SQL Database 上的服務，可讓您跨多個 SQL 資料庫和 SQL Server 執行個體，雙向同步您選取的資料。
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/31/2017
 -   **同步處理資料庫**包含「資料同步」的中繼資料和記錄。「同步處理資料庫」必須是與「中樞資料庫」位於相同區域的 Azure SQL Database。 「同步處理資料庫」是由客戶建立，並由客戶擁有。
 
 > [!NOTE]
-> 如果您使用內部部署資料庫，必須[設定本機代理程式](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-sql-data-sync)。
+> 如果您使用內部部署資料庫，必須[設定本機代理程式](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-sql-data-sync)。
 
 ![資料庫之間的同步資料](media/sql-database-sync-data/sync-data-overview.png)
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 10/31/2017
 
 -   **全域散發的應用程式：**許多企業的業務橫跨多個區域，甚至多個國家/地區。 若要盡可能降低網路延遲，最好讓資料靠近您所在的區域。 使用資料同步，您就可以輕鬆地讓全世界各個區域中的資料庫保持同步。
 
-我們不建議在下列案例使用資料同步：
+資料同步不適用於下列案例：
 
 -   災害復原
 
@@ -77,48 +77,6 @@ ms.lasthandoff: 10/31/2017
 -   **解決衝突：**資料同步提供兩個衝突解決選項：*中樞獲勝*或*成員獲勝*。
     -   如果您選取 [中樞獲勝]，中樞的變更永遠會覆寫成員的變更。
     -   如果您選取 [成員獲勝]，成員的變更永遠會覆寫中樞的變更。 如果有多個成員，最終的值則取決於哪一個成員先同步。
-
-## <a name="limitations-and-considerations"></a>限制與注意事項
-
-### <a name="performance-impact"></a>效能影響
-資料同步使用 insert、update 和 delete 觸發程序追蹤變更。 其會在使用者資料庫中建立側邊資料表，以便進行變更追蹤。 這些變更追蹤活動會影響您的資料庫工作負載。 請評估您的服務層，如有必要則請升級。
-
-### <a name="eventual-consistency"></a>最終一致性
-由於資料同步是以觸發程序為基礎，所以並不保證交易一致性。 Microsoft 保證最終會進行所有變更，而且資料同步不會造成資料遺失。
-
-### <a name="unsupported-data-types"></a>不支援的資料類型
-
--   FileStream
-
--   SQL/CLR UDT
-
--   XMLSchemaCollection (支援 XML)
-
--   Cursor、Timestamp、Hierarchyid
-
-### <a name="requirements"></a>需求
-
--   每個資料表都必須有主索引鍵。 請勿變更任何資料列的主索引鍵值。 如果您需要執行這個動作，請刪除資料列，再利用新的主索引鍵值重新建立。 
-
--   資料表不能有非主索引鍵的識別欄位。
-
--   物件 (資料庫、資料表和資料行) 的名稱不能包含可列印的字元句點 (.)、左括弧 (\[\)，或右括弧 (\]\)。
-
--   必須啟用快照集隔離。 如需詳細資訊，請參閱 [SQL Server 中的快照集隔離](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)。
-
-### <a name="limitations-on-service-and-database-dimensions"></a>服務和資料庫維度的限制
-
-|                                                                 |                        |                             |
-|-----------------------------------------------------------------|------------------------|-----------------------------|
-| **維度**                                                      | **限制**              | **因應措施**              |
-| 任何資料庫可以隸屬的同步群組數目上限。       | 5                      |                             |
-| 單一同步群組中的端點數目上限              | 30                     | 建立多個同步群組 |
-| 單一同步群組中的內部部署端點數目上限。 | 5                      | 建立多個同步群組 |
-| 資料庫名稱、資料表名稱、結構描述名稱和資料行名稱                       | 每個名稱 50 個字元 |                             |
-| 一個同步群組中的資料表                                          | 500                    | 建立多個同步群組 |
-| 一個同步群組中一個資料表中的資料行                              | 1000                   |                             |
-| 一個資料表上的資料列大小                                        | 24 Mb                  |                             |
-| 最小同步處理間隔                                           | 5 分鐘              |                             |
 
 ## <a name="common-questions"></a>常見問題
 
@@ -143,15 +101,63 @@ ms.lasthandoff: 10/31/2017
 資料同步不會處理循環參考。 請務必避免。 
 
 ### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>如何使用資料同步匯出和匯入資料庫？
-將資料庫匯出為 .bacpac 檔案，並將它匯入以建立新資料庫之後，您必須執行下列兩個動作，才能在新的資料庫中使用資料同步：
+將資料庫匯出為 `.bacpac` 檔案，並將該檔案匯入以建立新資料庫之後，您必須執行下列兩個動作，才能在新的資料庫中使用資料同步：
 1.  使用[這個指令碼](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql)清除**新資料庫**上的資料同步物件和側邊資料表。 這個指令碼會刪除資料庫中所有必要的資料同步物件。
 2.  利用新資料庫重新建立同步群組。 如果您不再需要舊有的同步群組，請將它刪除。
+
+## <a name="sync-req-lim"></a> 需求和限制
+
+### <a name="general-requirements"></a>一般需求
+
+-   每個資料表都必須有主索引鍵。 請勿變更任何資料列的主索引鍵值。 如果您需要執行這個動作，請刪除資料列，再利用新的主索引鍵值重新建立。 
+
+-   資料表不能有非主索引鍵的識別欄位。
+
+-   物件 (資料庫、資料表和資料行) 的名稱不能包含可列印的字元句點 (.)、左括弧 (\[\)，或右括弧 (\]\)。
+
+-   必須啟用快照集隔離。 如需詳細資訊，請參閱 [SQL Server 中的快照集隔離](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)。
+
+### <a name="general-considerations"></a>一般考量
+
+#### <a name="eventual-consistency"></a>最終一致性
+由於資料同步是以觸發程序為基礎，所以並不保證交易一致性。 Microsoft 保證最終會進行所有變更，而且資料同步不會造成資料遺失。
+
+#### <a name="performance-impact"></a>效能影響
+資料同步使用 insert、update 和 delete 觸發程序追蹤變更。 其會在使用者資料庫中建立側邊資料表，以便進行變更追蹤。 這些變更追蹤活動會影響您的資料庫工作負載。 請評估您的服務層，如有必要則請升級。
+
+### <a name="general-limitations"></a>一般限制
+
+#### <a name="unsupported-data-types"></a>不支援的資料類型
+
+-   FileStream
+
+-   SQL/CLR UDT
+
+-   XMLSchemaCollection (支援 XML)
+
+-   Cursor、Timestamp、Hierarchyid
+
+#### <a name="limitations-on-service-and-database-dimensions"></a>服務和資料庫維度的限制
+
+| **維度**                                                      | **限制**              | **因應措施**              |
+|-----------------------------------------------------------------|------------------------|-----------------------------|
+| 任何資料庫可以隸屬的同步群組數目上限。       | 5                      |                             |
+| 單一同步群組中的端點數目上限              | 30                     | 建立多個同步群組 |
+| 單一同步群組中的內部部署端點數目上限。 | 5                      | 建立多個同步群組 |
+| 資料庫名稱、資料表名稱、結構描述名稱和資料行名稱                       | 每個名稱 50 個字元 |                             |
+| 一個同步群組中的資料表                                          | 500                    | 建立多個同步群組 |
+| 一個同步群組中一個資料表中的資料行                              | 1000                   |                             |
+| 一個資料表上的資料列大小                                        | 24 Mb                  |                             |
+| 最小同步處理間隔                                           | 5 分鐘              |                             |
+|||
 
 ## <a name="next-steps"></a>後續步驟
 
 如需 SQL 資料同步的詳細資訊，請參閱：
 
--   [開始使用 SQL 資料同步](sql-database-get-started-sql-data-sync.md)
+-   [開始使用 Azure SQL 資料同步](sql-database-get-started-sql-data-sync.md)
+-   [Azure SQL 資料同步最佳做法](sql-database-best-practices-data-sync.md)
+-   [對 Azure SQL 資料同步的問題進行疑難排解](sql-database-troubleshoot-data-sync.md)
 
 -   示範如何設定 SQL 資料同步的完整 PowerShell 範例：
     -   [使用 PowerShell 在多個 Azure SQL Database 之間進行同步處理](scripts/sql-database-sync-data-between-sql-databases.md)
@@ -162,5 +168,4 @@ ms.lasthandoff: 10/31/2017
 如需 SQL Database 的詳細資訊，請參閱：
 
 -   [SQL Database 概觀](sql-database-technical-overview.md)
-
 -   [資料庫生命週期管理](https://msdn.microsoft.com/library/jj907294.aspx)

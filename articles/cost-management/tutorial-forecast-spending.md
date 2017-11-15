@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e0b4bc196786ca4dfa3d57f3e89dd36ddc32acbc
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: d8b0cd2a3e5f9829f0844783aad22d375eb9d7a8
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="forecast-future-spending"></a>預測未來的花費
 
@@ -57,7 +57,7 @@ Cloudyn 包含成本預估報告，可協助您以一段時間的使用量作為
 > * 預測未來的花費
 
 
-前往 Cloudyn 文件，深入了解如何開始使用 Cloudyn 及使用其功能。
+請移至下一個教學課程，以了解透過成本配置和回報報表來管理成本的方式。
 
 > [!div class="nextstepaction"]
-> [Cloudyn 文件](https://support.cloudyn.com/hc/)
+> [以成本配置和回報報表來管理成本](tutorial-manage-costs.md)

@@ -9,17 +9,17 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 7d6f13336b3913299433e25c69a41f8c94f598b2
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: f371d5cd4e20096d5101fadf9066e3a135218d0b
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫的連線庫
-本主題所列出的連線庫和驅動程式可讓開發人員用來對應用程式進行程式設計，以連線及查詢適用於 PostgreSQL 的 Azure 資料庫。
+本文所列出開發人員可用來開發應用程式的程式庫和驅動程式，以連線及查詢適用於 PostgreSQL 的 Azure 資料庫。
 
 ## <a name="client-interfaces"></a>用戶端介面
-大部分用來連線到 PostgreSQL 伺服器的語言用戶端程式庫都是外部專案，而且是獨立發佈的。 Windows、Linux 和 Mac 平台均支援這些程式庫。 下表列出一些熱門的用戶端驅動程式：
+大部分用來連線到 PostgreSQL 伺服器的語言用戶端程式庫都是外部專案，而且是獨立發佈的。 Windows、Linux 和 Mac 平台支援列出的程式庫，以連接適用於 PostgreSQL 的 Azure 資料庫。 在「後續步驟」一節中將會列出幾個快速入門範例。
 
 | **語言** | **用戶端介面** | **其他資訊** | **下載** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|

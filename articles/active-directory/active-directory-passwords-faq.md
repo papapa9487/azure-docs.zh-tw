@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 53075d20aff073ff46dcd6dccaefea5fc8ec3483
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 14c565bb67480681e1d398a0a21a11448f405e4e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>密碼管理常見問題集
 
@@ -176,6 +176,11 @@ ms.lasthandoff: 10/31/2017
   > **答：**密碼重設的工作階段存留期為 15 分鐘。 從密碼重設作業開始，使用者有 15 分鐘可以重設其密碼。 這段時間之後，電子郵件和 SMS 單次密碼就會無效。
   >
   >
+* **問：是否可以防止使用者重設其密碼？**
+
+  > **答：**是，如果您使用群組來啟用自助式密碼重設，您可以將使用者從賦予他們這項能力的群組中移除。
+  >
+  >
 
 ## <a name="password-change"></a>密碼變更
 
@@ -187,6 +192,11 @@ ms.lasthandoff: 10/31/2017
 * **問︰當使用者的內部部署密碼過期時，Office 入口網站會加以通知嗎？**
 
   > **答︰**如果您使用 ADFS，依照此處的指示進行就會收到通知：[使用 ADFS 傳送密碼原則宣告](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396)。 如果您使用密碼雜湊同步處理，則目前還不可能。 這是因為我們不會從內部部署來同步處理密碼原則，所以無法在雲端操作過程中發佈到期通知。 在任一情況下，也可以[使用 PowerShell 通知使用者密碼即將到期](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx)。
+  >
+  >
+* **問：是否可以防止使用者變更其密碼？**
+
+  > **答：**針對僅限雲端的使用者，並無法防止他們變更密碼。 針對內部部署使用者，您可以勾選 `User cannot change password`，這些使用者便無法變更其密碼。
   >
   >
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2017
+ms.date: 11/03/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: be3631db20ae744965f9f6677c536ade45e34c49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16ce69855aa7505f52cd9d01dcd0843784fcb706
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取中的控制項 
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="custom-controls"></a>自訂控制項
 
-條件式存取中的自訂控制項會將使用者重新導向至相容的服務，從而滿足 Azure Active Directory 之外的其他需求。 為了滿足此控制項，系統會將使用者的瀏覽器重新導向至外部服務，執行任何必要的驗證或確認活動，再將瀏覽器重新導向回到 Azure Active Directory。 Azure Active Directory 會確認回應，而且使用者如果成功通過驗證或確認，就會繼續進行條件式存取流程。
+自訂控制項是 Azure Active Directory Premium P2 版本的一項功能。 使用自訂控制項時，系統會將使用者重新導向到相容的服務，以滿足 Azure Active Directory 之外的進一步需求。 為了滿足此控制項，系統會將使用者的瀏覽器重新導向至外部服務，執行任何必要的驗證或確認活動，再將瀏覽器重新導向回到 Azure Active Directory。 Azure Active Directory 會確認回應，而且使用者如果成功通過驗證或確認，就會繼續進行條件式存取流程。
 
 這些控制項會允許使用某些外部或自訂的服務來作為條件式存取控制項，而且一般都能擴充條件式存取的功能。
 

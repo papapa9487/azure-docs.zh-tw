@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 10/12/2017
+ms.date: 11/03/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 2189dc7900f03a45c360fceffbcd7c1ff36f7e48
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: a4145f70af429274c3c908d3dedef63c5f973bf6
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB：使用 .NET 搭配資料表 API 進行開發
 
@@ -41,29 +41,11 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
  
 ## <a name="tables-in-azure-cosmos-db"></a>Azure Cosmos DB 中的資料表 
 
-Azure Cosmos DB 針對需要無結構描述設計之索引鍵-值存放區的應用程式，提供[資料表 API](table-introduction.md) (預覽)。 [Azure 資料表儲存體](../storage/common/storage-introduction.md) SDK 和 REST API 可用來與 Azure Cosmos DB 搭配運作。 您可以使用 Azure Cosmos DB 來建立具有高輸送量需求的資料表。 Azure Cosmos DB 支援輸送量最佳化資料表 (非正式的名稱為「進階資料表」)，目前是公開預覽版。 
+Azure Cosmos DB 針對需要無結構描述設計之索引鍵值存放區且具有高輸送量需求的應用程式，提供[資料表 API](table-introduction.md) (預覽)。 [Azure 資料表儲存體](../storage/common/storage-introduction.md) SDK 和 REST API 可用來與 Azure Cosmos DB 中的資料表搭配運作。   
 
-針對具有高儲存體和較低輸送量需求的資料表，您可以繼續使用 Azure 資料表儲存體。
+本教學課程的對象是熟悉「Azure 資料表」儲存體 SDK 且想要使用 Azure Cosmos DB 所提供之進階功能的開發人員。 本教學課程是以[以 .NET 開始使用 Azure 表格儲存體](table-storage-how-to-use-dotnet.md)為基礎，並說明如何利用額外的功能，例如次要索引、佈建的輸送量及多路連接。 本教學課程說明如何使用 Azure 入口網站來建立 Azure Cosmos DB 帳戶，然後建置及部署「資料表 API」應用程式。 此外，也逐步解說 .NET 範例，這些範例可用來建立和刪除資料表，以及插入、更新、刪除和查詢資料表資料。 
 
-如果您目前使用 Azure 資料表儲存體，便可獲得「進階資料表」預覽版的下列優點：
-
-- 具有多路連接及[自動和手動容錯移轉](regional-failover.md)的完備[全域散發](distribute-data-globally.md)
-- 支援所有屬性 (次要索引) 之無從驗證結構描述的自動索引編製，以及快速查詢 
-- 支援在任意數目的區域[獨立調整儲存體和輸送量](partition-data.md)
-- 支援[每一資料表有專用輸送量](request-units.md) (可從每秒數百個要求調整到數百萬個要求)
-- 支援[五個可調整的一致性層級](consistency-levels.md)，可根據您應用程式的需求，進行可用性、延遲及一致性的取捨
-- 單一區域內可達 99.99% 的可用性，並且能夠新增更多區域來提高可用性，以及在一般可用性上達到[業界頂尖的全面性 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- 可與現有的 Azure 儲存體 .NET SDK 搭配運作，不需對您的應用程式進行任何程式碼變更
-
-在預覽版期間，Azure Cosmos DB 會使用 .NET SDK 來支援「資料表 API」。 您可以從 NuGet 下載 [Azure 儲存體預覽 SDK](https://aka.ms/premiumtablenuget)，此 SDK 具有與 [Azure 儲存體 SDK](https://www.nuget.org/packages/WindowsAzure.Storage) 相同的類別和方法簽章，但它也可以使用「資料表 API」來連線到 Azure Cosmos DB 帳戶。
-
-若要深入了解複雜的 Azure 資料表儲存體工作，請參閱：
-
-* [Azure Cosmos DB 簡介：資料表 API](table-introduction.md)
-* 「資料表」服務參考文件，以取得關可用 API 的完整詳細資料：[適用於 .NET 的儲存體用戶端程式庫](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-
-### <a name="about-this-tutorial"></a>關於本教學課程
-本教學課程的對象是熟悉 Azure 資料表儲存體 SDK 且想要使用 Azure Cosmos DB 所提供之進階功能的開發人員。 本教學課程是以[以 .NET 開始使用 Azure 表格儲存體](table-storage-how-to-use-dotnet.md)為基礎，並說明如何利用額外的功能，例如次要索引、佈建的輸送量及多路連接。 我們涵蓋了如何使用 Azure 入口網站來建立 Azure Cosmos DB 帳戶，然後建置和部署「資料表」應用程式。 此外，也逐步解說 .NET 範例，這些範例可用來建立和刪除資料表，以及插入、更新、刪除和查詢資料表資料。 
+## <a name="prerequisites"></a>必要條件
 
 如果尚未安裝 Visual Studio 2017，您可以下載並使用「免費的」[Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)。 務必在 Visual Studio 設定期間啟用 **Azure 開發**。
 
@@ -72,14 +54,6 @@ Azure Cosmos DB 針對需要無結構描述設計之索引鍵-值存放區的應
 ## <a name="create-a-database-account"></a>建立資料庫帳戶
 
 我們將從在 Azure 入口網站中建立 Azure Cosmos DB 帳戶開始著手。  
-
-> [!TIP]
-> * 已經有 Azure Cosmos DB 帳戶？ 如果是，請直接跳到[設定您的 Visual Studio 方案](#SetupVS)。
-> * 您是否已有 Azure DocumentDB 帳戶？ 如果是，您的帳戶現在會是 Azure Cosmos DB 帳戶，且您可以直接跳到[設定您的 Visual Studio 方案](#SetupVS)。  
-> * 如果您使用「Azure Cosmos DB 模擬器」，請依照 [Azure Cosmos DB 模擬器](local-emulator.md)的步驟來設定模擬器，然後直接跳到[設定您的 Visual Studio 方案](#SetupVS)。
-<!---Loc Comment: Please, check link [Set up your Visual Studio solution] since it's not redirecting to any location.---> 
->
->
 
 [!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
 
@@ -112,7 +86,7 @@ Azure Cosmos DB 針對需要無結構描述設計之索引鍵-值存放區的應
 ```
 
 > [!NOTE]
-> 若要使用此應用程式搭配標準的「Azure 資料表儲存體」，您必須變更 `app.config file`中的連接字串。 使用帳戶名稱作為資料表帳戶名稱，使用金鑰作為「Azure 儲存體」主要金鑰。 <br>
+> 若要將此應用程式與「Azure 資料表」儲存體搭配使用，您必須變更 `app.config file` 中的連接字串。 使用帳戶名稱作為資料表帳戶名稱，使用金鑰作為「Azure 儲存體」主要金鑰。 <br>
 >`<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
 > 
 >
@@ -135,10 +109,10 @@ Azure Cosmos DB 針對需要無結構描述設計之索引鍵-值存放區的應
 >
 
 ## <a name="azure-cosmos-db-capabilities"></a>Azure Cosmos DB 功能
-Azure Cosmos DB 支援一些 Azure 資料表儲存體 API 中未提供的功能。 您可以透過下列 `appSettings` 組態值啟用新的功能。 我們並未在預覽版「Azure 儲存體 SDK」中導入任何新的簽章或多載。 這讓您既可連線到標準資料表也可連線到進階資料表，以及與其他「Azure 儲存體」服務 (例如 Blob 和佇列) 搭配運作。 
+「Azure Cosmos DB 資料表 API」支援一些「Azure 資料表」儲存體中未提供的功能。 您可以透過下列 `appSettings` 組態值啟用新的功能。 「資料表 API」中未新增「Azure 儲存體 SDK」中所沒有的任何簽章或多載。 這讓您既可以連線到「Azure 資料表」儲存體和 Azure Cosmos DB 中的資料表，也可以與其他「Azure 儲存體」服務 (例如 Blob 和「佇列」) 搭配運作。 
 
 
-| 索引鍵 | 說明 |
+| Key | 說明 |
 | --- | --- |
 | TableConnectionMode  | Azure Cosmos DB 支援兩種連線模式。 在 `Gateway` 模式下，一律是對 Azure Cosmos DB 閘道提出要求，閘道會將要求轉送到對應的資料分割區。 在 `Direct` 連線模式下，用戶端會擷取資料表與分割的對應，而提出要求時，則是直接對資料分割區提出。 我們建議使用預設的 `Direct`。  |
 | TableConnectionProtocol | Azure Cosmos DB 支援兩種連線通訊協定 - `Https` 和 `Tcp`。 `Tcp` 是預設值，也是建議使用的通訊協定，因為它較精簡。 |

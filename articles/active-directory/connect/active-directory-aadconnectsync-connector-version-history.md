@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
 ms.author: fimguy
-ms.openlocfilehash: 98eb9b3a58737da2436eed591d69a900166c6af9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6df124a38c748294e92183df272dc266a0afc51
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="connector-version-release-history"></a>連接器版本發行歷程記錄
 適用於 Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的連接器會經常更新。
 
 > [!NOTE]
 > 本主題僅討論 FIM 與 MIM。 不支援在 Azure AD Connect 上安裝這些連接器。 升級至指定的組建時，會在 AADConnect 上預先安裝發行的連接器。
+
 
 本主題會列出所有已發行的連接器版本。
 
@@ -37,6 +38,29 @@ ms.lasthandoff: 10/11/2017
 * [PowerShell 連接器](active-directory-aadconnectsync-connector-powershell.md) 參考文件
 * [Lotus Domino 連接器](active-directory-aadconnectsync-connector-domino.md) 參考文件
 
+## <a name="116490-aadconnect-116490"></a>1.1.649.0 (AADConnect 1.1.649.0)
+
+### <a name="fixed-issues"></a>已修正的問題：
+
+* Lotus Notes：
+  * 篩選自訂認證者選項
+  * 在 ImportOperations 類別的匯入中，修正了哪些作業可以在「檢視」模式下執行及哪些作業可以在「搜尋」模式下執行的定義。
+* 一般 LDAP：
+  * 「OpenLDAP 目錄」會使用 DN 作為錨點，而不是使用 entryUUI。 GLDAP 連接器的新選項可允許修改錨點
+* 一般 SQL：
+  * 已修正匯出至具有 varbinary(max) 類型之欄位的問題。
+  * 將二進位資料從資料來源新增到 CSEntry 物件時，DataTypeConversion 函式在零位元組發生失敗。 已修正 CSEntryOperationBase 類別的 DataTypeConversion 函式。
+
+
+
+
+### <a name="enhancements"></a>增強功能：
+
+* 一般 SQL：
+  * 在「一般 SQL」管理代理程式之設定視窗的 [Global Parameters] \(全域參數\) 頁面中，已新增以具名或不具名參數為執行預存程序設定模式的功能。 在 [Global Parameters] \(全域參數\) 頁面中，有一個標籤為 [Use named parameters to execute a stored procedure] \(使用具名參數來執行預存程序\) 的核取方塊，此核取方塊可用來切換模式，以決定是否要使用具名參數來執行預存程序。
+    * 目前，使用具名參數來執行預存程序的功能僅適用於 IBM DB2 和 MSSQL 資料庫。 這個方法不適用於 Oracle 和 MySQL 資料庫： 
+      * MySQL 的 SQL 語法不支援預存程序中的具名參數。
+      * Oracle 的 ODBC 驅動程式不支援預存程序中的具名參數。
 
 ## <a name="116040-aadconnect-116140"></a>1.1.604.0 (AADConnect 1.1.614.0)
 
@@ -203,6 +227,22 @@ LDAP MA。 頁面上只會顯示來自 RootDSE 資料分割的物件。
 * [KB2932635](https://support.microsoft.com/kb/2932635) - 5.3.1003，2014 年 2 月  
 * [KB2899874](https://support.microsoft.com/kb/2899874) - 5.3.0721，2013 年 10 月
 * [KB2875551](https://support.microsoft.com/kb/2875551) - 5.3.0534，2013 年 8 月
+
+## <a name="troubleshooting"></a>疑難排解 
+
+> [!NOTE]
+> 使用任何 ECMA2 連接器來更新 Microsoft Identity Manager 或 AADConnect 時。 
+
+您必須在升級時重新整理連接器定義才能相符，否則您將會在應用程式事件記錄檔中收到下列錯誤，其中會開始回報警告識別碼 6947："Assembly version in AAD Connector configuration ("X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll"" (AAD 連接器設定中的組件版本 ("X.X.XXX.X") 比 "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll" 的實際版本舊)。
+
+重新整理定義：
+* 開啟連接器執行個體的 [屬性]
+* 按一下 [連接/連接至] 索引標籤
+  * 輸入連接器帳戶的密碼
+* 依序按一下每個屬性索引標籤
+  * 如果此連接器類型具有含有 [重新整理] 按鈕的 [分割區] 索引標籤，請在位於該頁籤上時，按一下 [重新整理] 按鈕
+* 存取所有屬性索引標籤之後，請按一下 [確定] 按鈕以儲存變更。
+
 
 ## <a name="next-steps"></a>後續步驟
 深入了解 [Azure AD Connect 同步](active-directory-aadconnectsync-whatis.md) 組態。

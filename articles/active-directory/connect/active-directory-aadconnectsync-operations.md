@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: b7583a1556bb1113f349a78890768451e39c6878
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af32c3f2d96ca51f59e29f8d9635caa290d580aa
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect 同步處理：作業工作和考量
 本主題的目標在於描述 Azure AD Connect 同步處理的操作工作。
@@ -68,11 +68,18 @@ ms.lasthandoff: 10/11/2017
 #### <a name="verify"></a>Verify
 1. 啟動 CMD 命令提示字元並移至 `%ProgramFiles%\Microsoft Azure AD Sync\bin`
 2. 執行：`csexport "Name of Connector" %temp%\export.xml /f:x` 連接器名稱可以在同步處理服務中找到。 它的名稱類似 Azure AD 的 "contoso.com – AAD"。
-3. 從 [CSAnalyzer](#appendix-csanalyzer) 區段將 PowerShell 指令碼複製到名為 `csanalyzer.ps1` 的檔案。
-4. 開啟 PowerShell 視窗，然後瀏覽至您建立 PowerShell 指令碼的資料夾。
-5. 執行：`.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`。
-6. 您現在已有一個可在 Microsoft Excel 中檢查的名為 **processedusers1.csv** 的檔案。 您可以在此檔案中找到所有已暫存而要匯出到 Azure AD 的變更。
-7. 對資料或組態進行必要的變更並再次執行這些步驟 (匯入和同步處理和驗證)，直到要匯出的變更皆如預期進行。
+3. 執行：`CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` 您在 %temp% 中有名稱為 export.csv 的檔案，可在 Microsoft Excel 中加以檢查。 此檔案包含即將匯出的所有變更。
+4. 對資料或組態進行必要的變更並再次執行這些步驟 (匯入和同步處理和驗證)，直到要匯出的變更皆如預期進行。
+
+**了解 export.csv 檔案** 此檔案的大部分都簡單易懂。 要了解內容所需的一些縮寫：
+* OMODT – 物件修改類型。 指出在物件層級的作業是否為新增、更新或刪除。
+* AMODT – 屬性修改類型。 指出在屬性層級的作業是否為新增、更新或刪除。
+
+**擷取通用識別碼** export.csv 檔案包含即將匯出的所有變更。 每一個資料列都與連接器空間中的物件變更對應，而物件則由 DN 屬性識別。 DN 屬性是指派給連接器空間中物件的唯一識別碼。 當 export.csv 中有許多資料列/變更需要分析時，您可能很難只根據 DN 屬性來判斷變更屬於哪個物件。 為了簡化分析變更的程序，請使用 csanalyzer.ps1 PowerShell 指令碼。 此指令碼會擷取物件的通用識別碼 (例如 displayName、userPrincipalName)。 若要使用指令碼：
+1. 從 [CSAnalyzer](#appendix-csanalyzer) 區段將 PowerShell 指令碼複製到名為 `csanalyzer.ps1` 的檔案。
+2. 開啟 PowerShell 視窗，然後瀏覽至您建立 PowerShell 指令碼的資料夾。
+3. 執行：`.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`。
+4. 您現在已有一個可在 Microsoft Excel 中檢查的名為 **processedusers1.csv** 的檔案。 請注意，此檔案會提供 DN 屬性與通用識別碼 (例如 displayName 和 userPrincipalName) 的對應。 它目前並未包含即將匯出的實際屬性變更。
 
 #### <a name="switch-active-server"></a>切換作用中的伺服器
 1. 在目前作用中的伺服器上，關閉伺服器 (DirSync/FIM/Azure AD Sync) 讓它不會匯出至 Azure AD 或將它設為預備模式 (Azure AD Connect)。

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: bfbfc5b46985d3413510ba69cbdfc688f46f0f1b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c6289df50d17de1ef542abbf617eb1cdb2f32311
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>自訂 Service Fabric 叢集設定和網狀架構升級原則
 本文件將告訴您如何為 Service Fabric 叢集自訂各種網狀架構設定和網狀架構升級原則。 您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來進行自訂。
@@ -596,7 +596,7 @@ PropertyGroup|X509NameMap，預設值為 None|動態| |
 | PeriodicApiSlowTraceInterval | 時間 (秒)，預設值為 5 分鐘 |動態| 以秒為單位指定時間範圍。 PeriodicApiSlowTraceInterval 會定義 API 監視器重新追蹤慢速 API 呼叫的間隔時間。 |
 | NodeDeactivationMaxReplicaCloseDuration | 時間 (秒)，預設值為 900 |動態|以秒為單位指定時間範圍。 節點停用期間，系統在終止有複本卡在關閉作業的服務主機之前會等候的持續時間。 |
 | FabricUpgradeMaxReplicaCloseDuration | 時間 (秒)，預設值為 900 |動態| 以秒為單位指定時間範圍。 網狀架構升級期間，系統在終止有複本卡在關閉作業的服務主機之前會等候的持續時間。 |
-|GracefulReplicaShutdownMaxDuration|時間範圍，預設值為 Common::TimeSpan::FromSeconds(120)|動態|以秒為單位指定時間範圍。 系統在終止有複本卡在關閉作業的服務主機之前會等候的持續時間。|
+|GracefulReplicaShutdownMaxDuration|時間範圍，預設值為 Common::TimeSpan::FromSeconds(120)|動態|以秒為單位指定時間範圍。 系統在終止有複本卡在關閉作業的服務主機之前會等候的持續時間。 如果此值設為 0，複本將不會收到關閉的指示。|
 |ReplicaChangeRoleFailureRestartThreshold|整數，預設值為 10|動態| 整數。 指定主要升階期間的 API 失敗次數，超過此次數後，系統便會套用自動補救動作 (複本重新啟動)。 |
 |ReplicaChangeRoleFailureWarningReportThreshold|整數，預設值為 2147483647|動態| 整數。 指定主要升階期間的 API 失敗次數，超過此次數後，系統便會引發警告健康情況報告。|
 

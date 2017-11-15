@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: d7af3a531bc1bcced1a3c48403a6f60afea0f82f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f8e71541562d397c3f2cc195bfb74cfd60cafdc0
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect 的拓撲
 本文說明使用 Azure AD Connect 同步處理做為重要整合解決方案的各種內部部署和 Azure Active Directory (Azure AD) 拓撲。 本文包含受支援和不受支援的組態。
@@ -111,7 +111,7 @@ Azure AD Connect 同步處理中的預設組態假設：
 
 | 工作負載 | 限制 |
 --------- | ---------
-| Exchange Online | 如果有一個以上的 Exchange 組織內部部署 (也就是 Exchange 已部署至一個以上的樹系)，則您必須使用 Exchange 2013 SP1 或更新版本。 如需詳細資訊，請參閱[內含多個 Active Directory 樹系的混合式部署](https://technet.microsoft.com/library/jj873754.aspx)。 |
+| Exchange Online | 如需有關 Exchange Online 所支援之混合式技術的詳細資訊，請參閱[具有多個 Active Directory 樹系的混合部署](https://technet.microsoft.com/library/jj873754.aspx)。 |
 | 商務用 Skype | 使用多個內部部署樹系時，只會支援帳戶資源樹系拓撲。 如需詳細資訊，請參閱[商務用 Skype Server 2015 的環境需求](https://technet.microsoft.com/library/dn933910.aspx)。 |
 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 79d4084deb6d8c028918690c339c21c720e63594
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2879e72636ffc7603e29fe8f8233a065fe6f897c
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="restore-an-app-in-azure"></a>在 Azure 中還原應用程式
 本文說明如何在 [Azure App Service](../app-service/app-service-web-overview.md) 中還原您先前備份的應用程式 (請參閱[在 Azure 中備份應用程式](web-sites-backup.md))。 您可以依需求將應用程式及其連結的資料庫還原到先前的狀態，或是根據您的其中一個原始應用程式備份來建立新的應用程式。 Azure App Service 支援使用下列資料庫來進行備份與還原︰
@@ -33,10 +33,10 @@ ms.lasthandoff: 10/11/2017
 <a name="PreviousBackup"></a>
 
 ## <a name="restore-an-app-from-an-existing-backup"></a>從現有備份還原應用程式
-1. 在「Azure 入口網站」中您應用程式的 [設定] 刀鋒視窗上，按一下 [備份] 以顯示 [備份] 刀鋒視窗。 然後按一下 [還原]。
+1. 在 Azure 入口網站中您應用程式的 [設定] 頁面上，按一下 [備份] 以顯示 [備份] 頁面。 然後按一下 [還原]。
    
     ![選擇立即還原][ChooseRestoreNow]
-2. 在 [還原]  刀鋒視窗中，先選取備份來源。
+2. 在 [還原] 頁面中，先選取備份來源。
    
     ![](./media/web-sites-restore/021ChooseSource1.png)
    
@@ -59,9 +59,9 @@ ms.lasthandoff: 10/11/2017
 <a name="StorageAccount"></a>
 
 ## <a name="download-or-delete-a-backup-from-a-storage-account"></a>從儲存體帳戶下載或刪除備份
-1. 從 Azure 入口網站的主要 [瀏覽] 刀鋒視窗中，選取 [儲存體帳戶]。 隨即會顯示您現有的儲存體帳戶清單。
-2. 選取包含您想要下載或刪除之備份的儲存體帳戶。隨即會顯示儲存體帳戶的刀鋒視窗。
-3. 在儲存體帳戶刀鋒視窗中，選取所需的容器
+1. 從 Azure 入口網站的主要 [瀏覽] 頁面中，選取 [儲存體帳戶]。 隨即會顯示您現有的儲存體帳戶清單。
+2. 選取包含您想要下載或刪除之備份的儲存體帳戶。 儲存體帳戶的頁面隨即顯示。
+3. 在儲存體帳戶頁面中，選取所需的容器
    
     ![檢視容器][ViewContainers]
 4. 選取您想要下載或刪除的備份檔案。
@@ -72,12 +72,21 @@ ms.lasthandoff: 10/11/2017
 <a name="OperationLogs"></a>
 
 ## <a name="monitor-a-restore-operation"></a>監視還原作業
-若要查看有關應用程式還原作業成功或失敗的詳細資訊，請瀏覽至 Azure 入口網站中的 [活動記錄] 刀鋒視窗。  
+若要查看有關應用程式還原作業成功或失敗的詳細資訊，請瀏覽至 Azure 入口網站中的 [活動記錄] 頁面。  
  
 
 向下捲動以尋找所要的還原作業，並按一下以選取它。
 
-詳細資料刀鋒視窗會顯示與還原作業有關的可用資訊。
+詳細資料頁面會顯示與還原作業有關的可用資訊。
+
+## <a name="automate-with-scripts"></a>使用指令碼進行自動化
+
+您可以使用 [Azure CLI](/cli/azure/install-azure-cli) 或 [Azure PowerShell](/powershell/azure/overview)，透過指令碼將備份管理作業自動化。
+
+例如，請參閱：
+
+- [Azure CLI 範例](app-service-cli-samples.md)
+- [Azure PowerShell 範例](app-service-powershell-samples.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->

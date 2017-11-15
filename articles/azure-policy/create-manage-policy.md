@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/01/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 55e5a60294fc5ccb2a55b1e572af2fd27c68f462
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adbf6e13efaad196c39e4fce0900fa40d7511122
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>建立和管理原則來強制執行相容性
 
@@ -61,10 +61,10 @@ Azure 原則目前僅供有限預覽，因此您必須註冊以要求存取權�
    ![開啟可用原則定義](media/create-manage-policy/open-policy-definitions.png)
 
 5. 選取 [需要 SQL Server 12.0 版]。
-   
+
    ![找出原則](media/create-manage-policy/select-available-definition.png)
 
-6. 為原則指派提供顯示**名稱**。 在此情況下，讓我們使用「需要 SQL Server 12.0 版」。 您也可以新增選擇性的 [描述] 。 描述會提供有關此原則指派如何確保在此環境中建立的所有 SQL Server 都是 12.0 版的詳細資料。
+6. 為原則指派提供顯示**名稱**。 在此情況下，讓我們使用「需要 SQL Server 12.0 版」。 您也可以新增選擇性的 [描述]。 描述會提供有關此原則指派如何確保在此環境中建立的所有 SQL Server 都是 12.0 版的詳細資料。
 7. 將定價層變更為**標準**，以確保原則套用至現有的資源。
 
    Azure 原則有兩個定價層 – 免費和標準。 使用免費層次，您只能在未來的資源上強制執行原則，而使用標準層，您也能在現有資源上強制執行這些原則，以更加了解相容性狀態。 因為還是有限預覽版本，所以尚未發行計價模式，因此您選取「標準」也不會收到帳單。 若要深入了解定價，請參閱 [Azure 原則定價](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/)。
@@ -93,7 +93,7 @@ Azure 原則目前僅供有限預覽，因此您必須註冊以要求存取權�
       - 原則參數。
       - 原則規則/條件，在此情況下 – VM SKU 大小等於 G 系列
       - 原則效果，在此情況下 – **拒絕**。
-   
+
    以下是 json 應該會有的外觀
 
 ```json
@@ -118,9 +118,225 @@ Azure 原則目前僅供有限預覽，因此您必須註冊以要求存取權�
 }
 ```
 
+<!-- Update the following link to the top level samples page
+-->
    若要檢視 json 程式碼的範例，請參閱這篇文章 - [資源原則概觀](../azure-resource-manager/resource-manager-policy.md)
-   
+
 4. 選取 [ **儲存**]。
+
+## <a name="create-a-policy-definition-with-rest-api"></a>使用 REST API 來建立原則定義
+
+您可以使用「適用於原則定義的 REST API」來建立原則。 REST API 可讓您建立和刪除原則定義，以及取得現有定義的相關資訊。
+若要建立原則定義，請使用下列範例：
+
+```
+PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
+
+```
+納入如下範例的要求內文：
+
+```
+{
+  "properties": {
+    "parameters": {
+      "allowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying resources",
+          "strongType": "location",
+          "displayName": "Allowed locations"
+        }
+      }
+    },
+    "displayName": "Allowed locations",
+    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "location",
+          "in": "[parameters('allowedLocations')]"
+        }
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
+```
+
+## <a name="create-a-policy-definition-with-powershell"></a>使用 PowerShell 來建立原則定義
+
+繼續進行 PowerShell 範例之前，請確定您已安裝最新版的 Azure PowerShell。 原則參數是於 3.6.0 版中加入。 如果您使用舊版本，範例會傳回找不到參數的錯誤。
+
+您可以使用 `New-AzureRmPolicyDefinition` cmdlet 建立原則定義。
+
+若要從檔案建立原則定義，請傳遞檔案的路徑。 針對外部檔案，請使用下列範例：
+
+```
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -DisplayName "Deny cool access tiering for storage" `
+    -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
+```
+
+針對本機檔案，請使用下列範例：
+
+```
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -Description "Deny cool access tiering for storage" `
+    -Policy "c:\policies\coolAccessTier.json"
+```
+
+若要建立具有內嵌規則的原則定義，請使用下列範例：
+
+```
+$definition = New-AzureRmPolicyDefinition -Name denyCoolTiering -Description "Deny cool access tiering for storage" -Policy '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}'
+```
+
+輸出會儲存在於原則指派期間使用的 `$definition` 物件中。
+下列範例建立了包含參數的原則定義：
+
+```
+$policy = '{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
+            },
+            {
+                "not": {
+                    "field": "location",
+                    "in": "[parameters(''allowedLocations'')]"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "Deny"
+    }
+}'
+
+$parameters = '{
+    "allowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying storage accounts.",
+          "strongType": "location",
+          "displayName": "Allowed locations"
+        }
+    }
+}'
+
+$definition = New-AzureRmPolicyDefinition -Name storageLocations -Description "Policy to specify locations for storage accounts." -Policy $policy -Parameter $parameters
+```
+
+## <a name="view-policy-definitions"></a>檢視原則定義
+
+若要查看訂用帳戶中的所有原則定義，請使用下列命令：
+
+```
+Get-AzureRmPolicyDefinition
+```
+
+它會傳回所有可用的原則定義，包括內建原則。 每個原則都以下列格式傳回：
+
+```
+Name               : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceId         : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceName       : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceType       : Microsoft.Authorization/policyDefinitions
+Properties         : @{displayName=Allowed locations; policyType=BuiltIn; description=This policy enables you to
+                     restrict the locations your organization can specify when deploying resources. Use to enforce
+                     your geo-compliance requirements.; parameters=; policyRule=}
+PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+```
+
+## <a name="create-a-policy-definition-with-azure-cli"></a>使用 Azure CLI 來建立原則定義
+
+您可以使用 Azure CLI 搭配原則定義命令來建立原則定義。
+若要建立具有內嵌規則的原則定義，請使用下列範例：
+
+```
+az policy definition create --name denyCoolTiering --description "Deny cool access tiering for storage" --rules '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}'
+```
+
+## <a name="view-policy-definitions"></a>檢視原則定義
+
+若要查看訂用帳戶中的所有原則定義，請使用下列命令：
+
+```
+az policy definition list
+```
+
+它會傳回所有可用的原則定義，包括內建原則。 每個原則都以下列格式傳回：
+
+```
+{                                                            
+  "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",                      
+  "displayName": "Allowed locations",
+  "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "policyRule": {
+    "if": {
+      "not": {
+        "field": "location",
+        "in": "[parameters('listOfAllowedLocations')]"
+      }
+    },
+    "then": {
+      "effect": "Deny"
+    }
+  },
+  "policyType": "BuiltIn"
+}
+```
 
 ## <a name="create-and-assign-an-initiative-definition"></a>建立並指派計畫定義
 
@@ -166,7 +382,7 @@ Azure 原則目前僅供有限預覽，因此您必須註冊以要求存取權�
    - 定價層：標準
    - 您想要套用此指派的範圍：**Azure Advisor Capacity Dev**
 
-5. 選取 [指派]。 
+5. 選取 [指派]。
 
 ## <a name="resolve-a-non-compliant-or-denied-resource"></a>解決不相容或拒絕的資源
 
@@ -205,4 +421,4 @@ Azure 原則目前僅供有限預覽，因此您必須註冊以要求存取權�
 若要深入了解原則定義的結構，請閱讀這篇文章：
 
 > [!div class="nextstepaction"]
-> [原則定義結構](../azure-resource-manager/resource-manager-policy.md#policy-definition-structure)
+> [Azure 原則定義結構](policy-definition.md)

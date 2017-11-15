@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: v-dotren
-ms.openlocfilehash: 3c62bff7ba37f7e45d73fa2cf67a4aee3b4a7a38
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: f34647afc600b72704859952d0a40edad4a3b40f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>在虛擬網路中建立 Azure Batch 集區
 
@@ -62,7 +62,12 @@ Azure Batch 集區有設定可讓計算節點彼此通訊，以便 (舉例來說
 * Batch 服務需要與集區的計算節點通訊，以便安排工作。 若要啟用此通訊，請在 Batch 帳戶所在的區域中，為 Batch 服務所使用的每個 IP 位址新增使用者定義的路由。 若要取得 Batch 服務的 IP 位址清單，請連絡 Azure 支援。
 
 * 確定您並未透過內部部署網路應用裝置禁止輸出到 Azure 儲存體的流量 (具體地說，就是 `<account>.table.core.windows.net`、`<account>.queue.core.windows.net` 和 `<account>.blob.core.windows.net` 表單的 URL)。
-    
+
+當您新增使用者定義的路由時，請為每個相關的「批次 IP」位址首碼定義路由，然後將 [下一個躍點類型] 設定為 [網際網路]。 請參閱下列範例：
+
+![使用者定義路由](./media/batch-virtual-network/user-defined-route.png)
+
 ## <a name="next-steps"></a>後續步驟
 
 - 如需 Batch 的深入概觀，請參閱[使用 Batch 開發大規模的平行計算解決方案](batch-api-basics.md)。
+- 如需有關建立使用者定義路由的詳細資訊，請參閱[建立使用者定義的路由 - Azure 入口網站](../virtual-network/create-user-defined-route-portal.md)。

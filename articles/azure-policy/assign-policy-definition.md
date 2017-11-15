@@ -5,26 +5,28 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 2e0962ae02dd8132d878792634abc1f63b2c29a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db5112c858d2a2c54813d9c9a3670a45fcbdb993
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>建立原則指派，以識別 Azure 環境中的不相容資源
-了解 Azure 中相容性的第一個步驟是了解您與自己的目前資源所處的位置。 本快速入門步驟會引導您完成建立原則指派，以識別不是使用 SQL Server 12.0 版之資源的程序。 在此程序結束時，您就會成功識別哪些伺服器屬於不同版本，因此不相容。
+了解 Azure 中相容性的第一個步驟是了解您與自己的目前資源所處的位置。 本快速入門會逐步引導您完成程序來建立原則指派，以識別出未使用受控磁碟的虛擬機器。
+
+在此程序結束時，您將已成功識別出因未使用受控磁碟而「不符合規範」的虛擬機器。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="opt-in-to-azure-policy"></a>加入 Azure 原則
 
-Azure 原則目前僅供有限預覽，因此您必須註冊以要求存取權。
+「Azure 原則」目前是以「公開預覽」的形式提供，您必須註冊才能要求存取。
 
-1. 移至 Azure 原則，位置是：https://aka.ms/getpolicy，然後選取左窗格中的 [註冊]。
+1. 移至 Azure 原則，位置是：https://aka.ms/getpolicy ，然後選取左窗格中的 [註冊]。
 
    ![搜尋原則](media/assign-policy-definition/sign-up.png)
 
@@ -32,11 +34,11 @@ Azure 原則目前僅供有限預覽，因此您必須註冊以要求存取權�
 
    ![加入以使用 Azure 原則](media/assign-policy-definition/preview-opt-in.png)
 
-   根據需求，我們可能需要數天的時間接受您的註冊要求。 一旦您的要求被接受，系統會透過電子郵件通知您，您可以開始使用服務。
+   針對「預覽版」，系統會自動核准您的要求。 請等候 30 分鐘讓系統處理您的註冊。
 
 ## <a name="create-a-policy-assignment"></a>建立原則指派
 
-在本快速入門中，我們會建立原則指派並且指派「需要 SQL Server 12.0 版」定義。 
+在本快速入門中，我們會建立一個原則指派，並且指派 *Audit Virtual Machines without Managed Disks* (稽核沒有受控磁碟的虛擬機器) 原則定義。
 
 1. 選取 Azure 原則分頁左窗格上的 [指派]。
 2. 從 [指派] 窗格頂端選取 [指派原則]。
@@ -53,11 +55,11 @@ Azure 原則目前僅供有限預覽，因此您必須註冊以要求存取權�
    - 套用標籤和其值
    - 需要 SQL Server 12.0 版
 
-4. 搜尋原則定義以尋找「需要 SQL Server 12.0 版」定義。 按一下該原則，然後按一下 [選取]。
+4. 搜尋您的原則定義以尋找 *Audit VMs that do not use managed disks* (稽核未使用受控磁碟的 VM) 定義。 按一下該原則，然後按一下 [指派]。
 
    ![尋找正確的原則定義](media/assign-policy-definition/select-available-definition.png)
 
-5. 為原則指派提供顯示**名稱**。 在此情況下，讓我們使用「需要 SQL Server 12.0 版」。 您也可以新增選擇性的 [描述]。 描述會提供有關此原則指派如何確保在此環境中建立的所有 SQL Server 都是 12.0 版的詳細資料。
+5. 為原則指派提供顯示**名稱**。 在此案例中，我們將使用 *Audit VMs that do not use managed disks* (稽核未使用受控磁碟的 VM)。 您也可以新增選擇性的 [描述]。 此描述可用來提供詳細資料，說明此原則指派如何識別出在此環境中建立且未使用受控磁碟的所有虛擬機器。
 6. 將定價層變更為**標準**，以確保原則套用至現有的資源。
 
    Azure 原則有兩個定價層 – 免費和標準。 使用免費層次，您只能在未來的資源上強制執行原則，而使用標準層，您也能在現有資源上強制執行這些原則，以更加了解相容性狀態。 因為還是有限預覽版本，所以尚未發行計價模式，因此您選取「標準」也不會收到帳單。 若要深入了解定價，請參閱 [Azure 原則定價](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/)。
@@ -108,4 +110,3 @@ Azure 原則目前僅供有限預覽，因此您必須註冊以要求存取權�
 
 > [!div class="nextstepaction"]
 > [建立及管理原則](./create-manage-policy.md)
-

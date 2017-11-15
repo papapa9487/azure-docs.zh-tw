@@ -12,18 +12,24 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/02/2017
 ms.author: juluk
-ms.openlocfilehash: 44d2ac2fd35621ab8cd8d7584744139ee3bab5c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3acea56ea414f0c43333a02274e91226db29d454
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Azure Cloud Shell 的功能概觀 (預覽)
 Azure Cloud Shell 是可經由瀏覽器存取的互動式殼層，應用在 Azure 資源管理上。
 它可讓您彈性地選擇最適合您工作方式的殼層體驗。
 Linux 使用者可以選擇 Bash 體驗，而 Windows 使用者可以選擇 PowerShell。
+
+透過 Azure 入口網站從 Cloud Shell 圖示啟動：
+
+![入口網站啟動](media/overview/portal-launch-icon.png)
+
+從殼層選擇器下拉式清單中運用 Bash 或 PowerShell：
 
 ![Cloud Shell 中的 Bash](media/overview/overview-bash-pic.png)
 
@@ -44,16 +50,16 @@ Cloud Shell 預先安裝受歡迎的命令列工具和語言支援，能加快�
 檢視 [Bash 經驗](features.md#tools)和 [PowerShell 經驗](features-powershell.md#tools)的完整工具清單。
 
 ### <a name="automatic-authentication"></a>自動驗證
-Cloud Shell 可在每個工作階段安全地自動驗證，讓您可透過 Azure CLI 2.0 立即存取您的資源。
+Cloud Shell 可在每個工作階段安全地自動驗證，讓您可透過 Azure CLI 2.0 或 Azure PowerShell Cmdlet 快速存取您的資源。
 
 ### <a name="connect-your-azure-file-storage"></a>連接您的 Azure 檔案儲存體
-Cloud Shell 機器是暫存的，因此需要將 Azure 檔案共用掛接為 `clouddrive` 才能保存 $Home 目錄。
+Cloud Shell 機器是暫存的，因此需要將「Azure 檔案」共用掛接為 `clouddrive`，才能保存 $Home 目錄。
 第一次啟動時，Cloud Shell 會提示要代替您建立資源群組、儲存體帳戶及檔案共用。 這是一次性的步驟，而且會針對所有工作階段自動連接。 單一檔案共用可以進行對應，並同時供 Cloud Shell 中的 Bash 和 PowerShell 使用。
 
 #### <a name="create-new-storage"></a>建立新的儲存體
 ![](media/overview/basic-storage.png)
 
-可代替您建立本地備援儲存體 (LRS) 帳戶和 Azure 檔案共用。 如果您選擇同時使用 Bash 和 PowerShell 環境，則 Azure 檔案共用將用於這兩個環境。 所需成本和一般儲存體相同。
+系統可代替您建立本地備援儲存體 (LRS) 帳戶和「Azure 檔案」共用。 如果您選擇同時使用 Bash 和 PowerShell 環境，「Azure 檔案」共用就會同時用於這兩個環境。 所需成本和一般儲存體相同。
 
 將代替您建立下列三個資源：
 1. 名稱如下的資源群組：`cloud-shell-storage-<region>`
@@ -90,7 +96,7 @@ Cloud Shell 機器是暫存的，因此需要將 Azure 檔案共用掛接為 `cl
 試用 [Cloud Shell 中的 Bash](quickstart.md) 和 [Cloud Shell 中的 PowerShell](quickstart-powershell.md) 的快速入門中的這些範例。
 
 ## <a name="pricing"></a>價格
-裝載 Cloud Shell 的機器是免費提供的，但前提是必須掛接 Azure 檔案共用。 所需成本和一般儲存體相同。
+裝載 Cloud Shell 的機器是免費提供的，但前提是必須掛接「Azure 檔案」共用。 所需成本和一般儲存體相同。
 
 ## <a name="supported-browsers"></a>支援的瀏覽器
 Cloud Shell 建議用於 Chrome、Edge 和 Safari 瀏覽器。

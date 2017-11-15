@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: billmath
-ms.openlocfilehash: d005042fffcf8f4ff99876961a55d254fd4fb2d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61652d97429336dad23ba14f7349e27bf52d33d7
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>使用現有的 ADSync 資料庫安裝 Azure AD Connect
 Azure AD Connect 需要 SQL Server 資料庫來儲存資料。 您可以使用 Azure AD Connect 安裝的預設 SQL Server 2012 Express LocalDB 或使用您自己的完整版 SQL。 在先前，當您安裝 Azure AD Connect 時，一律會建立名為 ADSync 的新資料庫。 使用 Azure AD Connect 1.1.613.0 版 (或更新版本)，您可以選擇指向現有的 ADSync 資料庫來安裝 Azure AD Connect。
@@ -35,19 +35,19 @@ Azure AD Connect 需要 SQL Server 資料庫來儲存資料。 您可以使用 A
 
 
 - 您擁有現有的 Azure AD Connect 部署。 現有的 Azure AD Connect 伺服器不再運作，但包含 ADSync 資料庫的 SQL Server 仍會正常運作。 您可以安裝新的 Azure AD Connect 伺服器，並加以指向現有的 ADSync 資料庫。 
-- 您擁有現有的 Azure AD Connect 部署。 包含 ADSync 資料庫的 SQL Server 不再正常運作。 不過，您具有資料庫的最新備份。 您可以先將 ADSync 資料庫還原到新的 SQL Server。 在那之後，您可以安裝新的 Azure AD Connect 伺服器，並加以指向還原的 ADSync 資料庫。
+- 您擁有現有的 Azure AD Connect 部署。 包含 ADSync 資料庫的 SQL Server 不再正常運作。 不過，您有資料庫的最新備份。 您可以先將 ADSync 資料庫還原到新的 SQL Server。 在那之後，您可以安裝新的 Azure AD Connect 伺服器，並加以指向還原的 ADSync 資料庫。
 - 您所擁有的現有 Azure AD Connect 部署是使用 LocalDB。 由於 LocalDB 所加諸的 10 GB 限制，您需要移轉至完整的 SQL。 您可以從 LocalDB 備份 ADSync 資料庫，然後將它還原到 SQL Server。 在那之後，您可以重新安裝新的 Azure AD Connect 伺服器，並加以指向還原的 ADSync 資料庫。
-- 您要嘗試安裝暫存伺服器，並需要確定其組態符合目前作用中伺服器的組態。 您可以備份 ADSync 資料庫，並將它還原到另一個 SQL Server。 在那之後，您可以重新安裝新的 Azure AD Connect 伺服器，並加以指向還原的 ADSync 資料庫。
+- 您正嘗試安裝暫存伺服器，而想要確定其設定與目前作用中伺服器的設定相符。 您可以備份 ADSync 資料庫，並將它還原到另一個 SQL Server。 在那之後，您可以重新安裝新的 Azure AD Connect 伺服器，並加以指向還原的 ADSync 資料庫。
 
 ## <a name="prerequisite-information"></a>必要條件資訊
 
 在繼續之前，需要記下的重要注意事項：
 
-
 - 請務必檢閱在硬體安裝 Azure AD Connect 的必要條件和必要條件，以及安裝 Azure AD Connect 所需的帳戶和權限。 透過「使用現有資料庫」模式安裝 Azure AD Connect 所需的權限與「自訂」安裝的權限相同。
+- 只有使用完整 SQL 時才支援在現有的 ADSync 資料庫部署 Azure AD Connect。 使用 SQL Express LocalDB 時並不支援。 如果您在 LocalDB 中有想要使用的現有 ADSync 資料庫，就必須先備份該 ADSync 資料庫 (LocalDB)，然後將它還原到完整 SQL。 之後，您就可以使用此方法，在還原的資料庫部署 Azure AD Connect。
 - 用於安裝 Azure AD Connect 的版本必須滿足下列條件：
     - 1.1.613.0 或以上版本，以及
-    - 相同或高於上一次搭配 ADSync 資料庫使用的 Azure AD Connect 版本。 如果用於安裝的 Azure AD Connect 版本高於上一次搭配 ADSync 資料庫使用的版本，可能就需要完整的同步處理。  如果兩個版本之間有結構描述或同步處理規則上的變更，這就是必要的。 
+    - 相同或高於上一次搭配 ADSync 資料庫使用的 Azure AD Connect 版本。 如果用於安裝的 Azure AD Connect 版本高於上一次搭配 ADSync 資料庫使用的版本，可能就需要完整的同步處理。  如果兩個版本之間有結構描述或同步處理規則上的變更，就必須進行完整同步處理。 
 - 所使用的 ADSync 資料庫應該包含相對較新的同步處理狀態。 上次使用現有 ADSync 資料庫的同步處理活動應在過去三週內發生。
 - 透過「使用現有資料庫」方法安裝 Azure AD Connect 時，不會保留上一個 Azure AD Connect 伺服器上設定的登入方法。 此外，您無法在安裝期間設定登入方法。 安裝完成之後，您才能設定登入方法。
 - 無法讓多個 Azure AD Connect 伺服器共用相同的 ADSync 資料庫。 「使用現有資料庫」方法可讓您搭配新的 Azure AD Connect 伺服器來重複使用現有的 ADSync 資料庫。 它不支援共用。

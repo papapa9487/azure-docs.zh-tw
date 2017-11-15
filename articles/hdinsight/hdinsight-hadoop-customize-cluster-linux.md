@@ -14,15 +14,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/06/2017
 ms.author: larryfr
-ms.openlocfilehash: 0c5d00b6cb9f68a1a0e474f81c969eb1b5654c67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f166158d09cd867718acecc6c97ce16b839f49bd
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="customize-linux-based-hdinsight-clusters-using-script-action"></a>使用指令碼動作自訂 Linux 型 HDInsight 叢集
+# <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>使用指令碼動作自訂 Linux 型 HDInsight 叢集
 
 HDInsight 提供一個稱為 [指令碼動作]  的組態選項，此指令碼動作可叫用用於自訂叢集的自訂指令碼。 這些指令碼可用來安裝其他元件和變更組態設定。 叢集建立期間或叢集建立之後，可以使用指令碼動作。
 
@@ -40,7 +40,7 @@ HDInsight 提供一個稱為 [指令碼動作]  的組態選項，此指令碼�
 * **AMBARI.RUN\_CUSTOM\_COMMAND**：依預設，Ambari 系統管理員角色會具有此權限。
 * **CLUSTER.RUN\_CUSTOM\_COMMAND**：依預設，HDInsight 叢集系統管理員和 Ambari 系統管理員會具有此權限。
 
-如需使用已加入網域之 HDInsight 權限的詳細資訊，請參閱[管理已加入網域的 HDInsight 叢集](hdinsight-domain-joined-manage.md)。
+如需使用已加入網域之 HDInsight 權限的詳細資訊，請參閱[管理已加入網域的 HDInsight 叢集](./domain-joined/apache-domain-joined-manage.md)。
 
 ## <a name="access-control"></a>存取控制
 
@@ -55,7 +55,7 @@ HDInsight 提供一個稱為 [指令碼動作]  的組態選項，此指令碼�
 
 ## <a name="understanding-script-actions"></a>了解指令碼動作
 
-指令碼動作只是一個您會提供 URI 和參數的 Bash 指令碼。 該指令碼會在 HDInsight 叢集節點上執行。 以下是指令碼動作的特性和功能。
+指令碼動作是一個您會提供 URI 和參數的 Bash 指令碼。 該指令碼會在 HDInsight 叢集節點上執行。 以下是指令碼動作的特性和功能。
 
 * 必須儲存在可從 HDInsight 叢集存取的 URI 上。 以下是可能的儲存位置：
 
@@ -163,13 +163,13 @@ HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
 
 | 名稱 | 指令碼 |
 | --- | --- |
-| **新增 Azure 儲存體帳戶** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh。請參閱[在 HDInsight 叢集新增儲存體](hdinsight-hadoop-add-storage.md)。 |
-| **安裝色調** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh。請參閱 [在 HDInsight 叢集上安裝及使用色調](hdinsight-hadoop-hue-linux.md)。 |
-| **安裝 Presto** |https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh。請參閱[在 HDInsight 叢集上安裝和使用 Presto](hdinsight-hadoop-install-presto.md)。 |
-| **安裝 Solr** |https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh。請參閱 [在 HDInsight 叢集上安裝及使用 Solr](hdinsight-hadoop-solr-install-linux.md)。 |
-| **安裝 Giraph** |https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh。請參閱 [在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install-linux.md)。 |
-| **預先載入 Hive 程式庫** |https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh。請參閱 [在 HDInsight 叢集上新增 Hive 程式庫](hdinsight-hadoop-add-hive-libraries.md)。 |
-| **安裝或更新 Mono** | https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash。 請參閱[在 HDInsight 上安裝或更新 Mono](hdinsight-hadoop-install-mono.md)。 |
+| **新增 Azure 儲存體帳戶** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh.請參閱 [在 HDInsight 叢集新增儲存體](hdinsight-hadoop-add-storage.md)。 |
+| **安裝色調** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh.請參閱 [在 HDInsight 叢集上安裝及使用色調](hdinsight-hadoop-hue-linux.md)。 |
+| **安裝 Presto** |https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh.請參閱 [在 HDInsight 叢集上安裝和使用 Presto](hdinsight-hadoop-install-presto.md)。 |
+| **安裝 Solr** |https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh.請參閱 [在 HDInsight 叢集上安裝及使用 Solr](hdinsight-hadoop-solr-install-linux.md)。 |
+| **安裝 Giraph** |https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh.請參閱 [在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install-linux.md)。 |
+| **預先載入 Hive 程式庫** |https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh.請參閱 [在 HDInsight 叢集上新增 Hive 程式庫](hdinsight-hadoop-add-hive-libraries.md)。 |
+| **安裝或更新 Mono** | https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash。 請參閱 [在 HDInsight 上安裝或更新 Mono](hdinsight-hadoop-install-mono.md)。 |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>在建立叢集期間使用指令碼動作
 
@@ -211,229 +211,29 @@ HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
 
 3. 若要建立叢集，請從 [叢集摘要] 區段選取 [建立]。
 
-### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>從 Azure 資源管理員範本使用指令碼動作
+### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>從 Azure Resource Manager 範本使用指令碼動作
 
-本節中的範例展示要如何透過 Azure Resource Manager 範本使用指令碼動作。
+指令碼動作可搭配 Azure Resource Manager 範本使用。 如需範例，請參閱 [https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/](https://azure.microsoft.com/en-us/resources/templates/hdinsight-linux-run-script-action/)。
 
-#### <a name="before-you-begin"></a>開始之前
+在此範例中，指令碼動作是使用下列程式碼加入：
 
-* 如需設定工作站以執行 HDInsight Powershell Cmdlet 的相關資訊，請參閱 [安裝並設定 Azure PowerShell](/powershell/azure/overview)。
-* 如需如何建立範本的指示，請參閱 [編寫 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)。
-* 如果您之前未曾搭配使用Azure PowerShell 與資源管理員，請參閱 [將 Azure PowerShell 與 Azure 資源管理員搭配使用](../azure-resource-manager/powershell-azure-resource-manager.md)。
-
-#### <a name="create-clusters-using-script-action"></a>使用指令碼動作建立叢集
-
-1. 將下列範本複製到您的電腦上的位置。 此範本會在前端節點和叢集的背景工作角色節點上安裝 Giraph。 您也可以確認 JSON 範本是否有效。 將您的範本內容貼至 [JSONLint](http://jsonlint.com/)，這是一個線上 JSON 驗證器工具。
-
-            {
-            "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-            "contentVersion": "1.0.0.0",
-            "parameters": {
-                "clusterLocation": {
-                    "type": "string",
-                    "defaultValue": "West US",
-                    "allowedValues": [ "West US" ]
-                },
-                "clusterName": {
-                    "type": "string"
-                },
-                "clusterUserName": {
-                    "type": "string",
-                    "defaultValue": "admin"
-                },
-                "clusterUserPassword": {
-                    "type": "securestring"
-                },
-                "sshUserName": {
-                    "type": "string",
-                    "defaultValue": "username"
-                },
-                "sshPassword": {
-                    "type": "securestring"
-                },
-                "clusterStorageAccountName": {
-                    "type": "string"
-                },
-                "clusterStorageAccountResourceGroup": {
-                    "type": "string"
-                },
-                "clusterStorageType": {
-                    "type": "string",
-                    "defaultValue": "Standard_LRS",
-                    "allowedValues": [
-                        "Standard_LRS",
-                        "Standard_GRS",
-                        "Standard_ZRS"
-                    ]
-                },
-                "clusterStorageAccountContainer": {
-                    "type": "string"
-                },
-                "clusterHeadNodeCount": {
-                    "type": "int",
-                    "defaultValue": 1
-                },
-                "clusterWorkerNodeCount": {
-                    "type": "int",
-                    "defaultValue": 2
-                }
-            },
-            "variables": {
-            },
-            "resources": [
-                {
-                    "name": "[parameters('clusterStorageAccountName')]",
-                    "type": "Microsoft.Storage/storageAccounts",
-                    "location": "[parameters('clusterLocation')]",
-                    "apiVersion": "2015-05-01-preview",
-                    "dependsOn": [ ],
-                    "tags": { },
-                    "properties": {
-                        "accountType": "[parameters('clusterStorageType')]"
-                    }
-                },
-                {
-                    "name": "[parameters('clusterName')]",
-                    "type": "Microsoft.HDInsight/clusters",
-                    "location": "[parameters('clusterLocation')]",
-                    "apiVersion": "2015-03-01-preview",
-                    "dependsOn": [
-                        "[concat('Microsoft.Storage/storageAccounts/', parameters('clusterStorageAccountName'))]"
-                    ],
-                    "tags": { },
-                    "properties": {
-                        "clusterVersion": "3.2",
-                        "osType": "Linux",
-                        "clusterDefinition": {
-                            "kind": "hadoop",
-                            "configurations": {
-                                "gateway": {
-                                    "restAuthCredential.isEnabled": true,
-                                    "restAuthCredential.username": "[parameters('clusterUserName')]",
-                                    "restAuthCredential.password": "[parameters('clusterUserPassword')]"
-                                }
-                            }
-                        },
-                        "storageProfile": {
-                            "storageaccounts": [
-                                {
-                                    "name": "[concat(parameters('clusterStorageAccountName'),'.blob.core.windows.net')]",
-                                    "isDefault": true,
-                                    "container": "[parameters('clusterStorageAccountContainer')]",
-                                    "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('clusterStorageAccountName')), '2015-05-01-preview').key1]"
-                                }
-                            ]
-                        },
-                        "computeProfile": {
-                            "roles": [
-                                {
-                                    "name": "headnode",
-                                    "targetInstanceCount": "[parameters('clusterHeadNodeCount')]",
-                                    "hardwareProfile": {
-                                        "vmSize": "Large"
-                                    },
-                                    "osProfile": {
-                                        "linuxOperatingSystemProfile": {
-                                            "username": "[parameters('sshUserName')]",
-                                            "password": "[parameters('sshPassword')]"
-                                        }
-                                    },
-                                    "scriptActions": [
-                                        {
-                                            "name": "installGiraph",
-                                            "uri": "https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh",
-                                            "parameters": ""
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "workernode",
-                                    "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
-                                    "hardwareProfile": {
-                                        "vmSize": "Large"
-                                    },
-                                    "osProfile": {
-                                        "linuxOperatingSystemProfile": {
-                                            "username": "[parameters('sshUserName')]",
-                                            "password": "[parameters('sshPassword')]"
-                                        }
-                                    },
-                                    "scriptActions": [
-                                        {
-                                            "name": "installR",
-                                            "uri": "https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh",
-                                            "parameters": ""
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    }
-                }
-            ],
-            "outputs": {
-                "cluster":{
-                    "type" : "object",
-                    "value" : "[reference(resourceId('Microsoft.HDInsight/clusters',parameters('clusterName')))]"
-                }
-            }
+    "scriptActions": [
+        {
+            "name": "setenvironmentvariable",
+            "uri": "[parameters('scriptActionUri')]",
+            "parameters": "headnode"
         }
-2. 啟動 Azure PowerShell 並且登入您的 Azure 帳戶。 提供您的認證之後，命令會傳回您的帳戶的相關資訊。
+    ]
 
-        Add-AzureRmAccount
+如需如何部署範本的資訊，請參閱下列文件：
 
-        Id                             Type       ...
-        --                             ----
-        someone@example.com            User       ...
-3. 如果您有多個訂用帳戶，請提供您想要用於部署的訂用帳戶識別碼。
+* [使用範本與 Azure PowerShell 來部署資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
 
-        Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
-
-    > [!NOTE]
-    > 您可以使用 `Get-AzureRmSubscription` 來取得與您帳戶關聯的所有訂用帳戶清單，其中會包含每個訂用帳戶的訂用帳戶 ID。
-
-4. 如果您沒有現有資源群組，請建立新的資源群組。 提供您的解決方案所需的資源群組名稱和位置。 隨即傳回新資源群組的摘要。
-
-        New-AzureRmResourceGroup -Name myresourcegroup -Location "West US"
-
-        ResourceGroupName : myresourcegroup
-        Location          : westus
-        ProvisioningState : Succeeded
-        Tags              :
-        Permissions       :
-                            Actions  NotActions
-                            =======  ==========
-                            *
-        ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
-
-5. 若要建立資源群組的部署，請執行 **New-AzureRmResourceGroupDeployment** 命令，並提供必要的參數。 這些參數包含下列資料：
-
-    * 部署的名稱
-    * 資源群組的名稱
-    * 您建立之範本的路徑或 URL。
-
-  如果您的範本需要任何參數，您也必須傳遞這些參數。 在此案例中，用來在叢集上安裝 R 的指令碼動作不需要任何參數。
-
-        New-AzureRmResourceGroupDeployment -Name mydeployment -ResourceGroupName myresourcegroup -TemplateFile <PathOrLinkToTemplate>
-
-    系統會提示您針對範本中定義的參數提供值。
-
-1. 部署資源群組之後，便會顯示部署摘要。
-
-          DeploymentName    : mydeployment
-          ResourceGroupName : myresourcegroup
-          ProvisioningState : Succeeded
-          Timestamp         : 8/14/2017 7:00:27 PM
-          Mode              : Incremental
-          ...
-
-2. 如果您的部署失敗，您可以使用下列 Cmdlet 來取得失敗的相關資訊。
-
-        Get-AzureRmResourceGroupDeployment -ResourceGroupName myresourcegroup -ProvisioningState Failed
+* [使用範本與 Azure CLI 來部署資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli)
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>在建立叢集期間從 Azure PowerShell 使用指令碼動作
 
-本節中，我們使用 [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) Cmdlet，使用指令碼動作叫用指令碼以自訂叢集。 在繼續之前，請確認您已安裝和設定 Azure PowerShell。 如需設定工作站以執行 HDInsight PowerShell Cmdlet 的相關資訊，請參閱 [安裝並設定 Azure PowerShell](/powershell/azure/overview)。
+本節中，您使用 [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) Cmdlet 叫用指令碼以自訂叢集。 在繼續之前，請確認您已安裝和設定 Azure PowerShell。 如需設定工作站以執行 HDInsight PowerShell Cmdlet 的相關資訊，請參閱 [安裝並設定 Azure PowerShell](/powershell/azure/overview)。
 
 下列指令碼示範使用 PowerShell 建立叢集時如何套用指令碼動作：
 
@@ -535,7 +335,7 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
 
 ### <a name="apply-a-script-action-to-a-running-cluster-using-rest-api"></a>使用 REST API 將指令碼動作套用到執行中的叢集
 
-請參閱 [在執行中的叢集執行指令碼動作](https://msdn.microsoft.com/library/azure/mt668441.aspx)。
+請參閱[在執行中的叢集執行指令碼動作](https://msdn.microsoft.com/library/azure/mt668441.aspx)。
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-hdinsight-net-sdk"></a>從 HDInsight .NET SDK 將指令碼動作套用到執行中的叢集
 
@@ -556,7 +356,7 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
 
 4. 此叢集的指令碼歷程記錄會顯示在 [指令碼動作] 區段。 此資訊包含持續性指令碼清單。 在以下的螢幕擷取畫面中，您可以看到 Solr 指令碼已在此叢集上執行。 此螢幕擷取畫面不會顯示任何持續性指令碼。
 
-    ![指令碼動作區段](./media/hdinsight-hadoop-customize-cluster-linux/script-action-history.png)
+    ![[指令碼動作] 區段](./media/hdinsight-hadoop-customize-cluster-linux/script-action-history.png)
 
 5. 選取歷程記錄中的指令碼，便會顯示此指令碼的 [屬性] 區段。 從視窗的頂端，您可以重新執行指令碼或將其升階。
 
@@ -647,7 +447,7 @@ HDInsight 服務提供數種方式以使用自訂元件。 無論元件如何使
 
 ### <a name="access-logs-from-the-default-storage-account"></a>從預設的儲存體帳戶存取記錄檔
 
-如果叢集建立因指令碼動作錯誤而失敗，您可以從叢集存放區帳戶存取記錄。
+如果叢集建立因指令碼錯誤而失敗，記錄會保存在叢集存放區帳戶中。
 
 * 儲存體記錄檔位於 `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`。
 
@@ -703,7 +503,7 @@ sudo pip install azure-storage==0.20.0
 
 ### <a name="history-doesnt-show-scripts-used-during-cluster-creation"></a>歷程記錄不會顯示在叢集建立期間使用的指令碼
 
-如果您在 2016 年 3 月 15 日之前建立叢集，您可能不會在動作歷程記錄中看到任何項目。 如果您在 2016 年 3 月 15 日之後調整該叢集大小，在叢集建立期間使用的指令碼會出現在歷程記錄中，因為這些指令碼在調整大小作業過程中會套用到叢集中的新節點。
+如果您在 2016 年 3 月 15 日之前建立叢集，就可能不會在指令碼動作歷程記錄中看到任何項目。 調整叢集大小會導致指令碼顯示在指令碼動作歷程記錄中。
 
 有兩種例外狀況：
 

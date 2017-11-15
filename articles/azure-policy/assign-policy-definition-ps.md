@@ -5,19 +5,22 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 3f9ef7886af20845eddc4c1e71d60911e4b22eca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02afe946e5e1ad9730ab07df19676e90485ecf98
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-using-powershell"></a>使用 PowerShell 建立原則指派，以識別 Azure 環境中的不相容資源
 
-了解 Azure 中相容性的第一個步驟是了解您與目前資源所處的位置。 本快速入門步驟會引導您完成建立原則指派以使用原則定義識別不相容資源的程序 – 需要 SQL Server 12.0 版。 在此程序結束時，您就會成功識別哪些伺服器屬於不同版本，或不相容。
+了解 Azure 中相容性的第一個步驟是了解您與自己的目前資源所處的位置。 本快速入門會逐步引導您完成程序來建立原則指派，以識別出未使用受控磁碟的虛擬機器。
+
+在此程序結束時，您將已成功識別出因未使用受控磁碟而「不符合規範」的虛擬機器。
+
 
 PowerShell 可用來從命令列或在指令碼中建立和管理 Azure 資源。 本指南會詳細說明使用 PowerShell 建立原則指派，以識別 Azure 環境中的不相容資源。
 
@@ -29,9 +32,9 @@ PowerShell 可用來從命令列或在指令碼中建立和管理 Azure 資源�
 
 ## <a name="opt-in-to-azure-policy"></a>加入 Azure 原則
 
-Azure 原則目前僅供有限預覽，因此您必須註冊以要求存取權。
+「Azure 原則」目前是以「公開預覽」的形式提供，您必須註冊才能要求存取。
 
-1. 移至 Azure 原則，位置是：https://aka.ms/getpolicy，然後選取左窗格中的 [註冊]。
+1. 移至 Azure 原則，位置是：https://aka.ms/getpolicy ，然後選取左窗格中的 [註冊]。
 
    ![搜尋原則](media/assign-policy-definition/sign-up.png)
 
@@ -39,11 +42,11 @@ Azure 原則目前僅供有限預覽，因此您必須註冊以要求存取權�
 
    ![加入以使用 Azure 原則](media/assign-policy-definition/preview-opt-in.png)
 
-   根據需求，我們可能需要數天的時間接受您的註冊要求。 一旦您的要求被接受，系統會透過電子郵件通知您，您可以開始使用服務。
+   針對「預覽版」，系統會自動核准您的要求。 請等候 30 分鐘讓系統處理您的註冊。
 
 ## <a name="create-a-policy-assignment"></a>建立原則指派
 
-在本快速入門中，我們會建立原則指派並且指派「需要 SQL Server 12.0 版」定義。 此原則定義會識別與原則定義中設定之條件不相容的資源。
+在本快速入門中，我們會建立一個原則指派，並且指派 *Audit Virtual Machines without Managed Disks* (稽核沒有受控磁碟的虛擬機器) 定義。 此原則定義會識別與原則定義中設定之條件不相容的資源。
 
 依照下列步驟即可建立新的原則指派。
 
@@ -62,15 +65,15 @@ Azure 原則隨附您可以使用的內建原則定義。 內建原則定義如�
 接下來，藉由使用 `New-AzureRmPolicyAssignment` Cmdlet 將原則定義指派至所需範圍。
 
 針對此教學課程，我們會為命令提供下列資訊：
-- 顯示原則指派的**名稱**。 在此情況下，讓我們使用「需要 SQL Server 12.0 版指派」。
-- **原則** – 這是原則定義，這是您用來建立指派的根基。 在此情況下，它是原則定義 – 需要 SQL Server 12.0 版
+- 顯示原則指派的**名稱**。 在此案例中，我們將使用 Audit Virtual Machines without Managed Disks (稽核沒有受控磁碟的虛擬機器)。
+- **原則** – 這是原則定義，這是您用來建立指派的根基。 在此案例中，即為原則定義 – *Audit Virtual Machines without Managed Disks* (稽核沒有受控磁碟的虛擬機器)
 - **範圍** – 範圍會決定在哪些資源或資源群組上強制執行原則指派。 範圍從訂用帳戶到資源群組。 在此範例中，我們會將原則定義指派至 **FabrikamOMS** 資源群組。
-- **$definition** – 您必須提供原則定義的資源識別碼 – 在此情況下，我們會使用原則定義的識別碼 - 需要 SQL Server 12.0。
+- **$definition** – 您必須提供原則定義的資源識別碼 – 在此案例中，我們會使用原則定義 *Audit Virtual Machines without Managed Disks* (稽核沒有受控磁碟的虛擬機器) 的識別碼。
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "FabrikamOMS"
 $definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/e5662a6-4747-49cd-b67b-bf8b01975c4c
-New-AzureRMPolicyAssignment -Name Require SQL Server version 12.0 Assignment -Scope $rg.ResourceId -PolicyDefinition $definition
+New-AzureRMPolicyAssignment -Name Audit Virtual Machines without Managed Disks Assignment -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
 您現在可以識別不相容的資源，以了解環境的相容性狀態。
@@ -89,7 +92,7 @@ New-AzureRMPolicyAssignment -Name Require SQL Server version 12.0 Assignment -Sc
 此集合中的其他指南是以本快速入門為基礎。 如果您打算繼續進行後續的教學課程，請勿清除在此快速入門中建立的資源。 如果您不打算繼續，請藉由執行以下命令來刪除建立的作業：
 
 ```powershell
-Remove-AzureRmPolicyAssignment -Name “Require SQL Server version 12.0 Assignment” -Scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
+Remove-AzureRmPolicyAssignment -Name “Audit Virtual Machines without Managed Disks Assignment” -Scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
 ```
 
 ## <a name="next-steps"></a>後續步驟

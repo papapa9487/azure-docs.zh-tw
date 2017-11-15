@@ -9,17 +9,17 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 10/19/2017
-ms.openlocfilehash: 388af25aa7cf623fa3ff4167943cf94fb5c566d8
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 9e22d96d20f3201a8d1618c5ff1878e99d50ad79
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>在 Azure 入口網站中設定和存取伺服器記錄
 
-您可以從 Azure 入口網站設定、列出和下載[適用於 MySQL 的 Azure 資料庫伺服器記錄](concepts-server-logs.md)。
+您可以從 Azure 入口網站設定、列出及下載[適用於 PostgreSQL 的 Azure 資料庫伺服器記錄](concepts-server-logs.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要逐步執行本作法指南，您需要︰
 - [適用於 PostgreSQL 的 Azure 資料庫伺服器](quickstart-create-server-database-portal.md)
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 10/20/2017
    ![伺服器記錄清單](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
 
    > [!TIP]
-   > 記錄的命名慣例是 **postgresql-yyyy-mm-dd_hh0000.log**。 檔案名稱中使用的日期和時間是發出記錄的時間。 記錄檔每一小時或每 100 MB 的大小就會輪換 (端視何者先達到)。
+   > 記錄的命名慣例是 **postgresql-yyyy-mm-dd_hh0000.log**。 檔案名稱中使用的日期和時間是發出記錄的時間。 記錄檔每一小時或每 100 MB 的大小就會輪替 (端視何者先達到)。
 
 4. 如有需要，請使用**搜尋方塊**，根據日期/時間快速縮小至特定記錄。 搜尋是根據記錄的名稱進行。
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 10/20/2017
    ![按一下下載圖示](./media/howto-configure-server-logs-in-portal/6-download.png)
 
 ## <a name="next-steps"></a>後續步驟
-- 請參閱[存取 CLI 中的伺服器記錄](howto-configure-server-logs-using-cli.md)，以了解如何透過程式下載記錄。
+- 請參閱[在 CLI 中存取伺服器記錄](howto-configure-server-logs-using-cli.md)，以了解如何透過程式下載記錄。
 - 深入了解適用於 PostgreSQL 的 Azure DB 中的[伺服器記錄](concepts-server-logs.md)。 
 - 如需參數定義和 PostgreSQL 記錄的詳細資訊，請參閱[錯誤報告和記錄](https://www.postgresql.org/docs/current/static/runtime-config-logging.html)的 PostgreSQL 文件。
 

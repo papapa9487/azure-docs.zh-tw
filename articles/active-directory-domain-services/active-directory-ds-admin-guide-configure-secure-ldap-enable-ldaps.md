@@ -4,7 +4,7 @@ description: "針對 Azure AD 網域服務受管理網域設定安全的 LDAP (L
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 11/03/2017
 ms.author: maheshu
-ms.openlocfilehash: 245ad4948cf4b8c2d44a0dafb61923b0b4267856
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2ef65bb4dc8e12a18265ae8264def2bb32e191f
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>針對 Azure AD 網域服務受管理網域設定安全的 LDAP (LDAPS)
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal"></a>工作 3 - 使用 Azure 入口網站為受管理網域啟用安全 LDAP
 若要啟用安全的 LDAP，請執行下列設定步驟：
 
-1. 瀏覽至 **Azure 入口網站[](https://portal.azure.com)**。
+1. 瀏覽至 **[Azure 入口網站](https://portal.azure.com)**。
 
 2. 在 [搜尋資源] 搜尋方塊中搜尋「網域服務」。 從搜尋結果選取 [Azure AD Domain Services]。 [Azure AD Domain Services] 頁面會列出受管理網域。
 
@@ -48,8 +48,8 @@ ms.lasthandoff: 10/11/2017
     ![啟用安全 LDAP](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configure.png)
 5. 根據預設，已停用透過網際網路之受管理的網域的安全 LDAP 存取。 視需要將 [在網際網路上允許安全 LDAP 存取] 切換為 [啟用]。 
 
-    > [!TIP]
-    > 如果您為網際網路啟用安全 LDAP 存取，建議設定 NSG，以鎖定對必要的來源 IP 位址範圍的存取。 請參閱指示，以[鎖定透過網際網路對於受管理網域的安全 LDAP 存取](#task-5---lock-down-ldaps-access-to-your-managed-domain-over-the-internet)。
+    > [!WARNING]
+    > 當您啟用透過網際網路的安全 LDAP 存取時，您的網域將容易遭受網際網路上的暴力密碼破解攻擊。 因此，建議您設定 NSG，以將存取權鎖定在必要的來源 IP 位址範圍。 請參閱指示，以[鎖定透過網際網路對於受管理網域的安全 LDAP 存取](#task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet)。
     >
 
 6. 按一下 [.PFX 檔案]\(具備安全 LDAP 的憑證\) 後面的資料夾圖示。 指定具備憑證之 PFX 檔案的路徑，對受管理的網域進行安全 LDAP 存取。
@@ -79,7 +79,7 @@ ms.lasthandoff: 10/11/2017
 
 為受管理的網域啟用了透過網際網路的安全 LDAP 存取後，您需要更新 DNS 以便用戶端電腦可以找到此受管理網域。 在工作 3 的最後階段，[屬性] 索引標籤的 [可透過 LDAPS 存取的外部 IP 位址] 中會顯示外部 IP 位址。
 
-請設定外部 DNS 提供者，讓受管理網域的 DNS 名稱 (例如 'ldaps.contoso100.com') 指向這個外部 IP 位址。 在我們的範例中，我們需要建立下列 DNS 項目︰
+請設定外部 DNS 提供者，讓受管理網域的 DNS 名稱 (例如 'ldaps.contoso100.com') 指向這個外部 IP 位址。 例如，建立下列 DNS 項目︰
 
     ldaps.contoso100.com  -> 52.165.38.113
 
@@ -91,9 +91,9 @@ ms.lasthandoff: 10/11/2017
 >
 
 
-## <a name="task-5---lock-down-ldaps-access-to-your-managed-domain-over-the-internet"></a>工作 5 - 鎖定透過網際網路對於受管理網域的安全 LDAP 存取
+## <a name="task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet"></a>工作 5 - 鎖定透過網際網路對受管理網域進行的安全 LDAP 存取
 > [!NOTE]
-> **選擇性工作** - 如果您尚未啟用透過網際網路對於受管理的網域之 LDAPS 存取，請略過這項設定工作。
+> 如果您尚未啟用透過網際網路對受管理網域進行的 LDAPS 存取，請略過這項設定工作。
 >
 >
 
@@ -101,13 +101,28 @@ ms.lasthandoff: 10/11/2017
 
 公開受管理的網域透過網際網路進行 LDAPS 存取，代表著安全性威脅。 受管理的網域可以從用於安全 LDAP 之通訊埠的網際網路 (也就是連接埠 636) 存取。 因此，您可以選擇將受管理的網域存取限制為特定已知 IP 位址。 為了提升安全性，建立網路安全性群組 (NSG)，並將它與您已啟用 Azure AD Domain Services 的子網路產生關聯。
 
-下表說明您可以設定的範例 NSG，以鎖定透過網際網路的安全 LDAP 存取。 NSG 包含一組規則，允許僅從一組指定 IP 位址透過 TCP 連接埠 636 的輸入 LDAPS 存取。 預設 'DenyAll' 規則適用於來自網際網路的所有其他輸入流量。 允許從指定的 IP 位址透過網際網路之 LDAPS 存取的 NSG 規則，其優先順序高於 DenyAll NSG 規則。
+下表說明您可以設定的範例 NSG，以鎖定透過網際網路的安全 LDAP 存取。 NSG 包含一組規則，能夠只允許從一組指定的 IP 位址透過 TCP 連接埠 636 進行輸入的安全 LDAP 存取。 預設 'DenyAll' 規則適用於來自網際網路的所有其他輸入流量。 允許從指定的 IP 位址透過網際網路之 LDAPS 存取的 NSG 規則，其優先順序高於 DenyAll NSG 規則。
 
 ![透過網際網路之安全 LDAP 存取的範例 NSG](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
 
 **詳細資訊** - [網路安全性群組](../virtual-network/virtual-networks-nsg.md)。
 
 <br>
+
+
+## <a name="troubleshooting"></a>疑難排解
+如果您無法使用安全 LDAP 來連線到受管理的網域，請執行下列疑難排解步驟：
+* 確定安全 LDAP 憑證的簽發者鏈結在用戶端上受到信任。 您可以選擇將根憑證授權單位新增到用戶端上受信任的根憑證存放區，以建立信任。
+* 確認安全 LDAP 憑證的簽發者不是全新 Windows 電腦上預設即不信任的中繼憑證受權單位。
+* 確認 LDAP 用戶端 (例如 ldp.exe) 是使用 DNS 名稱來連線至安全 LDAP 端點，而不是使用 IP 位址。
+* 確認 LDAP 用戶端所連線的 DNS 名稱會解析成受管理網域上安全 LDAP 的公用 IP 位址。
+* 確認受管理網域之安全 LDAP 憑證的「主體」和「主體別名」屬性中有 DNS 名稱。
+
+如果您仍然無法使用安全 LDAP 來連線至受管理網域，請[連絡產品小組](active-directory-ds-contact-us.md)以取得協助。 請包含下列資訊來協助進一步診斷問題：
+* ldp.exe 進行連線及失敗時的螢幕擷取畫面。
+* 您的 Azure AD 租用戶識別碼，以及受管理網域的 DNS 網域名稱。
+* 您嘗試作為繫結身分的確切使用者名稱。
+
 
 ## <a name="related-content"></a>相關內容
 * [Azure AD Domain Services - 入門指南](active-directory-ds-getting-started.md)

@@ -14,13 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: Active
-ms.date: 02/08/2017
+ms.date: 11/07/2017
 ms.author: carlrab
-ms.openlocfilehash: f27d2fbeb8ec514419bd0d208429e3d3de2d07ea
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 4e22a512f7ee11dde14f8eac818506b59791e17f
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>SQL Server 資料庫移轉至雲端 SQL Database
 在本文中，您將了解兩種用來將 SQL Server 2005 或更新版本資料庫移轉到 Azure SQL Database 的主要方法。 第一種方法比較簡單，但在移轉期間需要一些可能較長期的停機時間。 第二種方法比較複雜，但可大幅免去移轉期間的停機時間。
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/31/2017
 不論是哪一種方法，您都需要使用 [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) 來確定來源資料庫與 Azure SQL Database 相容。 除了伺服器層級和跨資料庫作業的問題相關之外，SQL Database V12 的功能正逐漸與 SQL Server 的[功能相等](sql-database-features.md)。 依賴[部分支援或未支援功能](sql-database-transact-sql-information.md)的資料庫和應用程式需要一些[再造來修正這些不相容情況](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues)，然後才能移轉 SQL Server 資料。
 
 > [!NOTE]
-> 若要將非 SQL Server 資料庫 (包括 Microsoft Access、Sybase、MySQL Oracle 和 DB2) 移轉到 Azure SQL Database，請參閱 [SQL Server 移轉小幫手](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/)。
+> 若要將非 SQL Server 資料庫 (包括 Microsoft Access、Sybase、MySQL Oracle 和 DB2) 移轉到 Azure SQL Database，請參閱 [SQL Server 移轉小幫手](https://blogs.msdn.microsoft.com/datamigration/2017/09/29/release-sql-server-migration-assistant-ssma-v7-6/)。
 > 
 
 ## <a name="method-1-migration-with-downtime-during-the-migration"></a>方法 1︰在移轉期間會停機的移轉作業
@@ -39,12 +39,11 @@ ms.lasthandoff: 10/31/2017
 
   ![VSSSDT 移轉圖表](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. 使用最新版 [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595)，評估資料庫的相容性。
+1. 使用最新版的 [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) \(英文\) 來[評估](https://docs.microsoft.com/en-us/sql/dma/dma-assesssqlonprem) \(英文\) 資料庫的相容性。
 2. 準備 Transact-SQL 指令碼形式的任何必要修正。
-3. 為所要移轉的來源資料庫製作具有交易一致性的複本，並確保未再對來源資料庫進行任何變更 (或者，您可以在移轉完成後手動套用任何這類變更)。 有許多方法可以停止資料庫，從停用用戶端連接性到建立 [資料庫快照集](https://msdn.microsoft.com/library/ms175876.aspx)。
+3. 為所要移轉的來源資料庫製作具有交易一致性的複本，並確保沒有再對來源資料庫進行任何變更 (或者，您可以在移轉完成後手動套用任何這類變更)。 有許多方法可以停止資料庫，從停用用戶端連接性到建立 [資料庫快照集](https://msdn.microsoft.com/library/ms175876.aspx)。
 4. 部署 Transact-SQL 指令碼，將修正套用至資料庫複本。
-5. 將資料庫複本[匯出](sql-database-export.md)至本機磁碟機上的 BACPAC 檔案。
-6. 使用任一 BACPAC 匯入工具將 BACPAC 檔案[匯入](sql-database-import.md)成為新的 Azure SQL Database，若要獲得最佳效能，建議使用 SQLPackage.exe 工具。
+5. 使用 Data Migration Assistant 將資料庫複本[移轉](https://docs.microsoft.com/en-us/sql/dma/dma-migrateonpremsql) \(英文\) 到新的 Azure SQL Database。
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>將移轉期間的資料傳輸效能最佳化 
 
@@ -94,7 +93,7 @@ ms.lasthandoff: 10/31/2017
 ### <a name="some-tips-and-differences-for-migrating-to-sql-database"></a>一些秘訣和移轉至 SQL Database 的差異
 
 1. 使用本機散發者 
-   - 這會影響伺服器的效能。 
+   - 這麼做會影響伺服器的效能。 
    - 如果無法接受效能影響，您可以使用另一部伺服器，但它會增加管理和系統管理的複雜度。
 2. 當選取快照集資料夾時，請確定您選取的資料夾足以容納要複寫的每個資料表 BCP。 
 3. 建立快照集會鎖定相關聯的資料表直到建立完成為止，因此請適當排程快照集。 

@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 11/02/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: b8656123fa9c5158f366872ab050f370080ec18a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5be05fabf03e7e3ccaa3bf66ffefdd6406a06b3e
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>在 HDInsight 上使用 Hive 與 Hadoop 分析 Twitter 資料
 
@@ -49,7 +49,7 @@ Twitter 可讓您透過 REST API 抓取 [每則推文資料](https://dev.twitter
    | 說明 |MyHDInsightApp |
    | 網站 |http://www.myhdinsightapp.com |
 
-4. 核取 是，我同意 然後按一下建立 Twitter 應用程式。
+4. 核取 [是，我同意] 然後按一下 [建立 Twitter 應用程式]。
 
 5. 按一下 [權限]  索引標籤。預設權限為 [唯讀] 。
 
@@ -158,6 +158,9 @@ Twitter 可讓您透過 REST API 抓取 [每則推文資料](https://dev.twitter
     > * `consumer_key`
     > * `access_token`
     > * `access_token_secret`
+
+    > [!TIP]
+    > 調整最後一行上的主題篩選條件，以追蹤熱門關鍵字。 使用您執行指令碼當時熱門的關鍵字，可以更快擷取資料。
 
 6. 依序按 **Ctrl + X**，然後 **Y** 儲存檔案。
 
@@ -312,19 +315,22 @@ Twitter 可讓您透過 REST API 抓取 [每則推文資料](https://dev.twitter
 
    ```hiveql
    SELECT name, screen_name, count(1) as cc
-       FROM tweets
-       WHERE text like "%Azure%"
-       GROUP BY name,screen_name
-       ORDER BY cc DESC LIMIT 10;
+   FROM tweets
+   WHERE text like "%Azure%"
+   GROUP BY name,screen_name
+   ORDER BY cc DESC LIMIT 10;
    ```
 
     這個查詢會傳回最多 10 則訊息內容中包含文字 **Azure** 的推文。
+
+    > [!NOTE]
+    > 如果您變更了 `gettweets.py` 指令碼中的篩選條件，請將 **Azure** 取代為您使用的其中一個篩選條件。
 
 ## <a name="next-steps"></a>後續步驟
 
 您已經學會如何將非結構化的 JSON 資料集轉換成結構化的 Hive 資料表。 若要深入了解 HDInsight 上的 Hive，請參閱下列文件：
 
-* [開始使用 HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [開始使用 HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [使用 HDInsight 分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)
 
 [curl]: http://curl.haxx.se

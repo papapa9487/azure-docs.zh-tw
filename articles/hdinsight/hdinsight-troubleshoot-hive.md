@@ -13,20 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: dharmeshkakadia
-ms.openlocfilehash: 53e9685458190efe6a586504721b8e7baadaed60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 398cc7cd0fa815f12ba5b503a1328688e1159eee
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>使用 Azure HDInsight 為 Hive 進行疑難排解
 
 了解在 Apache Ambari 中使用 Apache Hive 承載時最常發生的問題及其解決方法。
 
 
-## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>如何匯出 Hive 中繼存放區並匯入另一個叢集
+## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>如何匯出 Hive 中繼存放區並匯入另一個叢集？
 
 
 ### <a name="resolution-steps"></a>解決步驟
@@ -54,7 +54,7 @@ ms.lasthandoff: 10/11/2017
 - [使用 SSH 連線到 HDInsight 叢集](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>如何在叢集上尋找 Hive 記錄
+## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>如何在叢集上尋找 Hive 記錄？
 
 ### <a name="resolution-steps"></a>解決步驟
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 10/11/2017
 - [使用 SSH 連線到 HDInsight 叢集](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>如何在叢集上以特定設定啟動 Hive Shell
+## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>如何在叢集上以特定設定啟動 Hive Shell？
 
 ### <a name="resolution-steps"></a>解決步驟
 
@@ -110,7 +110,7 @@ ms.lasthandoff: 10/11/2017
 - [Hive 設定屬性](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
 
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>如何分析叢集關鍵路徑上的 Tez DAG 資料
+## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>如何分析叢集關鍵路徑上的 Tez DAG 資料？
 
 
 ### <a name="resolution-steps"></a>解決步驟
@@ -150,7 +150,7 @@ ms.lasthandoff: 10/11/2017
 - [使用 SSH 連線到 HDInsight 叢集](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>如何從叢集下載 Tez DAG 資料
+## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>如何從叢集下載 Tez DAG 資料？
 
 
 #### <a name="resolution-steps"></a>解決步驟
@@ -177,6 +177,8 @@ ms.lasthandoff: 10/11/2017
 [使用 SSH 連線到 HDInsight 叢集](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
+### <a name="see-also"></a>另請參閱
+[使用 Azure HDInsight 進行疑難排解](hdinsight-troubleshoot-guide.md)
 
 
 

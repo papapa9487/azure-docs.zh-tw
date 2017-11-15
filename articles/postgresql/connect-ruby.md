@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 06/30/2017
-ms.openlocfilehash: 7ad4a2fd7452f31689a02b144078a9630bfd5259
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 11/03/2017
+ms.openlocfilehash: 0b8ee73ab86dde2b2c09c9fe2e73209d000b3f26
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>Azure Database for PostgreSQL︰使用 Ruby 連線及查詢資料
 本快速入門示範如何使用 [Ruby](https://www.ruby-lang.org) 應用程式來連線到 Azure Database for PostgreSQL。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本文中的步驟假設您已熟悉使用 Ruby 進行開發，但不熟悉適用於 PostgreSQL 的 Azure 資料庫。
@@ -53,7 +53,7 @@ ms.lasthandoff: 10/24/2017
 - 執行 `sudo gem install pg` 命令以使用 Gem 建置 Ruby pg 模組。
 
 ## <a name="run-ruby-code"></a>執行 Ruby 程式碼 
-- 將程式碼儲存到專案資料夾中副檔名為 .rb 的文字檔中，例如 `C:\rubypostgres\read.rb` 或 `/home/username/rubypostgres/read.rb`。
+- 將程式碼儲存到副檔名為 .rb 的文字檔中，並將該檔案儲存到專案資料夾中，例如 `C:\rubypostgres\read.rb` 或 `/home/username/rubypostgres/read.rb`
 - 若要執行程式碼，請啟動命令提示字元或 bash shell。 將目錄變更為您的專案資料夾 `cd rubypostgres`，然後輸入 `ruby read.rb` 命令來執行應用程式。
 
 ## <a name="get-connection-information"></a>取得連線資訊

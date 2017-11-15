@@ -11,14 +11,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/03/2017
+ms.date: 11/07/2017
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 50fd59c288312c7aa5ffe6abf1318a5ec2f406e6
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: ebe9351641f3c4ddade0ea456e8784d59acf9332
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>使用 Java 和 Maven 建立您的第一個函式 (預覽)
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/18/2017
 若要使用 Java 開發函式應用程式，您必須安裝下列項目：
 
 -  [.NET Core](https://www.microsoft.com/net/core) 最新版本。
--  [Java Developer Kit](https://www.azul.com/downloads/zulu/) 1.8 版。
+-  [Java Developer Kit](https://www.azul.com/downloads/zulu/)第 8 版。
 -  [Azure CLI](https://docs.microsoft.com/cli/azure)
 -  [Apache Maven](https://maven.apache.org) 3.0 版或更高版本。
 -  [Node.js](https://nodejs.org/download/) 8.6 版或更高版本。

@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/15/2017
-ms.openlocfilehash: 0e1a334f4dd4d142c923fababc336897d9020fad
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 11/03/2017
+ms.openlocfilehash: ee310f10b27418c1dcd73755643120121f611f06
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database for PostgreSQL︰使用 Python 連線及查詢資料
 本快速入門示範如何使用 [Python](https://python.org) 連線至 Azure Database for PostgreSQL。 它也會示範如何使用 SQL 陳述式查詢、插入、更新和刪除 macOS、Ubuntu Linux 和 Windows 平台的資料庫中的資料。 本文中的步驟假設您已熟悉使用 Python 進行開發，但不熟悉 Azure Database for PostgreSQL。
@@ -50,14 +50,14 @@ ms.lasthandoff: 10/24/2017
 取得連線到 Azure Database for PostgreSQL 所需的連線資訊。 您需要完整的伺服器名稱和登入認證。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後搜尋 **mypgserver-20170401** (您剛建立的伺服器)。
+2. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後搜尋 **mypgserver-20170401** (您建立的伺服器)。
 3. 按一下伺服器名稱 [mypgserver-20170401]。
 4. 選取伺服器的 [概觀] 頁面，然後記下 [伺服器名稱] 和 [伺服器管理員登入名稱]。
  ![Azure Database for PostgreSQL - 伺服器管理員登入](./media/connect-python/1-connection-string.png)
 5. 如果您忘記伺服器登入資訊，請瀏覽至 [概觀] 頁面來檢視伺服器管理員登入名稱，並視需要重設密碼。
 
 ## <a name="how-to-run-python-code"></a>如何執行 Python 程式碼
-本主題總共包含四個程式碼範例，各自會執行一項特定功能。 下列指示指出如何建立文字檔、插入程式碼區塊，然後儲存檔案，以便稍後執行。 請務必建立四個不同的檔案，每個程式碼區塊使用一個檔案。
+本文總共包含四個程式碼範例，各自會執行一項特定函數。 下列指示指出如何建立文字檔、插入程式碼區塊，然後儲存檔案，以便稍後執行。 請務必建立四個不同的檔案，每個程式碼區塊使用一個檔案。
 
 - 使用您慣用的文字編輯器，建立新的檔案。
 - 將下列各節中的其中一個程式碼範例複製並貼在文字檔案中。 以您建立伺服器和資料庫時所指定的值，取代 **host**、**dbname**、**user** 和 **password** 參數。
@@ -66,7 +66,7 @@ ms.lasthandoff: 10/24/2017
 -  若要執行程式碼，請鍵入後面接著檔案名稱的 python 命令，例如 `Python postgres.py`。
 
 > [!NOTE]
-> 從 Python 第 3 版開始，您可能會在執行下列程式碼區塊時看到錯誤 `SyntaxError: Missing parentheses in call to 'print'`。 如果發生這種情況，請將每個 `print "string"` 命令呼叫取代為使用括號的函式呼叫，例如 `print("string")`。
+> 從 Python 第 3 版開始，執行下列程式碼區塊時，您可能會看到錯誤 `SyntaxError: Missing parentheses in call to 'print'`：如果發生這種情況，請使用括號，將命令 `print "string"` 的每個呼叫取代為函式呼叫，例如 `print("string")`。
 
 ## <a name="connect-create-table-and-insert-data"></a>連線、建立資料表及插入資料
 使用 [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) 函式搭配 **INSERT** SQL 陳述式，利用下列程式碼來連線和載入資料。 [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) 函式用來對 PostgreSQL 資料庫執行 SQL 查詢。 以建立伺服器和資料庫時所指定的值，取代主機、資料庫名稱、使用者和密碼參數。

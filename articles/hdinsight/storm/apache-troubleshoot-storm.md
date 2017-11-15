@@ -13,19 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: 70a3d762431d90acdd6ed2a432a569f34d0ce447
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 399ed17e997baf5dcf484f7798d3c4679522c633
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>使用 Azure HDInsight 為 Storm 進行疑難排解
 
 了解在 Apache Ambari 中使用 Apache Storm 承載時最常發生的問題及其解決方法。
 
-## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>如何在叢集上存取 Storm UI
+## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>如何在叢集上存取 Storm UI？
 您有兩個選項可從瀏覽器存取 Storm UI：
 
 ### <a name="ambari-ui"></a>Ambari UI
@@ -42,7 +42,7 @@ https://\<叢集 DNS 名稱\>/stormui
 
  https://stormcluster.azurehdinsight.net/stormui
 
-## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>如何將 Storm 事件中樞 Spout 檢查點資訊從一個拓撲傳輸到另一個拓撲
+## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>如何將 Storm 事件中樞 Spout 檢查點資訊從一個拓撲傳輸到另一個拓撲？
 
 當您使用 HDInsight Storm 事件中樞 Spout .jar 檔案開發讀取自 Azure 事件中樞的拓撲時，您必須在新的叢集上部署具有相同名稱的拓撲。 不過，您必須在舊的叢集上保留認可至 Apache ZooKeeper 的檢查點資料。
 
@@ -86,14 +86,14 @@ lib 資料夾的 .jar 檔案包含匯出/匯入作業的實作。 bash 資料夾
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter delete /eventhubspout
     ```
 
-## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>如何找出叢集上的 Storm 二進位檔
+## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>如何找出叢集上的 Storm 二進位檔？
 目前 HDP 堆疊的 Storm 二進位檔位於 /usr/hdp/current/storm-client 中。 前端節點和背景工作節點使用相同的位置。
  
 /usr/hdp 中可能會有特定 HDP 版本的多個二進位檔 (例如 /usr/hdp/2.5.0.1233/storm)。 /usr/hdp/current/storm-client 資料夾是以符號連結至叢集上執行的最新版本。
 
 如需詳細資訊，請參閱[使用 SSH 連線到 HDInsight 叢集](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)和 [Storm](http://storm.apache.org/)。
  
-## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>我要如何判斷 Storm 叢集的部署拓撲
+## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>如何判斷 Storm 叢集的部署拓撲？
 首先，找出所有與 HDInsight Storm 一起安裝的元件。 Storm 叢集包含四個節點類別：
 
 * 閘道節點
@@ -122,7 +122,7 @@ Storm 背景工作節點執行下列服務：
 * 背景工作 Java 虛擬機器 (JVM)，用於執行拓樸
 * Ambari 代理程式
  
-## <a name="how-do-i-locate-storm-event-hub-spout-binaries-for-development"></a>如何找出用於開發的 Storm 事件中樞 Spout 二進位檔
+## <a name="how-do-i-locate-storm-event-hub-spout-binaries-for-development"></a>如何找出用於開發的 Storm 事件中樞 Spout 二進位檔？
  
 如需對您的拓撲使用 Storm 事件中樞 Spout .jar 檔案的詳細資訊，請參閱下列資源。
  
@@ -138,7 +138,7 @@ Storm 背景工作節點執行下列服務：
 ### <a name="source-code-examples"></a>原始程式碼範例
 請參閱[範例](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)，以了解如何使用 Azure HDInsight 叢集上的 Apache Storm 拓撲 (以 Java 撰寫)，來從 Azure 事件中樞進行讀取和寫入。
  
-## <a name="how-do-i-locate-storm-log4j-configuration-files-on-clusters"></a>如何找出叢集上的 Storm Log4J 設定檔
+## <a name="how-do-i-locate-storm-log4j-configuration-files-on-clusters"></a>如何找出叢集上的 Storm Log4J 組態檔？
  
 識別 Storm 服務的 Apache Log4J 設定檔。
  
@@ -152,3 +152,5 @@ Storm 背景工作節點執行下列服務：
  
 範例：/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml /usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml
 
+### <a name="see-also"></a>另請參閱
+[使用 Azure HDInsight 進行疑難排解](../../hdinsight/hdinsight-troubleshoot-guide.md)

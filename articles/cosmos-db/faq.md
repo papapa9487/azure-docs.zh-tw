@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: e8ac4bef5af7a98857278b82304bb58f1ac6e342
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 091446fd45b09913dee70dbb4c7e5ebbca02819b
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常見問題集
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB 基本概念
@@ -81,7 +81,7 @@ Azure Cosmos DB 不需要結構描述的索引引擎能夠自動建立所內嵌�
 
 下列條件適用於試用 Azure Cosmos DB 訂用帳戶：
 
-* SQL (DocumentDB API)、Gremlin (Graph API) 和資料表帳戶的每個訂用帳戶一個容器。
+* 針對 SQL (DocumentDB API)、Gremlin (圖形 API) 及「資料表 API」帳戶為每個訂用帳戶一個容器。
 * MongoDB 帳戶的每個訂用帳戶最多 3 個集合。
 * 10 GB 儲存體容量。
 * 全域複寫適用於下列 [Azure 區域](https://azure.microsoft.com/regions/)：美國中部、北歐和東南亞
@@ -181,9 +181,7 @@ Azure Cosmos DB 會強制執行嚴格的安全性需求和標準。 Azure Cosmos
 ## <a name="develop-with-the-table-api-preview"></a>利用資料表 API (預覽) 進行開發
 
 ### <a name="terms"></a>詞彙 
-Azure Cosmos DB：資料表 API (預覽) 是指 Azure Cosmos DB 針對在組建 2017 中宣告之資料表支援所提供的進階供應項目。 
-
-標準資料表 SDK 是現有的 Azure 儲存體資料表 SDK。 
+「Azure Cosmos DB 資料表 API (預覽)」是指 Azure Cosmos DB 針對在組建 2017 宣告之資料表資料模型，所提供的進階供應項目。 
 
 ### <a name="how-can-i-use-the-new-table-api-preview-offering"></a>如何使用新的資料表 API (預覽) 供應項目？ 
 [Azure 入口網站][azure-portal]中已提供 Azure Cosmos DB 資料表 API。 首先，您必須註冊 Azure 訂用帳戶。 註冊之後，您可以將 Azure Cosmos DB 資料表 API 帳戶加入 Azure 訂用帳戶，接著再將資料表加入帳戶。 
@@ -191,7 +189,7 @@ Azure Cosmos DB：資料表 API (預覽) 是指 Azure Cosmos DB 針對在組建 
 在預覽期間，[SDK](../cosmos-db/table-sdk-dotnet.md) 適用於 .NET，您可以從完成[資料表 API](../cosmos-db/create-table-dotnet.md) 快速入門文章來開始。
 
 ### <a name="do-i-need-a-new-sdk-to-use-the-table-api-preview"></a>我需要新的 SDK，才能使用資料表 API (預覽) 嗎？ 
-是，[Windows Azure 儲存體進階資料表 (預覽) SDK](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable) 可在 NuGet 上取得。 其他資訊位於 [Azure Cosmos DB 資料表 .NET API：下載和版本資訊](https://github.com/Microsoft/azure-docs-pr/cosmos-db/table-sdk-dotnet.md)頁面上。 
+是，[Windows Azure 儲存體進階資料表 (預覽) SDK](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable) \(英文\) 可在 NuGet 上取得，並且必須要有此 SDK，才能使用「Azure Cosmos DB 資料表 API」。 其他資訊位於 [Azure Cosmos DB 資料表 .NET API：下載和版本資訊](https://github.com/Microsoft/azure-docs-pr/cosmos-db/table-sdk-dotnet.md)頁面上。 
 
 ### <a name="how-do-i-provide-feedback-about-the-sdk-or-bugs"></a>如何提供關於 SDK 和 Bug 的意見反應？
 您可以使用以下任何方式來分享意見反應：
@@ -219,8 +217,8 @@ DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB;AccountKey=
     </appSettings>
 
 
-### <a name="are-there-any-changes-for-customers-who-are-using-the-existing-standard-table-sdk"></a>使用現有標準資料表 SDK 的客戶需要改變什麼嗎？
-無。 使用現有標準資料表 SDK 的現有或新客戶不需要改變任何項目。 
+### <a name="are-there-any-changes-for-customers-who-are-using-the-existing-azure-table-storage-sdk"></a>對使用現有「Azure 資料表」儲存體 SDK 的客戶來說，是否有任何變更？
+無。 對使用現有「Azure 資料表」儲存體 SDK 的現有客戶或新客戶來說，並無任何變更。 
 
 ### <a name="how-do-i-view-table-data-that-is-stored-in-azure-cosmos-db-for-use-with-the-table-api-review"></a>如何檢視儲存在 Azure Cosmos DB 中的資料表 資料，以便與資料表 API (預覽) 搭配使用？ 
 您可以使用 Azure 入口網站來瀏覽資料。 您也可以使用資料表 API (預覽) 程式碼或下一個回答所述的工具。 
@@ -239,11 +237,11 @@ DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB;AccountKey=
 ### <a name="is-the-odata-query-model-supported-for-entities"></a>是否針對實體支援 OData 查詢模型？ 
 是，資料表 API (預覽) 支援 OData 查詢和 LINQ 查詢。 
 
-### <a name="can-i-connect-to-the-standard-azure-table-and-the-new-premium-table-api-preview-side-by-side-in-the-same-application"></a>我可以在同一個應用程式中並行連接標準 Azure 資料表和新的進階資料表 API (預覽) 嗎？ 
+### <a name="can-i-connect-to-the-azure-table-storage-and-the-azure-cosmos-db-table-api-preview-side-by-side-in-the-same-application"></a>我可以在同一個應用程式中並行連線至「Azure 資料表」儲存體和「Azure Cosmos DB 資料表 API (預覽)」嗎？ 
 是，您可以建立兩個不同的 CloudTableClient 執行個體，並透過連接字串讓它們分別指向自己的 URI，藉此進行連線。
 
 ### <a name="how-do-i-migrate-an-existing-azure-table-storage-application-to-this-new-offering"></a>如何將現有的 Azure 資料表儲存體應用程式移轉到這個新的供應項目？
-若要在現有的資料表儲存體資料上利用新的資料表 API 供應項目，請連絡 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com)。 
+若要在現有的「資料表」儲存體資料上利用新的「Azure Cosmos DB 資料表 API (預覽)」供應項目，請連絡 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com)。 
 
 ### <a name="what-is-the-roadmap-for-this-service-and-when-will-you-offer-other-standard-table-api-functionality"></a>這項服務的藍圖是什麼，你們何時能提供其他標準資料表 API 功能？
 當我們繼續朝向公開上市邁進時，計劃要加入 SAS 權杖、ServiceContext、統計資料、用戶端加密、分析和其他功能的支援。 您可以在 [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api) (英文) 上提供意見反應給我們。 
@@ -252,7 +250,7 @@ DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB;AccountKey=
 Azure Cosmos DB 的設計乃藉由使用水平調整提供無限制的儲存體。 這項服務能監視並有效地增加您的儲存體。 
 
 ### <a name="how-do-i-monitor-the-table-api-preview-offering"></a>如何監視資料表 API (預覽) 供應項目？
-您可以使用資料表 API (預覽) 的 [計量] 窗格，來監視要求和儲存體使用量。 
+您可以在 Azure 入口網站中使用「資料表 API (預覽)」的 [計量] 窗格，來監視要求和儲存體使用量。 
 
 ### <a name="how-do-i-calculate-the-throughput-i-require"></a>如何計算我需要的輸送量？
 您可以使用的容量估計工具來計算作業所需的 TableThroughput。 如需詳細資訊，請參閱[估算要求單位和資料儲存體 (英文)](https://www.documentdb.com/capacityplanner)。 通常，您可以將實體表示為 JSON，並為您的作業提供編號。 
@@ -264,16 +262,16 @@ Azure Cosmos DB 的設計乃藉由使用水平調整提供無限制的儲存體�
 DefaultEndpointsProtocol=https;AccountName=localhost;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==;TableEndpoint=https://localhost:8081`. 
 ```
 
-### <a name="can-my-existing-application-work-with-the-table-api-preview"></a>我現有的應用程式可以與資料表 API (預覽) 搭配運作嗎？ 
-新資料表 API (預覽) 的介面區可以在進行 .NET API 的建立、刪除、更新、查詢作業中，與現有的 Azure 標準資料表 SDK 相容。 請確認您具有資料列索引鍵，因為資料表 API (預覽) 需要資料分割索引鍵和資料列索引鍵。 在我們努力達成將該服務供應項目公開上市的目標時，也計劃加入更多 SDK 支援。
+### <a name="can-my-existing-azure-table-storage-application-work-with-the-table-api-preview"></a>我現有的「Azure 資料表」儲存體應用程式可以與「資料表 API (預覽)」搭配運作嗎？ 
+新「資料表 API (預覽)」的介面區在於 .NET API 中的建立、刪除、更新及查詢作業方面，與現有的「Azure 資料表」儲存體 SDK 相容。 請確認您具有資料列索引鍵，因為資料表 API (預覽) 需要資料分割索引鍵和資料列索引鍵。 在我們努力達成將該服務供應項目公開上市的目標時，也計劃加入更多 SDK 支援。
 
-### <a name="do-i-need-to-migrate-my-existing-azure-table-based-applications-to-the-new-sdk-if-i-do-not-want-to-use-the-table-api-preview-features"></a>如果我不想使用資料表 API (預覽) 功能，還需要將現有的 Azure 資料表式應用程式移轉到新的 SDK 嗎？
-否，您可以建立和使用現有的標準資料表資產，而不會產生任何形式的中斷。 不過，如果您不使用新的資料表 API (預覽)，就無法從自動索引、額外的一致性選項或全域散發中獲益。 
+### <a name="do-i-need-to-migrate-my-existing-azure-table-storage-applications-to-the-new-sdk-if-i-do-not-want-to-use-the-table-api-preview-features"></a>如果我不想要使用「資料表 API (預覽)」功能，是否需要將現有的「Azure 資料表」儲存體應用程式移轉至新的 SDK？
+否，您可以建立和使用現有的「Azure 資料表」儲存體資產，而不會有任何形式的服務中斷。 不過，如果您不使用新的資料表 API (預覽)，就無法從自動索引、額外的一致性選項或全域散發中獲益。 
 
-### <a name="how-do-i-add-replication-of-the-data-in-the-premium-table-api-preview-across-multiple-regions-of-azure"></a>如何跨 Azure 的多個區域，在進階資料表 API (預覽) 中加入對資料的複寫？
+### <a name="how-do-i-add-replication-of-the-data-in-the-table-api-preview-across-multiple-regions-of-azure"></a>如何在「資料表 API (預覽)」中新增跨多個 Azure 區域的資料複寫？
 您可以使用 Azure Cosmos DB 入口網站的[全域複寫設定](tutorial-global-distribution-documentdb.md#portal)，加入適合應用程式的區域。 若要開發全域散發的應用程式，您還應該使用設為本地區域的 PreferredLocation 資訊來加入您的應用程式，以提供低讀取延遲。 
 
-### <a name="how-do-i-change-the-primary-write-region-for-the-account-in-the-premium-table-api-preview"></a>如何在進階資料表 API (預覽) 中變更帳戶的主要寫入區域？
+### <a name="how-do-i-change-the-primary-write-region-for-the-account-in-the-table-api-preview"></a>如何在「資料表 API (預覽)」中變更帳戶的主要寫入區域？
 您可以使用 Azure Cosmos DB 的全球複寫入口網站窗格來加入一個區域，然後容錯移轉至所需的區域。 如需指示，請參閱[使用多區域 Azure Cosmos DB 帳戶進行開發](regional-failover.md)。 
 
 ### <a name="how-do-i-configure-my-preferred-read-regions-for-low-latency-when-i-distribute-my-data"></a>當我散發資料時，如何設定慣用的讀取區域以取得低延遲？ 
@@ -286,26 +284,26 @@ Azure Cosmos DB 可在一致性、高可用性及延遲之間提供完全合乎�
 
 根據預設，Azure 資料表儲存體提供區域內的強式一致性，以及次要位置中最終的一致性。 
 
-### <a name="does-azure-cosmos-db-offer-more-consistency-levels-than-standard-tables"></a>Azure Cosmos DB 提供的一致性層級是否比標準資料表多？
+### <a name="does-the-azure-cosmos-db-table-api-offer-more-consistency-levels-than-azure-table-storage"></a>「Azure Cosmos DB 資料表 API」是否提供比「Azure 資料表」更多的一致性層級？
 是，如需如何從 Azure Cosmos DB 分散式本質獲益的相關資訊，請參閱[一致性層級](consistency-levels.md)。 由於我們提供一致性層級保證，因此您可以放心使用。 如需詳細資訊，請參閱 [Azure Cosmos DB 功能](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities)。
 
 ### <a name="when-global-distribution-is-enabled-how-long-does-it-take-to-replicate-the-data"></a>啟用全域散發時，複寫資料需要多久的時間？
-我們會永久認可當地區域中的資料，並在幾毫秒之內將資料立即推送到其他區域。 這項複寫操作只取決於資料中心的來回時間 (RTT)。 若要深入了解 Azure Cosmos DB 的全域散發能力，請參閱 [Azure Cosmos DB︰Azure 上分散在世界各地的資料庫服務](distribute-data-globally.md)。
+Azure Cosmos DB 會在當地區域持久認可資料，並在幾毫秒內立即將資料推送到其他區域。 這項複寫操作只取決於資料中心的來回時間 (RTT)。 若要深入了解 Azure Cosmos DB 的全域散發能力，請參閱 [Azure Cosmos DB︰Azure 上分散在世界各地的資料庫服務](distribute-data-globally.md)。
 
 ### <a name="can-the-read-request-consistency-level-be-changed"></a>可以變更讀取要求一致性層級嗎？
 有了 Azure Cosmos DB，您可以設定容器層級的一致性層級 (在資料表中)。 透過 SDK，您可以在 app.config 檔案中提供 TableConsistencyLevel 索引鍵的值，藉以變更層級。 可能的值包括：強式、限定過期、工作階段、一致前置詞或最終。 如需詳細資訊，請參閱 [Azure Cosmos DB 中的 Tunable 資料一致性層級](consistency-levels.md)。 主要概念在於，您無法將要求一致性層級設定為高於資料表設定的值。 例如，您無法將資料表的一致性層級設定為「最終」，而將要求一致性層級設定為「強式」。 
 
-### <a name="how-does-the-premium-table-api-preview-account-handle-failover-if-a-region-goes-down"></a>區域中斷時，進階資料表 API (預覽) 帳戶如何處理容錯移轉？ 
-進階資料表 API (預覽) 會藉助 Azure Cosmos DB 的全域散發平台。 若要確保您的應用程式可以容許資料中心停機，請在 Azure Cosmos DB 入口網站中針對該帳戶至少啟用一個以上的區域，[使用多區域 Azure Cosmos DB 帳戶進行開發](regional-failover.md)。 您可以使用入口網站來設定區域的優先順序，[使用多區域 Azure Cosmos DB 帳戶進行開發](regional-failover.md)。 
+### <a name="how-does-the-table-api-preview-account-handle-failover-if-a-region-goes-down"></a>當區域發生服務中斷時，「資料表 API (預覽)」帳戶如何處理容錯移轉？ 
+「Azure Cosmos DB 資料表 API (預覽)」會藉助 Azure Cosmos DB 的全域分散式平台。 若要確保您的應用程式可以容許資料中心停機，請在 Azure Cosmos DB 入口網站中針對該帳戶至少啟用一個以上的區域，[使用多區域 Azure Cosmos DB 帳戶進行開發](regional-failover.md)。 您可以使用入口網站來設定區域的優先順序，[使用多區域 Azure Cosmos DB 帳戶進行開發](regional-failover.md)。 
 
 您可以針對帳戶加入任意數目的區域，並藉由提供容錯移轉優先順序來控制容錯移轉的目標位置。 當然，若要使用的資料庫，您還需要在目標位置提供應用程式。 如果您這樣做，您的客戶就不會經歷停機時間。 用戶端 SDK 會自動連接。 也就是說，它可以偵測到區域已關閉，並自動容錯移轉至新的區域。
 
-### <a name="is-the-premium-table-api-preview-enabled-for-backups"></a>進階資料表 API (預覽) 是否擁有備份能力？
-是，進階資料表 API (預覽) 會藉助 Azure Cosmos DB 的平台來進行備份。 備份會自動執行。 如需詳細資訊，請參閱[使用 Azure Cosmos DB 進行線上備份及還原](online-backup-and-restore.md)。
+### <a name="is-the-table-api-preview-enabled-for-backups"></a>是否已啟用「資料表 API (預覽)」的備份功能？
+是，「Azure Cosmos DB 資料表 API (預覽)」會藉助 Azure Cosmos DB 的平台來進行備份。 備份會自動執行。 如需詳細資訊，請參閱[使用 Azure Cosmos DB 進行線上備份及還原](online-backup-and-restore.md)。
 
  
 ### <a name="does-the-table-api-preview-index-all-attributes-of-an-entity-by-default"></a>資料表 API (預覽) 預設會為實體的所有屬性編製索引嗎？
-是，根據預設，它會為實體的所有屬性編製索引。 如需詳細資訊，請參閱 [Azure Cosmos DB：索引編製原則](indexing-policies.md)。 
+是，Azure Cosmos DB 預設會為實體的所有屬性編製索引。 如需詳細資訊，請參閱 [Azure Cosmos DB：索引編製原則](indexing-policies.md)。 
 
 ### <a name="does-this-mean-i-do-not-have-to-create-multiple-indexes-to-satisfy-the-queries"></a>這表示我不需要建立多個索引來滿足查詢嗎？ 
 是，Azure Cosmos DB 會為所有屬性提供自動編製索引，而不需任何結構描述定義。 這項資訊能讓開發人員專注於應用程式，而不需擔心索引的建立和管理。 如需詳細資訊，請參閱 [Azure Cosmos DB：索引編製原則](indexing-policies.md)。
@@ -358,16 +356,16 @@ Azure Cosmos DB 可在一致性、高可用性及延遲之間提供完全合乎�
 ### <a name="is-a-default-tablethroughput-set-for-newly-provisioned-tables"></a>新佈建的資料表是否有預設的 TableThroughput 設定？
 是，如果您不透過 app.config 覆寫 TableThroughput，也不在 Azure Cosmos DB 中使用預先建立的容器，服務會建立輸送量為 400 的資料表。
  
-### <a name="is-there-any-change-of-pricing-for-existing-customers-of-the-standard-table-api"></a>對於標準資料表 API 的現有客戶，是否有任何定價變更？
-無。 對於現有的標準資料表 API 客戶，沒有任何價格上的變更。 
+### <a name="is-there-any-change-of-pricing-for-existing-customers-of-azure-table-storage"></a>對現有的「Azure 資料表」儲存體客戶來說，是否有任何定價變更？
+無。 對現有的「Azure 資料表」儲存體客戶來說，並沒有任何價格上的變更。 
 
 ### <a name="how-is-the-price-calculated-for-the-table-api-preview"></a>如何針對資料表 API (預覽) 計算價格？ 
-價格取決於配置的 TableThroughput。 
+「Azure Cosmos DB 資料表 API (預覽)」的價格取決於配置的 TableThroughput。 
 
-### <a name="how-do-i-handle-any-throttling-on-the-tables-in-table-api-preview-offering"></a>如何在資料表 API (預覽) 供應項目中處理資料表上的任何節流？ 
+### <a name="how-do-i-handle-any-throttling-in-table-api-preview-offering"></a>如何處理「資料表 API (預覽)」供應項目中的任何節流？ 
 如果要求速率超過基礎容器之佈建輸送量的容量，您將會收到錯誤，而 SDK 將套用重試原則來重試呼叫。
 
-### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-premium-table-api-preview-offering-of-azure-cosmos-db"></a>為何我需要選擇 PartitionKey 和 RowKey 以外的輸送量，才能運用 Azure Cosmos DB 的進階資料表 API (預覽) 供應項目？
+### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-azure-cosmos-db-table-api-preview"></a>為何我需要選擇 PartitionKey 和 RowKey 以外的輸送量，才能運用「Azure Cosmos DB 資料表 API (預覽)」？
 如果您未在 app.config 中提供輸送量，Azure Cosmos DB 將為您的容器設定預設輸送量。 
 
 Azure Cosmos DB 能提供效能和延遲上的保證，限定作業時的上限。 當引擎能針對租用戶作業強制執行控管時，這項保證是可行的。 設定 TableThroughput 能確保您享有保證的輸送量和延遲，因為平台會保留產能，保證作業成功。 
@@ -376,17 +374,17 @@ Azure Cosmos DB 能提供效能和延遲上的保證，限定作業時的上限�
 
 ### <a name="azure-storage-sdk-has-been-very-inexpensive-for-me-because-i-pay-only-to-store-the-data-and-i-rarely-query-the-new-azure-cosmos-db-offering-seems-to-be-charging-me-even-though-i-have-not-performed-a-single-transaction-or-stored-anything-can-you-please-explain"></a>Azure 儲存體 SDK 對我而言非常便宜，因為我只需要支付資料的儲存費用，而且我很少查詢。 即使我尚未執行單一交易或儲存任何項目，新的 Azure Cosmos DB 供應項目似乎還是會向我收取費用。 可以請您說明嗎？
 
-Azure Cosmos DB 已設計為全域散發的 SLA 型系統，並提供可用性、延遲和輸送量的保證。 當您在 Azure Cosmos DB 中保留輸送量時，與其他系統輸送量不同的是，它會提供保證。 Azure Cosmos DB 會提供客戶要求的其他功能，如次要索引和全域散發。 在預覽期間，我們提供輸送量最佳化的模型。我們的終極目標是提供儲存體最佳化的模型，以符合客戶的需求。 
+Azure Cosmos DB 已設計為全域散發的 SLA 型系統，並提供可用性、延遲和輸送量的保證。 當您在 Azure Cosmos DB 中保留輸送量時，與其他系統輸送量不同的是，它會提供保證。 Azure Cosmos DB 會提供客戶要求的其他功能，如次要索引和全域散發。  
 
-### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-table-storage-with-the-table-api-preview-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>將資料嵌入資料表儲存體時，我從未收過「配額已滿」通知 (包括資料分割已滿)。 當我使用資料表 API (預覽) 時，卻收到了這則訊息。 這個供應項目會限制我，並強迫我變更我現有的應用程式嗎？
+### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-preview-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>將資料內嵌至「Azure 資料表」儲存體時，我從未收到「配額已滿」通知 (表示分割區已滿)。 當我使用資料表 API (預覽) 時，卻收到了這則訊息。 這個供應項目會限制我，並強迫我變更我現有的應用程式嗎？
 
 Azure Cosmos DB 是 SLA 型系統，它提供無限制的調整和延遲、輸送量、可用性、一致性保證。 若要獲得保證的進階效能，您必須確定資料大小和索引是可管理且可調整的。 每個資料分割索引鍵的實體或項目數目限制為 10 GB，這是為了確保我們能夠提供絕佳的查閱和查詢效能。 為了確保您的應用程式能夠針對 Azure 儲存體進行更佳的調整，建議您「避免」建立常用資料分割 (將所有資訊儲存在一個資料分割，然後進行查詢)。 
 
 ### <a name="so-partitionkey-and-rowkey-are-still-required-with-the-new-table-api-preview"></a>這樣說來，新的資料表 API (預覽) 仍然需要 PartitionKey 和 RowKey 嗎？ 
-是。 因為資料表 API (預覽) 的介面區與資料表儲存體 SDK 類似，所以資料分割索引鍵能提供有效率的資料散發方式。 資料列索引鍵在該資料分割內是唯一的。 資料列索引鍵必須存在且不能為 Null，如同在標準 SDK 中。 RowKey 的長度是 255 個位元組，而 PartitionKey 為 100 個位元組 (即將提高為 1 KB)。 
+是。 因為「資料表 API (預覽)」的介面區與「Azure 資料表」儲存體 SDK 的介面區類似，所以分割區索引鍵能提供有效率的資料散發方式。 資料列索引鍵在該資料分割內是唯一的。 資料列索引鍵必須存在且不能為 Null，如同在標準 SDK 中。 RowKey 的長度是 255 個位元組，而 PartitionKey 為 100 個位元組 (即將提高為 1 KB)。 
 
 ### <a name="what-are-the-error-messages-for-the-table-api-preview"></a>資料表 API (預覽) 的錯誤訊息將有哪些？
-由於此預覽可與標準資料表相容，因此大多數的錯誤將與標準資料表的錯誤相對應。 
+由於此預覽版與「Azure 資料表」儲存體相容，因此大多數錯誤都可與標準資料表的錯誤對應。 
 
 ### <a name="why-do-i-get-throttled-when-i-try-to-create-lot-of-tables-one-after-another-in-the-table-api-preview"></a>當我嘗試在資料表 API (預覽) 中逐一建立許多資料表時，為什麼要進行節流？
 Azure Cosmos DB 是 SLA 型系統，可提供延遲、輸送量、可用性及一致性的保證。 由於它是佈建的系統，因此會保留資源以保證這些需求。 系統會偵測到快速建立的資料表，並加以節流。 我們建議您查看資料表的建立速率，並降低為低於每分鐘 5 個。 請記住，資料表 API (預覽) 是佈建的系統。 只要您一佈建，就必須開始支付費用。 
@@ -411,7 +409,7 @@ Azure Cosmos DB 始於 2010 年的「Project Florence」，目的在於解決 Mi
 
 從那時候起，我們便已新增一些功能並引進重要的全新功能。 Azure Cosmos DB 於焉產生。 在這個版本中，DocumentDB 客戶 (與其資料) 會自動無縫轉換為 Azure Cosmos DB 客戶。 這些功能位於核心資料庫引擎，以及全球發佈、彈性延展性和領先業界之完整 SLA 的領域。 具體來說，我們已逐步提升 Azure Cosmos DB 資料庫引擎，使其能夠有效地將所有熱門資料模型、類型系統和 API 對應至 Azure Cosmos DB 的基礎資料模型。 
 
-這項工作的目前開發人員表徵就是新支援 [Gremlin](../cosmos-db/graph-introduction.md) 和[表格儲存體 API](../cosmos-db/table-introduction.md)。 這只是開端。 我們計劃逐漸新增其他熱門 API 和較新的資料模型，更進一步提升全球規模的效能和儲存體。 
+這項工作的目前開發人員表徵就是對 [Gremlin](../cosmos-db/graph-introduction.md) 和[資料表 API](../cosmos-db/table-introduction.md) 的新支援。 這只是開端。 我們計劃逐漸新增其他熱門 API 和較新的資料模型，更進一步提升全球規模的效能和儲存體。 
 
 我們必須指出，DocumentDB 的 [SQL 方言](../documentdb/documentdb-sql-query.md)始終都是基礎 Cosmos DB 能夠支援的許多 API 之一。 對於使用完全受管理服務 (例如 Azure Cosmos DB) 的開發人員，服務唯一的介面就是服務所公開的 API。 現有的 DocumentDB 客戶絲毫沒有改變。 在 Azure Cosmos DB 中，您會獲得與 DocumentDB 完全相同的 SQL API。 現在 (以及在未來)，您可以存取先前無法存取的其他功能。 
 

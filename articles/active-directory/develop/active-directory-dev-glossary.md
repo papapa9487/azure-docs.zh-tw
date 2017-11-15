@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2017
+ms.date: 11/07/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: d7bc694b05ed1eb3915ba913afdb3cc39e048ca7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1002ce29ff0d9ee2a6eac44c6e4402fc7e9ade31
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory 開發人員詞彙
 本文包含某些核心 Azure Active Directory (AD) 開發人員概念的定義，以協助您了解 Azure AD 的應用程式開發。
@@ -153,13 +153,13 @@ ms.lasthandoff: 10/11/2017
 讓使用者變成未驗證狀態的程序，以便解除使用者在[登入](#sign-in)期間與[用戶端應用程式](#client-application)工作階段相關聯的狀態
 
 ## <a name="tenant"></a>tenant
-Azure AD 目錄的執行個體會稱為 Azure AD 租用戶。 它可提供各種功能，包括︰
+Azure AD 目錄的執行個體會稱為 Azure AD 租用戶。 它提供數個功能，包括︰
 
 * 整合式應用程式的登錄服務
 * 驗證使用者帳戶和已註冊的應用程式
 * 支援各種通訊協定 (包括 OAuth2 和 SAML) 所需的 REST 端點包括[授權端點](#authorization-endpoint)、[權杖端點](#token-endpoint)以及[多租用戶應用程](#multi-tenant-application)所使用的「通用」端點。
 
-租用戶也會在訂用帳戶佈建期間與 Azure AD 或 Office 365 訂用帳戶產生關聯，並提供身分識別的身分識別和存取管理功能。 如需各種可存取租用戶之方式的詳細資訊，請參閱[如何取得 Azure Active Directory 租用戶][AAD-How-To-Tenant]。 如需訂用帳戶與 Azure AD 租用戶之間關聯性的詳細資訊，請參閱 [Azure 訂用帳戶如何與 Azure Active Directory 產生關聯][AAD-How-Subscriptions-Assoc]。
+Azure AD 租用戶會在註冊期間建立/與 Azure 和 Office 365 訂用帳戶產生關聯，藉此提供訂用帳戶的「身分識別與存取權管理」功能。 Azure 訂用帳戶管理員也可以透過 Azure 入口網站，建立其他 Azure AD 租用戶。 如需各種可存取租用戶之方式的詳細資訊，請參閱[如何取得 Azure Active Directory 租用戶][AAD-How-To-Tenant]。 如需訂用帳戶與 Azure AD 租用戶之間關聯性的詳細資訊，請參閱 [Azure 訂用帳戶如何與 Azure Active Directory 產生關聯][AAD-How-Subscriptions-Assoc]。
 
 ## <a name="token-endpoint"></a>權杖端點
 [授權伺服器](#authorization-server)為了支援 OAuth2 [授權授與](#authorization-grant)所實作的其中一個端點。 根據授與情形而定，權杖端點可用來取得[存取權杖](#access-token) (和相關的「重新整理」權杖) 給[用戶端](#client-application)，或搭配 [OpenID Connect][OpenIDConnect] 通訊協定使用時的[識別碼權杖](#ID-token)。

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8ce4d6d9024dc4ce3956220eb0678a6295b0b7ab
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9733774570f3148e0092f42c1321b4fac1c80b54
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-writeback-overview"></a>密碼回寫概觀
 
@@ -91,6 +91,8 @@ ms.lasthandoff: 10/31/2017
    ![在 Azure AD Connect 中啟用密碼回寫][Writeback]
 7. 在 [準備好設定] 畫面中，按一下 [設定]，然後等待設定程序完成。
 8. 當您看到「設定完成」時，按一下 [結束]
+
+如需了解有關密碼回寫的常見疑難排解工作，請參閱[針對密碼回寫問題進行疑難排解](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback)一節。
 
 ## <a name="active-directory-permissions"></a>Active Directory 權限
 

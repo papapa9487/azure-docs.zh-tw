@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: mimig
-ms.openlocfilehash: edbed5654a4df8a28b43f03ffd0ac204e0d7f8b1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68800ab14cbca367fd97827a923a2edc377e9aee
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>常見的 Azure Cosmos DB 使用案例
 本文提供數個常見的 Azure Cosmos DB 使用案例概觀。  本文中的建議可作為使用 Cosmos DB 來開發應用程式時的起點。   
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 
 Azure Cosmos DB 專案是在 2011 年以「佛羅倫斯專案」(Project Florence) 為代號發起的，為的是解決 Microsoft 內部大量網際網路級別應用程式所面對的開發人員難題。 在觀察到這些問題並非只發生在 Microsoft 應用程式之後，在 2015 年，我們決定將 Azure Cosmos DB 以 [Azure DocumentDB](https://azure.microsoft.com/blog/documentdb-moving-to-general-availability/) 的形式正式推出供給外部開發人員使用。 此服務不僅在 Microsoft 內部普遍使用，也是 Azure 開發人員在外部所使用成長最快速的服務之一。 
 
-Azure Cosmos DB 是一種全域分散式、多模型資料庫，廣泛用於各種應用程式和使用案例。 對於任何需要低毫秒級回應時間及需要快速且全域調整的[無伺服器](http://azure.com/serverless)應用程式來說，它是一個理想的選擇。 它以原生方式和延伸方式支援多個資料模型 (索引鍵-值、文件、圖形及單欄式) 和許多 API (包括 [MongoDB](mongodb-introduction.md)、[DocumentDB SQL](documentdb-introduction.md)、[Gremlin](graph-introduction.md) 及 [Azure 資料表](table-introduction.md)) 來進行資料存取。 
+Azure Cosmos DB 是一種全域分散式、多模型資料庫，廣泛用於各種應用程式和使用案例。 對於任何需要低毫秒級回應時間及需要快速且全域調整的[無伺服器](http://azure.com/serverless)應用程式來說，它是一個理想的選擇。 它以原生方式和延伸方式支援多個資料模型 (索引鍵-值、文件、圖形及單欄式) 和許多 API (包括 [MongoDB API](mongodb-introduction.md)、[DocumentDB API (SQL)](documentdb-introduction.md)、[圖形 API (Gremlin)](graph-introduction.md) 及[資料表 API](table-introduction.md)) 來進行資料存取。 
 
 以下是 Azure Cosmos DB 的一些特性，可讓 Cosmos DB 非常適合用於有全域發展企圖的高效能應用程式。
 

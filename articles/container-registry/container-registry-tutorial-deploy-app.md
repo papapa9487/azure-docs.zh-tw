@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 749a536fea50d0f45b021cfeaffe8e493faa9b3f
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 90d4b51dfaad409298f72887480dfaf827aef9f0
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-web-app-from-azure-container-registry"></a>從 Azure Container Registry 部署 Web 應用程式
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/24/2017
 
 在系列的下一段中，您要更新應用程式，然後將新的容器映像推送至登錄中。 最後，您要瀏覽至每個執行的 Web 應用程式執行個體，查看兩者當中皆已自動反映變更，顯示出 Azure Container Registry 異地複寫和 Webhook 起作用。
 
-## <a name="automatic-deployment-to-web-app-for-containers"></a>自動部署至用於容器的 Web 應用程式
+## <a name="automatic-deployment-to-web-apps-for-containers"></a>自動部署至用於容器的 Web 應用程式
 
 Azure Container Registry 支援將容器化的應用程式直接部署至[用於容器的 Web 應用程式](../app-service/containers/index.yml)。 在本教學課程中，您要使用 Azure 入口網站，將上一個教學課程中建立的容器映像，部署至位於不同 Azure 區域的兩個 Web 應用程式方案。
 
@@ -48,11 +48,11 @@ Azure Container Registry 支援將容器化的應用程式直接部署至[用於
 
 登入 [Azure 入口網站](https://portal.azure.com)並瀏覽至您在上一個教學課程中建立的登錄。
 
-選取 [存放庫] > **[acr-helloworld]**，然後以滑鼠右鍵按一下 [標記] 下的 [v1] 標記，然後選取 [部署至 App Service]。
+選取 [存放庫] > **[acr-helloworld]**，然後在 [標籤] 下的 [v1] 標籤上按一下滑鼠右鍵，接著選取 [部署至 Web 應用程式]。
 
 ![部署至 Azure 入口網站中的 App Service][deploy-app-portal-01]
 
-在顯示的 [Linux 上的 Web 應用程式 (預覽)] 下，為每個設定指定下列值：
+在顯示的 [用於容器的 Web App] 下，為每個設定指定下列值：
 
 | 設定 | 值 |
 |---|---|
@@ -71,7 +71,7 @@ Azure Container Registry 支援將容器化的應用程式直接部署至[用於
 
 在入口網站中，選取 [應用程式服務]，然後選取您在上一個步驟中佈建的 Web 應用程式。 在此範例中，Web 應用程式名為 *uniqueregistryname-westus*。
 
-選取 [App Service 概觀] 右上方 Web 應用程式的超連結 URL，在您的瀏覽器中檢視執行的應用程式。
+選取 **App Service** 概觀右上方 Web 應用程式的超連結 URL，以在您的瀏覽器中檢視執行中的應用程式。
 
 ![Azure 入口網站中 Linux 上的 Web 應用程式設定][deploy-app-portal-04]
 
@@ -81,7 +81,7 @@ Azure Container Registry 支援將容器化的應用程式直接部署至[用於
 
 ## <a name="deploy-second-web-app-for-containers-instance"></a>部署第二個用於容器的 Web 應用程式執行個體
 
-使用上一節所述的程序，將第二個 Web 應用程式部署到「美國東部」區域。 在 [Linux 上的 Web 應用程式 (預覽)] 下，指定下列值：
+使用上一節所述的程序，將第二個 Web 應用程式部署到「美國東部」區域。 在 [用於容器的 Web App] 下，指定下列值：
 
 | 設定 | 值 |
 |---|---|

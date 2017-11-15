@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/08/2017
 ms.author: jingwang
-ms.openlocfilehash: 3f2b95e57e34905bf1128e9aee2862110a598f75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0351e4c4dcf19f9e4b6ec11c59c4dd00f0013a2
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>複製活動的效能及微調指南
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 本文章說明：
 
 * [效能參考數字](#performance-reference) ；
-* 可在不同情況下 (包括[雲端資料移動單位](#cloud-data-movement-units)、[平行複製](#parallel-copy)及[分段複製](#staged-copy)) 大幅提升複製輸送量的功能；
+* 可在不同案例中 (包括[雲端資料移動單位](#cloud-data-movement-units)、[平行複製](#parallel-copy)及[分段複製](#staged-copy)) 大幅提升複製輸送量的功能；
 * [效能微調指導方針](#performance-tuning-steps) 。
 
 > [!NOTE]
@@ -53,7 +53,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 ![效能矩陣](./media/copy-activity-performance/CopyPerfRef.png)
 
 >[!IMPORTANT]
->在 Azure Data Factory 第 2 版中，當複製活動在 Azure 整合執行階段上執行時，最小的雲端資料移動單位是兩個。
+>在 Azure Data Factory 第 2 版中，當複製活動在 Azure Integration Runtime 上執行時，允許的最小雲端資料移動單位是兩個。 如果未指定，請參閱用於[雲端資料移動單位](#cloud-data-movement-units)中的預設資料移動單位。
 
 注意事項：
 
@@ -84,13 +84,12 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 
 **雲端資料移動單位 (DMU)** 是一項量值，代表 Data Factory 中單一單位的能力 (CPU、記憶體和網路資源配置的組合)。 **DMU 僅適用於 [Azure 整合執行階段](concepts-integration-runtime.md#azure-integration-runtime)**，而非[自我裝載整合執行階段](concepts-integration-runtime.md#self-hosted-integration-runtime)。
 
-**複製活動執行所需的最小雲端資料移動單位是兩個。** 下表列出不同複製案例中使用的預設 DMU。
+**複製活動執行所需的最小雲端資料移動單位是兩個。** 如果未指定，下表列出用於不同複製案例中的預設 DMU：
 
 | 複製案例 | 服務決定的預設 DMU |
 |:--- |:--- |
-| 在以檔案為基礎的存放區之間複製資料 | 依據檔案的數量和大小，介於 2 到 16 之間。 |
-| 從 Salesforce/Dynamics 複製資料 | 4 |
-| 所有其他複製案例 | 2 |
+| 在以檔案為基礎的存放區之間複製資料 | 依據檔案的數量和大小，介於 4 到 16 之間。 |
+| 所有其他複製案例 | 4 |
 
 若要覆寫此預設值，請如下所示指定 **cloudDataMovementUnits** 屬性的值。 **cloudDataMovementUnits** 屬性的「允許值」是 2、4、8、16 和 32。 根據您的資料模式，複製作業會在執行階段使用的 **實際雲端 DMU 數目** 等於或小於所設定的值。 如需在為特定複製來源和接收設定更多單位時可能獲得之效能增益水準的相關資訊，請參閱 [效能參考](#performance-reference)。
 

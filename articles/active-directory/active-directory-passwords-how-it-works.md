@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 71310534ec62b62bcd408d75060859c79bc470cf
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: fd9515120049dd3837a43c95de8a9b6822719e19
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Azure AD 中的自助式密碼重設深入探討
 
@@ -88,6 +88,23 @@ SSPR 的運作方式 該選項在介面中的意義為何？ 繼續閱讀以深�
 使用者可以選擇提供更多驗證方法 (如果是由系統管理員啟用)。
 
 如果使用者並未註冊所需的最少方法，他們會看到錯誤頁面，引導他們要求系統管理員重設其密碼。
+
+#### <a name="changing-authentication-methods"></a>變更驗證方法
+
+如果您從只有註冊一個重設或解除鎖定所需之驗證方法的原則開始，然後變更成兩個驗證方法，會發生什麼情況？
+
+| 已註冊的方法數 | 所需的方法數 | 結果 |
+| :---: | :---: | :---: |
+| 1 或多個 | 1 | **能夠**重設或解除鎖定 |
+| 1 | 2 | **無法**重設或解除鎖定 |
+| 2 以上 | 2 | **能夠**重設或解除鎖定 |
+
+如果您變更使用者可使用的驗證方法類型，可能會不小心導致使用者在沒有最基本可用資料量時無法使用 SSPR。
+
+範例： 
+1. 原始原則已設定 2 個只使用公司電話和安全性問題的必要驗證方法。 
+2. 系統管理員將原則變更為不再使用安全性問題，但允許使用行動電話和備用電子郵件。
+3. 使用者若未填入行動電話和備用電子郵件欄位，便無法重設其密碼。
 
 ### <a name="how-secure-are-my-security-questions"></a>我的安全性問題有多安全
 
@@ -169,6 +186,7 @@ SSPR 的運作方式 該選項在介面中的意義為何？ 繼續閱讀以深�
 > [!NOTE]
 > 使用者可以按一下 [取消] 或關閉視窗來關閉密碼重設註冊入口網站，但每次登入時都會出現提示，直到他們完成註冊為止。
 >
+> 如果使用者已經登入，這並不會中斷其連線。
 
 ### <a name="number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>要求使用者重新確認其驗證資訊的等候天數
 
@@ -190,7 +208,7 @@ SSPR 的運作方式 該選項在介面中的意義為何？ 繼續閱讀以深�
 
 ## <a name="on-premises-integration"></a>內部部署整合
 
-如果您已安裝、設定及啟用 Azure AD Connect，就會有下列其他的內部部署整合選項。
+如果您已安裝、設定及啟用 Azure AD Connect，就會有下列其他的內部部署整合選項。 如果這些選項呈現灰色，即表示尚未正確設定回寫，如需詳細資訊，請參閱[設定密碼回寫](active-directory-passwords-writeback.md#configuring-password-writeback)。
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>將密碼寫回至內部部署目錄
 
@@ -214,6 +232,9 @@ SSPR 的運作方式 該選項在介面中的意義為何？ 繼續閱讀以深�
 3. **B2B 使用者** - 任何使用新的 [Azure AD B2B 功能](active-directory-b2b-what-is-azure-ad-b2b.md)建立的新 B2B 使用者，也能夠利用其在邀請程序期間註冊的電子郵件重設其密碼。
 
 若要測試此情節，只要隨著其中一個合作夥伴使用者移至 http://passwordreset.microsoftonline.com 即可。 只要他們定義了替代電子郵件或驗證電子郵件，密碼重設就會如預期般運作。
+
+> [!NOTE]
+> 已取得您 Azure AD 租用戶之來賓存取權的 Microsoft 帳戶 (例如來自 Hotmail.com、Outlook.com 或其他個人電子郵件地址的帳戶) 並無法使用 Azure AD SSPR，將必須依照[當您無法登入您的 Microsoft 帳戶時](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)一文所提供的資訊，重設其密碼。
 
 ## <a name="next-steps"></a>後續步驟
 

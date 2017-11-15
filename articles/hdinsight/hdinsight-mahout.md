@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/03/2017
 ms.author: larryfr
-ms.openlocfilehash: 934de9ca2df48b29ef7a56d5729d59d77875ea7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a0dd7388b3fa7517b97f4dd66eb121ebfd98d4a4
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>透過在 HDInsight 上將 Apache Mahout 與 Hadoop 搭配使用來產生電影推薦 (PowerShell)
 
@@ -32,8 +32,8 @@ ms.lasthandoff: 10/11/2017
 
 * 以 Linux 為基礎的 HDInsight 叢集。 如需有關建立叢集的資訊，請參閱[開始在 HDInsight 中使用以 Linux 為基礎的 Hadoop][getstarted]。
 
-> [!IMPORTANT]
-> Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+    > [!IMPORTANT]
+    > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * [Azure PowerShell](/powershell/azure/overview)
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 > [!WARNING]
 > 本節中的作業是使用 Azure PowerShell 運作。 Mahout 提供的許多類別目前無法搭配 Azure PowerShell 使用。 如需無法搭配 Azure PowerShell 使用的類別清單，請參閱 [疑難排解](#troubleshooting) 一節。
 >
-> 如需使用 SSH 連線到 HDInsight 並在叢集上直接執行 Mahout 範例的範例，請參閱[使用 Mahout 和 HDInsight (SSH) 來產生電影推薦](hdinsight-hadoop-mahout-linux-mac.md)。
+> 如需使用 SSH 連線到 HDInsight 並在叢集上直接執行 Mahout 範例的範例，請參閱[使用 Mahout 和 HDInsight (SSH) 來產生電影推薦](hadoop/apache-hadoop-mahout-linux-mac.md)。
 
 Mahout 提供的其中一項功能是推薦引擎。 這個引擎接受 `userID``itemId` 和 `prefValue` (使用者偏好的項目) 格式的資料。 Mahout 會使用資料以偏好的類似項目判斷使用者，並以此做出推薦。
 
@@ -56,16 +56,16 @@ Mahout 提供的其中一項功能是推薦引擎。 這個引擎接受 `userID`
 
 ### <a name="understanding-the-data"></a>了解資料
 
-[GroupLens 研究][movielens]提供 Mahout 相容格式的電影評分資料。 您可在位於 `/HdiSamples//HdiSamples/MahoutMovieData` 的叢集預設儲存體取得這份資料。
+[GroupLens 研究][movielens]提供 Mahout 相容格式的電影評分資料。 您可在位於 `/HdiSamples/HdiSamples/MahoutMovieData` 的叢集預設儲存體取得這份資料。
 
 有兩份檔案：`moviedb.txt` (電影相關資訊) 和 `user-ratings.txt`。 `user-ratings.txt` 檔案是用於分析期間。 `moviedb.txt` 檔案是在顯示分析結果時，用來提供易懂的文字。
 
-user-ratings.txt 內包含的資料具有 `userID`、`movieID`、`userRating` 和 `timestamp` 結構，可告訴我們每位使用者對於影片的評價為何。 以下是資料範例：
+user-ratings.txt 內包含的資料具有 `userID`、`movieID`、`userRating` 和 `timestamp` 結構，可說明每位使用者對於影片的評價為何。 以下是資料範例：
 
     196    242    3    881250949
     186    302    3    891717742
-    22    377    1    878887116
-    244    51    2    880606923
+    22     377    1    878887116
+    244    51     2    880606923
     166    346    1    886397596
 
 ### <a name="run-the-job"></a>執行工作
@@ -208,21 +208,21 @@ foreach($blob in $blobs)
 * org.apache.mahout.classifier.sequencelearning.hmm.RandomSequenceGenerator
 * org.apache.mahout.classifier.df.tools.Describe
 
-若要執行用到這些類別的作業，請使用 SSH 連接至 HDInsight 叢集，然後從命令列執行作業。 如需使用 SSH 來執行 Mahout 作業的範例，請參閱[使用 Mahout 和 HDInsight (SSH) 來產生電影推薦](hdinsight-hadoop-mahout-linux-mac.md)。
+若要執行用到這些類別的作業，請使用 SSH 連接至 HDInsight 叢集，然後從命令列執行作業。 如需使用 SSH 來執行 Mahout 作業的範例，請參閱[使用 Mahout 和 HDInsight (SSH) 來產生電影推薦](hadoop/apache-hadoop-mahout-linux-mac.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
 您現在已了解如何使用 Mahout，請繼續探索在 HDInsight 上使用資料的其他方法：
 
-* [搭配 HDInsight 使用 Hive](hdinsight-use-hive.md)
-* [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
-* [搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)
+* [搭配 HDInsight 使用 Hive](hadoop/hdinsight-use-hive.md)
+* [搭配 HDInsight 使用 Pig](hadoop/hdinsight-use-pig.md)
+* [搭配 HDInsight 使用 MapReduce](hadoop/hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [aps]: /powershell/azureps-cmdlets-docs
 [movielens]: http://grouplens.org/datasets/movielens/
 [100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
-[getstarted]: hdinsight-hadoop-linux-tutorial-get-started.md
+[getstarted]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [upload]: hdinsight-upload-data.md
 [ml]: http://en.wikipedia.org/wiki/Machine_learning
 [forest]: http://en.wikipedia.org/wiki/Random_forest

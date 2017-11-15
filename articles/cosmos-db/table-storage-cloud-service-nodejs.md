@@ -1,5 +1,5 @@
 ---
-title: "使用資料表儲存體的 Web 應用程式 (Node.js) | Microsoft Docs"
+title: "Azure 資料表儲存體：建置 Web 應用程式 Node.js | Microsoft Docs"
 description: "本教學課程以「使用 Express 的 Web 應用程式」教學課程為基礎，再加上 Azure 儲存體服務和 Azure 模組建置而成。"
 services: cosmos-db
 documentationcenter: nodejs
@@ -12,15 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: b802f880c1131abb7eb9ba00dd8f2e65017bc802
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e931f0457511963b87c1b14fe873593bcb000c7
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="nodejs-web-application-using-storage"></a>使用儲存體的 Node.js Web 應用程式
+# <a name="azure-table-storage-nodejs-web-application"></a>Azure 資料表儲存體：Node.js Web 應用程式
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+
 ## <a name="overview"></a>概觀
 本教學課程會擴充您在[使用 Express 的 Node.js Web 應用程式]教學課程中所建立的應用程式，方法是使用 Microsoft Azure Client Libraries for Node.js 來搭配資料管理服務使用。 您要建立可供部署到 Azure 的 Web 架構工作清單應用程式以擴充您的應用程式。 使用者可透過工作清單來擷取工作、新增工作及將工作標示為已完成。
 

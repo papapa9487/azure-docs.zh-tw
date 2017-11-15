@@ -14,76 +14,119 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: a662841bebda460d4225e080f16705b3f16fdc46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc89cd29e1e8038f0ff317ff6acee332218ebce7
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="get-started-with-azure-advisor"></a>開始使用 Azure 建議程式
 
-了解如何透過 Azure 入口網站存取 Advisor、取得建議、實作建議、搜尋建議，以及重新整理建議。
+了解如何透過 Azure 入口網站存取 Advisor、取得建議，以及實作建議。
 
 ## <a name="get-advisor-recommendations"></a>取得建議程式的建議
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 在左側窗格中，按一下 [更多服務]。
-
-3. 在服務功能表窗格中，於 [監視和管理] 底下，按一下 [Azure Advisor]。  
+2. 在左窗格中，按一下 [Advisor]。  如果在左窗格中沒有看到 [Advisor]，請按一下 [更多服務]。  在服務功能表窗格中，於 [監視與管理] 底下，按一下 [Advisor]。
  隨即會顯示 Advisor 儀表板。
 
-   ![使用 Azure 入口網站存取 Azure 建議程式](./media/advisor-overview/advisor-azure-portal-menu.png) 
+   ![使用 Azure 入口網站存取 Azure 建議程式](./media/advisor-get-started/advisor-portal-menu.png) 
 
-4. 在 Advisor 儀表板上，選取您想要接收建議的訂用帳戶。  
-[建議程式] 儀表板會顯示所選訂用帳戶的個人化建議。 
+4. Advisor 儀表板會顯示所有選取之訂用帳戶的建議摘要。  您可以使用訂用帳戶篩選下拉式清單，選擇您想要顯示建議的訂用帳戶。
 
-5. 若要取得特定類別的建議，請按下列其中一個索引標籤：[高可用性]、[安全性]、[效能] 或 [成本]。
+5. 若要取得特定類別的建議，請按一下下列其中一個索引標籤：[高可用性]、[安全性]、[效能] 或 [成本]。
  
 > [!NOTE]
-> 若要存取 Advisor 建議，您必須先向 Advisor「註冊您的訂用帳戶」。 當「訂用帳戶擁有者」啟動 Advisor 儀表板，然後按一下 [取得建議] 按鈕時，便會註冊訂用帳戶。 此作業「只需要執行一次」。 註冊訂用帳戶之後，您能以訂用帳戶、資源群組或特定資源的 [擁有者]、[參與者] 或 [讀取者] 身分存取 Advisor 建議。
+> 若要搭配某個訂用帳戶使用 Azure Advisor，訂用帳戶「擁有者」必須啟動 Advisor 儀表板。  此動作會向 Advisor 註冊訂用帳戶。  之後，任何訂用帳戶「擁有者」、「參與者」或「讀取者」便都可以存取該訂用帳戶的 Advisor 建議。  
 
-  ![Azure 建議程式儀表板](./media/advisor-overview/advisor-all-tab.png)
+  ![Azure 建議程式儀表板](./media/advisor-overview/advisor-dashboard.png)
 
 ## <a name="get-advisor-recommendation-details-and-implement-a-solution"></a>取得 Advisor 的建議詳細資料，並實作解決方案
 
-Advisor 中的 [建議] 刀鋒視窗會提供其他有關建議的資訊。 
+您可以選取 Advisor 中的建議來檢視其他詳細資料 (例如建議動作和受影響的資源)，以及實作建議的解決方案。  
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)，然後啟動 [Azure Advisor](https://aka.ms/azureadvisordashboard)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後開啟 [Advisor](https://aka.ms/azureadvisordashboard)。
 
-2. 在 [Advisor 建議] 儀表板上，按一下 [取得建議]。
+2. 選取一個建議類別以顯示該類別內的建議清單，或選取 [全部] 索引標籤以檢視所有建議。
 
-3. 在建議清單中，按一下您想要詳細檢閱的建議。  
-這會顯示 [建議] 刀鋒視窗。
+3. 按一下您想要詳細檢閱的建議。
 
-4. 在 [建議] 刀鋒視窗上，檢閱您可執行以解決潛在問題或利用成本節約機會的動作相關資訊。 
-  
-  ![Advisor [建議] 刀鋒視窗](./media/advisor-overview/advisor-recommendation-action-example.png)
+4. 檢閱該建議的相關資訊，以及該建議適用的資源。
 
-## <a name="search-for-advisor-recommendations"></a>搜尋建議程式的建議
+5. 按一下 [建議的動作] 以實作建議。
 
-您可以搜尋特定訂用帳戶或資源群組的建議。 您也可以依照狀態搜尋建議。
+## <a name="filter-advisor-recommendations"></a>篩選 Advisor 建議
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)，然後啟動 [Azure Advisor](https://aka.ms/azureadvisordashboard)。
+您可以篩選建議來向下鑽研至對您最重要的建議。  您可以依訂用帳戶、資源類型或建議狀態進行篩選。  
 
-2. 透過篩選訂用帳戶、資源群組和建議狀態 ([使用中] 或 [已延遲]) 來搜尋建議。
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後開啟 [Advisor](https://aka.ms/azureadvisordashboard)。
 
-3. 若要顯示以您的搜尋篩選條件為基礎的 Advisor 建議清單，請按一下 [取得建議]。
+2.  使用 Advisor 儀表板上的下拉式清單來依訂用帳戶、資源類型或建議狀態進行篩選。
 
-  ![Advisor 搜尋篩選條件](./media/advisor-get-started/advisor-search.png)
+    ![Advisor 搜尋篩選條件](./media/advisor-get-started/advisor-filters.png)
 
 ## <a name="snooze-or-dismiss-advisor-recommendations"></a>延遲或關閉 Advisor 的建議
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)，然後啟動 [Azure Advisor](https://aka.ms/azureadvisordashboard)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後開啟 [Advisor](https://aka.ms/azureadvisordashboard)。
 
-2. 按一下 [取得建議]，然後按一下建議清單中的建議。
+2. 瀏覽至您想要延遲或關閉的建議。
 
-3. 在 [建議] 刀鋒視窗上，按一下 [延遲]。  
+3. 按一下該建議。
 
-   ![建議程式建議動作範例](./media/advisor-get-started/advisor-snooze.png)
+4. 按一下 [延遲]。 
 
-4. 指定延遲時間週期，或選取 [永不] 來關閉建議。
+5. 指定延遲時間週期，或選取 [永不] 來關閉建議。
 
+## <a name="exclude-subscriptions-or-resource-groups-from-advisor"></a>將訂用帳戶或資源群組從 Advisor 中排除
+
+您可能有不想要收到 Advisor 建議的資源群組或訂用帳戶，例如「測試」資源。  您可以將 Advisor 設定成只針對特定訂用帳戶和資源群組產生建議。
+
+> [!NOTE]
+> 若要將訂用帳戶或資源群組包含在 Advisor 中或從中排除，您必須是訂用帳戶「擁有者」。  如果您沒有訂用帳戶或資源群組的必要權限，將其包含或排除的選項在使用者介面中就會停用。
+
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後開啟 [Advisor](https://aka.ms/azureadvisordashboard)。
+
+2. 按一下動作列中的 [設定] 。
+
+3. 將所有您不想要收到 Advisor 建議的訂用帳戶或資源群組取消選取。
+
+    ![Advisor 設定資源範例](./media/advisor-get-started/advisor-configure-resources.png)
+
+4. 按一下 [套用] 按鈕。
+
+## <a name="configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation"></a>針對低使用量虛擬機器建議設定平均 CPU 使用率規則
+
+Advisor 可監視 14 天的虛擬機器使用量，然後找出低使用率的虛擬機器。 虛擬機器若是平均 CPU 使用率等於或低於 5% 且網路使用量等於或低於 7 MB 長達 4 天 (含) 以上，就會被視為低使用率虛擬機器。
+
+如果您想要更積極地識別低使用量虛擬機器，您可以依據個別訂用帳戶調整平均 CPU 使用率規則。  平均 CPU 使用率規則可以設定為 5%、10%、15% 或 20%。
+
+> [!NOTE]
+> 若要調整平均 CPU 使用率規則以識別低使用量虛擬機器，您必須是訂用帳戶「擁有者」。  如果您沒有訂用帳戶或資源群組的必要權限，將其包含或排除的選項在使用者介面中就會停用。 
+
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後開啟 [Advisor](https://aka.ms/azureadvisordashboard)。
+
+2. 按一下動作列中的 [設定] 。
+
+3. 按一下 [規則] 索引標籤。
+
+4. 選取您要調整平均 CPU 使用率規則的訂用帳戶，然後按一下 [編輯]。
+
+5. 選取所需的平均 CPU 使用率值，然後按一下 [套用]。
+
+6. 按一下 [重新整理建議]，以將現有的建議更新成使用新的平均 CPU 使用率規則。 
+
+   ![Advisor 設定建議規則範例](./media/advisor-get-started/advisor-configure-rules.png)
+
+## <a name="download-your-advisor-recommendations"></a>下載 Advisor 建議
+
+Advisor 可讓您下載建議摘要。  您可以將建議下載為 PDF 檔案或 CSV 檔案。  下載建議可讓您與同事輕鬆共用建議，或是在建議資料上執行您自己的分析。
+
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後開啟 [Advisor](https://aka.ms/azureadvisordashboard)。
+
+2. 按一下動作列上的 [下載為 CSV] 或 [下載為 PDF]。
+
+下載選項會遵守您已套用至 Advisor 儀表板的所有篩選。  如果您在檢視特定建議類別或建議時選取下載選項，則下載的摘要只會包含該類別或建議的資訊。 
 
 ## <a name="next-steps"></a>後續步驟
 
