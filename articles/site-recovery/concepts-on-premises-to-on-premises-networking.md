@@ -1,10 +1,10 @@
 ---
-title: "使用 Azure Site Recovery 容錯移轉至次要網站之後的 VM 連線 | Microsoft Docs"
+title: "使用 Azure Site Recovery 容錯移轉至次要網站之後連線至 VM | Microsoft Docs"
 description: "使用 Azure Site Recovery 容錯移轉至次要網站之後，可供連線到 Azure VM 的網路服務指引。"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
+manager: prateek9us
 editor: 
 ms.assetid: 67d73590-185c-49b2-a097-597bf54747a9
 ms.service: site-recovery
@@ -12,15 +12,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
-ms.author: raynew
-ms.openlocfilehash: 7b27fc568c77b44ab2366d297ca9e7685439143e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/05/2017
+ms.author: pratshar
+ms.openlocfilehash: ce33a90a303a10de8ff198754e8e39c334035537
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="vm-connectivity-after-failover-to-a-secondary-site"></a>容錯移轉至次要網站後的 VM 連線
+# <a name="connecting-to-vms-after-failover-to-a-secondary-site"></a>在容錯移轉至次要網站之後連線至 VM
 
 檢閱部署的必要條件後，請閱讀本文以規劃在 Azure 入口網站中使用 [Azure Site Recovery](site-recovery-overview.md) 將 System Center Virtual Machine Manager (VMM) 雲端中管理的 Hyper-V 虛擬機器 (VM) 複寫至次要站台的網路服務。 
 

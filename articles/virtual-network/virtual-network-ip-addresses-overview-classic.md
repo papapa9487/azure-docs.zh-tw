@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: aa99d3ebd181a76d582670c5219f29858c462d30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d5eea5e4499b9de40002ce2fc6aac39239c41b19
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Azure 中的 IP 位址類型及配置方法 (傳統)
 您可以將 IP 位址指派給 Azure 資源，來與其他 Azure 資源、內部部署網路和網際網路進行通訊。 您可以在 Azure 中使用兩種類型的 IP 位址：公用和私人。
@@ -141,9 +141,8 @@ Azure [應用程式閘道](../application-gateway/application-gateway-introducti
 
 | 資源 | 動態 | 靜態 | 多個 IP 位址 |
 | --- | --- | --- | --- |
-| VM (位於獨立  雲端服務中) |是 |是 |是 |
-| PaaS 角色執行個體 (位於獨立  雲端服務中) |是 |否 |是 |
-| VM 或 PaaS 角色執行個體 (位於 VNet 中) |是 |是 |是 |
+| VM (位於獨立雲端服務或 VNet 中) |是 |是 |是 |
+| PaaS 角色執行個體 (位於獨立雲端服務或 VNet 中) |是 |否 |否 |
 | 內部負載平衡器前端 |是 |是 |是 |
 | 應用程式閘道前端 |是 |是 |是 |
 

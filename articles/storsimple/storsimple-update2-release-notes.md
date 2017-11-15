@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/25/2017
+ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: d03e45b839e3630e7f5df4b3144b823955920088
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 285c5abf574544737f3d30981a6c5b8f9548922a
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="storsimple-8000-series-update-2-release-notes"></a>StorSimple 8000 系列 Update 2 版本資訊
+> [!NOTE]
+> 已取代 StorSimple 的傳統入口網站。 按照取代排程，StorSimple 裝置管理員會自動移至新的 Azure 入口網站。 您將收到關於此移動的電子郵件和入口網站通知。 本文件也即將淘汰。 若有關於移動的任何問題，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
+
 ## <a name="overview"></a>概觀
 下列版本資訊說明 StorSimple 8000 系列 Update 2 的新功能，並識別未決的重要問題。 當中也包含此版本中隨附之 StorSimple 軟體、驅動程式與磁碟韌體更新的清單。 
 
@@ -87,7 +90,7 @@ Update 2 導入下列新功能：
 | 12 |移轉 |完成移轉之後，5000/7000 系列裝置不得存取移轉的資料容器。 |建議您在移轉完成並認可之後，刪除移轉的資料容器。 |是 |否 |
 | 13 |複製和 DR |執行 Update 1 的 StorSimple 裝置無法對執行 Update 1 前軟體的裝置進行複製或執行災害復原。 |您必須將目標裝置更新為 Update 1，以允許這些作業 |是 |是 |
 | 14 |移轉 |當磁碟區群組中沒有相關聯的磁碟區時，5000-7000 系列裝置上用於移轉的設定備份可能會失敗。 |刪除不含相關聯磁碟區的所有空磁碟區群組，然後重試設定備份。 |是 |否 |
-| 15 |Azure PowerShell Cmdlet 和固定在本機的磁碟區 |您無法透過 Azure PowerShell Cmdlet 建立固定在本機的磁碟區。 (您透過 Azure PowerShell 建立的任何磁碟區都會分層。)此外，請不要使用 Azure PowerShell Cmdlet 來修改本機固定磁碟區的任何屬性，因為這對於將磁碟區類型修改為階層式會造成不良影響。 |請一律使用 StorSimple Manager 服務來設定或修改固定在本機的磁碟區。 |是 |否 |
+| 15 |Azure PowerShell Cmdlet 和固定在本機的磁碟區 |您無法透過 Azure PowerShell Cmdlet 建立固定在本機的磁碟區。 (您透過 Azure PowerShell 建立的任何磁碟區都會分層。) |一律使用 StorSimple Manager 服務來設定固定在本機的磁碟區。 |是 |否 |
 | 16 |固定在本機的磁碟區的可用空間 |如果您刪除固定在本機的磁碟區，新的磁碟區的可用空間可能不會立即更新。 StorSimple Manager 服務會每小時更新大致的本機可用空間。 |等候 1 小時，然後再嘗試建立新的磁碟區。 |是 |否 |
 | 17 |固定在本機的磁碟區 |您的還原作業會在「備份目錄」中顯示暫時快照集備份，但僅會在還原作業期間顯示。 此外，它也會在 [備份原則] 頁面上顯示前面加上 **tmpCollection** 的虛擬磁碟群組，但僅會在還原作業期間顯示。 |如果還原作業僅有固定在本機的磁碟區或是混合了固定在本機的磁碟區與分層磁碟區，就可能就會發生此問題。 如果還原作業僅包含分層磁碟區，將不會發生此問題。 不需使用者介入。 |是 |否 |
 | 18 |固定在本機的磁碟區 |如果您取消還原作業，而之後立即發生控制器容錯移轉，還原作業將會顯示 **Failed** 而不是 **Canceled**。 如果還原作業失敗，而之後立即發生控制器容錯移轉，還原作業將會顯示 **Canceled** 而不是 **Failed**。 |如果還原作業僅有固定在本機的磁碟區或是混合了固定在本機的磁碟區與分層磁碟區，就可能就會發生此問題。 如果還原作業僅包含分層磁碟區，將不會發生此問題。 不需使用者介入。 |是 |否 |

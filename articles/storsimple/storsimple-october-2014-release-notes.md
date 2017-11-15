@@ -12,16 +12,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/21/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 4dfd3973593a94adfc15a6e15d69c697e13998af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 642a416c167d8a1795a0c33987cec8836f2db0aa
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="storsimple-8000-series-update-01-release-notes--october-2014"></a>StorSimple 8000 系列 Update 0.1 版本資訊 – 2014 年 10 月
-## <a name="overview"></a>Overview
+> [!NOTE]
+> StorSimple 的傳統入口網站已過時。 按照淘汰排程，StorSimple 裝置管理員會自動移至新的 Azure 入口網站。 您將收到關於此移動的電子郵件和入口網站通知。 本文件也很快就會淘汰。 若有關於移動的任何問題，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
+
+## <a name="overview"></a>概觀
 下方於 2014 年 10 月發行的版本資訊確定 StorSimple 8000 系列Update 0.1 存有重大的未解決問題。 當中也包含此版本中隨附之 StorSimple 軟體與韌體更新的清單。 這是 StorSimple 8000 系列發行版本於 2014 年 7 月公開上市之後的第一個正式版本，並對應軟體版本 6.3.9600.17312。  
 
 建議您在安裝裝置後立即掃描並套用任何可用更新。 您也可以開啟自動更新，以在 Microsoft 一發行高優先順序的更新時，便立即下載並安裝。 如需更多資訊，請參閱 [如何更新您的 StorSimple 裝置](storsimple-update-device.md)。  

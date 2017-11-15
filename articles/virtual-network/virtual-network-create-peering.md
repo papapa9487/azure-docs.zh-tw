@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: anavin;jdial
-ms.openlocfilehash: ebe418f03c2edf176790f654f3f9f4d7eec09165
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab62164c85ece30181217a36a51d19fda52907bc
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-same-subscription"></a>建立虛擬網路對等互連 - Resource Manager，相同訂用帳戶
 
@@ -33,41 +33,12 @@ ms.lasthandoff: 10/11/2017
 |[一個使用 Resource Manager、一個使用傳統部署模型](create-peering-different-deployment-models.md) |相同|
 |[一個使用 Resource Manager、一個使用傳統部署模型](create-peering-different-deployment-models-subscriptions.md) |不同|
 
-只能在存在於相同 Azure 區域中的兩個虛擬網路之間建立虛擬網路對等互連。
+虛擬網路對等互連無法在透過傳統部署模型建立的兩個虛擬網路之間建立。 如果您需要將兩個都是透過傳統部署模型建立的虛擬網路連接，可以使用 Azure [VPN 閘道](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)來連接這些虛擬網路。 
 
-  > [!WARNING]
-  > 在不同地區的虛擬網路之間建立虛擬網路對等互連的功能，目前只提供預覽版。 在下方註冊訂用帳戶可以獲得預覽版。 在此情況下建立的虛擬網路對等互連，與在正式發行版情況下建立的虛擬網路對等互連，可能不會有相同等級的可用性和可靠性。 在此情況下建立的虛擬網路對等互連不受支援、可能功能受限，且可能並非在所有 Azure 區域中都可供使用。 如需此功能可用性和狀態的最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network) 頁面。
-
-無法在透過傳統部署模型部署的兩個虛擬網路之間建立虛擬網路對等互連。如果要連線至兩個透過傳統部署模型建立的虛擬網路，或是連線至不同 Azure 區域中的兩個虛擬網路，可以使用 Azure [VPN 閘道](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 
+此教學課程將同一個區域中的虛擬網路視為對等。 將不同區域中的虛擬網路視為對等的功能目前為預覽狀態。 完成[註冊通用虛擬網路對等互連](#register)中的步驟，然後再嘗試將不同區域中的虛擬網路視為對等，否則對等互連會失敗。 一般可以使用透過 Azure [VPN 閘道](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)連接不同區域中的虛擬網路，而且不需要註冊。
 
 您可以使用 [Azure 入口網站](#portal)、Azure [命令列介面](#cli) (CLI)、Azure [PowerShell](#powershell) 或 [Azure Resource Manager 範本](#template)，來建立虛擬網路對等互連。 按一下任何先前的工具連結，直接前往使用您所選工具建立虛擬網路對等互連的步驟。
 
-## <a name="register"></a>註冊可獲得 VNet 對等互連全球預覽版
-
-若要跨地區建立虛擬網路的對等互連，請註冊以取得預覽版。請為包含您想要建立對等互連之虛擬網路的兩個訂用帳戶，執行下列步驟。 您唯一可用來註冊預覽版的工具是 PowerShell。
-
-1. 安裝最新版的 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模組。 如果您不熟悉 Azure PowerShell，請參閱 [Azure PowerShell 概觀](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)。
-2. 啟動 PowerShell 工作階段，然後使用 `Login-AzureRmAccount` 命令來登入 Azure。
-3. 輸入下列命令來針對預覽版註冊您的訂用帳戶︰
-
-    ```powershell
-    Register-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
-      -ProviderNamespace Microsoft.Network
-    
-    Register-AzureRmResourceProvider `
-      -ProviderNamespace Microsoft.Network
-    ```
-    請等到您為兩個訂用帳戶輸入下列命令後所收到的 **RegistrationState** 輸出都變成 **Registered** 之後，才完成本文中入口網站、Azure CLI 或 PowerShell 等節中的步驟：
-
-    ```powershell    
-    Get-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
-      -ProviderNamespace Microsoft.Network
-    ```
-  > [!WARNING]
-  > 在不同地區的虛擬網路之間建立虛擬網路對等互連的功能，目前只提供預覽版。 用預覽版建立之虛擬網路對等互連的功能可能有限，而且可能只有部分 Azure 區域能進行對等互連。 如需此功能可用性和狀態的最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network) 頁面。
-  
 ## <a name="portal"></a>建立對等互連 - Azure 入口網站
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 您登入時使用的帳戶必須擁有必要的權限，才能建立虛擬網路對等互連。 如需詳細資訊，請參閱本文的[權限](#permissions)一節。
@@ -100,7 +71,7 @@ ms.lasthandoff: 10/11/2017
      - **允許虛擬網路存取**：確定已選取 [啟用]。
     本教學課程中不會使用其他設定。 若要了解所有對等互連設定，請閱讀[管理虛擬網路對等互連](virtual-network-manage-peering.md#create-a-peering)。
 10. 按一下上一個步驟中的 [確定] 後，[新增對等互連] 刀鋒視窗隨即關閉，而且您會再次看到 [myVnet1 - 對等互連] 刀鋒視窗。 幾秒之後，您建立的對等互連會出現在刀鋒視窗中。 您建立之 **myVnet1ToMyVnet2** 對等互連的 [對等互連狀態] 資料行中列出 [已起始]。 您已將 Vnet1 對等互連到 Vnet2，但現在必須將 myVnet2 對等互連到 myVnet1。 必須以建立雙線的對等互連，虛擬網路中的資源才能彼此通訊。
-11. 針對 myVnet2 再次完成步驟 5-10。  將對等互連命名為 *myVnet2ToMyVnet1*。
+11. 針對 myVnet2 再次完成步驟 5-10。 將對等互連命名為 *myVnet2ToMyVnet1*。
 12. 按一下 [確定] 來建立 MyVnet2 的對等互連幾秒之後，您剛建立之 **myVnet2ToMyVnet1** 對等互連的 [對等互連狀態] 資料行中會列出 [已連線]。
 13. 針對 MyVnet1 再次完成步驟 5-7。 **myVnet1ToVNet2** 對等互連的 [對等互連狀態] 現在也是 [已連線]。 您在對等互連中兩個虛擬網路的 [對等互連狀態] 資料行中看到 [已連線] 之後，對等互連變已建立成功。
 14. **選擇性**：雖然本教學課程未涵蓋建立虛擬機器，但您可以在每個虛擬網路中建立一部虛擬機器，並從一部虛擬機器連線至另一部來驗證連線。
@@ -199,7 +170,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="powershell"></a>建立對等互連 - PowerShell
 
 1. 安裝最新版的 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模組。 如果您不熟悉 Azure PowerShell，請參閱 [Azure PowerShell 概觀](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)。
-2. 若要啟動 PowerShell 工作階段，請移至 開始，輸入 **powershell**，然後按一下PowerShell。
+2. 若要啟動 PowerShell 工作階段，請移至 [開始]，輸入 **powershell**，然後按一下 [PowerShell]。
 3. 在 PowerShell 中，輸入 `login-azurermaccount` 命令來登入 Azure。 您登入時使用的帳戶必須擁有必要的權限，才能建立虛擬網路對等互連。 如需詳細資訊，請參閱本文的[權限](#permissions)一節。
 4. 建立一個資源群組和兩個虛擬網路。 若要執行指令碼，請複製下列指令碼、將它貼到 PowerShell，然後當螢幕上出現最後一行之後按 `Enter`：
 
@@ -281,7 +252,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 在入口網站的搜尋方塊中，輸入 **myResourceGroup**。 在搜尋結果中按一下 [myResourceGroup]。
 2. 在 [myResourceGroup] 刀鋒視窗中，按一下 [刪除] 圖示。
-3. 若要確認刪除動作，請在 輸入資源群組名稱 方塊中輸入 **myResourceGroup**，然後按一下刪除。
+3. 若要確認刪除動作，請在 [輸入資源群組名稱] 方塊中輸入 **myResourceGroup**，然後按一下 [刪除]。
 
 ### <a name="delete-cli"></a>Azure CLI
 
@@ -298,6 +269,56 @@ az group delete --name myResourceGroup --yes
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -force
 ```
+
+## <a name="register"></a>註冊可獲得虛擬網路對等互連全球預覽版
+
+將不同區域中的虛擬網路視為對等的功能目前為預覽狀態。 僅有限的區域 (初期為美國中西部、加拿大中部和美國西部 2) 可使用此功能。 在不同區域中的虛擬網路之間建立的虛擬網路對等互連，可能無法達到與同一個區域中的虛擬網路之間的對等互連相同程度的可用性和可靠性。 如需此功能可用性和狀態的最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network) 頁面。
+
+若要使各區域的虛擬網路對等互連，您必須使用 Azure PowerShell 或 Azure CLI 完成下列步驟 (在您想要對等互連之虛擬網路適用的訂用帳戶內)，先註冊預覽：
+
+### <a name="powershell"></a>PowerShell
+
+1. 安裝最新版的 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模組。 如果您不熟悉 Azure PowerShell，請參閱 [Azure PowerShell 概觀](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+2. 啟動 PowerShell 工作階段，然後使用 `Login-AzureRmAccount` 命令來登入 Azure。
+3. 輸入下列命令，對於在您想要對等互連之每個虛擬網路適用的訂用帳戶註冊預覽：
+
+    ```powershell
+    Register-AzureRmProviderFeature `
+      -FeatureName AllowGlobalVnetPeering `
+      -ProviderNamespace Microsoft.Network
+    
+    Register-AzureRmResourceProvider `
+      -ProviderNamespace Microsoft.Network
+    ```
+4. 藉由輸入下列命令，確認您已註冊預覽版︰
+
+    ```powershell    
+    Get-AzureRmProviderFeature `
+      -FeatureName AllowGlobalVnetPeering `
+      -ProviderNamespace Microsoft.Network
+    ```
+
+    請等到您為兩個訂用帳戶輸入上述命令後所收到的 **RegistrationState** 輸出都變成 **Registered** 之後，才完成本文中入口網站、Azure CLI、PowerShell 或 Resource Manager 範本等節中的步驟。
+
+### <a name="azure-cli"></a>Azure CLI
+
+1. [安裝和設定 Azure CLI](/cli/azure/install-azure-cli?toc=%2Fazure%2Fvirtual-network%2Ftoc.json)。
+2. 輸入 `az --version` 命令來確定您使用 2.0.18 版或更高版本的 Azure CLI。 如果不是，請安裝最新版本。
+3. 使用 `az login` 命令登入 Azure。
+4. 輸入下列命令來註冊預覽版︰
+
+    ```azurecli-interactive
+    az feature register --name AllowGlobalVnetPeering --namespace Microsoft.Network
+    az provider register --name Microsoft.Network
+    ```
+
+5. 藉由輸入下列命令，確認您已註冊預覽版︰
+
+    ```azurecli-interactive
+    az feature show --name AllowGlobalVnetPeering --namespace Microsoft.Network
+    ```
+
+    請等到您為兩個訂用帳戶輸入上述命令後所收到的 **RegistrationState** 輸出都變成 **Registered** 之後，才完成本文中入口網站、Azure CLI、PowerShell 或 Resource Manager 範本等節中的步驟。
 
 ## <a name="next-steps"></a>後續步驟
 

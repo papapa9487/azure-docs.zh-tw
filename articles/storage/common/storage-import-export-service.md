@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure 匯入/匯出將資料傳入和傳出 Blob 儲存體 | Microsoft Docs"
-description: "了解如何在 Azure 入口網站中建立匯入和匯出作業，以將資料傳入和傳出 Blob 儲存體。"
+title: "使用 Azure 匯入/匯出將資料傳入和傳出 Azure 儲存體 | Microsoft Docs"
+description: "了解如何在 Azure 入口網站中建立匯入和匯出作業，以將資料傳入和傳出 Azure 儲存體。"
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: fb5b059ad8dc87f445bd84a5fe3bb90822d13f94
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 221bd7662eb4974395c7f970961d5bfb556417f4
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>使用 Microsoft Azure 匯入/匯出服務將資料傳入 Azure 儲存體
-在本文中，我們會提供使用 Azure 匯入/匯出服務的逐步指示，藉由將磁碟機寄送到 Azure 資料中心，安全地將大量資料傳入 Azure Blob 儲存體。 這項服務也能用來將資料從 Azure Blob 儲存體傳輸到硬碟，然後運送到您的內部部署網站。 單一的內部 SATA 磁碟機資料可匯入 Azure Blob 儲存體或 Azure 檔案儲存體。 
+在本文中，我們會提供使用 Azure 匯入/匯出服務的逐步指示，藉由將磁碟機運送到 Azure 資料中心，安全地將大量資料傳入 Azure Blob 儲存體和 Azure 檔案服務。 這項服務也能用來將資料從 Azure 儲存體傳輸到硬碟，然後運送到您的內部部署網站。 單一內部 SATA 磁碟機的資料可匯入到 Azure Blob 儲存體或 Azure 檔案服務。 
 
 > [!IMPORTANT] 
-> 這項服務僅接受內部 SATA HDD 或 SSD。 不支援其他的裝置。 請勿寄送外接式硬碟或 NAS 等裝置。資料中心在情況允許下會退回這類裝置，或是予以丟棄。
+> 這項服務僅接受內部 SATA HDD 或 SSD。 不支援其他的裝置。 盡可能不要寄送外接式硬碟或 NAS 等裝置。資料中心在情況允許下會退回這類裝置，否則會予以丟棄。
 >
 >
 
-如果磁碟上的資料是要匯入 Azure Blob 儲存體，請遵循下列步驟。
+如果磁碟上的資料是要匯入到 Azure 儲存體，請遵循下列步驟。
 ### <a name="step-1-prepare-the-drives-using-waimportexport-tool-and-generate-journal-files"></a>步驟 1：使用 WAImportExport 工具準備磁碟機，並產生日誌檔案。
 
-1.  識別要匯入 Azure Blob 儲存體的資料。 這可能是本機伺服器或網路共用上的目錄和獨立檔案。
+1.  識別要匯入到 Azure 儲存體的資料。 這可能是本機伺服器或網路共用上的目錄和獨立檔案。
 2.  根據資料的大小總計，採購所需的 2.5 英吋 SSD 或 2.5 英吋/3.5 英吋 SATA II/III 硬碟機數目。
 3.  直接使用 SATA 或外接式 USB 轉接器，將硬碟連結到 Windows 電腦。
 4.  在每個硬碟上建立單一 NTFS 磁碟區，並為磁碟區指派磁碟機代號。 沒有裝載點。
@@ -80,7 +80,7 @@ FedEx、UPS 或 DHL 均可將包裹寄送至 Azure DC。
 
 * 將資料移轉至雲端︰快速地將大量資料移至 Azure，並符合成本效益。
 * 內容發佈︰快速將資料傳送至您的客戶網站。
-* 備份︰備份內部部署資料以便儲存在 Azure Blob 儲存體。
+* 備份︰備份內部部署資料以便儲存在 Azure 儲存體中。
 * 資料復原︰復原儲存在儲存體中的大量資料，並將它傳遞到您的內部部署位置。
 
 ## <a name="prerequisites"></a>必要條件
@@ -90,13 +90,13 @@ FedEx、UPS 或 DHL 均可將包裹寄送至 Azure DC。
 您必須有現有的 Azure 訂用帳戶以及一或多個儲存體帳戶，才能使用匯入/匯出服務。 每項工作都只能從僅只一個儲存體帳戶收送資料。 換句話說，單一匯入/匯出作業不能跨越多個儲存體帳戶。 如需建立新儲存體帳戶的詳細資訊，請參閱 [如何建立儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)(英文)。
 
 ### <a name="data-types"></a>資料類型
-您可以使用 Azure 匯入/匯出服務，將資料複製到**區塊** Blob、**分頁** Blob 或**檔案**。 相反地，您只能使用此服務從 Azure 儲存體匯出**區塊** Blob、**分頁** Blob 或**附加** Blob。 服務不支援 Azure 檔案的匯出，而且只能將檔案匯入至 Azure 儲存體。
+您可以使用 Azure 匯入/匯出服務，將資料複製到**區塊** Blob、**分頁** Blob 或**檔案**。 相反地，您只能使用此服務從 Azure 儲存體匯出**區塊** Blob、**分頁** Blob 或**附加** Blob。 服務僅支援將 Azure 檔案服務匯入到 Azure 儲存體。 目前不支援匯出 Azure 檔案服務。
 
 ### <a name="job"></a>作業
 若要開始進行儲存體的匯入或匯出程序，請先建立工作。 此工作可以是「匯入工作」或「匯出工作」：
 
-* 當您要將內部部署的資料移轉至 Azure 儲存體帳戶中的 Blob 時，請建立匯入工作。
-* 當您要將目前儲存為儲存體帳戶中 Blob 的資料移轉至要運送給我們的硬碟時，請建立匯出工作。 當您建立工作時，您會通知匯入/匯出服務您將運送一或多個硬碟至 Azure 資料中心。
+* 當您要將內部部署的資料移轉至 Azure 儲存體帳戶時，請建立匯入作業。
+* 當您要將目前儲存於儲存體帳戶中的資料移轉至要運送給我們的硬碟時，請建立匯出作業。 當您建立工作時，您會通知匯入/匯出服務您將運送一或多個硬碟至 Azure 資料中心。
 
 * 若為匯入工作，您將運送含有資料的硬碟。
 * 若為匯出工作，您將運送空的硬碟。
@@ -107,7 +107,7 @@ FedEx、UPS 或 DHL 均可將包裹寄送至 Azure DC。
 ### <a name="waimportexport-tool"></a>WAImportExport 工具
 建立**匯入**工作的第一個步驟就是要準備將運送以進行匯入的磁碟機。 若要準備您的磁碟機，您必須將它連接到本機伺服器，並在本機伺服器上執行 WAImportExport 工具。 此 WAImportExport 工具可協助將您的資料複製到磁碟機、使用 BitLocker 加密硬碟上的資料，以及產生磁碟機日誌檔案。
 
-日誌檔案會儲存您的作業與磁碟機的基本資訊，例如磁碟機序號和儲存體帳戶名稱。 此日誌檔案不會儲存在磁碟機上。 建立匯入工作期間，會使用它。 建立工作的逐步解說詳細資料會在本文中稍後提供。
+日誌檔案會儲存您的作業與磁碟機的基本資訊，例如磁碟機序號和儲存體帳戶名稱。 此日誌檔案不會儲存在磁碟機上。 建立匯入工作期間，會使用它。 建立作業的逐步解說詳細資料會在本文稍後提供。
 
 WAImportExport 工具只與 64 位元 Windows 作業系統相容。 請參閱 [作業系統](#operating-system) 一節，以了解支援的特定 OS 版本。
 
@@ -294,7 +294,7 @@ Azure 匯入/匯出服務支援與所有公用 Azure 儲存體帳戶相互複製
 
 **交易成本**
 
-將資料匯入到 Blob 儲存體時，沒有交易成本。 從 Blob 儲存體匯出資料時，則適用標準出口流量費用。 如需交易成本的更多詳細資料，請參閱 [資料傳輸價格](https://azure.microsoft.com/pricing/details/data-transfers/)
+將資料匯入到 Azure 儲存體時，沒有交易成本。 從 Blob 儲存體匯出資料時，適用標準輸出費用。 如需交易成本的更多詳細資料，請參閱 [資料傳輸價格](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 
 
@@ -304,7 +304,6 @@ Azure 匯入/匯出服務支援與所有公用 Azure 儲存體帳戶相互複製
 
 1. 識別要匯入 Azure 檔案儲存體的資料。 這可能是本機伺服器或網路共用上的目錄和獨立檔案。  
 2. 根據資料的總大小，決定您需要的磁碟機數目。 採購所需的 2.5 英吋 SSD 或 2.5 英吋/3.5 英吋 SATA II/III 硬碟機數目。
-3. 識別目標儲存體帳戶、容器、虛擬目錄和 Blob。
 4. 決定將複製到每個硬碟的目錄和/或獨立檔案。
 5. 建立資料集和磁碟機集的 CSV 檔。
     
@@ -498,11 +497,11 @@ Azure 儲存體帳戶下的資料可以透過 Azure 入口網站或使用稱為�
 
 **匯入作業完成後，我的資料在儲存體帳戶中外觀如何？將保留我的目錄階層嗎？**
 
-準備匯入工作的硬碟時，目的地是由資料集 CSV 的 DstBlobPathOrPrefix 欄位指定。 這是硬碟的資料將複製到其中的儲存體帳戶目的地容器。 在此目的地容器內，會針對硬碟裡的資料夾建立虛擬目錄，並針對檔案建立 Blob。 
+準備匯入作業的硬碟時，目的地會由資料集 CSV 的 DstBlobPathOrPrefix 欄位指定。 這是硬碟的資料將複製到其中的儲存體帳戶目的地容器。 在此目的地容器內，會針對硬碟裡的資料夾建立虛擬目錄，並針對檔案建立 Blob。 
 
-**如果磁碟機中具有我儲存體帳戶裡已存在的檔案，那麼服務會覆寫我儲存體帳戶裡的現有 Blob 嗎？**
+**如果磁碟機中具有我儲存體帳戶裡已存在的檔案，那麼服務將會覆寫我儲存體帳戶裡現有的 Blob 或檔案嗎？**
 
-準備磁碟機時，您可以使用資料集 CSV 檔案中名為 /Disposition:<rename|no-overwrite|overwrite> 的欄位，指定是否應該覆寫目的地檔案還是予以忽略。 根據預設，服務會重新命名新的檔案，而不會覆寫現有的 Blob。
+準備磁碟機時，您可以使用資料集 CSV 檔案中名為 /Disposition:<rename|no-overwrite|overwrite> 的欄位，指定是否應該覆寫目的地檔案還是予以忽略。 根據預設，服務將為新檔案重新命名，而不會覆寫現有的 Blob 或檔案。
 
 **WAImportExport 工具與 32 位元作業系統相容嗎？**
 否。 WAImportExport 工具只與 64 位元 Windows 作業系統相容。 請參閱 [先決條件](#pre-requisites) 中的＜作業系統＞一節，以取得支援 OS 版本的完整清單。

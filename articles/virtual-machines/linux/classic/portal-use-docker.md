@@ -15,25 +15,26 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
-ms.openlocfilehash: 932744208d9d53c87e31dcdf9e34539750be4bdb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5c1822b7304c0360da866ddb504483f5a53432f
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="using-the-docker-vm-extension-with-the-azure-classic-portal"></a>搭配使用 Docker VM 擴充程式與 Azure 傳統入口網站
 > [!IMPORTANT] 
 > Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [Docker](https://www.docker.com/) 是最常用的虛擬化方式之一，它不使用虛擬機器，而是使用 [Linux 容器](http://en.wikipedia.org/wiki/LXC)作為在共用資源上獨立資料和執行計算的方法。 您可以使用 [Azure Linux 代理程式] 所管理的 Docker VM 延伸模組，如此可在 Azure 上建立 Docker VM 來託管任何數量的應用程式容器。
 
 > [!NOTE]
-> 本主題說明如何從 Azure 傳統入口網站建立 Docker VM。 若要查看如何在命令列建立 Docker VM，請參閱 [如何從 Azure 命令列介面 (Azure CLI) 使用 Docker VM 延伸模組]。 若要查看容器及其優點的高層級討論，請參閱 [Docker 高層級白板](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard)(英文)。
+> 本主題說明如何從 Azure 入口網站建立 Docker VM。 若要查看如何在命令列建立 Docker VM，請參閱 [如何從 Azure 命令列介面 (Azure CLI) 使用 Docker VM 延伸模組]。 若要查看容器及其優點的高層級討論，請參閱 [Docker 高層級白板](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard)(英文)。
 > 
 > 
 
 ## <a name="create-a-new-vm-from-the-image-gallery"></a>從映像庫建立新的 VM
-第一個步驟需要可支援 Docker VM 擴充程式的 Linux 映像提供 Azure VM，使用映像庫的 Ubuntu 14.04 LTS 映像作為範例伺服器映像，且 Ubuntu 14.04 Desktop 作為用戶端。 在入口網站中，按一下左下角的 [新增]  以建立新的 VM 執行個體，並從可用選項或從完整映像庫中選取 Ubuntu 14.04 LTS 映像，如下所示。
+第一個步驟需要可支援 Docker VM 擴充程式的 Linux 映像提供 Azure VM，使用映像庫的 Ubuntu 14.04 LTS 映像作為範例伺服器映像，且 Ubuntu 14.04 Desktop 作為用戶端。 在入口網站中，按一下 [+ 新增] 以建立新的 VM 執行個體，並從可用選項或從完整映像庫中選取 Ubuntu 14.04 LTS 映像，如下所示。
 
 > [!NOTE]
 > 目前來說，只有 2014 年 7 月之後推出的 Ubuntu 14.04 LTS 映像才支援 Docker VM 擴充程式。
@@ -67,11 +68,6 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="add-the-docker-vm-extension"></a>新增 Docker VM 擴充程式
 若要新增 Docker VM 擴充程式，找到您所建立的 VM 執行個體，並向下捲動至 [擴充程式]  ，然後按一下 [擴充程式] 以開啟 VM 擴充程式，如下所示。
-
-> [!NOTE]
-> 僅預覽入口網站支援此功能：https://portal.azure.com/
-> 
-> 
 
 ![](media/portal-use-docker/ClickExtensions.png)
 

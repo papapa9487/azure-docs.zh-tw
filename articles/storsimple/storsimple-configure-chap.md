@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 36b4e73d0336deb9560d44163fc5330d1c9d775c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 83ad256522ca19a19b3fe46fcc48e9cb37cbe246
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>為 StorSimple 裝置設定 CHAP
+> [!NOTE]
+> 已取代 StorSimple 的傳統入口網站。 按照淘汰排程，StorSimple 裝置管理員會自動移至新的 Azure 入口網站。 您將收到關於此移動的電子郵件和入口網站通知。 本文件也即將遭到淘汰。 若要檢視這版的文章以查看新的 Azure 入口網站，請移至[設定 StorSimple 裝置的 CHAP](storsimple-8000-configure-chap.md)。 若有關於移動的任何問題，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
+
 本教學課程說明如何為 StorSimple 裝置設定 CHAP。 這篇文章所述的程序適用於 StorSimple 8000 系列，以及 StorSimple 1200 裝置。
 
 CHAP 代表 Challenge Handshake 驗證通訊協定。 它是伺服器用來驗證遠端用戶端身分識別的驗證配置。 此驗證以共用密碼或密碼為基礎。 CHAP 可以是單向 (單向) 或相互 (雙向)。 單向 CHAP 是指目標驗證啟動器。 反之，相互或反向 CHAP 會要求目標驗證啟動器，然後啟動器再驗證目標。 不需要目標驗證也能實作啟動器驗證。 不過，必須同時實作啟動器驗證，才能實作目標驗證。 

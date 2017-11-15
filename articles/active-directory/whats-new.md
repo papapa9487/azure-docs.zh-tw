@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 93b80744f68546e37934c987f45d7e2747d64f83
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 766ab10c853eb56a1203686d21d0e131c44a41b5
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
@@ -40,6 +40,18 @@ ms.lasthandoff: 11/07/2017
 -   方案變更 
 
 請定期再次瀏覽這個網頁，因為我們會按月進行更新。
+
+## <a name="november-2017"></a>2017 年 11 月
+
+**類型：**已被取代的功能  
+**服務類別：**ACS  
+**產品功能：**存取控制服務 
+
+<a name="acs-retirement"></a>
+
+Microsoft Azure Active Directory 存取控制 (也稱為存取控制服務或 ACS) 將於 2018 年底淘汰。  未來幾週，我們會提供詳細的排程和高階移轉指引等進一步資訊。 在此同時，您可以在這個頁面上發表意見與關於 ACS 的任何問題，我們的小組成員即會協助解答。
+
+---
 
 
 ## <a name="october-2017"></a>2017 年 10 月

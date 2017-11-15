@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.openlocfilehash: f81f23862e783de07b5ec5aebad7f0a781168bd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7caf1dd3fa5ef295c2472cc11deb2895fc2a7111
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="back-up-windows-server-to-azure"></a>將 Windows Server 備份到 Azure
 
@@ -120,19 +120,15 @@ Microsoft Azure 復原服務 (MARS) 代理程式可在您的 Windows Server 及�
 
 5. 按一下 [下一步] 。
 
-6. 在 [指定備份排程] 頁面上，為檔案和資料夾指定要觸發備份的一天或一週當中的時間。 系統狀態備份排程會自動進行設定。 
+6. 在 [指定備份排程 (系統狀態)] 頁面上，為系統狀態指定要觸發備份的一天或一週當中的時間，然後按一下 [下一步] 
 
-    ![準備基礎結構](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
- 
-
-
-7.  在 [選取保留原則] 頁面上，為檔案和資料夾的備份複本選取保留原則。 系統狀態備份的預設保留期間會自動設定為 60 天。
-8.  在 Choose Initial Back up Type (選擇初始備份類型) 頁面上，將選取選項維持在 自動透過網路，然後按一下下一步。
-9.  在 確認 頁面上檢閱資訊，然後按一下完成。
+7.  在 [選取保留原則 (系統狀態)] 頁面上，為系統狀態的備份複本選取保留原則，然後按一下 [下一步]
+8. 同樣地，為選取的檔案和資料夾選取備份排程及保留原則。 
+8.  在 [Choose Initial Back up Type] (選擇初始備份類型) 頁面上，將選取選項維持在 [自動透過網路]，然後按一下 [下一步]。
+9.  在 [確認] 頁面上檢閱資訊，然後按一下 [完成]。
 10. 當精靈建立好備份排程時，請按一下 [關閉] 。
 
 ## <a name="perform-an-ad-hoc-back-up"></a>執行臨機操作備份
-
 
 您已建立備份工作執行的排程。 然而，您尚未備份至伺服器。 災害復原的最佳做法是執行隨選備份，以確保您伺服器的資料復原。
 
@@ -140,8 +136,9 @@ Microsoft Azure 復原服務 (MARS) 代理程式可在您的 Windows Server 及�
 
     ![準備基礎結構](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
 
-2.  在 [確認] 頁面上，檢閱 [立即備份精靈] 要用來備份您伺服器的設定。 然後按一下 [備份] 。
-3.  按一下 [關閉]  即可關閉精靈。 如果您在備份程序完成之前關閉精靈，精靈會繼續在背景中執行。
+2.  在 [立即備份] 上，從您要備份的 [檔案和資料夾] 或 [系統狀態] 中選取一個項目，然後按一下 [下一步] 
+3. 在 [確認] 頁面上，檢閱 [立即備份精靈] 要用來備份您伺服器的設定。 然後按一下 [備份] 。
+4.  按一下 [關閉]  即可關閉精靈。 如果您在備份程序完成之前關閉精靈，精靈會繼續在背景中執行。
 4.  完成初始備份之後，MARS 代理程式主控台中的 [工作]  窗格會顯示 [工作已完成]  狀態。
 
 

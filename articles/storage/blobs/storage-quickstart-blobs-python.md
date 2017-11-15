@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/12/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 44ec416a814ff6a5fef79ef21e2f54ce4ce4da17
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 76e23d85b392f8120914f6170040c6b3c450aba6
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/03/2017
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>使用 Python 在 Azure Blob 儲存體之間傳送物件
 在本快速入門中，您會了解如何在 Azure Blob 儲存體容器中，使用 Python 上傳、下載及列出區塊 Blob。 
@@ -32,25 +32,7 @@ ms.lasthandoff: 10/17/2017
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="create-a-storage-account-using-the-azure-portal"></a>使用 Azure 入口網站建立儲存體帳戶
-
-首先，建立新的一般用途儲存體帳戶供本快速入門使用。 
-
-1. 使用您的 Azure 帳戶登入 [Azure 入口網站](https://portal.azure.com)。 
-2. 在 [中樞] 功能表上，選取 [新增] > [儲存體] > [儲存體帳戶- Blob、檔案、資料表、佇列]。 
-3. 輸入儲存體帳戶的名稱。 名稱必須介於 3 到 24 個字元的長度，而且只能包含數字和小寫字母。 它也必須是唯一的。
-4. 將 `Deployment model` 設成 [資源管理員]。
-5. 將 `Account kind` 設成 [一般用途]。
-6. 將 `Performance` 設成 [標準]。 
-7. 將 `Replication` 設成 [本地備援儲存體 (LRS)]。
-8. 將 `Storage service encryption` 設成 [停用]。
-9. 將 `Secure transfer required` 設成 [停用]。
-10. 選取您的訂用帳戶。 
-11. 若為 `resource group`，請建立一個新的並提供它唯一的名稱。 
-12. 選取 `Location` 供儲存體帳戶使用。
-13. 核取 [釘選到儀表板] 並按一下 [建立] 以建立儲存體帳戶。 
-
-儲存體帳戶建立之後，就會釘選到儀表板。 按一下開啟它。 按一下 [設定] 下的 [存取金鑰]。 選取金鑰，並將儲存體帳戶名稱複製到剪貼簿，然後貼到 [記事本] 供日後使用。
+[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>下載範例應用程式
 本快速入門使用的[範例應用程式](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git)是基本的 Python 應用程式。  
@@ -100,8 +82,10 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-9
 
 一旦有了雲端 Blob 容器，您就可以具現化 **CloudBlockBlob** 物件，指向您感興趣的特定 Blob，並執行上傳、下載和複製等作業。
 
-在本節中，您可以具現化物件、建立新的容器，然後設定容器上的權限，以便這些 Blob 為公用 Blob。 容器名為 **quickstartblobs**。 
+> [!IMPORTANT]
+> 容器名稱必須是小寫字母。 如需有關容器和 Blob 名稱的詳細資訊，請參閱[命名和參考容器、Blob 及中繼資料](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。
 
+在本節中，您可以具現化物件、建立新的容器，然後設定容器上的權限，以便這些 Blob 為公用 Blob。 容器名為 **quickstartblobs**。 
 
 ```python 
 # Create the BlockBlockService that is used to call the Blob service for the storage account

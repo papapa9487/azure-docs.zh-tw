@@ -1,9 +1,9 @@
 ---
-title: "使用 Azure Site Recovery 容錯移轉至 Azure 之後的 VM 連線網路服務 | Microsoft Docs"
+title: "使用 Azure Site Recovery 進行容錯移轉至 Azure 之後連線至 VM | Microsoft Docs"
 description: "使用 Azure Site Recovery 從內部部署環境容錯移轉之後，可供連線到 Azure VM 的網路服務指引"
 services: site-recovery
 documentationcenter: 
-author: rayne-wiselman
+author: prateek9us
 manager: carmonm
 editor: 
 ms.assetid: f02cdbea-0940-48bf-9fa5-f38d9e584fae
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/12/2017
-ms.author: raynew
-ms.openlocfilehash: 01c8e664465350b9dd382502c65cc3fda350797c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/05/2017
+ms.author: pratshar
+ms.openlocfilehash: 6c0fa27aeed3e500bd69567f90743cc274144978
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="networking-for-vm-connectivity-after-failover"></a>容錯移轉之後的 VM 連線網路服務
+# <a name="connecting-to-vms-after-failover-to-azure"></a>在容錯移轉至 Azure 之後連線至 VM
 
 本文說明使用 [Azure Site Recovery](site-recovery-overview.md) 服務來複寫和容錯移轉至 Azure之後，連線至 Azure VM 的網路服務需求。
 

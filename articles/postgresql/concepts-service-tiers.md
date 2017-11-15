@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/31/2017
-ms.openlocfilehash: 0ebdced6ac748245faed90949fd0e76c0eacb2d3
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/03/2017
+ms.openlocfilehash: 2c0ed6b58fe3e354da3cf58cd0c504d72bb0f421
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>適用於 PostgreSQL 的 Azure 資料庫選項和效能：了解每個定價層中可用的項目
 當您建立適用於 PostgreSQL 伺服器的 Azure 資料庫時，有三個主要選項可供您決定如何設定配置給該伺服器的資源。 這些選項會影響伺服器的效能和規模。
@@ -53,7 +53,7 @@ ms.lasthandoff: 10/26/2017
 在預覽時間範圍內，一旦建立伺服器，就無法變更定價層。 未來能將伺服器從某個定價層升級或降級至另一個定價層。
 
 ## <a name="understand-the-price"></a>了解價格
-在 [Azure 入口網站](https://portal.azure.com/#create/Microsoft.PostgreSQLServer)內部建立適用於 PostgreSQL 的新 Azure 資料庫時，請按一下 [定價層] 刀鋒視窗，便會根據您選取的選項顯示每月成本。 如果您沒有 Azure 訂用帳戶，請使用 Azure 價格計算機取得估計的價格。 請瀏覽 [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator/)網站，然後按一下 [新增項目]，展開 [資料庫] 類別，並選擇 [適用於 PostgreSQL 的 Azure 資料庫] 以自訂選項。
+在 [Azure 入口網站](https://portal.azure.com/#create/Microsoft.PostgreSQLServer)內部建立適用於 PostgreSQL 的新 Azure 資料庫時，請按一下 [定價層] 分頁，便會根據您選取的選項顯示每月成本。 如果您沒有 Azure 訂用帳戶，請使用 Azure 價格計算機取得估計的價格。 請瀏覽 [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator/)網站，然後按一下 [新增項目]，展開 [資料庫] 類別，並選擇 [適用於 PostgreSQL 的 Azure 資料庫] 以自訂選項。
 
 ## <a name="choose-a-performance-level-compute-units"></a>選擇效能等級 (計算單位)
 在您決定適用於 PostgreSQL 伺服器的 Azure 資料庫的定價層之後，您就可以選取所需的計算單位數來決定效能等級。 對於其 Web 或分析工作負載需要更高使用者並行處理的應用程式而言，200 或 400 個計算單位會是很好的起點。 
@@ -93,11 +93,11 @@ ms.lasthandoff: 10/26/2017
 > 在預覽版中，請在建立伺服器時選擇儲存體數量。 目前尚未支援變更現有伺服器上的儲存體大小。 
 
 ## <a name="scaling-a-server-up-or-down"></a>相應增加或減少伺服器
-您會在建立適用於 PostgreSQL 的 Azure 資料庫的一開始，選擇定價層和效能等級。 稍後，您可以在相同的定價層範圍內，動態相應增加或減少計算單位。 在 Azure 入口網站中，滑動伺服器 [定價層] 刀鋒視窗上的 [計算單位]，或遵循下列範例進行指令碼處理：[使用 Azure CLI 監視和調整單一 PostgreSQL 伺服器](scripts/sample-scale-server-up-or-down.md)
+您會在建立適用於 PostgreSQL 的 Azure 資料庫的一開始，選擇定價層和效能等級。 稍後，您可以在相同的定價層範圍內，動態相應增加或減少計算單位。 在 Azure 入口網站中，滑動伺服器 [定價層] 分頁上的 [計算單位]，或遵循下列範例進行指令碼處理：[使用 Azure CLI 監視和調整單一 PostgreSQL 伺服器](scripts/sample-scale-server-up-or-down.md)
 
 計算單位的調整會與所選擇的儲存體大小上限分開進行。
 
-變更資料庫的效能等級會在幕後於新的效能等級建立原始資料庫的複本，然後將連線切換到複本。 此程序期間不會遺失任何資料。 在我們切換到複本的短暫期間，資料庫的連線會停用，因此執行中的某些交易可能會回復。 這個時間範圍並不固定，但平均在 4 秒以內，而且有超過 99% 的案例都是在 30 秒以內。 如果在連接停用時有大型交易執行中，則此時間範圍可能會更長。
+變更資料庫的效能等級會在幕後於新的效能等級建立原始伺服器的複本，然後將連線切換到複製的伺服器。 此程序期間不會遺失任何資料。 在系統切換到伺服器新複本的短暫期間，資料庫的連線會停用，因此執行中的某些交易可能會回復。 這個時間範圍並不固定，但平均在 4 秒以內，而且有超過 99% 的案例都是在 30 秒以內。 如果在連接停用時有大型交易執行中，則此時間範圍可能會更長。
 
 整個調整程序的期間取決於伺服器變更前後的大小和定價層。 例如，在標準定價層內變更計算單位的伺服器應在幾分鐘內完成。 完成變更之前，不會將新屬性套用至伺服器。
 

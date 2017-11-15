@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/10/2017
+ms.date: 10/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 4dc228ce8a7a73dd32bde77d529698bdcb7f490c
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 8cae0577d950e3968bc25083e59d637963e6b442
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple Virtual Array 系統需求
 ## <a name="overview"></a>概觀
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/12/2017
 | 最小記憶體 (RAM) |8 GB <br> 對於檔案伺服器，8 GB 適用於 2 百萬個以下的檔案，而 16 GB 則適用於 2 - 4 百萬個檔案|
 | 磁碟空間<sup>1</sup> |OS 磁碟 - 80 GB  <br></br>資料磁碟 - 500 GB 到 8 TB |
 | 最小網路介面數目 |1 |
-| 最小網際網路頻寬<sup>2</sup> |5 Mbps |
+| 網際網路頻寬<sup>2</sup> |所需的最小頻寬：5 Mbps <br> 建議頻寬：100 Mbps <br> 資料傳輸的速度會隨著網際網路頻寬而調整。 例如，100 GB 的資料以 5 Mbps 傳輸需要 2 天的時間，這可能導致備份失敗，因為每日備份無法在一天內完成。 使用 100 Mbps 的頻寬，100 GB 的資料可以在 2.5 小時內傳輸完畢。   |
 
 <sup>1</sup> - 精簡佈建
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 10/12/2017
 > [!NOTE]
 > 
 > * 裝置 (來源) IP 應該一律設定為所有啟用雲端功能的網路介面。 
-> * 目的地 IP 應該設為 [Azure 資料中心 IP 範圍](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653)。
+> * 目的地 IP 應該設為 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/confirmation.aspx?id=41653)。
 > 
 > 
 
@@ -128,6 +128,5 @@ ms.lasthandoff: 10/12/2017
 | `https://*.partners.extranet.microsoft.com/*` |支援封裝 |
 | `http://*.data.microsoft.com ` |Windows 中的遙測服務，請參閱[客戶經驗和診斷遙測的更新](https://support.microsoft.com/en-us/kb/3068708) |
 
-## <a name="next-step"></a>後續步驟
+## <a name="next-steps"></a>後續步驟
 * [準備入口網站以部署 StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)
-

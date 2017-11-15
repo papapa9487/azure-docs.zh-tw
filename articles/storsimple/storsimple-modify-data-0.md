@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 3a47ff1eed220cede820e8698c3384300e94688d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 089988354c5e1ca2e8d5d1554084062a655e43da
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-device"></a>修改 StorSimple 裝置上的 DATA 0 網路介面設定
-## <a name="overview"></a>Overview
+> [!NOTE]
+> StorSimple 的傳統入口網站已過時。 按照淘汰排程，StorSimple 裝置管理員會自動移至新的 Azure 入口網站。 您將收到關於此移動的電子郵件和入口網站通知。 本文件也很快就會淘汰。 若要檢視適用於新 Azure 入口網站的文章版本，請移至[修改 StorSimple 裝置上的 DATA 0 網路介面設定](storsimple-8000-modify-data-0.md)。 若有關於移動的任何問題，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
+
+## <a name="overview"></a>概觀
 Microsoft Azure StorSimple 裝置有 6 個網路介面，從 DATA 0 至 DATA 5。 DATA 0 介面一律透過 Windows PowerShell 介面或序列主控台設定，且已自動啟用雲端功能。 請注意，您無法透過 Azure 傳統入口網站設定 DATA 0 網路介面。 
 
 DATA 0 介面會在初始部署 StorSimple 裝置期間，透過安裝精靈進行第一次設定。 當裝置處於操作模式時，您可能需要重新進行 DATA 0 設定。 本教學課程提供兩種修改 DATA 0 網路設定的方法，皆需透過 Windows PowerShell for StorSimple 進行。

@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/29/2016
+ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: 68b767c9c93f2daff476a21029b9813f347590b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4bf8b397d81e12bc48fe3d0ce16d5fff705cedbc
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-your-storage-account"></a>使用 StorSimple Manager 服務管理儲存體帳戶
+> [!NOTE]
+> StorSimple 的傳統入口網站已過時。 按照淘汰排程，StorSimple 裝置管理員會自動移至新的 Azure 入口網站。 您將收到關於此移動的電子郵件和入口網站通知。 本文件也很快就會淘汰。 若要檢視適用於新 Azure 入口網站的文章版本，請移至[使用 StorSimple Manager 服務來管理儲存體帳戶](storsimple-8000-manage-storage-accounts.md)。 若有關於移動的任何問題，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
+
 ## <a name="overview"></a>概觀
 [設定]  頁面會顯示所有可在 StorSimple Manager 服務中建立的全域服務參數。 這些參數可以套用到與該服務連線的所有裝置，還包括：
 
@@ -76,7 +79,7 @@ ms.lasthandoff: 10/11/2017
 您可以編輯磁碟區容器所使用的儲存體帳戶。 如果您編輯的儲存體帳戶目前正在使用中，唯一可修改的欄位就是儲存體帳戶的存取金鑰。 您可以提供新的儲存體存取金鑰，並儲存更新的設定。
 
 #### <a name="to-edit-a-storage-account"></a>若要編輯儲存體帳戶
-1. 在服務登陸頁面上，選取您的服務，連按兩下該服務名稱，然後按一下設定 。
+1. 在服務登陸頁面上，選取您的服務，連按兩下該服務名稱，然後按一下 [設定] 。
 2. 按一下 [新增/編輯儲存體帳戶] 。
 3. 在 [新增/編輯儲存體帳戶]  對話方塊中：
    
@@ -94,7 +97,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 #### <a name="to-delete-a-storage-account"></a>若要刪除儲存體帳戶
-1. 在 StorSimple Manager 服務登陸頁面上，選取您的服務，連按兩下該服務名稱，然後按一下設定 。
+1. 在 StorSimple Manager 服務登陸頁面上，選取您的服務，連按兩下該服務名稱，然後按一下 [設定] 。
 2. 在儲存體帳戶的表格式清單中，將滑鼠停留在您想要刪除的帳戶上方。
 3. 刪除圖示 (**x**) 會出現在該儲存體帳戶資料行的最右邊。 按一下 [x]  圖示，以刪除認證。
 4. 當系統提示您確認時，按一下 [是]  繼續進行刪除。 表格式清單會更新以反映所做的變更。

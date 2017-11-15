@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2017
+ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 035eb44432081ef52c758a5d311b4d2ba2c6108d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9aea299738eb5cac6fe6d3b633707862d978fff0
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>使用網路和應用程式安全性群組 (預覽) 來篩選網路流量
 
@@ -44,6 +44,7 @@ ms.lasthandoff: 10/11/2017
     
     ```azurecli-interactive
     az feature register --name AllowApplicationSecurityGroups --namespace Microsoft.Network
+    az provider register --namespace Microsoft.Network
     ``` 
 
 5. 藉由輸入下列命令，確認您已註冊預覽版︰
@@ -52,7 +53,9 @@ ms.lasthandoff: 10/11/2017
     az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     ```
 
-    在前面的命令所傳回之輸出的 **state** 中出現「已註冊」前，請勿繼續進行其餘步驟。 如果您在完成註冊前就繼續進行，其餘步驟將會失敗。
+    > [!WARNING]
+    > 註冊會需要 1 小時來完成。 在前面的命令所傳回之輸出的 **state** 中出現「已註冊」前，請勿繼續進行其餘步驟。 如果您在完成註冊前就繼續進行，其餘步驟將會失敗。
+
 6. 執行下列 bash 指令碼以建立資源群組：
 
     ```azurecli-interactive
@@ -160,7 +163,6 @@ ms.lasthandoff: 10/11/2017
       --name myNic1 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "WebServers" "AppServers"
 
@@ -169,7 +171,6 @@ ms.lasthandoff: 10/11/2017
       --name myNic2 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "AppServers"
 
@@ -178,12 +179,11 @@ ms.lasthandoff: 10/11/2017
       --name myNic3 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "DatabaseServers"
     ```
 
-    根據網路介面所屬於的應用程式安全性群組，只有您在步驟 9 中建立的對應安全性規則會套用到網路介面。 例如，只有 WebRule 會對 myWebNic 起作用，因為該網路介面是 WebServers 應用程式安全性群組的成員，而且該規則會指定讓 WebServers 應用程式安全性群組作為其目的地。 AppRule 和 DatabaseRule 規則不會套用至 myWebNic，因為該網路介面不是 AppServers 和 DatabaseServers 應用程式安全性群組的成員。
+    根據網路介面所屬於的應用程式安全性群組，只有您在步驟 9 中建立的對應安全性規則會套用到網路介面。 例如，只有 WebRule 會對 myNic1 起作用，因為該網路介面是 WebServers 應用程式安全性群組的成員，而且該規則會指定讓 WebServers 應用程式安全性群組作為其目的地。 AppRule 和 DatabaseRule 規則不會套用至 myNic1，因為該網路介面不是 AppServers 和 DatabaseServers 應用程式安全性群組的成員。
 
 13. 為每種伺服器類型建立一個虛擬機器，並對每個虛擬機器連結對應的網路介面。 這個範例會建立 Windows 虛擬機器，但您可以將 win2016datacenter 變更為 UbuntuLTS 來改為建立 Linux 虛擬機器。
 
@@ -239,7 +239,8 @@ ms.lasthandoff: 10/11/2017
     Get-AzureRmProviderFeature -FeatureName AllowApplicationSecurityGroups -ProviderNamespace Microsoft.Network
     ```
 
-    在前面的命令所傳回之輸出的 **RegistrationState** 資料行中出現「已註冊」前，請勿繼續進行其餘步驟。 如果您在完成註冊前就繼續進行，其餘步驟將會失敗。
+    > [!WARNING]
+    > 註冊會需要 1 小時來完成。 在前面的命令所傳回之輸出的 **RegistrationState** 中出現「已註冊」前，請勿繼續進行其餘步驟。 如果您在完成註冊前就繼續進行，其餘步驟將會失敗。
         
 6. 建立資源群組：
 
@@ -343,7 +344,6 @@ ms.lasthandoff: 10/11/2017
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $webAsg,$appAsg
 
     $nic2 = New-AzureRmNetworkInterface `
@@ -351,7 +351,6 @@ ms.lasthandoff: 10/11/2017
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $appAsg
 
     $nic3 = New-AzureRmNetworkInterface `
@@ -359,11 +358,10 @@ ms.lasthandoff: 10/11/2017
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $databaseAsg
     ```
 
-    根據網路介面所屬於的應用程式安全性群組，只有您在步驟 8 中建立的對應安全性規則會套用到網路介面。 例如，只有 WebRule 會對 myWebNic 起作用，因為該網路介面是 WebServers 應用程式安全性群組的成員，而且該規則會指定讓 WebServers 應用程式安全性群組作為其目的地。 AppRule 和 DatabaseRule 規則不會套用至 myWebNic，因為該網路介面不是 AppServers 和 DatabaseServers 應用程式安全性群組的成員。
+    根據網路介面所屬於的應用程式安全性群組，只有您在步驟 8 中建立的對應安全性規則會套用到網路介面。 例如，只有 WebRule 會對 myNic1 起作用，因為該網路介面是 WebServers 應用程式安全性群組的成員，而且該規則會指定讓 WebServers 應用程式安全性群組作為其目的地。 AppRule 和 DatabaseRule 規則不會套用至 myNic1，因為該網路介面不是 AppServers 和 DatabaseServers 應用程式安全性群組的成員。
 
 13. 為每種伺服器類型建立一個虛擬機器，並對每個虛擬機器連結對應的網路介面。 此範例會建立 Windows 虛擬機器，但您可以在執行指令碼之前，將 -Windows 變更為 -Linux、將 MicrosoftWindowsServer 變更為 Canonical、將 WindowsServer 變更為 UbuntuServer，以及將 2016-Datacenter 變更為 14.04.2-LTS，來改為建立 Linux 虛擬機器。
 
@@ -439,7 +437,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 在入口網站的搜尋方塊中，輸入 **myResourceGroup**。 在搜尋結果中按一下 [myResourceGroup]。
 2. 在 [myResourceGroup] 刀鋒視窗中，按一下 [刪除] 圖示。
-3. 若要確認刪除動作，請在 輸入資源群組名稱 方塊中輸入 **myResourceGroup**，然後按一下刪除。
+3. 若要確認刪除動作，請在 [輸入資源群組名稱] 方塊中輸入 **myResourceGroup**，然後按一下 [刪除]。
 
 ### <a name="delete-cli"></a>Azure CLI
 

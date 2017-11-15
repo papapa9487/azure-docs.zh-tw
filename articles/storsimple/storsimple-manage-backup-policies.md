@@ -12,23 +12,26 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/10/2016
+ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: c1e9d5d0450bab5d371aafb40fd7c5920d39dfdb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89382bbed05034f7bb61df2c5d1b09461da44651
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-backup-policies"></a>使用 StorSimple Manager 服務管理備份原則
+> [!NOTE]
+> StorSimple 的傳統入口網站已過時。 按照淘汰排程，StorSimple 裝置管理員會自動移至新的 Azure 入口網站。 您將收到關於此移動的電子郵件和入口網站通知。 本文件也很快就會淘汰。 若有關於移動的任何問題，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
+
 [!INCLUDE [storsimple-version-selector-manage-backup-policies](../../includes/storsimple-version-selector-manage-backup-policies.md)]
 
 ## <a name="overview"></a>概觀
-本教學課程說明如何使用 StorSimple Manager 服務的 [備份原則]  頁面控制 StorSimple 磁碟區的備份程序和備份保留。 它也會說明如何完成手動備份。
+本教學課程說明如何使用 StorSimple Manager 服務的 [備份原則] 頁面控制 StorSimple 磁碟區的備份程序和備份保留。 它也會說明如何完成手動備份。
 
 [備份原則] 頁面可讓您管理備份原則並排程本機和雲端快照  (備份原則用來設定磁碟區集合的備份排程和備份保留)。備份原則可讓您同時建立多個磁碟區的快照。 這表示備份原則所建立的備份將會是與當機時一致的複本。 此頁面會列出備份原則、其類型、相關聯的磁碟區、保留的備份數目，以及啟用這些原則的選項。
 
-[備份原則]  頁面也可讓您依下列一個或多個欄位，篩選現有的備份原則：
+[備份原則] 頁面也可讓您依下列一或多個欄位，篩選現有的備份原則：
 
 * **原則名稱** – 與原則相關聯的名稱。 不同類型的原則包括：
   
@@ -49,13 +52,13 @@ ms.lasthandoff: 10/11/2017
 * 建立具有多個磁碟區和排程的自訂備份原則 
 
 ## <a name="add-a-backup-policy"></a>新增備份原則
-新增備份原則，以自動排程備份。 在 Azure 傳統入口網站中執行下列步驟，以便為 StorSimple 裝置新增備份原則。 新增原則之後，您可以定義排程 (請參閱 [新增或修改排程](#add-or-modify-a-schedule))。
+新增備份原則，以自動排程備份。 在 Azure 傳統入口網站中執行下列步驟，以便為 StorSimple 裝置新增備份原則。 新增原則之後，您可以定義排程 (請參閱[新增或修改排程](#add-or-modify-a-schedule))。
 
 [!INCLUDE [storsimple-add-backup-policy](../../includes/storsimple-add-backup-policy.md)]
 
 ![提供的影片](./media/storsimple-manage-backup-policies/Video_icon.png) **提供的影片**
 
-若要觀看影片示範如何建立本機或雲端備份原則，請按一下 [這裡](https://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/)。
+若要觀看影片示範如何建立本機或雲端備份原則，請按一下[這裡](https://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/)。
 
 ## <a name="add-or-modify-a-schedule"></a>新增或修改排程
 您可以在 StorSimple 裝置上新增或修改附加到現有備份原則的排程。 在 Azure 傳統入口網站中執行下列步驟，以新增或修改排程。
@@ -78,5 +81,5 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [storsimple-create-custom-backup-policy](../../includes/storsimple-create-custom-backup-policy.md)]
 
 ## <a name="next-steps"></a>後續步驟
-深入了解 [使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
+深入了解[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 

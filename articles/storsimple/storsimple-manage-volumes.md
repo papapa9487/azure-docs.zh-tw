@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/11/2016
+ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: 31ed9dad8ba56a3746873b7b35e678e97743fbfe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e33f971610b01e9802e8fb12457d9ce88b51813
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-volumes"></a>使用 StorSimple Manager 服務來管理磁碟區
+> [!NOTE]
+> StorSimple 的傳統入口網站已過時。 按照淘汰排程，StorSimple 裝置管理員會自動移至新的 Azure 入口網站。 您將收到關於此移動的電子郵件和入口網站通知。 本文件也很快就會淘汰。 若有關於移動的任何問題，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
+
 [!INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
 
 ## <a name="overview"></a>概觀
@@ -61,7 +64,7 @@ StorSimple Manager 服務是 Azure 傳統入口網站的延伸模組，可讓您
 您已在部署 StorSimple 方案期間 [建立磁碟區](storsimple-deployment-walkthrough-u1.md#step-6-create-a-volume) 。 新增磁碟區會是類似的程序。
 
 ### <a name="to-add-a-volume"></a>若要新增磁碟區
-1. 在 裝置 頁面中，選取並按兩下裝置，然後按一下磁碟區容器 索引標籤。
+1. 在 [裝置] 頁面中，選取並按兩下裝置，然後按一下 [磁碟區容器] 索引標籤。
 2. 選取磁碟區容器，然後按一下對應資料列的箭號來存取與該容器相關聯的磁碟區。
 3. 按一下頁面底部的 [新增]  。 [新增磁碟區精靈] 隨即啟動。
    
@@ -92,7 +95,7 @@ StorSimple Manager 服務是 Azure 傳統入口網站的延伸模組，可讓您
 > 
 
 ### <a name="to-modify-a-volume"></a>若要修改磁碟區
-1. 在 裝置 頁面中，選取並按兩下裝置，然後按一下磁碟區容器 索引標籤。此頁面會以表格列出與裝置相關聯的所有磁碟區容器。
+1. 在 [裝置] 頁面中，選取並按兩下裝置，然後按一下 [磁碟區容器] 索引標籤。此頁面會以表格列出與裝置相關聯的所有磁碟區容器。
 2. 選取並按一下磁碟區容器，以清單顯示該容器內的所有磁碟區。
 3. 在 [磁碟區] 頁面上，選取磁碟區，然後按一下 [修改]。
 4. 在 [修改磁碟區精靈] 的 [基本設定] 下，您可以執行列動作：
@@ -133,7 +136,7 @@ StorSimple Manager 服務是 Azure 傳統入口網站的延伸模組，可讓您
 2. 先使主機上的磁碟區離線。 這樣做可以排除任何會造成磁碟區上資料損毀的潛在風險。 如需特定步驟，請參閱主機作業系統的指示。
 3. 在主機離線之後，請執行下列步驟以使裝置上的磁碟區離線：
    
-   1. 在 裝置 頁面中，選取並按兩下裝置，然後按一下磁碟區容器 索引標籤。磁碟區容器  索引標籤會以表格列出與裝置相關聯的所有磁碟區容器。
+   1. 在 [裝置] 頁面中，選取並按兩下裝置，然後按一下 [磁碟區容器] 索引標籤。[磁碟區容器]  索引標籤會以表格列出與裝置相關聯的所有磁碟區容器。
    2. 選取並按一下磁碟區容器，以清單顯示該容器內的所有磁碟區。
    3. 選取磁碟區，然後按一下 [離線] 。
    4. 系統提示您進行確認時，按一下 [是] 。 磁碟區現在應已離線。
@@ -154,7 +157,7 @@ StorSimple Manager 服務是 Azure 傳統入口網站的延伸模組，可讓您
 請完成下列步驟來刪除磁碟區。
 
 ### <a name="to-delete-a-volume"></a>若要刪除磁碟區
-1. 在 裝置 頁面中，選取並按兩下裝置，然後按一下磁碟區容器 索引標籤。
+1. 在 [裝置] 頁面中，選取並按兩下裝置，然後按一下 [磁碟區容器] 索引標籤。
 2. 選取含有您想要刪除之磁碟區的磁碟區容器。 按一下該磁碟區容器，即可存取 [磁碟區]  頁面。
 3. 與這個容器相關聯的所有磁碟區會以表格顯示。 檢查您想要刪除之磁碟區的狀態。 如果您想要刪除的磁碟區未離線，請先使其離線，請依照 [使磁碟區離線](#take-a-volume-offline)中的步驟執行。
 4. 在磁碟區離線之後，按一下頁面底部的 [刪除]  。
@@ -166,7 +169,7 @@ StorSimple Manager 服務是 Azure 傳統入口網站的延伸模組，可讓您
 請執行下列步驟來啟用或停用監視磁碟區。
 
 ### <a name="to-enable-or-disable-volume-monitoring"></a>若要啟用或停用監視磁碟區
-1. 在 裝置 頁面中，選取並按兩下裝置，然後按一下磁碟區容器 索引標籤。
+1. 在 [裝置] 頁面中，選取並按兩下裝置，然後按一下 [磁碟區容器] 索引標籤。
 2. 選取磁碟區所在的磁碟區容器，然後按一下該磁碟區容器來存取 [磁碟區]  頁面。
 3. 以表格顯示所列出與這個容器相關聯的所有磁碟區。 按一下並選取磁碟區或磁碟區複製。
 4. 按一下頁面底部的 [修改] 。

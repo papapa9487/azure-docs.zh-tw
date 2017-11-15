@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/03/2017
 ms.author: terrylan
-ms.openlocfilehash: 35aa45ce09b756dd7413a1df3d3c7b0c428b7a97
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e71d407050f210c770bcac30259b9c2f2fb27aa3
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure 資訊安全中心常見問題集 (FAQ)
 這個常見問題集回答「Azure 資訊安全中心」的相關問題，此資訊安全中心是一項針對 Microsoft Azure 資源的安全性提供更深入的洞悉和更佳控制的服務，可協助您預防、偵測及回應威脅。
@@ -127,6 +127,15 @@ Azure 資訊安全中心能辨識透過 Azure 擴充功能安裝的反惡意程�
 
 ### <a name="why-do-i-get-the-message-missing-scan-data-for-my-vm"></a>為什麼我會從 VM 收到「遺失掃描資料」訊息？
 當沒有 VM 的掃瞄資料時會顯示此訊息。 在 Azure 資訊安全中心中啟用資料收集之後，可能需要花費一些時間 (少於一小時) 才能填入掃描資料。 在初始填入掃描資料之後，您可能會收到此訊息，因為完全沒有掃描資料或是沒有最近的掃描資料。 掃描不會填入處於停止狀態之 VM 的資料。 如果最近沒有填入掃描資料 (根據 Windows 代理程式的保留原則，預設值為 30 天)，可能也會顯示此訊息。
+
+### <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>資訊安全中心多久掃描作業系統弱點、系統更新和端點保護問題一次？
+資訊安全中心掃描弱點、更新和問題的延遲為：
+
+- 作業系統弱點 (Microsoft 造成)：在 48 小時內更新資料
+- 系統更新：在 24 小時內更新資料
+- 端點保護問題：在 8 小時內更新資料
+
+資訊安全中心通常會每小時掃描新的資料一次。 上述延遲值是沒有最新掃描或掃描失敗的最糟情況。
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>為什麼我會收到「VM 代理程式已遺失」訊息？
 VM 代理程式必須安裝在 VM 上，才能啟用資料收集。 預設會為從 Azure Marketplace 部署的 VM 安裝「VM 代理程式」。 如需如何在其他 VM 上安裝 VM 代理程式的資訊，請參閱部落格文章 [VM Agent and Extensions (VM 代理程式和擴充功能)](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)。

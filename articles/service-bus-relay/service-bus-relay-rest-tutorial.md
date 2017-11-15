@@ -1,5 +1,5 @@
 ---
-title: "使用 Azure 轉送的服務匯流排 REST 教學課程 |Microsoft Docs"
+title: "使用 Azure 轉送的 REST 教學課程 | Microsoft Docs"
 description: "建置簡單的 Azure 服務匯流排轉送主機應用程式來公開 REST 架構介面。"
 services: service-bus-relay
 documentationcenter: na
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2017
+ms.date: 11/06/2017
 ms.author: sethm
-ms.openlocfilehash: 0db9dbd2d2743907e3f0b259228201d4f5d0c3c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a5a2916514a125d0b7443ced42e5ec600c68857
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Azure WCF 轉送的 REST 教學課程
 
 本教學課程描述如何建置簡單的 Azure 轉送主機應用程式來公開 REST 架構介面。 REST 可讓 Web 用戶端 (例如 Web 瀏覽器) 透過 HTTP 要求存取服務匯流排 API。
 
-本教學課程會使用 Windows Communication Foundation (WCF) REST 程式設計模型，在服務匯流排上建構 REST 服務。 如需詳細資訊，請參閱 WCF 文件中的 [WCF REST 程式設計模型](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model)和[設計與實作服務](/dotnet/framework/wcf/designing-and-implementing-services)。
+本教學課程會使用 Windows Communication Foundation (WCF) REST 程式設計模型，在 Azure 轉送上建構 REST 服務。 如需詳細資訊，請參閱 WCF 文件中的 [WCF REST 程式設計模型](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model)和[設計與實作服務](/dotnet/framework/wcf/designing-and-implementing-services)。
 
 ## <a name="step-1-create-a-namespace"></a>步驟 1：建立命名空間
 
@@ -32,19 +32,19 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>步驟 2：定義 REST 架構的 WCF 服務合約以與 Azure 轉送搭配使用
 
-當您建立 WCF REST 樣式服務時，必須定義合約。 合約會指定主機支援哪些作業。 服務作業可視為 Web 服務方法。 合約可以透過定義 C++、C# 或 Visual Basic 介面建立。 介面中的每個方法會對應一個特定服務作業。 [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) 屬性必須套用至每個介面，且 [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) 屬性必須套用至每個作業。 如果介面中的方法具備沒有 [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) 的 [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx)，則不會公開該方法。 用來執行這些工作的程式碼顯示在程序後面的範例中。
+當您建立 WCF REST 樣式服務時，必須定義合約。 合約會指定主機支援哪些作業。 服務作業可視為 Web 服務方法。 合約可以透過定義 C++、C# 或 Visual Basic 介面建立。 介面中的每個方法會對應一個特定服務作業。 [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) 屬性必須套用至每個介面，且 [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) 屬性必須套用至每個作業。 如果介面中的方法具備沒有 [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) 的 [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute)，則不會公開該方法。 用來執行這些工作的程式碼顯示在程序後面的範例中。
 
-WCF 合約與 REST 樣式合約之間的主要差異在於屬性會新增至 [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx)：[WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx)。 這個屬性可讓您將介面的方法對應至介面另一端的方法。 在此情況下，我們會使用 [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx) 將方法連結至 HTTP GET。 這可讓服務匯流排準確擷取和解譯傳送到介面的命令。
+WCF 合約與 REST 樣式合約之間的主要差異在於屬性會新增至 [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute)：[WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute)。 這個屬性可讓您將介面的方法對應至介面另一端的方法。 這個範例使用 [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute) 屬性，以將方法連結至 HTTP GET。 這可讓服務匯流排準確擷取和解譯傳送到介面的命令。
 
 ### <a name="to-create-a-contract-with-an-interface"></a>使用介面建立合約
 
-1. 以系統管理員身分開啟 Visual Studio：以滑鼠右鍵按一下 開始 功能表中的程式，然後按一下以系統管理員身分執行。
+1. 以系統管理員身分開啟 Visual Studio：以滑鼠右鍵按一下 [開始] 功能表中的程式，然後按一下 [以系統管理員身分執行]。
 2. 這會建立新的主控台應用程式專案。 按一下 [檔案] 功能表，再依序選取 [新增] 及 [專案]。 在 [新增專案] 對話方塊中，按一下 [Visual C#]，選取 [主控台應用程式] 範本，並將它命名為 **ImageListener**。 使用預設 [位置]。 按一下 [確定]  以建立專案。
 3. 若為 C# 專案，Visual Studio 會建立 `Program.cs` 檔案。 這個類別包含空的 `Main()` 方法，即正確建置主控台應用程式專案所需的方法。
-4. 安裝服務匯流排 NuGet 封裝，以將服務匯流排和 **System.ServiceModel.dll** 的參考新增至專案。 此封裝會自動新增服務匯流排程式庫及 WCF **System.ServiceModel** 的參考。 在 方案總管 中，以滑鼠右鍵按一下 **ImageListener** 專案，然後按一下管理 NuGet 封裝。 按一下 [瀏覽] 索引標籤，然後搜尋 `Microsoft Azure Service Bus`。 按一下 [安裝] 並接受使用條款。
+4. 安裝服務匯流排 NuGet 封裝，以將服務匯流排和 **System.ServiceModel.dll** 的參考新增至專案。 此封裝會自動新增服務匯流排程式庫及 WCF **System.ServiceModel** 的參考。 在 [方案總管] 中，以滑鼠右鍵按一下 **ImageListener** 專案，然後按一下 [管理 NuGet 封裝]。 按一下 [瀏覽] 索引標籤，然後搜尋 `Microsoft Azure Service Bus`。 按一下 [安裝] 並接受使用條款。
 5. 您必須明確地將 **System.ServiceModel.dll** 的參考新增至專案：
    
-    a. 在 方案總管 中，以滑鼠右鍵按一下專案資料夾下的**參考**資料夾，然後按一下加入參考。
+    a. 在 [方案總管] 中，以滑鼠右鍵按一下專案資料夾下的**參考**資料夾，然後按一下 [加入參考]。
    
     b. 在 [新增參考] 對話方塊中，按一下左側的 [架構] 索引標籤，然後在 [搜尋] 方塊中輸入 **System.ServiceModel.Web**。 選取 [System.ServiceModel.Web] 核取方塊，然後按一下 [確定]。
 6. 在 Program.cs 檔案開頭處新增下列 `using` 陳述式。
@@ -56,7 +56,7 @@ WCF 合約與 REST 樣式合約之間的主要差異在於屬性會新增至 [Op
     using System.IO;
     ```
    
-    [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) 是可讓您以程式設計方式存取 WCF 基本功能的命名空間。 WCF 轉送會使用 WCF 的許多物件和屬性來定義服務合約。 您將在大部分轉送應用程式中使用此命名空間。 同樣地，[System.ServiceModel.Channels](https://msdn.microsoft.com/library/system.servicemodel.channels.aspx) 可協助定義通道，您可透過此物件來與 Azure 轉送和用戶端 Web 瀏覽器通訊。 最後，[System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) 包含可讓您建立 Web 架構應用程式的類型。
+    [System.ServiceModel](/dotnet/api/system.servicemodel) 是可讓您以程式設計方式存取 WCF 基本功能的命名空間。 WCF 轉送會使用 WCF 的許多物件和屬性來定義服務合約。 您會在大部分轉送應用程式中使用此命名空間。 同樣地，[System.ServiceModel.Channels](/dotnet/api/system.servicemodel.channels) 可協助定義通道，您可透過此物件來與 Azure 轉送和用戶端 Web 瀏覽器通訊。 最後，[System.ServiceModel.Web](/dotnet/api/system.servicemodel.web) 包含可讓您建立 Web 架構應用程式的類型。
 7. 將 `ImageListener` 命名空間重新命名為 **Microsoft.ServiceBus.Samples**。
    
     ```csharp
@@ -98,7 +98,7 @@ WCF 合約與 REST 樣式合約之間的主要差異在於屬性會新增至 [Op
     public interface IImageChannel : IImageContract, IClientChannel { }
     ```
     
-    通道是 WCF 物件，服務和用戶端可透過它彼此傳遞資訊。 您稍後將在主機應用程式中建立通道。 Azure 轉送接著會使用此通道，將 HTTP GET 要求從瀏覽器傳遞至您的 **GetImage** 實作。 轉送也會使用通道來取得 **GetImage** 傳回值，並轉譯成用戶端瀏覽器的 HTTP GETRESPONSE。
+    通道是 WCF 物件，服務和用戶端可透過它彼此傳遞資訊。 稍後，會在主機應用程式中建立通道。 Azure 轉送接著會使用此通道，將 HTTP GET 要求從瀏覽器傳遞至您的 **GetImage** 實作。 轉送也會使用通道來取得 **GetImage** 傳回值，並轉譯成用戶端瀏覽器的 HTTP GETRESPONSE。
 12. 從 [建置] 功能表中，按一下 [建置方案] 以確認您的工作到目前為止是否正確無誤。
 
 ### <a name="example"></a>範例
@@ -149,7 +149,7 @@ namespace Microsoft.ServiceBus.Samples
     }
     ```
     類似於其他介面實作，您可以在不同的檔案中實作定義。 不過，在此教學課程中，實作會出現在與介面定義和 `Main()` 方法相同的檔案中。
-2. 將 [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) 屬性套用至 **IImageService** 類別，以表示此類別為 WCF 合約的實作。
+2. 將 [ServiceBehaviorAttribute](/dotnet/api/system.servicemodel.servicebehaviorattribute) 屬性套用至 **IImageService** 類別，以表示此類別為 WCF 合約的實作。
    
     ```csharp
     [ServiceBehavior(Name = "ImageService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
@@ -158,10 +158,10 @@ namespace Microsoft.ServiceBus.Samples
     }
     ```
    
-    如先前所述，此命名空間不是傳統的命名空間。 相反地，它是識別合約的 WCF 架構的一部分。 如需詳細資訊，請參閱 WCF 文件中的[資料合約名稱](https://msdn.microsoft.com/library/ms731045.aspx)主題。
+    如先前所述，此命名空間不是傳統的命名空間。 相反地，它是識別合約的 WCF 架構的一部分。 如需詳細資訊，請參閱 WCF 文件中的[資料合約名稱](https://msdn.microsoft.com/library/ms731045.aspx)文章。
 3. 將 .jpg 映像加入至您的專案。  
    
-    這是此服務在接收瀏覽器中顯示的圖片。 以滑鼠右鍵按一下您的專案，然後按一下 [加入]。 然後按一下 [現有項目]。 使用 加入現有項目 對話方塊瀏覽至適當的 .jpg，然後按一下加入。
+    這是此服務在接收瀏覽器中顯示的圖片。 以滑鼠右鍵按一下您的專案，然後按一下 [加入]。 然後按一下 [現有項目]。 使用 [加入現有項目] 對話方塊瀏覽至適當的 .jpg，然後按一下 [加入]。
    
     加入檔案時，確定在 [檔案名稱:] 欄位旁的下拉式清單中選取 [所有檔案]。 本教學課程的其餘部分假設映像的名稱為 "image.jpg"。 如果您有不同的檔案，您必須重新命名映像，或變更您的程式碼來彌補。
 4. 為確定執行中的服務能夠找到此影像檔，請在 [方案總管] 中以滑鼠右鍵按一下該影像檔，然後按一下 [屬性]。 在 [屬性] 窗格中，將 [複製到輸出目錄] 設為 [有更新時才複製]。
@@ -558,7 +558,7 @@ namespace Microsoft.ServiceBus.Samples
 3. 當您完成時，請在 [命令提示字元] 視窗中按 **Enter** 來關閉應用程式。
 
 ## <a name="next-steps"></a>後續步驟
-既然您已經建置使用服務匯流排轉送服務的應用程式，請參閱下列文章以進一步了解 Azure 轉送：
+既然您已經建置了使用 Azure 轉送服務的應用程式，請參閱下列文章以進一步了解：
 
 * [Azure 服務匯流排架構概觀](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * [Azure 轉送概觀](relay-what-is-it.md)

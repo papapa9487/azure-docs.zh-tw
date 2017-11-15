@@ -17,11 +17,11 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 8d5888904aa7c690e2ee3a2f54e96e663fd96840
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f0729286afdf01ea0ce0e0060f4d7415fa122014
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="use-powershell-to-sync-between-an-azure-sql-database-and-a-sql-server-on-premises-database"></a>使用 PowerShell 設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理
 
@@ -29,7 +29,9 @@ ms.lasthandoff: 10/31/2017
 
 此範例需要 Azure PowerShell 模組 4.2 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps)。
  
-執行 `Login-AzureRmAccount` 來建立與 Azure 的連線。 
+執行 `Login-AzureRmAccount` 來建立與 Azure 的連線。
+
+如需 SQL 資料同步處理的概觀，請參閱[跨多個雲端和內部部署資料庫使用 Azure SQL 資料同步 (預覽) 同步處理資料](../sql-database-sync-data.md)。
 
 ## <a name="sample-script"></a>範例指令碼
 
@@ -187,11 +189,11 @@ $timer=0
 $timeout=90
 # Check the log and see if refresh has gone through
 Write-Host "Check for successful refresh"
-$IsSucceeded = "false"
-While ($IsSucceeded -eq "False")
+$IsSucceeded = $false
+While ($IsSucceeded -eq $false)
 {
     Start-Sleep -s 10
-    $timer=$timer+1
+    $timer=$timer+10
     $Details = Get-AzureRmSqlSyncSchema -SyncGroupName $SyncGroupName -ServerName $ServerName -DatabaseName $DatabaseName -ResourceGroupName $ResourceGroupName
     if ($Details.LastUpdateTime -gt $StartTime)
       {
@@ -387,3 +389,20 @@ Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 如需有關 Azure PowerShell 的詳細資訊，請參閱 [Azure PowerShell 文件](/powershell/azure/overview)。
 
 您可以在 [Azure SQL Database PowerShell 指令碼](../sql-database-powershell-samples.md)中找到其他 SQL Database PowerShell 指令碼範例。
+
+如需 SQL 資料同步的詳細資訊，請參閱：
+
+-   [使用 Azure SQL 資料同步，跨多個雲端和內部部署資料庫同步資料](../sql-database-sync-data.md)
+-   [開始使用 Azure SQL 資料同步](../sql-database-get-started-sql-data-sync.md)
+-   [Azure SQL 資料同步最佳做法](../sql-database-best-practices-data-sync.md)
+-   [對 Azure SQL 資料同步的問題進行疑難排解](../sql-database-troubleshoot-data-sync.md)
+
+-   示範如何設定 SQL 資料同步的完整 PowerShell 範例：
+    -   [使用 PowerShell 在多個 Azure SQL Database 之間進行同步處理](sql-database-sync-data-between-sql-databases.md)
+
+-   [下載 SQL 資料同步 REST API 文件](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+
+如需 SQL Database 的詳細資訊，請參閱：
+
+-   [SQL Database 概觀](../sql-database-technical-overview.md)
+-   [資料庫生命週期管理](https://msdn.microsoft.com/library/jj907294.aspx)

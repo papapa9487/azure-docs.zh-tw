@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2017
+ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 5773361fdec4cb8ee54fa2856f6aa969d5dac4e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e417458a16a5f23d8b89cbf87ab2713fab352046
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>使用 Windows Azure 診斷的事件彙總和收集
 > [!div class="op_single_selector"]
@@ -174,7 +174,7 @@ ms.lasthandoff: 10/11/2017
 
 從 Service Fabric 5.4 版開始，健康情況和負載計量事件均可供收集。 這些事件可藉由使用健康情況或負載報告 API (例如 [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) 或 [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx))，反映系統或程式碼所產生的事件。 這可讓您彙總及檢視一段時間的系統健康情況，以及根據健康情況或負載事件發出警示。 若要在 Visual Studio 的「診斷事件檢視器」中檢視這些事件，請將 "Microsoft-ServiceFabric:4:0x4000000000000008" 新增到 ETW 提供者清單中。
 
-若要收集事件，請修改 Resource Manager 範本，使其包含
+若要收集叢集中的事件，請將 Resource Manager 範本之 WadCfg 中的 `scheduledTransferKeywordFilter` 修改為 `4611686018427387912`。
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -191,11 +191,15 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="collect-reverse-proxy-events"></a>收集反向 proxy 事件
 
-從 Service Fabric 5.7 版開始，[反向 proxy](service-fabric-reverseproxy.md) 事件可供收集。
-反向 proxy 會將事件發至兩個通道，其中一個包含可反映要求處理失敗的錯誤事件，而另一個包含在反向 proxy 處理之所有要求的詳細資訊事件。 
+從 Service Fabric 5.7 版開始，可透過「資料與傳訊」通道收集[反向 Proxy](service-fabric-reverseproxy.md) 事件。 
 
-1. 收集錯誤事件︰若要在 Visual Studio 的「診斷事件檢視器」中檢視這些事件，請將 "Microsoft-ServiceFabric:4:0x4000000000000010" 新增到 ETW 提供者清單中。
-若要從 Azure 叢集收集事件，請修改 Resource Manager 範本，使其包含
+反向 Proxy 僅會透過主要「資料與傳訊」通道推送錯誤事件 - 反映要求處理失敗和嚴重問題。 詳細的通道包含有關由反向 Proxy 處理之所有要求的詳細事件。 
+
+若要在 Visual Studio 的「診斷事件檢視器」中檢視錯誤事件，請將 "Microsoft-ServiceFabric:4:0x4000000000000010" 新增到 ETW 提供者清單中。 至於所有要求遙測，請將 ETW 提供者清單中的 Microsoft-ServiceFabric 項目更新為 "Microsoft-ServiceFabric:4:0x4000000000000020"。
+
+對於在 Azure 中執行的叢集：
+
+若要挑選主要「資料與傳訊」通道中的追蹤，請將 Resource Manager 範本之 WadCfg 中的 `scheduledTransferKeywordFilter` 值修改為 `4611686018427387920`。
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -210,8 +214,7 @@ ms.lasthandoff: 10/11/2017
     }
 ```
 
-2. 收集所有要求處理事件：在 Visual Studio 的診斷事件檢視器中，將 ETW 提供者清單中的 Microsoft-ServiceFabric 項目更新為 "Microsoft-ServiceFabric:4:0x4000000000000020"。
-對於 Azure Service Fabric 叢集，修改資源管理員範本，使其包含
+若要收集所有要求處理事件，請藉由將 Resource Manager 範本之 WadCfg 中的 `scheduledTransferKeywordFilter` 值變更為 `4611686018427387936`，開啟「資料與傳訊」- 詳細通道。
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -225,9 +228,8 @@ ms.lasthandoff: 10/11/2017
       }
     }
 ```
-> 建議審慎地允許從此通道收集事件，因為這可透過反向 proxy 收集所有流量並可快速地取用儲存體容量。
 
-對於 Azure Service Fabric 叢集，所有節點的事件都會收集在 SystemEventTable 中並且彙總。
+從這個詳細通道啟用收集事件會導致快速產生大量追蹤，並且會消耗儲存體容量。 只有在絕對必要時才開啟此功能。
 如需反向 proxy 事件的詳細疑難排解，請參閱[反向 proxy 診斷指南](service-fabric-reverse-proxy-diagnostics.md)。
 
 ## <a name="collect-from-new-eventsource-channels"></a>從新的 EventSource 通道收集
@@ -252,27 +254,9 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="collect-performance-counters"></a>收集效能計數器
 
-若要收集叢集中的效能計量，請在叢集的 Resource Manager 範本中將效能計數器新增至 "WadCfg > DiagnosticMonitorConfiguration"。 如需我們建議收集的效能計數器，請參閱 [Service Fabric 效能計數器](service-fabric-diagnostics-event-generation-perf.md)。
-
-例如，我們在這裡設定一個效能計數器，其每 15 秒取樣一次 (此值可以變更，並遵循格式 "PT\<時間>\<單位>"，例如，PT3M 會以三分鐘的間隔取樣一次)，且每分鐘傳送到適當的儲存體資料表一次。
-
-  ```json
-  "PerformanceCounters": {
-      "scheduledTransferPeriod": "PT1M",
-      "PerformanceCounterConfiguration": [
-          {
-              "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-              "sampleRate": "PT15S",
-              "unit": "Percent",
-              "annotation": [
-              ],
-              "sinks": ""
-          }
-      ]
-  }
-  ```
+若要收集叢集中的效能計量，請在叢集的 Resource Manager 範本中將效能計數器新增至 "WadCfg > DiagnosticMonitorConfiguration"。 如需修改 `WadCfg` 以收集特定效能計數器的步驟，請參閱[使用 WAD 進行效能監視](service-fabric-diagnostics-perf-wad.md)。 如需我們建議收集的效能計數器清單，請參閱 [Service Fabric 效能計數器](service-fabric-diagnostics-event-generation-perf.md)。
   
-如果您要使用 Application Insights 接收 (如下節所述)，而且想要將這些計量顯示在 Application Insights 中，則請確定在 "sinks" 區段中新增接收名稱 (如上所示)。 此外，請考慮建立個別的資料表以傳送效能計數器，讓它們不會塞滿來自其他已啟用之記錄通道的資料。
+如果您要使用 Application Insights 接收 (如下節所述)，而且想要將這些計量顯示在 Application Insights 中，則請確定在 "sinks" 區段中新增接收名稱 (如上所示)。 這會將個別設定的效能計數器自動傳送至 Application Insights 資源。
 
 
 ## <a name="send-logs-to-application-insights"></a>將記錄傳送至 Application Insights

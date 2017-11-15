@@ -12,19 +12,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/02/2017
+ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 9c6035e97de38ff63ef074109afd9f3c7484f828
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 252dcdf0ff9e1fecd6665808bfe7978a4417018b
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>在執行於 Windows Server 上的獨立 Service Fabric 叢集中新增或移除節點
-[在 Windows Server 機器上建立獨立 Service Fabric 叢集](service-fabric-cluster-creation-for-windows-server.md)之後，您的業務需求可能會改變，因此您可能需要在叢集中新增或移除節點。 本文提供可達成此目的的詳細步驟。 請注意，在本機開發叢集中，不支援新增/移除節點功能。
+[在 Windows Server 機器上建立獨立 Service Fabric 叢集](service-fabric-cluster-creation-for-windows-server.md)之後，您的業務需求可能會改變，因此您將需要在叢集中新增或移除節點。 本文提供可達成此目的的詳細步驟。 請注意，在本機開發叢集中，不支援新增/移除節點功能。
 
 ## <a name="add-nodes-to-your-cluster"></a>將節點新增至叢集
-1. 依照[準備機器以符合叢集部署的必要條件](service-fabric-cluster-creation-for-windows-server.md)一節所提到的步驟操作，來準備要新增至叢集的 VM/機器
+
+1. 遵循[規劃和準備 Service Fabric 叢集部署](service-fabric-cluster-creation-for-windows-server.md)中所述的步驟，準備您要新增至叢集的 VM/機器
 2. 識別要用來新增此 VM/機器的容錯網域和升級網域
 3. 透過遠端桌面 (RDP) 登入到要新增至叢集的 VM/機器
 4. 複製或[下載適用於 Windows Server 之 Service Fabric 的獨立套件](http://go.microsoft.com/fwlink/?LinkId=730690)到此 VM/機器，然後將套件解壓縮

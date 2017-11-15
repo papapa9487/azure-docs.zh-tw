@@ -12,29 +12,31 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 72b004a6c2604e0fc20b71b4b69217622f8f9ea0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b99b9cd52dd28f7f62b5d8d5ffe32339a67f82a
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="install-update-3-on-your-storsimple-8000-series-device"></a>在 StorSimple 8000 系列裝置上安裝 Update 3
+
+> [!NOTE]
+> StorSimple 的傳統入口網站已過時。 按照淘汰排程，StorSimple 裝置管理員會自動移至新的 Azure 入口網站。 您將收到關於此移動的電子郵件和入口網站通知。 本文件也很快就會淘汰。 若有關於移動的任何問題，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
+
 
 ## <a name="overview"></a>概觀
 
 本教學課程說明如何透過 Azure 傳統入口網站及使用 Hotfix 方法，在執行舊軟體版本的 StorSimple 裝置上安裝 Update 3。 當閘道器是設定於 StorSimple 裝置之 DATA 0 以外的網路介面上，且您正嘗試從 Update 1 以前的軟體版本更新時，就會使用 Hotfix 方法。
 
-Update 3 包含裝置軟體、LSI 驅動程式和韌體以及 Storport 和 Spaceport 的更新。 如果是從 Update 2 或更舊的版本進行更新，系統也會要求您套用 iSCSI、WMI 更新，以及在某些情況下必須套用磁碟韌體更新。 裝置軟體、WMI、iSCSI、LSI 驅動程式、Spaceport 及 Storport 修正程式為非干擾性更新，且可透過 Azure 傳統入口網站套用。 磁碟韌體更新為干擾性更新，且只能透過裝置的 Windows PowerShell 介面套用。 
+Update 3 包含裝置軟體、LSI 驅動程式和韌體以及 Storport 和 Spaceport 的更新。 如果是從 Update 2 或更舊的版本更新，系統也會要求您套用 iSCSI、WMI 更新，以及在某些情況下必須套用磁碟韌體更新。 裝置軟體、WMI、iSCSI、LSI 驅動程式、Spaceport 和 Storport 修正程式是非干擾性更新。 這些更新可以透過 Azure 傳統入口網站套用。 磁碟韌體更新為干擾性更新，且只能透過裝置的 Windows PowerShell 介面套用。
 
 > [!IMPORTANT]
 > * 安裝前會執行一組手動和自動預先檢查，以根據硬體狀態和網路連線來判斷裝置健全狀況。 這些預先檢查只會在您從 Azure 傳統入口網站套用更新時執行。
-> * 建議您透過 Azure 傳統入口網站安裝軟體和驅動程式更新。 如果入口網站中的更新前閘道器檢查失敗，請移至裝置的 Windows PowerShell 介面安裝更新 (勿透過其他方式)。 視您從哪一個版本更新而定，可能需要 1.5-2.5 小時來安裝更新。 維護模式更新必須透過裝置的 Windows PowerShell 介面安裝。 由於維護模式更新是干擾性更新，它們將會導致裝置的停機時間。
+> * 建議您透過 Azure 傳統入口網站安裝軟體和驅動程式更新。 只在入口網站中的更新前閘道檢查失敗時，才移至裝置的 Windows PowerShell 介面以安裝更新。 視您從哪一個版本更新而定，可能需要 1.5-2.5 小時來安裝更新。 維護模式更新必須透過裝置的 Windows PowerShell 介面安裝。 由於維護模式更新是干擾性更新，所以您的裝置會發生停機。
 > * 如果執行選擇性的 StorSimple Snapshot Manager，更新裝置之前，請先將您的 Snapshot Manager 版本升級至 Update 2。
-> 
-> 
 
 [!INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
@@ -42,15 +44,14 @@ Update 3 包含裝置軟體、LSI 驅動程式和韌體以及 Storport 和 Space
 請執行下列步驟來將您的裝置更新至 [Update 3](storsimple-update3-release-notes.md)。
 
 > [!NOTE]
-> 如果您是要套用 Update 2 或更新版本 (包括 Update 2.1)，Microsoft 將可以提取裝置的其他診斷資訊。 因此，當我們的作業小組識別有問題的裝置時，我們更有能力從裝置收集資訊並診斷問題。 接受 Update 2 或更新版本，表示您允許我們提供此主動支援。
-> 
-> 
+> 如果您是要套用 Update 2 或更新版本 (包括 Update 2.1)，Microsoft 將可以提取裝置的其他診斷資訊。 這項資料可協助識別有問題的 StorSimple 裝置，並協助診斷問題。 接受 Update 2 或更新版本，表示您允許我們提供此主動支援。
+
 
 [!INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-確認您裝置執行的是 **StorSimple 8000 系列 Update 3 (6.3.9600.17759)**。 [ **上次更新日期** ] 應該也已修改。 
-   - 如果您是從 Update 2 之前的版本更新，您也會看到有可用的維護模式更新 (此訊息可能會在您安裝更新之後繼續顯示長達 24 小時)。
-     維護模式更新為干擾性更新，會導致裝置產生停機時間，且只能透過您裝置的 Windows PowerShell 介面加以套用。 在某些情況下，當您執行 Update 1.2 時，磁碟韌體可能已經是最新狀態，這種情況下，您不需要安裝任何維護模式更新。
+確認您裝置執行的是 **StorSimple 8000 系列 Update 3 (6.3.9600.17759)**。 **上次更新日期**已修改。 
+   - 如果要從 Update 2 之前的版本更新，則您會看到有維護模式更新可以使用。 安裝更新後，可能會繼續顯示此訊息最多 24 小時。
+     維護模式更新是導致裝置停機的干擾性更新。 這些更新只能透過裝置的 Windows PowerShell 介面套用。 在某些情況下，當您執行 Update 1.2 時，磁碟韌體可能已經是最新狀態，您不需要安裝任何維護模式更新。
    - 如果您是從 Update 2 或更新版本進行更新，您的裝置現在應該已是最新狀態。 您可以略過下一個步驟。
 
 下載維護模式更新，方法是使用 [下載 Hotfix](#to-download-hotfixes) 中列出的步驟來搜尋和下載 KB3121899，它會安裝磁碟韌體更新 (此時應該已經安裝其他更新)。 請遵循 [安裝及驗證維護模式 Hotfix](#to-install-and-verify-maintenance-mode-hotfixes) 中列出的步驟安裝維護模式更新。 

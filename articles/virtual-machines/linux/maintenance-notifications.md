@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: zivr
-ms.openlocfilehash: be062ce9cfbe7486ef500dd9d27418cbf245d6e0
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: b31955e19883f9fe2e7ed6cf7f5076eaf52577c0
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>處理 Linux 虛擬機器預定進行的維修作業通知
 
@@ -65,6 +65,8 @@ az vm get-instance-view  - g rgName  -n vmName
 | LastOperationResultCode               | 前次嘗試在 VM 上起始維修的結果 ||
 
 
+
+
 ## <a name="start-maintenance-on-your-vm-using-cli"></a>使用 CLI 在 VM 上開始維修
 
 如果 `IsCustomerInitiatedMaintenanceAllowed` 設為 true，則下列呼叫會在 VM 上起始維修。
@@ -74,6 +76,28 @@ az vm perform-maintenance rgName vmName
 ```
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
+
+## <a name="classic-deployments"></a>傳統部署
+
+如果您仍有使用傳統部署模型部署的舊版 VM，可以使用 CLI 1.0 查詢 VM 並起始維護。
+
+請鍵入下列項目，以確認您使用傳統 VM 的模式正確：
+
+```
+azure config mode asm
+```
+
+若要取得名為 *myVM* 的 VM 維護狀態，請鍵入：
+
+```
+azure vm show myVM 
+``` 
+
+若要開始維護 *myService* 服務和 *myDeployment* 部署中名為 *myVM* 的傳統 VM，請鍵入：
+
+```
+azure compute virtual-machine initiate-maintenance --service-name myService --name myDeployment --virtual-machine-name myVM
+```
 
 
 ## <a name="faq"></a>常見問題集

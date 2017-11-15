@@ -12,16 +12,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b916173e127394d3ea06eded36285bdbbf884b12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec625a604660489812b1a8c133fa0156a422b605
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>遠端連線至 StorSimple 8000 系列裝置
+> [!NOTE]
+> 已取代 StorSimple 的傳統入口網站。 按照取代排程，StorSimple 裝置管理員會自動移至新的 Azure 入口網站。 您將收到關於此移動的電子郵件和入口網站通知。 本文件也即將淘汰。 若要檢視新 Azure 入口網站的本文章版本，請移至[遠端連線至 StorSimple 8000 系列裝置](storsimple-8000-remote-connect.md)。 若有關於移動的任何問題，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
+
 
 ## <a name="overview"></a>概觀
 使用 Windows PowerShell 遠端連線到 StorSimple 裝置。 當您以這種方式連線時，將不會看到功能表。 (只有當您使用裝置上的序列主控台進行連線時，才會看到功能表)。使用 Windows PowerShell 遠端連線到特定的 Runspace。 您也可以指定顯示語言。 
@@ -185,8 +188,8 @@ ms.lasthandoff: 10/11/2017
 1. 以滑鼠右鍵按一下.cer 檔案，選取 [ **安裝憑證**]。 這會啟動 [憑證匯入精靈]。
    
     ![憑證匯入精靈 1](./media/storsimple-remote-connect/HCS_CertificateImportWizard1.png)
-2. 存放區位置 請選取 本機電腦，然後按一下下一步。
-3. 選取 將所有憑證放入以下的存放區，然後按一下瀏覽。 導覽至遠端主機的根存放區，然後按一下 **下一步**。
+2. [存放區位置] 請選取 [本機電腦]，然後按一下 [下一步]。
+3. 選取 [將所有憑證放入以下的存放區]，然後按一下 [瀏覽]。 導覽至遠端主機的根存放區，然後按一下 [ **下一步**]。
    
     ![憑證匯入精靈  2](./media/storsimple-remote-connect/HCS_CertificateImportWizard2.png)
 4. 按一下 [完成] 。 會出現訊息告訴您匯入成功。

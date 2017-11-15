@@ -1,24 +1,24 @@
 ---
-title: "Azure 儲存體佇列和服務匯流排佇列 - 異同比較 | Microsoft Docs"
+title: "Azure 儲存體佇列和服務匯流排佇列異同比較 | Microsoft Docs"
 description: "分析 Azure 所提供之兩種佇列類型之間的差異和相似性。"
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: tysonn
+editor: 
 ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 08/07/2017
+ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: 555759073507219188b59af76a82be74b112c57c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d566b74429bf158e0c9cc51419ba35c9e6c32f64
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>儲存體佇列和服務匯流排佇列 - 異同比較
 本文將分析 Microsoft Azure 目前所提供之兩種佇列類型之間的差異和相似性：儲存體佇列和服務匯流排佇列。 透過使用這項資訊，您可以比較和比對個別的技術，而且對於哪一種方案最符合您的需求，也能夠做出更旁徵博引的決定。
@@ -49,7 +49,7 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 * 您的方案需要使用佇列來提供保證的先進先出 (FIFO) 排序傳遞。
 * 您想要在 Azure 中和在 Windows Server (私人雲端) 上有相稱體驗。 如需詳細資訊，請參閱 [Windows Server 的服務匯流排](https://msdn.microsoft.com/library/dn282144.aspx)。
 * 您的方案必須能夠支援自動重複偵測。
-* 您想要讓應用程式將訊息當成長時間執行的平行資料流來處理 (訊息是透過訊息上的 [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) 屬性與資料流相關聯)。 在這個模型中，取用端應用程式中的每個節點都會競爭取得資料流而不是訊息。 將資料流提供給取用端節點時，節點可以檢查應用程式資料流使用交易的狀態。
+* 您想要讓應用程式將訊息當成長時間執行的平行資料流來處理 (訊息是透過訊息上的 [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) 屬性與資料流相關聯)。 在這個模型中，取用端應用程式中的每個節點都會競爭取得資料流而不是訊息。 將資料流提供給取用端節點時，節點可以檢查應用程式資料流使用交易的狀態。
 * 從佇列傳送或接收多個訊息時，您的方案需要交易行為和不可部分完成性。
 * 應用程式特有工作負載的存留時間 (TTL) 特性可能會超過 7 天的期限。
 * 您的應用程式所處理的訊息可能會超過 64 KB，但是不太可能會接近 256 KB 的限制。
@@ -61,7 +61,7 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 * 您想要能夠批次發佈及取用訊息。
 
 ## <a name="comparing-storage-queues-and-service-bus-queues"></a>比較儲存體佇列和服務匯流排佇列
-下列各節中的表格以邏輯方式分組佇列功能，讓您一眼就能比較儲存體佇列和服務匯流排佇列所提供的功能。
+下列各節中的表格以邏輯方式分組佇列功能，讓您一眼就能比較 Azure 儲存體佇列和服務匯流排佇列所提供的功能。
 
 ## <a name="foundational-capabilities"></a>基本功能
 本節將比較儲存體佇列和服務匯流排佇列所提供的一些基本佇列功能。
@@ -121,7 +121,7 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 * 佇列自動轉送可讓數以千計的佇列將其訊息自動轉送至單一佇列，而接收端應用程式將從中取用訊息。 您可以使用這個機制來達成安全性、控制流程，並在每個訊息發佈者之間隔離儲存體。
 * 儲存體佇列支援更新訊息內容。 您可以使用這項功能，將狀態資訊和累加進度更新保存至訊息中，以便從最後已知的檢查點處理訊息，而不用從頭開始處理。 使用服務匯流排佇列時，您可以透過使用訊息工作階段來實現相同案例。 工作階段可讓您使用 [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) 和 [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState) 儲存和擷取應用程式處理狀態。
 * 只有服務匯流排佇列支援的[無效信件處理](service-bus-dead-letter-queues.md)可用於隔離接收端應用程式無法順利處理的訊息，或是由於存留時間 (TTL) 屬性過期而無法送達目的地的訊息。 TTL 值會指定訊息保留在佇列中的時間長度。 在服務匯流排中，當 TTL 期限到期時，訊息將會移至稱為 $DeadLetterQueue 的特殊佇列。
-* 為了在儲存體佇列中找出「有害」訊息，應用程式會在清除佇列中的訊息時，檢查訊息的 **[DequeueCount](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.dequeuecount.aspx)** 屬性。 如果 **DequeueCount** 大於給定的臨界值，應用程式就會將訊息移至應用程式定義的「無效信件」佇列。
+* 為了在儲存體佇列中找出「有害」訊息，應用程式會在清除佇列中的訊息時，檢查訊息的 [DequeueCount](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.dequeuecount.aspx) 屬性。 如果 **DequeueCount** 大於給定的臨界值，應用程式就會將訊息移至應用程式定義的「無效信件」佇列。
 * 儲存體佇列可讓您取得針對佇列執行之所有交易的詳細記錄，以及彙總的計量資料。 這兩個選項有助於偵錯和了解應用程式的儲存體佇列使用狀況。 也有助於對您的應用程式進行效能微調，以及降低使用佇列的成本。
 * 服務匯流排所支援之「訊息工作階段」的概念可讓屬於特定邏輯群組的訊息與給定的接收者產生關聯，進而在訊息與其個別的接收者之間建立類似工作階段的密切關係。 您可以設定訊息上的 [SessionID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) 屬性，以在服務匯流排中啟用這項進階功能。 然後，接收者就可以接聽特定的工作階段 ID，並且接收共用指定之工作階段識別項的訊息。
 * 服務匯流排佇列所支援的重複偵測功能會根據 [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) 屬性的值，自動移除傳送至佇列或主題的重複訊息。
@@ -133,7 +133,7 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 | --- | --- | --- |
 | 佇列大小上限 |**500 TB**<br/><br/>(限制為[單一儲存體帳戶容量](../storage/common/storage-introduction.md#queue-storage)) |**1 GB 到 80 GB**<br/><br/>(在建立佇列和[啟用分割](service-bus-partitioning.md)時定義 - 請參閱＜其他資訊＞一節) |
 | 訊息大小上限 |**64 KB**<br/><br/>(使用 **Base64** 編碼時則為 48 KB)<br/><br/>Azure 可以結合佇列和 Blob 來支援大型訊息，因此您最多可以將 200GB 的單一項目加入佇列。 |**256 KB** 或 **1 MB**<br/><br/>(包括標頭和主體，標頭大小上限：64 KB)。<br/><br/>取決於[服務層](service-bus-premium-messaging.md)。 |
-| 訊息 TTL 上限 |**7 天** |**`TimeSpan.Max`** |
+| 訊息 TTL 上限 |**7 天** |**TimeSpan.Max** |
 | 佇列數目上限 |**無限制** |**10,000**<br/><br/>(每個服務命名空間，可以增加) |
 | 並行用戶端數目上限 |**無限制** |**無限制**<br/><br/>(100 個並行連接限制只適用於以 TCP 通訊協定為基礎的通訊) |
 

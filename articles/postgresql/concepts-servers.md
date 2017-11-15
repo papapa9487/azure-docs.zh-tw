@@ -8,15 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/06/2017
-ms.openlocfilehash: 09b8634160c35f3c6a48812358ec872e52d8b21c
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/03/2017
+ms.openlocfilehash: 67cf6b133e8e869ee3a157d79d68602760d9137c
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-servers"></a>適用於 PostgreSQL 的 Azure 資料庫伺服器
-本主題提供使用適用於 PostgreSQL 之 Azure 資料庫伺服器的考量和指導方針。
+本文提供使用適用於 PostgreSQL 之 Azure 資料庫伺服器的考量和指導方針。
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>什麼是適用於 PostgreSQL 的 Azure 資料庫伺服器？
 適用於 PostgreSQL 的 Azure 資料庫伺服器是多個資料庫的中央管理點。 這與您可能已在內部部署領域中熟悉的 PostgreSQL 伺服器建構相同。 具體來說，PostgreSQL 服務會受到管理、提供效能保證、公開伺服器層級的存取和功能。
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/26/2017
 | **驗證和授權** | 適用於 PostgreSQL 的 Azure 資料庫伺服器支援原生的 PostgreSQL 驗證。 您可以利用伺服器的系統管理員登入來連接和驗證伺服器。 |
 | **通訊協定** | 此服務支援 PostgreSQL 所使用的訊息架構通訊協定。 |
 | **TCP/IP** | TCP/IP 和 Unix 網域通訊端上支援此通訊協定。 |
-| **防火牆** | 為了協助保護您的資料，防火牆規則會防止對您資料庫伺服器及其資料庫的所有存取，直到您指定哪些電腦擁有權限為止。 請參閱[適用於 PostgreSQL 的 Azure 資料庫伺服器防火牆規則](concepts-firewall-rules.md)。 |
+| **防火牆** | 為了協助保護您的資料，防火牆規則會防止對您伺服器及其資料庫的所有存取，直到您指定哪些電腦擁有權限為止。 請參閱[適用於 PostgreSQL 的 Azure 資料庫伺服器防火牆規則](concepts-firewall-rules.md)。 |
 |||
 
 ## <a name="how-do-i-manage-a-server"></a>如何管理伺服器？

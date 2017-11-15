@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 93df79c9d349c294b692148a19c9d881c4de4f7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 686a4faf37342e844f3aa0166d9311a438fa753a
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-monitor-hardware-components-and-status"></a>使用 StorSimple Manager 服務監視硬體元件和狀態
-## <a name="overview"></a>Overview
+> [!NOTE]
+> StorSimple 的傳統入口網站已過時。 按照淘汰排程，StorSimple 裝置管理員會自動移至新的 Azure 入口網站。 您將收到關於此移動的電子郵件和入口網站通知。 本文件也很快就會淘汰。 若要檢視適用於新 Azure 入口網站的文章版本，請移至[使用 StorSimple Manager 服務監視硬體元件和狀態](storsimple-8000-monitor-hardware-status.md)。 若有關於移動的任何問題，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
+
+## <a name="overview"></a>概觀
 本文描述內部部署 StorSimple 裝置中的各種實體和邏輯元件。 它也會說明如何使用 StorSimple Manager 服務中的 [維護]  頁面監視裝置元件狀態。 
 
 [ **維護** ] 頁面會顯示所有 StorSimple 裝置元件的硬體狀態。 
@@ -46,7 +49,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="monitor-the-hardware-status"></a>監視硬體狀態
 執行下列步驟來檢視裝置元件的硬體狀態：
 
-1. 瀏覽至 **裝置**，選取特定的 StorSimple 裝置。 按一下以進入裝置層級功能表，然後按一下維護 。 
+1. 瀏覽至 **裝置**，選取特定的 StorSimple 裝置。 按一下以進入裝置層級功能表，然後按一下 [維護] 。 
 2. 找出 [ **硬體狀態** ] 區段並選擇可用的元件 (如上所述)。 只要按一下元件標籤之前的箭號即可展開清單並檢視各種裝置元件的狀態。 請參閱[主要機箱的詳細元件清單](#component-list-for-primary-enclosure-of-storsimple-device)和 [EBOD 機箱的詳細元件清單](#component-list-for-ebod-enclosure-of-storsimple-device)。
 3. 您可以使用下列色彩編碼配置來解譯元件狀態：
    

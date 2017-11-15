@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 08/10/2017
-ms.openlocfilehash: 3a76e816f9b1fa484789f548899d7e8e7043febb
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 11/03/2017
+ms.openlocfilehash: b78009a4b2683bb7ee881808ddbbc792d66dea6c
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>在 Azure 入口網站中建立 Azure Database for PostgreSQL 伺服器
 
@@ -151,7 +151,7 @@ Azure Database for PostgreSQL 會在伺服器層級建立防火牆。 它會防�
     > [!TIP]
     > 如果未將防火牆設定為允許 Cloud Shell 的 IP 位址，就會發生下列錯誤：
     > 
-    > "psql: FATAL:  no pg_hba.conf entry for host "138.91.195.82", user "mylogin", database "postgres", SSL on FATAL：需要 SSL 連線。指定 SSL 選項並重試。
+    > "psql: FATAL:  no pg_hba.conf entry for host "138.91.195.82", user "mylogin", database "postgres", SSL on FATAL：需要 SSL 連線。 指定 SSL 選項，然後再試一次。
     > 
     > 若要解決此錯誤，請確定伺服器組態符合本文的「設定伺服器層級防火牆規則」一節中的步驟。
 
@@ -199,7 +199,7 @@ Azure Database for PostgreSQL 會在伺服器層級建立防火牆。 它會防�
 
 6. 在左側的 [瀏覽器] 窗格中，展開 [伺服器] 節點。 選擇您的伺服器，例如 [Azure PostgreSQL Server]。 按一下以連線到它。
 
-7. 展開伺服器節點，然後展開其下的 [資料庫]。 此清單應包含現有的 postgres 資料庫，以及我們在上一節中建立的任何新建使用者資料庫 (例如 **mypgsqldb**)。 請注意，您可以使用 Azure Database for PostgreSQL，為每一部伺服器建立多個資料庫。
+7. 展開伺服器節點，然後展開其下的 [資料庫]。 此清單應包含現有的 postgres 資料庫，以及在上一節中建立的任何新建使用者資料庫 (例如 **mypgsqldb**)。 請注意，您可以使用 Azure Database for PostgreSQL，為每一部伺服器建立多個資料庫。
 
 8. 以滑鼠右鍵按一下 [資料庫]，選擇 [建立] 功能表，然後選取 [資料庫]。
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 5bffea350061231e1dc664b3abcbf79950a54402
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e52dc76608a83d446ccc8503d17445a8d6a61ae4
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>建立、變更或刪除公用 IP 位址
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
     |IP 版本|是| 選取 IPv4 或 IPv6。 公用的 IPv4 位址可指派給數個 Azure 資源，而 IPv6 公用 IP 位址只可指派給網際網路面向的負載平衡器。 負載平衡器可將 IPv6 的流量負載分散到 Azure 虛擬機器。 深入了解[將 IPv6 流量負載分散到虛擬機器](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 如果您選取**標準 SKU**，則無法選擇 *IPv6*。 使用**標準 SKU** 時，您只能建立 IPv4 位址。|
     |IP 位址指派|是|**動態︰**只有在公用 IP 位址與連接至虛擬機器的網路介面建立關聯，而且該虛擬機器第一次啟動之後，才會指派動態位址。 如果網路介面連接的虛擬機器已停止 (已解除配置)，則可變更動態位址。 如果虛擬機器已重新啟動或停止 (但未解除配置)，則位址維持不變。 **靜態︰**建立公用 IP 位址時會指派靜態位址。 即使虛擬機器處於已停止 (已解除配置) 狀態，靜態位址也不會變更。 只有在刪除網路介面後才會釋出位址。 您可以在建立網路介面後變更指派方法。 如果您選取 *IPv6* 作為 **IP 版本**，則指派方法為「動態」。 如果您為 **SKU** 選取*標準*，則指派方法為「靜態」。|
     |閒置逾時 (分鐘)|否|不需依賴用戶端傳送保持連線訊息，讓 TCP 或 HTTP 連線保持開啟的分鐘數。 如果您選取 IPv6 作為 **IP 版本**，則無法變更此值。 |
-    |DNS 名稱標籤|否|在您建立名稱的 Azure 位置 (跨越所有訂用帳戶和所有位置) 中必須是唯一的。 Azure 公用 DNS 服務會自動登錄名稱和 IP 位址，以便您連線至具有此名稱的資源。 Azure 會將 *location.cloudapp.azure.com* (其中 location 是您選取的位置) 附加至您提供的名稱，以建立完整的 DNS 名稱。 如果您選擇兩個位址版本都建立，則會指派相同的 DNS 名稱給 IPv4 和 IPv6 位址。 Azure DNS 服務包含 IPV4 A 和 IPv6 AAAA 名稱記錄，並且會在查詢 DNS 名稱時回應這兩個記錄。 用戶端選擇要與哪一個位址 (IPv4 或 IPv6) 通訊。|
+    |DNS 名稱標籤|否|在您建立名稱的 Azure 位置 (跨越所有訂用帳戶和所有位置) 中必須是唯一的。 Azure 會在其 DNS 中自動登錄名稱和 IP 位址，以便您連線至具有此名稱的資源。 Azure 會將 *location.cloudapp.azure.com* (其中 location 是您選取的位置) 之類的預設子網路附加至您提供的名稱 ，以建立完整的 DNS 名稱。 如果您選擇兩個位址版本都建立，則會指派相同的 DNS 名稱給 IPv4 和 IPv6 位址。 Azure 預設 DNS 包含 IPv4 A 和 IPv6 AAAA 名稱記錄，並且會在查詢 DNS 名稱時回應這兩個記錄。 用戶端選擇要與哪一個位址 (IPv4 或 IPv6) 通訊。 可改為 (或同時) 使用具有預設尾碼的 DNS 名稱標籤，您可以使用 Azure DNS 服務來設定 DNS 名稱，其具有解析為公用 IP 位址的自訂尾碼。 如需詳細資訊，請參閱[使用具有 Azure 公用 IP 位址的 Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)。|
     |建立 IPv6 (或 IPv4) 位址|否| 顯示 IPv6 或 IPv4 取決於您選取的 **IP 版本**。 例如，如果您選取 **IPv4** 作為 **IP 版本**，則此處會顯示 **IPv6**。 如果您為 **SKU** 選取「標準」，則無法建立 IPv6 位址。
     |名稱 (僅在您核取 [建立 IPv6 (或 IPv4) 位址] 核取方塊時顯示)|是 (如果您選取 [建立 IPv6] \(或 IPv4) 核取方塊)。|該名稱必須與此清單中的第一個**名稱**不同。 如果您選擇同時建立 IPv4 和 IPv6 位址，則入口網站會建立兩個個別的公用 IP 位址資源，並各指派一個 IP 位址版本。|
     |IP 位址指派 (僅在您核取 [建立 IPv6 (或 IPv4) 位址] 核取方塊時顯示)|是 (如果您選取 [建立 IPv6] \(或 IPv4) 核取方塊)。|如果核取方塊顯示**建立 IPv4 位址**，表示您可以選擇指派方法。 如果核取方塊顯示**建立 IPv6 位址**，表示您無法選擇指派方法，因為指派方法必須為**動態**。|

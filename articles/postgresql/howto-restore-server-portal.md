@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/20/2017
-ms.openlocfilehash: 3f1ffa20b58c52558e880ed6a0ef4ca674173973
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 11/03/2017
+ms.openlocfilehash: 903fd2ff446e1963ab5cfcec745766188b74efcf
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>如何使用 Azure 入口網站，在適用於 PostgreSQL 的 Azure 資料庫中備份和還原伺服器
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/25/2017
 
    ![Azure 入口網站 - 搜尋找出您的伺服器](media/postgresql-howto-restore-server-portal/1-locate.png)
 
-3. 在伺服器之概觀刀鋒視窗的工具列上，按一下 [還原]。 [還原] 刀鋒視窗隨即開啟。
+3. 在伺服器概觀分頁的工具列上，按一下 [還原]。 [還原] 頁面隨即開啟。
 
    ![適用於 PostgreSQL 的 Azure 資料庫 - 概觀 - 還原按鈕](./media/postgresql-howto-restore-server-portal/2_server.png)
 

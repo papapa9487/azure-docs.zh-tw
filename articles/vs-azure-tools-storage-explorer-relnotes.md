@@ -14,25 +14,93 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: c1a3370d29b47da752e4ab1ea67ccc1a4cdd94df
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: cf077fef6df2fd21cf51f6b4fd4e26a4b5081247
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Microsoft Azure 儲存體總管 (預覽) 版本資訊
 
-本文包含 Microsoft Azure 儲存體總管 0.9.0 (預覽) 及先前版本的版本資訊。
+本文包含 Microsoft Azure 儲存體總管 0.9.2 (預覽) 及先前版本的版本資訊。
 
 [Microsoft Azure 儲存體總管 (預覽)](./vs-azure-tools-storage-manage-with-storage-explorer.md) 是一個獨立 App，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。
 
+## <a name="version-092"></a>0.9.2 版
+11/01/2017
+
+### <a name="download-azure-storage-explorer-092-preview"></a>下載 Microsoft Azure 儲存體總管 0.9.2 (預覽)
+- [適用於 Windows 的 Microsoft Azure 儲存體總管 0.9.2 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [適用於 Mac 的 Microsoft Azure 儲存體總管 0.9.2 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [適用於 Linux 的 Microsoft Azure 儲存體總管 0.9.2 (預覽)](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="hotfixes"></a>Hotfix
+* 端視當地時區而定，編輯資料表實體的 Edm.DateTime 值時，可能出現未預期的資料變更。 編輯器目前使用純文字方塊，對於 Edm.DateTime 值提供精確、一致的控制。
+* 無法在連接到名稱和金鑰時開始上傳/下載一組 Blob。 已修正此問題。
+* 在過去，如果已選取一或多個帳戶的訂用帳戶，儲存體總管只會提示您重新驗證過期的帳戶。 而現在，即使完全篩選排除帳戶，儲存體總管也會提示您。
+* Azure 美國政府的端點網域不正確。 已修正此問題。
+* [管理帳戶] 面板的 [套用] 按鈕有時不容易按。 這應該不會再發生。
+
+### <a name="new"></a>新增
+* Azure Cosmos DB 預覽支援：
+    * [線上文件](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * 建立資料庫和集合
+    * 操作資料
+    * 查詢、建立或刪除文件
+    * 更新預存程序、使用者定義函式或觸發程序
+    * 使用連接字串來連接和管理您的資料庫
+* 改善上傳/下載許多小 Blob 的效能。
+* 新增 Blob 上傳群組或 Blob 下載群組發生失敗時的「全部重試」動作。
+* 如果儲存體總管偵測到您的網路連線已遺失，現在將在 Blob 上傳/下載期間暫停反覆項目。 然後在網路連線重新建立後，您可以繼續反覆項目。
+* 新增透過捷徑功能表「全部關閉」、「關閉其他」和「關閉」索引標籤的能力。
+* 儲存體總管現在會使用原生對話方塊和原生捷徑功能表。
+* 儲存體總管現在更容易存取。 改善項目包括：
+    * 改善的螢幕讀取器支援，Windows 上的 NVDA，以及 Mac 上的 VoiceOver
+    * 改良的高對比佈景主題
+    * 修正鍵盤定位停駐點和鍵盤焦點
+
+### <a name="fixes"></a>修正
+* 如果您嘗試使用無效的 Windows 檔案名稱開啟或下載 Blob，作業會失敗。 儲存體總管現在會偵測 Blob 名稱是否無效，並詢問您是否要加以編碼或略過該 Blob。 儲存體總管也會偵測檔案名稱是否已經過編碼，並詢問您是否要在上傳之前將它解碼。
+* Blob 上傳期間，目標 Blob 容器的編輯器會有時不正確地重新整理。 已修正此問題。
+* 數種形式的連接字串和 SAS URI 支援已回歸。 我們已經處理所有已知的問題，但如果您遇到其他問題，請傳送意見反應。
+* 0.9.0 中有些使用者的更新通知已中斷。 已修正此問題，以及對於受此錯誤影響的使用者，可以在[這裡](https://azure.microsoft.com/en-us/features/storage-explorer/)手動下載最新版的儲存體總管。
+
+### <a name="known-issues"></a>已知問題
+* 儲存體總管不支援 ADFS 帳戶。
+* 用於「檢視總管」及「檢視帳戶管理」的快速鍵應該分別是 Ctrl/Cmd+Shift+E 和 Ctrl/Cmd+Shift+A。
+* 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用此處所述的取消篩選器因應措施。
+* 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
+* 帳戶設定面板可能會提示您需要重新輸入認證以篩選訂用帳戶。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
+* 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
+* 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
+```
+./StorageExplorer.exe --disable-gpu
+```
+* 使用 Ubuntu 14.04 的使用者必須確定 GCC 編譯器集合是最新版本，這可以透過執行下列命令並重新啟動電腦來完成：
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* 使用 Ubuntu 17.04 的使用者必須安裝 GConf，這可以透過執行下列命令並重新啟動電腦來完成：
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+
+
 ## <a name="version-091--090-preview"></a>0.9.1/0.9.0 版 (預覽)
 10/20/2017
-
 ### <a name="download-azure-storage-explorer-091-preview"></a>下載 Microsoft Azure 儲存體總管 0.9.1 (預覽)
-- [適用於 Windows 的 Microsoft Azure 儲存體總管 0.9.1 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [適用於 Mac 的 Microsoft Azure 儲存體總管 0.9.1 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [適用於 Linux 的 Microsoft Azure 儲存體總管 0.9.1 (預覽)](https://go.microsoft.com/fwlink/?LinkId=722418)
+* [下載適用於 Windows 的 Azure 儲存體總管 0.9.1 (預覽)](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [下載適用於 Mac 的 Azure 儲存體總管 0.9.1 (預覽)](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [下載適用於 Linux 的 Azure 儲存體總管 0.9.1 (預覽)](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### <a name="new"></a>新增
 * Azure Cosmos DB 預覽支援：
@@ -86,13 +154,30 @@ ms.lasthandoff: 10/23/2017
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="version-0816-preview"></a>0.8.16 版 (預覽)
-8/21/2017
 
-### <a name="download-azure-storage-explorer-0816-preview"></a>下載 Microsoft Azure 儲存體總管 0.8.16 (預覽)
-* [下載適用於 Windows 的 Azure 儲存體總管 0.8.16 (預覽)](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [下載適用於 Mac 的 Azure 儲存體總管 0.8.16 (預覽)](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [下載適用於 Linux 的 Azure 儲存體總管 0.8.16 (預覽)](https://go.microsoft.com/fwlink/?LinkId=809308)
+
+## <a name="previous-releases"></a>舊版
+
+* [0.8.16 版](#version-0816)
+* [版本 0.8.14](#version-0814)
+* [0.8.13 版](#version-0813)
+* [0.8.12 / 0.8.11 / 0.8.10 版](#version-0812--0811--0810)
+* [0.8.9 / 0.8.8 版](#version-089--088)
+* [0.8.7 版](#version-087)
+* [0.8.6 版](#version-086)
+* [0.8.5 版](#version-085)
+* [0.8.4 版](#version-084)
+* [0.8.3 版](#version-083)
+* [0.8.2 版](#version-082)
+* [0.8.0 版](#version-080)
+* [0.7.20160509.0 版](#version-07201605090)
+* [0.7.20160325.0 版](#version-07201603250)
+* [0.7.20160129.1 版](#version-07201601291)
+* [0.7.20160105.0 版](#version-07201601050)
+* [0.7.20151116.0 版](#version-07201511160)
+
+## <a name="version-0816"></a>0.8.16 版
+8/21/2017
 
 ### <a name="new"></a>新增
 * 您開啟 blob 時，如果偵測到變更，儲存體總管將提示您上傳已下載的檔案
@@ -130,26 +215,6 @@ ms.lasthandoff: 10/23/2017
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>舊版
-
-* [版本 0.8.14](#version-0814)
-* [0.8.13 版](#version-0813)
-* [0.8.12 / 0.8.11 / 0.8.10 版](#version-0812--0811--0810)
-* [0.8.9 / 0.8.8 版](#version-089--088)
-* [0.8.7 版](#version-087)
-* [0.8.6 版](#version-086)
-* [0.8.5 版](#version-085)
-* [0.8.4 版](#version-084)
-* [0.8.3 版](#version-083)
-* [0.8.2 版](#version-082)
-* [0.8.0 版](#version-080)
-* [0.7.20160509.0 版](#version-07201605090)
-* [0.7.20160325.0 版](#version-07201603250)
-* [0.7.20160129.1 版](#version-07201601291)
-* [0.7.20160105.0 版](#version-07201601050)
-* [0.7.20151116.0 版](#version-07201511160)
-
 
 ### <a name="version-0814"></a>版本 0.8.14
 06/22/2017

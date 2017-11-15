@@ -1,9 +1,9 @@
 ---
-title: "將 VMware VM 或實體伺服器複寫到其他站台 (傳統 Azure 入口網站) | Microsoft Docs"
-description: "使用這篇文章以使用 Azure Site Recovery，將 VMware VM 或 Windows/Linux 實體伺服器複寫至次要網站。"
+title: "設定 VMware VM 或實體伺服器至次要網站的災害復原 | Microsoft Docs"
+description: "本文說明如何使用 Azure Site Recovery 服務，將內部部署的 VMware VM 或 Windows/Linux 實體伺服器複寫至次要網站。"
 services: site-recovery
 documentationcenter: 
-author: nsoneji
+author: rayne-wiselman
 manager: jwhit
 editor: 
 ms.assetid: b2cba944-d3b4-473c-8d97-9945c7eabf63
@@ -12,33 +12,33 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
-ms.author: nisoneji
-ms.openlocfilehash: 01a6f35fe61290f8c7275c34273d66956a53d3f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/05/2017
+ms.author: raynew
+ms.openlocfilehash: 8cfaa56735c1f4e2e01b58fdde2ad0e77b388762
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="replicate-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site-in-the-classic-azure-portal"></a>在傳統 Azure 入口網站中，將內部部署 VMware 虛擬機器或實體伺服器複寫到次要站台
+# <a name="set-up-disaster-recovery-of-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>設定 VMware 虛擬機器或實體伺服器至次要網站的災害復原
 
-## <a name="overview"></a>概觀
-Azure Site Recovery 中的 InMage Scout 可提供內部部署 VMware 網站之間的即時複寫。 InMage Scout 包含在 Azure Site Recovery 服務訂用帳戶中。 
 
-## <a name="prerequisites"></a>必要條件
-**Azure 帳戶**：您將需要一個 [Microsoft Azure](https://azure.microsoft.com/) 帳戶。 您可以從 [免費試用](https://azure.microsoft.com/pricing/free-trial/)開始。 [深入了解](https://azure.microsoft.com/pricing/details/site-recovery/) Site Recovery 價格。
+Azure Site Recovery 中的 InMage Scout 可提供內部部署 VMware 網站之間的即時複寫。 InMage Scout 包含在 Azure Site Recovery 服務訂用帳戶中。
 
-## <a name="step-1-create-a-vault"></a>步驟 1：建立保存庫
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
+如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
+
+
+## <a name="create-a-vault"></a>建立保存庫
+1. 登入 [Azure 入口網站](https://portal.azure.com/) > [復原服務]。
 2. 按一下 [新增] > [管理] > [備份和 Site Recovery (OMS)]。 或者，您也可以按一下 [瀏覽] > [復原服務保存庫] > [加入]。
 3. 在 [名稱]  中，指定保存庫的易記識別名稱。 如果您有多個訂用帳戶，請選取其中一個。
 4. 在「資源群組」中，建立新的資源群組，或選取現有的資源群組。 指定 Azure 區域來完成所需的欄位。
 5. 在 [位置] 中，選取保存庫的地理區域。 若要查看支援的地區，請參閱 [Azure Site Recovery 定價](https://azure.microsoft.com/pricing/details/site-recovery/)。
-6. 如果您想要從「儀表板」快速存取保存庫，請按一下 釘選到儀表板，然後按一下建立。
-7. 新的保存庫會出現在 [儀表板] > [所有資源] 上，以及主要 [復原服務保存庫] 刀鋒視窗上。
+6. 如果您想要從「儀表板」快速存取保存庫，請按一下 [釘選到儀表板]，然後按一下 [建立]。
+7. 新的保存庫會出現在 [儀表板] > [所有資源] 上，以及主要 [Microsoft Azure 復原服務保存庫] 頁面上。
 
-## <a name="step-2-configure-the-vault-and-download-inmage-scout-components"></a>步驟 2：設定保存庫並下載 InMage Scout 元件
-1. 在 [復原服務保存庫] 刀鋒視窗中選取您的保存庫，然後按一下 [設定]。
+## <a name="configure-the-vault-and-download-inmage-scout-components"></a>設定保存庫並下載 InMage Scout 元件
+1. 在 [Microsoft Azure 復原服務保存庫] 頁面中，選取您的保存庫，然後按一下 [設定]。
 2. 在 [設定] > [快速入門] 中，按一下 [Site Recovery] > [步驟 1︰準備基礎結構] > [保護目標]。
 3. 在 [保護目標] 中選取 [到復原站台]，然後選取 [是，使用 VMware vSphere Hypervisor]。 然後按一下 [確定]。
 4. 在 [Scout 設定] 中，按一下 [下載] 以下載 InMage Scout 8.0.1 GA 軟體和註冊金鑰。 所有必要元件的安裝程式檔案都在下載的 .zip 檔中。
@@ -46,7 +46,7 @@ Azure Site Recovery 中的 InMage Scout 可提供內部部署 VMware 網站之�
 ## <a name="step-3-install-component-updates"></a>步驟 3：安裝元件更新
 深入了解最新的 [更新](#updates)。 您將會依下列順序在伺服器上安裝更新檔案：
 
-1. RX 伺服器 (如果有的話)
+1. RX 伺服器 (如果相關)
 2. 設定伺服器
 3. 處理序伺服器
 4. 主要目標伺服器
@@ -69,7 +69,7 @@ Azure Site Recovery 中的 InMage Scout 可提供內部部署 VMware 網站之�
 5. **針對 Windows 主要目標伺服器**：若要更新整合代理程式，請將 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** 複製到主要目標伺服器。 連按兩下加以執行。 請注意，如果來源一直未更新到 Update 4，整合代理程式也適用於來源伺服器。 您也應該將其安裝在來源伺服器上，如本清單稍後所述。<br>
 6. **針對 vContinuum 伺服器**：將 **vCon_Windows_8.0.5.0_GA_Update_5_11525767_20Apr17.exe** 複製到 vContinuum 伺服器。  確定您已經關閉 vContinuum 精靈。 連按兩下檔案加以執行。<br>
 7. **針對 Linux 主要目標伺服器**：若要更新整合代理程式，請將 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** 複製到主要目標伺服器並將它解壓縮。 在解壓縮的資料夾中執行 **/Install**。<br>
-8. **針對 Windows 來源伺服器**︰如果來源已經是 Update 4，則不需要在來源上安裝 Update 5 代理程式。 如果低於 Update 4，請套用 Update 5 代理程式。
+8. **對於 Windows 來源伺服器**：如果來源伺服器已在執行 Update 4，則不需要在來源上安裝 Update 5 代理程式。 如果執行的是 Update 4 以下的版本，請套用 Update 5 代理程式。
 若要更新整合代理程式，請將 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** 複製到來源伺服器。 連按兩下加以執行。 <br>
 9. **針對 Linux 來源伺服器**：若要更新整合代理程式，請將對應的 UA 檔案版本複製到 Linux 伺服器並將它解壓縮。 在解壓縮的資料夾中執行 **/Install**。  範例：針對 RHEL 6.7 64 位元伺服器，請將 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** 複製到伺服器並將它解壓縮。 在解壓縮的資料夾中執行 **/Install**。
 
@@ -86,7 +86,7 @@ Azure Site Recovery 中的 InMage Scout 可提供內部部署 VMware 網站之�
 ## <a name="updates"></a>更新
 ### <a name="azure-site-recovery-scout-801-update-5"></a>Azure Site Recovery Scout 8.0.1 Update 5
 Scout Update 5 是累積更新， 包含 Update 1 到 Update 4 的所有修正及下列新的錯誤修正和增強功能。
-從 ASR Scout Update 4 更新至 Update 5 所新增的修正程式是針對主要目標和 vContinuum 元件。 如果您的所有來源伺服器，主要目標、設定伺服器、處理序伺服器和 RX 已是 ASR Scout Update 4，您只需要在主要目標伺服器上套用 Update 5。 
+從 Site Recovery Scout Update 4 更新至 Update 5 所新增的修正是針對主要目標和 vContinuum 元件。 如果您的所有來源伺服器、主要目標、設定伺服器、處理序伺服器和 RX 均已是 Site Recovery Scout Update 4，您只需要在主要目標伺服器上套用 Update 5。 
 
 **新平台支援**
 * SUSE Linux Enterprise Server 11 Service Pack 4 (SP4)
@@ -109,11 +109,11 @@ Scout Update 5 是累積更新， 包含 Update 1 到 Update 4 的所有修正�
 
 > [!NOTE]
 > 
-> * 上述 P2V 叢集修正僅適用於剛以 ASR Scout Update 5 加以保護的實體 MSCS 叢集。 如果要讓叢集修正也能用在已經以較舊更新保護的 P2V MSCS 叢集，您必須遵循 [ASR Scout 版本資訊](https://aka.ms/asr-scout-release-notes) 第 12 節＜升級受保護的搜索 Update5 P2V MSCS 叢集＞所述的升級步驟。
+> * 上述 P2V 叢集修正僅適用於剛以 Site Recovery Scout update5 加以保護的實體 MSCS 叢集。 如果要讓叢集修正也能用在已經以較舊更新保護的 P2V MSCS 叢集，您必須遵循[版本資訊](https://aka.ms/asr-scout-release-notes)第 12 節＜將受保護的 P2V MSCS 叢集升級為 Scout Update 5＞中所述的升級步驟。
 > 
-> * 重新保護時，只有當在每個叢集節點上使用中的幾個磁碟與最初受保護時相同，重新保護實體 MSCS 叢集才可以重複使用現有的目標磁碟。 如果沒有，可使用 [ASR Scout 版本資訊](https://aka.ms/asr-scout-release-notes)第 12 節中所述的手動步驟，將目標端磁碟移至正確的資料存放區路徑，以便在重新保護時重複使用它們。 如果未遵循升級步驟重新保護 P2V 模式中的 MSCS 叢集，則會在目標 ESXi 伺服器上建立新的磁碟。 您必須手動刪除資料存放區中的舊磁碟。
+> * 重新保護時，只有當在每個叢集節點上使用中的幾個磁碟與最初受保護時相同，重新保護實體 MSCS 叢集才可以重複使用現有的目標磁碟。 如果沒有，可使用[版本資訊](https://aka.ms/asr-scout-release-notes)第 12 節中所述的手動步驟，將目標端磁碟移至正確的資料存放區路徑，以便在重新保護時重複使用它們。 如果未遵循升級步驟重新保護 P2V 模式中的 MSCS 叢集，則會在目標 ESXi 伺服器上建立新的磁碟。 您必須手動刪除資料存放區中的舊磁碟。
 > 
-> * 每當來源 SLES11 或 SLES11 與任何 Service Pack 伺服器一起正常重新開機時，皆應手動標記**根**磁碟複寫組以利重新同步處理，因為在 CX UI 中不會標注標。 如果您沒有「標示」重新同步處理的根磁碟，可能會遇到資料完整性 (DI) 問題。
+> * 每當來源 SLES11 或 SLES11 與任何 Service Pack 伺服器一起正常重新開機時，皆應手動標記**根**磁碟複寫組以利重新同步處理，因為在 CX UI 中不會標注標。 如果您未標示出重新同步處理的根磁碟，可能會遇到資料完整性 (DI) 問題。
 > 
 
 ### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery Scout 8.0.1 Update 4
@@ -123,7 +123,7 @@ Scout Update 4 是累積更新。 它包含 update1 到 update 3 的所有修正
 
 * 新增對 vCenter/vSphere 6.0、6.1 及 6.2 的支援
 * 新增對下列 Linux 作業系統的支援
-  * Red Hat Enterprise Linux (RHEL)7.0、7.1 及 7.2
+  * Red Hat Enterprise Linux (RHEL) 7.0、7.1 及 7.2
   * CentOS 7.0、7.1 及 7.2
   * Red Hat Enterprise Linux (RHEL) 6.8
   * CentOS 6.8
@@ -164,7 +164,7 @@ Scout Update 4 是累積更新。 它包含 update1 到 update 3 的所有修正
 Update 3 包含下列錯誤修正和增強功能：
 
 * 設定伺服器和 RX 位於 Proxy 後方時無法向 Site Recovery 保存庫註冊。
-* 健全狀況報告中未更新不符合復原點目標 (RPO) 的時數。
+* 健康情況報告中未更新不符合復原點目標 (RPO) 的時數。
 * 當 ESX 硬體詳細資料或網路詳細資料包含任何UTF-8 字元時，設定伺服器不會與 RX 同步處理。
 * Windows Server 2008 R2 網域控制站無法在復原後啟動。
 * 離線同步處理未如預期般運作。

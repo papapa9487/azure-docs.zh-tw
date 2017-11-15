@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 2e5475a0563549ddfaa2c146e4acf94c019841ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7109a3b21feac396d8c20c7e72a8987f72a909a
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>在 Operations Management Suite 中使用服務對應解決方案
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以藉由服務對應，將伺服器視為提供重要服務的互連系統，藉此來檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序和連接埠之間的連線。
@@ -105,7 +105,7 @@ ms.lasthandoff: 10/11/2017
 ![機器群組的已篩選處理序](media/oms-service-map/machine-groups-filtered.png)
  
 ### <a name="adding-machines-to-a-group"></a>將機器加入群組
-若要將機器加入現有的群組，請核取您所需機器旁的方塊，然後按一下加入群組。  然後，選擇您想在其中加入機器的群組。
+若要將機器加入現有的群組，請核取您所需機器旁的方塊，然後按一下 [加入群組]。  然後，選擇您想在其中加入機器的群組。
  
 ### <a name="removing-machines-from-a-group"></a>從群組移除多部機器
 在 [群組] 清單中，展開群組名稱以列出機器群組中的機器。  然後，按一下您想移除之機器旁的省略符號功能表，然後選擇 [移除]。
@@ -224,11 +224,26 @@ ms.lasthandoff: 10/11/2017
 
 
 ## <a name="operations-management-suite-performance-integration"></a>Operations Management Suite 效能整合
-[機器效能] 窗格會顯示所選伺服器的標準效能計量。 這些計量包含 CPU 使用率、記憶體使用率、傳送和接收的網路位元組，以及按照傳送和接收的網路位元組排序的前幾個處理序清單。 若要取得網路效能資料，您也必須在 Operations Management Suite 中啟用 Wire Data 2.0 解決方案。
+[機器效能] 窗格會顯示所選伺服器的標準效能計量。 這些計量包含 CPU 使用率、記憶體使用率、傳送和接收的網路位元組，以及按照傳送和接收的網路位元組排序的前幾個處理序清單。
 
 ![[機器效能] 窗格](media/oms-service-map/machine-performance.png)
 
+若要查看效能資料，您可能需要[啟用適當的 Log Analytics 效能計數器](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters)。  您將要啟用的計數器：
 
+Windows:
+- Processor(*)\% Processor Time
+- Memory\% Committed Bytes In Use
+- Network Adapter(*)\Bytes Sent/sec
+- Network Adapter(*)\Bytes Received/sec
+
+Linux：
+- Processor(*)\% Processor Time
+- Memory(*)\% Used Memory
+- Network Adapter(*)\Bytes Sent/sec
+- Network Adapter(*)\Bytes Received/sec
+
+若要取得網路效能資料，您也必須在 Operations Management Suite 中啟用 Wire Data 2.0 解決方案。
+ 
 ## <a name="operations-management-suite-security-integration"></a>Operations Management Suite 安全性整合
 當「服務對應」和「安全性與稽核」這兩個解決方案皆已在 Operations Management Suite 工作區中啟用並設定時，便會自動進行整合。
 

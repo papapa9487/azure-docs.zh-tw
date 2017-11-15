@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 08/08/2017
+ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 3168a8129e2e73d7ab1de547679aabd10d8f7112
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f29860519d4dce76f0b7f866852484b93ce7b02
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric 中的反向 Proxy
 Azure Service Fabric 內建的反向 Proxy 可協助在 Service Fabric 叢集中執行的微服務進行探索，並與其他擁有 http 端點的服務通訊。
@@ -114,9 +114,7 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 * `http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/api/users/6`
 
 ## <a name="special-handling-for-port-sharing-services"></a>連接埠共用服務特殊處理
-Azure 應用程式閘道會嘗試重新解析服務位址，並在無法連線到服務時重試要求。 這是應用程式閘道的主要好處，因為用戶端程式碼不需要實作自己的服務解決方案和解析迴圈。
-
-通常，當服務無法連線時，即表示服務執行個體或複本已移至另一個節點，這是其一般生命週期的過程。 發生這種情況時，應用程式閘道可能會收到指出端點已不在原先解析的位址上開啟的網路連線錯誤。
+Service Fabric 反向 Proxy 會嘗試重新解析服務位址，並在無法連線到服務時重試要求。 通常，當服務無法連線時，即表示服務執行個體或複本已移至另一個節點，這是其一般生命週期的過程。 發生這種情況時，反向 Proxy 可能會收到指出端點已不在原先解析的位址上開啟的網路連線錯誤。
 
 不過，複本或服務執行個體可以共用主機處理序，在由以 http.sys 為基礎的 Web 伺服器託管時也可以共用連接埠，這些 Web 伺服器包括︰
 
@@ -124,21 +122,21 @@ Azure 應用程式閘道會嘗試重新解析服務位址，並在無法連線�
 * [ASP.NET Core WebListener](https://docs.asp.net/latest/fundamentals/servers.html#weblistener)
 * [Katana](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.OwinSelfHost/)
 
-在此情況下，可能是 Web 伺服器可用於主機處理序和回應要求，但已解析的服務執行個體或複本已無法再於主機上提供。 在此情況下，閘道將從 Web 伺服器收到 HTTP 404 回應。 因此，HTTP 404 有兩個不同意義︰
+在此情況下，可能是 Web 伺服器可用於主機處理序和回應要求，但已解析的服務執行個體或複本已無法再於主機上提供。 在此情況下，閘道將從 Web 伺服器收到 HTTP 404 回應。 因此，HTTP 404 回應可以有兩個不同的意義：
 
 - 案例 1︰服務位址正確，但使用者所要求的資源不存在。
 - 案例 2︰服務位址不正確，而且使用者所要求的資源可能存在於不同節點上。
 
-第一個案例是一般的 HTTP 404，會被視為使用者錯誤。 不過，在第二個案例中，使用者要求了存在的資源。 應用程式閘道之所以找不到它，是因為服務本身已移動。 應用程式閘道必須重新解析位址，然後重試要求。
+第一個案例是一般的 HTTP 404，會被視為使用者錯誤。 不過，在第二個案例中，使用者要求了存在的資源。 反向 Proxy 之所以找不到它，是因為服務本身已移動。 反向 Proxy 必須重新解析位址，然後重試要求。
 
-應用程式閘道因此需要能夠區分這兩種案例的方法。 為了區分，您需要來自伺服器的提示。
+因此反向 Proxy 需要能夠區分這兩種案例的方法。 為了區分，您需要來自伺服器的提示。
 
-* 根據預設，應用程式閘道會採用案例 2，並嘗試重新解析並發出要求。
-* 若要向應用程式閘道表明是案例 1，服務應傳回下列 HTTP 回應標頭︰
+* 根據預設，反向 Proxy 會採用案例 2，並嘗試重新解析並發出要求。
+* 若要向反向 Proxy 表明是案例 #1，服務應傳回下列 HTTP 回應標頭︰
 
   `X-ServiceFabric : ResourceNotFound`
 
-此 HTTP 回應標頭表示指出一般的 HTTP 404 情況，即要求的資源不存在，應用程式閘道將不會嘗試重新解析服務位址。
+此 HTTP 回應標頭表示指出一般的 HTTP 404 情況，即要求的資源不存在，反向 Proxy 將不會嘗試重新解析服務位址。
 
 ## <a name="setup-and-configuration"></a>設定和組態
 

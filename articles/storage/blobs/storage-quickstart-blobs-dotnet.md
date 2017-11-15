@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/01/2017
 ms.author: robinsh
-ms.openlocfilehash: fdba4588fbb2c46efb3fc4de1a9e53414264444a
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9c5628307e76bd30d2dd59f284f2c4b30d434223
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>使用 .NET 在 Azure Blob 儲存體之間傳送物件
 
@@ -34,25 +34,7 @@ ms.lasthandoff: 10/31/2017
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="create-a-storage-account-using-the-azure-portal"></a>使用 Azure 入口網站建立儲存體帳戶
-
-首先，建立新的一般用途儲存體帳戶供本快速入門使用。 
-
-1. 使用您的 Azure 帳戶登入 [Azure 入口網站](https://portal.azure.com)。 
-2. 在 [中樞] 功能表上，選取 [新增] > [儲存體] > [儲存體帳戶- Blob、檔案、資料表、佇列]。 
-3. 輸入儲存體帳戶的名稱。 名稱必須介於 3 到 24 個字元的長度，而且只能包含數字和小寫字母。 它也必須是唯一的。
-4. 將 `Deployment model` 設成 [資源管理員]。
-5. 將 `Account kind` 設成 [一般用途]。
-6. 將 `Performance` 設成 [標準]。 
-7. 將 `Replication` 設成 [本地備援儲存體 (LRS)]。
-8. 將 `Storage service encryption` 設成 [停用]。
-9. 將 `Secure transfer required` 設成 [停用]。
-10. 選取您的訂用帳戶。 
-11. 若為 `resource group`，請建立一個新的並提供它唯一的名稱。 
-12. 選取 `Location` 供儲存體帳戶使用。
-13. 核取 [釘選到儀表板] 並按一下 [建立] 以建立儲存體帳戶。 
-
-儲存體帳戶建立之後，就會釘選到儀表板。 按一下開啟它。 按一下 [設定] 下的 [存取金鑰]。 選取金鑰，並將連接字串複製到剪貼簿，然後貼到 [文字編輯器] 供日後使用。
+[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>下載範例應用程式
 
@@ -116,6 +98,9 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_cbd5f95c-6ab8-4cbf-b
 
 只要您有 **CloudBlobContainer**，就可以建立 **CloudBlockBlob** 物件的執行個體，指向您感興趣的特定 Blob 並執行上傳、下載、複製等等作業。
 
+> [!IMPORTANT]
+> 容器名稱必須是小寫字母。 如需有關容器和 Blob 名稱的詳細資訊，請參閱[命名和參考容器、Blob 及中繼資料](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。
+
 在本節中，您要建立物件的執行個體、建立新的容器，然後設定容器上的權限，以便公開 Blob 並使用 URL 即可存取。 容器名為 **quickstartblobs**。 
 
 因為我們需要在每次執行範例時建立新的容器，所以此範例會使用 **CreateIfNotExists**。 在整個應用程式都使用相同容器的生產環境中，最好只呼叫一次 **CreateIfNotExists**。 或者，若要事先建立容器，以便您不需要在程式碼中加以建立。
@@ -161,7 +146,7 @@ await blockBlob.UploadFromFileAsync(fileAndPath);
 
 有數個上傳方法可以搭配 Blob 儲存體使用。 例如，如果有記憶體資料流，則您可以使用 UploadFromStreamAsync 方法，而不是 UploadFromFileAsync 方法。 
 
-區塊 blob 可以是任何類型的文字或二進位檔案。 分頁 Blob 主要用於備份 IaaS VM 所用的 VHD 檔案。 附加 Blob 是用於記錄，例如當您想要寫入檔案，並繼續新增更多資訊時。 儲存在 Blob 儲存體中的大部分物件都是區塊 Blob。
+區塊 Blob 可以是任何類型的文字或二進位檔案。 分頁 Blob 主要用於備份 IaaS VM 所用的 VHD 檔案。 附加 Blob 是用於記錄，例如當您想要寫入檔案，並繼續新增更多資訊時。 儲存在 Blob 儲存體中的大部分物件都是區塊 Blob。
 
 ## <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
 
