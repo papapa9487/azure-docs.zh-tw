@@ -21,10 +21,10 @@ ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
-# 使用用戶端認證 (共用密碼或憑證) 的服務對服務呼叫
+# <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>使用用戶端認證 (共用密碼或憑證) 的服務對服務呼叫
 OAuth 2.0 用戶端認證授與流程可允許 Web 服務 (「機密用戶端」) 在呼叫另一個 Web 服務時，使用它自己的認證來進行驗證，而不是模擬使用者。 在此案例中，用戶端通常是中介層 Web 服務、精靈服務或網站。 對於較高層級的保證，Azure AD 也可讓呼叫服務使用憑證 (而非共用密碼) 做為認證。
 
-## 用戶端認證授與流程圖
+## <a name="client-credentials-grant-flow-diagram"></a>用戶端認證授與流程圖
 下圖說明用戶端認證授與流程在 Azure Active Directory (Azure AD) 中的作用方式。
 
 ![OAuth2.0 用戶端認證授與流程](media/active-directory-protocols-oauth-service-to-service/active-directory-protocols-oauth-client-credentials-grant-flow.jpg)
@@ -34,20 +34,20 @@ OAuth 2.0 用戶端認證授與流程可允許 Web 服務 (「機密用戶端」
 3. 存取權杖可用來向受保護的資源進行驗證。
 4. 來自受保護資源的資料會傳回 Web 應用程式。
 
-## 在 Azure AD 中註冊服務
+## <a name="register-the-services-in-azure-ad"></a>在 Azure AD 中註冊服務
 請在 Azure Active Directory (Azure AD) 中同時註冊呼叫端服務和接收端服務。 如需詳細指示，請參閱[整合應用程式與 Azure Active Directory](active-directory-integrating-applications.md)。
 
-## 要求存取權杖
+## <a name="request-an-access-token"></a>要求存取權杖
 若要要求存取權杖，請對租用戶特定的 Azure AD 端點使用 HTTP POST。
 
 ```
 https://login.microsoftonline.com/<tenant id>/oauth2/token
 ```
 
-## 服務對服務存取權杖要求
+## <a name="service-to-service-access-token-request"></a>服務對服務存取權杖要求
 有兩種情況，取決於用戶端應用程式是選擇透過共用密碼或憑證來保護。
 
-### 第一種情況︰使用共用密碼的存取權杖要求
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>第一種情況︰使用共用密碼的存取權杖要求
 使用共用密碼時，服務對服務存取權杖要求包含下列參數：
 
 | 參數 |  | 說明 |
@@ -57,7 +57,7 @@ https://login.microsoftonline.com/<tenant id>/oauth2/token
 | client_secret |必要 |輸入在 Azure AD 中針對呼叫端 Web 服務或精靈應用程式所註冊的金鑰。 若要建立金鑰，請在 Azure 入口網站中，按一下 [Active Directory]，切換目錄，按一下應用程式，然後依序按一下 [設定]、[金鑰]，並新增金鑰。|
 | resource |必要 |輸入接收端 Web 服務的應用程式識別碼 URI。 若要尋找應用程式識別碼 URI，請在 Azure 入口網站中，按一下 Active Directory，切換目錄，按一下服務應用程式，然後按一下設定 和 屬性 |
 
-#### 範例
+#### <a name="example"></a>範例
 下列 HTTP POST 會要求 https://service.contoso.com/ Web 服務的存取權杖。 `client_id` 會識別要求存取權杖的 Web 服務。
 
 ```
@@ -68,7 +68,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&client_secret=qkDwDJlDfig2IpeuUZYKH1Wb8q1V0ju6sILxQQqhJ+s=&resource=https%3A%2F%2Fservice.contoso.com%2F
 ```
 
-### 第二種情況︰使用憑證的存取權杖要求
+### <a name="second-case-access-token-request-with-a-certificate"></a>第二種情況︰使用憑證的存取權杖要求
 使用憑證的服務對服務存取權杖要求包含下列參數：
 
 | 參數 |  | 說明 |
@@ -81,7 +81,7 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 
 請注意，在透過共用祕密要求的情況中，參數幾乎相同，不同之處在於使用下列兩個參數來取代 client_secret 參數：client_assertion_type 和 client_assertion。
 
-#### 範例
+#### <a name="example"></a>範例
 下列 HTTP POST 會使用憑證要求 https://service.contoso.com/ Web 服務的存取權杖。 `client_id` 會識別要求存取權杖的 Web 服務。
 
 ```
@@ -92,7 +92,7 @@ Content-Type: application/x-www-form-urlencoded
 resource=https%3A%2F%contoso.onmicrosoft.com%2Ffc7664b4-cdd6-43e1-9365-c2e1c4e1b3bf&client_id=97e0a5b7-d745-40b6-94fe-5f77d35c6e05&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg&grant_type=client_credentials
 ```
 
-### 服務對服務存取權杖回應
+### <a name="service-to-service-access-token-response"></a>服務對服務存取權杖回應
 
 成功的回應中包含 JSON OAuth 2.0 回應與下列參數：
 
@@ -105,7 +105,7 @@ resource=https%3A%2F%contoso.onmicrosoft.com%2Ffc7664b4-cdd6-43e1-9365-c2e1c4e1b
 | not_before |存取權杖自此時間開始可使用。 日期會表示為從 1970-01-01T0:0:0Z UTC 至權杖的有效時間。|
 | resource |接收端 Web 服務的應用程式識別碼 URI。 |
 
-#### 回應範例
+#### <a name="example-of-response"></a>回應範例
 下列範例顯示向 Web 服務所提出之存取權杖要求的成功回應。
 
 ```
@@ -118,6 +118,6 @@ resource=https%3A%2F%contoso.onmicrosoft.com%2Ffc7664b4-cdd6-43e1-9365-c2e1c4e1b
 }
 ```
 
-## 另請參閱
+## <a name="see-also"></a>另請參閱
 * [Azure AD 中的 OAuth 2.0](active-directory-protocols-oauth-code.md)
 * [使用共用密碼的服務對服務呼叫的 C# 中的範例](https://github.com/Azure-Samples/active-directory-dotnet-daemon)和[使用憑證的服務對服務呼叫的 C# 中範例](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)

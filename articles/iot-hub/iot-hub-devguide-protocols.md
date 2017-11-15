@@ -20,7 +20,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
-# 參考 - 選擇通訊協定
+# <a name="reference---choose-a-communication-protocol"></a>參考 - 選擇通訊協定
 
 「IoT 中樞」可讓裝置使用下列通訊協定來進行裝置端通訊：
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 > [!WARNING]
 > 使用 HTTPS 時，每個裝置應該每隔 25 分鐘 (或更久) 輪詢一次雲端到裝置訊息。 不過，在開發期間，可以接受比每隔 25 分鐘更頻繁的輪詢頻率。
 
-## 連接埠號碼
+## <a name="port-numbers"></a>連接埠號碼
 
 裝置可以在 Azure 中使用各種通訊協定來與 IoT 中樞通訊。 一般而言，選擇的通訊協定是根據方案的特定需求而定。 下表列出必須要為裝置開啟的輸出連接埠，以使用特定的通訊協定：
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 10/11/2017
 當您在 Azure 區域中建立 IoT 中樞後，IoT 中樞將在該 IoT 中樞的存留期間保留相同的 IP 位址。 不過，如果 Microsoft 將 IoT 中樞移至不同的縮放單位以維護服務品質，則它會獲派新的 IP 位址。
 
 
-## 後續步驟
+## <a name="next-steps"></a>後續步驟
 
 若要深入了解 IoT 中樞如何實作 MQTT 通訊協定，請參閱[使用 MQTT 通訊協定來與 IoT 中樞通訊][lnk-mqtt-support]。
 

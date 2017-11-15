@@ -20,14 +20,14 @@ ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
-# Azure AD B2C：驗證通訊協定
+# <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C：驗證通訊協定
 Azure Active Directory B2C (Azure AD B2C) 支援 OpenID Connect 與 OAuth 2.0 兩種業界標準通訊協定，為您的 app 提供身分識別即服務。 這是符合標準的服務，但是這些通訊協定在任兩個實作之間仍會有些微差異。 
 
 若您藉由直接傳送和處理 HTTP 要求來撰寫程式碼，而非使用開放原始碼程式庫，則本指南中的資訊很有用。 建議您在深入探討每個特定通訊協定的詳細資料之前，先閱讀此頁面。 但若您已經熟悉 Azure AD B2C，您可以直接閱讀[通訊協定參考指南](#protocols)。
 
 <!-- TODO: Need link to libraries above -->
 
-## 基本概念
+## <a name="the-basics"></a>基本概念
 使用 Azure AD B2C 的每個 app 都必須在 [Azure 入口網站](https://portal.azure.com)內您的 B2C 目錄中註冊。 App 註冊處理序會收集與指派一些值給您的 app：
 
 * 可唯一識別應用程式的 **應用程式識別碼** 。
@@ -53,14 +53,14 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 * **資源伺服器** 是資源或資料所在位置。 它會信任授權伺服器，以便安全地驗證和授權 OAuth 用戶端。 它也會使用持有人存取權杖，以確保可授與資源的存取權。
 
-## 原則
+## <a name="policies"></a>原則
 Azure AD B2C 原則可視為服務的最重要功能。 Azure AD B2C 藉由引進原則來延伸標準的 OAuth 2.0 和 OpenID Connect 通訊協定。 這些原則讓 Azure AD B2C 能夠執行簡單驗證與授權以外的更多操作。 
 
 原則可完整描述取用者身分識別體驗，包括註冊、登入及設定檔編輯。 原則可定義於系統管理 UI 中。 您可以在 HTTP 驗證要求中使用特定的查詢參數來執行原則。 
 
 原則並非 OAuth 2.0 和 OpenID Connect 的標準功能，因此您應該花點時間瞭解它們。 如需詳細資訊，請參閱 [Azure AD B2C 原則參考指南](active-directory-b2c-reference-policies.md)。
 
-## 權杖
+## <a name="tokens"></a>權杖
 OAuth 2.0 和 OpenID Connect 的 Azure AD B2C 實作廣泛運用持有人權杖，包括以 JSON Web 權杖 (JWT) 表示的持有人權杖。 持有人權杖是輕巧型安全性權杖，授權「持有人」存取受保護的資源。
 
 持有人是可出示權杖的任何一方。 Azure AD 必須先驗證合作對象，才能接收持有人權杖。 但若傳輸和儲存時未採取必要的步驟來保護權杖，它可能會被非預期的一方攔截和使用。
@@ -73,7 +73,7 @@ OAuth 2.0 和 OpenID Connect 的 Azure AD B2C 實作廣泛運用持有人權杖�
 
 如需 Azure AD B2C 中所用各種不同權杖類型的詳細資訊，請參閱 [Azure AD 權杖參考](active-directory-b2c-reference-tokens.md)。
 
-## 通訊協定
+## <a name="protocols"></a>通訊協定
 當您準備好要檢閱一些範例要求時，您可以開從下列其中一個教學課程開始。 每個教學課程皆對應至特定的驗證情節。 若您在判斷適用的流程時需要協助，請參閱[您可以使用 Azure AD B2C 建置的應用程式類型](active-directory-b2c-apps.md)。
 
 * [使用 OAuth 2.0 建置行動與原生應用程式](active-directory-b2c-reference-oauth-code.md)

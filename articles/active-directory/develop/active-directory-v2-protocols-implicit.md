@@ -21,7 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
-# 2.0 通訊協定 - 使用隱含流程的 SPA
+# <a name="v20-protocols---spas-using-the-implicit-flow"></a>2.0 通訊協定 - 使用隱含流程的 SPA
 使用 v2.0 端點，您可以讓具有 Microsoft 的個人和工作/學校帳戶的使用者登入您的單一頁面 app。  主要在瀏覽器上執行的單一頁面和其他 JavaScript 應用程式，在驗證時會面臨一些有趣的挑戰：
 
 * 這些應用程式的安全性特性與傳統的伺服器架構 Web 應用程式大不相同。
@@ -39,12 +39,12 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## 通訊協定圖表
+## <a name="protocol-diagram"></a>通訊協定圖表
 整個隱含登入流程看起來類似下列圖表 - 以下將詳細說明每個步驟。
 
 ![OpenId Connect 區隔線](../../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
-## 傳送登入要求
+## <a name="send-the-sign-in-request"></a>傳送登入要求
 若要一開始將使用者登入您的應用程式，您可以傳送 [OpenID Connect](active-directory-v2-protocols-oidc.md) 授權要求，以及從 v2.0 端點取得 `id_token`：
 
 ```
@@ -84,7 +84,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 一旦使用者驗證並同意，v2.0 端點就會使用 `response_mode` 參數中指定的方法，將回應傳回至位於指定所在 `redirect_uri` 的應用程式。
 
-#### 成功回應
+#### <a name="successful-response"></a>成功回應
 使用 `response_mode=fragment` 和 `response_type=id_token+token` 的成功回應如下所示 (內含換行符號以利閱讀)：
 
 ```
@@ -106,7 +106,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | id_token |應用程式要求的 id_token。 您可以使用 id_token 確認使用者的身分識別，並以使用者開始工作階段。  如需 id_token 及其內容的詳細資訊，請參閱 [v2.0 端點權杖參考](active-directory-v2-tokens.md)。 |
 | state |如果要求中包含狀態參數，回應中就應該出現相同的值。 應用程式應確認要求和回應中的狀態值完全相同。 |
 
-#### 錯誤回應
+#### <a name="error-response"></a>錯誤回應
 錯誤回應可能也會傳送至 `redirect_uri` ，讓應用程式可以適當地處理：
 
 ```
@@ -120,7 +120,7 @@ error=access_denied
 | 錯誤 |用以分類發生的錯誤類型與回應錯誤的錯誤碼字串。 |
 | error_description |協助開發人員識別驗證錯誤根本原因的特定錯誤訊息。 |
 
-## 驗證 id_token
+## <a name="validate-the-idtoken"></a>驗證 id_token
 僅接收 id_token 不足以驗證使用者，您必須驗證 id_token 簽章，並依照應用程式的需求確認權杖中的宣告。  v2.0 端點使用 [JSON Web Tokens (JWT)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) 和公開金鑰加密簽署權杖及驗證其是否有效。
 
 您可以選擇驗證用戶端程式碼中的 `id_token`，但是常見的作法是將 `id_token` 傳送至後端伺服器，並且在那裡執行驗證。  一旦驗證了 id_token 的簽章，就會有數項宣告需要驗證。  如需詳細資訊，請參閱 [v2.0 權杖參考](active-directory-v2-tokens.md)，其中包括[驗證權杖](active-directory-v2-tokens.md#validating-tokens)和[有關簽署金鑰變換的重要資訊](active-directory-v2-tokens.md#validating-tokens)。  我們建議利用程式庫來剖析和驗證權杖 - 對於大部分語言和平台至少有一個可用。
@@ -136,7 +136,7 @@ error=access_denied
 
 一旦驗證完畢 id_token，即可利用使用者開始工作階段，並使用 id_token 中的宣告來取得應用程式中的使用者相關資訊。  這項資訊可以用於顯示、記錄、授權等等。
 
-## 取得存取權杖
+## <a name="get-access-tokens"></a>取得存取權杖
 您已經將使用者註冊到單一頁面應用程式，您可以取得存取權杖以呼叫受到 Azure AD 保護的 Web API，例如 [Microsoft Graph](https://graph.microsoft.io)。  即使您已經收到使用 `token` response_type 的權杖，仍可使用此方法來取得其他資源的權杖，而不需重新導向使用者進行再次登入。
 
 在正常的 OpenID Connect/OAuth 流程中，您可以藉由對 v2.0 `/token` 端點進行要求來完成這個操作。  不過，v2.0 端點不支援 CORS 要求，因此進行 AJAX 呼叫以取得和重新整理權杖是不可能的。  相反地，您可以在隱藏的 iframe 中使用隱含流程，為其他 Web API 取得新權杖： 
@@ -180,7 +180,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de7
 
 由於 `prompt=none` 參數，此要求會立即成功或失敗，並且傳回給您的應用程式。  會使用 `response_mode` 參數中指定的方法，將成功的回應傳送至指定的 `redirect_uri` 給您的應用程式。
 
-#### 成功回應
+#### <a name="successful-response"></a>成功回應
 使用 `response_mode=fragment` 的成功回應如下所示：
 
 ```
@@ -200,7 +200,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | expires_in |存取權杖的有效期 (以秒為單位)。 |
 | scope |存取權杖有效的範圍。 |
 
-#### 錯誤回應
+#### <a name="error-response"></a>錯誤回應
 錯誤回應可能也會傳送至 `redirect_uri` ，讓應用程式可以適當地處理。  如果是 `prompt=none`，預期的錯誤為：
 
 ```
@@ -216,10 +216,10 @@ error=user_authentication_required
 
 如果您在 iframe 要求中收到此錯誤，使用者必須再次以互動方式登入以擷取新的權杖。  您可以選擇對於您的應用程式合理的任何方式處理這種情況。
 
-## 重新整理權杖
+## <a name="refreshing-tokens"></a>重新整理權杖
 `id_token` 和 `access_token` 馬上就會到期，因此您的應用程式必須準備好定期重新整理這些權杖。  若要重新整理其中任何一個類型的權杖，您可以使用 `prompt=none` 參數來控制 Azure AD 的行為，執行上述的相同隱藏的 iframe 要求。  如果您想要收到新的 `id_token`，務必使用 `response_type=id_token` 和 `scope=openid`，以及 `nonce` 參數。
 
-## 傳送登出要求
+## <a name="send-a-sign-out-request"></a>傳送登出要求
 OpenIdConnect `end_session_endpoint` 允許您的應用程式向 v2.0 端點傳送要求，以結束使用者的工作階段及清除 v2.0 端點設定的 Cookie。  若要將使用者從 Web 應用程式完全登出，您的應用程式應結束自己和使用者之間的工作階段 (通常是透過清除權杖快取或卸除 Cookie)，然後將瀏覽器重新導向至：
 
 ```

@@ -21,7 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
-# 使用 OpenID Connect 和 Azure Active Directory 授權存取 Web 應用程式
+# <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>使用 OpenID Connect 和 Azure Active Directory 授權存取 Web 應用程式
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) 是以 OAuth 2.0 通訊協定為建置基礎的簡單身分識別層。 OAuth 2.0 定義的機制可以取得及使用 **存取權杖** 來存取受保護的資源，但它們不會定義提供身分識別資訊的標準方法。 OpenID Connect 實作驗證來做為 OAuth 2.0 的授權程序的擴充。 它以 `id_token` 形式提供使用者相關資訊，這是可確認使用者的身分識別並提供使用者的基本設定檔資訊。
 
 如果您要建置的 Web 應用程式是裝載於伺服器且透過瀏覽器存取，建議使用 OpenID Connect。
@@ -29,12 +29,12 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)] 
 
-## 使用 OpenID Connect 驗證流程
+## <a name="authentication-flow-using-openid-connect"></a>使用 OpenID Connect 驗證流程
 最基本的登入流程包含下列步驟 - 以下將詳細說明每一個步驟。
 
 ![OpenId Connect 驗證流程](media/active-directory-protocols-openid-connect-code/active-directory-oauth-code-flow-web-app.png)
 
-## OpenID Connect 中繼資料文件
+## <a name="openid-connect-metadata-document"></a>OpenID Connect 中繼資料文件
 
 OpenID Connect 所描述的中繼資料文件包含應用程式執行登入所需的大部分資訊。 這包括要使用的 URL、服務的公開簽署金鑰位置等資訊。 可在此找到 OpenID Connect 中繼資料文件：
 
@@ -58,7 +58,7 @@ https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration
 }
 ```
 
-## 傳送登入要求
+## <a name="send-the-sign-in-request"></a>傳送登入要求
 當您的 Web 應用程式需要驗證使用者時，其必須將使用者導向至 `/authorize` 端點。 這個要求類似 [OAuth 2.0 授權碼流程](active-directory-protocols-oauth-code.md)的第一個階段，有幾個重要的區別：
 
 * 要求必須在 `scope` 參數中包含範圍 `openid`。
@@ -95,7 +95,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 此時，系統會要求使用者輸入其認證並完成驗證。
 
-### 範例回應
+### <a name="sample-response"></a>範例回應
 使用者經過驗證之後的範例回應，看起來像這樣：
 
 ```
@@ -111,7 +111,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 | id_token |應用程式要求的 `id_token` 。 您可以使用 `id_token` 確認使用者的身分識別，並以使用者開始工作階段。 |
 | state |要求中包含的值，也會隨權杖回應傳回。 隨機產生的唯一值通常用於 [防止跨站台偽造要求攻擊](http://tools.ietf.org/html/rfc6749#section-10.12)。  此狀態也用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
 
-### 錯誤回應
+### <a name="error-response"></a>錯誤回應
 錯誤回應可能也會傳送至 `redirect_uri` ，讓應用程式可以適當地處理：
 
 ```
@@ -127,7 +127,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 | 錯誤 |用以分類發生的錯誤類型與回應錯誤的錯誤碼字串。 |
 | error_description |協助開發人員識別驗證錯誤根本原因的特定錯誤訊息。 |
 
-#### 授權端點錯誤的錯誤碼
+#### <a name="error-codes-for-authorization-endpoint-errors"></a>授權端點錯誤的錯誤碼
 下表說明各種可能在錯誤回應的 `error` 參數中傳回的錯誤碼。
 
 | 錯誤碼 | 說明 | 用戶端動作 |
@@ -140,7 +140,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 | temporarily_unavailable |伺服器暫時過於忙碌而無法處理要求。 |重試要求。 用戶端應用程式可能會向使用者解釋，說明其回應因暫時性狀況而延遲。 |
 | invalid_resource |目標資源無效，因為它不存在、Azure AD 無法找到它，或是它並未正確設定。 |這表示尚未在租用戶中設定資源 (如果存在)。 應用程式可以對使用者提示關於安裝應用程式，並將它加入至 Azure AD 的指示。 |
 
-## 驗證 id_token
+## <a name="validate-the-idtoken"></a>驗證 id_token
 僅接收 `id_token` 不足以驗證使用者，您必須驗證簽章，並依照應用程式的需求確認 `id_token` 中的宣告。 Azure AD 端點使用 JSON Web Tokens (JWT) 和公開金鑰加密簽署權杖及驗證其是否有效。
 
 您可以選擇驗證用戶端程式碼中的 `id_token`，但是常見的作法是將 `id_token` 傳送至後端伺服器，並且在那裡執行驗證。 一旦驗證了 `id_token` 的簽章，就會有數項宣告需要驗證。
@@ -153,7 +153,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 驗證 `id_token` 之後，即可利用該使用者開始工作階段，並使用 `id_token` 中的宣告來取得應用程式中的使用者相關資訊。 這項資訊可以用於顯示、記錄、授權等等。如需有關權杖類型及宣告的詳細資訊，請參閱[支援的權杖和宣告類型](active-directory-token-and-claims.md)。
 
-## 傳送登出要求
+## <a name="send-a-sign-out-request"></a>傳送登出要求
 當您想要將使用者登出應用程式時，只是清除應用程式的 Cookie 或結束使用者的工作階段還是不夠。  您也必須將使用者重新導向至 `end_session_endpoint` 以完成登出。如果不這樣做，使用者可能不需要再次輸入認證就能重新通過應用程式的驗證，因為他們與 Azure AD 端點之間仍然存在有效的單一登入工作階段。
 
 您可以直接將使用者重新導向至 OpenID Connect 中繼資料文件中所列出的 `end_session_endpoint` ：
@@ -168,7 +168,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 | --- | --- | --- |
 | post_logout_redirect_uri |建議使用 |使用者在成功登出之後，應該要前往的 URL。  如果此參數，則會向使用者顯示一般訊息。 |
 
-## 單一登出
+## <a name="single-sign-out"></a>單一登出
 當您將使用者重新導向至 `end_session_endpoint` 時，Azure AD 會清除瀏覽器中的使用者工作階段。 不過，使用者可能仍然登入其他使用 Azure AD 進行驗證的應用程式。 為了讓這些應用程式能同時將使用者登入，Azure AD 會將 HTTP GET 要求傳送至使用者目前登入之所有應用程式的已註冊 `LogoutUrl`。 應用程式必須藉由清除任何可識別使用者的工作階段並傳回 `200` 回應，以回應此要求。  如果您想要在應用程式中支援單一登出，您必須在應用程式的程式碼中實作這類 `LogoutUrl`。  您可以在 Azure 入口網站中設定 `LogoutUrl`：
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。
@@ -176,10 +176,10 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 3. 在左側導覽窗格中，依序選擇 [Azure Active Directory]、[應用程式註冊]，然後選取您的應用程式。
 4. 按一下 [屬性]，找到 [登出 URL] 文字方塊。 
 
-## 權杖取得
+## <a name="token-acquisition"></a>權杖取得
 許多 Web Apps 不僅需要將使用者登入，同時需要使用 OAuth 代表使用者來存取 Web 服務。 這個案例針對使用者驗證合併 OpenID Connect，同時使用 OAuth 授權碼流程取得可用來取得 `authorization_code` 的 `access_tokens`。
 
-## 取得存取權杖
+## <a name="get-access-tokens"></a>取得存取權杖
 若要取得存取權杖，您需要修改上述的登入要求：
 
 ```
@@ -198,7 +198,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Applica
 
 藉由在要求中包含權限範圍，並且使用 `response_type=code+id_token`，`authorize` 端點可確保使用者已經同意 `scope` 查詢參數中表示的權限，並且將授權碼傳回至您的應用程式以交換存取權杖。
 
-### 成功回應
+### <a name="successful-response"></a>成功回應
 使用 `response_mode=form_post` 的成功回應如下所示：
 
 ```
@@ -215,7 +215,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 | code |應用程式要求的 authorization_code。 應用程式可以使用授權碼要求目標資源的存取權杖。 authorization_code 的有效期很短，通常約 10 分鐘後即到期。 |
 | state |如果要求中包含狀態參數，回應中就應該出現相同的值。 應用程式應該確認要求和回應中的狀態值完全相同。 |
 
-### 錯誤回應
+### <a name="error-response"></a>錯誤回應
 錯誤回應可能也會傳送至 `redirect_uri` ，讓應用程式可以適當地處理：
 
 ```

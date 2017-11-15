@@ -22,7 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
-# Azure Active Directory 使用 SAML 通訊協定的方式
+# <a name="how-azure-active-directory-uses-the-saml-protocol"></a>Azure Active Directory 使用 SAML 通訊協定的方式
 Azure Active Directory (Azure AD) 會使用 SAML 2.0 通訊協定，讓應用程式能為其使用者提供單一登入體驗。 Azure AD 的[單一登入](active-directory-single-sign-on-protocol-reference.md)和[單一登出](active-directory-single-sign-out-protocol-reference.md) SAML 設定檔會說明在識別提供者服務中如何使用 SAML 判斷提示、通訊協定和繫結。
 
 SAML 通訊協定需要識別提供者 (Azure AD) 和服務提供者 (應用程式)，才能交換本身的相關資訊。

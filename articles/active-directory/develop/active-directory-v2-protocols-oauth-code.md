@@ -21,7 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/12/2017
 ---
-# v2.0 通訊協定 - OAuth 2.0 授權碼流程
+# <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0 通訊協定 - OAuth 2.0 授權碼流程
 OAuth 2.0 授權碼授與可用於裝置上所安裝的應用程式中，以存取受保護的資源，例如 Web API。  透過應用程式模型的 v2.0 實作 OAuth 2.0，您可以將登入及 API 存取新增至您的行動應用程式和桌面應用程式。  本指南與語言無關，描述在不使用我們的任何開放原始碼程式庫的情況下，如何傳送和接收 HTTP 訊息。
 
 > [!NOTE]
@@ -31,12 +31,12 @@ OAuth 2.0 授權碼授與可用於裝置上所安裝的應用程式中，以存�
 
 關於 OAuth 2.0 授權碼流程的說明，請參閱 [OAuth 2.0 規格 4.1 節](http://tools.ietf.org/html/rfc6749)。  在大部分的應用程式類型中，其用於執行驗證與授權，包括 [Web Apps](active-directory-v2-flows.md#web-apps) 和[原始安裝的應用程式](active-directory-v2-flows.md#mobile-and-native-apps)。  它可讓應用程式安全地取得 access_token；access_token 可用於存取以 v2.0 端點保護的資源。  
 
-## 通訊協定圖表
+## <a name="protocol-diagram"></a>通訊協定圖表
 概括而言，原生/行動應用程式的整個驗證流程看起來像是這樣：
 
 ![OAuth 授權碼流程](../../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
-## 要求授權碼
+## <a name="request-an-authorization-code"></a>要求授權碼
 授權碼流程始於用戶端將使用者導向 `/authorize` 端點。  在這項要求中，用戶端會指出必須向使用者索取的權限：
 
 ```
@@ -74,7 +74,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 一旦使用者驗證並同意，v2.0 端點就會使用 `response_mode` 參數中指定的方法，將回應傳回至位於指定所在 `redirect_uri` 的應用程式。
 
-#### 成功回應
+#### <a name="successful-response"></a>成功回應
 使用 `response_mode=query` 的成功回應如下所示：
 
 ```
@@ -88,7 +88,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 | code |應用程式要求的 authorization_code。 應用程式可以使用授權碼要求目標資源的存取權杖。  Authorization_code 的有效期很短，通常約 10 分鐘後即到期。 |
 | state |如果要求中包含狀態參數，回應中就應該出現相同的值。 應用程式應該確認要求和回應中的狀態值完全相同。 |
 
-#### 錯誤回應
+#### <a name="error-response"></a>錯誤回應
 錯誤回應可能也會傳送至 `redirect_uri` ，讓應用程式可以適當地處理：
 
 ```
@@ -102,7 +102,7 @@ error=access_denied
 | 錯誤 |用以分類發生的錯誤類型與回應錯誤的錯誤碼字串。 |
 | error_description |協助開發人員識別驗證錯誤根本原因的特定錯誤訊息。 |
 
-#### 授權端點錯誤的錯誤碼
+#### <a name="error-codes-for-authorization-endpoint-errors"></a>授權端點錯誤的錯誤碼
 下表說明各種可能在錯誤回應的 `error` 參數中傳回的錯誤碼。
 
 | 錯誤碼 | 說明 | 用戶端動作 |
@@ -115,7 +115,7 @@ error=access_denied
 | temporarily_unavailable |伺服器暫時過於忙碌而無法處理要求。 |重試要求。 用戶端應用程式可能會向使用者解釋，其回應因為暫時性狀況而延遲。 |
 | invalid_resource |目標資源無效，因為它不存在、Azure AD 無法找到它，或是它並未正確設定。 |這表示尚未在租用戶中設定資源 (如果存在)。 應用程式可以對使用者提示關於安裝應用程式，並將它加入至 Azure AD 的指示。 |
 
-## 要求存取權杖
+## <a name="request-an-access-token"></a>要求存取權杖
 既然您已經取得 authorization_code 並獲得使用者授權，您就可以將 `POST` 要求傳送至 `/token` 端點，贖回 `code` 以取得所需資源的 `access_token`：
 
 ```
@@ -148,7 +148,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |必要 |用來取得 authorization_code 的相同 redirect_uri 值。 |
 | client_secret |Web Apps 所需 |您在應用程式註冊入口網站中為應用程式建立的應用程式密碼。  其不應用於原生應用程式，因為裝置無法穩當地儲存 client_secret。  Web Apps 和 Web API 都需要應用程式密碼，其能夠將 client_secret 安全地儲存在伺服器端。 |
 
-#### 成功回應
+#### <a name="successful-response"></a>成功回應
 成功的權杖回應如下：
 
 ```
@@ -169,7 +169,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | scope |access_token 有效的範圍。 |
 | refresh_token |OAuth 2.0 重新整理權杖。 應用程式可以使用這個權杖，在目前的存取權杖過期之後，取得其他的存取權杖。  Refresh_token 的有效期很長，而且可以用來延長保留資源存取權的時間。  如需詳細資訊，請參閱 [v2.0 權杖參考](active-directory-v2-tokens.md)。 <br> **注意：**只在要求 `offline_access` 範圍時提供。 |
 | id_token |不帶正負號的 JSON Web Token (JWT)。 應用程式可以 base64Url 解碼這個權杖的區段，要求已登入使用者的相關資訊。 應用程式可以快取並顯示值，但不應依賴這些值來取得任何授權或安全性界限。  如需有關 id_token 的詳細資訊，請參閱 [v2.0 端點權杖參考](active-directory-v2-tokens.md)。 <br> **注意：**只在要求 `openid` 範圍時提供。 |
-#### 錯誤回應
+#### <a name="error-response"></a>錯誤回應
 錯誤回應格式如下：
 
 ```
@@ -194,7 +194,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | trace_id |有助於診斷的要求唯一識別碼。 |
 | correlation_id |有助於跨元件診斷的要求唯一識別碼。 |
 
-#### 權杖端點錯誤的錯誤碼
+#### <a name="error-codes-for-token-endpoint-errors"></a>權杖端點錯誤的錯誤碼
 | 錯誤碼 | 說明 | 用戶端動作 |
 | --- | --- | --- |
 | invalid_request |通訊協定錯誤，例如遺漏必要的參數。 |修正並重新提交要求 |
@@ -206,7 +206,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | interaction_required |要求需要使用者互動。 例如，必須進行其他驗證步驟。 |以相同資源重試要求。 |
 | temporarily_unavailable |伺服器暫時過於忙碌而無法處理要求。 |重試要求。 用戶端應用程式可能會向使用者解釋，其回應因為暫時性狀況而延遲。 |
 
-## 使用存取權杖
+## <a name="use-the-access-token"></a>使用存取權杖
 既然您已經成功取得 `access_token`，您就可以透過在 `Authorization` 標頭中包含權杖，在 Web API 的要求中使用權杖：
 
 > [!TIP]
@@ -220,7 +220,7 @@ Host: https://graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 
-## 重新整理存取權杖
+## <a name="refresh-the-access-token"></a>重新整理存取權杖
 Access_token 有效期很短，且您必須在其到期後重新整理，才能繼續存取資源。  方法是：向 `/token` 端點送出另一個 `POST` 要求，這次提供 `refresh_token`，而不提供 `code`：
 
 ```
@@ -253,7 +253,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |必要 |用來取得 authorization_code 的相同 redirect_uri 值。 |
 | client_secret |Web Apps 所需 |您在應用程式註冊入口網站中為應用程式建立的應用程式密碼。  其不應用於原生應用程式，因為裝置無法穩當地儲存 client_secret。  Web Apps 和 Web API 都需要應用程式密碼，其能夠將 client_secret 安全地儲存在伺服器端。 |
 
-#### 成功回應
+#### <a name="successful-response"></a>成功回應
 成功的權杖回應如下：
 
 ```
@@ -275,7 +275,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | refresh_token |新的 OAuth 2.0 重新整理權杖。 您應該用新取得的重新整理權杖取代舊的重新整理權杖，以確定盡可能保持重新整理權杖有效的時間。 <br> **注意：**只在要求 `offline_access` 範圍時提供。 |
 | id_token |不帶正負號的 JSON Web Token (JWT)。 應用程式可以 base64Url 解碼這個權杖的區段，要求已登入使用者的相關資訊。 應用程式可以快取並顯示值，但不應依賴這些值來取得任何授權或安全性界限。  如需有關 id_token 的詳細資訊，請參閱 [v2.0 端點權杖參考](active-directory-v2-tokens.md)。 <br> **注意：**只在要求 `openid` 範圍時提供。 |
 
-#### 錯誤回應
+#### <a name="error-response"></a>錯誤回應
 ```
 {
   "error": "invalid_scope",

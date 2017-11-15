@@ -21,7 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
-# Azure Active Directory v2.0 和 OAuth 2.0 代理者流程
+# <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 和 OAuth 2.0 代理者流程
 OAuth2.0 代理者流程的使用案例，是應用程式叫用服務/Web API，而後者又需要呼叫另一個服務/Web API。 其概念是透過要求鏈傳播委派的使用者身分識別和權限。 中介層服務若要向下游服務提出已驗證的要求，需要代表使用者保護來自 Azure Active Directory (Azure AD) 存取權杖。
 
 > [!NOTE]
@@ -29,7 +29,7 @@ OAuth2.0 代理者流程的使用案例，是應用程式叫用服務/Web API，
 >
 >
 
-## 通訊協定圖表
+## <a name="protocol-diagram"></a>通訊協定圖表
 假設使用者已使用 [OAuth 2.0 授權碼授與流程](active-directory-v2-protocols-oauth-code.md)通過應用程式的驗證。 此時，應用程式有一個包含使用者宣告的存取權杖 (權杖 A)，且同意存取中介層 Web API (API A)。 現在，API A 需要向下游 Web API (API B) 提出已驗證的要求。
 
 接下來的步驟由代理者流程構成，並搭配下圖協助說明。
@@ -47,7 +47,7 @@ OAuth2.0 代理者流程的使用案例，是應用程式叫用服務/Web API，
 > 在此案例中，中介層服務不會利用使用者互動來取得使用者的下游 API 存取同意。 因此，在驗證期間必須先呈現授與存取下游 API 的選項，作為同意步驟的一部分。
 >
 
-## 服務對服務的存取權杖要求
+## <a name="service-to-service-access-token-request"></a>服務對服務的存取權杖要求
 若要要求存取權杖，請對租用戶特定的 Azure AD v2.0 端點提出 HTTP POST 並搭配下列參數。
 
 ```
@@ -56,7 +56,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 
 有兩種情況，取決於用戶端應用程式是選擇透過共用密碼或憑證來保護。
 
-### 第一種情況︰使用共用密碼的存取權杖要求
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>第一種情況︰使用共用密碼的存取權杖要求
 使用共用密碼時，服務對服務存取權杖要求包含下列參數：
 
 | 參數 |  | 說明 |
@@ -68,7 +68,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 | scope |必要 | 權杖要求範圍的清單，各項目之間以空格分隔。 如需詳細資訊，請參閱[範圍](active-directory-v2-scopes.md)。|
 | requested_token_use |必要 | 指定應該如何處理要求。 在代理者流程中，此值必須是 **on_behalf_of**。 |
 
-#### 範例
+#### <a name="example"></a>範例
 下列 HTTP POST 會要求對 https://graph.windows.net Web API 的存取權杖，範圍是 `user.read`。
 
 ```
@@ -86,7 +86,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 &requested_token_use=on_behalf_of
 ```
 
-### 第二種情況︰使用憑證的存取權杖要求
+### <a name="second-case-access-token-request-with-a-certificate"></a>第二種情況︰使用憑證的存取權杖要求
 使用憑證的服務對服務存取權杖要求包含下列參數：
 
 | 參數 |  | 說明 |
@@ -101,7 +101,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 
 請注意，在透過共用密碼要求的情況中，參數幾乎相同，不同之處在於使用下列兩個參數來取代 client_secret 參數：client_assertion_type 和 client_assertion。
 
-#### 範例
+#### <a name="example"></a>範例
 下列 HTTP POST 會使用憑證要求對 https://graph.windows.net Web API 的存取權杖，範圍是`user.read`。
 
 ```
@@ -120,7 +120,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=https://graph.microsoft.com/user.read
 ```
 
-## 服務對服務的存取權杖回應
+## <a name="service-to-service-access-token-response"></a>服務對服務的存取權杖回應
 成功的回應是 JSON OAuth 2.0 回應，包含下列參數。
 
 | 參數 | 說明 |
@@ -131,7 +131,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 | access_token |所要求的存取權杖。 呼叫端服務可以使用此權杖來向接收端服務進行驗證。 |
 | refresh_token |所要求之存取權杖的重新整理權杖。 呼叫端服務可以使用這個權杖，在目前的存取權杖過期之後，要求其他的存取權杖。 |
 
-### 成功回應範例
+### <a name="success-response-example"></a>成功回應範例
 下列範例顯示向 https://graph.microsoft.com Web API 要求存取權杖的成功回應。
 
 ```
@@ -145,7 +145,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 }
 ```
 
-### 錯誤回應範例
+### <a name="error-response-example"></a>錯誤回應範例
 嘗試取得下游 API 的存取權杖時，如果下游 API 有條件式存取原則，例如在其上設定多重要素驗證時，Azure AD 權杖端點會傳回錯誤回應。 中介層服務應該向用戶端應用程式呈現此錯誤，以便用戶端應用程式可以提供使用者互動，以滿足條件式存取原則。
 
 ```
@@ -160,17 +160,17 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 }
 ```
 
-## 使用存取權杖來存取受保護資源
+## <a name="use-the-access-token-to-access-the-secured-resource"></a>使用存取權杖來存取受保護資源
 現在，中介層服務可以使用取得的權杖，在 `Authorization` 標頭中設定權杖，並向下游 Web API 提出已驗證的要求。
 
-### 範例
+### <a name="example"></a>範例
 ```
 GET /v1.0/me HTTP/1.1
 Host: graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVGFlN0NkV1c3UWZkSzdNN0RyNXlvUUdLNmFEc19vdDF3cEQyZjNqRkxiNlVrcm9PcXA2cXBJclAxZVV0QktzMHEza29HN3RzXzJpSkYtQjY1UV8zVGgzSnktUHZsMjkxaFNBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIiwia2lkIjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaWF0IjoxNDkzOTMwMDE2LCJuYmYiOjE0OTM5MzAwMTYsImV4cCI6MTQ5MzkzMzg3NSwiYWNyIjoiMCIsImFpbyI6IkFTUUEyLzhEQUFBQUlzQjN5ZUljNkZ1aEhkd1YxckoxS1dlbzJPckZOUUQwN2FENTVjUVRtems9IiwiYW1yIjpbInB3ZCJdLCJhcHBfZGlzcGxheW5hbWUiOiJUb2RvRG90bmV0T2JvIiwiYXBwaWQiOiIyODQ2ZjcxYi1hN2E0LTQ5ODctYmFiMy03NjAwMzViMmYzODkiLCJhcHBpZGFjciI6IjEiLCJmYW1pbHlfbmFtZSI6IkNhbnVtYWxsYSIsImdpdmVuX25hbWUiOiJOYXZ5YSIsImlwYWRkciI6IjE2Ny4yMjAuMC4xOTkiLCJuYW1lIjoiTmF2eWEgQ2FudW1hbGxhIiwib2lkIjoiZDVlOTc5YzctM2QyZC00MmFmLThmMzAtNzI3ZGQ0YzJkMzgzIiwib25wcmVtX3NpZCI6IlMtMS01LTIxLTIxMjc1MjExODQtMTYwNDAxMjkyMC0xODg3OTI3NTI3LTI2MTE4NDg0IiwicGxhdGYiOiIxNCIsInB1aWQiOiIxMDAzM0ZGRkEwNkQxN0M5Iiwic2NwIjoiVXNlci5SZWFkIiwic3ViIjoibWtMMHBiLXlpMXQ1ckRGd2JTZ1JvTWxrZE52b3UzSjNWNm84UFE3alVCRSIsInRpZCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsInVuaXF1ZV9uYW1lIjoibmFjYW51bWFAbWljcm9zb2Z0LmNvbSIsInVwbiI6Im5hY2FudW1hQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJzUVlVekYxdUVVS0NQS0dRTVFVRkFBIiwidmVyIjoiMS4wIn0.Hrn__RGi-HMAzYRyCqX3kBGb6OS7z7y49XPVPpwK_7rJ6nik9E4s6PNY4XkIamJYn7tphpmsHdfM9lQ1gqeeFvFGhweIACsNBWhJ9Nx4dvQnGRkqZ17KnF_wf_QLcyOrOWpUxdSD_oPKcPS-Qr5AFkjw0t7GOKLY-Xw3QLJhzeKmYuuOkmMDJDAl0eNDbH0HiCh3g189a176BfyaR0MgK8wrXI_6MTnFSVfBePqklQeLhcr50YTBfWg3Svgl6MuK_g1hOuaO-XpjUxpdv5dZ0SvI47fAuVDdpCE48igCX5VMj4KUVytDIf6T78aIXMkYHGgW3-xAmuSyYH_Fr0yVAQ
 ```
 
-## 後續步驟
+## <a name="next-steps"></a>後續步驟
 進一步了解 OAuth 2.0 通訊協定，以及另一種使用用戶端認證來執行服務對服務驗證的方式。
 * [Azure AD v2.0 中的 OAuth 2.0 用戶端認證授與](active-directory-v2-protocols-oauth-client-creds.md)
 * [Azure AD v2.0 中的 OAuth 2.0](active-directory-v2-protocols-oauth-code.md)

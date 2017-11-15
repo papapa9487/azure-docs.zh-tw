@@ -21,19 +21,19 @@ ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
-# 使用 OAuth 2.0 和 Azure Active Directory 授權存取 Web 應用程式
+# <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>使用 OAuth 2.0 和 Azure Active Directory 授權存取 Web 應用程式
 Azure Active Directory (Azure AD) 使用 OAuth 2.0 讓您授權存取 Azure AD 租用戶中的 Web 應用程式和 Web API。 本指南與語言無關，描述在不使用我們的任何開放原始碼程式庫的情況下，如何傳送和接收 HTTP 訊息。
 
 如需 OAuth 2.0 授權碼流程的說明，請參閱 [OAuth 2.0 規格的 4.1 節](https://tools.ietf.org/html/rfc6749#section-4.1)。 在大多數的應用程式類型中，其用於執行驗證與授權，包括 Web Apps 和原始安裝的應用程式。
 
 [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
 
-## OAuth 2.0 授權流程
+## <a name="oauth-20-authorization-flow"></a>OAuth 2.0 授權流程
 概括而言，應用程式的整個授權流程看起來有點像這樣：
 
 ![OAuth 授權碼流程](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
-## 要求授權碼
+## <a name="request-an-authorization-code"></a>要求授權碼
 授權碼流程始於用戶端將使用者導向 `/authorize` 端點。 在這項要求中，用戶端會指出必須向使用者索取的權限。 您可以在 Azure 傳統入口網站的應用程式頁面中，於底端隱藏式選單的 [檢視端點]  按鈕取得 OAuth 2.0 端點。
 
 ```
@@ -68,7 +68,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 此時，會要求使用者輸入其認證，並同意 `scope` 查詢參數所指出的權限。 一旦使用者驗證並授與同意，Azure AD 便會在要求的 `redirect_uri` 位址中傳送回應給應用程式。
 
-### 成功回應
+### <a name="successful-response"></a>成功回應
 成功的回應看起來可能像這樣︰
 
 ```
@@ -83,7 +83,7 @@ Location: http://localhost/myapp/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLE
 | session_state |識別目前使用者工作階段的唯一值。 這個值是 GUID，但應視為不檢查即傳遞的不透明值。 |
 | state |如果要求中包含狀態參數，回應中就應該出現相同的值。 應用程式最好在使用回應之前確認要求和回應中的狀態值完全相同。 這有助於偵測對用戶端發動的 [跨網站偽造要求 (CSRF) 攻擊](https://tools.ietf.org/html/rfc6749#section-10.12) 。 |
 
-### 錯誤回應
+### <a name="error-response"></a>錯誤回應
 錯誤回應也可以傳送到 `redirect_uri` ，讓應用程式能適當地處理。
 
 ```
@@ -98,7 +98,7 @@ error=access_denied
 | error_description |更詳細的錯誤描述。 此訊息的目的並非要方便使用者了解。 |
 | state |狀態值是隨機產生的非重複使用值，會在要求中傳送並在回應中傳回以防止跨網站偽造要求 (CSRF) 攻擊。 |
 
-#### 授權端點錯誤的錯誤碼
+#### <a name="error-codes-for-authorization-endpoint-errors"></a>授權端點錯誤的錯誤碼
 下表說明各種可能在錯誤回應的 `error` 參數中傳回的錯誤碼。
 
 | 錯誤碼 | 說明 | 用戶端動作 |
@@ -111,7 +111,7 @@ error=access_denied
 | temporarily_unavailable |伺服器暫時過於忙碌而無法處理要求。 |重試要求。 用戶端應用程式可能會向使用者解釋，說明其回應因暫時性狀況而延遲。 |
 | invalid_resource |目標資源無效，因為它不存在、Azure AD 無法找到它，或是它並未正確設定。 |這表示尚未在租用戶中設定資源 (如果存在)。 應用程式可以對使用者提示關於安裝應用程式，並將它加入至 Azure AD 的指示。 |
 
-## 使用授權碼來要求存取權杖
+## <a name="use-the-authorization-code-to-request-an-access-token"></a>使用授權碼來要求存取權杖
 既然已經取得授權碼並獲得使用者授權，您就可以將 POST 要求傳送至 `/token` 端點，兌換授權碼以取得所需資源的存取權杖：
 
 ```
@@ -142,7 +142,7 @@ grant_type=authorization_code
 
 若要尋找應用程式識別碼 URI，請在 Azure 管理入口網站中，依序按一下 [Active Directory]、目錄、應用程式及 [設定]。
 
-### 成功回應
+### <a name="successful-response"></a>成功回應
 Azure AD 在成功回應時會傳回存取權杖。 為了減少來自用戶端應用程式和與其相關延遲的網路呼叫，用戶端應用程式應該快取存取權杖達 OAuth 2.0 回應中所指定的權杖存留期。 若要判斷權杖存留期，請使用 `expires_in` 或 `expires_on` 參數值。
 
 如果 Web API 資源傳回 `invalid_token` 錯誤碼，這可能表示資源判定權杖已過期。 如果用戶端和資源的時鐘時間不同 (稱為「時間偏差」)，在從用戶端快取中清除權杖之前，資源可能會將權杖視為已過期。 如果發生這種情況，請從快取中清除權杖，即使它仍在其計算的存留期內，也是如此。
@@ -174,7 +174,7 @@ Azure AD 在成功回應時會傳回存取權杖。 為了減少來自用戶端�
 | refresh_token |OAuth 2.0 重新整理權杖。 應用程式可以使用這個權杖，在目前的存取權杖過期之後，取得其他的存取權杖。  重新整理權杖的有效期很長，而且可以用來長期保留資源存取權。 |
 | id_token |不帶正負號的 JSON Web Token (JWT)。 應用程式可以 base64Url 解碼這個權杖的區段，要求已登入使用者的相關資訊。 應用程式可以快取並顯示值，但不應依賴這些值來取得任何授權或安全性界限。 |
 
-### JWT 權杖宣告
+### <a name="jwt-token-claims"></a>JWT 權杖宣告
 `id_token` 參數值中的 JWT 權杖可以解碼為下列宣告︰
 
 ```
@@ -219,7 +219,7 @@ Azure AD 在成功回應時會傳回存取權杖。 為了減少來自用戶端�
 | upn |使用者的使用者主體名稱。 |
 | ver |版本。 JWT 權杖的版本，通常為 1.0。 |
 
-### 錯誤回應
+### <a name="error-response"></a>錯誤回應
 權杖發行端點錯誤是 HTTP 錯誤碼，因為用戶端會直接呼叫權杖發行端點。 除了 HTTP 狀態碼，Azure AD 權杖發行端點也會傳回 JSON 文件與描述錯誤的物件。
 
 範例錯誤回應看起來可能像這樣︰
@@ -246,7 +246,7 @@ Azure AD 在成功回應時會傳回存取權杖。 為了減少來自用戶端�
 | trace_id |有助於診斷的要求唯一識別碼。 |
 | correlation_id |有助於跨元件診斷的要求唯一識別碼。 |
 
-#### HTTP 狀態碼
+#### <a name="http-status-codes"></a>HTTP 狀態碼
 下表列出權杖發行端點傳回的 HTTP 狀態碼。 在某些情況下，錯誤碼就足以描述回應，但若發生錯誤，您就必須剖析隨附的 JSON 文件並檢查其錯誤碼。
 
 | HTTP 代碼 | 說明 |
@@ -256,7 +256,7 @@ Azure AD 在成功回應時會傳回存取權杖。 為了減少來自用戶端�
 | 403 |授權失敗。 例如，使用者沒有存取資源的權限。 |
 | 500 |服務發生內部錯誤。 重試要求。 |
 
-#### 權杖端點錯誤的錯誤碼
+#### <a name="error-codes-for-token-endpoint-errors"></a>權杖端點錯誤的錯誤碼
 | 錯誤碼 | 說明 | 用戶端動作 |
 | --- | --- | --- |
 | invalid_request |通訊協定錯誤，例如遺漏必要的參數。 |修正並重新提交要求 |
@@ -268,17 +268,17 @@ Azure AD 在成功回應時會傳回存取權杖。 為了減少來自用戶端�
 | interaction_required |要求需要使用者互動。 例如，必須進行其他驗證步驟。 | 並非為非互動式要求，請以相同資源的互動式授權要求重試。 |
 | temporarily_unavailable |伺服器暫時過於忙碌而無法處理要求。 |重試要求。 用戶端應用程式可能會向使用者解釋，說明其回應因暫時性狀況而延遲。 |
 
-## 使用存取權杖來存取資源
+## <a name="use-the-access-token-to-access-the-resource"></a>使用存取權杖來存取資源
 既然您已經成功取得 `access_token`，您就可以透過在 `Authorization` 標頭中包含權杖，在 Web API 的要求中使用權杖。 [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) 規格會說明如何在 HTTP 要求中使用持有人權杖來存取受保護的資源。
 
-### 範例要求
+### <a name="sample-request"></a>範例要求
 ```
 GET /data HTTP/1.1
 Host: service.contoso.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1THdqcHdBSk9NOW4tQSJ9.eyJhdWQiOiJodHRwczovL3NlcnZpY2UuY29udG9zby5jb20vIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2ZlODE0NDctZGE1Ny00Mzg1LWJlY2ItNmRlNTdmMjE0NzdlLyIsImlhdCI6MTM4ODQ0MDg2MywibmJmIjoxMzg4NDQwODYzLCJleHAiOjEzODg0NDQ3NjMsInZlciI6IjEuMCIsInRpZCI6IjdmZTgxNDQ3LWRhNTctNDM4NS1iZWNiLTZkZTU3ZjIxNDc3ZSIsIm9pZCI6IjY4Mzg5YWUyLTYyZmEtNGIxOC05MWZlLTUzZGQxMDlkNzRmNSIsInVwbiI6ImZyYW5rbUBjb250b3NvLmNvbSIsInVuaXF1ZV9uYW1lIjoiZnJhbmttQGNvbnRvc28uY29tIiwic3ViIjoiZGVOcUlqOUlPRTlQV0pXYkhzZnRYdDJFYWJQVmwwQ2o4UUFtZWZSTFY5OCIsImZhbWlseV9uYW1lIjoiTWlsbGVyIiwiZ2l2ZW5fbmFtZSI6IkZyYW5rIiwiYXBwaWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0yNzRhNzJhNzMwOWUiLCJhcHBpZGFjciI6IjAiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJhY3IiOiIxIn0.JZw8jC0gptZxVC-7l5sFkdnJgP3_tRjeQEPgUn28XctVe3QqmheLZw7QVZDPCyGycDWBaqy7FLpSekET_BftDkewRhyHk9FW_KeEz0ch2c3i08NGNDbr6XYGVayNuSesYk5Aw_p3ICRlUV1bqEwk-Jkzs9EEkQg4hbefqJS6yS1HoV_2EsEhpd_wCQpxK89WPs3hLYZETRJtG5kvCCEOvSHXmDE6eTHGTnEgsIk--UlPe275Dvou4gEAwLofhLDQbMSjnlV5VLsjimNBVcSRFShoxmQwBJR_b2011Y5IuD6St5zPnzruBbZYkGNurQK63TJPWmRd3mbJsGM0mf3CUQ
 ```
 
-### 錯誤回應
+### <a name="error-response"></a>錯誤回應
 實作 RFC 6750 的受保護資源會發出 HTTP 狀態碼。 如果要求不包含驗證認證或是遺漏權杖，回應中會包含 `WWW-Authenticate` 標頭。 當要求失敗時，資源伺服器會回應 HTTP 狀態碼和錯誤碼。
 
 以下是用戶端要求未包含持有人權杖時的不成功回應範例︰
@@ -288,7 +288,7 @@ HTTP/1.1 401 Unauthorized
 WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/contoso.com/oauth2/authorize",  error="invalid_token",  error_description="The access token is missing.",
 ```
 
-#### 錯誤參數
+#### <a name="error-parameters"></a>錯誤參數
 | 參數 | 說明 |
 | --- | --- |
 | authorization_uri |授權伺服器的 URI (實體端點)。 此值也可做為查閱索引鍵，以從探索端點取得伺服器的詳細資訊。 <p><p> 用戶端必須確認授權伺服器受到信任。 當資源受到 Azure AD 保護時，便足以確認 URL 開頭為 https://login.microsoftonline.com 或 Azure AD 支援的其他主機名稱。 租用戶特定資源應該一律會傳回租用戶特定授權 URI。 |
@@ -296,7 +296,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 | error_description |更詳細的錯誤描述。 此訊息的目的並非要方便使用者了解。 |
 | resource_id |傳回資源的唯一識別碼。 用戶端應用程式可在要求資源的權杖時，使用此識別碼做為 `resource` 參數的值。 <p><p> 用戶端應用程式務必要確認此值，否則惡意服務或許可以引發**提升權限**攻擊 <p><p> 防止攻擊的建議策略是確認 `resource_id` 符合要存取的 Web API URL 的基礎。 例如，如果正在存取 https://service.contoso.com/data，`resource_id` 可以是 htttps://service.contoso.com/。 除非有可確認識別碼的可靠替代方法，否則用戶端應用程式必須拒絕開頭不是基礎 URL 的 `resource_id` 。 |
 
-#### 持有人配置錯誤碼
+#### <a name="bearer-scheme-error-codes"></a>持有人配置錯誤碼
 RFC 6750 規格會針對在回應中使用 WWW 驗證標頭和持有人配置的資源，定義下列錯誤。
 
 | HTTP 狀態碼 | 錯誤碼 | 說明 | 用戶端動作 |
@@ -306,7 +306,7 @@ RFC 6750 規格會針對在回應中使用 WWW 驗證標頭和持有人配置的
 | 403 |insufficient_scope |存取權杖不包含存取資源所需的模擬權限。 |將新的授權要求傳送至授權端點。 如果回應包含範圍參數，則在資源的要求中使用範圍值。 |
 | 403 |insufficient_access |權杖的主體沒有存取資源所需的權限。 |提示使用者使用不同的帳戶，或要求所指定資源的權限。 |
 
-## 重新整理存取權杖
+## <a name="refreshing-the-access-tokens"></a>重新整理存取權杖
 存取權杖有效期很短，到期後必須重新整理，才能繼續存取資源。 您可以重新整理 `access_token`，方法是向 `/token` 端點送出另一個 `POST` 要求，但這次提供 `refresh_token`，而不提供 `code`。
 
 重新整理權杖並沒有指定的存留期。 一般而言，重新整理權杖的存留期相當長。 不過，在某些情況下，重新整理權杖會過期、遭到撤銷或對要執行的動作缺乏足夠的權限。 應用程式必須預期並正確處理權杖發行端點所傳回的錯誤。
@@ -329,7 +329,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps
 ```
 
-### 成功回應
+### <a name="successful-response"></a>成功回應
 成功的權杖回應如下：
 
 ```
@@ -352,7 +352,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | access_token |所要求的新存取權杖。 |
 | refresh_token |此回應中的存取權杖到期時，可用來要求新存取權杖的新 OAuth 2.0 refresh_token。 |
 
-### 錯誤回應
+### <a name="error-response"></a>錯誤回應
 範例錯誤回應看起來可能像這樣︰
 
 ```
