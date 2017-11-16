@@ -53,7 +53,7 @@
 ### [使用受管理的服務識別](api-management-howto-use-managed-service-identity.md)
 ### 與 Service Fabric 整合
 #### [概觀](../service-fabric/service-fabric-api-management-overview.md)
-#### [快速入門](../service-fabric/service-fabric-api-management-quick-start.md)
+#### [教學課程](../service-fabric/service-fabric-tutorial-deploy-api-management.md)
 
 # 參考
 ## [Azure PowerShell](/powershell/azure/overview)
