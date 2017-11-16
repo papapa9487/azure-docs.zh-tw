@@ -63,6 +63,7 @@
 #### [PowerShell](create-public-ip-availability-zone-powershell.md)
 
 ### 虛擬機器
+#### [虛擬機器網路輸送量](virtual-machine-network-throughput.md)
 #### 建立具有靜態公用 IP 位址的 VM
 ##### [Azure 入口網站](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)

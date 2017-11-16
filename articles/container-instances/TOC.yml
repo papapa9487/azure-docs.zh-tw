@@ -37,6 +37,8 @@
       href: container-instances-mounting-azure-files-volume.md
     - name: 從 Azure Container Registry 進行部署
       href: container-instances-using-azure-container-registry.md
+    - name: 執行容器化工作
+      href: container-instances-restart-policy.md
     - name: 針對部署進行疑難排解
       href: container-instances-troubleshooting.md
 - name: 參考

@@ -3,22 +3,22 @@ title: "Azure Stack 儲存體：差異與考量"
 description: "了解「Azure Stack 儲存體」與「Azure 儲存體」之間的差異，以及 Azure Stack 部署考量。"
 services: azure-stack
 documentationcenter: 
-author: xiaofmao
-manager: 
-editor: 
+author: jeffgilb
+manager: femila
+ms.reviwer: xiaofmao
 ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: xiaofmao
-ms.openlocfilehash: 4d6fb44fd6fd2261059ca45093d8b49345adfa74
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 11/08/2017
+ms.author: jeffgilb
+ms.openlocfilehash: 1dc099fa234e217b682c88f2214fe271c916eec2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack 儲存體：差異與考量
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/25/2017
 | 功能 | Azure (全域) | Azure Stack |
 | --- | --- | --- |
 |檔案儲存體|支援雲端式 SMB 檔案共用|尚不支援
-|待用資料加密|256 位元 AES 加密|尚不支援
+|待用資料的 Azure 儲存體服務加密|256 位元 AES 加密|尚不支援
 |儲存體帳戶類型|一般用途和 Azure Blob 儲存體帳戶|僅一般用途
 |複寫選項|本地備援儲存體、異地備援儲存體、讀取權限異地備援儲存體，以及區域備援儲存體|本地備援儲存體
 |進階儲存體|完全支援|可佈建，但無效能限制或保證

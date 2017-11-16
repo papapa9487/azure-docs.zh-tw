@@ -2,6 +2,7 @@
 ## [什麼是串流分析？](stream-analytics-introduction.md)
 ## [比較 Storm 與串流分析](stream-analytics-comparison-storm.md)
 
+
 # 開始使用
 ## [處理 IoT 串流資料](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
 ## [即時詐欺偵測](stream-analytics-real-time-fraud-detection.md)
@@ -13,7 +14,9 @@
 ### [社交媒體](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [使用 Machine Learning 進行即時評分](stream-analytics-machine-learning-integration-tutorial.md)
 ### [即時事件處理](stream-analytics-real-time-event-processing-reference-architecture.md)
+### [IoT Edge (預覽) 中的串流分析](stream-analytics-edge.md)
 ### [Azure 使用量異常偵測指南 (預覽)](stream-analytics-machine-learning-anomaly-detection.md)
+### [使用串流分析進行高頻率的交易模擬](stream-analytics-high-frequency-trading.md)
 
 ## 建立作業
 ### [建立輸入](stream-analytics-define-inputs.md)

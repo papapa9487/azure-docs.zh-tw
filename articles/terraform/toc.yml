@@ -15,7 +15,7 @@
   items:
     - name: 以 Terraform 模組建立 VM 叢集
       href: terraform-create-vm-cluster-module.md
-    - name: 以 Cloud Shell 建立 VM 叢集
+    - name: 以 Terraform 和 HCL 建立 VM 叢集
       href: terraform-create-vm-cluster-with-infrastructure.md
     - name: 以基礎結構佈建 VM 擴展集
       href: terraform-create-vm-scaleset-network-disks-hcl.md

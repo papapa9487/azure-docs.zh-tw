@@ -34,7 +34,7 @@
       tocHref: /azure/app-service/
       topicHref: /azure/app-service/
       items:
-        - name: 適用於容器的 Web 應用程式
+        - name: Linux 上的 App Service
           tocHref: /azure/app-service/containers/
           topicHref: /azure/app-service/containers/
         - name: App Service 環境
@@ -58,18 +58,27 @@
     - name: 自動化
       tocHref: /azure/automation/
       topicHref: /azure/automation/
+    - name: Azure Databricks
+      tocHref: /azure/azure-databricks/
+      topicHref: /azure/azure-databricks/
     - name: Container Registry
       tocHref: /azure/container-registry/
       topicHref: /azure/container-registry/
+    - name: 成本管理
+      tocHref: /azure/cost-management/
+      topicHref: /azure/cost-management/
     - name: Functions
       tocHref: /azure/azure-functions/
       topicHref: /azure/azure-functions/
-    - name: 政府
+    - name: Azure Government
       tocHref: /azure/azure-government/
       topicHref: /azure/azure-government/
-    - name: 德國
+    - name: Azure Germany
       tocHref: /azure/germany/
       topicHref: /azure/germany/
+    - name: Azure China 21Vianet
+      tocHref: /azure/china/
+      topicHref: /azure/china/
     - name: Azure 入口網站
       tocHref: /azure/azure-portal/
       topicHref: /azure/azure-portal/
@@ -91,6 +100,9 @@
     - name: 批次
       tocHref: /azure/batch/
       topicHref: /azure/batch/
+    - name: Batch AI
+      tocHref: /azure/batch-ai/
+      topicHref: /azure/batch-ai/
     - name: 計費
       tocHref: /azure/billing/
       topicHref: /azure/billing/
@@ -116,6 +128,9 @@
         - name: Bing Web 搜尋
           tocHref: /azure/cognitive-services/bing-web-search/
           topicHref: /azure/cognitive-services/bing-web-search/
+        - name: 語音
+          tocHref: /azure/cognitive-services/Speech/
+          topicHref: /azure/cognitive-services/Speech/
         - name: 電腦視覺
           tocHref: /azure/cognitive-services/computer-vision/
           topicHref: /azure/cognitive-services/computer-vision/
@@ -143,6 +158,9 @@
     - name: Container Instances
       tocHref: /azure/container-instances/
       topicHref: /azure/container-instances/
+    - name: AKS
+      tocHref: /azure/aks/
+      topicHref: /azure/aks/
     - name: 容器服務
       tocHref: /azure/container-service/
       topicHref: /azure/container-service/
@@ -189,6 +207,31 @@
     - name: HDInsight
       tocHref: /azure/hdinsight/
       topicHref: /azure/hdinsight/
+      items:
+        - name: Hadoop
+          tocHref: /azure/hdinsight/hadoop
+          topicHref: /azure/hdinsight/hadoop/apache-hadoop-introduction
+        - name: HBase
+          tocHref: /azure/hdinsight/hbase
+          topicHref: /azure/hdinsight/hbase/apache-hbase-overview
+        - name: 互動式查詢
+          tocHref: /azure/hdinsight/interactive-query
+          topicHref: /azure/hdinsight/interactive-query/apache-interactive-query-get-started
+        - name: Kafka
+          tocHref: /azure/hdinsight/kafka
+          topicHref: /azure/hdinsight/kafka/apache-kafka-introduction
+        - name: 企業安全性
+          tocHref: /azure/hdinsight/domain-joined
+          topicHref: /azure/hdinsight/domain-joined/apache-domain-joined-introduction
+        - name: R 伺服器
+          tocHref: /azure/hdinsight/r-server
+          topicHref: /azure/hdinsight/r-server-overview
+        - name: Spark
+          tocHref: /azure/hdinsight/spark
+          topicHref: /azure/hdinsight/spark/apache-spark-overview
+        - name: Storm
+          tocHref: /azure/hdinsight/storm
+          topicHref: /azure/hdinsight/storm/apache-storm-overview
     - name: IoT 中樞
       tocHref: /azure/iot-hub/
       topicHref: /azure/iot-hub/
@@ -339,6 +382,9 @@
     - name: 串流分析
       tocHref: /azure/stream-analytics/
       topicHref: /azure/stream-analytics/
+    - name: Time Series Insights
+      tocHref: /azure/time-series-insights/
+      topicHref: /azure/time-series-insights/
     - name: 流量管理員
       tocHref: /azure/traffic-manager/
       topicHref: /azure/traffic-manager/

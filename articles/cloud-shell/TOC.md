@@ -14,6 +14,9 @@
 ## [PowerShell 中的持續性儲存體](persisting-shell-storage-powershell.md)
 ## [使用時段](using-the-shell-window.md)
 
+# 範例
+## [在 Bash 中部署 Azure 資源與 Terraform](example-terraform-bash.md)
+
 # [價格](pricing.md)
 
 # [疑難排解](troubleshooting.md)

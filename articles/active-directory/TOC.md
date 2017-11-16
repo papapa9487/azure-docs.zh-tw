@@ -73,7 +73,6 @@
 ## [管理群組和成員](active-directory-manage-groups.md)
 ### 管理群組
 #### [Azure 入口網站](active-directory-groups-create-azure-portal.md)
-#### [傳統入口網站](active-directory-accessmanagement-manage-groups.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [管理群組成員](active-directory-groups-members-azure-portal.md)
 ### [管理群組擁有者](active-directory-accessmanagement-managing-group-owners.md)
@@ -94,7 +93,6 @@
 #### [Cmdlet](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### 建立進階規則
 #### [Azure 入口網站](active-directory-groups-dynamic-membership-azure-portal.md)
-#### [傳統入口網站](active-directory-accessmanagement-groups-with-advanced-rules.md)
 ### [設定自助式群組](active-directory-accessmanagement-self-service-group-management.md)
 ### [疑難排解](active-directory-accessmanagement-troubleshooting.md)
 
@@ -135,6 +133,7 @@
 #### [註冊自助式密碼重設](active-directory-passwords-reset-register.md)
 ### [SSPR 運作方式](active-directory-passwords-how-it-works.md)
 ### [SSPR 部署指南](active-directory-passwords-best-practices.md)
+### [SSPR 和 Windows 10](active-directory-passwords-login.md)
 ### [SSPR 原則](active-directory-passwords-policy.md)
 ### [SSPR 自訂](active-directory-passwords-customize.md)
 ### [SSPR 資料需求](active-directory-passwords-data.md)
@@ -209,8 +208,8 @@
 #### 使用傳統入口網站
 ##### [下載連接器](application-proxy-enable-classic-portal.md)
 ##### [發佈應用程式](active-directory-application-proxy-publish.md)
-##### [使用連接器](active-directory-application-proxy-connectors.md)
-##### [條件式存取](active-directory-application-proxy-conditional-access.md)
+##### [使用連接器](active-directory-application-proxy-connectors-azure-portal.md)
+##### [條件式存取](application-proxy-enable-remote-access-sharepoint.md)
 
 ### 管理企業應用程式
 #### [指派使用者](active-directory-coreapps-assign-user-azure-portal.md)
@@ -222,6 +221,7 @@
 #### [管理企業應用程式的單一登入](active-directory-enterprise-apps-manage-sso.md)
 #### [適用於 SAML 應用程式的進階憑證](active-directory-enterprise-apps-advance-certificate-options.md)
 #### [隱藏使用者的第三方應用程式經驗](active-directory-coreapps-hide-third-party-app.md)
+### [使用 HRD 原則設定登入時自動加速](active-directory-auto-acceleration-using-hrd.md)
 
 ### [管理應用程式的存取權](active-directory-managing-access-to-apps.md)
 #### [自助服務存取](active-directory-self-service-application-access.md)
@@ -248,9 +248,8 @@
 ## 管理您的目錄
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### 自訂網域名稱
-#### [概觀](active-directory-add-domain-concepts.md)
+#### [概觀](active-directory-domains-manage-azure-portal.md)
 #### [管理網域名稱](active-directory-domains-manage-azure-portal.md)
-##### [傳統入口網站](active-directory-add-manage-domain-names.md)
 ### [管理目錄](active-directory-administer.md)
 ### [多個目錄](active-directory-licensing-directory-independence.md)
 ### [自助式註冊](active-directory-self-service-signup.md)

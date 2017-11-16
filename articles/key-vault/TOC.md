@@ -14,6 +14,9 @@
 ### [服務限制](key-vault-service-limits.md)
 ### [受 HSM 保護的金鑰](key-vault-hsm-protected-keys.md)
 ### [移轉到 .NET 2.0](key-vault-dotnet2api-release-notes.md)
+### [儲存 Web 應用程式祕密](vs-secure-secret-appsettings.md)
+### [使用 .NET 驗證服務](service-to-service-authentication.md)
+
 ### 概觀
 #### [安全性環境](key-vault-ovw-security-worlds.md)
 #### [虛刪除](key-vault-ovw-soft-delete.md)

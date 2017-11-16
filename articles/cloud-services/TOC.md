@@ -34,32 +34,21 @@
 #### [使用工作在雲端服務角色上安裝 .NET](cloud-services-dotnet-install-dotnet.md)
 
 ### 設定遠端桌面
-#### [Azure 入口網站](cloud-services-role-enable-remote-desktop-new-portal.md)
-#### [傳統入口網站](cloud-services-role-enable-remote-desktop.md)
-#### [Azure PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [入口網站](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## 部署
-### 在入口網站中建立和部署雲端服務
-#### [Azure 入口網站](cloud-services-how-to-create-deploy-portal.md)
-#### [傳統入口網站](cloud-services-how-to-create-deploy.md)
+### [在入口網站中建立和部署雲端服務](cloud-services-how-to-create-deploy-portal.md)
 ### [使用 PowerShell 建立空的雲端服務容器](cloud-services-powershell-create-cloud-container.md)
-### 設定自訂網域名稱
-#### [入口網站](cloud-services-custom-domain-name-portal.md)
-#### [傳統入口網站](cloud-services-custom-domain-name.md)
+### [設定自訂網域名稱](cloud-services-custom-domain-name-portal.md)
 ### [預備雲端服務部署 (Node.js)](cloud-services-nodejs-stage-application.md)
 ### [連接到自訂網域控制站](cloud-services-connect-to-custom-domain.md)
 
 ## 管理服務
-### 一般管理工作
-#### [Azure 入口網站](cloud-services-how-to-manage-portal.md)
-#### [傳統入口網站](cloud-services-how-to-manage.md)
-### 設定雲端服務
-#### [Azure 入口網站](cloud-services-how-to-configure-portal.md)
-#### [傳統入口網站](cloud-services-how-to-configure.md)
+### [一般管理工作](cloud-services-how-to-manage-portal.md)
+### [設定雲端服務](cloud-services-how-to-configure-portal.md)
 ### [使用 Azure 自動化管理雲端服務](automation-manage-cloud-services.md)
-### 設定自動調整
-#### [Azure 入口網站](cloud-services-how-to-scale-portal.md)
-#### [傳統入口網站](cloud-services-how-to-scale.md)
+### [設定自動調整](cloud-services-how-to-scale-portal.md)
 ### [使用 Python 管理 Azure 資源](cloud-services-python-how-to-use-service-management.md)
 
 ### [客體 OS 修補程式](cloud-services-guestos-msrc-releases.md)
@@ -71,9 +60,7 @@
 
 ## 管理憑證
 ### [雲端服務與管理憑證](cloud-services-certs-create.md)
-### 設定 SSL 
-#### [入口網站](cloud-services-configure-ssl-certificate-portal.md)
-#### [傳統入口網站](cloud-services-configure-ssl-certificate.md)
+### [設定 SSL](cloud-services-configure-ssl-certificate-portal.md)
 
 ## 監視
 ### [監視雲端服務](cloud-services-how-to-monitor.md)

@@ -71,7 +71,7 @@
 ## 解決方案
 ### [更新管理](../operations-management-suite/oms-solution-update-management.md)
 #### [管理多個 VM 的更新](manage-update-multi.md)
-#### [整合 SCCMr 與 OMS 更新管理](oms-solution-updatemgmt-sccmintegration.md)
+#### [整合 SCCM 與 OMS 更新管理](oms-solution-updatemgmt-sccmintegration.md)
 ### [變更追蹤](../log-analytics/log-analytics-change-tracking.md)
 ### [追蹤 VM 的變更](automation-vm-change-tracking.md)
 ### [使用清查集合來管理 VM](automation-vm-inventory.md)

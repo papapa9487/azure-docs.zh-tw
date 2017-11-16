@@ -9,14 +9,6 @@
 ## [適用於範本的 VS Code 延伸模組](resource-manager-vscode-extension.md)
 ## [搭配 Resource Manager 使用 Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
-# 範例
-## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## Azure PowerShell
-### [部署範本](resource-manager-samples-powershell-deploy.md)
-
-## Azure CLI
-### [部署範本](resource-manager-samples-cli-deploy.md)
-
 # 作法
 ## 建立範本
 ### [範本區段](resource-group-authoring-templates.md)

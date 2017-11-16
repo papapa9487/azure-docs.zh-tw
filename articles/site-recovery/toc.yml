@@ -67,6 +67,18 @@
       href: site-recovery-faq.md
 - name: 使用說明指南
   items:
+    - name: 網路
+      items:
+        - name: 設定 Azure VM 災害復原 (預覽) 的網路功能
+          href: site-recovery-azure-to-azure-networking-guidance.md
+        - name: 設定 Azure VM 災害復原 (預覽) 的網路對應功能
+          href: site-recovery-network-mapping-azure-to-azure.md
+        - name: 準備 Azure 之 Hyper-V VM 複寫的網路對應
+          href: site-recovery-network-mapping.md
+        - name: 設定 IP 定址以在容錯移轉之後存取 Azure
+          href: concepts-on-premises-to-azure-networking.md
+        - name: 設定 IP 定址以在容錯移轉之後存取次要站台
+          href: concepts-on-premises-to-on-premises-networking.md
     - name: 災害復原
       items:
         - name: Hyper-V VM 至 Azure
@@ -81,14 +93,43 @@
           href: tutorial-dr-drill-azure.md
         - name: 執行次要網站的災害復原演練
           href: tutorial-dr-drill-secondary.md
+        - name: Azure 的 VMware VM 與多租用戶支援
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
+    - name: 容錯移轉和容錯回復
+      items:
+        - name: 設定復原計畫
+          href: site-recovery-create-recovery-plans.md
+          items:
+            - name: 將 Runbook 新增至復原方案
+              href: site-recovery-runbook-automation.md
+        - name: 執行測試容錯移轉
+          items:
+            - name: 執行測試容錯移轉至 Azure
+              href: site-recovery-test-failover-to-azure.md
+            - name: 在 VMM 雲端間執行測試容錯移轉
+              href: site-recovery-test-failover-vmm-to-vmm.md
+        - name: 針對受保護的機器進行容錯移轉
+          href: site-recovery-failover.md
         - name: 執行實體伺服器的容錯移轉和容錯回復
           href: tutorial-vmware-to-azure-failover-failback.md
         - name: 執行 Hyper-V VM 的容錯移轉和容錯回復
           href: tutorial-hyper-v-to-azure-failover-failback.md
         - name: 在內部部署網站之間執行容錯移轉和容錯回復
           href: tutorial-vmm-to-vmm-failover-failback.md
-        - name: Azure 的 VMware VM 與多租用戶支援
-          href: site-recovery-multi-tenant-support-vmware-using-csp.md
+        - name: 容錯移轉之後重新保護機器
+          items:
+            - name: 從 Azure 次要地區移至主要區域來重新保護
+              href: site-recovery-how-to-reprotect-azure-to-azure.md
+            - name: 從 Azure 移至內部部署來重新保護
+              href: site-recovery-how-to-reprotect.md
+        - name: 從 Azure 容錯移轉
+          items:
+            - name: 從 Azure 容錯回復至 VMware
+              href: site-recovery-how-to-failback-azure-to-vmware.md
+            - name: 從 Azure 容錯回復至 Hyper-V
+              href: site-recovery-failback-from-azure-to-hyper-v.md
+        - name: 將 Linux VM 設定為容錯回復的主要目標伺服器
+          href: site-recovery-how-to-install-linux-master-target.md
     - name: 容量和調整
       items:
         - name: 目的地為 Azure 之 VMware 複寫的容量規劃
@@ -105,16 +146,6 @@
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
     - name: 設定
       items:
-        - name: 設定 Azure VM 災害復原 (預覽) 的網路功能
-          href: site-recovery-azure-to-azure-networking-guidance.md
-        - name: 設定容錯移轉至 Azure 之後存取的 IP 位址
-          href: concepts-on-premises-to-azure-networking.md
-        - name: 設定容錯移轉至次要網站之後存取的 IP 位址
-          href: concepts-on-premises-to-on-premises-networking.md
-        - name: 設定 Azure VM 災害復原 (預覽) 的網路對應功能
-          href: site-recovery-network-mapping-azure-to-azure.md
-        - name: 準備 Azure 之 Hyper-V VM 複寫的網路對應
-          href: site-recovery-network-mapping.md
         - name: 設定來源環境
           items:
             - name: 從 VMware 到 Azure 的來源環境
@@ -127,7 +158,7 @@
               href: site-recovery-prepare-target-vmware-to-azure.md
             - name: 從實體到 Azure 的目標環境
               href: site-recovery-prepare-target-physical-to-azure.md
-        - name: 設定複寫設定
+        - name: 設定適用於 VMware 到 Azure 的複寫設定
           href: site-recovery-setup-replication-settings-vmware.md
         - name: 從複寫排除磁碟
           href: site-recovery-exclude-disk.md
@@ -144,35 +175,6 @@
               href: site-recovery-replicate-azure-to-azure.md
             - name: 啟用 VMware 至 Azure 複寫
               href: site-recovery-replicate-vmware-to-azure.md
-    - name: 容錯移轉和容錯回復
-      items:
-        - name: 設定復原計畫
-          href: site-recovery-create-recovery-plans.md
-          items:
-            - name: 將 Runbook 新增至復原方案
-              href: site-recovery-runbook-automation.md
-        - name: 執行測試容錯移轉
-          items:
-            - name: 執行測試容錯移轉至 Azure
-              href: site-recovery-test-failover-to-azure.md
-            - name: 在 VMM 雲端間執行測試容錯移轉
-              href: site-recovery-test-failover-vmm-to-vmm.md
-        - name: 針對受保護的機器進行容錯移轉
-          href: site-recovery-failover.md
-        - name: 容錯移轉之後重新保護機器
-          items:
-            - name: 從 Azure 次要地區移至主要區域來重新保護
-              href: site-recovery-how-to-reprotect-azure-to-azure.md
-            - name: 從 Azure 移至內部部署來重新保護
-              href: site-recovery-how-to-reprotect.md
-        - name: 從 Azure 容錯移轉
-          items:
-            - name: 從 Azure 容錯回復至 VMware
-              href: site-recovery-how-to-failback-azure-to-vmware.md
-            - name: 從 Azure 容錯回復至 Hyper-V
-              href: site-recovery-failback-from-azure-to-hyper-v.md
-        - name: 將 Linux VM 設定為容錯回復的主要目標伺服器
-          href: site-recovery-how-to-install-linux-master-target.md
     - name: 自動化
       items:
         - name: 使用 PowerShell 設定 Hyper-V 至 Azure 的複寫 (不使用 VMM)
@@ -213,7 +215,7 @@
           href: 'site-recovery-workload.md#workload-summary'
     - name: 管理
       items:
-        - name: 將 Site Recovery 保存庫升級成復原服務保存庫
+        - name: 升級至復原服務 Microsoft Azure 復原服務保存庫
           href: upgrade-site-recovery-vaults.md
         - name: 管理 Azure 中的處理序伺服器
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
@@ -223,7 +225,7 @@
           href: site-recovery-vmware-to-azure-manage-vCenter.md
         - name: 移除伺服器並停用保護
           href: site-recovery-manage-registration-and-protection.md
-        - name: 刪除復原服務保存庫
+        - name: 刪除保存庫
           href: delete-vault.md
     - name: 疑難排解
       items:
@@ -231,7 +233,7 @@
           href: site-recovery-azure-to-azure-troubleshoot-errors.md
         - name: 內部部署至 Azure 複寫問題
           href: site-recovery-vmware-to-azure-protection-troubleshoot.md
-        - name: 行動服務安裝問題
+        - name: 行動服務問題
           href: site-recovery-vmware-to-azure-push-install-error-codes.md
         - name: 容錯移轉至 Azure 問題
           href: site-recovery-failover-to-azure-troubleshoot.md

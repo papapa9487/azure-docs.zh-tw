@@ -11,7 +11,7 @@
 ### [儲存體](cdn-create-a-storage-account-with-cdn.md)
 ### [跨原始資源共用](cdn-cors.md)
 ### [將自訂網域新增至 CDN 端點](cdn-map-content-to-custom-domain.md)
-### [啟用自訂網域的 HTTPS](cdn-custom-ssl.md)
+### [在自訂網域上設定 HTTPS](cdn-custom-ssl.md)
 ## 最佳化內容
 ### [最佳化概觀](cdn-optimization-overview.md)
 ####[大型檔案最佳化](cdn-large-file-optimization.md)

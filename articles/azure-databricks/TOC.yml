@@ -1,0 +1,25 @@
+- name: Azure Databricks 文件
+  href: index.yml
+- name: 概觀
+  items:
+    - name: 何謂 Azure Databricks？
+      href: what-is-azure-databricks.md
+- name: 快速入門
+  expanded: true
+  items:
+    - name: 建立 Databricks 工作區
+      href: quickstart-create-databricks-workspace-portal.md
+- name: 資源
+  items:
+    - name: Databricks 文件
+      href: 'https://docs.azuredatabricks.net/user-guide/index.html'
+    - name: Azure 藍圖
+      href: 'https://azure.microsoft.com/roadmap/?category=analytics'
+    - name: 價格
+      href: 'https://azure.microsoft.com/pricing/'
+    - name: 堆疊溢位
+      href: 'https://stackoverflow.com/questions/tagged/azure-databricks'
+    - name: 區域可用性
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: 支援選項
+      href: 'https://azure.microsoft.com/support/options/'

@@ -200,9 +200,9 @@
     - name: 多租用戶 SaaS
       items:
         - name: SaaS 設計模式
-          href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+          href: saas-tenancy-app-design-patterns.md
         - name: SaaS 應用程式安全性
-          href: sql-database-elastic-tools-multi-tenant-row-level-security.md
+          href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
     - name: 開發資料庫
       items:
         - name: JSON 資料
@@ -337,24 +337,45 @@
           href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
     - name: 多租用戶 SaaS
       items:
-        - name: 教學課程簡介
-          href: sql-database-wtp-overview.md
-        - name: 部署範例應用程式
-          href: sql-database-saas-tutorial.md
-        - name: 佈建租用戶
-          href: sql-database-saas-tutorial-provision-and-catalog.md
-        - name: 監視資料庫效能
-          href: sql-database-saas-tutorial-performance-monitoring.md
-        - name: 透過 Log Analytics 監視
-          href: sql-database-saas-tutorial-log-analytics.md
-        - name: 還原單一租用戶
-          href: sql-database-saas-tutorial-restore-single-tenant.md
-        - name: 管理租用戶結構描述
-          href: sql-database-saas-tutorial-schema-management.md
-        - name: 執行特定查詢
-          href: sql-database-saas-tutorial-adhoc-analytics.md
-        - name: 供分析的 ETL
-          href: sql-database-saas-tutorial-tenant-analytics.md
+        - name: 歡迎使用 Wingtips
+          href: saas-tenancy-welcome-wingtip-tickets-app.md
+        - name: 獨立應用程式
+          items:
+            - name: 部署範例應用程式
+              href: saas-standaloneapp-get-started-deploy.md
+        - name: 每一租用戶的資料庫
+          href: saas-dbpertenant-wingtip-app-overview.md
+          items:
+            - name: 教學課程簡介
+              href: saas-dbpertenant-wingtip-app-overview.md
+            - name: 應用程式指引
+              href: saas-dbpertenant-wingtip-app-guidance-tips.md
+            - name: 部署範例應用程式
+              href: saas-dbpertenant-get-started-deploy.md
+            - name: 佈建租用戶
+              href: saas-dbpertenant-provision-and-catalog.md
+            - name: 監視資料庫效能
+              href: saas-dbpertenant-performance-monitoring.md
+            - name: 透過 Log Analytics 監視
+              href: saas-dbpertenant-log-analytics.md
+            - name: 還原單一租用戶
+              href: saas-dbpertenant-restore-single-tenant.md
+            - name: 管理租用戶結構描述
+              href: saas-tenancy-schema-management.md
+            - name: 執行特定查詢
+              href: saas-tenancy-adhoc-analytics.md
+            - name: 供分析的 ETL
+              href: saas-tenancy-tenant-analytics.md
+        - name: 多租用戶資料庫
+          items:
+            - name: 部署範例應用程式
+              href: saas-multitenantdb-get-started-deploy.md
+            - name: 監視資料庫效能
+              href: saas-multitenantdb-performance-monitoring.md
+            - name: 執行特定查詢
+              href: saas-multitenantdb-adhoc-reporting.md
+            - name: 管理租用戶結構描述
+              href: saas-multitenantdb-schema-management.md
     - name: 開發應用程式
       items:
         - name: C 和 C ++

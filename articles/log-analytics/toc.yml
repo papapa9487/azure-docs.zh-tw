@@ -65,6 +65,8 @@
               href: log-analytics-azure-vm-extension.md
             - name: Azure 資源
               href: log-analytics-azure-storage.md
+            - name: Azure PaaS 資源
+              href: log-analytics-collect-azurepass-posh.md
             - name: Azure 儲存體的診斷或記錄資料
               href: log-analytics-azure-storage-iis-table.md
             - name: Operations Manager

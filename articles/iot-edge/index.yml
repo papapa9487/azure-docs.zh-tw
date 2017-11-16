@@ -1,0 +1,46 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure IoT Edge
+metadata:
+  document_id: null
+  title: Azure IoT Edge - 教學課程、API 參考
+  meta.description: Use Azure IoT Edge to deploy Azure services and custom business logic to devices at the edge.
+  services: iot-edge
+  author: kgremban
+  manager: timlt
+  ms.service: iot-edge
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/08/2017
+  ms.author: kgremban
+abstract:
+  description: Azure IoT Edge 是一個物聯網 (IoT) 服務，建置在 IoT 中樞之外。 這項服務提供客戶在裝置上分析資料的服務，也稱為 「在 Edge 上分析」，而不是在雲端進行分析。 將部份工作負載移至 Edge，您的裝置就能以較少的時間將訊息傳送至雲端，並更快速地變更狀態。
+sections:
+  - title: 5 分鐘快速入門
+    items:
+      - type: paragraph
+        text: 在模擬裝置上部署第一個 IoT Edge 模組並處理資料：
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/virtual-machines/linux/media/index/portal.svg
+            text: Windows
+            href: /azure/iot-edge/quickstart
+          - image:
+              src: /azure/virtual-machines/linux/media/index/portal.svg
+            text: Linux
+            href: /azure/iot-edge/quickstart-linux
+  - title: 逐步教學課程
+    items:
+      - type: paragraph
+        text: 了解如何安裝和設定 IoT Edge、部署模組，以及在 Edge 中利用類似串流分析的 Azure 服務。
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/iot-edge/tutorial-simulate-device-windows">在 Windows 中模擬 IoT Edge 裝置</a>
+          - html: <a href="/azure/iot-edge/tutorial-simulate-device-Linux">在 Linux 中模擬 IoT Edge 裝置</a>
+          - html: '<a href="/azure/iot-edge/tutorial-csharp-module">開發和部署 C# 模組</a>'
+          - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">將 Azure 串流分析部署為模組</a>
+          - html: <a href="/azure/iot-edge/tutorial-deploy-function">將 Azure Functions 部署為模組</a>

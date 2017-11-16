@@ -17,6 +17,7 @@
 #### [包含 Batch 服務的 Azure AD](batch-aad-auth.md)
 #### [包含 Batch 管理的 Azure AD](batch-aad-auth-management.md)
 ### [計算密集 VM](batch-pool-compute-intensive-sizes.md)
+### [容器工作負載](batch-docker-container-workloads.md)
 ### [並行節點工作](batch-parallel-node-tasks.md)
 ### [依狀態計算工作數量](batch-get-task-counts.md)
 ### [以自訂映像建立集區](batch-custom-images.md)

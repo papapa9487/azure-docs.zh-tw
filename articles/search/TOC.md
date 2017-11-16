@@ -3,7 +3,6 @@
 
 # 開始使用
 
-## [選擇 SKU](search-sku-tier.md)
 ## [建立服務](search-create-service-portal.md)
 ## [建立索引](search-what-is-an-index.md)
 ### [Azure 入口網站](search-create-index-portal.md)
@@ -20,21 +19,24 @@
 
 # 教學課程
 
-## [.NET](search-howto-dotnet-sdk.md)
-## [.NET 同義字預覽](search-synonyms-tutorial-sdk.md)
-## [入口網站](search-get-started-portal.md)
+## [在 .NET 中開發](search-howto-dotnet-sdk.md)
+## [在 .NET 中預覽同義字](search-synonyms-tutorial-sdk.md)
+## [.NET 中的 SQL 資料索引子](search-indexer-tutorial.md)
+## [入口網站逐步解說](search-get-started-portal.md)
 ## [搜尋半結構化資料](search-semi-structured-data.md)
-## [Node.js](search-get-started-nodejs.md)
-## [Java](search-get-started-java.md)
+## [探索 REST API](search-fiddler.md)
 
 # 作法
 
 ## 規劃和設計
+### [選擇 SKU](search-sku-tier.md)
 ### [服務限制](search-limits-quotas-capacity.md)
 ### [服務延展性](search-capacity-planning.md)
 ### [多組織用戶的樣式](search-modeling-multitenant-saas-applications.md)
 ## 開發
 ### [API 版本](search-api-versions.md)
+### [在 .Node.js 中開發](search-get-started-nodejs.md)
+### [以 Java 開發](search-get-started-java.md)
 ### [升級 SDK](search-dotnet-sdk-migration.md)
 ### [升級 REST API](search-api-migration.md)
 ### [模型的複雜資料類型](search-howto-complex-data-types.md)

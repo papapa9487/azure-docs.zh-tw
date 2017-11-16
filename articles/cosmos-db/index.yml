@@ -12,10 +12,19 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/24/2017
+  ms.date: 11/15/2017
   ms.author: carolz
 abstract:
-  description: Azure Cosmos DB 是全域分散式資料庫服務，此設計可讓您透過完整的 SLA，彈性且獨立地調整任何地區數量的輸送量及儲存體。  您可以透過 Cosmos DB，使用一系列的熱門 API 及程式設計模型來開發文件、索引鍵/值組或圖表資料庫。 了解如何透過我們的快速入門、教學課程和範例使用 Cosmos DB。
+  description: Azure Cosmos DB 是全域散發的多模型資料庫服務。 透過這些快速入門、教學課程及範例，使用常用的 API 及程式設計模型來開發文件、金鑰值、整個資料行和圖形資料庫。 並了解如何跨數個 Azure 區域複製資料並調整儲存體以外的輸送量，同時享受完整的 SLA 優點。
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: media/index/video.png
+      width: 250
+    title: '以分鐘為單位 (16:17) 建置全球性的行動裝置應用程式'
+    href: 'https://azure.microsoft.com/en-us/resources/videos/build-2017-azure-cosmos-db-build-planet-scale-mobile-apps-in-minutes/'
+    width: 250
 sections:
   - title: 5 分鐘快速入門
     items:
@@ -25,9 +34,9 @@ sections:
         style: dataMatrix
         columns:
           - image:
-              src: media/index/logo_net.svg
-          - image:
               src: media/index/logo_java.svg
+          - image:
+              src: media/index/logo_net.svg
           - image:
               src: media/index/logo_nodejs.svg
           - image:
@@ -37,31 +46,38 @@ sections:
         rows:
           - title: DocumentDB API
             values:
-              - href: /azure/cosmos-db/create-documentdb-dotnet
               - href: /azure/cosmos-db/create-documentdb-java
+              - href: /azure/cosmos-db/create-documentdb-dotnet
               - href: /azure/cosmos-db/create-documentdb-nodejs
               - href: /azure/cosmos-db/create-documentdb-python
               - href: null
           - title: MongoDB API
             values:
-              - href: /azure/cosmos-db/create-mongodb-dotnet
               - href: /azure/cosmos-db/create-mongodb-java
+              - href: /azure/cosmos-db/create-mongodb-dotnet
               - href: /azure/cosmos-db/create-mongodb-nodejs
               - href: null
               - href: null
           - title: 圖形 API
             values:
-              - href: /azure/cosmos-db/create-graph-dotnet
               - href: /azure/cosmos-db/create-graph-java
+              - href: /azure/cosmos-db/create-graph-dotnet
               - href: /azure/cosmos-db/create-graph-nodejs
               - href: null
               - href: /azure/cosmos-db/create-graph-gremlin-console
           - title: 資料表 API
             values:
+              - href: /azure/cosmos-db/create-table-java
               - href: /azure/cosmos-db/create-table-dotnet
+              - href: /azure/cosmos-db/create-table-nodejs
+              - href: /azure/cosmos-db/create-table-python
               - href: null
-              - href: null
-              - href: null
+          - title: Cassandra API
+            values:
+              - href: /azure/cosmos-db/create-cassandra-java
+              - href: /azure/cosmos-db/create-cassandra-dotnet
+              - href: /azure/cosmos-db/create-cassandra-nodejs
+              - href: /azure/cosmos-db/create-cassandra-python
               - href: null
   - title: 逐步教學課程
     items:
@@ -70,8 +86,8 @@ sections:
       - type: list
         style: ordered
         items:
-          - html: 透過 Cosmos DB 開發應用程式：<a href="/azure/cosmos-db/tutorial-develop-documentdb-dotnet">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-develop-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-develop-table-dotnet">Table</a> | <a href="/azure/cosmos-db/tutorial-develop-graph-dotnet">Graph</a>
-          - html: 將資料匯入 Cosmos DB：<a href="import-data">DocumentDB</a> | <a href="mongodb-migrate">MongoDB</a>
+          - html: '透過 Cosmos DB 開發應用程式：<a href="/azure/cosmos-db/tutorial-develop-documentdb-dotnet">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-develop-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-develop-table-dotnet">Table</a> | <a href="/azure/cosmos-db/tutorial-develop-graph-dotnet">Graph</a> | <a href="https://aka.ms/cassandratutorial">Cassandra</a>'
+          - html: '將資料匯入 Cosmos DB：<a href="import-data">DocumentDB</a> | <a href="mongodb-migrate">MongoDB</a> | <a href="https://aka.ms/tableapiimporttool">資料表</a> | <a href="https://aka.ms/cassandraimport">Cassandra</a>'
           - html: 透過 Cosmos DB 查詢資料：<a href="/azure/cosmos-db/tutorial-query-documentdb">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-query-table">Table</a> | <a href="/azure/cosmos-db/tutorial-query-graph">Graph</a>
           - html: 透過 Cosmos DB 複寫全域資料庫：<a href="/azure/cosmos-db/tutorial-global-distribution-documentdb">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Table</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-graph">Graph</a>
           - html: <a href="local-emulator">使用模擬器在本機開發應用程式</a>
@@ -95,6 +111,6 @@ sections:
           - title: MongoDB API
             html: '<p><a href="https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/">有線通訊協定</a></p><p><a href="https://mongodb.github.io/node-mongodb-native/ ">Node.js</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/csharp/">C#</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/java/">Java</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/python/">Python</a></p><p><a href="https://docs.mongodb.com/ruby-driver/master/">Ruby</a></p>'
           - title: 資料表 API
-            html: <p><a href="/rest/api/storageservices/fileservices/Table-Service-Concepts">REST</a></p><p><a href="/azure/cosmos-db/table-sdk-dotnet">.NET</a></p>
+            html: <p><a href="/rest/api/storageservices/fileservices/Table-Service-Concepts">REST</a></p><p><a href="/azure/cosmos-db/table-sdk-dotnet">.NET</a></p><p><a href="/azure/cosmos-db/table-sdk-nodejs">Node.js</a></p><p><a href="/azure/cosmos-db/table-sdk-java">Java</a></p><p><a href="/azure/cosmos-db/table-sdk-python">Python</a></p>
           - title: Gremlin API
             html: '<p><a href="http://tinkerpop.apache.org/docs/current/reference/">Gremlin</a></p><p><a href="/azure/cosmos-db/graph-sdk-dotnet">.NET</a></p><p><a href="https://github.com/ZEROFAIL/goblin">Python</a></p><p><a href="http://tinkerpop.apache.org/docs/current/reference/#connecting-via-java">Java</a></p><p><a href="https://github.com/jbmusso/gremlin-javascript">JavaScript</a></p>'

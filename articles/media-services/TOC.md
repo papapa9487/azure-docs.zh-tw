@@ -106,7 +106,8 @@
 
 ## [即時串流](media-services-manage-channels-overview.md)
 ### [內部部署編碼器](media-services-live-streaming-with-onprem-encoders.md)
-#### [入口網站](media-services-portal-live-passthrough-get-started.md)
+#### [建議的內部部署編碼器](media-services-recommended-encoders.md)
+#### [Azure 入口網站](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 ### [使用雲端編碼器即時串流](media-services-manage-live-encoder-enabled-channels.md)
 #### [Azure 入口網站](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -118,6 +119,13 @@
 #### [Wirecast 編碼器](media-services-configure-wirecast-live-encoder.md)
 ### [處理長時間執行的作業](media-services-dotnet-long-operations.md)
 ### [分散式 MP4 即時內嵌規格](media-services-fmp4-live-ingest-overview.md)
+
+## [裁剪內容](media-services-azure-media-clipper-overview.md)
+### [開始使用 Azure Media Clipper](media-services-azure-media-clipper-getting-started.md)
+### [將資產載入 Azure Media Clipper](media-services-azure-media-clipper-load-assets.md)
+### [設定自訂鍵盤快速鍵](media-services-azure-media-clipper-keyboard-shortcuts.md)
+### [提交裁剪作業](media-services-azure-media-clipper-submit-job.md)
+### [Azure 入口網站](media-services-azure-media-clipper-portal.md)
 
 ## [保護](media-services-content-protection-overview.md)
 ### [在 Azure 入口網站中設定內容保護](media-services-portal-protect-content.md)

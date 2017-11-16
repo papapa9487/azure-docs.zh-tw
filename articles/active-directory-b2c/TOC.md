@@ -90,6 +90,7 @@
 ## 參考
 ### [版本資訊](active-directory-b2c-developer-notes-custom.md)
 ### [SSO 工作階段提供者](active-directory-b2c-reference-sso-custom.md)
+### [自訂語言](active-directory-b2c-language-customization-custom.md)
 ### [信任 Framework 定義](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 
 # 參考

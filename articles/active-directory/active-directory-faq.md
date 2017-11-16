@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: 4c8a3885f34942bbd85d34f26e26ff5d7a432189
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 241ad78abfa964c9f64e97cc8201933913f88e1e
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常見問題集
 Azure Active Directory (Azure AD) 是全方位的身分識別即服務 (IDaaS) 解決方案，其涉及範圍橫跨身分識別、存取管理和安全性的所有層面。
@@ -56,7 +56,7 @@ Azure AD 付費服務 (例如 Enterprise Mobility + Security) 可透過全方位
 如果其他人必須使用相同的訂用帳戶來登入和存取服務，您可以將他們新增為共同管理員。 此角色的存取權限與服務管理員相同，但無法變更訂用帳戶與 Azure 目錄的關聯。  如需訂用帳戶管理員的詳細資訊，請參閱[如何新增或變更 Azure 系統管理員角色](../billing-add-change-azure-subscription-administrator.md)和 [Azure 訂用帳戶如何與 Azure Active Directory 產生關聯](active-directory-how-subscriptions-associated-directory.md)。
 
 
-Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別相關功能。  這些管理員將可存取 Azure 入口網站或 Azure 傳統入口網站中的各種功能。 系統管理員的角色可決定他們可以執行的作業，例如建立或編輯使用者、將系統管理角色指派給其他人、重設使用者密碼、管理使用者授權或管理網域。  如需有關 Azure AD 目錄管理員及其角色的詳細資訊，請參閱[在 Azure Active Directory 中指派系統管理員角色](active-directory-assign-admin-roles.md)。
+Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別相關功能。  這些管理員將可存取 Azure 入口網站或 Azure 傳統入口網站中的各種功能。 系統管理員的角色可決定他們可以執行的作業，例如建立或編輯使用者、將系統管理角色指派給其他人、重設使用者密碼、管理使用者授權或管理網域。  如需有關 Azure AD 目錄管理員及其角色的詳細資訊，請參閱[在 Azure Active Directory 中指派系統管理員角色](active-directory-assign-admin-roles-azure-portal.md)。
 
 此外﹐Azure AD 付費服務 (例如 Enterprise Mobility + Security) 可透過全方位的企業級管理和安全性解決方案來彌補其他 Web 服務 (例如 Office 365 和 Microsoft Azure) 的不足。
 
@@ -132,7 +132,6 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 對於 Azure AD 帳戶，系統管理員可以使用下列其中一種方法重設密碼︰
 
 - [在 Azure 入口網站重設帳戶](active-directory-users-reset-password-azure-portal.md)
-- [在傳統入口網站重設帳戶](active-directory-create-users-reset-password.md)
 - [使用 PowerShell](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
 
 
@@ -199,7 +198,7 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 
 **答：** Azure AD 條件式存取可讓您針對每個應用程式指派唯一的存取原則。 您可以在原則中要求一律要進行 Multi-Factor Authentication，或在使用者未連線到區域網路時才進行。  
 
-如需詳細資訊，請參閱[保護對 Office 365 及其他連接至 Azure Active Directory 之應用程式的存取](active-directory-conditional-access.md)。
+如需詳細資訊，請參閱[保護對 Office 365 及其他連接至 Azure Active Directory 之應用程式的存取](active-directory-conditional-access-azure-portal.md)。
 
 - - -
 **問︰SaaS 應用程式的自動化使用者佈建是什麼？**
