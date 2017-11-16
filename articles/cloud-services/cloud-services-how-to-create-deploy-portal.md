@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: e5ce666f1d826c7901c9fd5e7fafe6171139c3ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 020e2996f40ed4a48affd3776e44e382c40cb3c0
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>如何建立和部署雲端服務
-> [!div class="op_single_selector"]
-> * [Azure 入口網站](cloud-services-how-to-create-deploy-portal.md)
-> * [Azure 傳統入口網站](cloud-services-how-to-create-deploy.md)
->
->
-
 Azure 入口網站提供兩種方法讓您建立和部署雲端服務：「快速建立」和「自訂建立」。
 
 本主題說明如何使用「快速建立」方法建立新的雲端服務，然後使用 [上傳]  上傳雲端服務封裝並在 Azure 中部署。 當您使用這個方法時，Azure 入口網站會在過程中提供便利的連結，讓您完成所有要求。 如果您準備在建立雲端服務時加以部署，可以同時使用 [自訂建立] 進行這兩項作業。

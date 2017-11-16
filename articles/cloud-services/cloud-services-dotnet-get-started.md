@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: bb5897a392e500de685421769c414441ddfeb6a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0cdafdb88604b8874a245751246d219e8df3813
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>開始使用 Azure 雲端服務和 ASP.NET
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Contoso Ads architecture](./media/cloud-services-dotnet-get-started/home.png)
 8. 按一下 [建立廣告]。
-9. 輸入部分測試資料，選取要上傳的 *.jpg* 影像，然後按一下 **建立**。
+9. 輸入部分測試資料，選取要上傳的 *.jpg* 影像，然後按一下 [ **建立**]。
 
     ![Create page](./media/cloud-services-dotnet-get-started/create.png)
 
@@ -215,7 +215,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 4. 將您貼入 *Web.Release.config* 轉換檔的連接字串中的 `{your_password_here}` 替換成您為新的 SQL 資料庫建立的密碼。
 5. 儲存檔案。  
 6. 選取並複製連接字串 (不含含括的引號)，在以下設定背景工作角色專案的步驟中將會使用該資訊。
-7. 在 方案總管 中，於雲端服務中的 角色 下，以滑鼠右鍵按一下 **ContosoAdsWorker**，然後按一下屬性。
+7. 在 [方案總管] 中，於雲端服務中的 [角色] 下，以滑鼠右鍵按一下 **ContosoAdsWorker**，然後按一下 [屬性]。
 
     ![Role properties](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
 8. 按一下 [設定]  索引標籤。
@@ -228,7 +228,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 ### <a name="configure-the-solution-to-use-your-azure-storage-account-when-it-runs-in-azure"></a>將方案設定為在 Azure 中執行時使用 Azure 儲存體帳戶
 Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串，會儲存在雲端服務專案的環境設定中。 當應用程式在本機和在雲端執行時，每個專案都有要使用的一組個別設定。 您將為 Web 和背景工作角色更新雲端環境設定。
 
-1. 在 方案總管 中，於 **ContosoAdsCloudService** 專案的 角色 下的 **ContosoAdsWeb** 上按一下滑鼠右鍵，然後按一下屬性。
+1. 在 [方案總管] 中，於 **ContosoAdsCloudService** 專案的 [角色] 下的 **ContosoAdsWeb** 上按一下滑鼠右鍵，然後按一下 [屬性]。
 
     ![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
 2. 按一下 [設定]  索引標籤。在 [服務組態] 下拉式方塊中，選取 [雲端]。
@@ -325,29 +325,29 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 ### <a name="create-a-cloud-service-visual-studio-solution"></a>建立雲端服務 Visual Studio 方案
 1. 在 Visual Studio 中，從 [ **New Project** from the **新增專案** ]。
 2. 在 [新增專案] 對話方塊的左窗格中，展開 [Visual C#]，選擇 [雲端] 範本，然後選擇 [Azure 雲端服務] 範本。
-3. 將專案和方案命名為 ContosoAdsCloudService，然後按一下 **確定**。
+3. 將專案和方案命名為 ContosoAdsCloudService，然後按一下 [ **確定**]。
 
     ![New Project](./media/cloud-services-dotnet-get-started/newproject.png)
 4. 在 [新增 Azure 雲端服務] 對話方塊中，新增 Web 角色和背景工作角色。 將 Web 角色命名為 ContosoAdsWeb，並將背景工作角色命名為 ContosoAdsWorker。 (使用右窗格中的鉛筆圖示來變更角色的預設名稱。)
 
     ![New Cloud Service Project](./media/cloud-services-dotnet-get-started/newcsproj.png)
-5. 看見 Web 角色的 新增 ASP.NET 專案 對話方塊時，選取 MVC 範本，然後按一下變更驗證。
+5. 看見 Web 角色的 [新增 ASP.NET 專案] 對話方塊時，選取 MVC 範本，然後按一下 [變更驗證]。
 
     ![變更驗證](./media/cloud-services-dotnet-get-started/chgauth.png)
-6. 在 變更驗證 對話方塊中，選擇 不需要驗證，然後按一下確定。
+6. 在 [變更驗證] 對話方塊中，選擇 [不需要驗證]，然後按一下 [確定]。
 
     ![不需要驗證](./media/cloud-services-dotnet-get-started/noauth.png)
 7. 在 [新增 ASP.NET 專案] 對話方塊中，按一下 [確定]。
 8. 在 [方案總管] 中，於方案 (不是其中一個專案) 上按一下滑鼠右鍵，並選擇 [新增 - 新專案]。
-9. 在 新增專案 對話方塊中，於左窗格的 Visual C# 下選擇 Windows，然後按一下類別庫 範本。  
-10. 將專案命名為 *ContosoAdsCommon*，然後按一下確定。
+9. 在 [新增專案] 對話方塊中，於左窗格的 [Visual C#] 下選擇 [Windows]，然後按一下 [類別庫] 範本。  
+10. 將專案命名為 *ContosoAdsCommon*，然後按一下 [確定]。
 
     您需要自 Web 和背景工作角色專案參考 Entity Framework 內容和資料模型。 作為替代方式，您可以在 Web 角色專案中定義 EF 相關的類別，並從背景工作角色專案參考該專案。 但在替代方法中，您的背景工作角色專案會有 Web 組件的參考，而這是專案所不需要的內容。
 
 ### <a name="update-and-add-nuget-packages"></a>更新和加入 NuGet 封裝
 1. 開啟方案的 [ **管理 NuGet 封裝** ] 對話方塊。
 2. 在視窗頂端，選取 [更新] 。
-3. 尋找 WindowsAzure.Storage 套件，如果它不在清單中，選取它並且選取要在其中更新它的 Web 和背景工作角色專案，然後按一下更新。
+3. 尋找 WindowsAzure.Storage 套件，如果它不在清單中，選取它並且選取要在其中更新它的 Web 和背景工作角色專案，然後按一下 [更新]。
 
     儲存體用戶端程式庫的更新頻率高於 Visual Studio 專案範本的更新頻率，因此，系統會經常要求您更新新建立專案的版本。
 4. 在視窗頂端，選取 [瀏覽] 。
@@ -355,7 +355,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 6. 尋找 *Microsoft.WindowsAzure.ConfigurationManager* NuGet 封裝，並在背景工作角色專案中安裝。
 
 ### <a name="set-project-references"></a>設定專案參考
-1. 在 ContosoAdsWeb 專案中，設定 ContosoAdsCommon 專案的參考。 以滑鼠右鍵按一下 ContosoAdsWeb 專案，然後按一下參考  -  新增參考。 在 參考管理員 對話方塊中，於左側窗格選取 方案 - 專案，選取 ContosoAdsCommon，然後按一下確定。
+1. 在 ContosoAdsWeb 專案中，設定 ContosoAdsCommon 專案的參考。 以滑鼠右鍵按一下 ContosoAdsWeb 專案，然後按一下 [參考]  -  [新增參考]。 在 [參考管理員] 對話方塊中，於左側窗格選取 [方案 - 專案]，選取 [ContosoAdsCommon]，然後按一下 [確定]。
 2. 在 ContosoAdsWorker 專案中，設定 ContosAdsCommon 專案的參考。
 
     ContosoAdsCommon 將包含將由前端與後端使用的 Entity Framework 資料模型和內容類別。
@@ -376,7 +376,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
     如果您使用 Visual Studio 2015 或更新版本，將 "v11.0" 取代為 "MSSQLLocalDB"。
 2. 儲存您的變更。
-3. 在 ContosoAdsCloudService 專案中，於 角色 下的 ContosoAdsWeb 上按一下滑鼠右鍵，然後按一下屬性。
+3. 在 ContosoAdsCloudService 專案中，於 [角色] 下的 ContosoAdsWeb 上按一下滑鼠右鍵，然後按一下 [屬性]。
 
     ![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
 4. 在 **ContosAdsWeb [Role]** 屬性視窗中，按一下 [設定] 索引標，然後按 [新增設定]。
@@ -400,7 +400,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 ### <a name="add-code-files"></a>加入程式碼檔案
 在本節中，您會將檔案從所下載的方案複製到新方案。 下一節將示範和說明此程式碼的重要部分。
 
-若要加入檔案到專案或資料夾，請以滑鼠右鍵按一下專案或資料夾，然後按一下   - **現有項目**。 選取您需要的檔案，然後按一下加入 。 如果詢問您是否要取代現有的檔案，請按一下 [是] 。
+若要加入檔案到專案或資料夾，請以滑鼠右鍵按一下專案或資料夾，然後按一下   - **現有項目**。 選取您需要的檔案，然後按一下 [加入] 。 如果詢問您是否要取代現有的檔案，請按一下 [是] 。
 
 1. 在 ContosoAdsCommon 專案中，刪除 *Class1.cs* 檔案，並在其位置新增來自所下載專案的 *Ad.cs* 和 *ContosoAdscontext.cs* 檔案。
 2. 在 ContosoAdsWeb 專案中，從所下載的專案加入下列檔案。
@@ -749,14 +749,14 @@ private void ProcessQueueMessage(CloudQueueMessage msg)
 應用程式使用 Azure RoleEnvironment 的一個用途是，取得儲存在 *.cscfg* 檔案中的連接字串值，因此，此例外狀況的另一個原因為遺漏連接字串。 請確定您在 ContosoAdsWeb 專案中同時為雲端和本機組態建立 StorageConnectionString 設定，也在 ContosoAdsWorker 專案中為這兩個組態建立連接字串。 如果您在整個方案中執行 [全部尋找]  ，搜尋 StorageConnectionString，您應該會看見它在 6 個檔案中出現 9 次。
 
 ### <a name="cannot-override-to-port-xxx-new-port-below-minimum-allowed-value-8080-for-protocol-http"></a>無法覆寫連接埠 xxx。 低於最小值的新連接埠，對通訊協定 http 允許的值為 8080
-請嘗試變更 Web 專案使用的連接埠號碼。 以滑鼠右鍵按一下 ContosoAdsWeb 專案，然後按一下 **屬性**。 按一下 [Web] 索引標籤，然後變更 [專案 URI] 設定中的連接埠號碼。
+請嘗試變更 Web 專案使用的連接埠號碼。 以滑鼠右鍵按一下 ContosoAdsWeb 專案，然後按一下 [ **屬性**]。 按一下 [Web] 索引標籤，然後變更 [專案 URI] 設定中的連接埠號碼。
 
 如需可能解決問題的另一個替代方法，請參閱下一節。
 
 ### <a name="other-errors-when-running-locally"></a>在本機執行時的其他錯誤
 依預設，新的雲端服務專案會使用 Azure 計算模擬器精簡版來模擬 Azure 環境。 這是完整計算模擬器的輕量版本，在某些情況下，完整版模擬器能夠正常運作而精簡版則無法。  
 
-若要將專案變更為使用完整版模擬器，請以滑鼠右鍵按一下 ContosoAdsCloudService 專案，然後按一下 **屬性**。 在 [屬性] 視窗中，按一下 [Web] 索引標籤，然後按 [使用完整版模擬器] 選項按鈕。
+若要將專案變更為使用完整版模擬器，請以滑鼠右鍵按一下 ContosoAdsCloudService 專案，然後按一下 [ **屬性**]。 在 [屬性] 視窗中，按一下 [Web] 索引標籤，然後按 [使用完整版模擬器] 選項按鈕。
 
 為使用完整版模擬器執行應用程式，您必須使用管理員權限開啟 Visual Studio。
 
@@ -776,6 +776,6 @@ Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。 �
 如需詳細資訊，請參閱下列資源：
 
 * [Azure 雲端服務第 1 部分：簡介](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
-* [如何管理雲端服務](cloud-services-how-to-manage.md)
+* [如何管理雲端服務](cloud-services-how-to-manage-portal.md)
 * [Azure 儲存體](/documentation/services/storage/)
 * [如何選擇雲端服務提供者](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

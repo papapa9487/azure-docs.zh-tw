@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2016
 ms.author: robb
-ms.openlocfilehash: 413828d79d79c181c662bc7cfb4114345de57f90
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a30f0c3b799f76858424d97218c5a6e4386e78e
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Microsoft Azure 虛擬機器、雲端服務和 Web Apps 的自動調整概觀
 本文說明何謂 Microsoft Azure 自動調整、其優點，以及如何開始使用它。  
@@ -110,7 +110,7 @@ Azure 監視器自動調整僅適用於[虛擬機器擴展集](https://azure.mic
 | 服務 | 結構描述與文件 |
 | --- | --- |
 | Web Apps |[調整 Web Apps](insights-how-to-scale.md) |
-| 雲端服務 |[自動調整雲端服務](../cloud-services/cloud-services-how-to-scale.md) |
+| 雲端服務 |[自動調整雲端服務](../cloud-services/cloud-services-how-to-scale-portal.md) |
 | 虛擬機器：傳統 |[調整傳統的虛擬機器可用性設定組](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
 | 虛擬機器：Windows 擴展集 |[在 Windows 中調整虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
 | 虛擬機器：Linux 擴展集 |[在 Linux 中調整虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |

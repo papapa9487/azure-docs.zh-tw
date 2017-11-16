@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: f5d244fc747b923989407afd50927cda2b8d4a0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: afda0bc79a26c8cb9736c754a681ebb602e41af1
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>設定 Azure 雲端服務的自訂網域名稱
-> [!div class="op_single_selector"]
-> * [Azure 入口網站](cloud-services-custom-domain-name-portal.md)
-> * [Azure 傳統入口網站](cloud-services-custom-domain-name.md)
-> 
-> 
-
 當您建立雲端服務時，Azure 會將它指派給 **cloudapp.net**的子網域。 例如，如果您的雲端服務的名稱為 "contoso"，您的使用者可以透過類似 http://contoso.cloudapp.net 的 URL 存取您的應用程式。 Azure 也會指派虛擬 IP 位址。
 
 不過，您也可以在自己的網域名稱 (例如 **contoso.com**) 上公開您的應用程式。本文說明如何保留或設定雲端服務 Web 角色的自訂網域名稱。
@@ -62,7 +56,7 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) 或萬用字�
 > [!NOTE]
 > 因為 A 記錄會對應至靜態 IP 位址，所以無法自動解析雲端服務 IP 位址的變更。 第一次將雲端服務部署到空的位置時 (生產或預備)，將會配置雲端服務所使用的 IP 位址。如果刪除此位置的部署，則 Azure 會釋放此 IP 位址，而未來再部署到此位置時，可能會給予新的 IP 位址。
 > 
-> 在預備和生產部署之間切換時，或就地升級現有的部署時，指定部署位置 (生產或預備) 的 IP 位址會保留下來，相當方便。 如需關於執行這些動作的詳細資訊，請參閱 [如何管理雲端服務](cloud-services-how-to-manage.md)。
+> 在預備和生產部署之間切換時，或就地升級現有的部署時，指定部署位置 (生產或預備) 的 IP 位址會保留下來，相當方便。 如需關於執行這些動作的詳細資訊，請參閱 [如何管理雲端服務](cloud-services-how-to-manage-portal.md)。
 > 
 > 
 
@@ -139,7 +133,7 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) 或萬用字�
 > 
 
 ## <a name="next-steps"></a>後續步驟
-* [如何管理雲端服務](cloud-services-how-to-manage.md)
+* [如何管理雲端服務](cloud-services-how-to-manage-portal.md)
 * [如何將 CDN 內容對應至自訂網域](../cdn/cdn-map-content-to-custom-domain.md)
 * [雲端服務的一般設定](cloud-services-how-to-configure-portal.md)。
 * 了解如何 [部署雲端服務](cloud-services-how-to-create-deploy-portal.md)。

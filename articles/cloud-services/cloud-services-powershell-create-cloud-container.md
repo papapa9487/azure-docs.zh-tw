@@ -14,11 +14,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: 2023fa7b318f9f76ce1e1ea0a46110297be9a001
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd703feb7bf5af765fc3a5448464499aa7b48d6a
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="use-an-azure-powershell-command-to-create-an-empty-cloud-service-container"></a>使用 Azure PowerShell 命令來建立空白的雲端服務容器
 這篇文章說明如何使用 Azure PowerShell Cmdlet 快速建立雲端服務容器。 請依照下列步驟執行：
@@ -50,5 +50,5 @@ Get-help New-AzureService
 ```
 
 ### <a name="next-steps"></a>後續步驟
-* 若要管理雲端服務部署，請參閱 [Get-AzureService](https://msdn.microsoft.com/library/azure/dn495131.aspx)、[Remove-AzureService](https://msdn.microsoft.com/library/azure/dn495120.aspx) 及 [Set-AzureService](https://msdn.microsoft.com/library/azure/dn495242.aspx) 命令。 另請參閱 [如何設定雲端服務](cloud-services-how-to-configure.md) 以取得進一步的資訊。
+* 若要管理雲端服務部署，請參閱 [Get-AzureService](https://msdn.microsoft.com/library/azure/dn495131.aspx)、[Remove-AzureService](https://msdn.microsoft.com/library/azure/dn495120.aspx) 及 [Set-AzureService](https://msdn.microsoft.com/library/azure/dn495242.aspx) 命令。 另請參閱 [如何設定雲端服務](cloud-services-how-to-configure-portal.md) 以取得進一步的資訊。
 * 若要將雲端服務專案發佈至 Azure，請參閱[在 Azure 中持續傳遞雲端服務](cloud-services-dotnet-continuous-delivery.md)中的 **PublishCloudService.ps1** 程式碼範例。

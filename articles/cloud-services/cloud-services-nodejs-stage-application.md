@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: e35bbd31f39722c2e95ce58772dc6bd5eaf839a0
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 307741d0792b34332d98bfa4f2d62c9fd1cf07a1
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="staging-an-application-in-azure"></a>在 Azure 中預備應用程式
 將封裝的應用程式移至生產環境供網際網路存取之前，可先將應用程式部署到 Azure 中的預備環境來進行測試。 預備環境與生產環境完全相同，差別在於您只能以 Azure 產生的隱藏 URL 來存取預備應用程式。 在確認應用程式可正常運作之後，就可以執行虛擬 IP (VIP) 交換將它部署至生產環境。
@@ -72,4 +72,4 @@ ms.lasthandoff: 11/13/2017
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
 [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
-[如何在 Azure 中交換 VIP 將服務升級部署至生產環境]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
+[如何在 Azure 中交換 VIP 將服務升級部署至生產環境]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production

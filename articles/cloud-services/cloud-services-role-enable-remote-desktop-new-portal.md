@@ -14,20 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: mmccrory
-ms.openlocfilehash: 0ff7fde5f3753aa6a24fb0af54d68d0dc0bd96a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9ae4442f57170746eb0de94849b09625be51264
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>啟用 Azure 雲端服務中角色的遠端桌面連線
 > [!div class="op_single_selector"]
 > * [Azure 入口網站](cloud-services-role-enable-remote-desktop-new-portal.md)
-> * [Azure 傳統入口網站](cloud-services-role-enable-remote-desktop.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
->
->
 
 遠端桌面可讓您存取 Azure 內執行中角色的桌面。 您可以使用遠端桌面連線來疑難排解和診斷執行中應用程式的問題。
 
@@ -47,7 +44,7 @@ Azure 入口網站會使用遠端桌面延伸模組方法，因此即使在應�
     ![雲端服務的遠端桌面](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Details.png)
 
    > [!WARNING]
-   > 當您首次啟用遠端桌面並按一下 [確定] \(打勾記號) 時，所有角色執行個體都會重新啟動。 若要防止重新啟動，角色上必須安裝用來將密碼加密的憑證。 若要防止重新啟動，請[上傳雲端服務的憑證](cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate)，然後再回到這個對話方塊。
+   > 當您首次啟用遠端桌面並按一下 [確定] \(打勾記號) 時，所有角色執行個體都會重新啟動。 若要防止重新啟動，角色上必須安裝用來將密碼加密的憑證。 若要防止重新啟動，請[上傳雲端服務的憑證](cloud-services-configure-ssl-certificate-portal.md#step-3-upload-a-certificate)，然後再回到這個對話方塊。
    >
    >
 3. 在 [角色] 中，選取想要更新的角色，或選取 [全部] 以更新所有角色。
@@ -70,5 +67,5 @@ Azure 入口網站會使用遠端桌面延伸模組方法，因此即使在應�
 
 ## <a name="additional-resources"></a>其他資源
 
-[如何設定雲端服務](cloud-services-how-to-configure.md)
+[如何設定雲端服務](cloud-services-how-to-configure-portal.md)
 [雲端服務常見問題集 - 遠端桌面](cloud-services-faq.md)
