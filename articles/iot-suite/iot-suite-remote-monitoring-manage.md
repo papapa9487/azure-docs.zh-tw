@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 09/06/2017
+ms.date: 11/10/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e0b16a30bfd3b7ed711bcb1cc955d4eccf09fac2
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 84c2eaaab2dfc09c93fbfeac3fe2bfcc7066a411
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="manage-and-configure-your-devices"></a>管理及設定您的裝置
 
@@ -36,7 +36,7 @@ Contoso 已排序新的機制，延伸其中一個設備來增加輸出。 當�
 
 ## <a name="prerequisites"></a>必要條件
 
-若要遵循本教學課程，您在 Azure 訂用帳戶中需要遠端監視解決方案的部署執行個體。
+若要依循本教學課程進行操作，您需要在 Azure 訂用帳戶中有一個已部署的遠端監視解決方案執行個體。
 
 如果您尚未部署遠端監視解決方案，應該先完成[部署遠端監視預先設定的解決方案](iot-suite-remote-monitoring-deploy.md)教學課程。
 
@@ -100,7 +100,7 @@ Contoso 已排序新的機制，延伸其中一個設備來增加輸出。 當�
 
 ## <a name="next-steps"></a>後續步驟
 
-本教學課程會示範如何：
+本教學課程已示範如何：
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]

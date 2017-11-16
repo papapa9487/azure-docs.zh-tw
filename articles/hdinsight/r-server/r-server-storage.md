@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 80af328fc046f8d33727930d02b569da37ccf332
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: aafcc818af4c6e5d141d3633b31b913802a21752
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-storage-solutions-for-r-server-on-hdinsight"></a>適用於 HDInsight 上 R 伺服器的 Azure 儲存體選項
 
@@ -197,6 +197,5 @@ Azure 檔案的主要優點是，只要是擁有受支援作業系統 (例如 Wi
 
 * [HDInsight 上的 R 伺服器概觀](r-server-overview.md)
 * [開始使用 Hadoop 上的 R 伺服器](r-server-get-started.md)
-* [將 RStudio Server 新增至 HDInsight (若未在建立叢集期間新增)](r-server-install-r-studio.md)
-* [適用於 HDInsight 上 R 伺服器的計算內容選項](r-server-compute-contexts.md)
+* [適用於 HDInsight 中 R 伺服器的計算內容選項](r-server-compute-contexts.md)
 

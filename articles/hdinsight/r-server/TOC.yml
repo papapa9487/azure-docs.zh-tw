@@ -115,9 +115,6 @@
         - name: 授權 Ambari 檢視的使用者
           href: ../hdinsight-authorize-users-to-ambari.md
           maintainContext: true
-        - name: 管理檔案與資料夾層級的使用者權限
-          href: ../hdinsight-add-acls-at-file-folder-levels.md
-          maintainContext: true
     - name: 管理
       items:
         - name: 建立 Linux 叢集

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 08f860dcf0f1d6c69cee02261b2a4989fc5c694a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92339548768878d03b864853172f3e94ad899693
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>利用一個 Azure Data Lake Store 帳戶使用多個 HDInsight 叢集
 
@@ -52,7 +52,7 @@ Data Lake Store 支援無限制的儲存空間，不僅適合裝載大量資料�
 - **服務主體**是與帳戶相關聯的 Azure Active Directory (AAD) 服務主體。
 - **FINGRP** 是 AAD 中建立的使用者群組，內含來自財務組織的使用者。
 
-如需有關如何建立 AAD 應用程式 (這也會建立服務主體) 的指示，請參閱[建立 AAD 應用程式](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)。 如需有關如何在 AAD 中建立使用者群組的指示，請參閱[在 Azure Active Directory 中管理群組](../active-directory/active-directory-accessmanagement-manage-groups.md)。
+如需有關如何建立 AAD 應用程式 (這也會建立服務主體) 的指示，請參閱[建立 AAD 應用程式](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)。 如需有關如何在 AAD 中建立使用者群組的指示，請參閱[在 Azure Active Directory 中管理群組](../active-directory/active-directory-groups-create-azure-portal.md)。
 
 需要考慮的一些重要事項。
 

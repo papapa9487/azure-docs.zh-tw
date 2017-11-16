@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: e29c381643b233d38b10f89aed5469043c699f45
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 977f7c075005efb826e862ee582864b0f6efab38
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>整合資訊安全中心安全性原則與 Azure 原則
 本文件可協助您設定 Azure 資訊安全中心安全性原則 (採用 Azure 原則技術)。 
@@ -60,7 +60,7 @@ ms.lasthandoff: 10/26/2017
     ![可用原則定義](./media/security-center-policies/security-center-policies-fig11.png)
 
     * 選取以取得原則的詳細說明。  
-    定義的 [預覽] 視窗隨即開啟。 其中會顯示定義說明，以及提供[原則定義](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy/#policy-definition-structure)結構的 JSON 程式碼連結。
+    定義的 [預覽] 視窗隨即開啟。 其中會顯示定義說明，以及提供[原則定義](../azure-policy/policy-definition.md)結構的 JSON 程式碼連結。
 
     ![定義的預覽視窗](./media/security-center-policies/security-center-policies-fig14.png)
 

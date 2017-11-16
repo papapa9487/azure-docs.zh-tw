@@ -24,9 +24,6 @@
   items:
     - name: 管理叢集
       href: apache-domain-joined-manage.md
-    - name: 管理使用者權限
-      href: ../hdinsight-add-acls-at-file-folder-levels.md
-      maintainContext: true
 - name: 參考
   items:
     - name: 程式碼範例

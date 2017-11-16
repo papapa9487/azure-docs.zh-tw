@@ -3,7 +3,7 @@ title: "使用 Azure 上的 Linux 來執行 Cassandra | Microsoft Docs"
 description: "如何從 Node.js 應用程式在 Azure 虛擬機器的 Linux 上執行 Cassandra 叢集"
 services: virtual-machines-linux
 documentationcenter: nodejs
-author: tomarcher
+author: craigshoemaker
 manager: routlaw
 editor: 
 tags: azure-service-management
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: tarcher
-ms.openlocfilehash: 1ff3d77ced6c9d90029b251490c05e52d9b43515
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: 28eb281d8d301fa5478afb0925c74349de92ca58
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>在 Azure 上執行 Cassandra 搭配 Linux 並透過 Node.js 進行存取
 > [!IMPORTANT] 

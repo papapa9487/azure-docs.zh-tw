@@ -8,11 +8,11 @@ ms.author: cbrooks
 ms.date: 08/25/2017
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: f7a43d0a7255b326cd550fbcbb92bba93905d293
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: a56e6026ed0c2c873030625fa7a9b35b92faf930
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="reacting-to-blob-storage-events-preview"></a>回應 Blob 儲存體事件 (預覽)
 
@@ -80,7 +80,7 @@ Event Grid 事件屬性之使用方式的其他資訊列於[Event Grid 事件結
 
 ```
 
-如需詳細資訊，請參閱 [Blob 儲存體事件結構描述](../../event-grid/event-schema.md#azure-blob-storage)。
+如需詳細資訊，請參閱 [Blob 儲存體事件結構描述](../../event-grid/event-schema-blob-storage.md)。
 
 ## <a name="filtering-events"></a>篩選事件
 Blob 事件訂閱可以根據事件類型來篩選，也可以依據容器名稱和建立或刪除之物件的 Blob 名稱進行篩選。  Event Grid 中的主體篩選是根據 “begins with” 和 “ends with” 的相符項目來運作，以將具有相符主體的事件傳遞給訂閱者。

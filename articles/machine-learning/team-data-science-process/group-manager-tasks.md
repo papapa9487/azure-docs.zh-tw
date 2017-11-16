@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 11/13/2017
 ms.author: bradsev;
-ms.openlocfilehash: cd73aed14f672351b72e09d682909a47c63b9026
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58cea8b0288469a76dd8c4eb967caa8e87cd3dd7
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="group-manager-tasks"></a>群組管理員工作
 
@@ -115,7 +115,7 @@ VSTS 伺服器會裝載下列存放庫：
 
 ![7](./media/group-manager-tasks/create-grouputilities-repo-1.png) 
 
-- 選取 Git 作為**類型**，並輸入 *GroupUtilities* 作為**名稱**，然後按一下建立。 
+- 選取 [Git] 作為**類型**，並輸入 *GroupUtilities* 作為**名稱**，然後按一下 [建立]。 
 
 ![8](./media/group-manager-tasks/create-grouputilities-repo-2.png)
                 
@@ -141,7 +141,7 @@ VSTS 群組伺服器適用的儲存庫設定包含兩個工作：
 
 ![10](./media/group-manager-tasks/rename-groupcommon-repo-3.png)
         
-- 在 [GroupCommon] 之 Git 存放庫頁面上，按一下左上角的 [GroupCommon] \(下圖中使用紅色方塊反白顯示的選項)，然後選取 [管理存放庫] \(下圖中使用綠色方塊反白顯示的選項)。 此程序會開啟 [控制台]。 
+- 在 [GroupCommon] 之 Git 存放庫頁面上，按一下左上角的 [GroupCommon] (下圖中使用紅色方塊反白顯示的選項)，然後選取 [管理存放庫] (下圖中使用綠色方塊反白顯示的選項)。 此程序會開啟 [控制台]。 
 - 選取 Team 專案的 [版本控制] 索引標籤。 
 
 ![11](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
@@ -150,7 +150,7 @@ VSTS 群組伺服器適用的儲存庫設定包含兩個工作：
 
 ![12](./media/group-manager-tasks/rename-groupcommon-repo-5.png)
         
-- 在快顯的 重新命名 GroupCommon 存放庫 精靈中，於 存放庫名稱 方塊中輸入GroupProjectTemplate，然後按一下重新命名。 
+- 在快顯的 [重新命名 GroupCommon 存放庫] 精靈中，於 [存放庫名稱] 方塊中輸入GroupProjectTemplate，然後按一下 [重新命名]。 
 
 ![13](./media/group-manager-tasks/rename-groupcommon-repo-6.png)
 

@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 871731adc849c575d97ed6735b87457811668ed5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 106eaa1eb64dffd6c8362b13b4edb6452d536965
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmosdb-develop-with-the-documentdb-api-in-net"></a>Azure CosmosDB：使用 .NET 搭配 DocumentDB API 進行開發
 
@@ -55,7 +55,6 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 > [!TIP]
 > * 已經有 Azure Cosmos DB 帳戶？ 如果是，請直接跳到[設定您的 Visual Studio 方案](#SetupVS)
-> * 您是否已有 Azure DocumentDB 帳戶？ 如果是，您的帳戶現在會是 Azure Cosmos DB 帳戶，且您可以直接跳到[設定您的 Visual Studio 方案](#SetupVS)。  
 > * 如果您使用「Azure Cosmos DB 模擬器」，請依照 [Azure Cosmos DB 模擬器](local-emulator.md)的步驟來設定模擬器，然後直接跳到[設定您的 Visual Studio 方案](#SetupVS)。 
 >
 >
@@ -65,10 +64,10 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 ## <a id="SetupVS"></a>設定您的 Visual Studio 方案
 1. 在電腦上開啟 **Visual Studio**。
 2. 從 [檔案] 功能表中，選取 [新增]，然後選擇 [專案]。
-3. 在 新增專案  對話方塊中，選取 範本 / Visual C# / 主控台應用程式 (.NET Framework)、為專案命名，然後按一下確定。
+3. 在 [新增專案]  對話方塊中，選取 [範本] / [Visual C#] / [主控台應用程式 (.NET Framework)]、為專案命名，然後按一下 [確定]。
    ![[新增專案] 視窗的螢幕擷取畫面](./media/tutorial-develop-documentdb-dotnet/nosql-tutorial-new-project-2.png)
 
-4. 在 方案總管 中，以滑鼠右鍵按一下 Visual Studio 方案底下的新主控台應用程式，然後按一下管理 NuGet 套件...
+4. 在 [方案總管] 中，以滑鼠右鍵按一下 Visual Studio 方案底下的新主控台應用程式，然後按一下 [管理 NuGet 套件...]
     
     ![專案的滑鼠右鍵功能表的螢幕擷取畫面](./media/tutorial-develop-documentdb-dotnet/nosql-tutorial-manage-nuget-pacakges.png)
 5. 在 [NuGet] 索引標籤中按一下 [瀏覽]，然後在搜尋方塊中輸入 **documentdb**。
@@ -104,7 +103,7 @@ private DocumentClient client;
 
 然後，返回 [Azure 入口網站](https://portal.azure.com)以擷取您的端點 URL 和主要金鑰。 必須提供端點 URL 和主要金鑰，您的應用程式才能了解要在連接到哪裡，而 Azure Cosmos DB 才會信任您的應用程式連接。
 
-在 Azure 入口網站中，瀏覽至您的 Azure Cosmos DB 帳戶，按一下 金鑰，然後按一下讀寫金鑰。
+在 Azure 入口網站中，瀏覽至您的 Azure Cosmos DB 帳戶，按一下 [金鑰]，然後按一下 [讀寫金鑰]。
 
 從入口網站中複製 URI，然後將它貼到 program.cs 檔案中的 `<your endpoint URL>`。 然後從入口網站複製「主要金鑰」，並將它貼到 `<your primary key>`。 請務必將您值中的 `<` 和 `>` 移除。
 
@@ -295,7 +294,7 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 如果您將不繼續使用此應用程式，請使用下列步驟，在 Azure 入口網站中刪除本教學課程所建立的所有資源：
 
 1. 從 Azure 入口網站的左側功能表中，按一下 [資源群組]，然後按一下您所建立資源的唯一名稱。 
-2. 在資源群組頁面上，按一下 刪除，在文字方塊中輸入要刪除之資源的名稱，然後按一下刪除。
+2. 在資源群組頁面上，按一下 [刪除]，在文字方塊中輸入要刪除之資源的名稱，然後按一下 [刪除]。
 
 ## <a name="next-steps"></a>後續步驟
 

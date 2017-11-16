@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: b178be71824e427d88a811d87f1aeb6e5f80dbcc
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 2e155231e430a8333095fdcd92a727a17c6d1e8c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>設定 Azure 儲存體防火牆和虛擬網路 (預覽)
 Azure 儲存體提供多層式的安全性模型，讓您保護特定允許網路集合的儲存體帳戶。  設定網路規則時，只有來自允許網路的應用程式可以存取儲存體帳戶。  從允許的網路呼叫時，應用程式仍然需要適當的權限 (有效的存取金鑰或 SAS 權杖) 才能存取儲存體帳戶。
@@ -81,7 +81,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 1. [安裝 Azure CLI 2.0](/cli/azure/install-azure-cli) 並[登入](/cli/azure/authenticate-azure-cli)。
 2. 顯示儲存體帳戶的預設規則狀態。
 ```azurecli
-az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkAcls.defaultAction
+az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
 ```
 
 3. 根據預設，將預設規則設定為拒絕網路存取。  
@@ -173,14 +173,14 @@ az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "my
 
 3. 為虛擬網路和子網路新增網路規則。  
 ```azurecli
-subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "TestVNET" --name "default" --query id --output tsv)
-az storage account network-rule add --resource-group myresourcegroup --account-name mystorageaccount --subnet $subnetid
+subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
+az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --subnet $subnetid
 ```
 
 4. 移除虛擬網路和子網路的網路規則。 
 ```azurecli
-subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "TestVNET" --name "default" --query id --output tsv)
-az storage account network-rule remove --resource-group myresourcegroup --account-name mystorageaccount --subnet $subnetid
+subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
+az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --subnet $subnetid
 ```
 
 > [!IMPORTANT]
@@ -340,7 +340,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 1. [安裝 Azure CLI 2.0](/cli/azure/install-azure-cli) 並[登入](/cli/azure/authenticate-azure-cli)。
 2. 顯示儲存體帳戶網路規則的例外狀況。
 ```azurecli
-az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkAcls.bypass
+az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass
 ```
 
 3. 設定儲存體帳戶網路規則的例外狀況。

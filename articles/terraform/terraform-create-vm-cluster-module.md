@@ -9,11 +9,11 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.custom: devops
 ms.author: routlaw
-ms.openlocfilehash: f5ab85c346119f52ce8c7ab7a8bda48c6672f35c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 23d79fa4a1794a6dea69e6ae24da714babf54e62
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>搭配使用模組登錄與 Terraform 以建立 VM 叢集
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/25/2017
 > [!TIP]
 > 如果您[使用 Terraform 環境變數](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables)或在 [Azure Cloud Shell](/azure/cloud-shell/overview) 中執行本教學課程，請略過此步驟。
 
- 檢閱[安裝 Terraform 和設定 Azure 存取權限](/azure/virtual-machines/linux/terraform-install-configure)來建立 Azure 服務主體。 搭配使用下列程式碼與此服務主體，在空目錄中填入新檔案 `azureProviderAndCreds.tf`：
+ 檢閱[安裝 Terraform 並設定對 Azure 的存取權限](/azure/virtual-machines/linux/terraform-install-configure)，來建立 Azure 服務主體。 使用這個服務主體與下列程式碼，將新檔案 `azureProviderAndCreds.tf` 植入空的目錄中：
 
 ```tf
 variable subscription_id {}
@@ -50,7 +50,7 @@ provider "azurerm" {
 
 ## <a name="create-the-template"></a>建立範本
 
-使用下列程式碼建立名為 `main.tf` 的新 Terraform 範本：
+使用下列程式碼，建立名為 `main.tf` 的新 Terraform 範本：
 
 ```tf
 module mycompute {
@@ -89,16 +89,16 @@ output "vm_private_ips" {
 
 ## <a name="visualize-the-changes-with-plan"></a>視覺化計劃變更
 
-執行 `terraform plan` 以預覽範本建立的虛擬機器基礎結構。
+執行 `terraform plan`，預覽範本所建立的虛擬機器基礎結構。
 
-![Terraform 計劃](media/terraformPlanVmsWithModules.png)
+![Terraform Plan](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan.png)
 
 
 ## <a name="create-the-virtual-machines-with-apply"></a>使用套用建立虛擬機器
 
 在 Azure 上執行 `terraform apply` 以佈建 VM。
 
-![Terraform 套用](media/terraformApplyVmsWithModules.png)
+![Terraform Apply](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
 
 ## <a name="next-steps"></a>後續步驟
 

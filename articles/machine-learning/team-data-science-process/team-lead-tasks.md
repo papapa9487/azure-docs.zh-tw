@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 11/13/2017
 ms.author: bradsev;
-ms.openlocfilehash: 116eaa59eb60833036ad4d3c975c0b86e525f625
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58e8bfeb547fbcd7f472fbed50073b1ca3176b72
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="team-lead-tasks"></a>小組負責人工作
 
@@ -100,7 +100,7 @@ ms.lasthandoff: 10/11/2017
 
     ![4](./media/team-lead-tasks/team-leads-4-create-new-team-3.png)
 
-- 如果您看到 [恭喜！] 快顯視窗，請按一下 [新增程式碼] \(紅色方塊中的按鈕)。 否則，請按一下 [程式碼] \(黃色方塊中)。 這樣會將您導向 Team 專案的 Git 存放庫分頁。 
+- 如果您看到 [恭喜！] 快顯視窗，請按一下 [新增程式碼] (紅色方塊中的按鈕)。 否則，請按一下 [程式碼] (黃色方塊中)。 這樣會將您導向 Team 專案的 Git 存放庫分頁。 
 
     ![5](./media/team-lead-tasks/team-leads-5-team-project-home.png)
 

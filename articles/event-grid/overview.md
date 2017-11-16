@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/06/2017
 ms.author: babanisa
-ms.openlocfilehash: a0bcc9650fda10c099887b74b408551b12cde667
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 5b522b40b136e354c6ca83a56ac7ad690151ad7d
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Azure Event Grid 簡介
 
@@ -25,6 +25,30 @@ Azure Event Grid 可讓您以事件型架構輕鬆地建立應用程式。 您�
 本文提供 Azure Event Grid 的概觀。 若要開始使用 Event Grid，請參閱[使用 Azure Event Grid 建立和路由傳送自訂事件](custom-event-quickstart.md)。
 
 ![Event Grid 運作模型](./media/overview/event-grid-functional-model.png)
+
+## <a name="event-publishers"></a>事件發佈者
+
+目前有下列 Azure 服務具有內建的 Event Grid 發行者支援：
+
+* 資源群組 (管理作業)
+* Azure 訂用帳戶 (管理作業)
+* 事件中樞
+* 儲存體 Blob
+* 自訂主題
+
+今年將會新增其他 Azure 服務。
+
+## <a name="event-handlers"></a>事件處理常式
+
+目前有下列 Azure 服務具有內建的 Event Grid 處理常式支援： 
+
+* Azure Functions
+* Logic Apps
+* Azure 自動化
+* Webhook
+* Microsoft Flow
+
+今年將會新增其他 Azure 服務。
 
 ## <a name="concepts"></a>概念
 
@@ -52,34 +76,6 @@ Azure Event Grid 中有五個概念可讓您開始進行：
 * **自訂事件** - 使用 Event Grid 路由、篩選並在應用程式中可靠地傳遞自訂事件。
 
 如需事件格線、事件中樞和服務匯流排的比較，請參閱[選擇傳遞訊息的 Azure 服務](compare-messaging-services.md)。
-
-## <a name="built-in-publisher-and-handler-integration"></a>內建的發行者和處理常式整合
-
-Azure 使用多項服務 (包括發行者和處理常式) 來提供內建的事件支援。
-
-### <a name="publishers"></a>發行者
-
-目前有下列 Azure 服務具有內建的 Event Grid 發行者支援：
-
-* 資源群組 (管理作業)
-* Azure 訂用帳戶 (管理作業)
-* 事件中樞
-* 儲存體 Blob
-* 自訂主題
-
-今年將會新增其他 Azure 服務。
-
-### <a name="handlers"></a>處理常式
-
-目前有下列 Azure 服務具有內建的 Event Grid 處理常式支援： 
-
-* Azure Functions
-* Logic Apps
-* Azure 自動化
-* Webhook
-* Microsoft Flow
-
-今年將會新增其他 Azure 服務。
 
 ## <a name="what-can-i-do-with-event-grid"></a>我可以用 Event Grid 來做什麼？
 

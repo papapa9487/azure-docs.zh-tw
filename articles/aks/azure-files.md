@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6e88c590e11aa8d2f4ae17e8b5e164483f0a6820
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 11457e6556e6400d8f58f71c71ab1e790bcef8f1
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="using-azure-files-with-kubernetes"></a>搭配 Kubernetes 使用 Azure 檔案
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/02/2017
 使用 [az group create][az-group-create] 命令來建立「Azure 檔案」共用的資源群組。 儲存體帳戶的資源群組與 Kubernetes 叢集必須位於相同區域。
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westus2
+az group create --name myResourceGroup --location eastus
 ```
 
 使用 [az storage account create][az-storage-create] 命令來建立「Azure 儲存體」帳戶。 儲存體帳戶名稱必須是唯一的。 將 `--name` 引數的值更新成唯一的值。

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/23/2017
+ms.date: 11/13/2017
 ms.author: larryfr
-ms.openlocfilehash: d474cce902dad1390d55ed7bad556d9b0610605f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a55180b5d65b268d7c9b51307581a5fe777a26fe
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>HDInsight 上 Hadoop 服務所使用的連接埠
 
@@ -169,8 +169,8 @@ HDInsight 叢集中的所有節點都位於 Azure 虛擬網路中，無法直接
 | 服務 | 節點 | 連接埠 | 通訊協定 | URL 路徑 | 說明 |
 | --- | --- | --- | --- | --- | --- |
 | Spark Thrift 伺服器 |前端節點 |10002 |Thrift | &nbsp; | 要連接到 Spark SQL 的服務 (Thrift/JDBC) |
-| Livy 伺服器 | 前端節點 | 8998 | HTTP | /batches | 要執行陳述式、作業和應用程式的服務 |
+| Livy 伺服器 | 前端節點 | 8998 | HTTP | &nbsp; | 要執行陳述式、作業和應用程式的服務 |
 
 範例：
 
-* Livy：`curl "http://10.0.0.11:8998/batches"`。 在此範例中，`10.0.0.11` 是託管 Livy 服務之前端節點的 IP 位址。
+* Livy：`curl -u admin -G "http://10.0.0.11:8998/"`。 在此範例中，`10.0.0.11` 是託管 Livy 服務之前端節點的 IP 位址。

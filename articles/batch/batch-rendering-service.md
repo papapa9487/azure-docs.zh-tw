@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 09/14/2017
 ms.author: danlep
-ms.openlocfilehash: 08658bbebfc9f457a3f057178f6b002a88338f1e
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: aab68b4275edc48e1726b26a7400bbfdd8d40d6f
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>開始使用 Batch 轉譯服務
 
@@ -91,7 +91,7 @@ Azure 針對 Windows 和 Linux 映像各預先安裝一個版本的 Maya、3ds M
 
 ### <a name="custom-images"></a>自訂映像
 
-Azure Batch 可讓您提供您自己的自訂映像。 使用此選項，可以為您的虛擬機器設定所需要的確切應用程式與特定版本。 如需詳細資訊，請參閱[使用自訂映像來建立虛擬機器的集區](https://docs.microsoft.com/en-us/azure/batch/batch-custom-images)。 請注意，Autodesk 和 Chaos Group 已分別修改 Arnold 和 V-Ray，以驗證我們自己的授權服務。 您將必須確定您的應用程式版本具有此支援，否則按使用次數付費授權將無法運作。 此授權驗證對 Maya 或 3ds Max 並非必要，因為目前發行的版本在執行無周邊 (以批次/命令列模式) 時，不需要授權伺服器。 如果您不確定如何繼續使用此選項，請連絡 Azure 支援。
+Azure Batch 可讓您提供您自己的自訂映像。 使用此選項，可以為您的虛擬機器設定所需要的確切應用程式與特定版本。 如需詳細資訊，請參閱[使用自訂映像來建立虛擬機器的集區](https://docs.microsoft.com/azure/batch/batch-custom-images)。 請注意，Autodesk 和 Chaos Group 已分別修改 Arnold 和 V-Ray，以驗證我們自己的授權服務。 您將必須確定您的應用程式版本具有此支援，否則按使用次數付費授權將無法運作。 此授權驗證對 Maya 或 3ds Max 並非必要，因為目前發行的版本在執行無周邊 (以批次/命令列模式) 時，不需要授權伺服器。 如果您不確定如何繼續使用此選項，請連絡 Azure 支援。
 
 ## <a name="options-for-submitting-a-render-job"></a>用於提交轉譯作業的選項
 
@@ -101,7 +101,7 @@ Azure Batch 可讓您提供您自己的自訂映像。 使用此選項，可以�
 
 有了 Maya，您可以使用：
 
-- [Maya 適用的 Batch 外掛程式](https://docs.microsoft.com/en-us/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
+- [Maya 適用的 Batch 外掛程式](https://docs.microsoft.com/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
 - [BatchLabs](https://azure.github.io/BatchLabs) 桌面應用程式
 - [Batch 範本 CLI](batch-cli-templates.md)
 
@@ -114,7 +114,7 @@ Azure Batch 可讓您提供您自己的自訂映像。 使用此選項，可以�
 
 3ds Max Batch Labs 範本可讓您使用 Azure Batch 轉譯服務來轉譯 VRay 和 Arnold 場景。 VRay 和 Arnold 的範本有兩種變化，一個用於標準場景，一個用於需要資產和紋理的 3ds Max 路徑檔案 (.mxp 檔案) 的更複雜場景。 如需有關 3ds Max Batch Labs 範本的詳細資訊，請參閱 GitHub 上的 [BatchLabs 資料](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax)存放庫。
 
-此外，您可以使用 [Batch Python SDK](https://docs.microsoft.com/en-us/azure/batch/batch-python-tutorial) 來將轉譯服務與您現有的管線整合。
+此外，您可以使用 [Batch Python SDK](https://docs.microsoft.com/azure/batch/batch-python-tutorial) 來將轉譯服務與您現有的管線整合。
 
 
 ## <a name="use-the-batch-plug-in-for-maya-to-submit-a-render-job"></a>使用適用於 Maya 的 Batch 外掛程式提交轉譯作業

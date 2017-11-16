@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/14/2017
 ms.author: bradsev
-ms.openlocfilehash: e584a9adb75510c92fc2a25b657f55df88372e6b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9a941ce5c6f0989749c5a6db4348757f898a46f1
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>開始使用 HDInsight 中的 R Server
 
@@ -784,6 +784,5 @@ Microsoft R 伺服器目前無法透過 Yarn 管理。 如果未將背景工作�
 
 現在，您應該了解如何建立包含 R 伺服器的新 HDInsight 叢集，以及從 SSH 工作階段使用 R 主控台的基本概念。 下列主題說明的其他方式，可用來管理和使用 HDInsight 上的 R 伺服器：
 
-* [將 RStudio Server 新增至 HDInsight (若未在建立叢集期間安裝)](r-server-install-r-studio.md)
 * [適用於 HDInsight 中 R 伺服器的計算內容選項](r-server-compute-contexts.md)
 * [適用於 HDInsight R 伺服器的 Azure 儲存體選項](r-server-storage.md)

@@ -3,7 +3,7 @@ title: "Web 應用程式與 Express (Node.js) | Microsoft Docs"
 description: "以雲端服務教學課程為基礎的教學課程，示範如何使用 Express 模組。"
 services: cloud-services
 documentationcenter: nodejs
-author: TomArcher
+author: craigshoemaker
 manager: routlaw
 editor: 
 ms.assetid: 24f8e7ef-e90d-4554-9b1e-a9b31d5824e5
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: tarcher
-ms.openlocfilehash: 54b715695e24786ec4e8dfcabefc648d76179c8b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: aa62438732db9e8df129440e6949858d9a61f65f
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="build-a-nodejs-web-application-using-express-on-an-azure-cloud-service"></a>在 Azure 雲端服務上使用 Express 建立 Node.js Web 應用程式
 Node.js 包含核心執行時期的一組最低功能。

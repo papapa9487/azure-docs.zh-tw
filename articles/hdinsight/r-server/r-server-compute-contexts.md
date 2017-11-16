@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: e15a263879ddc0edabc301201019f4209eee1058
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 24df96f55b0f207d8576bd05c2c83a884e7fc2bd
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>適用於 HDInsight 上 R 伺服器的計算內容選項
 
@@ -83,6 +83,5 @@ Azure HDInsight 上的 Microsoft R 伺服器控制如何透過設定計算內容
 
 * [適用於 Hadoop 的 R 伺服器概觀](r-server-overview.md)
 * [開始使用適用於 Hadoop 的 R 伺服器](r-server-get-started.md)
-* [將 RStudio Server 新增至 HDInsight (若未在建立叢集期間新增)](r-server-install-r-studio.md)
-* [適用於 HDInsight 上 R 伺服器的 Azure 儲存體選項](r-server-storage.md)
+* [適用於 HDInsight R 伺服器的 Azure 儲存體選項](r-server-storage.md)
 

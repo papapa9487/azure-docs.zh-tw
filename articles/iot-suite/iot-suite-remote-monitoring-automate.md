@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 09/18/2017
+ms.date: 11/10/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 2f2b221f5739ac370e110d60ed7812ce9ea5e05f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 173ffbdd70313ef5a0d2af2cf1c8996d2395274a
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>使用臨界值型規則來偵測問題
 
@@ -112,7 +112,7 @@ Contoso 有一個會在 **Chiller** 裝置回報的壓力超出 250 PSI 時產�
 既然您已了解如何使用臨界值型規則來偵測問題，建議接下來的步驟是了解如何：
 
 * [管理及設定您的裝置](./iot-suite-remote-monitoring-manage.md)。
-* [針對裝置問題進行疑難排解和修正](./iot-suite-remote-monitoring-maintain.md)。
+* [針對裝置問題進行疑難排解和補救](./iot-suite-remote-monitoring-maintain.md)。
 * [使用模擬裝置來測試您的解決方案](iot-suite-remote-monitoring-test.md)。
 
 <!-- Next tutorials in the sequence -->

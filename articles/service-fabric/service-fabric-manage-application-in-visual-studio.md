@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/07/2017
 ms.author: mikkelhegn
-ms.openlocfilehash: 3f6a47a15b74a7ceb6504b2834be62e76ab70bcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 81814ef07cfab06855b3bfbf0eb6ef51b8dfce4f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>使用 Visual Studio 簡化撰寫及管理 Service Fabric 應用程式
 您可以透過 Visual Studio 管理 Azure Service Fabric 應用程式與服務。 [設定開發環境](service-fabric-get-started.md)後，您可以使用 Visual Studio 在本機開發叢集中建立 Service Fabric 應用程式、新增服務，或是封裝、註冊及部署應用程式。
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 4. 移除任何執行中的應用程式執行個體
 5. 建立應用程式執行個體
 
-在 Visual Studio 中按 **F5** 會部署應用程式，並將偵錯工具附加到所有應用程式執行個體。 您可以使用 **Ctrl + F5** 來部署應用程式而不進行偵錯，或是使用發佈設定檔來發佈至本機或遠端叢集。 如需詳細資訊，請參閱 [使用 Visual Studio 將應用程式發佈至遠端叢集](service-fabric-publish-app-remote-cluster.md)。
+在 Visual Studio 中按 **F5** 會部署應用程式，並將偵錯工具附加到所有應用程式執行個體。 您可以使用 **Ctrl + F5** 來部署應用程式而不進行偵錯，或是使用發佈設定檔來發佈至本機或遠端叢集。 
 
 ### <a name="application-debug-mode"></a>應用程式偵錯模式
 Visual Studio 提供的 **Application Debug Mode** 屬性可讓您控制 Visual Studio 要如何處理應用程式部署作為偵錯的一部分。

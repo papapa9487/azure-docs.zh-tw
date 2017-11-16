@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: barlan
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: 7455d98f2cb5ecc9c78a11b229e9a8f7b9fab603
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 0ffa3070cef8631c4b38b2aa00ac3dca0d88590b
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="get-help-with-two-step-verification"></a>取得雙步驟驗證的說明
 本文回答人們最常詢問有關雙步驟驗證的問題。
@@ -45,7 +45,7 @@ Microsoft 提供了雙步驟驗證，但您的組織選擇使用該功能。 如
 3. 選取您想要使用的驗證選項。
 4. 繼續雙步驟驗證。
 
-如果您沒有看到 [使用其他驗證選項] 連結，則表示您在第一次登錄雙步驟驗證時並未設定另一種方法。 請連絡您的公司支援人員以取得協助，登入您的帳戶。 一旦您登入，請務必[管理您的設定](multi-factor-authentication-end-user-manage-settings.md)，為下次新增額外的驗證方法。
+如果您沒有看到 [使用其他驗證選項] 連結，則表示您在第一次登錄雙步驟驗證時並未設定另一種方法。 請連絡您的公司支援人員，以協助登入您的帳戶。 一旦您登入，請務必[管理您的設定](multi-factor-authentication-end-user-manage-settings.md)，為下次新增額外的驗證方法。
 
 如果您看到 [使用其他驗證選項] 連結，但也無法存取您的替代方法，請連絡您的公司支援人員以取得協助，登入您的帳戶。
 
@@ -90,7 +90,7 @@ Microsoft 提供了雙步驟驗證，但您的組織選擇使用該功能。 如
 首先，請確定您輸入的是正確的應用程式密碼。 產生的應用程式密碼會取代您的一般密碼，但僅適用於不支援雙步驟驗證的較舊桌面應用程式。 如果仍無法登入，請嘗試登入並[建立新的應用程式密碼](multi-factor-authentication-end-user-app-passwords.md)。  如果還是無法登入，請連絡公司支援人員，要求他們[刪除您現有的應用程式密碼](../multi-factor-authentication-manage-users-and-devices.md)，然後建立新的密碼。
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>我找不到我問題的解答。
-如果您嘗試過這些疑難排解步驟，但仍在遭遇問題，請連絡您的公司支援人員。 他們應該可以協助您。
+如果您嘗試過這些疑難排解步驟，但仍遭遇問題，請連絡您的公司支援人員。 他們應該可以協助您。
 
 ## <a name="related-topics"></a>相關主題
 * [管理您的雙步驟驗證設定](multi-factor-authentication-end-user-manage-settings.md)  

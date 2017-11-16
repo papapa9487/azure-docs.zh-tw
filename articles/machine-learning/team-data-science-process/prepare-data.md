@@ -4,7 +4,7 @@ description: "前置處理和清除資料，為用於機器學習服務做準備
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: bdf659ec-4881-4324-8b9c-747cbfa0c3cd
 ms.service: machine-learning
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/09/2017
 ms.author: bradsev
-ms.openlocfilehash: cfaccad0a7d81950d80486dcb0d9e6520deab9b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f0c1f0f549e746cc99db3b47f6c90bb51145d5d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>準備增強機器學習服務的資料的工作
-前置處理和清除資料是很重要的工作，必須先執行這些工作，才能有效地將資料集用於機器學習服務。 未經處理的資料通常會有雜訊且不可靠，還可能會有遺漏值。 使用這類資料進行模型化可能會產生誤導的結果。 這些工作屬於 Team Data Science Process (TDSP)，通常會遵循用來探索及計劃所需預先處理的資料集初始探索。 如需更多關於 TDSP 程序的詳細指示，請參閱 [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)中概述的步驟。
+前置處理和清除資料是很重要的工作，必須先執行這些工作，才能有效地將資料集用於機器學習服務。 未經處理的資料通常會有雜訊且不可靠，還可能會有遺漏值。 使用這類資料進行模型化可能會產生誤導的結果。 這些工作屬於 Team Data Science Process (TDSP)，通常會遵循用來探索及計劃所需預先處理的資料集初始探索。 如需更多關於 TDSP 程序的詳細指示，請參閱 [Team Data Science Process](overview.md)中概述的步驟。
 
 前置處理和清除工作，例如資料探索工作，可以在各種不同環境中實行，例如 SQL 或 Hive 或 Azure Machine Learning Studio，並使用各種工具與語言，例如 R 或 Python，取決於您的資料的儲存位置和格式。 由於 TDSP 本質上是反覆的，所以這些工作可以在程序工作流程中的各個步驟進行。
 

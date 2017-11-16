@@ -250,8 +250,6 @@
 ### [在 Eclipse 中的Java 服務中進行偵錯](service-fabric-debugging-your-application-java.md)
 ### [在本機上監視及診斷](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-## [將 API 管理與 Service Fabric 部署至 Azure](service-fabric-api-management-quick-start.md)
-
 ## 從雲端服務移轉
 ### [比較雲端服務與 Service Fabric](service-fabric-cloud-services-migration-differences.md)
 ### [移轉室 Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -265,7 +263,6 @@
 #### [Azure Resource Manager](service-fabric-application-arm-resource.md)
 #### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
-#### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient API](service-fabric-deploy-remove-applications-fabricclient.md)
 
 ### 升級應用程式
@@ -281,11 +278,8 @@
 ##### [工作負載期間](service-fabric-testability-workload-tests.md)
 ##### [使用測試案例](service-fabric-testability-scenarios.md)
 ##### [使用節點轉換 API](service-fabric-node-transition-apis.md)
-#### [進行應用程式負載測試](service-fabric-vso-load-test.md)
 
-### 設定連續整合
-#### [透過 VSTS 設定連續整合](service-fabric-set-up-continuous-integration.md)
-#### [使用 Jenkins 部署您的 Linux Java 應用程式](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+### [使用 Jenkins 部署您的 Linux Java 應用程式](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 
 ## 建立和管理叢集
 ### Azure 上的叢集
@@ -319,21 +313,6 @@
 ### [視覺化叢集](service-fabric-visualizing-your-cluster.md)
 ### [連線到安全的叢集](service-fabric-connect-to-secure-cluster.md)
 ### [修補叢集節點](service-fabric-patch-orchestration-application.md)
-
-### 管理和組織叢集資源
-#### [叢集資源管理員概觀](service-fabric-cluster-resource-manager-introduction.md)
-#### [叢集資源管理員架構](service-fabric-cluster-resource-manager-architecture.md)
-#### [描述叢集](service-fabric-cluster-resource-manager-cluster-description.md)
-#### [應用程式群組概觀](service-fabric-cluster-resource-manager-application-groups.md)
-#### [設定叢集資源管理員的設定](service-fabric-cluster-resource-manager-configure-services.md)
-#### [資源耗用計量](service-fabric-cluster-resource-manager-metrics.md)
-#### [使用服務親和性](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-#### [服務放置原則](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-#### [管理叢集](service-fabric-cluster-resource-manager-management-integration.md)
-#### [叢集磁碟重組](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-#### [平衡叢集](service-fabric-cluster-resource-manager-balancing.md)
-#### [節流](service-fabric-cluster-resource-manager-advanced-throttling.md)
-#### [服務動作](service-fabric-cluster-resource-manager-movement-cost.md)
 
 ## 監視與診斷
 ### OMS

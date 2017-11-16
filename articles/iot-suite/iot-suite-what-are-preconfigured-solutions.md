@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 2d6a09e234ee8ec63454d42a91613ed8da9d1c4b
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 5c5fa4927073ff52418a940fce59ca1f6b57daa6
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-azure-iot-suite"></a>什麼是 Azure IoT 套件？
 
@@ -90,7 +90,7 @@ Azure IoT 套件是一組「預先設定的解決方案」，其特色如下：
 
 * [Azure IoT 中樞](../iot-hub/index.md)。 這項服務提供裝置到雲端和雲端到裝置的傳訊功能，並作為雲端到其他重要的 IoT 套件服務的閘道器。 此服務可讓您從您的裝置大量接收訊息，並將命令傳送給您的裝置。 此服務還可讓您[管理您的裝置](../iot-hub/iot-hub-device-management-overview.md)。 例如，您可以在一或多個連接到中樞的裝置上，進行設定、重新啟動，或執行恢復出場預設值的作業。
 * [Azure 事件中樞](../event-hubs/index.md). 此服務可以將大量事件擷取到雲端。 請參閱 [Azure IoT 中樞和 Azure 事件中樞的比較](../iot-hub/iot-hub-compare-event-hubs.md)。
-* [Azure 時間序列深入解析](../time-series-insights/index.md)。 預先設定解決方案會使用此服務來分析及顯示來自您裝置的遙測資料。
+* [Azure 時間序列深入解析](../time-series-insights/index.yml)。 預先設定解決方案會使用此服務來分析及顯示來自您裝置的遙測資料。
 * [Azure Container Service](../container-service/index.yml)。 此服務會主控及管理預先設定解決方案中的微服務。
 * 用於資料儲存的 [Azure Cosmos DB](../cosmos-db/index.yml) 和 [Azure 儲存體](../storage/index.yml)。
 * [Azure 串流分析](../stream-analytics/index.md)。 預測性維護的預先設定解決方案會使用這項服務來處理內送的遙測資料、執行彙總，以及偵測事件。 此預先設定解決方案也會使用串流分析來處理資訊訊息，它包含像是中繼資料或是從裝置回應的命令的資料。

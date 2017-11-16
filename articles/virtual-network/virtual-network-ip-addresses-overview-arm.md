@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: jdial
-ms.openlocfilehash: 8ddd582ed159e10add896252c40feb19780c42fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d243455be9439a686ecdf6dfa3aadf2802a0714d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 位址類型及配置方法
 
@@ -110,7 +110,7 @@ Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服
 
 ### <a name="internet-facing-load-balancers"></a>網際網路對應負載平衡器
 
-您可以將使用任一 [SKU](#SKU) 所建立的公用 IP 位址指派給負載平衡器**前端**組態，以建立其與 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) 的關聯。 此公用 IP 位址作為負載平衡的虛擬 IP 位址 (VIP)。 您可以將動態或靜態公用 IP 位址指派給負載平衡器前端。 您也可以將多個公用 IP 位址指派給一個負載平衡器前端，以實現 [多重 VIP](../load-balancer/load-balancer-multivip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 案例 (例如具有多個 SSL 架構網站的多租用戶環境)。 如需 Azure 負載平衡器 SKU 的詳細資訊，請參閱 [Azure 負載平衡器的標準 SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+您可以將使用任一 [SKU](#SKU) 所建立的公用 IP 位址指派給負載平衡器**前端**組態，以建立其與 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) 的關聯。 此公用 IP 位址作為負載平衡的虛擬 IP 位址 (VIP)。 您可以將動態或靜態公用 IP 位址指派給負載平衡器前端。 您也可以將多個公用 IP 位址指派給一個負載平衡器前端，以實現 [多重 VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 案例 (例如具有多個 SSL 架構網站的多租用戶環境)。 如需 Azure 負載平衡器 SKU 的詳細資訊，請參閱 [Azure 負載平衡器的標準 SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 ### <a name="vpn-gateways"></a>VPN 閘道
 
