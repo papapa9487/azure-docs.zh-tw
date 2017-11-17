@@ -82,7 +82,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 
 ## <a name="verify-the-registration"></a>確認註冊
 
-1. 登入系統管理員入口網站 (https://adminportal.local.azurestack.external)。
+1. 登入系統管理員入口網站 ( https://adminportal.local.azurestack.external )。
 2. 按一下 [更多服務]  >  [市集管理]  >  [從 Azure 新增]。
 3. 如果您看到 Azure 提供的項目清單 (例如 WordPress)，則表示啟用已成功。
 

@@ -10,11 +10,11 @@ ms.topic: overview
 ms.service: azure-policy
 manager: jochan
 ms.custom: mvc
-ms.openlocfilehash: b784c79166eb614988d84b4553bb95e4d1e457af
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: ef1114f6b1259e4f0d60260febb39bc70b181fbc
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-azure-policy"></a>什麼是 Azure 原則？
 
@@ -51,7 +51,7 @@ Azure 原則是 Azure 中的一個服務，您可以用來建立、指派和管�
 
 您可以透過 Azure 入口網站、PowerShell 或 Azure CLI 來指派任何這些原則。
 
-若要深入了解原則定義的結構，請閱讀這篇文章 - [原則定義結構](../azure-resource-manager/resource-manager-policy.md#policy-definition-structure)。
+若要深入了解原則定義的結構，請閱讀這篇文章 - [原則定義結構](policy-definition.md)。
 
 ## <a name="policy-assignment"></a>原則指派
 
@@ -61,14 +61,14 @@ Azure 原則是 Azure 中的一個服務，您可以用來建立、指派和管�
 
 ## <a name="policy-parameters"></a>原則參數
 
-原則參數減少您必須建立的原則定義數量，有助於簡化原則管理。 您可以在建立原則定義時定義參數，讓原則定義變得更通用。 接著，您便可以針對不同的案例，重複使用該原則定義。 若要這麼做，只要在指派原則定義時傳入不同的值即可。 例如，為訂用帳戶指定一組位置。
+原則參數減少您必須建立的原則定義數量，有助於簡化原則管理。 在建立更通用的原則定義時，您可以定義參數。 接著，您便可以針對不同的案例，重複使用該原則定義。 若要這麼做，只要在指派原則定義時傳入不同的值即可。 例如，為訂用帳戶指定一組位置。
 
 參數是在建立原則定義時定義/建立。 定義參數時，需要指定名稱並選擇性地指定值。 例如，您可以為原則定義一個標題為 *location* 的參數。 接著，您可以在指派原則時給予它不同的值，例如 *EastUS* 或 *WestUS*。
 
 <!--
 Next link should point to new Concept page for Parameters
 -->
-如需原則參數的詳細資訊，請參閱[資源原則概觀 - 參數](../azure-resource-manager/resource-manager-policy.md#parameters)。
+如需原則參數的詳細資訊，請參閱[資源原則概觀 - 參數](policy-definition.md#parameters)。
 
 ## <a name="initiative-definition"></a>計畫定義
 計畫定義是針對達到單一主要目標而設計的原則定義集合。 計畫定義可讓管理及指派原則定義更為簡單。 其簡化方式是將一組原則組成單一項目。 例如，您可以建立一個標題為**在 Azure 資訊安全中心啟用監視**的計畫，目標是要在您的 Azure 資訊安全中心監視所有可用的安全性建議。

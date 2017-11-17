@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: ea6e6c4044a0163ae36d6790755b67c5066251a8
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: e821a640d3d75e712c022bd681eb07b83da91911
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights 中的遙測相互關聯
 
@@ -81,7 +81,7 @@ Application Insights 會定義相互關聯 HTTP 通訊協定的[延伸](https://
 - `dependency` 會使用 `span.kind = client` 對應至**範圍**
 - `request` 和 `dependency` 的 `id` 會對應至 **Span.Id**
 - `operation_Id` 會對應至 **TraceId**
-- `operation_ParentId` 會對應至 `ChileOf` 類型的**參考**
+- `operation_ParentId` 會對應至 `ChildOf` 類型的**參考**
 
 如需 Application Insights 類型和資料模型，請參閱[資料模型](application-insights-data-model.md)。
 

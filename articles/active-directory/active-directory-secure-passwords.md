@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 50b24466bcbd399de19934f7ec5ed096e308eaf3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3810c6fc3e6d6abf6e41047a303f8d0ecfe1c7ec
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Azure AD 密碼安全性多層法
 
@@ -37,7 +37,7 @@ Azure AD 併入下列一般方法來保護密碼︰
 * 密碼複雜性需求
 * 一般和定期密碼到期
 
-如需在 Azure Active Directory 中重設密碼的相關資訊，請參閱 [IT 專業人員的 Azure AD 自助式密碼重設 (英文) ](active-directory-passwords.md)主題。
+如需在 Azure Active Directory 中重設密碼的相關資訊，請參閱 [IT 專業人員的 Azure AD 自助式密碼重設 (英文) ](active-directory-passwords-update-your-own-password.md)主題。
 
 ## <a name="azure-ad-password-protections"></a>Azure AD 密碼保護
 
@@ -74,7 +74,7 @@ Microsoft 會持續分析[資料外洩](https://www.privacyrights.org/data-breac
 
   ![Microsoft 帳戶遭到鎖定](./media/active-directory-secure-passwords/locked-out-ms-accounts.png)
 
-如需在 Azure Active Directory 中重設密碼的相關資訊，請參閱 [IT 專業人員的 Azure AD 自助式密碼重設 (英文) ](active-directory-passwords.md)主題。
+如需在 Azure Active Directory 中重設密碼的相關資訊，請參閱 [IT 專業人員的 Azure AD 自助式密碼重設 (英文) ](active-directory-passwords-update-your-own-password.md)主題。
 
   >[!NOTE]
   >如果您是 Azure AD 系統管理員，可以使用 [Windows Hello](https://www.microsoft.com/windows/windows-hello) 全然避免使用者建立傳統密碼。

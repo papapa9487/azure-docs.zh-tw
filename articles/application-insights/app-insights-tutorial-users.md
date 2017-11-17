@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: c0175d4fb98614d41423b7204fe7eb2aa50d23dc
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: db61c300ad82270e59d315fa3372d9e4390c7a21
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>藉由 Azure Application Insights，以了解客戶如何使用您的應用程式
 
@@ -40,7 +40,7 @@ Azure Application Insights 會收集使用資訊，以協助您了解使用者�
 - 下載並安裝 [Visual Studio 快照集偵錯工具](http://aka.ms/snapshotdebugger) \(英文\)。
 - 將 .NET 應用程式部署至 Azure，並[啟用 Application Insights SDK](app-insights-asp-net.md)。 
 - [從您的應用程式傳送遙測](app-insights-usage-overview.md#send-telemetry-from-your-app)以新增自訂事件/頁面檢視
-- 傳送[使用者內容](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-usage-send-user-context)以追蹤使用者過去的活動，並充分運用使用方式功能。
+- 傳送[使用者內容](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context)以追蹤使用者過去的活動，並充分運用使用方式功能。
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 登入 Azure 入口網站，網址為 [https://portal.azure.com](https://portal.azure.com)。

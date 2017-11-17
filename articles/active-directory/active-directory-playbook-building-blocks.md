@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: bdbdebe069b3150bed4aa26f1f6e677a66f75f32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e4af248a1aafbd34a62c75e792746514456577b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念證明腳本：構成要素
 
@@ -99,10 +99,10 @@ ms.lasthandoff: 10/11/2017
 | 步驟 | 資源 |
 | --- | --- |
 | 移至「Azure AD 管理入口網站」 | [Azure AD 管理入口網站 - 公司商標](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
-| 上傳登入頁面的資產 (大型標誌、小型標誌、標籤等)。 如果您有 AD FS，可視需要，與 ADFS 登入頁面採用相同的資產 | [在登入和存取面板頁面新增公司商標：可自訂元素](active-directory-add-company-branding.md) |
+| 上傳登入頁面的資產 (大型標誌、小型標誌、標籤等)。 如果您有 AD FS，可視需要，與 ADFS 登入頁面採用相同的資產 | [在登入和存取面板頁面新增公司商標：可自訂元素](customize-branding.md) |
 | 等候幾分鐘讓變更完全生效 |  |
 | 使用 POC 使用者認證來登入 https://myapps.microsoft.com |  |
-| 在瀏覽器中確認外觀及操作 | [在登入和存取面板頁面新增公司商標](active-directory-add-company-branding.md) |
+| 在瀏覽器中確認外觀及操作 | [在登入和存取面板頁面新增公司商標](customize-branding.md) |
 | (選擇性) 在其他裝置中確認外觀及操作 |  |
 
 ### <a name="considerations"></a>考量
@@ -379,7 +379,7 @@ ms.lasthandoff: 10/11/2017
 
 | 必要條件 | 資源 |
 | --- | --- |
-| 在您的租用戶中啟用自助式密碼管理。 | [IT 系統管理員的 Azure Active Directory 密碼重設](active-directory-passwords.md) |
+| 在您的租用戶中啟用自助式密碼管理。 | [IT 系統管理員的 Azure Active Directory 密碼重設](active-directory-passwords-update-your-own-password.md) |
 | 啟用密碼回寫以管理來自內部部署環境的密碼。 請注意，這需要特定的 Azure AD Connect 版本 | [密碼回寫先決條件](active-directory-passwords-writeback.md) |
 | 識別將使用此功能的 PoC 使用者，並確定他們是安全性群組的成員。 使用者必須是非系統管理員，才能完整展示此功能 | [自訂：Azure AD 密碼管理：限制對密碼重設的存取](active-directory-passwords-writeback.md) |
 

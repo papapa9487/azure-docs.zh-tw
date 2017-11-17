@@ -67,9 +67,9 @@ tar  -czvf health_check_logs.tar.gz /var/log/health_check
 
 **SAP HANA 警示**
 
-第一個步驟是查看目前的 SAP HANA 警示記錄。 在 SAP HANA Studio 中，移至 [Administration Console: Alerts: Show: all alerts] (管理主控台：警示：顯示：所有警示)。 此索引標籤會顯示在所設定最小和最大臨界值範圍外之特定值的所有 SAP HANA 警示 (可用實體記憶體、CPU 使用率等)。 根據預設，檢查會每隔 15 分鐘自動重新整理一次。
+第一個步驟是查看目前的 SAP HANA 警示記錄。 在 SAP HANA Studio 中，移至 [Administration Console: Alerts: Show: all alerts] \(管理主控台：警示：顯示：所有警示)。 此索引標籤會顯示在所設定最小和最大臨界值範圍外之特定值的所有 SAP HANA 警示 (可用實體記憶體、CPU 使用率等)。 根據預設，檢查會每隔 15 分鐘自動重新整理一次。
 
-![在 SAP HANA Studio 中，移至 [Administration Console: Alerts: Show: all alerts] (管理主控台：警示：顯示：所有警示)。](./media/troubleshooting-monitoring/image1-show-alerts.png)
+![在 SAP HANA Studio 中，移至 [Administration Console: Alerts: Show: all alerts] \(管理主控台：警示：顯示：所有警示)。](./media/troubleshooting-monitoring/image1-show-alerts.png)
 
 **CPU**
 
@@ -139,9 +139,9 @@ SAP HANA on Linux 的其中一項最重要檢查就是要確保停用 Transparen
 
 **儲存體**
 
-從使用者的觀點來看，當發生 I/O 效能問題時，應用程式 (或系統整體) 會執行緩慢、沒有回應，或甚至看似死當。 在 SAP HANA Studio 的 [Volumes] (磁碟區) 索引標籤中，您可以看到連接的磁碟區，以及每個服務使用哪些磁碟區。
+從使用者的觀點來看，當發生 I/O 效能問題時，應用程式 (或系統整體) 會執行緩慢、沒有回應，或甚至看似死當。 在 SAP HANA Studio 的 [Volumes] \(磁碟區) 索引標籤中，您可以看到連接的磁碟區，以及每個服務使用哪些磁碟區。
 
-![在 SAP HANA Studio 的 [Volumes] (磁碟區) 索引標籤中，您可以看到連接的磁碟區，以及每個服務使用哪些磁碟區。](./media/troubleshooting-monitoring/image5-volumes-tab-a.png)
+![在 SAP HANA Studio 的 [Volumes] \(磁碟區) 索引標籤中，您可以看到連接的磁碟區，以及每個服務使用哪些磁碟區。](./media/troubleshooting-monitoring/image5-volumes-tab-a.png)
 
 在畫面下半部中有連接的磁碟區，您可以看到磁碟區的詳細資料，例如檔案和 I/O 統計資料。
 
@@ -155,21 +155,21 @@ SAP HANA on Linux 的其中一項最重要檢查就是要確保停用 Transparen
 
 請參考 [SAP 附註 #1969700 - SAP HANA 的 SQL 陳述式集合](https://launchpad.support.sap.com/#/notes/1969700)，並下載該附註隨附的 SQL Statements.zip 檔案。 請將這個 .zip 檔案儲存在本機硬碟。
 
-在 SAP HANA Studio 的 [System Information] (系統資訊) 索引標籤上，於 [Name] (名稱) 資料行上按一下滑鼠右鍵，然後選取 [Import SQL Statements] (匯入 SQL 陳述式)。
+在 SAP HANA Studio 的 [System Information] \(系統資訊) 索引標籤上，於 [Name] \(名稱) 資料行上按一下滑鼠右鍵，然後選取 [Import SQL Statements] \(匯入 SQL 陳述式)。
 
-![在 SAP HANA Studio 的 [System Information] (系統資訊) 索引標籤上，於 [Name] (名稱) 資料行上按一下滑鼠右鍵，然後選取 [Import SQL Statements] (匯入 SQL 陳述式)](./media/troubleshooting-monitoring/image7-import-statements-a.png)
+![在 SAP HANA Studio 的 [System Information] \(系統資訊) 索引標籤上，於 [Name] \(名稱) 資料行上按一下滑鼠右鍵，然後選取 [Import SQL Statements] \(匯入 SQL 陳述式)](./media/troubleshooting-monitoring/image7-import-statements-a.png)
 
 選取儲存在本機的 SQL Statements.zip 檔案，將會匯入含有對應的 SQL 陳述式的資料夾。 此時，可以使用這些 SQL 陳述式來執行許多不同的診斷檢查。
 
-例如，若要測試「SAP HANA 系統複寫」頻寬需求，請在 [Replication: Bandwidth] (複寫：頻寬) 底下的 [Bandwidth] (頻寬) 陳述式上按一下滑鼠右鍵，然後在 SQL Console (SQL 主控台) 中選取 [Open] (開啟)。
+例如，若要測試「SAP HANA 系統複寫」頻寬需求，請在 [Replication: Bandwidth] \(複寫：頻寬) 底下的 [Bandwidth] \(頻寬) 陳述式上按一下滑鼠右鍵，然後在 SQL Console (SQL 主控台) 中選取 [Open] \(開啟)。
 
 將會開啟完整的 SQL 陳述式，讓您變更輸入參數 (modification 區段)，然後加以執行。
 
 ![將會開啟完整的 SQL 陳述式，讓您變更輸入參數 (modification 區段)，然後加以執行](./media/troubleshooting-monitoring/image8-import-statements-b.png)
 
-另一個範例是在 [Replication: Overview] (複寫：概觀) 底下的陳述式上按一下滑鼠右鍵。 從操作功能表中，選取 [Execute] (執行)：
+另一個範例是在 [Replication: Overview] \(複寫：概觀) 底下的陳述式上按一下滑鼠右鍵。 從操作功能表中，選取 [Execute] \(執行)：
 
-![另一個範例是在 [Replication: Overview] (複寫：概觀) 底下的陳述式上按一下滑鼠右鍵。 從操作功能表中，選取 [Execute] (執行)](./media/troubleshooting-monitoring/image9-import-statements-c.png)
+![另一個範例是在 [Replication: Overview] \(複寫：概觀) 底下的陳述式上按一下滑鼠右鍵。 從操作功能表中，選取 [Execute] \(執行)](./media/troubleshooting-monitoring/image9-import-statements-c.png)
 
 這會產生可協助進行疑難排解的資訊：
 

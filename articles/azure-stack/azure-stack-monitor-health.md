@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/10/2017
 ms.author: twooley
-ms.openlocfilehash: b2ba7ec922341464ea7160d08e475999c941c42a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf454a438f088d8079352ac60ce845185b741327
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>在 Azure Stack 中監視健康情況和警示
 
@@ -36,7 +36,7 @@ Azure Stack 包含基礎結構監視功能，可讓您檢視 Azure Stack 區域�
  
  身為 Azure Stack 操作員，您可以在系統管理員入口網站中及透過 REST API 和 PowerShell 來檢視元件的健康狀態。
  
-若要在入口網站中檢視健康情況狀態，請在 [區域管理] 磚中按一下您想要檢視的區域。 您可以檢視基礎結構角色和資源提供者的健康情況狀態。 在此版本中，「計算」資源提供者並不會回報健康狀態。
+若要在入口網站中檢視健康情況狀態，請在 [區域管理] 磚中按一下您想要檢視的區域。 您可以檢視基礎結構角色和資源提供者的健康情況狀態。
 
 ![基礎結構角色的清單](media/azure-stack-monitor-health/image2.png)
 

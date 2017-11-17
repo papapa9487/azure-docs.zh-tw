@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: 278aa67013eb2cabcf5efa7e0de21e9cff0519ba
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 00fc998666574f0b85b968cba174d328a300e861
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>保護 Azure AD 中的特殊權限存取
 保護特殊權限存取，是有助保護現代組織企業資產很重要的第一個步驟。 特殊權限帳戶是可管理 IT 系統的帳戶。 網路攻擊者會以這些帳戶為目標，來取得組織資料和系統的存取權。 為了保護特殊權限存取，您應該讓帳戶和系統遠離遭遇惡意使用者的風險。
@@ -66,7 +66,7 @@ Azure Multi-Factor Authentication (MFA) 是 Microsoft 的雙步驟驗證解決�
 * 啟用 [Azure Multi-Factor Authentication](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
 * 啟用 [Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md)
 * 啟用 [Azure AD Identity Protection](../active-directory-identityprotection.md)
-* 啟用[條件式存取控制](../active-directory-conditional-access.md)
+* 啟用[條件式存取控制](../active-directory-conditional-access-azure-portal.md)
 
 如需建置完整安全性藍圖的詳細資訊，請參閱 [Microsoft Cloud Security for Enterprise Architects (Microsoft 的企業架構雲端安全性)](http://aka.ms/securecustomer) 一文的＜Customer responsibilities and roadmap＞(客戶責任和藍圖) 一節。 如需吸引人的 Microsoft 服務詳細資訊，協助您使用任一這些主題，請連絡您的 Microsoft 代表或瀏覽我們的 [Cybersecurity solutions (網路安全性方案) 網頁](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx)。
 

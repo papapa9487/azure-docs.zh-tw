@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 030fb1d87547a4fc78d54a855bca961202f28837
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: f2b172208185e343c9c10d55036c20d60346778c
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="customize-azure-ad-functionality-for-self-service-password-reset"></a>自訂 Azure AD 的自助式密碼重設功能
 
@@ -40,7 +40,7 @@ IT 專業人員期待部署自助式密碼重設可以自訂體驗以符合他�
 
 在所有情況下，最多 100 位收件者會收到通知。
 
-若要進一步了解不同的系統管理員角色，以及如何指派他們，請參閱文件[在 Azure Active Directory 中指派系統管理員角色](active-directory-assign-admin-roles.md)
+若要進一步了解不同的系統管理員角色，以及如何指派他們，請參閱文件[在 Azure Active Directory 中指派系統管理員角色](active-directory-assign-admin-roles-azure-portal.md)
 
 ### <a name="disable-contact-your-administrator-emails"></a>停用「連絡您的系統管理員」電子郵件
 

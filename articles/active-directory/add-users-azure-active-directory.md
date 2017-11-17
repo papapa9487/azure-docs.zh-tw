@@ -15,11 +15,11 @@ ms.date: 11/07/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 3df0324cae65418f35743b6543753c405dee01d0
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 0e46ff82c4177de6b33e5df8714318bff83fbb34
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>快速入門：將使用者新增至 Azure Active Directory
 本文說明如何在 Azure Active Directory (Azure AD) 中新增您組織中的使用者，您可以使用 Azure 入口網站一次新增一位，或藉由同步處理您內部部署 Windows Server AD 使用者帳戶資料來新增。 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/07/2017
    ![選取 [新增] 命令](./media/add-users-azure-active-directory/add-user.png)
 4. 輸入使用者的詳細資料，例如「名稱」和「使用者名稱」。 使用者名稱的網域名稱部分必須是初始預設網域名稱 "[網域名稱].onmicrosoft.com"，或是已驗證的非同盟[自訂網域名稱](add-custom-domain.md)，例如"contoso.com"。
 5. 複製或記下產生的使用者密碼，以便在此程序完成後，將它提供給使用者。
-6. (選擇性) 您可以開啟使用者的 [設定檔]、[群組] 或 [目錄角色]，然後在其中填入資訊。 如需有關使用者和系統管理員角色的詳細資訊，請參閱 [在 Azure AD 中指派系統管理員角色](active-directory-assign-admin-roles.md)。
+6. (選擇性) 您可以開啟使用者的 [設定檔]、[群組] 或 [目錄角色]，然後在其中填入資訊。 如需有關使用者和系統管理員角色的詳細資訊，請參閱 [在 Azure AD 中指派系統管理員角色](active-directory-assign-admin-roles-azure-portal.md)。
 7. 在 [使用者] 中，選取 [建立]。
 8. 將產生的密碼安全地散發給新使用者，以便讓使用者可以登入。
 

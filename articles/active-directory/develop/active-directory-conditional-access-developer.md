@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: 321c87f242f2c24eb2b28be2dc69cde278117b97
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: eddc1988e094a50ba7e41331a576846aa26f77a4
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取的開發人員指引
 
@@ -28,7 +28,7 @@ Azure Active Directory (AD) 提供數種方式來保護您的應用程式並保�
 * 只允許已註冊 Intune 的裝置存取特定服務
 * 限制使用者位置及 IP 範圍
 
-如需了解條件式存取完整功能的詳細資訊，請參閱 [Azure 傳統入口網站中的條件式存取](../active-directory-conditional-access.md)。 
+如需了解條件式存取完整功能的詳細資訊，請參閱 [Azure 傳統入口網站中的條件式存取](../active-directory-conditional-access-azure-portal.md)。 
 
 在本文中，我們會著重在條件式存取對於建置 Azure AD 應用程式之開發人員所代表的意義。  它假設對於[單一](active-directory-integrating-applications.md)和[多租用戶](active-directory-devhowto-multi-tenant-overview.md)應用程式以及[常見驗證模式](active-directory-authentication-scenarios.md)的認知。
 
@@ -48,7 +48,7 @@ Azure Active Directory (AD) 提供數種方式來保護您的應用程式並保�
 * 使用 ADAL.js 的單一頁面應用程式
 * 呼叫資源的 Web Apps
 
-條件式存取原則可以套用至應用程式，也可套用至您應用程式存取的 web API。 若要深入了解如何設定條件式存取原則，請參閱[開始使用 Azure Active Directory 條件式存取](../active-directory-conditional-access-azuread-connected-apps.md)。
+條件式存取原則可以套用至應用程式，也可套用至您應用程式存取的 web API。 若要深入了解如何設定條件式存取原則，請參閱[開始使用 Azure Active Directory 條件式存取](../active-directory-conditional-access-azure-portal-get-started.md)。
 
 企業客戶可以根據這種情節，隨時套用及移除條件式存取原則。  若要在套用新原則時讓您的應用程式繼續運作，您必須實作「挑戰」處理。 下列範例說明挑戰處理。 
 
@@ -218,7 +218,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 ## <a name="see-also"></a>另請參閱
 
-* 若要深入了解功能，請參閱 [Azure AD 中的條件式存取](../active-directory-conditional-access.md)。
+* 若要深入了解功能，請參閱 [Azure AD 中的條件式存取](../active-directory-conditional-access-azure-portal.md)。
 * 如需更多的 Azure AD 程式碼範例，請參閱[程式碼範例的 Github 存放庫](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory)。 
 * 如需 ADAL SDK 的詳細資訊及存取參考文件，請參閱[程式庫指南](active-directory-authentication-libraries.md)。
 * 若要深入了解多租用戶情節，請參閱[如何使用多租用戶模式將使用者登入](active-directory-devhowto-multi-tenant-overview.md)。

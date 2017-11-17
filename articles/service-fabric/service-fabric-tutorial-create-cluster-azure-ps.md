@@ -109,7 +109,7 @@ New-AzureRmServiceFabricCluster -Name $clustername -ResourceGroupName $groupname
 
 建立程序可能需要幾分鐘的時間。 在設定完成之後，它會輸出 Azure 中所建立之叢集的相關資訊。 它也會將叢集憑證複製到您為這個參數所指定之路徑上的 -CertificateOutputFolder 目錄。
 
-記下叢集的 **ManagementEndpoint** URL，此 URL 可能會類似下列 URL：https://mycluster.westeurope.cloudapp.azure.com:19080。
+記下叢集的 **ManagementEndpoint** URL，此 URL 可能會類似下列 URL： https://mycluster.westeurope.cloudapp.azure.com:19080 。
 
 ## <a name="import-the-certificate"></a>匯入憑證
 

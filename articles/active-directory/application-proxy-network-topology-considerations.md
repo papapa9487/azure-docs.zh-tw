@@ -15,11 +15,11 @@ ms.date: 07/28/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 11244e0044eef8441e3a37ab8aeff0da30dacdb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15c392c6e94abaff7c28bc672cfe61c7551ede4d
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>使用 Azure Active Directory 應用程式 Proxy 時的網路拓撲考量
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 10/11/2017
 
 有愈來愈多的組織將其網路移至託管環境。 這可讓它們將自己的應用程式放在託管環境中，這也是其公司網路的一部分，並仍在網域內。 在此情況下，前幾節中所討論的模式可以套用至新的應用程式位置。 如果您正在考慮此選項，請參閱 [AD Domain Services](../active-directory-domain-services/active-directory-ds-overview.md)。
 
-此外，請考慮使用[連接器群組](active-directory-application-proxy-connectors.md)來組織連接器，以鎖定位於不同位置和網路的應用程式。 
+此外，請考慮使用[連接器群組](active-directory-application-proxy-connectors-azure-portal.md)來組織連接器，以鎖定位於不同位置和網路的應用程式。 
 
 ## <a name="common-use-cases"></a>一般使用案例
 
@@ -174,5 +174,5 @@ ms.lasthandoff: 10/11/2017
 
 - [啟用應用程式 Proxy](active-directory-application-proxy-enable.md)
 - [啟用單一登入](active-directory-application-proxy-sso-using-kcd.md)
-- [啟用條件式存取](active-directory-application-proxy-conditional-access.md)
+- [啟用條件式存取](application-proxy-enable-remote-access-sharepoint.md)
 - [使用應用程式 Proxy 疑難排解您遇到的問題](active-directory-application-proxy-troubleshoot.md)

@@ -15,11 +15,11 @@ ms.date: 07/21/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 3ef74c8d5d5b75eb2bca4e6c994f4718b5226db8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6534320d36653d296f254dfff129d4c5031f8ce8
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>針對應用程式 Proxy 問題和錯誤訊息進行疑難排解
 如果在存取已發佈的應用程式或發佈應用程式時發生錯誤，請檢查下列選項以查看 Microsoft Azure AD 應用程式 Proxy 是否運作正常︰
@@ -90,7 +90,7 @@ ms.lasthandoff: 10/11/2017
 * [啟用 Azure Active Directory 的應用程式 Proxy](active-directory-application-proxy-enable.md)
 * [使用應用程式 Proxy 發行應用程式](active-directory-application-proxy-publish.md)
 * [啟用單一登入](active-directory-application-proxy-sso-using-kcd.md)
-* [啟用條件式存取](active-directory-application-proxy-conditional-access.md)
+* [啟用條件式存取](application-proxy-enable-remote-access-sharepoint.md)
 
 
 <!--Image references-->

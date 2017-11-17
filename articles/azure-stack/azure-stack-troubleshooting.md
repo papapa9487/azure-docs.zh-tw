@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/11/2017
 ms.author: helaw
-ms.openlocfilehash: 3b40a657ee8eb391d14a38cb95acc0729a8dda21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a8e871a3a44cb14503832d2f3a096712f8112a7
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure Stack 疑難排解
 
@@ -37,16 +37,6 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>在部署結束時，PowerShell 工作階段仍開啟，而且不會顯示任何輸出
 此行為可能只是 PowerShell 命令視窗預設行為的結果 (當已選取它時)。 開發套件部署實際上成功，但當您選取視窗時，指令碼已暫停。 您可以尋找命令視窗標題列的「選取」字樣以驗證是不是這種情況。  按 ESC 鍵以將它取消選取，之後將顯示完成訊息。
-
-## <a name="templates"></a>範本
-### <a name="azure-template-wont-deploy-to-azure-stack"></a>Azure 範本將不會部署到 Azure Stack
-請確定：
-
-* 範本必須使用已經可用或在 Azure Stack 中為預覽版的 Microsoft Azure 服務。
-* 本機 Azure Stack 執行個體與您以有效位置 (在 Azure Stack 開發套件中為「本機」，在 Azure 中則為「美國東部」或「印度南部」) 為目標的 Azure Stack 執行個體，都支援用於特定資源的 API。
-* 您可以檢閱[此文章](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md)以了解 Test-AzureRmResourceGroupDeployment Cmdlet，這與 Azure Resource Manager 語法有些微差異。
-
-您也可以使用已在 [GitHub 存放庫](http://aka.ms/AzureStackGitHub/)提供的 Azure Stack 範本來協助您開始。
 
 ## <a name="virtual-machines"></a>虛擬機器
 ### <a name="default-image-and-gallery-item"></a>預設映像與資源庫項目
@@ -75,20 +65,6 @@ ms.lasthandoff: 10/11/2017
 ## <a name="storage"></a>儲存體
 ### <a name="storage-reclamation"></a>儲存體回收
 已回收的容量最多可能需要 14 小時才會顯示在入口網站中。 空間回收取決於各種因素，包括區塊 Blob 存放區中內部容器檔案的使用量百分比。 因此，視刪除的資料量而定，我們無法保證當記憶體回收行程執行時可回收多少空間。
-
-## <a name="powershell"></a>PowerShell
-### <a name="resource-providers-not-registered"></a>資源提供者未註冊
-當使用 PowerShell 連線到租用戶訂用帳戶時，您將會注意到資源提供者未自動註冊。 使用[Connect 模組](https://github.com/Azure/AzureStack-Tools/tree/master/Connect)，或從 PowerShell 執行下列命令 (在您[安裝並連線為](azure-stack-connect-powershell.md)租用戶之後)： 
-  
-       Get-AzureRMResourceProvider | Register-AzureRmResourceProvider
-
-## <a name="cli"></a>CLI
-
-* CLI 互動模式 (例如 `az interactive` 命令) 在 Azure Stack 中尚未支援。
-* 若要取得 Azure Stack 中的可用虛擬機器映像清單，請使用 `az vm images list --all` 命令，而非 `az vm image list` 命令。 指定 `--all` 選項可確保回應只傳回您 Azure Stack 環境中的可用映像。 
-* Azure 中可用的虛擬機器映像別名可能不適用於 Azure Stack。 使用虛擬機器映像時，您必須使用整個 URN 參數 (Canonical:UbuntuServer:14.04.3-LTS:1.0.0)，而非映像別名。 此外，此 URN 必須符合從 `az vm images list` 命令衍生的映像規格。
-* 根據預設值，CLI 2.0 使用 “Standard_DS1_v2” 作為預設虛擬機器映像大小。 不過，此大小在 Azure Stack 中還無法使用，因此您必須在建立虛擬機器時明確地指定 `--size` 參數。 您可以使用 `az vm list-sizes --location <locationName>` 命令來取得 Azure Stack 中的可用虛擬機器大小清單。
-
 
 ## <a name="windows-azure-pack-connector"></a>Windows Azure 套件連接器
 * 若您在部署 Azure Stack 開發套件之後變更 azurestackadmin 帳戶的密碼，則您再也無法設定多雲端模式。 因此，將無法連線到目標 Windows Azure 套件環境。

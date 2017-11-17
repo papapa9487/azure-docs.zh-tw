@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 31af39eef3889bebd18baa2be297c433cc733ed3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58e0533db1bb907b0c9a09cdeb7aabbf120d506f
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="build-a-java-and-mysql-web-app-in-azure"></a>在 Azure 中建置 Java 和 MySQL Web 應用程式
 
@@ -397,7 +397,7 @@ put target/TodoDemo-0.0.1-SNAPSHOT.war ROOT.war
 
 在 Azure App Service 中執行您的 Java 應用程式時，可以將主控台記錄直接傳送至終端機。 這樣一來，您就能取得相同的診斷訊息，以協助您偵錯應用程式錯誤。
 
-若要開始記錄資料流，請在 Cloud Shell 中使用 [az appservice web log tail](/cli/azure/appservice/web/log#tail) 命令。
+若要開始記錄資料流，請在 Cloud Shell 中使用 [az appservice web log tail](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) 命令。
 
 ```azurecli-interactive 
 az webapp log tail --name <app_name> --resource-group myResourceGroup 

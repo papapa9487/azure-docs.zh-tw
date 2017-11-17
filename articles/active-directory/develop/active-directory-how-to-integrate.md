@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 3da53852eaad7a37f19d906d2ee27b72d35c513f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2a83e8dcd054576b4a99533cdfbb9f5605cd6f9
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="integrating-with-azure-active-directory"></a>與 Azure Active Directory 整合
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -67,7 +67,7 @@ Azure Active Directory 為組織提供企業等級的雲端應用程式身分識
 
 **登入偵測異常。**  Azure AD 每天處理超過 10 億個登入，同時使用機器學習演算法來偵測可疑活動，並向 IT 系統管理員通知可能發生的問題。  藉由支援 Azure AD 登入，您的應用程式便會獲得這項保護的好處。 深入了解[檢視 Azure Active Directory 存取報告](../active-directory-view-access-usage-reports.md)。
 
-**條件式存取。**  除了多因素驗證，系統管理員還可以要求使用者在登入您的應用程式之前必須符合特定條件。  可以設定的條件包括用戶端裝置的 IP 位址範圍、指定群組的成員資格，以及用於存取的裝置狀態。  深入了解 [Azure Active Directory 條件式存取](../active-directory-conditional-access.md)。
+**條件式存取。**  除了多因素驗證，系統管理員還可以要求使用者在登入您的應用程式之前必須符合特定條件。  可以設定的條件包括用戶端裝置的 IP 位址範圍、指定群組的成員資格，以及用於存取的裝置狀態。  深入了解 [Azure Active Directory 條件式存取](../active-directory-conditional-access-azure-portal.md)。
 
 ### <a name="easy-development"></a>容易開發
 **業界標準通訊協定。**  Microsoft 致力於支援業界標準。  Azure AD 支援 SAML 2.0、OpenID Connect 1.0、OAuth 2.0 和 WS 同盟 1.2 驗證通訊協定。  Graph API 屬於 OData 4.0 標準。  如果您的應用程式已經支援 SAML 2.0 或 OpenID Connect 1.0 通訊協定的同盟登入，那新增 Azure AD 支援便相當直接。  深入了解 [Azure AD 支援的驗證通訊協定](active-directory-authentication-protocols.md)。

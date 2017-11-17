@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
-ms.openlocfilehash: ea0cf7ad074f95c2b49a92f9a8e32270a1d39b3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 50a965f9773524a36bedc3d040bf1a1ca391507f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>使用角色型存取控制來共用 Azure 儀表板
 設定儀表板之後，您可以將它發佈，並與組織中的其他使用者共用。 使用 Azure [角色型存取控制](../active-directory/role-based-access-control-configure.md)，您可允許其他人檢視您的儀表板。 您可以將一名使用者或一群使用者指派給某個角色，該角色就會定義這些使用者可以檢視或修改已發佈的儀表板。 
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 不過，您也可以指派權限給包含數個儀表板的資源群組或指派給個別儀表板。 例如，您可能會決定，一群使用者應具有有限的訂用帳戶權限，但對特定儀表板則具有更大範圍的存取權。 您可以將這些使用者指派給該儀表板的角色。 
 
 ## <a name="publish-dashboard"></a>發佈儀表板
-讓我們假設您已完成設定想要與訂用帳戶中的一群使用者共用的儀表板。 下列步驟描述稱為「儲存體管理員」的自訂群組，但您可以將您的群組命名為任何您喜歡的名稱。 如需建立 Active Directory 群組和將使用者新增至該群組的相關資訊，請參閱 [在 Azure Active Directory 中管理群組](../active-directory/active-directory-accessmanagement-manage-groups.md)。
+讓我們假設您已完成設定想要與訂用帳戶中的一群使用者共用的儀表板。 下列步驟描述稱為「儲存體管理員」的自訂群組，但您可以將您的群組命名為任何您喜歡的名稱。 如需建立 Active Directory 群組和將使用者新增至該群組的相關資訊，請參閱 [在 Azure Active Directory 中管理群組](../active-directory/active-directory-groups-create-azure-portal.md)。
 
 1. 在儀表板中選取 [共用] 。
    

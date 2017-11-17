@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b119be9c06d8c1ccc8e747168429e6c2d2e7a8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76bb8d239b54b5236d077b98a5908c230cdc31a1
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>開發適用於 Azure Active Directory 的企業營運應用程式
 本指南提供開發適用於 Azure Active Directory (AD) 的企業營運 (LoB) 應用程式的概觀。適用對象為 Active Directory/Office 365 全域系統管理員。
 
 ## <a name="overview"></a>概觀
-建置整合 Azure AD 的應用程式，可讓您組織的使用者使用 Office 365 單一登入。 將應用程式置於 Azure AD 中可讓您掌控應用程式設定的驗證原則。 若要深入了解條件式存取和如何使用多重要素驗證 (MFA) 來保護應用程式，請參閱 [設定存取規則](active-directory-conditional-access-azuread-connected-apps.md)。
+建置整合 Azure AD 的應用程式，可讓您組織的使用者使用 Office 365 單一登入。 將應用程式置於 Azure AD 中可讓您掌控應用程式設定的驗證原則。 若要深入了解條件式存取和如何使用多重要素驗證 (MFA) 來保護應用程式，請參閱 [設定存取規則](active-directory-conditional-access-azure-portal-get-started.md)。
 
 註冊應用程式以使用 Azure Active Directory。 註冊應用程式意謂著開發人員可以使用 Azure AD 來驗證使用者，以及要求對使用者資源 (例如電子郵件、行事曆及文件) 的存取權。
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 10/11/2017
 * 隱藏預設的使用者同意體驗
 
 ## <a name="configure-access-rules"></a>設定存取規則
-針對您的 SaaS 應用程式設定每個應用程式的存取規則 例如，您可以要求執行 MFA 或只允許受信任網路上的使用者進行存取。 如需這方面的詳細資料，請參閱[設定存取規則](active-directory-conditional-access-azuread-connected-apps.md)文件。
+針對您的 SaaS 應用程式設定每個應用程式的存取規則 例如，您可以要求執行 MFA 或只允許受信任網路上的使用者進行存取。 如需這方面的詳細資料，請參閱[設定存取規則](active-directory-conditional-access-azure-portal-get-started.md)文件。
 
 ## <a name="configure-the-app-to-require-user-assignment-and-assign-users"></a>設定應用程式要求指派使用者並指派使用者
 根據預設，使用者不須獲得指派，即可存取應用程式。 不過，如果應用程式公開角色或您希望應用程式出現在使用者的存取面板上，則應該要求指派使用者。
@@ -78,6 +78,6 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="related-articles"></a>相關文章
 * [使用 Azure AD 應用程式 Proxy 啟用對內部部署應用程式的安全遠端存取](active-directory-application-proxy-get-started.md)
-* [SaaS 應用程式的 Azure 條件式存取預覽](active-directory-conditional-access-azuread-connected-apps.md)
+* [SaaS 應用程式的 Azure 條件式存取預覽](active-directory-conditional-access-azure-portal-get-started.md)
 * [使用 Azure AD 管理應用程式的存取](active-directory-managing-access-to-apps.md)
 * [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)

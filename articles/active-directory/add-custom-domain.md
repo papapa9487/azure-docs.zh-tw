@@ -14,11 +14,11 @@ ms.date: 09/25/2017
 ms.author: curtand
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: 2ea119b56f467f57b5929dec05bfd645028578ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2f0287202e1b39f395354b1124078b7b0dc95a7
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>快速入門：將自訂網域名稱新增到 Azure Active Directory
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 10/11/2017
 如果您的組織使用多個自訂網域名稱，例如 ‘contoso.com’ 和 ‘contosobank.com’，您最多可以新增 900 個網域名稱。 本文中的步驟可幫助您新增每個網域名稱。
 
 ### <a name="learn-more"></a>詳細資訊
-[Azure AD 中自訂網域名稱的概念式概觀](active-directory-add-domain-concepts.md)
+[Azure AD 中自訂網域名稱的概念式概觀](active-directory-domains-manage-azure-portal.md)
 
 [管理自訂網域名稱](active-directory-domains-manage-azure-portal.md)
 

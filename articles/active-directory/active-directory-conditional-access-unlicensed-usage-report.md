@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: 0f5f0eb79d8924ebe7e5848e1d8b761ea2e4983d
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 91b48098cc8ba2bb230b0536a9bcd121db79c533
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="unlicensed-usage-report"></a>未經授權的使用報告
 未經授權的使用報告可協助您識別使用 Azure AD 付費功能的未經授權使用者。 這可讓您充分利用您已購買的授權，以及確認您知道何時可能需要額外的授權。 
@@ -42,6 +42,6 @@ ms.lasthandoff: 10/18/2017
 這適用於 MFA/位置原則以及使用 Intune 的裝置原則。
 
 ## <a name="see-also"></a>另請參閱
-* [搭配使用條件式存取與 Office 365 和其他 Azure Active Directory 連線應用程式](active-directory-conditional-access.md)
-* [開始使用 Azure AD 的條件式存取](active-directory-conditional-access-azuread-connected-apps.md) 
+* [搭配使用條件式存取與 Office 365 和其他 Azure Active Directory 連線應用程式](active-directory-conditional-access-azure-portal.md)
+* [開始使用 Azure AD 的條件式存取](active-directory-conditional-access-azure-portal-get-started.md) 
 

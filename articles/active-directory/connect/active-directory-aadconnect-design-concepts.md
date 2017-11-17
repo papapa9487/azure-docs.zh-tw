@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 4041cacd72b1db74012497287030faf5d05ee6bf
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 53a0f766de9db7e6ee48b6659aad378620c0d727
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect：設計概念
 本主題旨在說明在 Azure AD Connect 實作設計期間必須考量的領域。 這個主題是特定領域的深入探討，而在其他主題中也會簡短描述這些概念。
@@ -191,7 +191,7 @@ John 是 contoso.com 中的使用者。在您將使用者同步至 Azure AD 目�
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>無法路由傳送的內部部署網域與 Azure AD 的 UPN
 有些組織有無法路由傳送的網域，例如 contoso.local 或簡單單一標籤網域，例如 contoso。 您無法確認在 Azure AD 中無法路由傳送的網域。 Azure AD Connect 可以僅同步至 Azure AD 中已驗證的網域。 當您建立 Azure AD 目錄時，它會建立可路由傳送的網域，而該網域會成為 Azure AD 的預設網域，例如 contoso.onmicrosoft.com。因此，如果您不想要同步至預設的 .onmicrosoft.com 網域，則必須在此類案例中驗證所有其他可路由傳送的網域。
 
-如需有關如何新增和驗證網域的詳細資訊，請參閱 [將您的自訂網域名稱新增至 Azure Active Directory](../active-directory-add-domain.md) 。
+如需有關如何新增和驗證網域的詳細資訊，請參閱 [將您的自訂網域名稱新增至 Azure Active Directory](../active-directory-domains-add-azure-portal.md) 。
 
 Azure AD Connect 會偵測您是否在無法路由傳送的網域環境中執行，並且會適當地警告您不要繼續進行快速設定。 如果您是在不可路由傳送的網域中操作，則使用者的 UPN 可能也有無法路由傳送的尾碼。 例如，如果您是在 contoso.local 之下執行，Azure AD Connect 會建議您使用自訂設定，而不是使用快速設定。 使用自訂設定，在使用者同步至 Azure AD 之後，您能夠指定應做為 UPN 以供登入 Azure 的屬性。
 

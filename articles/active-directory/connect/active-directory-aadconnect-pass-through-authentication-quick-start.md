@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: cbedb87722d1c230f3b8003cadd069947881f25d
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: e0b58142a2ed17d2cd4749b33e9e80ff1a01662a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory 傳遞驗證：快速入門
 
@@ -38,7 +38,7 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
 ### <a name="on-the-azure-active-directory-admin-center"></a>於 Azure Active Directory 管理中心
 
 1. 在 Azure AD 租用戶上建立僅限雲端的「全域管理員」帳戶。 如此一來，如果您的內部部署服務失敗或無法使用，您便可以管理租用戶組態。 了解如何[新增僅限雲端管理員帳戶 (英文)](../active-directory-users-create-azure-portal.md)。 這是確保您不會被租用戶封鎖的關鍵步驟。
-2. 將一或多個[自訂網域名稱](../active-directory-add-domain.md)新增至 Azure AD 租用戶。 您的使用者會使用其中一個網域名稱登入。
+2. 將一或多個[自訂網域名稱](../active-directory-domains-add-azure-portal.md)新增至 Azure AD 租用戶。 您的使用者會使用其中一個網域名稱登入。
 
 ### <a name="in-your-on-premises-environment"></a>在內部部署環境中
 

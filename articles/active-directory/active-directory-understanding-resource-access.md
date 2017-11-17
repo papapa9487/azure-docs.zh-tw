@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: e5ac068e37d921530272e5eb3dc76d976a86a742
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9492afeda8c11d9d4df866e416a2c2c7e1684569
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="understanding-resource-access-in-azure"></a>了解 Azure 中的資源存取
 
@@ -53,7 +53,7 @@ Azure 傳統入口網站內的功能可讓使用 Microsoft 帳戶登入的 SA �
 ## <a name="next-steps"></a>後續步驟
 * 若要深入了解如何變更 Azure 訂用帳戶的管理員，請參閱 [如何新增或變更 Azure 管理員角色](../billing/billing-add-change-azure-subscription-administrator.md)
 * 如需有關 Azure Active Directory 與您的 Azure 訂用帳戶產生關聯之方式的詳細資訊，請參閱 [Azure 訂用帳戶如何與 Azure Active Directory 產生關聯](active-directory-how-subscriptions-associated-directory.md)
-* 如需有關如何在 Azure AD 中指派角色的詳細資訊，請參閱 [在 Azure Active Directory 中指派系統管理員角色](active-directory-assign-admin-roles.md)
+* 如需有關如何在 Azure AD 中指派角色的詳細資訊，請參閱 [在 Azure Active Directory 中指派系統管理員角色](active-directory-assign-admin-roles-azure-portal.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-understanding-resource-access/IC707931.png
