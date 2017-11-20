@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a532c8f69bfb19d26538aafe7c74f062dee06d9f
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 6c61d99f1d023ac643455faae10ef284f1f5bb14
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>服務主體與 Azure Container Service (AKS)
 
@@ -34,13 +34,13 @@ AKS 叢集需要 [Azure Active Directory 服務主體](../active-directory/devel
 
 若要建立 Azure AD 服務主體，您必須有足夠權限向 Azure AD 租用戶註冊應用程式，並將應用程式指派給您訂用帳戶中的角色。 如果您沒有必要的權限，您可能需要要求您的 Azure AD 或訂用帳戶管理員指派必要權限，或預先建立 Kubernetes 叢集的服務主體。
 
-您也必須安裝和設定 Azure CLI 版本 2.0.20 或更新版本。 執行 az --version 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
+您也必須安裝和設定 Azure CLI 版本 2.0.21 或更新版本。 執行 az --version 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
 ## <a name="create-sp-with-aks-cluster"></a>建立 SP 與 AKS 叢集
 
 當使用 `az aks create` 命令部署 AKS 叢集時，您可以選擇自動產生服務主體。
 
-在下列範例中，會建立 AKS 叢集，因為未指定現有服務主體，所以會為叢集建立服務主體。 為了完成這項作業，您的帳戶必須具有建立服務主體的適當權限。 
+在下列範例中，會建立 AKS 叢集，因為未指定現有服務主體，所以會為叢集建立服務主體。 為了完成這項作業，您的帳戶必須具有建立服務主體的適當權限。
 
 ```azurecli
 az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys

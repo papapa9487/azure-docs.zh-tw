@@ -3,6 +3,7 @@
 | **Azure** |[Azure Blob 儲存體](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓  |✓  |✓  |
 | &nbsp; |[Azure Cosmos DB](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓  |✓  |✓   |
 | &nbsp; |[Azure Data Lake Store](../articles/data-factory/connector-azure-data-lake-store.md) |✓  |✓  |✓  |✓  |
+| &nbsp; |[適用於 MySQL 的 Azure 資料庫](../articles/data-factory/connector-azure-database-for-mysql.md) |✓ | |✓  |✓  |
 | &nbsp; |[Azure 檔案儲存體](../articles/data-factory/connector-azure-file-storage.md) |✓ |✓  |✓  |✓   |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |✓  |✓  |✓  |✓   |
 | &nbsp; |[Azure SQL 資料倉儲](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓  |✓  |✓  |✓   |
@@ -27,11 +28,11 @@
 | &nbsp; |[FTP](../articles/data-factory/connector-ftp.md) |✓ | |✓  |✓  |
 | &nbsp; |[HDFS](../articles/data-factory/connector-hdfs.md) |✓ | |✓  |✓  |
 | &nbsp; |[SFTP](../articles/data-factory/connector-sftp.md) |✓ | |✓  |✓  |
-| **其他** |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ | |✓  |✓  |
-| &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ | |✓  |✓  |
+| **其他** |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓  |✓  |✓  |
+| &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓  |✓  |✓  |
 | &nbsp; |[GE Historian](../articles/data-factory/connector-odbc.md#ge-historian-source) |✓ | | |✓  |
 | &nbsp; |[一般 HTTP](../articles/data-factory/connector-http.md) |✓ | |✓  |✓  |
 | &nbsp; |[泛型 OData](../articles/data-factory/connector-odata.md) |✓ | |✓  |✓  |
 | &nbsp; |[一般 ODBC](../articles/data-factory/connector-odbc.md) |✓ |✓  | |✓  |
-| &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ | |✓  |✓  |
+| &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ |✓  |✓  |✓  |
 | &nbsp; |[Web 資料表 (HTML 資料表)](../articles/data-factory/connector-web-table.md) |✓ | |✓  |✓  |

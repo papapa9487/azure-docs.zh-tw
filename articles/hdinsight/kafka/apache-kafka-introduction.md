@@ -13,25 +13,27 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/23/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 5e05f07f2d9a15ab57f993e88b7cdeb03550f8ac
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c4e0d792ae8f4c17d53430f49d81d179e56b9722
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="introducing-apache-kafka-on-hdinsight-preview"></a>HDInsight 上的 Apache Kafka (預覽) 簡介
+# <a name="introducing-apache-kafka-on-hdinsight"></a>HDInsight 上的 Apache Kafka 簡介
 
 [Apache Kafka](https://kafka.apache.org) 是開放原始碼分散式串流平台，可用來建置即時串流資料管線和應用程式。 Kafka 也提供類似於訊息佇列的訊息代理程式功能，可讓您發佈和訂閱具名資料流。 在 HDInsight 上的 Kafka 為您在 Microsoft Azure 雲端中提供受管理、高可調整性和高可用性的服務。
 
 ## <a name="why-use-kafka-on-hdinsight"></a>為何使用 HDInsight 上的 Kafka？
 
-Kafka 提供下列功能：
+Kafka on HDInsight 提供下列功能︰
+
+* 服務等級協定 (SLA)：[HDInsight 的 SLA 資訊](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/)。
 
 * 發佈-訂閱傳訊模式︰Kafka 提供生產者 API，可將記錄發佈到 Kafka 主題。 訂閱主題時會使用取用者 API。
 
-* 串流處理︰Kafka 通常與 Apache Storm 或 Spark 一起用來處理即時串流。 Kafka 0.10.0.0 (HDInsight 3.5 版) 引進串流 API，讓您不需要 Storm 或 Spark 就能建置串流解決方案。
+* 串流處理︰Kafka 通常與 Apache Storm 或 Spark 一起用來處理即時串流。 Kafka 0.10.0.0 (HDInsight 3.5 和 3.6 版) 引進串流 API，讓您不需要 Storm 或 Spark 就能建置串流解決方案。
 
 * 水平縮放︰Kafka 可將串流分割給 HDInsight 叢集的各節點。 取用者處理程序可以與個別的資料分割相關聯，在取用記錄時可平衡負載。
 

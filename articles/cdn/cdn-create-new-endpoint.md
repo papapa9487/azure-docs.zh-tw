@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b211c2076840b6eff7c21cb481da569ca6bc49a4
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 80e8e85f058a5cec2e3ae6a6cff5cb8a363370e1
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="getting-started-with-azure-cdn"></a>開始使用 Azure CDN
 本文說明如何藉由建立新的 CDN 設定檔和端點來啟用 Azure CDN。
@@ -82,7 +82,7 @@ CDN 設定檔就是 CDN 端點的集合。  每個設定檔皆包含一或多個
    > 使用 HTTPS 存取 CDN 內容具有下列限制：
    > 
    > * 您必須使用 CDN 所提供的 SSL 憑證。 不支援第三方憑證。
-   > * Azure CDN 自訂網域的 HTTPS 支援僅適用於 **Verizon 提供的 Azure CDN** 產品 (標準版和進階版)。 此功能不支援**透過 Akamai 提供的 Azure CDN** 產品。 如需詳細資訊，請參閱[在 Azure CDN 自訂網域上啟用或停用 HTTPS](cdn-custom-ssl.md)。
+   > * Azure CDN 自訂網域的 HTTPS 支援僅適用於 **Verizon 提供的 Azure CDN** 產品 (標準版和進階版)。 此功能不支援**透過 Akamai 提供的 Azure CDN** 產品。 如需詳細資訊，請參閱[在 Azure CDN 自訂網域上設定 HTTPS](cdn-custom-ssl.md)。
   
 9. 按一下 [ **新增** ] 按鈕，以建立新的端點。
    

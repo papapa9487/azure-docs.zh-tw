@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3be12abaaedf5b0d66a484cbee48fe3df77f63fe
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1d26fb8caacdd775b62d704a4b474e68e2f5a3ec
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure 備份中的功能概觀
 Azure 備份是您可用來備份 (或保護) 和還原 Microsoft Cloud 資料的 Azure 服務。 Azure 備份將以一個可靠、安全及具成本競爭力的雲端架構解決方案，取代您現有的內部部署或異地備份解決方案。 Azure 備份提供多個元件，您可以下載並部署在適當的電腦、伺服器或雲端中。 您部署的元件或代理程式，取決於您想要保護的項目。 所有 Azure 備份的元件 (無論您要保護的是內部部署或雲端資料) 都可以將資料備份至 Azure 中的復原服務保存庫。 請參閱 [Azure 備份元件資料表](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (稍後於本文提及) 以取得該使用哪個元件來保護特定資料、應用程式或工作負載的資訊。
@@ -113,7 +113,7 @@ Azure 備份可保護受控磁碟 VM。 受控磁碟可讓您免於管理虛擬�
 受控磁碟上的 VM 備份與 Resource Manager VM 備份沒有任何差異。 在 Azure 入口網站中，您可以直接從 [虛擬機器] 檢視或 [復原服務保存庫] 檢視來設定備份工作。 您可以透過以受控磁碟為基礎的 RestorePoint 集合來備份受控磁碟上的 VM。 Azure 備份也支援備份使用 Azure 磁碟加密 (ADE) 加密的受控磁碟 VM。
 
 ### <a name="restore-managed-disk-vms"></a>還原受控磁碟 VM
-Azure 備份可讓您還原具有受控磁碟的完整 VM﹐或將受控磁碟還原到儲存體帳戶。 Azure 會在還原程序期間管理受控磁碟。 您 (客戶) 管理在還原程序期間建立的儲存體帳戶。 還原受管理的已加密 VM 時，在開始還原作業之前，VM 的金鑰和祕密應已經存在於 Key Vault 中。
+Azure 備份可讓您還原具有受控磁碟的完整 VM﹐或將受控磁碟還原到儲存體帳戶。 Azure 會在還原程序期間管理受控磁碟。 您 (客戶) 管理在還原程序期間建立的儲存體帳戶。 還原受管理的已加密 VM 時，在開始還原作業之前，VM 的金鑰和密碼應已經存在於 Key Vault 中。
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>每個備份元件的功能為何？
 下列各節提供每個 Azure 備份元件的可用性，或各種其所支援功能的彙總資料表。 請參閱下列各個資料表，以了解額外支援或詳細資料。
@@ -224,7 +224,10 @@ Azure 備份每個*受保護的執行個體*上限為 9999 個復原點 (也稱�
 備份保存庫是第一個保存庫版本，並以 Azure 服務管理員為基礎。 復原服務保存庫是第二個保存庫版本，並新增 Azure Resource Manager 模型功能。 如需功能差異的完整說明，請參閱[復原服務保存庫概觀](backup-azure-recovery-services-vault-overview.md)一文。 您已無法使用 Azure 入口網站建立備份保存庫，但仍會支援備份保存庫。 您必須使用 Azure 入口網站來管理您的備份保存庫。
 
 > [!IMPORTANT]
-> 您現在可以將備份保存庫升級至復原服務保存庫。 如需詳細資訊，請參閱[將備份保存庫升級至復原服務保存庫](backup-azure-upgrade-backup-to-recovery-services.md)文章。 Microsoft 鼓勵您將備份保存庫升級至復原服務保存庫。<br/> 在 **2017 年 10 月 15 日**之後，您就無法使用 PowerShell 建立備份保存庫。 <br/> **2017 年 11 月 1 日**之前，任何其餘的備份保存庫都會自動升級至復原服務保存庫。
+> 您可以將備份保存庫升級至復原服務保存庫。 如需詳細資訊，請參閱[將備份保存庫升級至復原服務保存庫](backup-azure-upgrade-backup-to-recovery-services.md)文章。 Microsoft 鼓勵您將備份保存庫升級至復原服務保存庫。<br/> 在 **2017 年 11 月 30 日**之後，您就無法使用 PowerShell 建立備份保存庫。 <br/>
+在 2017 年 11 月 30 日以前：
+- 所有其餘的備份保存庫都會自動升級至復原服務保存庫。
+- 您將無法在傳統入口網站中存取備份資料。 相反地，使用 Azure 入口網站來存取您在復原服務保存庫中的備份資料。
 
 
 

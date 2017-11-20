@@ -12,23 +12,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 11/14/2017
 ms.author: yurid
-ms.openlocfilehash: 6f95cf7631664f4630edbbcdadfd1d98105fdb98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72a3e1eafb6f4150d8410fdd5a7a6095909c052d
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-security-center-data-security"></a>Azure 資訊安全中心資料安全性
 為了協助客戶防範、偵測和回應威脅，Azure 資訊安全中心會收集和處理安全性的相關資料，包括組態資訊、中繼資料、事件記錄檔、損毀傾印檔等等。 Microsoft 從撰寫程式碼到運作服務均遵守嚴格的規範與安全性指導方針。
 
 本文說明如何在 Azure 資訊安全中心管理和保護資料。
-
->[!NOTE] 
->從 2017 年 6 月初開始，資訊安全中心會使用 Microsoft Monitoring Agent 來收集和儲存資料。 若要深入了解，請參閱 [Azure 資訊安全中心平台移轉](security-center-platform-migration.md)。 本文中的資訊說明轉換至 Microsoft Monitoring Agent 後的資訊安全中心功能。
->
-
 
 ## <a name="data-sources"></a>資料來源
 Azure 資訊安全中心會分析來自下列來源的資料，以掌握您的安全性狀態、識別弱點並提供建議防護功能，並偵測作用中的威脅︰
@@ -70,7 +65,7 @@ Azure 資訊安全中心會收集損毀傾印檔案的暫時複本並加以分�
 
 ## <a name="managing-data-collection-from-virtual-machines"></a>從虛擬機器管理資料收集
 
-當您啟用 Azure 中的資訊安全中心時，已針對每個 Azure 訂用帳戶開啟資料收集。 您也可以在 Azure 資訊安全中心的 [安全性原則] 區段中開啟訂用帳戶的資料收集。 開啟資料收集後，Azure 資訊安全中心會在所有現有支援的 Azure 虛擬機器和任何新建立的虛擬機器上佈建 Microsoft 監視代理程式。 Microsoft Monitoring Agent 會掃描各種安全性相關設定，並將其轉換成 [Windows 事件追蹤](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) 的追蹤事件。 此外，作業系統會在執行機器的過程中引發事件記錄檔事件。 這類資料的範例包括︰作業系統類型和版本、作業系統記錄檔 (Windows 事件記錄檔)、執行中程序、電腦名稱、IP 位址、已登入的使用者和租用戶識別碼。 Microsoft Monitoring Agent 會讀取事件記錄項目和 ETW 追蹤，並將它們複製到您的工作區進行分析。 Microsoft Monitoring Agent 也會將損毀傾印檔案複製到工作區。
+當您啟用 Azure 中的資訊安全中心時，已針對每個 Azure 訂用帳戶開啟資料收集。 您也可以在 Azure 資訊安全中心的 [安全性原則] 區段中開啟訂用帳戶的資料收集。 開啟資料收集後，Azure 資訊安全中心會在所有現有支援的 Azure 虛擬機器和任何新建立的虛擬機器上佈建 Microsoft 監視代理程式。 Microsoft Monitoring Agent 會掃描各種安全性相關設定，並將其轉換成 [Windows 事件追蹤](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) 的追蹤事件。 此外，作業系統會在執行機器的過程中引發事件記錄檔事件。 這類資料的範例包括︰作業系統類型和版本、作業系統記錄檔 (Windows 事件記錄檔)、執行中程序、電腦名稱、IP 位址、已登入的使用者和租用戶識別碼。 Microsoft Monitoring Agent 會讀取事件記錄項目和 ETW 追蹤，並將它們複製到您的工作區進行分析。 Microsoft Monitoring Agent 也會將損毀傾印檔案複製到工作區，啟用程序建立事件，以及啟用命令列稽核功能。
 
 如果您是使用免費版的 Azure 安全性中心，也可以在安全性原則中，從虛擬機器停用資料收集。 標準層上的訂用帳戶需要資料收集。 即使已停用資料集合，仍然會啟用VM 磁碟快照集和構件集合。
 

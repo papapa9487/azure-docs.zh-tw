@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2017
+ms.date: 11/10/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 8961576d1a7de268bab2f4adf01d89dde1fc8776
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 23621c418663ee5b4ed83ab989663a882e7000bd
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>使用 SSH 連線到 HDInsight (Hadoop)
 
@@ -48,26 +48,24 @@ HDInsight 可以使用 Linux (Ubuntu) 作為 Hadoop 叢集節點的作業系統�
 > [!TIP]
 > 當您初次連線至 HDInsight，您的 SSH 用戶端可能會顯示警告，指出無法建立主機的真確性。 在系統提示時，選取 [是] 將主機新增至您的 SSH 用戶端信任的伺服器清單。
 >
-> 如果您之前曾連線至相同名稱的伺服器，您可能會收到警告，指出預存的主機金鑰與伺服器的主機金鑰不符。 發生這個情況時，SSH 用戶端可能會拒絕連線至叢集。 如需了解如何移除現有的伺服器名稱項目，請參閱您的 SSH 用戶端文件。
+> 如果您之前曾連線至相同名稱的伺服器，您可能會收到警告，指出預存的主機金鑰與伺服器的主機金鑰不符。 如需了解如何移除現有的伺服器名稱項目，請參閱您的 SSH 用戶端文件。
 
 ## <a name="ssh-clients"></a>SSH 用戶端
 
 Linux、Unix 和 macOS 系統提供 `ssh` 和 `scp` 命令。 `ssh` 用戶端通常用來建立以 Linux 或 Unix 為基礎之系統的遠端命令列工作階段。 `scp` 用戶端用來安全地複製用戶端與遠端系統之間的檔案。
 
-Microsoft Windows 預設不會提供任何 SSH 用戶端。 `ssh` 和 `scp` 用戶端均可透過下列套件使用於 Windows︰
+Microsoft Windows 預設不會安裝任何 SSH 用戶端。 `ssh` 和 `scp` 用戶端均可透過下列套件使用於 Windows︰
 
-* [Azure Cloud Shell](../cloud-shell/quickstart.md)：Cloud Shell 在瀏覽器中提供 Bash 環境，並提供`ssh``scp` 和其他一般 Linux 命令。
+* OpenSSH 用戶端搶鮮版 (Beta)：在 Fall Creators Update 中，移至 [設定] > [應用程式和功能] > [管理選擇性功能] > [新增功能] 以及選取 [OpenSSH 用戶端]。 
+
+    > [!NOTE]
+    > 如果啟用這項功能之後，無法在 PowerShell 中使用 `ssh` 和 `scp` 命令，請登出而後重新登入。
 
 * [位於 Windows 10 之 Ubuntu 上的 Bash](https://msdn.microsoft.com/commandline/wsl/about)：`ssh` 和`scp` 命令可透過 Windows 命令列上的 Bash 來取得。
 
+* [Azure Cloud Shell](../cloud-shell/quickstart.md)：Cloud Shell 在瀏覽器中提供 Bash 環境，並提供`ssh``scp` 和其他一般 Linux 命令。
+
 * [Git (https://git-scm.com/)](https://git-scm.com/)：`ssh` 和 `scp` 命令可透過 GitBash 命令列來取得。
-
-* [GitHub Desktop (https://desktop.github.com/)](https://desktop.github.com/)：`ssh` 和 `scp` 命令可透過 GitHub Shell 命令列來取得。 GitHub Desktop 可設定為使用 Bash、Windows 命令提示字元或 PowerShell 來作為 Git Shell 的命令列。
-
-* [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)：PowerShell 小組將會把 OpenSSH 移植到 Windows，並提供測試版本。
-
-    > [!WARNING]
-    > OpenSSH 套件包含 SSH 伺服器元件 `sshd`。 此元件會在您的系統上啟動 SSH 伺服器，讓其他人可與它連線。 除非您想要在系統上裝載 SSH 伺服器，否則請勿設定此元件或開啟連接埠 22。 與 HDInsight 通訊並不需要這麼做。
 
 另外還有數個圖形化 SSH 用戶端，例如 [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) 和 [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/)。 雖然這些用戶端可用來連線到 HDInsight，但連線的程序與使用 `ssh` 公用程式時不同。 如需詳細資訊，請參閱您使用之圖形化用戶端的文件。
 
@@ -116,7 +114,7 @@ SSH 金鑰會使用[公開金鑰加密](https://en.wikipedia.org/wiki/Public-key
 您可以使用密碼來保護 SSH 帳戶。 當您使用 SSH 連線到 HDInsight 時，系統會提示您輸入密碼。
 
 > [!WARNING]
-> 我們不建議您對 SSH 使用密碼驗證。 密碼可以猜到，因此很容易遭受暴力密碼破解攻擊。 相反地，我們會建議您使用 [SSH 金鑰來進行驗證](#sshkey)。
+> Microsoft 不建議對 SSH 使用密碼驗證。 密碼可以猜到，因此很容易遭受暴力密碼破解攻擊。 相反地，我們會建議您使用 [SSH 金鑰來進行驗證](#sshkey)。
 
 ### <a name="create-hdinsight-using-a-password"></a>使用密碼建立 HDInsight
 
@@ -152,7 +150,7 @@ SSH 金鑰會使用[公開金鑰加密](https://en.wikipedia.org/wiki/Public-key
     ssh -p 23 sshuser@clustername-ssh.azurehdinsight.net
     ```
     
-* 連線到__邊緣節點__時，請使用通訊埠 22。 完整網域名稱為 `edgenodename.clustername-ssh.azurehdinsight.net`，其中 `edgenodename` 是您建立邊緣節點時提供的名稱。 `clustername` 是叢集的名稱。
+* 連線到__邊緣節點__時，請使用連接埠 22。 完整網域名稱為 `edgenodename.clustername-ssh.azurehdinsight.net`，其中 `edgenodename` 是您建立邊緣節點時提供的名稱。 `clustername` 是叢集的名稱。
 
     ```bash
     # Connect to edge node
@@ -176,7 +174,7 @@ SSH 金鑰會使用[公開金鑰加密](https://en.wikipedia.org/wiki/Public-key
 
         ssh sshuser@wn0-myhdi
 
-    若要擷取叢集節點的網域名稱清單，請參閱[使用 Ambari REST API 管理 HDInsight](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) 文件。
+    若要擷取節點名稱清單，請參閱[使用 Ambari REST API 管理 HDInsight](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) 文件。
 
 如果使用__密碼__來保護 SSH 帳戶，請在連線時輸入密碼。
 

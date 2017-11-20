@@ -1,5 +1,5 @@
 ---
-title: "教學課程：在入口網站中建立第一個 Azure 搜尋服務索引 | Microsoft Docs"
+title: "Azure 搜尋入口網站頁面中的索引、查詢和篩選器 | Microsoft Docs"
 description: "在 Azure 入口網站中，使用預先定義的範例資料來產生索引。 探索全文檢索搜尋、篩選器、面向、模糊搜尋、地理搜尋功能等等。"
 services: search
 documentationcenter: 
@@ -15,17 +15,17 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 06/26/2017
 ms.author: heidist
-ms.openlocfilehash: c49989058fdd98d623c5517060f725e5f7e436d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a67de3d385ccb1f65d026acfa0d4413df889bafe
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="tutorial-create-your-first-azure-search-index-in-the-portal"></a>教學課程：在入口網站中建立第一個 Azure 搜尋服務索引
+# <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>在入口網站中建立、查詢和篩選 Azure 搜尋服務索引
 
 在 Azure 入口網站中，從預先定義的範例資料集著手，使用 [匯入資料] 精靈快速產生索引。 使用**搜尋總管**探索全文檢索搜尋、篩選器、面向、模糊搜尋和地理搜尋功能。  
 
-此無程式碼的簡介，讓您從預先定義的資料著手，以便立即撰寫有趣的查詢。 雖然入口網站工具無法取代程式碼，但很適合用於下列工作︰
+此無程式碼的簡介，讓您從預先定義的資料著手，以便立即撰寫有趣的查詢。 雖然入口網站工具無法取代程式碼，但您可能發現它適合用於下列工作︰
 
 + 產品量產時間最短的實際操作學習
 + 在 [匯入資料] 中撰寫程式碼前，先設定索引的原型
@@ -128,7 +128,7 @@ ms.lasthandoff: 10/11/2017
 
 **`search=seattle`**
 
-+ `search` 參數用來輸入可供全文檢索搜尋的關鍵字搜尋，在此例中，會傳回華盛頓州金郡的清單，並且在文件的任何可搜尋欄位中包含 Seattle。 
++ **search** 參數用來輸入可供全文檢索搜尋的關鍵字搜尋，在此例中，會傳回華盛頓州金郡的清單，並且在文件的任何可搜尋欄位中包含 Seattle。 
 
 + **搜尋總管**會以 JSON 傳回結果，這是詳細資訊，而如果文件的結構很密集則難以閱讀。 視您的文件而定，您可能需要撰寫程式碼來搜尋結果，以擷取重要的元素。 
 
@@ -136,35 +136,48 @@ ms.lasthandoff: 10/11/2017
 
 **`search=seattle&$count=true&$top=100`**
 
-+ `&` 符號用來附加搜尋參數 (可依任何順序指定)。 
++ **&** 符號用來附加搜尋參數 (可依任何順序指定)。 
 
-+  `$count=true` 參數會傳回所有已傳回文件的總和計數。 您可以藉由監視 `$count=true` 所報告的變更來驗證篩選查詢。 
++  **$count=true** 參數會傳回所有已傳回文件的總和計數。 您可以藉由監視 **$count=true** 所報告的變更來驗證篩選查詢。 
 
-+ `$top=100` 會傳回所有文件中最高順位的 100 份文件。 根據預設，Azure 搜尋服務會傳回前 50 個最相符項目。 您可以透過 `$top` 來增加或減少數量。
++ **$top=100** 會傳回所有文件中最高順位的 100 份文件。 根據預設，Azure 搜尋服務會傳回前 50 個最相符項目。 您可以透過 **$top** 來增加或減少數量。
 
-**`search=*&facet=city&$top=2`**
 
-+ `search=*` 是空的搜尋。 空的搜尋會搜尋所有一切。 提交空查詢的其中一個原因是為了篩選一組完整的文件或使其面向化。 例如，您希望多面向導覽結構包含索引中的所有城市。
+## <a name="filter-query"></a> 篩選查詢
 
-+  `facet` 會傳回您可傳遞至 UI 控制項的導覽結構。 它會傳回一些類別和一個計數。 在此情況下，類別是以城市數目為基礎。 在 Azure 搜尋服務中沒有彙總功能，但您可以透過 `facet` 模擬彙總，其可提供各類別中的文件計數。
-
-+ `$top=2` 會傳回兩份文件，這表示您可以使用 `top` 來減少或增加結果。
-
-**`search=seattle&facet=beds`**
-
-+ 此查詢是 beds 的面向，以 Seattle 的文字搜尋為基礎。 可以將 `"beds"` 指定為一個面向，因為該欄位標示為可在索引中擷取、篩選及面向化 (1 到 5 的數值)，適合用於將清單分類 (包含 3 個房間、4 個房間的清單)。 
-
-+ 只有可篩選的欄位可以面向化。 只有可擷取的欄位可以在結果中傳回。
+當您附加 **$filter** 參數時，篩選器會包含在搜尋要求中。 
 
 **`search=seattle&$filter=beds gt 3`**
 
-+ `filter` 參數會傳回符合您提供之準則的結果。 在此情況下，房間大於 3 間。 
++ **$filter** 參數會傳回符合您提供之準則的結果。 在此情況下，房間大於 3 間。 
 
 + 篩選語法是 OData 建構。 如需詳細資訊，請參閱[篩選 OData 語法](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)。
 
+## <a name="facet-query"></a> 將查詢面向化
+
+Facet 篩選器會包含在搜尋要求中。 您可以使用 facet 參數，傳回符合您所提供之 facet 值的文件彙總計數。 
+
+**`search=*&facet=city&$top=2`**
+
++ **search=*** 是空的搜尋。 空的搜尋會搜尋所有一切。 提交空查詢的其中一個原因是為了篩選一組完整的文件或使其面向化。 例如，您希望多面向導覽結構包含索引中的所有城市。
+
++  **facet** 會傳回您可傳遞至 UI 控制項的導覽結構。 它會傳回一些類別和一個計數。 在此情況下，類別是以城市數目為基礎。 在 Azure 搜尋服務中沒有彙總功能，但您可以透過 `facet` 模擬彙總，其可提供各類別中的文件計數。
+
++ **$top=2** 會傳回兩份文件，這表示您可以使用 `top` 來減少或增加結果。
+
+**`search=seattle&facet=beds`**
+
++ 此查詢是 beds 的面向，以 Seattle 的文字搜尋為基礎。 可以將 beds 字詞指定為一個面向，因為該欄位標示為可在索引中擷取、篩選及面向化 (1 到 5 的數值)，適合用於將清單分類 (包含 3 個房間、4 個房間的清單)。 
+
++ 只有可篩選的欄位可以面向化。 只有可擷取的欄位可以在結果中傳回。
+
+## <a name="highlight-query"></a> 新增醒目提示
+
+命中項目醒目提示是指關鍵字文字比對的格式設定，前提是在特定欄位中找到相符項目。 如果您的搜尋字詞深藏在描述中，您可以新增命中項目醒目提示功能，更輕鬆地發現所搜尋的字詞。 
+
 **`search=granite countertops&highlight=description`**
 
-+ 命中項目醒目提示是指關鍵字文字比對的格式設定，前提是在特定欄位中找到相符項目。 如果您的搜尋字詞深藏在描述中，您可以新增命中項目醒目提示功能，更輕鬆地發現所搜尋的字詞。 在此情況下，格式化片語 `"granite countertops"` 可在描述欄位中看得更清楚。
++ 在此範例中，格式化片語 granite countertops 可在描述欄位中更容易找出。
 
 **`search=mice&highlight=description`**
 
@@ -172,23 +185,29 @@ ms.lasthandoff: 10/11/2017
 
 + Azure 搜尋服務支援 Microsoft 和 Lucene 所提供的 56 個分析器。 Azure 搜尋服務預設使用標準 Lucene 分析器。 
 
+## <a name="fuzzy-search"></a> 使用模糊搜尋
+
+拼錯的字 (如 samamish 是指 Seattle 地區的 Samammish 高原) 無法在一般搜尋中傳回相符項目。 若要處理拼字錯誤，您可以使用下一個範例中所述的模糊搜尋。
+
 **`search=samamish`**
 
-+ 拼錯的字 (如 'samamish' 是指 Seattle 地區的 Samammish 高原) 無法在一般搜尋中傳回相符項目。 若要處理拼字錯誤，您可以使用下一個範例中所述的模糊搜尋。
++ 此範例將 Seattle 地區的鄰近地區拼錯。
 
 **`search=samamish~&queryType=full`**
 
-+ 當您在指定 `~` 符號並使用完整查詢剖析器時可啟用模糊搜尋，它會解譯並正確地剖析 `~` 語法。 
++ 當您在指定 **~** 符號並使用完整查詢剖析器時可啟用模糊搜尋，它會解譯並正確地剖析 **~** 語法。 
 
-+ 當您選擇使用完整查詢剖析器時可使用模糊搜尋，其發生於當您設定 `queryType=full` 時。 如需完整查詢剖析器所啟用查詢案例的詳細資訊，請參閱 [Azure 搜尋服務中的 Lucene 查詢語法](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)。
++ 當您選擇使用完整查詢剖析器時可使用模糊搜尋，其發生於當您設定 **queryType=full** 時。 如需完整查詢剖析器所啟用查詢案例的詳細資訊，請參閱 [Azure 搜尋服務中的 Lucene 查詢語法](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)。
 
-+ 若未指定 `queryType`，則會使用預設的簡單查詢剖析器。 簡單查詢剖析器的速度較快，但如果您需要模糊搜尋、規則運算式、鄰近搜尋或其他進階的查詢類型，則需要完整的語法。 
++ 若未指定 **queryType**，則會使用預設的簡單查詢剖析器。 簡單查詢剖析器的速度較快，但如果您需要模糊搜尋、規則運算式、鄰近搜尋或其他進階的查詢類型，則需要完整的語法。 
+
+## <a name="geo-search"></a> 嘗試地理空間搜尋
+
+地理空間搜尋是透過含有座標之欄位上的 [edm.GeographyPoint 資料類型](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)提供支援。 地理搜尋是在[篩選 OData 語法](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)中指定的一種篩選器。 
 
 **`search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`**
 
-+ 地理空間搜尋是透過含有座標之欄位上的 [edm.GeographyPoint 資料類型](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)提供支援。 地理搜尋是在[篩選 OData 語法](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)中指定的一種篩選器。 
-
-+ 範例查詢會篩選所有結果中的位置資料，而結果是小於距離指定點 (以緯度和經度座標指定) 5 公里。 藉由新增 `$count`，您可以看到當您變更距離或座標時傳回多少筆結果。 
++ 範例查詢會篩選所有結果中的位置資料，而結果是小於距離指定點 (以緯度和經度座標指定) 5 公里。 藉由新增 **$count**，您可以看到當您變更距離或座標時傳回多少筆結果。 
 
 + 如果搜尋應用程式有「尋找附近地點」功能或使用地圖導航功能，地理空間搜尋便很實用。 不過，並不是全文檢索搜尋。 如果使用者有需要依照名稱搜尋城市或國家/地區，則除了座標以外，請新增包含城市或國家/地區名稱的欄位。
 

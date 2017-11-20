@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: 58e141498ed5cbaa110622d949a9627c98827ac3
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: b797ee3ef270ff3420ff9e7f4aa8032641714d7a
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 簡介 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -77,7 +77,7 @@ Azure Data Factory 第 2 版是以原始 Azure Data Factory 資料移動和轉�
 
 隨著資料管線變成商務分析策略的一個重要部分，我們已目睹這些重要的資料活動需要彈性的排程，以支援增量資料載入和事件觸發的執行。 最後，隨著這些作業的複雜性增加，要求服務支援常見工作流程範例 (包括分支、迴圈及條件式處理) 的需求也隨之增加。
 
-在第 2 版中，您也可以將現有的 SSIS 套件移轉到雲端。 您可以將 SSIS 原形移轉為在 ADF 內管理的 Azure 服務，並且利用「整合執行階段」(IR)」這想新功能。 藉由在第 2 版中運作 SSIS IR，您將能夠在雲端執行、管理、監視及建置 SSIS 套件。
+在第 2 版中，您也可以將現有的 SSIS 封裝移轉到雲端。 您可以將 SSIS 原形移轉為在 ADF 內管理的 Azure 服務，並且利用「整合執行階段」(IR)」這想新功能。 藉由在第 2 版中運作 SSIS IR，您將能夠在雲端執行、管理、監視及建置 SSIS 套件。
 
 ### <a name="control-flow-and-scale"></a>控制流程和規模 
 為了支援現代化資料倉儲中的各種整合流程和模式，Data Factory 已啟用一個不再與時間序列資料繫結的新彈性資料管線模型。 在此版本中，您可以在資料管線的控制流程中為條件式和分支建立模型，然後明確地在這些流程內及跨這些流程傳遞參數。
@@ -172,11 +172,11 @@ Data Factory 中的連結服務，有兩個用途：
 
 ## <a name="supported-regions"></a>支援區域
 
-您目前可以在「美國東部」和「美國東部 2」區域建立資料處理站。 不過，Data Factory 可以存取其他 Azure 區域的資料存放區和計算資料，以在資料存放區之間移動資料或使用計算服務處理資料。
+您目前可以在「美國東部」、「美國東部 2」和「西歐」區域建立資料處理站。 不過，Data Factory 可以存取其他 Azure 區域的資料存放區和計算資料，以在資料存放區之間移動資料或使用計算服務處理資料。
 
 Azure Data Factory 本身不會儲存任何資料。 它可讓您建立資料導向工作流程，藉由使用其他區域或內部部署環境中的計算服務，協調所支援資料存放區之間的資料移動和資料處理。 它也可讓您使用程式設計方式和 UI 機制來監視和管理工作流程。
 
-雖然只有「美國東部」和「美國東部 2」區域有提供 Data Factory，但為 Data Factory 中的資料移動提供技術支援的服務卻是全球數個區域中都有提供。 如果資料存放區位於防火牆後面，則會改由內部部署環境中所安裝的資料管理閘道負責移動資料。
+雖然只有「美國東部」、「美國東部 2」和「西歐」區域提供 Data Factory，但為 Data Factory 中的資料移動提供技術支援的服務卻是全球數個區域中都有提供。 如果資料存放區位於防火牆後面，則會改由內部部署環境中所安裝的資料管理閘道負責移動資料。
 
 如需範例，讓我們假設您的計算環境 (例如 Azure HDInsight 叢集和 Azure 機器學習服務) 即將用盡西歐區域的資源。 您可以在北歐建立和利用 Azure Data Factory 執行個體，並用它排程您在西歐區域之計算環境上的工作。 只要幾毫秒的時間，Data Factory 就能觸發計算環境上的作業，但執行計算環境上作業所需的時間則不會改變。
 

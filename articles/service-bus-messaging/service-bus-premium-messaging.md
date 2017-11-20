@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/07/2017
-ms.author: darosa;sethm
-ms.openlocfilehash: a0c169e0580468e83a07c077f8c60e83d3fb52f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/10/2017
+ms.author: sethm
+ms.openlocfilehash: 613bb074063e436cdbd54fe5aee9c49109a2d8f2
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>服務匯流排進階和標準傳訊層級
 
@@ -60,12 +60,11 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="get-started-with-premium-messaging"></a>開始使用進階傳訊
 
-開始使用進階訊息非常簡單，其程序類似於標準傳訊。 首先[建立命名空間](service-bus-create-namespace-portal.md)。 請務必選取 [定價層] 之下的 [進階]。
+開始使用進階訊息非常簡單，其程序類似於標準傳訊。 首先在 [Azure 入口網站](https://portal.azure.com)中[建立命名空間](service-bus-create-namespace-portal.md)。 務必選取 [選擇您的定價層] 之下的 [進階]。
 
 ![create-premium-namespace][create-premium-namespace]
 
 您也可以[使用 Azure Resource Manager 範本建立進階命名空間](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/)。
-
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -74,7 +73,7 @@ ms.lasthandoff: 10/11/2017
 * [Azure 服務匯流排進階傳訊簡介 (部落格文章)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Azure 服務匯流排進階傳訊簡介 (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [服務匯流排訊息概觀](service-bus-messaging-overview.md)
-* [如何使用服務匯流排佇列](service-bus-dotnet-get-started-with-queues.md)
+* [開始使用服務匯流排佇列](service-bus-dotnet-get-started-with-queues.md)
 
 <!--Image references-->
 

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 10/13/2017
-ms.openlocfilehash: 07d06e4de95fcc562bcc76ac5cc4f5cd3483ba6d
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 7c74a9ebaae0b027277fe282b958a653ab498fc5
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>建立 Azure Machine Learning 預覽帳戶，並安裝 Azure Machine Learning Workbench
 Azure Machine Learning 是整合、端對端的資料科學和進階分析解決方案。 它可以協助專業資料科學家以雲端規模準備資料、開發測試及部署模型。
@@ -93,33 +93,20 @@ Azure Machine Learning 是整合、端對端的資料科學和進階分析解決
    `C:\Users\<user>\AppData\Local\AmlWorkbench`
 
 ## <a name="install-azure-machine-learning-workbench-on-macos"></a>在 macOS 上安裝 Azure Machine Learning Workbench
-在執行 macOS Sierra 的電腦上安裝 Azure Machine Learning Workbench。
+在執行 macOS Sierra 或更新版本的電腦上安裝 Azure Machine Learning Workbench。
 
-1. 使用 [Homebrew](http://brew.sh) 安裝 openssl 程式庫。 如需詳細資訊，請參閱 [Mac 上的 .NET Core 的必要條件](https://docs.microsoft.com/dotnet/core/macos-prerequisites)。
-   ```
-   # install Homebrew first if you don't have it already
-   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-   # install latest openssl needed for .NET Core 1.x
-   brew update
-   brew install openssl
-   mkdir -p /usr/local/lib
-   ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
-   ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
-   ```
-
-2. 下載最新的 Azure Machine Learning Workbench 安裝程式 [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg)。
+1. 下載最新的 Azure Machine Learning Workbench 安裝程式 [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg)。
 
    >[!IMPORTANT]
    >在磁碟上完整下載安裝程式，然後從該處執行它。 不要直接從瀏覽器的下載小工具執行它。
 
-3. 從 Finder 按兩下所下載的安裝程式 **AmlWorkbench.dmg**。
+2. 從 Finder 按兩下所下載的安裝程式 **AmlWorkbench.dmg**。
 
-4. 遵循螢幕上的指示完成安裝。
+3. 遵循螢幕上的指示完成安裝。
 
    安裝程式會下載所有必要的相依元件，例如 Python、Miniconda 及其他相關程式庫。 安裝可能需要約半小時才能完成所有元件。 
 
-5. Azure Machine Learning Workbench 現在已安裝在下列目錄： 
+4. Azure Machine Learning Workbench 現在已安裝在下列目錄： 
 
    `/Applications/AmlWorkbench.app`
 

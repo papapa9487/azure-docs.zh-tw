@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2017
+ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: 7fbb47390b6b1d918cbef0770ce1822591341866
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 3b56c91accfb6fe6358032e1dd329a931abfc3c1
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>開始使用 Azure IoT 套件連線處理站預先設定的解決方案
 
@@ -54,7 +54,7 @@ Azure IoT 套件[預先設定的解決方案][lnk-preconfigured-solutions]結合
 > [!NOTE]
 > 如果您在佈建預先設定的解決方案時遇到問題，請參閱 [azureiotsuite.com 網站的權限][lnk-permissions]和[連線的處理站常見問題集](iot-suite-faq-cf.md)。 如果問題持續發生，請在[入口網站][lnk-portal]建立服務票證。
 
-是否有您預期會看到但沒有列出的解決方案詳細資料？ 請在 [使用者心聲](https://feedback.azure.com/forums/321918-azure-iot)中提供功能建議給我們。
+是否有您預期會看到但沒有列出的解決方案詳細資料？ 請在[使用者心聲](https://feedback.azure.com/forums/321918-azure-iot)中提供功能建議。
 
 ## <a name="scenario-overview"></a>案例概觀
 
@@ -302,5 +302,5 @@ OEE 會使用重要生產相關作業參數來評比製造程序的效率。 OEE
 [lnk-cfgithub]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-rm-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
 [lnk-connect-cf]: iot-suite-connected-factory-gateway-deployment.md
-[lnk-permissions]: iot-suite-permissions.md
-[lnk-faq]: iot-suite-faq.md
+[lnk-permissions]: iot-suite-v1-permissions.md
+[lnk-faq]: iot-suite-v1-faq.md

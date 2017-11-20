@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: jdial
-ms.openlocfilehash: d243455be9439a686ecdf6dfa3aadf2802a0714d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 95f2b57b2012df816c76a1b6ec55ca9f92e134a3
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 位址類型及配置方法
 
@@ -145,29 +145,22 @@ Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服
 
 ### <a name="allocation-method"></a>配置方法
 
-私人 IP 位址是從附加資源的子網路位址範圍進行配置。 子網路本身的位址範圍是虛擬網路位址範圍的一部分。
+私人 IP 位址是從資源所在虛擬網路子網路的位址範圍進行配置。 私人 IP 位址有兩種配置方法：
 
-私人 IP 位址有兩種配置方法：「動態」或「靜態」。 預設配置方法是「動態」 ，此方法會從資源的子網路自動配置 IP 位址 (使用 DHCP)。 此 IP 位址可在您停止並啟動資源時變更。
-
-您可以將配置方法設定為「靜態」  以確保 IP 位址維持不變。 當您指定「靜態」時，您會指定屬於資源子網路的有效 IP 位址。
-
-靜態私人 IP 位址通常用於：
-
-* 作為網域控制站或 DNS 伺服器的虛擬機器。
-* 需要使用 IP 位址的防火牆規則的資源。
-* 其他應用程式/資源透過 IP 位址存取的資源。
+- **動態**：Azure 會保留每個子網路位址範圍內的前四個位址，並不會指派位址。 Azure 會將子網路位址範圍內的下一個可用位址指派給資源。 例如，如果子網路的位址範圍是 10.0.0.0/16，而且已指派位址 10.0.0.0.4-10.0.0.14 (已保留 0-.3)，Azure 會將 10.0.0.15 指派給資源。 動態是預設配置方法。 指派之後，只有在網路介面遭到刪除、指派給相同虛擬網路內的不同子網路，或配置方法變更為靜態，並指定不同的 IP 位址後，才會釋出動態 IP 位址。 根據預設，當您的配置方法從動態變更為靜態時，Azure 會將先前動態指派的位址指派為靜態位址。
+- **靜態**：您選取並指派子網路位址範圍內的位址。 您指派的位址可以是子網路位址範圍內的任何位址，但該位址不是子網路位址範圍內的前四個位址之一，而且目前並未指派給子網路中的任何其他資源。 只有在刪除網路介面後，才會釋出靜態位址。 如果您將配置方法變更為靜態，Azure 會以動態方式將先前指派的靜態 IP 位址指派為動態位址 (即使此位址不是子網路位址範圍內的下一個可用位址)。 如果網路介面已指派給相同虛擬網路內的不同子網路，位址也會跟著變更，但若要將網路介面指派給不同的子網路，您必須先將配置方法從靜態變更為動態。 一旦您將網路介面指派給不同的子網路，您即可將配置方法變回靜態，並從新的子網路位址範圍中指派 IP 位址。
 
 ### <a name="virtual-machines"></a>虛擬機器
 
-私人 IP 位址會指派給 [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器的**網路介面**。 如果虛擬機器有多個網路介面，系統會對每個網路介面指派私人 IP 位址。 您可以將網路介面的配置方法指定為動態或靜態。
+一或多個私人 IP 位址會指派給 [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器的一或多個**網路介面**。 您可以將每個私人 IP 位址的配置方法指定為動態或靜態。
 
 #### <a name="internal-dns-hostname-resolution-for-virtual-machines"></a>內部 DNS 主機名稱解析 (適用於虛擬機器)
 
 除非明確設定自訂 DNS 伺服器，否則所有 Azure 虛擬機器預設都會設定 [Azure 受管理 DNS 伺服器](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) 。 這些 DNS 伺服器會針對位於相同虛擬網路的虛擬機器提供內部名稱解析。
 
-當您建立虛擬機器時，會將主機名稱與其私人 IP 位址的對應加入至 Azure 受管理 DNS 伺服器。 如果虛擬機器有多個網路介面，主機名稱會對應至主要網路介面的私人 IP 位址。
+當您建立虛擬機器時，會將主機名稱與其私人 IP 位址的對應加入至 Azure 受管理 DNS 伺服器。 如果一部虛擬機器有多個網路介面，或一個網路介面有多個 IP 組態，則主機名稱會對應至主要網路介面之主要 IP 組態的私人 IP 位址。
 
-使用 Azure 受管理 DNS 伺服器所設定的虛擬機器，能夠將相同虛擬網路內所有虛擬機器的主機名稱解析為其私人的 IP 位址。
+使用 Azure 受管理 DNS 伺服器所設定的虛擬機器，能夠將相同虛擬網路內所有虛擬機器的主機名稱解析為其私人的 IP 位址。 若要解析已連線的虛擬網路中虛擬機器的主機名稱，您必須使用自訂 DNS 伺服器。
 
 ### <a name="internal-load-balancers-ilb--application-gateways"></a>內部負載平衡器 (ILB) 與應用程式閘道
 

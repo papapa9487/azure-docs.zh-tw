@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/1/2017
+ms.date: 11/9/2017
 ms.author: guybo
-ms.openlocfilehash: 12303e4283de3d179590e599d4d2fe8f14167eda
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3679ca32af5cee82660bbfda70046a0202d47c3e
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>使用大型的虛擬機器擴展集
 您現在可以建立容量多達 1,000 個 VM 的 Azure [虛擬機器擴展集](/azure/virtual-machine-scale-sets/)。 本文件將_大型虛擬機器擴展集_定義為能夠調整到 100 個 VM 以上的擴展集。 此容量是由擴展集屬性 (_singlePlacementGroup=False_) 所設定。 
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 - 大型擴展集需要 Azure 受控磁碟。 所建立的擴展集若非使用受控磁碟，則需要多個儲存體帳戶 (每 20 個 VM 一個)。 大型擴展集的設計用途是為了獨佔使用受控磁碟，以減少儲存體管理負荷，並避免達到儲存體帳戶之訂用帳戶限制的風險。 如果您未使用受控磁碟，擴展集會限制為 100 個 VM。
 - 從 Azure Marketplace 映像所建立的擴展集可以相應增加到 1,000 個 VM。
 - 從自訂映像 (您自己建立並上傳的 VM 映像) 所建立的擴展集目前可以相應增加到 300 個 VM。
-- 由多個放置群組所組成的擴展集尚未支援使用 Azure Load Balancer 的第 4 層負載平衡。 如果您需要使用 Azure Load Balancer，請確定擴展集是設定為使用單一放置群組 (預設設定)。
+- 使用由多個放置群組所組成之擴展集的第 4 層負載平衡需要 [Azure Load Balancer 標準 SKU](../load-balancer/load-balancer-standard-overview.md)。 Load Balancer 標準 SKU 可提供額外的好處，例如平衡多個擴展集之間負載的能力。 標準 SKU 也要求擴展集具有相關聯的網路安全性群組，否則 NAT 集區將無法正常運作。 如果您需要使用 Azure Load Balancer 基本 SKU，請確定擴展集是設定為使用單一放置群組 (預設設定)。
 - 所有擴展集皆支援使用 Azure 應用程式閘道的第 7 層負載平衡。
 - 擴展集會使用單一子網路來定義，請確定子網路的位址空間夠大，足以放置您需要的所有 VM。 根據預設，擴展集會過度佈建 (在部署或相應放大時建立額外的 VM，而無須付費) 以提升部署可靠性和效能。 請讓位址空間比您計劃調整成的 VM 數目大 20%。
 - 如果您計劃部署許多 VM，您可能需要增加計算核心的配額限制。
@@ -83,6 +83,6 @@ az vmss create --help
 若要讓現有擴展集能夠調整為 100 個以上的 VM，您必須將擴展集模型中的 [singplePlacementGroup] 屬性變更為 [false]。 您可以使用 [Azure 資源總管](https://resources.azure.com/)測試此屬性的變更。 找到現有擴展集，選取 [編輯]，然後變更 [singlePlacementGroup] 屬性。 如果未看到此屬性，您可能是以舊版 Microsoft.Compute API 在檢視擴展集。
 
 >[!NOTE] 
-您只能將擴展集從支援單一放置群組 (預設行為) 變更為支援多個放置群組，而無法進行相反方向的轉換。 因此在轉換之前，請確定您已了解大型擴展集的屬性。 尤其是要確定您不需要使用 Azure Load Balancer 的第 4 層負載平衡。
+您只能將擴展集從支援單一放置群組 (預設行為) 變更為支援多個放置群組，而無法進行相反方向的轉換。 因此在轉換之前，請確定您已了解大型擴展集的屬性。
 
 

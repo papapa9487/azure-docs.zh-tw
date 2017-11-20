@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/02/2017
 ms.author: billmath
-ms.openlocfilehash: a4b3c7543efc33d07dbd4f6c01b6e1bc354d1ed2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eff198a522470e1145c97758a54fc9b8f294287f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>自訂 Azure AD Connect 安裝
 當您想要更多安裝選項時，可使用 Azure AD Connect **自訂設定** 。 如果您有多個樹系，或如果您想要設定未涵蓋在快速安裝中的選用功能，可使用它。 只要是[**快速安裝**](active-directory-aadconnect-get-started-express.md)選項不能滿足部署或拓撲的情況，就可使用它。
@@ -91,9 +91,9 @@ ms.lasthandoff: 10/11/2017
 此頁面可讓您檢閱內部部署 AD DS 中存在的 UPN 網域，以及已在 Azure AD 中驗證的 UPN 網域。 此頁面也可讓您設定要用於 userPrincipalName 的屬性。
 
 ![未驗證的網域](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig.png)  
-檢閱每一個標示為**未新增**和**未驗證**的網域。 確定您所使用的網域皆已在 Azure AD 中完成驗證。 驗證好網域時，按一下 [重新整理] 符號。 如需詳細資訊，請參閱[新增並驗證網域](../active-directory-add-domain.md)
+檢閱每一個標示為**未新增**和**未驗證**的網域。 確定您所使用的網域皆已在 Azure AD 中完成驗證。 驗證好網域時，按一下 [重新整理] 符號。 如需詳細資訊，請參閱[新增並驗證網域](../active-directory-domains-add-azure-portal.md)
 
-**UserPrincipalName** ：屬性 userPrincipalName 是使用者登入 Azure AD 和 Office 365 時會使用的屬性。 使用的網域 (也稱為 UPN 尾碼)，應該會在同步處理使用者前於 Azure AD 中進行驗證。 Microsoft 建議保留預設屬性 userPrincipalName。 如果此屬性不可路由傳送且無法驗證，則可以選取另一個屬性。 例如，您可以選取電子郵件做為保存登入識別碼的屬性。 使用 userPrincipalName 之外的其他屬性稱為 **替代 ID**。 替代 ID 屬性值必須遵循 RFC822 標準。 替代 ID 可以搭配密碼同步和同盟來使用。
+**UserPrincipalName** ：屬性 userPrincipalName 是使用者登入 Azure AD 和 Office 365 時會使用的屬性。 使用的網域 (也稱為 UPN 尾碼)，應該會在同步處理使用者前於 Azure AD 中進行驗證。 Microsoft 建議保留預設屬性 userPrincipalName。 如果此屬性不可路由傳送且無法驗證，則可以選取另一個屬性。 例如，您可以選取電子郵件做為保存登入識別碼的屬性。 使用 userPrincipalName 之外的其他屬性稱為 **替代 ID**。 替代 ID 屬性值必須遵循 RFC822 標準。 替代 ID 可以搭配密碼同步和同盟來使用。 此屬性不得在 Active Directory 中定義為多重值 (即使它只有單一值)。
 
 >[!NOTE]
 > 當您啟用傳遞驗證時，您必須至少有一個已驗證網域才能繼續執行精靈。
@@ -295,7 +295,7 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 ![Azure AD 網域](./media/active-directory-aadconnect-get-started-custom/adfs6.png)
 
 ### <a name="verify-the-azure-ad-domain-selected-for-federation"></a>驗證所選取用於同盟的 Azure AD 網域
-當您選取要同盟的網域時，Azure AD Connect 會提供您所需資訊以供您驗證尚未驗證的網域。 請參閱[新增並驗證網域](../active-directory-add-domain.md)以了解如何使用這項資訊。
+當您選取要同盟的網域時，Azure AD Connect 會提供您所需資訊以供您驗證尚未驗證的網域。 請參閱[新增並驗證網域](../active-directory-domains-add-azure-portal.md)以了解如何使用這項資訊。
 
 ![Azure AD 網域](./media/active-directory-aadconnect-get-started-custom/verifyfeddomain.png)
 

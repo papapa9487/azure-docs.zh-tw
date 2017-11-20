@@ -2,7 +2,7 @@
 title: "Azure Cosmos DB 資料表 API 簡介 | Microsoft Docs"
 description: "了解如何透過受歡迎的 OSS MongoDB API，使用 Azure Cosmos DB 來儲存及查詢大量機碼值資料 (低延遲)。"
 services: cosmos-db
-author: bhanupr
+author: mimig
 manager: jhubbard
 editor: monicar
 documentationcenter: 
@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/02/2017
-ms.author: arramac
-ms.openlocfilehash: 68c9f37b6e241d39911acff9c12aa4c978b4215d
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.date: 11/15/2017
+ms.author: mimig1
+ms.openlocfilehash: 8e8a5d89080df54da1a951d94fac12592de29c50
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 簡介：資料表 API
+# <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 資料表 API 簡介
 
-[Azure Cosmos DB](introduction.md) 提供的表格 API (預覽) 適用於針對 Azure 資料表儲存體所撰寫、且需要進階功能的應用程式，例如：
+[Azure Cosmos DB](introduction.md) 提供的表格 API 適用於針對 Azure 資料表儲存體所撰寫、且需要進階功能的應用程式，例如：
 
 * [周全的全域發佈](distribute-data-globally.md)。
 * 全球[專用的輸送量](partition-data.md)。
@@ -39,9 +39,9 @@ ms.lasthandoff: 11/06/2017
 > 
 
 ## <a name="table-offerings"></a>表格供應項目
-如果您目前是使用 Azure 表格儲存體，移至 Azure Cosmos DB 表格 API (預覽) 可獲得下列好處：
+如果您目前是使用 Azure 資料表儲存體，移至 Azure Cosmos DB 資料表 API 可獲得下列好處：
 
-| | Azure 資料表儲存體 | Azure Cosmos DB 表格 API (預覽) |
+| | Azure 資料表儲存體 | Azure Cosmos DB 資料表 API |
 | --- | --- | --- |
 | Latency | 快速，但延遲沒有上限。 | 一位數毫秒的讀取和寫入延遲，並在世界各地支援任何規模的 <10 毫秒延遲讀取和 <15 毫秒延遲寫入 (第 99 個百分位數)。 |
 | Throughput | 變數輸送量模型。 資料表每秒 20,000 個作業的延展性限制。 | 高延展性且[每個資料表都有專用的保留輸送量](request-units.md) (由 SLA 支援)。 帳戶沒有輸送量上限，而且支援每個資料表每秒 > 1 千萬個作業。 |
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/06/2017
 | 查詢 | 查詢執行作業會使用主索引鍵的索引，要不然會進行掃描。 | 查詢可以利用自動編製屬性的索引，加快查詢速度。 Azure Cosmos DB 資料庫引擎能夠支援彙總、地理空間以及排序。 |
 | 一致性 | 主要區域內的強式。 次要區域內的事件式。 | [五個定義完善的一致性層級](consistency-levels.md)，可以您應用程式的需求作為基礎，進行可用性、延遲、輸送量及一致性的取捨。 |
 | 價格 | 儲存體最佳化。 | 輸送量最佳化。 |
-| SLA | 99.99% 可用性。 | 單一區域內可達 99.99% 的可用性，並且能夠新增更多區域來提高可用性。 在一般可用性上達到[業界頂尖的全面性 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/)。 |
+| SLA | 99.99% 可用性。 | 99.99% 可用性 SLA 適用於一致性很寬鬆的所有單一區域帳戶和所有多重區域帳戶，而所有多重區域資料庫帳戶有 99.999% 的讀取可用性[領先業界的全方位 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/) (公開上市)。 |
 
 ## <a name="get-started"></a>開始使用
 
@@ -64,5 +64,7 @@ ms.lasthandoff: 11/06/2017
 * [使用資料表 API 來查詢資料表資料](tutorial-query-table.md)
 * [了解如何使用資料表 API 來設定 Azure Cosmos DB 全域發佈](tutorial-global-distribution-table.md)
 * [Azure Cosmos DB 資料表 .NET API](table-sdk-dotnet.md)
-
+* [Azure Cosmos DB 資料表 Java API](table-sdk-java.md)
+* [Azure Cosmos DB 資料表 Node.js API](table-sdk-nodejs.md)
+* [適用於 Python 的 Azure Cosmos DB 資料表](table-sdk-python.md)
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: mbullwin
-ms.openlocfilehash: 6bd3419a3483e108dc13f33ada7beeb2fd7f1eda
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: fe8f826ca3e0f44cba3d0b246afb01b262dc330b
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>開發人員分析：程式語言、平台和整合
 這些項目是我們曾聽過的 [Application Insights](app-insights-overview.md) 實作，包括一些協力廠商提供的實作。
@@ -38,20 +38,20 @@ ms.lasthandoff: 11/07/2017
 * [ASP.NET](app-insights-asp-net.md)
 * [ASP.NET - 適用於即時應用程式](app-insights-monitor-performance-live-website-now.md)
 * [ASP.NET Core](app-insights-asp-net-core.md)
-* [Android](https://github.com/Microsoft/ApplicationInsights-Android) (Mobile Center、HockeyApp)
+* [Android](https://github.com/Microsoft/ApplicationInsights-Android) (App Center、HockeyApp)
 * [Azure Web Apps](app-insights-azure-web-apps.md)
 * [Azure 雲端服務](app-insights-cloudservices.md)&#151;同時包含 Web 與背景工作角色
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 * [Docker](app-insights-docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
-* [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (Mobile Center、HockeyApp)
+* [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (App Center、HockeyApp)
 * [J2EE](app-insights-java-get-started.md)
 * [J2EE - 適用於即時應用程式](app-insights-java-live.md)
 * [macOS app](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-mac-os-x) (HockeyApp)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 * [Spring](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
-* [通用 Windows app](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/how-to-create-an-app-for-uwp) (Mobile Center、HockeyApp)
+* [通用 Windows app](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/how-to-create-an-app-for-uwp) (App Center、HockeyApp)
 * [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
 * [Windows Phone 8 和 8.1 應用程式](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-phone-silverlight-apps-80-and-81) (HockeyApp)
 * [Windows Presentation Foundation 應用程式](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-wpf-apps) (HockeyApp)

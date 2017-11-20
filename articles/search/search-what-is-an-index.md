@@ -1,6 +1,6 @@
 ---
-title: "建立 Azure 搜尋服務索引 | Microsoft Azure | 雲端託管搜尋服務"
-description: "Azure 搜尋服務中的索引是什麼？如何使用？"
+title: "Azure 搜尋服務中的索引 | Microsoft Docs"
+description: "深入了解 Azure 搜尋服務中的索引概念以及索引的使用方式。"
 services: search
 documentationcenter: 
 author: ashmaka
@@ -10,15 +10,15 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 11/08/2017
 ms.author: ashmaka
-ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87f1121594d8577b5dacac4026aa7d86b2921d10
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="create-an-azure-search-index"></a>建立 Azure Search 索引
+# <a name="indexes-in-azure-search"></a>Azure 搜尋服務中的索引
 > [!div class="op_single_selector"]
 > * [概觀](search-what-is-an-index.md)
 > * [入口網站](search-create-index-portal.md)
@@ -27,8 +27,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## <a name="what-is-an-index"></a>什麼是索引？
-索引是對 Azure 搜尋服務所使用的文件和其他建構所做的持續性儲存。 文件是索引中單一單位的可搜尋資料。 例如，電子商務零售商可能會有儲存了每個銷售項目的文件、新聞組織可能會有儲存了每篇文章的文件，類似情況不一而足。對應這些概念到更熟悉的資料庫同等項目：索引在概念上類似於資料表，而文件大致上相當於資料表中的資料列。
+在 Azure 搜尋服務中，索引是對 Azure 搜尋服務所使用的文件和其他建構所做的持續性儲存。 文件是索引中單一單位的可搜尋資料。 例如，電子商務零售商可能會有儲存了每個銷售項目的文件、新聞組織可能會有儲存了每篇文章的文件，類似情況不一而足。 對應這些概念到更熟悉的資料庫同等項目：索引在概念上類似於資料表，而文件大致上相當於資料表中的資料列。
 
 當您新增/上傳文件並提交搜尋查詢到 Azure 搜尋服務時，您是將要求提交到搜尋服務中的特定索引。
 

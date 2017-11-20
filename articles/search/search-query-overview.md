@@ -1,5 +1,5 @@
 ---
-title: "查詢 Azure 搜尋服務索引 | Microsoft Docs"
+title: "Azure 搜尋服務中的查詢 | Microsoft Docs"
 description: "在 Azure 搜尋服務中建立搜尋查詢，並使用搜尋參數來篩選及排序搜尋結果。"
 services: search
 manager: jhubbard
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 04/26/2017
+ms.date: 11/13/2017
 ms.author: ashmaka
-ms.openlocfilehash: 01be1b14e838c4f1b6f2498111fb8369c2bbb92a
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: b1a96c2299e415db89f881fa72b150d50bb3c69c
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="query-your-azure-search-index"></a>查詢 Azure 搜尋服務索引
+# <a name="queries-in-azure-search"></a>Azure 搜尋服務中的查詢
 > [!div class="op_single_selector"]
 > * [概觀](search-query-overview.md)
 > * [入口網站](search-explorer.md)

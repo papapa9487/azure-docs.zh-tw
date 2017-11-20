@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2017
+ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: 675a3b0fb59e449f0f76f8201d62768c03144818
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 237ca28c699984e89127a95b2141fe9131ad868c
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>連線處理站預先設定的解決方案逐步解說
 
@@ -101,7 +101,7 @@ IoT 中樞會向 Azure TSI 提供事件來源。 根據附加至訊息的時間�
 
 目前，TSI 不允許客戶自訂想要保留資料的時間。
 
-TSI 會使用 SearchSpan (Time.From、Time.To) 針對節點資料進行查詢，並依 OPC UA ApplicationUri 或 OPC UA NodeId 或 OPC UA DisplayName 進行彙總。
+TSI 會使用 **SearchSpan** (**Time.From**、**Time.To**) 針對節點資料進行查詢，並依 **OPC UA ApplicationUri** 或 **OPC UA NodeId** 或 **OPC UA DisplayName** 進行彙總。
 
 若要擷取 OEE 和 KPI 量測計的資料，以及時間序列圖表，則會依事件、總和、平均值、最小值和最大值的計數將資料進行彙總。
 
@@ -238,9 +238,9 @@ TSI 會使用 SearchSpan (Time.From、Time.To) 針對節點資料進行查詢，
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
+[lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
-[lnk-permissions]: iot-suite-permissions.md
+[lnk-permissions]: iot-suite-v1-permissions.md

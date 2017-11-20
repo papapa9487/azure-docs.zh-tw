@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/17/2017
 ms.author: shlo
-ms.openlocfilehash: 6dcc5c55fae5e2494526c492a1453747b4d6e179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b5552bbb3a56a95e616a79bf9adeabe68d01216
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory 中的管道及活動 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -75,11 +75,12 @@ Azure Data Factory 支援下列可個別或與其他活動鏈結而新增至管�
 [WebActivity](control-flow-web-activity.md) | 「網路活動」可用來從 Data Factory 管道呼叫自訂的 REST 端點。 您可以傳遞資料集和連結服務，以供活動取用和存取。 
 [查閱活動](control-flow-lookup-activity.md) | 「查閱活動」可用來讀取或查閱任何外部來源的記錄/資料表名稱/值。 此輸出可供後續活動進一步參考。 
 [取得中繼資料活動](control-flow-get-metadata-activity.md) | GetMetadata 活動可用來取出 Azure Data Factory 中任何資料的中繼資料。 
-Do Until 活動 | 實作 Do-Until 迴圈，類似於程式設計語言中的 Do-Until 迴圈結構。
-If 條件活動 | 「If 條件」可用於根據條件評估為 true 或 false 來分支。 
+[Until 活動](control-flow-until-activity.md) | 實作 Do-Until 迴圈，類似於程式設計語言中的 Do-Until 迴圈結構。 它會以迴圈的方式執行一系列活動，直到與該活動相關聯的條件評估為 true 為止。 您可以在 Data Factory 中針對 until 活動指定逾時的值。
+[If Condition 活動](control-flow-if-condition-activity.md) | 「If 條件」可用於根據評估為 true 或 false 的條件來分支。 If Condition 活動所提供的功能，與 If 陳述式在程式設計語言中提供的功能相同。 它能在條件評估為 `true` 時執行一系列的活動，並在條件評估為 `false` 時執行另一系列的活動。
+[Wait 活動](control-flow-wait-activity.md) | 在管線中使用 Wait (等待) 活動時，管線便會等待一段指定的時間，然後再繼續執行後續的活動。 
 
 ## <a name="pipeline-json"></a>管線 JSON
-讓我們來深入探討如何定義 JSON 格式的管線。 管線的一般結構如下所示：
+以 JSON 格式定義管道的方式如下： 
 
 ```json
 {
@@ -175,7 +176,7 @@ retry | 重試次數上限 | Integer | 否。 預設值為 0
 retryIntervalInSeconds | 重試嘗試之間的延遲 (秒) | Integer | 否。 預設值為 20 秒
 
 ### <a name="control-activity"></a>控制活動
-控制活動具有下列最上層結構。
+控制活動具有下列最上層結構：
 
 ```json
 {

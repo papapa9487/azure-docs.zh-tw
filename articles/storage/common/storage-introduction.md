@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/09/2017
+ms.date: 11/10/2017
 ms.author: tamram
-ms.openlocfilehash: e7b32aa2de5d6501e8d7894a936e9ab8b2f4f42f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdd457dbe6802f58f0167efb97d60628c17a97af
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Microsoft Azure 儲存體簡介
 
@@ -80,7 +80,7 @@ Azure 佇列服務用來儲存及擷取訊息。 佇列訊息的大小上限為 
 
 ## <a name="table-storage"></a>表格儲存體
 
-標準 Azure 表格儲存體現在屬於 Cosmos DB。 若要查看該文件，請參閱 [Azure 資料表儲存體概觀](../../cosmos-db/table-storage-overview.md)。 Azure 表格儲存體也有進階資料表，可提供輸送量最佳化的資料表、全域發佈，以及自動次要索引。 若要深入了解並試用新的進階體驗，請查看 [Azure Cosmos DB：資料表 API](https://aka.ms/premiumtables)。
+Azure 資料表儲存體現在屬於 Azure Cosmos DB。 若要查看 Azure 資料表儲存體文件，請參閱 [Azure 資料表儲存體概觀](../../cosmos-db/table-storage-overview.md)。 除了現有的 Azure 資料表儲存體服務，有新的 Azure Cosmos DB 資料表 API 供應項目，可提供輸送量最佳化的資料表、全域發佈，以及自動次要索引。 若要深入了解並試用新的進階體驗，請查看 [Azure Cosmos DB 資料表 API](https://aka.ms/premiumtables)。
 
 ## <a name="disk-storage"></a>磁碟儲存體
 

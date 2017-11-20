@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/31/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 80a6caff51631637825d560d270198be0336e806
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f97b28d1588e959728163f7ab16d2550a79f610e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="manage-updates-for-multiple-azure-virtual-machines"></a>管理多部 Azure 虛擬機器的更新
+# <a name="manage-updates-for-multiple-machines"></a>管理多部機器的更新
 
-更新管理可讓您管理 Azure 虛擬機器的更新和修補程式。
-從您的 [Azure 自動化](automation-offering-get-started.md)帳戶，您可以讓虛擬機器快速上線、評估可用更新的狀態、排定何時安裝必要的更新，以及檢閱部署結果來確認更新已成功套用至已啟用更新管理功能的所有虛擬機器。
+更新管理可讓您管理 Windows 和 Linux 機器的更新和修補程式。
+您可以透過 [Azure 自動化](automation-offering-get-started.md)帳戶，讓機器快速上線、評估可用更新的狀態、排定何時安裝必要的更新，以及檢閱部署結果來確認更新已成功套用至已啟用更新管理功能的所有虛擬機器。
 
 ## <a name="prerequisites"></a>必要條件
 

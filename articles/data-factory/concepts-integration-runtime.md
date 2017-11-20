@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/15/2017
 ms.author: shlo
-ms.openlocfilehash: 7851a24e7053e03cc28927ffae3a2b69a3291635
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: c3cf9bfeabb65fa15941e3085d9f9146c3feef80
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory 中的整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可跨不同網路環境提供下列資料整合功能：
@@ -85,7 +85,7 @@ Azure 整合執行階段提供原生計算，能夠以安全、可靠且高效�
 ### <a name="compute-resource-and-scaling"></a>計算資源和調整規模
 自我裝載 IR 必須安裝在私人網路內的內部部署機器或虛擬機器上。 目前，我們只支援在 Windows 作業系統上執行自我裝載 IR。  
 
-若要達到高可用性和延展性，您可以在主動-主動模式下，將邏輯執行個體和多個內部部署機器產生關聯，以相應放大自我裝載 IR。  如需詳細資訊，請參閱操作說明指南中的＜如何建立和設定自我裝載 IR＞主題。
+若要達到高可用性和延展性，您可以在主動-主動模式下，將邏輯執行個體和多個內部部署機器產生關聯，以相應放大自我裝載 IR。  如需詳細資訊，請參閱操作說明指南中的＜如何建立和設定自我裝載 IR＞一文。
 
 ## <a name="azure-ssis-integration-runtime"></a>Azure-SSIS 整合執行階段
 若要隨即轉移現有的 SSIS 工作負載，您可以建立 Azure-SSIS IR，以原生方式執行 SSIS 套件。
@@ -96,7 +96,7 @@ Azure-SSIS IR 可以佈建在公用網路或私人網路中。  將 Azure-SSIS I
 ### <a name="compute-resource-and-scaling"></a>計算資源和調整規模
 Azure-SSIS IR 是一個受到完整管理的 Azure VM 叢集，專門用來執行您的 SSIS 套件。 您可以自備 Azure SQL Database 或受管理的執行個體 (私人預覽) 伺服器，以裝載要附加至伺服器的 SSIS 專案/套件 (SSISDB) 目錄。 指定節點大小可以相應增加計算能力，指定叢集的節點數目可以相應放大計算能力。 您可以依需求來停止和啟動 Azure-SSIS 整合執行階段，以掌控其執行成本。
 
-如需詳細資訊，請參閱操作說明指南中的＜如何建立和設定 Azure-SSIS IR＞主題。  建立之後，您可以使用熟悉的工具，例如 SQL Server Data Tools (SSDT) 和 SQL Server Management Studio (SSMS)，就像在內部部署環境中使用 SSIS 一樣，不太需要變更就能部署和管理現有的 SSIS 套件。
+如需詳細資訊，請參閱操作說明指南中的＜如何建立和設定 Azure-SSIS IR＞一文。  建立之後，您可以使用熟悉的工具，例如 SQL Server Data Tools (SSDT) 和 SQL Server Management Studio (SSMS)，就像在內部部署環境中使用 SSIS 一樣，不太需要變更就能部署和管理現有的 SSIS 套件。
 
 如需 Azure-SSIS 執行階段的詳細資訊，請參閱下列文章： 
 
@@ -123,7 +123,7 @@ Azure-SSIS IR 是一個受到完整管理的 Azure VM 叢集，專門用來執�
 ![使用哪一個 IR](media/concepts-integration-runtime/which-integration-runtime-to-use.png)
 
 ## <a name="integration-runtime-location"></a>整合執行階段位置
-Data Factory 位置中儲存資料處理站的中繼資料，也是觸發管道的源頭。 目前支援的 Data Factory 位置為：美國東部、美國東部 2。 不過，Data Factory 可以存取其他 Azure 區域的資料存放區和計算資料，以在資料存放區之間移動資料或使用計算服務處理資料。 此行為是透過多個區域通用的 IR 來達成，可確保資料合規性、效率，並降低網路輸出成本。
+Data Factory 位置中儲存資料處理站的中繼資料，也是觸發管道的源頭。 目前支援的 Data Factory 位置為：美國東部、美國東部 2 和西歐。 不過，Data Factory 可以存取其他 Azure 區域的資料存放區和計算資料，以在資料存放區之間移動資料或使用計算服務處理資料。 此行為是透過多個區域通用的 IR 來達成，可確保資料合規性、效率，並降低網路輸出成本。
 
 「IR 位置」定義其後端計算的位置，基本上還會定義執行資料移動、活動分派和 SSIS 套件執行的位置。 IR 位置及其所屬的資料處理站位置可能不同。 下圖顯示 Data Factory 及其整合執行階段的位置設定：
 

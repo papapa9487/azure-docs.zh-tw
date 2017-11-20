@@ -1,6 +1,6 @@
 ---
 title: "Microsoft Azure IoT 選項 | Microsoft Docs"
-description: "選擇如何使用 IoT 套件、IoT 中心或 IoT 中樞實作 Azure IoT 解決方案。"
+description: "選擇如何使用 Azure IoT 套件、Microsoft IoT 中心或 Azure IoT 中樞實作 IoT 解決方案。"
 services: 
 suite: iot-suite
 author: dominicbetts
@@ -8,14 +8,14 @@ manager: timlt
 ms.assetid: 2d38d08a-4133-4e5c-8b28-f93cadb5df05
 ms.service: iot-suite
 ms.topic: get-started-article
-ms.date: 09/21/2017
+ms.date: 11/10/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd98d42ab391d471d2302066dc2baf2c64f56f55
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: e00dd828ef24b9bc97665f0f5fe8d7e14f4e4630
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="compare-azure-iot-options"></a>比較各個 Azure IoT 選項
 
@@ -33,18 +33,18 @@ ms.lasthandoff: 10/31/2017
 
 ## <a name="azure-iot-hub"></a>Azure IoT 中樞
 
-Azure IoT 中樞是 Azure 平台即服務的核心，可讓 IoT 中心和 IoT 套件使用。 IoT 中樞可在數百萬個 IoT 裝置和一個雲端解決方案之間啟用可靠且安全的雙向通訊。 IoT 中樞可協助您因應 IoT 實作挑戰，例如：
+Azure IoT 中樞是 Azure 平台即服務的核心，可讓 Microsoft IoT 中心和 Azure IoT 套件使用。 IoT 中樞可在數百萬個 IoT 裝置和一個雲端解決方案之間啟用可靠且安全的雙向通訊。 IoT 中樞可協助您因應 IoT 實作挑戰，例如：
 
 * 大量裝置的連線能力和管理。
 * 大量的遙測資料擷取。
 * 裝置的命令與控制。
 * 裝置安全性的強制執行。
 
-## <a name="compare-iot-suite-and-iot-central"></a>比較 IoT 套件和 IoT 中心
+## <a name="compare-azure-iot-suite-and-microsoft-iot-central"></a>比較 Azure IoT 套件和 Microsoft IoT 中心
 
-選擇 Azure IoT 產品是規劃您 IoT 解決方案的重要部分。 IoT 中樞是獨立的 Azure 服務，本身不會提供端對端的 IoT 解決方案。 IoT 中樞可以做為任何 IoT 解決方案的起點，而且不需要透過 Azure IoT 套件或 Microsoft IoT 中心就可使用。 IoT 套件和 IoT 中心都會使用 IoT 中樞與其他 Azure 服務。 下表已彙總 IoT 套件和 IoT 中心間的主要差異，可協助您根據需求做出正確的選擇：
+選擇 Azure IoT 產品是規劃您 IoT 解決方案的重要部分。 IoT 中樞是獨立的 Azure 服務，本身不會提供端對端的 IoT 解決方案。 IoT 中樞可以做為任何 IoT 解決方案的起點，而且不需要透過 Azure IoT 套件或 Microsoft IoT 中心就可使用。 Azure IoT 套件和 Microsof IoT 中心都會使用 IoT 中樞與其他 Azure 服務。 下表已彙總 Azure IoT 套件和 Microsof IoT 中心間的主要差異，可協助您根據需求做出正確的選擇：
 
-|                        | IoT 套件 | IoT 中心 |
+|                        | Azure IoT 套件 | Microsoft IoT 中心 |
 | ---------------------- | --------- | ----------- |
 | 主要用途 | 加速開發需要最大彈性的自訂 IoT 解決方案。 | 加速簡易 IoT 解決方案上市時間，不需要深入的服務自訂。 |
 | 存取基礎 PaaS 服務          | 您可存取基礎 Azure 服務來加以管理，或視需要加以取代。 | SaaS。 完全受管理的解決方案，不會公開基礎服務。 |
@@ -63,6 +63,6 @@ Azure IoT 中樞是 Azure 平台即服務的核心，可讓 IoT 中心和 IoT �
 
 根據您所選擇的產品和方法，建議的後續步驟為：
 
-* **IoT 套件**：[什麼是 Azure IoT 預先設定的解決方案？](iot-suite-what-are-preconfigured-solutions.md)
-* **IoT 中心**：[Microsoft IoT 中心](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions)。
+* **Azure IoT 套件**：[什麼是 Azure IoT 預先設定的解決方案？](iot-suite-what-are-preconfigured-solutions.md)
+* **Microsoft IoT 中心**：[Microsoft IoT 中心](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions)。
 * **IoT 中樞**：[Azure IoT 中樞服務的概觀](../iot-hub/iot-hub-what-is-iot-hub.md)。

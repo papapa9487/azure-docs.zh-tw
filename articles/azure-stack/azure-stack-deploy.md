@@ -3,8 +3,8 @@ title: "Azure Stack 開發套件部署先決條件 | Microsoft Docs"
 description: "檢視 Azure Stack 開發套件 (雲端操作員) 的環境和硬體需求。"
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: 32a21d9b-ee42-417d-8e54-98a7f90f7311
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/11/2017
-ms.author: erikje
-ms.openlocfilehash: 73e7efb7d789fe12846d68066c0927bb123831a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/14/2017
+ms.author: jeffgilb
+ms.openlocfilehash: 8a0d23e14ef50034d5f9595cf154c3513a09c464
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Azure Stack 部署先決條件
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 
 \*如果您打算從 Azure 新增許多[市集項目](azure-stack-download-azure-marketplace-item.md)，則您所需的容量將比這個建議的容量多。
 
-**資料磁碟機組態：**所有資料磁碟機都必須具有相同的類型 (全部都是 SAS 或全部都是 SATA) 和容量。 如果使用 SAS 磁碟機，則該磁碟機必須透過單一路徑連結 (不支援 MPIO 多重路徑)。
+**資料磁碟機組態：**所有資料磁碟機都必須具有相同的類型 (全部都是 SAS、SATA 或 NVMe) 和容量。 如果使用 SAS 磁碟機，則該磁碟機必須透過單一路徑連結 (不支援 MPIO 多重路徑)。
 
 **HBA 組態選項**
 
@@ -56,6 +56,7 @@ ms.lasthandoff: 10/11/2017
 * RAID SSD (如果媒體類型為未指定/不明\*)
 * SATA SSD + SATA HDD
 * SAS SSD + SAS HDD
+* NVMe
 
 \* 不具備穿通功能的 RAID 控制器無法辨識媒體類型。 這類控制站會將 SSD 和 HDD，皆標示為未指定。 在此情況下，SSD 會當作永續性儲存體使用，而非快取裝置。 因此，您可以在那些 SSD 上部署開發套件。
 

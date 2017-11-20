@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/28/2017
-ms.openlocfilehash: cabba8ce04d62d35ca40b3ae35d9d40a6ec7b2b9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fcef59d38cce5f8860508ebeeda0b1b97f5e83f1
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="classify-iris-part-1-prepare-the-data"></a>分類鳶尾花第 1 部分：準備資料
 Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家用來以雲端規模準備資料、開發測試以及部署模型。
@@ -69,7 +69,9 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
    ![選取鳶尾花](media/tutorial-classifying-iris/select_iris_csv.png)
 
    >[!IMPORTANT]
-   >針對此練習，請確定您從目前的專案目錄內選取 **iris.csv** 檔案。 否則，接下來的步驟可能會失敗。 
+   >針對此練習，請確定您從目前的專案目錄內選取 **iris.csv** 檔案。 否則，接下來的步驟可能會失敗。
+   
+4. 選取檔案之後，請選取 [完成] 按鈕。
 
 4. 名為 **iris-1.dsource** 的新檔案隨即建立。 因為範例專案中隨附未編號的 **iris.dsource** 檔案，會將檔案唯一地命名為 dash-1。  
 
