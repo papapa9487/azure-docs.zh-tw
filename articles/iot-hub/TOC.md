@@ -28,12 +28,6 @@
 #### [Sparkfun ESP8266 Thing Dev with Arduino IDE](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [Adafruit Feather M0 with Arduino IDE](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
-#### 使用 IoT 閘道入門套件
-##### [將 Intel NUC 設定為閘道](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-##### [將閘道連線至 IoT 中樞](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
-##### [使用閘道進行資料轉換](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
-##### [疑難排解](iot-hub-gateway-kit-c-troubleshooting.md)
-
 ## 擴充的 IoT 案例
 ### [透過 iothub-explorer 管理雲端裝置傳訊](iot-hub-explorer-cloud-device-messaging.md)
 ### [將 IoT 中樞IoT 中樞儲存至 Azure 資料儲存體](iot-hub-store-data-in-azure-table-storage.md)
@@ -43,7 +37,7 @@
 ### [透過 iothub-explorer進行裝置管理](iot-hub-device-management-iothub-explorer.md)
 ### [搭配 Logic Apps 進行遠端監視和通知](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
-# 作法
+# 使用說明指南
 ## 規劃
 ### [比較 IoT 中樞與事件中樞](iot-hub-compare-event-hubs.md)
 ### [調整您的解決方案規模](iot-hub-scaling.md)
@@ -147,30 +141,6 @@
 ##### [X.509 CA 憑證安全性概念](iot-hub-x509ca-concept.md)
 #### [開始使用 X.509 CA 憑證安全性](iot-hub-security-x509-get-started.md)
 ##### [建立憑證 - PowerShell](iot-hub-security-x509-create-certificates.md)
-
-## Azure IoT Edge
-### [概觀](iot-hub-iot-edge-overview.md)
-### 開始使用
-#### [Linux](iot-hub-linux-iot-edge-get-started.md)
-#### [Windows](iot-hub-windows-iot-edge-get-started.md)
-### 模擬裝置
-#### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
-#### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
-### [使用真實裝置](iot-hub-iot-edge-physical-device.md)
-### 建立模組
-#### [Java](iot-hub-iot-edge-create-module-java.md)
-#### [.NET Framework](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-the-net-module-sample-windows-10)
-#### [.NET Standard](iot-hub-iot-edge-create-module-dotnet-core.md)
-#### [Node.js](iot-hub-iot-edge-create-module-js.md)
-### 建置
-#### [.NET Framework](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample)
-#### [.NET Core 模組](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_module_sample)
-#### [.NET Core 的受管閘道](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_managed_gateway)
-#### [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample)
-#### [Node.js](https://github.com/Azure/iot-edge/tree/master/samples/nodejs_simple_sample)
-#### [動態新增模組](https://github.com/Azure/iot-edge/tree/master/samples/dynamically_add_module_sample)
-#### [跨處理序的 proxy 模組](https://github.com/Azure/iot-edge/tree/master/samples/proxy_sample)
-#### [原生模組主機](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # 參考
 ## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)

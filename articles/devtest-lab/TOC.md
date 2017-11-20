@@ -55,6 +55,9 @@
 ### [設定虛擬網路](devtest-lab-configure-vnet.md)
 ### [選取 IP 設定選項](devtest-lab-shared-ip.md)
 
+## 管理資料磁碟
+### [連結和中斷連結資料磁碟](devtest-lab-attach-detach-data-disk.md)
+
 ## [調整您的實驗室](devtest-lab-scale-lab.md)
 
 # 參考

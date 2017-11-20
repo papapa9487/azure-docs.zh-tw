@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure Databricks 預覽文件
 metadata:
   title: Azure Databricks 文件 - 教學課程 | Microsoft Docs
-  description: 了解如何在 Microsoft Azure 中使用 Databricks。
+  description: 透過快速入門及此處提供的其他連結，了解如何使用 Azure Databricks。 Azure Databricks 是一個針對 Microsoft Azure 雲端服務平台進行最佳化的 Apache Spark 分析平台。
   services: azure-databricks
   author: nitinme
   manager: cgronlun
@@ -14,7 +14,7 @@ metadata:
   ms.date: 11/15/2017
   ms.author: nitinme
 abstract:
-  description: Azure Databricks 是一個針對 Microsoft Azure 雲端服務平台進行最佳化的 Apache Spark 分析平台。 Databricks 由 Apache Spark 的創立者所設計，可與 Azure 整合，提供一鍵式設定、順暢的工作流程以及互動式的工作區，可讓資料科學家、資料工程師及企業分析師共同作業。 透過快速入門及此處提供的其他連結，了解如何使用 Azure Databricks。
+  description: 透過快速入門及此處提供的其他連結，了解如何使用 Azure Databricks。 Azure Databricks 是一個針對 Microsoft Azure 雲端服務平台進行最佳化的 Apache Spark 分析平台。 Databricks 由 Apache Spark 的創立者所設計，可與 Azure 整合，提供一鍵式設定、順暢的工作流程以及互動式的工作區，可讓資料科學家、資料工程師及企業分析師共同作業。
 sections:
   - title: 5 分鐘快速入門
     items:

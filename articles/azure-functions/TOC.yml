@@ -65,6 +65,8 @@
       href: functions-triggers-bindings.md
     - name: 語言
       items:
+        - name: 支援的語言
+          href: supported-languages.md
         - name: 'C# 指令碼'
           href: functions-reference-csharp.md
         - name: .NET 類別庫

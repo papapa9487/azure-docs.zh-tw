@@ -4,28 +4,216 @@
   items:
     - name: 概觀
       href: apache-hbase-overview.md
-    - name: 元件版本控制
+    - name: HDInsight 上的 Hadoop 元件
       href: ../hdinsight-component-versioning.md
       maintainContext: true
 - name: 開始使用
   items:
     - name: 開始使用 HBase 與 NoSQL
       href: apache-hbase-tutorial-get-started-linux.md
-    - name: 容量規劃
+    - name: 叢集容量規劃
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
 - name: 作法
   items:
-    - name: 在虛擬網路中建立叢集
-      href: apache-hbase-provision-vnet.md
-    - name: 設定 HBase 複寫
-      href: apache-hbase-replication.md
-    - name: 使用 Phoenix 和 SQLLine
-      href: apache-hbase-phoenix-squirrel-linux.md
-    - name: 開發 Java 應用程式
-      href: apache-hbase-build-java-maven-linux.md
-    - name: 針對 HBase 進行疑難排解
-      href: apache-troubleshoot-hbase.md
+    - name: 使用叢集儲存體
+      items:
+        - name: 使用 Azure 儲存體
+          href: ../hdinsight-hadoop-use-blob-storage.md
+          maintainContext: true
+        - name: 使用 Azure Data Lake Store
+          href: ../hdinsight-hadoop-use-data-lake-store.md
+          maintainContext: true
+    - name: 開發
+      items:
+        - name: 開發 Java 應用程式
+          href: apache-hbase-build-java-maven-linux.md
+        - name: 使用空白邊緣節點
+          href: ../hdinsight-apps-use-edge-node.md
+          maintainContext: true
+        - name: 建立非互動式驗證 .NET HDInsight 應用程式
+          href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
+          maintainContext: true
+        - name: 使用 Phoenix 和 SQLLine
+          href: apache-hbase-phoenix-squirrel-linux.md
+    - name: 擴充叢集
+      items:
+        - name: 使用安全的儲存體帳戶
+          href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+          maintainContext: true
+        - name: 使用啟動程序自訂叢集
+          href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
+          maintainContext: true
+        - name: 使用指令碼動作來自訂叢集
+          href: ../hdinsight-hadoop-customize-cluster-linux.md
+          maintainContext: true
+        - name: 將 HDInsight 連線至內部部署網路
+          href: ../connect-on-premises-network.md
+          maintainContext: true
+        - name: 開發指令碼動作
+          href: ../hdinsight-hadoop-script-actions-linux.md
+          maintainContext: true
+        - name: 使用虛擬網路
+          href: ../hdinsight-extend-hadoop-virtual-network.md
+          maintainContext: true
+        - name: 建置 HDInsight 應用程式
+          items:
+            - name: 安裝 HDInsight 應用程式
+              href: ../hdinsight-apps-install-applications.md
+              maintainContext: true
+            - name: 安裝自訂應用程式
+              href: ../hdinsight-apps-install-custom-applications.md
+              maintainContext: true
+            - name: 使用 REST 安裝應用程式
+              href: 'https://msdn.microsoft.com/library/mt706515.aspx'
+            - name: 將 HDInsight 應用程式發佈到 Azure Marketplace
+              href: ../hdinsight-apps-publish-applications.md
+              maintainContext: true
+    - name: 安全
+      items:
+        - name: 搭配使用 SSH 與 HDInsight
+          href: ../hdinsight-hadoop-linux-use-ssh-unix.md
+          maintainContext: true
+        - name: 使用 SSH 通道
+          href: ../hdinsight-linux-ambari-ssh-tunnel.md
+          maintainContext: true
+    - name: 管理
+      items:
+        - name: 建立 Linux 叢集
+          href: ../hdinsight-hadoop-provision-linux-clusters.md
+          maintainContext: true
+          items:
+            - name: 使用 Azure PowerShell
+              href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
+              maintainContext: true
+            - name: 使用 cURL 和 Azure REST API
+              href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
+              maintainContext: true
+            - name: 使用 .NET SDK
+              href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
+              maintainContext: true
+            - name: 使用 Azure CLI
+              href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
+              maintainContext: true
+            - name: 使用 Azure 入口網站
+              href: ../hdinsight-hadoop-create-linux-clusters-portal.md
+              maintainContext: true
+            - name: 使用 Azure 資源管理員範本
+              href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
+              maintainContext: true
+        - name: 在虛擬網路中建立叢集
+          href: apache-hbase-provision-vnet.md
+        - name: 設定 HBase 複寫
+          href: apache-hbase-replication.md
+        - name: 建立隨選叢集
+          href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+          maintainContext: true
+        - name: 管理 Hadoop 叢集
+          href: ../hdinsight-administer-use-portal-linux.md
+          maintainContext: true
+          items:
+            - name: 使用 .NET SDK
+              href: ../hdinsight-administer-use-dotnet-sdk.md
+              maintainContext: true
+            - name: 使用 Azure PowerShell
+              href: ../hdinsight-administer-use-powershell.md
+              maintainContext: true
+            - name: 使用 Azure CLI
+              href: ../hdinsight-administer-use-command-line.md
+              maintainContext: true
+        - name: 使用 Ambari Web UI 管理叢集
+          href: ../hdinsight-hadoop-manage-ambari.md
+          maintainContext: true
+          items:
+            - name: 使用 Ambari REST API
+              href: ../hdinsight-hadoop-manage-ambari-rest-api.md
+              maintainContext: true
+        - name: 新增儲存體帳戶
+          href: ../hdinsight-hadoop-add-storage.md
+          maintainContext: true
+        - name: 上傳 Hadoop 工作的資料
+          href: ../hdinsight-upload-data.md
+          maintainContext: true
+        - name: 搭配 Data Lake Store 的多個 HDInsight 叢集
+          href: ../hdinsight-multiple-clusters-data-lake-store.md
+          maintainContext: true
+        - name: 使用 Sqoop 匯入和匯出資料
+          href: ../hdinsight-use-sqoop.md
+          maintainContext: true
+          items:
+            - name: 使用 SSH 連線
+              href: ../hadoop/apache-hadoop-use-sqoop-mac-linux.md
+            - name: 使用 cURL 執行
+              href: ../hadoop/apache-hadoop-use-sqoop-curl.md
+            - name: 使用 .NET SDK 執行
+              href: ../hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md
+            - name: 使用 Azure PowerShell 執行
+              href: ../hadoop/apache-hadoop-use-sqoop-powershell.md
+        - name: 叢集和服務的連接埠和 URI
+          href: ../hdinsight-hadoop-port-settings-for-services.md
+          maintainContext: true
+        - name: 高度可用性與可靠性
+          href: ../hdinsight-high-availability-linux.md
+          maintainContext: true
+        - name: 將 HDInsight 叢集升級為更新的版本
+          href: ../hdinsight-upgrade-cluster.md
+          maintainContext: true
+        - name: HDInsight 叢集的作業系統修補
+          href: ../hdinsight-os-patching.md
+          maintainContext: true
+    - name: 監視
+      items:
+        - name: 使用 Azure Log Analytics
+          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+          maintainContext: true
+        - name: 叢集特定儀表板
+          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
+          maintainContext: true
+        - name: 透過 Log Analytics 使用查詢
+          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+          maintainContext: true
+        - name: 監視叢集效能
+          href: ../hdinsight-key-scenarios-to-monitor.md
+          maintainContext: true
+    - name: 疑難排解
+      href: ../hdinsight-troubleshoot-guide.md
+      maintainContext: true
+      items:
+        - name: HDFS 疑難排解
+          href: ../hdinsight-troubleshoot-hdfs.md
+          maintainContext: true
+        - name: 針對 HBase 進行疑難排解
+          href: apache-troubleshoot-hbase.md
+          maintainContext: true
+        - name: YARN 疑難排解
+          href: ../hdinsight-troubleshoot-yarn.md
+          maintainContext: true
+        - name: 資源
+          items:
+            - name: 在 Linux 上使用 HDInsight 的相關資訊
+              href: ../hdinsight-hadoop-linux-information.md
+              maintainContext: true
+            - name: Hadoop 記憶體和效能
+              href: ../hdinsight-hadoop-stack-trace-error-messages.md
+              maintainContext: true
+            - name: 存取 Linux 上的 YARN 應用程式記錄
+              href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
+              maintainContext: true
+            - name: 啟用 Hadoop 適用的服務堆積傾印
+              href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
+              maintainContext: true
+            - name: 了解並解決 WebHCat 錯誤
+              href: ../hdinsight-hadoop-templeton-webhcat-debug-errors.md
+              maintainContext: true
+            - name: 記憶體不足錯誤的 Hive 設定修正
+              href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
+              maintainContext: true
+            - name: 使用 Ambari 檢視為 Tez 作業偵錯
+              href: ../hdinsight-debug-ambari-tez-view.md
+              maintainContext: true
+            - name: 最佳化 Hive 查詢
+              href: ../hdinsight-hadoop-optimize-hive-query.md
+              maintainContext: true
 - name: 參考
   items:
     - name: 程式碼範例

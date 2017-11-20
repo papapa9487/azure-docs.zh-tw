@@ -248,12 +248,12 @@
 ## 管理您的目錄
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### 自訂網域名稱
-#### [概觀](active-directory-domains-manage-azure-portal.md)
-#### [管理網域名稱](active-directory-domains-manage-azure-portal.md)
+#### [快速入門](add-custom-domain.md)
+#### [新增自訂網域名稱](active-directory-domains-manage-azure-portal.md)
 ### [管理目錄](active-directory-administer.md)
 ### [多個目錄](active-directory-licensing-directory-independence.md)
 ### [自助式註冊](active-directory-self-service-signup.md)
-#### [接管未受管理的目錄](domains-admin-takeover.md)
+### [接管未受管理的目錄](domains-admin-takeover.md)
 ### [企業狀態漫遊](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [啟用](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [群組原則設定](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)

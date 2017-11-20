@@ -6,6 +6,7 @@
 ## [使用 Office 365 帳戶註冊](billing-use-existing-office-365-account-azure-subscription.md)
 ## [以 Azure 帳戶註冊 Office 365](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [利用管理群組組織資源](billing-enterprise-mgmt-group-overview.md)
+## [使用保留的 VM 執行個體節省成本](billing-save-compute-costs-reservations.md)
 ## [限制和配額](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 
 # 作法
@@ -17,9 +18,13 @@
 ### [了解使用量的字詞](billing-understand-your-usage.md)
 ### [了解外部服務費用](billing-understand-your-azure-marketplace-charges.md)
 ### [了解免費帳戶計量對應](billing-understand-free-service-meter-mapping.md)
+### [保留 VM 執行個體 Windows 成本](billing-reserved-instance-windows-software-costs.md)
+### [了解保留 VM 執行個體折扣應用程式](billing-understand-vm-reservation-charges.md)
 ### [了解消費限制](billing-spending-limit.md)
 ### [設定帳務警示](billing-set-up-alerts.md)
 ### [解析逾期資產負債](billing-azure-subscription-past-due-balance.md)
+### [了解保留執行個體預付型方案的使用方式](billing-understand-reserved-instance-usage.md)
+### [了解企業適用之保留執行個體的使用方式](billing-understand-reserved-instance-usage-ea.md)
 
 ## 管理訂用帳戶
 ### [管理系統管理員角色](billing-add-change-azure-subscription-administrator.md)
@@ -34,6 +39,7 @@
 ### [更新付款資訊](billing-how-to-change-credit-card.md)
 ### [連結 Office 365 租用戶](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [依發票支付訂用帳戶費用](billing-how-to-pay-by-invoice.md)
+## [管理保留 VM 執行個體](billing-manage-reserved-vm-instance.md)
 ## 疑難排解
 ### [註冊問題](https://support.microsoft.com/en-us/help/4042959)
 ### [卡片遭拒](https://support.microsoft.com/en-us/help/4042960)

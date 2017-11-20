@@ -2,6 +2,7 @@
 
 ## 概觀
 ### [解決方案為何？](storsimple-ova-overview.md)
+### [區域可用性](storsimple-regions.md)
 
 ## 開始使用
 ### 規劃
@@ -59,6 +60,7 @@
 ### [解決方案為何？](storsimple-overview.md)
 ### [StorSimple 學習圖](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [安全性考量](storsimple-8000-security.md)
+### [區域可用性](storsimple-regions.md)
 ### [常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)
 
 ## 開始使用
