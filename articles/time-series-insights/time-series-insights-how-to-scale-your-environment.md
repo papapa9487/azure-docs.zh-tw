@@ -1,32 +1,31 @@
 ---
 title: "如何調整您的 Azure Time Series Insights 環境規模 | Microsoft Docs"
-description: "本教學課程將說明如何調整您的 Azure Time Series Insights 環境規模"
-keywords: 
+description: "本文說明如何調整您的 Azure Time Series Insights 環境規模。 使用 Azure 入口網站在價格 SKU 內增加或減少容量。"
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: sandshadow
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 04/19/2017
 ms.author: edett
-ms.openlocfilehash: ba6bd1ab05bb7e24dd1bc307218e7a772fbde601
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: a6f10e14e3f9e5761734738caddc247d9e4a90cd
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>如何調整您的 Time Series Insights 環境規模
 
-本教學課程將說明如何調整您的 Time Series Insights 環境規模。
+本文說明如何使用 Azure 入口網站變更時間序列深入解析環境的容量。 容量是套用至輸入速率、儲存體容量以及與選取之 SKU 相關聯成本的乘數。 
 
-> [!NOTE]
-> 若 SKU 類型不同則無法進行相應增加。 S1 SKU 的環境不能轉換成 S2 環境。
+您可以使用 Azure 入口網站在給定的價格 SKU 內增加或減少容量。 
+
+不過，不允許變更定價層 SKU。 例如，擁有 S1 價格 SKU 的環境不能轉換成 S2，反之亦然。 
+
 
 ## <a name="s1-sku-ingress-rates-and-capacities"></a>S1 SKU 輸入速率和容量
 
@@ -44,12 +43,20 @@ ms.lasthandoff: 10/11/2017
 
 容量是以線性方式擴充或減少，因此容量 2 的 S1 SKU 支援的輸入速率為一天 2 GB (2 百萬) 的事件，和 一個月 60 GB (6 千萬個事件)。
 
-## <a name="changing-the-capacity-of-your-environment"></a>變更您的環境容量
+## <a name="change-the-capacity-of-your-environment"></a>變更您的環境容量
+1. 在 Azure 入口網站中，找到並選取您的時間序列深入解析環境。 
 
-1. 在 Azure 入口網站中，選取您想要變更其容量的環境。
-1. 在 [設定] 下方按一下 [設定]。
-1. 使用 [容量] 滑桿來選取符合您所需輸入速率和儲存容量的容量。
+2. 在 [設定] 標題之下，選取 [設定]。
+
+   ![configure.png](media/scale-your-environment/configure.png)
+
+3. 調整 [容量] 滑桿來選取符合您所需輸入速率和儲存容量的容量。 請注意，輸入速率、儲存容量和估計成本會動態更新，以顯示變更的影響。 
+
+   ![滑桿](media/scale-your-environment/slider.png)
+
+   或者，您可以在滑桿右邊的文字方塊中，輸入容量乘數的數值。 
+
+4. 選取 [儲存] 來調整環境。 認可變更之後，系統就會立即顯示進度列指示器。 
 
 ## <a name="next-steps"></a>後續步驟
-
-* 請確定新容量足夠以避免產生節流。 如需詳細資訊，請參閱[這裡](time-series-insights-diagnose-and-solve-problems.md)的*您的環境可能正在進行節流*一節。
+請確定新容量足夠以避免產生節流。 如需詳細資訊，請參閱[如果您的環境受到節流](time-series-insights-diagnose-and-solve-problems.md)。

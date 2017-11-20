@@ -13,22 +13,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 11/15/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: a60c47814da2660f17456f5e662f420adbb9158e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8df9623bf3826807ba066d4e625c3138c80c5b7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="how-to-import-data-into-azure-cosmos-db-with-the-documentdb-api"></a>如何使用 DocumentDB API 將資料匯入到 Azure Cosmos DB？
+# <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB：資料移轉工具
 
-本教學課程提供使用 Azure Cosmos DB：DocumentDB API 資料移轉工具的相關指示，可將資料從各種來源 (包括 JSON 檔案、CSV 檔案、SQL、MongoDB、Azure 資料表儲存體、Amazon DynamoDB 及 Azure Cosmos DB DocumentDB API 集合) 匯入到要與 Azure Cosmos DB 和 DocumentDB API 搭配使用的集合。 針對 DocumentDB API 從單一分割區集合移轉到多重分割區集合時，也可以使用資料移轉工具。
+本教學課程提供使用 Azure Cosmos DB 資料移轉工具的相關指示，可將資料從各種來源匯入到 Azure Cosmos DB 集合和資料表。 您可以從 JSON 檔案、CSV 檔案、SQL、MongoDB、Azure 資料表儲存體、Amazon DynamoDB 以及甚至 Azure Cosmos DB DocumentDB API 集合來匯入，並將該資料移轉到集合和資料表以供用於 Azure Cosmos DB。 針對 DocumentDB API 從單一分割區集合移轉到多重分割區集合時，也可以使用資料移轉工具。
 
-將資料匯入到 Azure Cosmos DB 來與 DocumentDB API 搭配使用時，僅適用資料移轉工具。 目前不支援匯入資料來與資料表 API 或圖形 API 搭配使用。 
-
-若要匯入資料來與 MongoDB API 搭配使用，請參閱 [Azure Cosmos DB︰如何移轉適用於 MongoDB API 的資料？](mongodb-migrate.md)。
+您要將哪個 API 用於 Azure Cosmos DB？ 
+* **[DocumentDB API](documentdb-introduction.md)** - 您可以使用資料移轉工具中所提供的任何來源選項來匯入資料。
+* **[資料表 API](table-introduction.md)** - 您可以使用資料移轉工具或 AzCopy 來匯入資料。 如需詳細資訊，請參閱[匯入資料以用於 Azure Cosmos DB 資料表 API](table-import.md)。
+* **[MongoDB API](mongodb-introduction.md)** - 資料移轉工具的確會將資料 MongoDB 資料庫匯出至 Azure Cosmos DB 以用於 DocumentDB API。 但如果您想要繼續使用 MongoDB API，您就會想要使用 Azure Cosmos DB MongoDB API，而且應該使用 mongoimport.exe 或 mongorestore.exe 來匯入資料。 如需詳細資訊，請參閱 [Azure Cosmos DB︰如何移轉適用於 MongoDB API 的資料？](mongodb-migrate.md)。
+* **[圖形 API](graph-introduction.md)** - 資料移轉工具目前仍不是圖形 API 帳戶所支援的匯入工具。 
 
 本教學課程涵蓋下列工作：
 
@@ -42,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 
 * [Microsoft.NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) 或更高版本。
 
-## <a id="Overviewl"></a>資料移轉工具概觀
+## <a id="Overviewl"></a>概觀
 資料移轉工具是一個開放原始碼解決方案，可將資料從各種來源匯入到 Azure Cosmos DB，來源包括：
 
 * JSON 檔案
@@ -56,13 +58,13 @@ ms.lasthandoff: 10/11/2017
 
 雖然匯入工具包括圖形化使用者介面 (dtui.exe)，您也可以從命令列 (dt.exe) 驅動此工具。 事實上，在透過 UI 設定匯入之後，有一個選項可以輸出相關聯的命令。 表格式來源資料 (例如 SQL Server 或 CSV 檔案) 可以進行轉換，以致可以在匯入期間建立階層式關聯性 (子文件)。 繼續閱讀以深入了解來源選項、從每個來源匯入的範例命令列、目標選項，以及檢視匯入結果。
 
-## <a id="Install"></a>安裝資料移轉工具
+## <a id="Install"></a>安裝
 您可以在 GitHub 上的[此存放庫](https://github.com/azure/azure-documentdb-datamigrationtool)中找到移轉工具的原始程式碼，並可以從 [Microsoft 下載中心](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d)取得編譯版本。 您可以編譯解決方案，或直接下載編譯版本並將它解壓縮至選擇的目錄。 然後執行：
 
 * **Dtui.exe**：此工具的圖形化介面版本
 * **Dt.exe**：此工具的命令列版本
 
-## <a name="import-data"></a>匯入資料
+## <a name="select-data-source"></a>選取資料來源
 
 一旦已安裝此工具之後，就可以匯入您的資料。 您要匯入的資料類型為何？
 
@@ -194,19 +196,21 @@ CSV 檔案來源匯入工具選項可讓您匯入一或多個 CSV 檔案。 新�
 
 { "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "http://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }
 
-匯入工具將嘗試推斷 CSV 檔案中不具引號之值的類型資訊 (加上引號的值永遠會被視為字串)。  系統會依照下列順序識別類型：數字、日期時間、布林值。  
+匯入工具會嘗試推斷 CSV 檔案中不具引號之值的類型資訊 (加上引號的值永遠會被視為字串)。  系統會依照下列順序識別類型：數字、日期時間、布林值。  
 
 下面提供兩個其他有關 CSV 匯入的注意事項：
 
 1. 根據預設，不具引號的值一律會針對定位點和空格進行修剪，而具有引號的值則會以原樣方式加以保留。 您可以使用 [修剪具有引號的值] 核取方塊或 /s.TrimQuoted 命令列選項，來覆寫這個行為。
-2. 根據預設，不具引號的 Null 會被視為 Null 值。 您可以使用 [將不具引號的 NULL 視為字串] 核取方塊或 /s.NoUnquotedNulls 命令列選項，來覆寫這個行為 (例如，將不具引號的 Null 視為 “null” 字串)。
+2. 根據預設，不具引號的 Null 會被視為 Null 值。 您可以使用 [將不具引號的 NULL 視為字串] 核取方塊或 /s.NoUnquotedNulls 命令列選項，來覆寫這個行為 (亦即將不具引號的 Null 視為 “null” 字串)。
 
 以下是 CSV 匯入的命令列範例：
 
     dt.exe /s:CsvFile /s.Files:.\Employees.csv /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:Employees /t.IdField:EntityID /t.CollectionThroughput:2500
 
 ## <a id="AzureTableSource"></a>從 Azure 資料表儲存體匯入
-Azure 資料表儲存體來源匯入工具選項可讓您從個別的 Azure 資料表儲存體資料表匯入，並選擇性地篩選要匯入的資料表實體。 請注意，您無法使用資料移轉工具，將 Azure 資料表儲存體資料匯入到 Azure Cosmos DB 來與資料表 API 搭配使用。 目前僅支援匯入到 Azure Cosmos DB 來與 DocumentDB API 搭配使用。
+Azure 資料表儲存體來源匯入工具選項可讓您從個別的 Azure 資料表儲存體資料表匯入。 您可以選擇性地篩選要匯入的資料表實體。 
+
+從 Azure 資料表儲存體匯入的資料，可以輸出到 Azure Cosmos DB 資料表和實體以用於資料表 API，或是輸出到集合和文件以用於 DocumentDB API。  
 
 ![Azure 資料表儲存體來源選項的螢幕擷取畫面](./media/import-data/azuretablesource.png)
 
@@ -219,7 +223,7 @@ Azure 資料表儲存體連接字串的格式如下：
 > 
 > 
 
-輸入要匯出資料的 Azure 資料表名稱。 您可以選擇性地指定 [篩選器](https://msdn.microsoft.com/library/azure/ff683669.aspx)。
+輸入要從中匯入資料的 Azure 資料表名稱。 您可以選擇性地指定 [篩選器](https://msdn.microsoft.com/library/azure/ff683669.aspx)。
 
 Azure 資料表儲存體來源匯入工具選項具有下列其他選項：
 
@@ -254,8 +258,8 @@ Amazon DynamoDB 連接字串的格式如下：
 
     dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.amazonaws.com;AccessKey=<accessKey>;SecretKey=<secretKey> /s.Request:"{   """TableName""": """ProductCatalog""" }" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<Azure Cosmos DB Endpoint>;AccountKey=<Azure Cosmos DB Key>;Database=<Azure Cosmos DB Database>;" /t.Collection:catalogCollection /t.CollectionThroughput:2500
 
-## <a id="BlobImport"></a>從 Azure Blob 儲存體匯入檔案
-JSON 檔案、MongoDB 匯出檔案和 CSV 檔案來源匯入工具選項可讓您從 Azure Blob 儲存體匯入一或多個檔案。 指定 Blob 容器 URL 和帳戶金鑰之後，只需提供規則運算式來選取要匯入的檔案。
+## <a id="BlobImport"></a>從 Azure Blob 儲存體匯入
+JSON 檔案、MongoDB 匯出檔案和 CSV 檔案來源匯入工具選項可讓您從 Azure Blob 儲存體匯入一或多個檔案。 在指定 Blob 容器 URL 和帳戶金鑰之後，請提供規則運算式來選取要匯入的檔案。
 
 ![Blob 檔案來源選項的螢幕擷取畫面](./media/import-data/blobsource.png)
 
@@ -263,7 +267,7 @@ JSON 檔案、MongoDB 匯出檔案和 CSV 檔案來源匯入工具選項可讓�
 
     dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.windows.net:443/importcontainer/.*" /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:doctest
 
-## <a id="DocumentDBSource"></a>若要從 Azure Cosmos DB DocumentDB API 集合匯入
+## <a id="DocumentDBSource"></a>從 DocumentDB API 集合匯入
 Azure Cosmos DB 來源匯入工具選項可讓您從一或多個 Azure Cosmos DB 集合匯入資料，並選擇性地使用查詢來篩選文件。  
 
 ![Azure Cosmos DB 來源選項的螢幕擷取畫面](./media/import-data/documentdbsource.png)
@@ -272,7 +276,7 @@ Azure Cosmos DB 連接字串的格式如下：
 
     AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;
 
-就像[如何管理 Azure Cosmos DB 帳戶](manage-account.md)中所述，可從 Azure 入口網站的 [金鑰] 刀鋒視窗中擷取 Azure Cosmos DB 帳戶的連接字串，但必須以下列格式將資料庫的名稱附加至連接字串：
+就像[如何管理 Azure Cosmos DB 帳戶](manage-account.md)中所述，可從 Azure 入口網站的 [金鑰] 頁面中擷取 Azure Cosmos DB 帳戶的連接字串，但必須以下列格式將資料庫的名稱附加至連接字串：
 
     Database=<CosmosDB Database>;
 
@@ -339,7 +343,7 @@ HBase Stargate 連接字串的格式如下：
     dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:hbaseimport
 
 ## <a id="DocumentDBBulkTarget"></a>匯入 DocumentDB API 中 (大量匯入)
-為了提高效率，Azure Cosmos DB 大量匯入工具可讓您使用 Azure Cosmos DB 預存程序，從任何可用的來源選項匯入。 此工具支援匯入到一個單一分割的 Azure Cosmos DB 集合，以及跨多個單一分割 Azure Cosmos DB 集合分割資料的分區化匯入。 如需分割資料的詳細資訊，請參閱 [Azure Cosmos DB 的資料分割與調整規模](partition-data.md)。 此工具將建立並執行預存程序，然後從目標集合中將它刪除。  
+為了提高效率，Azure Cosmos DB 大量匯入工具可讓您使用 Azure Cosmos DB 預存程序，從任何可用的來源選項匯入。 此工具支援匯入到一個單一分割的 Azure Cosmos DB 集合，以及跨多個單一分割 Azure Cosmos DB 集合分割資料的分區化匯入。 如需分割資料的詳細資訊，請參閱 [Azure Cosmos DB 的資料分割與調整規模](partition-data.md)。 此工具會建立並執行預存程序，然後從目標集合中將它刪除。  
 
 ![Azure Cosmos DB 大量選項的螢幕擷取畫面](./media/import-data/documentdbbulk.png)
 
@@ -347,7 +351,7 @@ Azure Cosmos DB 連接字串的格式如下：
 
     AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;
 
-就像[如何管理 Azure Cosmos DB 帳戶](manage-account.md)中所述，可從 Azure 入口網站的 [金鑰] 刀鋒視窗中擷取 Azure Cosmos DB 帳戶的連接字串，但必須以下列格式將資料庫的名稱附加至連接字串：
+就像[如何管理 Azure Cosmos DB 帳戶](manage-account.md)中所述，可從 Azure 入口網站的 [金鑰] 頁面中擷取 Azure Cosmos DB 帳戶的連接字串，但必須以下列格式將資料庫的名稱附加至連接字串：
 
     Database=<CosmosDB Database>;
 
@@ -356,11 +360,11 @@ Azure Cosmos DB 連接字串的格式如下：
 > 
 > 
 
-若要匯入到單一集合，請輸入要匯入資料的目標集合名稱，然後按一下 [新增] 按鈕。 若要匯入到多個集合，請分別輸入每個集合的名稱，或使用下列語法來指定多個集合：collection_prefix[開始索引 - 結束索引]。 透過上述語法指定多個集合時，請記住下列事項：
+若要匯入到單一集合，請輸入要匯入資料的目標集合名稱，然後按一下 [新增] 按鈕。 若要匯入到多個集合，請分別輸入每個集合的名稱，或使用下列語法來指定多個集合：collection_prefix[開始索引 - 結束索引]。 透過上述語法指定多個集合時，請記住下列指導方針：
 
-1. 僅支援整數範圍的名稱模式。 例如，指定 collection[0-3] 將產生下列集合：collection0、collection1、collection2、collection3。
-2. 您可以使用縮寫的語法：collection[3] 將發出一組與步驟 1 中所述相同的集合。
-3. 您可以提供一個以上的替代項目。 例如，collection[0-1] [0-9] 將產生 20 個開頭為零的集合名稱 (collection01、..02、..03)。
+1. 僅支援整數範圍的名稱模式。 例如，指定 collection[0-3] 會建立下列集合：collection0、collection1、collection2、collection3。
+2. 您可以使用縮寫的語法：collection[3] 會建立一組與步驟 1 中所述相同的集合。
+3. 您可以提供一個以上的替代項目。 例如，collection[0-1] [0-9] 會產生 20 個開頭為零的集合名稱 (collection01、..02、..03)。
 
 指定集合名稱之後，請選擇所需的集合輸送量 (400 RU 到 10,000 RU)。 為了達到最佳的匯入效能，請選擇較高的輸送量。 如需效能層級的詳細資訊，請參閱 [Azure Cosmos DB 中的效能層級](performance-levels.md)。
 
@@ -371,7 +375,7 @@ Azure Cosmos DB 連接字串的格式如下：
 
 匯入到多個集合時，匯入工具支援以雜湊為基礎的分區化。 在此案例中，指定您想要用來做為資料分割索引鍵的文件屬性 (如果資料分割索引鍵是空白的，文件就會跨目標集合隨機進行分區化)。
 
-您可以選擇性地指定在匯入期間，匯入來源中的哪些欄位應該做為 Azure Cosmos DB 文件識別碼屬性使用 (請注意，如果文件不包含這個屬性，則匯入工具將產生 GUID 做為識別碼屬性值)。
+您可以選擇性地指定在匯入期間，匯入來源中的哪些欄位應該做為 Azure Cosmos DB 文件識別碼屬性使用 (請注意，如果文件不包含這個屬性，則匯入工具會產生 GUID 做為識別碼屬性值)。
 
 匯入期間有數個可用的進階選項。 首先，雖然此工具包含預設的大量匯入預存程序 (BulkInsert.js)，但您可以選擇指定自己的匯入預存程序：
 
@@ -388,9 +392,9 @@ Azure Cosmos DB 連接字串的格式如下：
 Azure Cosmos DB 大量匯入工具含有下列其他進階選項：
 
 1. 批次大小：此工具會將批次大小預設為 50。  如果要匯入很大的文件，請考慮降低批次大小。 相反地，如果要匯入很小的文件，請考慮提高批次大小。
-2. 指令碼大小上限 (位元組)：此工具預設將指令碼大小上限設為 512 KB
-3. 停用自動化識別碼產生作業：如果要匯入的每個文件都包含識別碼欄位，則選取此選項可以提升效能。 遺漏唯一識別碼欄位的文件將不會被匯入。
-4. 更新現有的文件：此工具預設在發生識別碼衝突時不會取代現有的文件。 如果選取此選項，將會允許在識別碼相符時覆寫現有的文件。 對於會更新現有文件的已排定資料移轉來說，這項功能相當有用。
+2. 指令碼大小上限 (位元組)：此工具預設將指令碼大小上限設為 512 KB。
+3. 停用自動化識別碼產生作業：如果要匯入的每個文件都包含識別碼欄位，則選取此選項可以提升效能。 遺漏唯一識別碼欄位的文件不會被匯入。
+4. 更新現有的文件：此工具預設在發生識別碼衝突時不會取代現有的文件。 選取此選項會允許在識別碼相符時覆寫現有的文件。 對於會更新現有文件的已排定資料移轉來說，這項功能相當有用。
 5. 失敗時的重試次數：指定與 Azure Cosmos DB 的連接發生暫時性失敗 (例如網路連接中斷) 時的重試次數。
 6. 重試間隔：指定與 Azure Cosmos DB 的連接發生暫時性失敗 (例如網路連接中斷) 時兩次重試之間要等候的時間。
 7. 連線模式：指定要與 Azure Cosmos DB 搭配使用的連線模式。 可用的選項包括：DirectTcp、DirectHttps 和閘道器。 直接連線模式會比較快，但閘道器模式比較支援防火牆，因為它只會使用連接埠 443。
@@ -411,7 +415,7 @@ Azure Cosmos DB 連接字串的格式如下：
 
     AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;
 
-就像[如何管理 Azure Cosmos DB 帳戶](manage-account.md)中所述，可從 Azure 入口網站的 [金鑰] 刀鋒視窗中擷取 Azure Cosmos DB 帳戶的連接字串，但必須以下列格式將資料庫的名稱附加至連接字串：
+就像[如何管理 Azure Cosmos DB 帳戶](manage-account.md)中所述，可從 Azure 入口網站的 [金鑰] 頁面中擷取 Azure Cosmos DB 帳戶的連接字串，但必須以下列格式將資料庫的名稱附加至連接字串：
 
     Database=<Azure Cosmos DB Database>;
 
@@ -420,13 +424,13 @@ Azure Cosmos DB 連接字串的格式如下：
 > 
 > 
 
-若要匯入到單一集合，請輸入要匯入資料的目標集合名稱，然後按一下 [新增] 按鈕。 若要匯入到多個集合，請分別輸入每個集合的名稱，或使用下列語法來指定多個集合：collection_prefix[開始索引 - 結束索引]。 透過上述語法指定多個集合時，請記住下列事項：
+若要匯入到單一集合，請輸入要匯入資料的目標集合名稱，然後按一下 [新增] 按鈕。 若要匯入到多個集合，請分別輸入每個集合的名稱，或使用下列語法來指定多個集合：collection_prefix[開始索引 - 結束索引]。 透過上述語法指定多個集合時，請記住下列指導方針：
 
-1. 僅支援整數範圍的名稱模式。 例如，指定 collection[0-3] 將產生下列集合：collection0、collection1、collection2、collection3。
-2. 您可以使用縮寫的語法：collection[3] 將發出一組與步驟 1 中所述相同的集合。
-3. 您可以提供一個以上的替代項目。 例如，collection[0-1] [0-9] 將產生 20 個開頭為零的集合名稱 (collection01、..02、..03)。
+1. 僅支援整數範圍的名稱模式。 例如，指定 collection[0-3] 會建立下列集合：collection0、collection1、collection2、collection3。
+2. 您可以使用縮寫的語法：collection[3] 會建立一組與步驟 1 中所述相同的集合。
+3. 您可以提供一個以上的替代項目。 例如，collection[0-1] [0-9] 會建立 20 個開頭為零的集合名稱 (collection01、..02、..03)。
 
-指定集合名稱之後，請選擇所需的集合輸送量 (400 RU 到 250,000 RU)。 為了達到最佳的匯入效能，請選擇較高的輸送量。 如需效能層級的詳細資訊，請參閱 [Azure Cosmos DB 中的效能層級](performance-levels.md)。 任何輸送量 >10000 RU 的集合匯入作業都需要資料分割索引鍵。 如果您選擇擁有 250,000 以上的 RU，您將需要在入口網站中提出要求來提升您的帳戶。
+指定集合名稱之後，請選擇所需的集合輸送量 (400 RU 到 250,000 RU)。 為了達到最佳的匯入效能，請選擇較高的輸送量。 如需效能層級的詳細資訊，請參閱 [Azure Cosmos DB 中的效能層級](performance-levels.md)。 任何輸送量 >10000 RU 的集合匯入作業都需要資料分割索引鍵。 如果您選擇擁有 250,000 以上的 RU，您需要在入口網站中提出要求來提升您的帳戶。
 
 > [!NOTE]
 > 輸送量設定僅適用於建立集合。 如果指定的集合已經存在，將不會修改其輸送量。
@@ -435,7 +439,7 @@ Azure Cosmos DB 連接字串的格式如下：
 
 匯入到多個集合時，匯入工具支援以雜湊為基礎的分區化。 在此案例中，指定您想要用來做為資料分割索引鍵的文件屬性 (如果資料分割索引鍵是空白的，文件就會跨目標集合隨機進行分區化)。
 
-您可以選擇性地指定在匯入期間，匯入來源中的哪些欄位應該做為 Azure Cosmos DB 文件識別碼屬性使用 (請注意，如果文件不包含這個屬性，則匯入工具將產生 GUID 做為識別碼屬性值)。
+您可以選擇性地指定在匯入期間，匯入來源中的哪些欄位應該做為 Azure Cosmos DB 文件識別碼屬性使用 (請注意，如果文件不包含這個屬性，則匯入工具會產生 GUID 做為識別碼屬性值)。
 
 匯入期間有數個可用的進階選項。 首先，匯入日期類型時 (例如從 SQL Server 或 MongoDB)，有三種匯入選項可供選擇：
 
@@ -447,9 +451,9 @@ Azure Cosmos DB 連接字串的格式如下：
 
 Azure Cosmos DB 循序記錄匯入工具含有下列其他進階選項：
 
-1. 平行要求數目：此工具會預設為 2 個平行要求。 如果要匯入很小的文件，請考慮提高平行要求數目。 請注意，如果這個數字提高太多，則匯入可能會發生節流。
-2. 停用自動化識別碼產生作業：如果要匯入的每個文件都包含識別碼欄位，則選取此選項可以提升效能。 遺漏唯一識別碼欄位的文件將不會被匯入。
-3. 更新現有的文件：此工具預設在發生識別碼衝突時不會取代現有的文件。 如果選取此選項，將會允許在識別碼相符時覆寫現有的文件。 對於會更新現有文件的已排定資料移轉來說，這項功能相當有用。
+1. 平行要求數目：此工具會預設為兩個平行要求。 如果要匯入很小的文件，請考慮提高平行要求數目。 請注意，如果這個數字提高太多，則匯入可能會發生節流。
+2. 停用自動化識別碼產生作業：如果要匯入的每個文件都包含識別碼欄位，則選取此選項可以提升效能。 遺漏唯一識別碼欄位的文件不會被匯入。
+3. 更新現有的文件：此工具預設在發生識別碼衝突時不會取代現有的文件。 選取此選項會允許在識別碼相符時覆寫現有的文件。 對於會更新現有文件的已排定資料移轉來說，這項功能相當有用。
 4. 失敗時的重試次數：指定與 Azure Cosmos DB 的連接發生暫時性失敗 (例如網路連接中斷) 時的重試次數。
 5. 重試間隔：指定與 Azure Cosmos DB 的連接發生暫時性失敗 (例如網路連接中斷) 時兩次重試之間要等候的時間。
 6. 連線模式：指定要與 Azure Cosmos DB 搭配使用的連線模式。 可用的選項包括：DirectTcp、DirectHttps 和閘道器。 直接連線模式會比較快，但閘道器模式比較支援防火牆，因為它只會使用連接埠 443。
@@ -461,8 +465,8 @@ Azure Cosmos DB 循序記錄匯入工具含有下列其他進階選項：
 > 
 > 
 
-## <a id="IndexingPolicy"></a>建立 Azure Cosmos DB 集合時指定編製索引原則
-當您允許移轉工具在匯入期間建立集合時，您可以指定集合的索引編製原則。 在 Azure Cosmos DB 大量匯入和 Azure Cosmos DB 循序記錄選項的進階選項區段中，瀏覽至 [編製索引原則] 區段。
+## <a id="IndexingPolicy"></a>指定索引編製原則
+當您允許移轉工具在匯入期間建立 Azure Cosmos DB DocumentDB API 集合時，您可以指定集合的索引編製原則。 在 Azure Cosmos DB 大量匯入和 Azure Cosmos DB 循序記錄選項的進階選項區段中，瀏覽至 [編製索引原則] 區段。
 
 ![Azure Cosmos DB 編製索引原則進階選項的螢幕擷取畫面](./media/import-data/indexingpolicy1.png)
 
@@ -476,12 +480,12 @@ Azure Cosmos DB 循序記錄匯入工具含有下列其他進階選項：
 ![Azure Cosmos DB 編製索引原則進階選項的螢幕擷取畫面](./media/import-data/indexingpolicy2.png)
 
 > [!NOTE]
-> 如果未指定索引編製原則，將會套用預設原則。 如需編製索引原則的詳細資訊，請參閱 [Azure Cosmos DB 編製索引原則](indexing-policies.md)。
+> 如果未指定索引編製原則，則會套用預設原則。 如需編製索引原則的詳細資訊，請參閱 [Azure Cosmos DB 編製索引原則](indexing-policies.md)。
 > 
 > 
 
 ## <a name="export-to-json-file"></a>匯出至 JSON 檔案
-Azure Cosmos DB JSON 匯出工具可讓您將任何可用的來源選項匯出至包含 JSON 文件陣列的 JSON 檔案。 此工具將會為您處理匯出作業，或者您可以選擇檢視產生的移轉命令，然後自己執行命令。 產生的 JSON 檔案可能會儲存在本機或 Azure Blob 儲存體中。
+Azure Cosmos DB JSON 匯出工具可讓您將任何可用的來源選項匯出至包含 JSON 文件陣列的 JSON 檔案。 此工具會為您處理匯出作業，或者您可以選擇檢視產生的移轉命令，然後自己執行命令。 產生的 JSON 檔案可能會儲存在本機或 Azure Blob 儲存體中。
 
 ![Azure Cosmos DB JSON 本機檔案匯出選項的螢幕擷取畫面](./media/import-data/jsontarget.png)
 
@@ -519,12 +523,26 @@ Azure Cosmos DB JSON 匯出工具可讓您將任何可用的來源選項匯出�
     ]
     }]
 
+## <a id="tableapibulkexport"></a>匯出到資料表 API (大量匯入)
+
+Azure Cosmos DB 資料表 API 匯出工具可讓您從 Azure 資料表儲存體來源將資訊匯出到 Azure Cosmos DB 資料表 API 資料庫。 
+
+要做為匯入目標之 Azure Cosmos DB 資料表 API 帳戶的連接字串，可從 Azure 入口網站的 [連接字串] 頁面中擷取。 使用 [複製] 按鈕 ![Azure 入口網站中連接字串的螢幕擷取畫面](./media/import-data/copy-button.png) 在要複製整個字串的畫面右邊。
+
+![Azure 入口網站中連接字串的螢幕擷取畫面](./media/import-data/connection-string.png)
+
+## <a id="tableapiseqtarget"></a>匯出到資料表 API (循序記錄匯入)
+
+Azure Cosmos DB 資料表 API 匯出工具可讓您從 Azure 資料表儲存體來源將資訊匯出到 Azure Cosmos DB 資料表 API 資料庫。
+
+要做為匯入目標之 Azure Cosmos DB 資料表 API 帳戶的連接字串，可從 Azure 入口網站的 [連接字串] 頁面中擷取，如上面的[匯出到資料表 API (大量匯入)](#tableapibulkexport) 中的影像所示。
+
 ## <a name="advanced-configuration"></a>進階組態
 在 [進階組態] 畫面中，指定您想要寫入所有錯誤的記錄檔位置。 下列規則會套用到此頁面：
 
 1. 如果未提供檔案名稱，則會在 [結果] 頁面上傳回所有錯誤。
 2. 如果提供不含目錄的檔案名稱，則會在目前的環境目錄中建立 (或覆寫) 該檔案。
-3. 如果選取了現有的檔案，則將會覆寫該檔案，沒有任何附加選項。
+3. 如果選取了現有的檔案，則會覆寫該檔案，沒有任何附加選項。
 
 然後，選擇是要記錄所有錯誤訊息、嚴重錯誤訊息，還是不記錄任何錯誤訊息。 最後，決定螢幕上傳輸訊息更新其進度的頻率。
 
@@ -536,7 +554,7 @@ Azure Cosmos DB JSON 匯出工具可讓您將任何可用的來源選項匯出�
     ![摘要畫面的螢幕擷取畫面](./media/import-data/summary.png)
    
     ![摘要畫面的螢幕擷取畫面](./media/import-data/summarycommand.png)
-2. 在您滿意來源和目標選項之後，請按一下 [匯入] 。 隨著匯入的處理，已耗用時間、傳送的計數，以及失敗的資訊 (如果您未在 [進階組態] 中提供檔案名稱) 都將隨之更新。 完成後，您可以匯出結果 (例如處理任何匯入失敗)。
+2. 在您滿意來源和目標選項之後，請按一下 [匯入] 。 隨著匯入的處理，已耗用時間、傳送的計數，以及失敗的資訊 (如果您未在 [進階組態] 中提供檔案名稱) 都會隨之更新。 完成後，您可以匯出結果 (例如處理任何匯入失敗)。
    
     ![Azure Cosmos DB JSON 匯出選項的螢幕擷取畫面](./media/import-data/viewresults.png)
 3. 您也可以啟動新的匯入，您可以保留現有設定 (例如連接字串資訊、來源和目標選擇等)，或重設所有值。
@@ -545,7 +563,7 @@ Azure Cosmos DB JSON 匯出工具可讓您將任何可用的來源選項匯出�
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已完成下列操作：
+在本教學課程中，您已完成下列工作：
 
 > [!div class="checklist"]
 > * 已安裝資料移轉工具

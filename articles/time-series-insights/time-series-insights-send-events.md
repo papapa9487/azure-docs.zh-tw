@@ -1,55 +1,63 @@
 ---
-title: "將事件傳送至 Azure Time Series Insights 環境 | Microsoft Docs"
-description: "本教學課程涵蓋將事件發送至 Time Series Insights 環境的步驟"
-keywords: 
-services: tsi
-documentationcenter: 
+title: "如何將事件傳送至 Azure 時間序列深入解析環境 | Microsoft Docs"
+description: "本教學課程說明如何建立和設定事件中樞，並執行應用程式範例以將事件推送至 Azure 時間序列深入解析來加以顯示。"
+services: time-series-insights
+ms.service: time-series-insights
 author: venkatgct
-manager: jhubbard
-editor: 
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 07/21/2017
 ms.author: venkatja
-ms.openlocfilehash: b4ef96a045393f28b3cd750068fe82a5a8411afa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MarkMcGeeAtAquent
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 543fafac63423ab874c6c8e40d91a1ce0f161987
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>使用事件中樞將事件傳送至 Time Series Insights 環境
-
-本教學課程說明如何建立和設定事件中樞，並執行應用程式範例以推送事件。 如果您現有的事件中樞內含 JSON 格式的事件，請跳過本教學課程，並在 [Time Series Insights](https://insights.timeseries.azure.com) 檢視您的環境。
+本文說明如何建立和設定事件中樞，並執行應用程式範例以推送事件。 如果您現有的事件中樞內含 JSON 格式的事件，請跳過本教學課程，並在 [Time Series Insights](https://insights.timeseries.azure.com) 檢視您的環境。
 
 ## <a name="configure-an-event-hub"></a>設定事件中樞
-1. 若要建立事件中樞，請遵循事件中樞[文件](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)的指示。
+1. 若要建立事件中樞，請遵循事件中樞[文件](../event-hubs/event-hubs-create.md)的指示。
 
-2. 確定您已建立專供 Time Series Insights 事件來源使用的取用者群組。
+2. 在搜尋列中搜尋**事件中樞**。 在傳回的清單中按一下 [事件中樞]。
 
-  > [!IMPORTANT]
-  > 確定任何其他服務 (例如串流分析作業或其他 Time Series Insights 環境) 均未使用此取用者群組。 如果有其他服務使用此取用者群組，讀取作業會對此環境和其他服務造成負面影響。 如果您使用 “$Default” 做為取用者群組，有可能會導致其他讀取者重複使用。
+3. 按一下事件中樞的名稱來加以選取。
+
+4. 在中間設定視窗的 [實體] 底下，再次按一下 [事件中樞]。
+
+5. 選取事件中樞的名稱來對它進行設定。
 
   ![選取事件中樞取用者群組](media/send-events/consumer-group.png)
 
-3. 在事件中樞內建立「MySendPolicy」，以用來在 Csharp 範例中傳送事件。
+6. 在 [實體] 底下，選取 [取用者群組]。
+ 
+7. 確定您已建立專供 Time Series Insights 事件來源使用的取用者群組。
+
+   > [!IMPORTANT]
+   > 確定任何其他服務 (例如串流分析作業或其他 Time Series Insights 環境) 均未使用此取用者群組。 如果有其他服務使用此取用者群組，讀取作業會對此環境和其他服務造成負面影響。 如果您使用 “$Default” 做為取用者群組，有可能會導致其他讀取者重複使用。
+
+8. 在 [設定] 標題底下，選取 [共用存取原則]。
+
+9. 在事件中樞內建立 **MySendPolicy**，以用來在 Csharp 範例中傳送事件。
 
   ![選取 [共用存取原則]，然後按一下 [新增] 按鈕](media/send-events/shared-access-policy.png)  
 
   ![新增共用存取原則](media/send-events/shared-access-policy-2.png)  
 
 ## <a name="create-time-series-insights-event-source"></a>建立 Time Series Insights 事件來源
-1. 如果您尚未建立事件來源，請遵循[這些指示](time-series-insights-add-event-source.md)來建立事件來源。
+1. 如果您尚未建立事件來源，請遵循[這些指示](time-series-insights-how-to-add-an-event-source-eventhub.md)來建立事件來源。
 
-2. 指定「deviceTimestamp」作為時間戳記屬性名稱，這個屬性會作為 Csharp 範例中的實際時間戳記。 以 JSON 形式將時間戳記屬性傳送至事件中樞時，該屬性的名稱區分大小寫，且值的格式必須是 __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__。 如果事件中不存在該屬性，則系統會使用加入事中樞佇列的時間。
+2. 指定 **deviceTimestamp** 做為時間戳記屬性名稱，這個屬性會做為 C# 範例中的實際時間戳記。 以 JSON 形式將時間戳記屬性傳送至事件中樞時，該屬性的名稱區分大小寫，且值的格式必須是 __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__。 如果事件中不存在該屬性，則系統會使用加入事中樞佇列的時間。
 
   ![建立事件來源](media/send-events/event-source-1.png)
 
 ## <a name="sample-code-to-push-events"></a>用來推送事件的範例程式碼
-1. 移至事件中樞原則「MySendPolicy」，然後複製連接字串與原則金鑰。
+1. 移至名為 **MySendPolicy** 的事件中樞原則。 複製**連接字串**與原則金鑰。
 
   ![複製 MySendPolicy 連接字串](media/send-events/sample-code-connection-string.png)
 
@@ -163,6 +171,7 @@ namespace Microsoft.Rdx.DataGenerator
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 |device2|2016-01-08T01:17:00Z|
+
 ### <a name="sample-3"></a>範例 3
 
 #### <a name="input"></a>輸入
@@ -235,5 +244,4 @@ namespace Microsoft.Rdx.DataGenerator
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## <a name="next-steps"></a>後續步驟
-
-* 在 [Time Series Insights 入口網站](https://insights.timeseries.azure.com)中檢視您的環境
+在[時間序列深入解析總管](https://insights.timeseries.azure.com)中檢視您的環境。
