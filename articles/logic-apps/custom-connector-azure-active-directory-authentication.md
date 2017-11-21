@@ -140,8 +140,8 @@ ms.lasthandoff: 10/11/2017
 
    ![[必要權限] > [新增]](./media/custom-connector-azure-active-directory-authentication/add-api-access1-select-permissions.png)
 
-7. 當 [加入 API 存取權] 功能表開啟時，選擇 [選取 API] > 
-[Windows Azure 服務管理 API] > [選取]。
+7. 當 **加入 API 存取權** 功能表開啟時，選擇 **選取 API** > 
+**Windows Azure 服務管理 API** > **選取**。
 
    ![選取 API](./media/custom-connector-azure-active-directory-authentication/add-api-access2-select-api.png)
 
