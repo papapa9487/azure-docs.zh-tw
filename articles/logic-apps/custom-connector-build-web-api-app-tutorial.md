@@ -94,8 +94,8 @@ ms.lasthandoff: 10/11/2017
 
 1. 如果您還沒有這個工具，請在 Visual Studio 專案中安裝 Swashbuckle Nuget 套件。
 
-   1. 在 Visual Studio 中，選擇 [工具]**** > [NuGet 套件管理員]**** > 
-   [套件管理器主控台]****。
+   1. 在 Visual Studio 中，選擇 **工具** > **NuGet 套件管理員** > 
+   **套件管理器主控台**。
 
    2. 在 [套件管理器主控台] 主控台中，如果您不是在應用程式的專案目錄中，請移至該目錄 (執行 `Set-Location "project-path"`)，然後執行此 PowerShell Commandlet： 
    

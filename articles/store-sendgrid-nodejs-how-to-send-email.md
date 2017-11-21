@@ -161,7 +161,7 @@ SendGrid 提供了運用篩選器的其他電子郵件功能。 這些設定可�
     sendgrid.send(email);
 
 ## <a name="how-to-update-email-properties"></a>如何：更新電子郵件屬性
-某些電子郵件屬性可使用 **set*Property**** 進行覆寫，或使用 *add*Property*** 進行附加。 例如，您可以使用下列方式新增其他收件者：
+某些電子郵件屬性可使用 **set*Property*** 進行覆寫，或使用 **add*Property*** 進行附加。 例如，您可以使用下列方式新增其他收件者：
 
     email.addTo('jeff@contoso.com');
 
