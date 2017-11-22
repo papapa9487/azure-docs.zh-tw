@@ -63,6 +63,8 @@
           href: azure-stack-integrate-identity.md
         - name: 發佈端點
           href: azure-stack-integrate-endpoints.md
+        - name: 外部監視
+          href: azure-stack-integrate-monitor.md
         - name: 安全性
           href: azure-stack-integrate-security.md
     - name: 管理
@@ -155,10 +157,10 @@
               href: azure-stack-mysql-resource-provider-deploy.md
             - name: 部署 SQL 資源提供者
               href: azure-stack-sql-resource-provider-deploy.md
-            - name: 建立 SQL 資料庫
-              href: azure-stack-sql-resource-provider-databases.md
             - name: 新增主機伺服器
               href: azure-stack-sql-resource-provider-hosting-servers.md
+            - name: 建立 SQL 資料庫
+              href: azure-stack-sql-resource-provider-databases.md
         - name: 提供 App Service 做為 PaaS
           items:
             - name: Azure Stack 概觀上的 App Service

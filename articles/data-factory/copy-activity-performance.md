@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/13/2017
 ms.author: jingwang
-ms.openlocfilehash: b0351e4c4dcf19f9e4b6ec11c59c4dd00f0013a2
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 841e053418dedb6b41262d1277ab4bdc9d4800c6
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>複製活動的效能及微調指南
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -88,7 +88,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 
 | 複製案例 | 服務決定的預設 DMU |
 |:--- |:--- |
-| 在以檔案為基礎的存放區之間複製資料 | 依據檔案的數量和大小，介於 4 到 16 之間。 |
+| 在以檔案為基礎的存放區之間複製資料 | 依據檔案的數量和大小，介於 4 到 32 之間。 |
 | 所有其他複製案例 | 4 |
 
 若要覆寫此預設值，請如下所示指定 **cloudDataMovementUnits** 屬性的值。 **cloudDataMovementUnits** 屬性的「允許值」是 2、4、8、16 和 32。 根據您的資料模式，複製作業會在執行階段使用的 **實際雲端 DMU 數目** 等於或小於所設定的值。 如需在為特定複製來源和接收設定更多單位時可能獲得之效能增益水準的相關資訊，請參閱 [效能參考](#performance-reference)。
@@ -133,7 +133,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 
 | 複製案例 | 由服務決定的預設平行複製計數 |
 | --- | --- |
-| 在以檔案為基礎的存放區之間複製資料 |介於 1 到 32。 取決於檔案大小和用來在兩個雲端資料存放區之間複製資料的雲端資料移動單位 (DMU) 數，或自我裝載整合執行階段電腦的實體組態。 |
+| 在以檔案為基礎的存放區之間複製資料 |介於 1 到 64。 取決於檔案大小和用來在兩個雲端資料存放區之間複製資料的雲端資料移動單位 (DMU) 數，或自我裝載整合執行階段電腦的實體組態。 |
 | 將資料從任何來源資料存放區複製到 Azure 表格儲存體 |4 |
 | 所有其他複製案例 |1 |
 

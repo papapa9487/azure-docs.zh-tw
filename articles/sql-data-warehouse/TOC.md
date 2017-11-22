@@ -5,7 +5,7 @@
 
 # 開始使用
 
-## [初學者教學課程](sql-data-warehouse-get-started-tutorial.md)
+## [載入資料教學課程](load-data-from-azure-blob-storage-using-polybase.md)
 ## [彈性查詢教學課程](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [最佳作法](sql-data-warehouse-best-practices.md)
 ## [管理](sql-data-warehouse-overview-manage.md)

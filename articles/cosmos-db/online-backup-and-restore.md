@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/15/2017
 ms.author: raprasa
-ms.openlocfilehash: 84b26c9ff354adef3f1bc1e61f235c520b63df13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b421ca0d4ec612c5b0da25bcff712eb7ff9df85
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 進行自動線上備份及還原
 Azure Cosmos DB 可以定期自動備份您的所有資料。 自動備份的進行不會影響資料庫作業的效能或可用性。 所有備份會儲存在另一個儲存體服務中，而且這些備份會全域複寫用於為區域性災害提供復原功能。 假設您不小心刪除 Cosmos DB 容器，需要資料復原或災害復原解決方案，這正是自動備份適用的案例。  
@@ -27,7 +27,7 @@ Azure Cosmos DB 可以定期自動備份您的所有資料。 自動備份的進
 本文開頭先回顧 Cosmos DB 的資料備援和可用性，接著討論備份。 
 
 ## <a name="high-availability-with-cosmos-db---a-recap"></a>Cosmos DB 的高可用性 - 回顧
-Cosmos DB 設計為[全域分散](distribute-data-globally.md) – 可讓您調整多個 Azure 區域的輸送量以及原則導向的容錯移轉和透明多路連接的 API。 由於資料庫系統供應項目為 [99.99% 可用性 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db)，本機磁碟會永久認可 Cosmos DB 中的所有寫入，這是在用戶端認可之前，由本機資料中心內的複本仲裁認可。 請注意，Cosmos DB 的高可用性仰賴本機儲存體，不需依賴任何外部儲存技術。 此外，如果您的資料庫帳戶與多個 Azure 區域相關聯，您的寫入也會在其他區域複寫。 若要在低延遲狀況下調整輸送量和存取資料，您可以有盡量多個與您的資料庫帳戶相關聯的讀取區域。 在每個讀取區域中，(複寫的) 資料會在複本集上永久保存。  
+Cosmos DB 設計為[全域分散](distribute-data-globally.md) – 可讓您調整多個 Azure 區域的輸送量以及原則導向的容錯移轉和透明多路連接的 API。 Azure Cosmos DB 提供對一致性很寬鬆的所有單一區域帳戶和所有多重區域帳戶 [99.99% 可用性 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) \(英文\)，而所有多重區域資料庫帳戶有 99.999% 的讀取可用性。 本機磁碟會永久認可 Azure Cosmos DB 中的所有寫入，這是在用戶端認可之前，由本機資料中心內的複本仲裁認可。 請注意，Cosmos DB 的高可用性仰賴本機儲存體，不需依賴任何外部儲存技術。 此外，如果您的資料庫帳戶與多個 Azure 區域相關聯，您的寫入也會在其他區域複寫。 若要在低延遲狀況下調整輸送量和存取資料，您可以有盡量多個與您的資料庫帳戶相關聯的讀取區域。 在每個讀取區域中，(複寫的) 資料會在複本集上永久保存。  
 
 如下圖所示，單一 Cosmos DB 容器是[水平分割](partition-data.md)。 圖中的一個一個圓圈是一個「分割」，透過複本集每個分割都有高可用性。 這是在單一 Azure 區域內的本機分散 (以 X 軸表示)。 再者，每個分割 (及其對應的複本集) 會全域分散在與您的資料庫帳戶相關聯的多個區域，例如，此圖中有三個區域 - 美國東部、美國西部和印度中部。 「分割集」是全域分散的實體，由您的資料在每個區域中的多個複本組成 (以 Y 軸表示)。 您可以替資料庫帳戶相關聯的區域指派優先順序，發生災害時 Cosmos DB 會以透明方式容錯移轉至下一個區域。 您也可以手動模擬容錯移轉，以測試應用程式的端對端可用性。  
 
