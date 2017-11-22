@@ -1,8 +1,8 @@
-在 Cloud Shell 中，使用 [az appservice plan create](/cli/azure/appservice/plan#create) 命令來建立 App Service 方案。
+在 Cloud Shell 中，使用 [az appservice plan create](/cli/azure/appservice/plan#create) 命令在資源群組中建立 App Service 方案。
 
-[!INCLUDE [app-service-plan](app-service-plan-linux.md)]
+<!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
-下列範例會在**標準**定價層和 Linux 容器中，建立名為 `myAppServicePlan` 的 App Service 方案：
+下列範例會在**標準**定價層 (`--sku S1`) 和 Linux 容器 (`--is-linux`) 中，建立名為 `myAppServicePlan` 的 App Service 方案。
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux
