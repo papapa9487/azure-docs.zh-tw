@@ -378,6 +378,8 @@
               href: saas-multitenantdb-adhoc-reporting.md
             - name: 管理租用戶結構描述
               href: saas-multitenantdb-schema-management.md
+            - name: 供分析的 ETL
+              href: saas-multitenantdb-tenant-analytics.md
     - name: 開發應用程式
       items:
         - name: C 和 C ++
