@@ -4,7 +4,7 @@ description: "了解使用 Azure Stack 中虛擬機器時的差異與考量。"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
-manager: byronr
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 11/14/2017
 ms.author: sngun
-ms.openlocfilehash: 7d841dba798c2b706c26dcf51361ce0447710b12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa4816079660467e530237fef62aeadfef7fa8bd
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Azure Stack 中虛擬機器的考量
 
@@ -46,12 +46,14 @@ ms.lasthandoff: 10/11/2017
 
 | 類型 | 大小 | 支援的大小範圍 |
 | --- | --- | --- |
-|一般用途 |基本 A|A0-A4|
-|一般用途 |標準 A|A0-A7|
-|一般用途 |標準 D|D1-D4|
-|一般用途 |標準 Dv2|D1v2-D5v2|
-|記憶體最佳化|D 系列|D11-D14|
-|記憶體最佳化 |Dv2 系列|D11v2-D14v2|
+|一般用途 |基本 A|A0 - A4|
+|一般用途 |標準 A|A0 - A7|
+|一般用途 |D 系列|D1 - D4|
+|一般用途 |Dv2 系列|D1_v2 - D5_v2|
+|一般用途 |DS 系列|DS1 - DS4|
+|一般用途 |DSv2 系列|DS1_v2 - DS5_v2|
+|記憶體最佳化|DS 系列|DS11 - DS14|
+|記憶體最佳化 |DSv2 系列|DS11_v2 - DS14_v2|
 
 Azure Stack 與 Azure 之間的虛擬機器大小及其關聯資源數量是一致的。 例如，這包括記憶體數量、核心數目，以及可建立的資料磁碟數目/大小。 不過，Azure Stack 中相同 VM 大小的效能取決於特定 Azure Stack 環境的底層特性。
 

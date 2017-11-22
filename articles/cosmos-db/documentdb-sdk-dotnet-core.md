@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 11/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e5dc642399ae58120f1757ffacff45a4188681d
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 56a2aff21a728d5ac0355516fc6988512c062b4c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK︰版本資訊與資源
 > [!div class="op_single_selector"]
@@ -57,6 +57,12 @@ Azure Cosmos DB .NET Core SDK 有與最新版 [Azure Cosmos DB .NET SDK](documen
 > [!NOTE] 
 > Azure Cosmos DB .NET Core SDK 與「通用 Windows 平台」(UWP) 應用程式尚未相容。 如果您有興趣了解可支援 UWP 應用程式的 .NET Core SDK，請傳送電子郵件至 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com)。
 
+### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
+ 
+ * 在 API 參考文件、組件中的中繼資料資訊，以及 NuGet 封裝中，將商標從 Azure DocumentDB 變更為 Azure Cosmos DB。 
+ * 將以直接連線模式傳送之請求的回應之診斷資訊和延遲加以公開。 屬性名稱是 ResourceResponse 類別上的 RequestDiagnosticsString 與 RequestLatency。
+ * 此 SDK 版本需要使用從 https://aka.ms/cosmosdb-emulator 下載之最新版本的 Azure Cosmos DB 模擬器。
+ 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 
 * 新增的數個可靠性修正和改進。
@@ -144,6 +150,7 @@ Azure Cosmos DB .NET Core Preview SDK 有與最新版本 [Azure Cosmos DB .NET S
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [1.7.0](#1.7.0) |2017 年 11 月 10 日 |--- |
 | [1.6.0](#1.6.0) |2017 年 10 月 17 日 |--- |
 | [1.5.1](#1.5.1) |2017 年 10 月 2 日 |--- |
 | [1.5.0](#1.5.0) |2017 年 8 月 10 日 |--- | 

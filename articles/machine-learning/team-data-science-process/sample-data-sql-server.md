@@ -4,7 +4,7 @@ description: "Azure 上的 SQL Server 取樣資料"
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgeonlun
 editor: cgronlun
 ms.assetid: 33c030d4-5cca-4cc9-99d7-2bd13a3926af
 ms.service: machine-learning
@@ -12,25 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: fashah;garye;bradsev
-ms.openlocfilehash: fbd83ad59a9db1daca4ba16402031e2c1c5b7991
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fd669f3951b1f7f05932634f039a04e02993399f
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="heading"></a>在 Azure 上 SQL Server 中進行資料取樣
-本文件顯示如何使用 SQL 或 Python 程式設計語言，對儲存在 Azure 上之 SQL Server 中的資料進行取樣。 也示範如何透過將取樣的資料儲存到檔案，讓取樣資料移動到 Azure Machine Learning、將取樣的資料上傳至 Azure blob，然後將其讀入 Azure Machine Learning Studio。
+本文說明如何使用 SQL 或 Python 程式設計語言，對儲存在 Azure 上之 SQL Server 中的資料進行取樣。 也示範如何透過將取樣的資料儲存到檔案，讓取樣資料移動到 Azure Machine Learning、將取樣的資料上傳至 Azure blob，然後將其讀入 Azure Machine Learning Studio。
 
 Python 取樣使用 [pyodbc](https://code.google.com/p/pyodbc/) ODBC 程式庫來連接到 Azure 上的 SQL Server 以及 [Pandas](http://pandas.pydata.org/) 程式庫來進行取樣。
 
 > [!NOTE]
-> 本文件中的 SQL 程式碼範例假設資料位於 Azure 上的 SQL Server 中。 如果資料不在其中，請參閱 [移動資料至 Azure 虛擬機器上的 SQL Server](move-sql-server-virtual-machine.md) 主題，以取得如何將資料移至 Azure 上 SQL Server 的指示。
+> 本文件中的 SQL 程式碼範例假設資料位於 Azure 上的 SQL Server 中。 如果資料不在其中，請參閱[移動資料至 Azure 虛擬機器上的 SQL Server](move-sql-server-virtual-machine.md) 一文，以取得如何將資料移至 Azure 上 SQL Server 的指示。
 > 
 > 
 
-以下**功能表**所連結的主題會說明如何從各種不同儲存體環境進行資料取樣。 
+以下**功能表**所連結的文章會說明如何從各種不同儲存體環境進行資料取樣。 
 
 [!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
 
@@ -40,9 +40,9 @@ Python 取樣使用 [pyodbc](https://code.google.com/p/pyodbc/) ODBC 程式庫�
 這個取樣工作是 [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)中的一個步驟。
 
 ## <a name="SQL"></a>使用 SQL
-本節將說明使用 SQL，對資料庫中的資料執行簡單隨機取樣的數個方法。 請根據資料大小及其分佈來選擇方法。
+本節將說明使用 SQL，對資料庫中的資料執行簡單隨機取樣的數個方法。 根據資料大小及其分佈來選擇方法。
 
-以下兩個項目示範如何在 SQL Server 中使用 newid 進行取樣。 您選擇的方法取決於想要的隨機取樣程度 (程式碼範例底下的 pk_id 已假設為自動產生的主索引鍵)。
+以下兩個項目示範如何在 SQL Server 中使用 `newid` 進行取樣。 您選擇的方法取決於想要的隨機取樣程度 (以下程式碼範例的 pk_id 已假設為自動產生的主索引鍵)。
 
 1. 較不嚴格的隨機取樣
    
@@ -53,7 +53,7 @@ Python 取樣使用 [pyodbc](https://code.google.com/p/pyodbc/) ODBC 程式庫�
         SELECT * FROM <table_name>
         WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
 
-Tablesample 可用來進行取樣及示範，如下所示。 如果資料大小很大 (假設不同頁面上的資料不會相互關聯)，而且要讓查詢在合理時間內完成，這可能是較好的方法。
+Tablesample 也可用來對資料進行取樣。 如果資料大小很大 (假設不同頁面上的資料不會相互關聯)，而且要讓查詢在合理時間內完成，這可能是較好的方法。
 
     SELECT *
     FROM <table_name> 
@@ -65,7 +65,7 @@ Tablesample 可用來進行取樣及示範，如下所示。 如果資料大小�
 > 
 
 ### <a name="sql-aml"></a>連接到 Azure Machine Learning
-您可以在 Azure Machine Learning [匯入資料][import-data]模組中直接使用上述取樣查詢，來進行即時資料縮小取樣，然後帶入 Azure Machine Learning 實驗中。 使用讀取程式模組讀取取樣資料的螢幕擷取畫面如下所示：
+您可以在 Azure Machine Learning [匯入資料][import-data]模組中直接使用上述取樣查詢，來進行即時資料縮小取樣，然後帶入 Azure Machine Learning 實驗中。 使用讀取程式模組讀取取樣資料的螢幕擷取畫面如這裡所示：
 
 ![讀取器 SQL][1]
 
@@ -117,7 +117,7 @@ Python 中的 [Pandas](http://pandas.pydata.org/) 程式庫提供一組豐富的
 ![讀取器 Blob][2]
 
 ## <a name="the-team-data-science-process-in-action-example"></a>Team Data Science Process 實務範例
-如需使用公用資料集進行 Team Data Science Process 的端對端逐步解說範例，請參閱 [Team Data Science Process 實務：使用 SQL Server](sql-walkthrough.md)。
+若要使用公用資料集進行 Team Data Science Process 的逐步解說範例，請參閱[Team Data Science Process 實務：使用 SQL Server](sql-walkthrough.md)。
 
 [1]: ./media/sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/sample-sql-server-virtual-machine/reader_blob.png

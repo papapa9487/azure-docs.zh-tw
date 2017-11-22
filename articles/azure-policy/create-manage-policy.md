@@ -9,11 +9,11 @@ ms.date: 11/01/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: adbf6e13efaad196c39e4fce0900fa40d7511122
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 63e8e4d3dbbc2e50b55f7e293d324ceed0484bb7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>建立和管理原則來強制執行相容性
 
@@ -120,7 +120,7 @@ Azure 原則目前僅供有限預覽，因此您必須註冊以要求存取權�
 
 <!-- Update the following link to the top level samples page
 -->
-   若要檢視 json 程式碼的範例，請參閱這篇文章 - [資源原則概觀](../azure-resource-manager/resource-manager-policy.md)
+   若要檢視 json 程式碼的範例，請參閱這篇文章 - [Azure 原則的範本](json-samples.md)
 
 4. 選取 [ **儲存**]。
 
@@ -171,7 +171,7 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Micro
 
 您可以使用 `New-AzureRmPolicyDefinition` cmdlet 建立原則定義。
 
-若要從檔案建立原則定義，請傳遞檔案的路徑。 針對外部檔案，請使用下列範例：
+若要從檔案建立原則定義，請將路徑傳遞至檔案。 針對外部檔案，請使用下列範例：
 
 ```
 $definition = New-AzureRmPolicyDefinition `

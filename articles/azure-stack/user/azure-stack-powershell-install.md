@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: sngun
-ms.openlocfilehash: ae489cfab1effca8fa33c4e2693b8b5229eda9c5
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: f45b65c1cb16a79a44e873e3e001e0f5c12a8e37
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-powershell-for-azure-stack"></a>安裝 Azure Stack 的 PowerShell  
 
@@ -82,7 +82,7 @@ Set-PSRepository `
 
 ## <a name="install-powershell-in-a-disconnected-or-in-a-partially-connected-scenario"></a>在已中斷連線或部分連線案例中安裝 PowerShell
 
-在中斷連線的案例中，您必須先將 PowerShell 模組下載至具有網際網路連線的電腦，然後將其傳送至 Azure Stack 開發套件進行安裝。
+在中斷連線或部分連線的案例中，您必須先將 PowerShell 模組下載至具有網際網路連線的電腦，然後將其傳送至 Azure Stack 開發套件進行安裝。
 
 > [!IMPORTANT]
 > AzureRM 1.2.11 PowerShell 模組的發行版本隨附重大變更清單。 若要從 1.2.10 版升級，請參閱移轉指南 (網址為 [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration))。

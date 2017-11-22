@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/03/2017
+ms.date: 11/09/2017
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 7347301cd34979df9b3acc59f623ab346dbe41f6
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4867a43aab1357cb8e01c2ddcef74cdebb41a84a
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>將備份保存庫升級至復原服務保存庫
 
@@ -120,7 +120,7 @@ PowerShell 指令碼會提示您輸入認證。 輸入您的認證兩次︰一�
 否。 在升級期間和升級之後，進行中的備份持續不受干擾。
 
 **如果我不打算立即升級，那麼我的保存庫會怎麼樣？**</br>
-所有新功能只適用於復原服務保存庫，因此您最好將保存庫升級。 Microsoft 終究會淘汰掉傳統入口網站。 2017 年 9 月 1 日起，Microsoft 會開始將備份保存庫自動升級為復原服務保存庫。 Microsoft 將會在 2017 年 11 月 30 日前完成升級程序。 您的保存庫會其間的任何時間自動升級。 Microsoft 建議您盡快升級您的保存庫。
+所有新功能只適用於復原服務保存庫，因此您最好將保存庫升級。 Microsoft 終究會淘汰掉傳統入口網站。 2017 年 9 月 1 日起，Microsoft 會開始將備份保存庫自動升級為復原服務保存庫。 2017 年 11 月 30 日之後，您就無法再使用 PowerShell 建立備份保存庫。 您的保存庫會其間的任何時間自動升級。 Microsoft 建議您盡快升級您的保存庫。
 
 **對於我現有的工具來說，此升級有何意義？**</br>
 將您的工具升級至 Resource Manager 部署模型。 復原服務保存庫是打造來用於 Resource Manager 部署模型的。 因此，請務必要規劃 Resource Manager 部署模型，並考量保存庫的相異之處。 

@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 630d9022da0d51e533534ea43f50f27e8eb09a78
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 7c3933210c01c81077b594abb8c3183d6e3c58a0
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>使用 Azure Functions 建立無伺服器 API
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 11/08/2017
 
 ## <a name="proxies-overview"></a>Proxy 概觀
 
-在下一節，您將透過 Proxy 公開您的 API。 Azure Functions Proxy 是預覽功能，可讓您將要求轉送至其他資源。 定義 HTTP 端點就像定義 HTTP 觸發程序一樣，但並不撰寫呼叫該端點時要執行的程式碼，而是提供遠端實作的 URL。 這可讓您將多個 API 來源組成單一 API 介面，讓用戶端輕鬆取用。 如果您想要將 API 建置成微服務，這特別有用。
+在下一節，您將透過 Proxy 公開您的 API。 Azure Functions Proxy 可讓您將要求轉送至其他資源。 定義 HTTP 端點就像定義 HTTP 觸發程序一樣，但並不撰寫呼叫該端點時要執行的程式碼，而是提供遠端實作的 URL。 這可讓您將多個 API 來源組成單一 API 介面，讓用戶端輕鬆取用。 如果您想要將 API 建置成微服務，這特別有用。
 
 Proxy 可以指向任何 HTTP 資源，例如︰
 - Azure Functions 
@@ -75,7 +75,7 @@ Proxy 可以指向任何 HTTP 資源，例如︰
 - [Linux 上的 App Service](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro) 中的 Docker 容器
 - 其他任何裝載 API
 
-若要深入了解 Proxy，請參閱[使用 Azure Functions Proxy (預覽)]。
+若要深入了解 Proxy，請參閱[使用 Azure Functions Proxy]。
 
 ## <a name="create-your-first-proxy"></a>建立您的第一個 Proxy
 
@@ -97,7 +97,7 @@ Proxy 可以指向任何 HTTP 資源，例如︰
 ### <a name="creating-a-proxy-on-the-frontend"></a>在前端建立 Proxy
 
 1. 在入口網站中瀏覽回到前端函式應用程式。
-1. 在左側導覽中，按一下 [Proxy (預覽)] 旁邊的加號 '+'。
+1. 在左側導覽中，按一下 [Proxy] 旁邊的加號 [+]。
     ![建立 Proxy](./media/functions-create-serverless-api/creating-proxy.png)
 1. 使用表格中指定的 Proxy 設定。 
 
@@ -187,9 +187,9 @@ Proxy 可以指向任何 HTTP 資源，例如︰
 進一步開發您的 API 時，下列參考可能很有幫助︰
 
 - [Azure Functions HTTP 和 webhook 繫結](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
-- [使用 Azure Functions Proxy (預覽)]
+- [使用 Azure Functions Proxy]
 - [定義 Azure Functions API (預覽)](https://docs.microsoft.com/azure/azure-functions/functions-api-definition-getting-started)
 
 
 [Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
-[使用 Azure Functions Proxy (預覽)]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
+[使用 Azure Functions Proxy]: https://docs.microsoft.com/azure/azure-functions/functions-proxies

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: 096c97f4cb41ff8df2e646f59dbc0bf845721ac7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c4ea3e3714f6a3989a260937c2c67815a6dd6f7
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 虛擬機器備份的疑難排解
 > [!div class="op_single_selector"]
@@ -32,6 +32,11 @@ ms.lasthandoff: 10/11/2017
 ## <a name="backup"></a>備份
 
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>錯誤：系統不支援指定的磁碟設定
+
+> [!NOTE]
+> 我們有私人預覽，可支援未受管理磁碟大小超過 1 TB 的虛擬機器的備份作業。 如需詳細資訊，請參閱[適用於大型磁碟虛擬機器備份支援的私人預覽](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+>
+>
 
 Azure 備份目前不支援容量 [大於 1023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm) 的磁碟。 
 - 如果您有容量大於 1 TB 的磁碟，請[附加新磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)，磁碟需要小於 1 TB <br>

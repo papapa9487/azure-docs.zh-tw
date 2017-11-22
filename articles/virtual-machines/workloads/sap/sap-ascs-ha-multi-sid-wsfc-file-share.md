@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 上搭配 Windows Server 容錯移轉叢集和檔案共用的 SAP (A)SCS 執行個體多重 SID 高可用性 | Microsoft Docs"
-description: "在 Azure 上搭配 Windows Server 容錯移轉叢集和檔案共用之 SAP (A)SCS 執行個體的多重 SID 高可用性"
+title: "在 Azure 上搭配 Windows Server 容錯移轉叢集和檔案共用之 SAP ASCS/SCS 執行個體的多重 SID 高可用性 | Microsoft Docs"
+description: "在 Azure 上搭配 Windows Server 容錯移轉叢集和檔案共用之 SAP ASCS/SCS 執行個體的多重 SID 高可用性"
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9f0beae1c92c40bb89decc6ca567aed98c5e29b4
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 3522e7ef0e3d49ce1bd8bed750b239fa384af8b8
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/14/2017
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -193,127 +193,127 @@ ms.lasthandoff: 10/16/2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-# <a name="sap-ascs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>在 Azure 上搭配 Windows Server 容錯移轉叢集和檔案共用的 SAP (A)SCS 執行個體多重 SID 高可用性
+# <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>在 Azure 上搭配 Windows Server 容錯移轉叢集和檔案共用的 SAP ASCS/SCS 執行個體多重 SID 高可用性
 
 > ![Windows][Logo_Windows] Windows
 >
 
 Microsoft 在 2016 年 9 月發行的功能，可讓您使用 [Azure 內部負載平衡器][load-balancer-multivip-overview]管理多個虛擬 IP 位址。 這項功能已存在 Azure 外部負載平衡器。
 
-如果您有 SAP 部署，可以使用內部負載平衡器針對 SAP 的 ASCS/SCS 建立 Windows 叢集組態。
+如果您有 SAP 部署，可以使用內部負載平衡器，建立 SAP Central Services (ASCS/SCS) 執行個體的 Windows 叢集組態。
 
-本文將著重於如何將單一 ASCS/SCS 安裝移至 SAP 多 SID 組態，方法是使用**檔案共用**，將其他 SAP ASCS/SCS 叢集執行個體安裝至現有 Windows Server 容錯移轉叢集 (WSFC) 叢集。 完成此程序之後，您將已設定 SAP 多 SID 叢集。
+本文將著重於如何將單一 ASCS/SCS 安裝移至 SAP 多 SID 組態，方法是使用**檔案共用**，將其他 SAP ASCS/SCS 叢集執行個體安裝至現有 Windows Server 容錯移轉叢集 (WSFC) 叢集。 完成此程序之後，您將已設定 SAP 多重 SID 叢集。
 
 > [!NOTE]
 >
-> 這項功能僅適用於 **Azure Resource Manager** 部署模型。
+> 這項功能僅適用於 Azure Resource Manager 部署模型。
 >
->每個 Azure 內部負載平衡器的私人前端 IP 有數量限制。
+>每個 Azure 內部負載平衡器的私人前端 IP 都有數量限制。
 >
 >一個 WSFC 叢集中 SAP ASCS/SCS 執行個體數目上限等於每個 Azure 內部負載平衡器的私人前端 IP 數目上限。
 >
 
-如需更多有關負載平衡器限制的資訊，請參閱[網路限制：Azure Resource Manager][networking-limits-azure-resource-manager] 中的「每個負載平衡器的私人前端 IP」。
+如需負載平衡器限制的詳細資訊，請參閱[網路限制：Azure Resource Manager][networking-limits-azure-resource-manager] 中的「每個負載平衡器的私人前端 IP」一節。
 
 ## <a name="prerequisites"></a>必要條件
 
-您已經使用**檔案共用**來設定用於**一個** SAP ASCS/SCS 執行個體的 WSFC 叢集，如此圖所示。
+您已經使用**檔案共用**來設定要用於一個 SAP ASCS/SCS 執行個體的 WSFC 叢集，如下圖所示。
 
-![圖 1：在兩個叢集中部署 SAP (A)SCS 執行個體和 SOFS 部署][sap-ha-guide-figure-8007]
+![圖 1：在兩個叢集中部署 SAP ASCS/SCS 執行個體和 SOFS 部署][sap-ha-guide-figure-8007]
 
-_**圖 1：**在兩個叢集中部署 SAP (A)SCS 執行個體和 SOFS 部署_
+_**圖 1：**在兩個叢集中部署 SAP ASCS/SCS 執行個體和 SOFS 部署_
 
 > [!IMPORTANT]
 > 安裝程式必須符合下列條件︰
 > * SAP ASCS / SCS 執行個體必須共用相同的 WSFC 叢集。
-> * 每個 DBMS SID 必須有其自己專用的 WSFC 叢集。
+> * 每個資料庫管理系統 (DBMS) SID 必須有自己專用的 WSFC 叢集。
 > * SAP 應用程式伺服器屬於必須擁有自己專用 VM 的一個 SAP 系統 SID。
 
-## <a name="sap-ascs-multi-sid-architecture-with-file-share"></a>使用檔案共用的 SAP (A)SCS 多重 SID 架構
+## <a name="sap-ascsscs-multi-sid-architecture-with-file-share"></a>使用檔案共用的 SAP ASCS/SCS 多重 SID 架構
 
-目標是在相同 WSAFC 叢集中安裝多個 SAP ABAP ASCS 或 SAP Java SCS 叢集執行個體，如這裡所詳述：
+目標是在相同 WSFC 叢集中安裝多個 SAP 進階商業應用程式程式設計 (ASCS) 或 SAP Java (SCS) 叢集執行個體，如這裡所詳述： 
 
 ![圖 2：兩個叢集中的 SAP 多重 SID 設定][sap-ha-guide-figure-8008]
 
 _**圖 2：**兩個叢集中的 SAP 多重 SID 設定_
 
-安裝其他 **&lt;SID2&gt;**  SAP 系統等同於安裝一個<SID> 系統。 (A)SCS 叢集以及檔案共用 SOFS 叢集上需要另兩個準備步驟。
+安裝其他 **SAP \<SID2>** 系統等同於安裝一個 <SID> 系統。 ASCS/SCS 叢集以及檔案共用 SOFS 叢集上需要另兩個準備步驟。
 
-## <a name="infrastructure-preparation-for-sap-multi-sid-scenario"></a>SAP 多重 SID 案例的基礎結構準備
+## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>準備 SAP 多重 SID 案例的基礎結構
 
-### <a name="infrastructure-preparation-on-domain-controller"></a>網域控制站上的基礎結構準備
+### <a name="prepare-the-infrastructure-on-the-domain-controller"></a>準備網域控制站上的基礎結構
 
-建立網域群組 **&lt;Domain&gt;\SAP_&lt;SID2&gt;_GlobalAdmin**，例如，使用 &lt;SID2&gt; = PR2。 網域群組名稱是 <Domain>\SAP_PR2_GlobalAdmin
+建立網域群組 **\<Domain>\SAP_\<SID2>_GlobalAdmin**，例如，使用 \<SID2> = PR2。 網域群組名稱是 \<Domain>\SAP_PR2_GlobalAdmin。
 
-### <a name="infrastructure-preparation-on-ascs-cluster"></a>(A)SCS 叢集上的基礎結構準備
+### <a name="prepare-the-infrastructure-on-the-ascsscs-cluster"></a>準備 ASCS/SCS 叢集上的基礎結構
 
-您必須針對第二個 SAP &lt;SID&gt;，準備現有 SAP (A)SCS 叢集上的基礎結構：
+您必須針對第二個 SAP \<SID>，準備現有 SAP ASCS/SCS 叢集上的基礎結構：
 
-* 在 DNS 伺服器上建立叢集 SAP ASCS/SCS 執行個體的虛擬主機名稱
-* 使用 PowerShell 將 IP 位址新增至現有的 Azure 內部負載平衡器
+* 在 DNS 伺服器上建立叢集 SAP ASCS/SCS 執行個體的虛擬主機名稱。
+* 使用 PowerShell 將 IP 位址新增至現有的 Azure 內部負載平衡器。
 
 [SAP 多重 SID 案例的基礎結構準備][sap-ascs-ha-multi-sid-wsfc-shared-disk-infrast-prepare]中說明這些步驟。
 
 
-### <a name="infrastructure-preparation-on-sofs-cluster-using-existing-sap-global-host"></a>在 SOFS 叢集上使用現有的 SAP GLOBAL 主機進行基礎結構準備
+### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>使用現有的 SAP 全域主機準備 SOFS 叢集上的基礎結構
 
-您可以選擇重複使用第一個 SAP <SID1> 系統的現有  **&lt;SAPGLOBALHost&gt;** 和 **volume1**。
+您可以重複使用現有的 \<SAPGlobalHost> 和第一個 SAP <SID1> 系統的 Volume1。
 
-![圖 3：多重 SID SOFS 與 SAP GLOBAL 主機名稱相同][sap-ha-guide-figure-8014]
+![圖 3：多重 SID SOFS 與 SAP 全域主機名稱相同][sap-ha-guide-figure-8014]
 
-_**圖 3：**多重 SID SOFS 與 SAP GLOBAL 主機名稱相同_
+_**圖 3：**多重 SID SOFS 與 SAP 全域主機名稱相同_
 
 > [!IMPORTANT]
->對於第二個 **SAP &lt;SID2&gt;**  系統，正在使用相同的 Volume1 及相同的 **&lt;SAPGlobalHost&gt;** 網路名稱。
->如果我們想要重複使用相同的 **&lt;SAPGlobalHost&gt;** 網路名稱，而且我們的不同 SAP 系統具有固定的 **SAPMNT** 共用名稱，因此將強制使用相同的 **Volume1**。
+>對於第二個 **SAP \<SID2>** 系統，使用的是相同的 Volume1 及相同的 **\<SAPGlobalHost>** 網路名稱。
+>因為您已將 **SAPMNT** 設定為各種不同 SAP 系統的共用名稱，因此若要重複使用 **\<SAPGlobalHost>** 網路名稱，您必須使用相同的 **Volume1**。
 >
-><SID2> 全域主機的檔案路徑為：C:\ClusterStorage\\**Volume1**\usr\sap\<SID2>\SYS\
+><SID2> 全域主機的檔案路徑為 C:\ClusterStorage\\**Volume1**\usr\sap\<SID2>\SYS\.
 >
 
-您必須準備 SAP GLOBAL 主機 **..\SYS\.。** &lt;SID2&gt; 系統之 SOFS 叢集上的資料夾。
+針對 \<SID2> 系統，您必須準備 SAP 全域主機 ..\SYS\.。 SOFS 叢集上的資料夾。
 
-執行下列 PowerShell 指令碼，為 &lt;SID2&gt; 執行個體準備 SAP GLOBAL 主機：
+若要為 \<SID2> 執行個體準備 SAP 全域主機，請執行下列 PowerShell 指令碼：
 
 
 ```PowerShell
 ##################
-# SAP Multi-SID
+# SAP multi-SID
 ##################
 
 $SAPSID2 = "PR2"
 $DomainName2 = "SAPCLUSTER"
 $SAPSIDGlobalAdminGroupName2 = "$DomainName2\SAP_" + $SAPSID2 + "_GlobalAdmin"
 
-# SAP (A)SCS cluster nodes
+# SAP ASCS/SCS cluster nodes
 $ASCSCluster2Node1 = "ja1-ascs-0"
 $ASCSCluster2Node2 = "ja1-ascs-1"
 
-# Define SAP (A)SCS cluster node computer objects
+# Define the SAP ASCS/SCS cluster node computer objects
 $ASCSCluster2ObjectNode1 = "$DomainName2\$ASCSCluster2Node1$"
 $ASCSCluster2ObjectNode2 = "$DomainName2\$ASCSCluster2Node2$"
 
 # Create usr\sap\.. folders on CSV
 $SAPGlobalFolder2 = "C:\ClusterStorage\Volume1\usr\sap\$SAPSID2\SYS"
-New-Item -Path $SAPGlobalFOlder2 -ItemType Directory
+New-Item -Path $SAPGlobalFolder2 -ItemType Directory
 
-# Add permissions for SAP SID2 system
+# Add permissions for the SAP SID2 system
 Grant-SmbShareAccess -Name sapmnt -AccountName $SAPSIDGlobalAdminGroupName2, $ASCSCluster2ObjectNode1, $ASCSCluster2ObjectNode2 -AccessRight Full -Force
 
 
 $UsrSAPFolder = "C:\ClusterStorage\Volume1\usr\sap\"
 
-# Set files & folder security
+# Set file and folder security
 $Acl = Get-Acl $UsrSAPFolder
 
-# Add security object of SAP_<sid>_GlobalAdmin group
+# Add the security object of the SAP_<sid>_GlobalAdmin group
 $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($SAPSIDGlobalAdminGroupName2,"FullControl", 'ContainerInherit,ObjectInherit', 'None', 'Allow')
 $Acl.SetAccessRule($Ar)
 
-# Add security object of clusternode1$ computer object
+# Add the security object of the clusternode1$ computer object
 $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($ASCSCluster2ObjectNode1,"FullControl",'ContainerInherit,ObjectInherit', 'None', 'Allow')
 $Acl.SetAccessRule($Ar)
 
-# Add security object of clusternode2$ computer object
+# Add the security object of the clusternode2$ computer object
 $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($ASCSCluster2ObjectNode2,"FullControl",'ContainerInherit,ObjectInherit', 'None', 'Allow')
 $Acl.SetAccessRule($Ar)
 
@@ -321,15 +321,15 @@ $Acl.SetAccessRule($Ar)
 Set-Acl $UsrSAPFolder $Acl -Verbose
 ```
 
-### <a name="infrastructure-preparation-on-sofs-cluster-using-different-sap-global-host"></a>在 SOFS 叢集上使用不同的 SAP GLOBAL 主機進行基礎結構準備
+### <a name="prepare-the-infrastructure-on-the-sofs-cluster-by-using-a-different-sap-global-host"></a>使用不同的 SAP 全域主機準備 SOFS 叢集上的基礎結構
 
-您可以針對第二個 **&lt;SID2&gt;**，使用 **&lt;SAPGlobalHost2&gt;** 和不同的 **Voulme2** 來設定第二個 SOFS，例如第二個 SOFS 叢集角色。
+您可以設定第二個 SOFS (例如，針對第二個 **\<SID2>**，使用 **\<SAPGlobalHost2>** 和不同的 **Volume2** 來設定第二個 SOFS 叢集)。
 
 ![圖 4：多重 SID SOFS 與 SAP GLOBAL 主機名稱 2 相同][sap-ha-guide-figure-8015]
 
 _**圖 4：**多重 SID SOFS 與 SAP GLOBAL 主機名稱 2 相同_
 
-執行這個 PowerShell 指令碼，使用 &lt;SAPGlobalHost2&gt; 建立第二個 SOFS 角色：
+若要使用 \<SAPGlobalHost2> 建立第二個 SOFS 角色，請執行這個 PowerShell 指令碼：
 
 ```PowerShell
 # Create SOFS with SAP Global Host Name 2
@@ -345,23 +345,23 @@ New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_
 
 ![圖 5：多重 SID SOFS 與 SAP GLOBAL 主機名稱 2 相同][sap-ha-guide-figure-8016]
 
-_**圖 5：**容錯移轉叢集管理員中的第二個 **Volume2**_
+_**圖 5：**「容錯移轉叢集管理員」中的第二個 Volume2_
 
-針對第二個 **&lt;SID2&gt;** 建立 SAP GLOBAL 資料夾並設定檔案安全性。
+針對第二個 \<SID2>，建立 SAP GLOBAL 資料夾並設定檔案安全性。
 
 執行這個 PowerShell 指令碼：
 
 ```PowerShell
-# Create folder for <SID2> on second Volume2 and set file security
+# Create a folder for <SID2> on a second Volume2 and set file security
 $SAPSID = "PR2"
 $DomainName = "SAPCLUSTER"
 $SAPSIDGlobalAdminGroupName = "$DomainName\SAP_" + $SAPSID + "_GlobalAdmin"
 
-# SAP (A)SCS cluster nodes
+# SAP ASCS/SCS cluster nodes
 $ASCSClusterNode1 = "ascs-1"
 $ASCSClusterNode2 = "ascs-2"
 
-# Define SAP (A)SCS cluster node computer objects
+# Define SAP ASCS/SCS cluster node computer objects
 $ASCSClusterObjectNode1 = "$DomainName\$ASCSClusterNode1$"
 $ASCSClusterObjectNode2 = "$DomainName\$ASCSClusterNode2$"
 
@@ -371,18 +371,18 @@ New-Item -Path $SAPGlobalFOlder -ItemType Directory
 
 $UsrSAPFolder = "C:\ClusterStorage\Volume2\usr\sap\"
 
-# Set files & folder security
+# Set file and folder security
 $Acl = Get-Acl $UsrSAPFolder
 
-# Add file security object of SAP_<sid>_GlobalAdmin group
+# Add the file security object of the SAP_<sid>_GlobalAdmin group
 $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($SAPSIDGlobalAdminGroupName,"FullControl", 'ContainerInherit,ObjectInherit', 'None', 'Allow')
 $Acl.SetAccessRule($Ar)
 
-# Add security object of clusternode1$ computer object
+# Add the security object of the clusternode1$ computer object
 $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($ASCSClusterObjectNode1,"FullControl",'ContainerInherit,ObjectInherit', 'None', 'Allow')
 $Acl.SetAccessRule($Ar)
 
-# Add security object of clusternode2$ computer object
+# Add the security object of the clusternode2$ computer object
 $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($ASCSClusterObjectNode2,"FullControl",'ContainerInherit,ObjectInherit', 'None', 'Allow')
 $Acl.SetAccessRule($Ar)
 
@@ -390,61 +390,66 @@ $Acl.SetAccessRule($Ar)
 Set-Acl $UsrSAPFolder $Acl -Verbose
 ```
 
-若要在包含 **&lt;SAPGlobalHost2&gt;** 主機名稱的 **Volume2** 上建立 SAPMNT 檔案共用，請針對第二個 SAP **&lt;SID2&gt;**，在容錯移轉叢集管理員中啟動下列精靈。
+若要針對第二個 SAP \<SID2>，在包含 *\<SAPGlobalHost2>* 主機名稱的 Volume2 上建立 SAPMNT 檔案共用，請在「容錯移轉叢集管理員」中啟動 [新增檔案共用] 精靈。
 
-在 saoglobal2 SOFS 叢集群組上按一下滑鼠右鍵，然後選擇 [新增檔案共用]。
+在 **saoglobal2** SOFS 叢集群組上按一下滑鼠右鍵，然後選取 [新增檔案共用]。
 
 ![圖 6：啟動 [新增檔案共用] 精靈][sap-ha-guide-figure-8017]
 
 _**圖 6：**啟動 [新增檔案共用] 精靈_
 
-![圖 7：選擇 [ SMB 共用 - 快速]][sap-ha-guide-figure-8018]
+<br>
+![圖 7：[選取 SMB 共用 - 快速]][sap-ha-guide-figure-8018]
 
-_**圖 7：**選擇 [ SMB 共用 - 快速]_
+_**圖 7：**選取 [SMB 共用 - 快速]_
 
-![圖 8：選擇 sapglobalhost2 並在 Volume2 上指定路徑][sap-ha-guide-figure-8019]
+<br>
+![圖 8：選取 [sapglobalhost2] 並在 Volume2 上指定路徑][sap-ha-guide-figure-8019]
 
-_**圖 8：**選擇 [sapglobalhost2] 並在 Volume2 上指定路徑_
+_**圖 8：**選取 [sapglobalhost2] 並在 Volume2 上指定路徑_
 
+<br>
+![圖 9：將檔案共用名稱設定為「sapmnt」][sap-ha-guide-figure-8020]
 
-![圖 9：將檔案共用名稱設定為 sapmnt][sap-ha-guide-figure-8020]
+_**圖 9：**將檔案共用名稱設定為「sapmnt」_
 
-_**圖 9：**將檔案共用名稱設定為 **sapmnt**_
-
+<br>
 ![圖 10：停用所有設定][sap-ha-guide-figure-8021]
 
 _**圖 10：**停用所有設定_
 
-請務必針對下列項目將 [ 完全控制] 設定為檔案和 sapmnt 共用：
-* **SAP_&lt;SID&gt;_GlobalAdmin** 網域使用者群組
-* (A)SCS 叢集節點 **ascs-1$** 和 **ascs-2$** 的電腦物件
+<br>
+請針對下列項目將 [ 完全控制] 權限指派給檔案和 sapmnt 共用：
+* **SAP_\<SID>_GlobalAdmin** 網域使用者群組
+* ASCS/SCS 叢集節點 **ascs-1$** 和 **ascs-2$** 的電腦物件
 
-![圖 11：請務必將完整存取設定為使用者群組和電腦帳戶][sap-ha-guide-figure-8022]
+![圖 11：將完全控制權限指派給使用者群組和電腦帳戶][sap-ha-guide-figure-8022]
 
-_**圖 11：**請務必將完整存取設定為使用者群組和電腦帳戶_
+_**圖 11：**將「完全控制」指派給使用者群組和電腦帳戶_
 
-![圖 12：按一下 [建立]][sap-ha-guide-figure-8023]
+<br>
+![圖 12：選取 [建立]][sap-ha-guide-figure-8023]
 
-_**圖 12：**按一下 [建立]_
+_**圖 12：**選取 [建立]_
 
+<br>
 ![圖 13：已建立繫結至 sapglobal2 主機和 Volume2 的第二個 sapmnt][sap-ha-guide-figure-8024]
 
-_**圖 13：**已建立繫結至 **sapglobal2** 主機和 **Volume2** 的**第二個 sapmnt**_
+_**圖 13：**已建立繫結至 sapglobal2 主機和 Volume2 的第二個 sapmnt_
 
-## <a name="sap-netweaver-multi-sid-installation"></a>SAP NetWeaver 多重 SID 安裝
+<br>
+## <a name="install-sap-netweaver-multi-sid"></a>安裝 SAP NetWeaver 多重 SID
 
-### <a name="sap-ltsid2gt-ascs-and-ers-instances-installation"></a>SAP &lt;SID2&gt; (A)SCS 和 RES 執行個體安裝
+### <a name="install-sap-sid2-ascsscs-and-ers-instances"></a>安裝 SAP \<SID2> ASCS/SCS 和 ERS 執行個體
 
-遵循針對一個 SAP &lt;SID&gt; 所說明的相同安裝和設定步驟。
+遵循先前針對一個 SAP \<SID> 所說明的相同安裝和設定步驟。
 
 ### <a name="install-dbms-and-sap-application-servers"></a>安裝 DBMS 和 SAP 應用程式伺服器
 安裝的 DBMS 和 SAP 應用程式伺服器，如先前所述。
 
-
-
 ## <a name="next-steps"></a>後續步驟
 
-* [在沒有共用磁碟的容錯移轉叢集上安裝 (A)SCS 執行個體 - HA 檔案共用的官方 SAP 指導方針][sap-official-ha-file-share-document]：
+* [在沒有共用磁碟的容錯移轉叢集上安裝 ASCS/SCS 執行個體][sap-official-ha-file-share-document]：HA 檔案共用的官方 SAP 指導方針
 
 * [Windows Server 2016 中的儲存空間直接存取][s2d-in-win-2016]
 

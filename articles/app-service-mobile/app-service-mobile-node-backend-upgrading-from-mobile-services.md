@@ -14,16 +14,16 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 5fc61fed674f0d2fc64bc29c064e7e872b4f2e68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 888717afe14f29fd50da6478c2bba077616a5379
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>將您現有的 Node.js Azure 行動服務升級為 App Service
 App Service Mobile 是一種使用 Microsoft Azure 建置行動應用程式的新方式。 若要深入了解，請參閱 [何謂 Mobile Apps？]
 
-本主題說明如何將現有的 Node.js 後端應用程式從 Azure 行動服務升級為新的 App Service Mobile Apps。 執行此升級時，您現有的行動服務應用程式可以繼續運作。  如果您需要升級 Node.js 後端應用程式，請參閱[升級 .NET 行動服務](app-service-mobile-net-upgrading-from-mobile-services.md)。
+本文說明如何將現有的 Node.js 後端應用程式從 Azure Mobile Service 升級為新的 App Service Mobile Apps。 執行此升級時，您現有的行動服務應用程式可以繼續運作。  如果您需要升級 Node.js 後端應用程式，請參閱[升級 .NET 行動服務](app-service-mobile-net-upgrading-from-mobile-services.md)。
 
 當行動後端升級為 Azure App Service 時，就會具備所有 App Service 功能的存取權，而且會根據 [App Service 定價]而不是行動服務定價進行計費。
 
@@ -44,7 +44,7 @@ App Service Mobile 是一種使用 Microsoft Azure 建置行動應用程式的�
 * Mobile Apps SDK 是建置來進行跨平台和本機開發，可在 Windows、Linux 和 OSX 平台上進行本機開發與執行。 現在常見的節點開發技術非常容易使用，像是在部署之前執行 [Mocha](https://mochajs.org/) 測試。
 
 ## <a name="overview"></a>基本升級概觀
-為了協助升級 Node.js 後端，Azure App Service 提供了相容性套件。  在升級之後，您將會擁有可部署到新的 App Service 網站的新網站。
+為了協助升級 Node.js 後端，Azure App Service 提供了相容性套件。  在升級之後，您將會擁有可部署到新 App Service 網站的全新網站。
 
 行動服務用戶端 SDK 與新的 Mobile Apps 伺服器 SDK「不」  相容。 為了提供您應用程式的服務持續性，您不應該將變更發佈至目前正在服務已發佈之用戶端的網站。 而是應該建立新的行動應用程式做為重複項目。 您可以在同一個 App Service 方案中放置此應用程式，以避免產生額外的財務成本。
 
@@ -56,7 +56,7 @@ App Service Mobile 是一種使用 Microsoft Azure 建置行動應用程式的�
 2. 使用相容性套件將專案轉換至 Azure 行動應用程式。
 3. 更正任何差異 (例如驗證設定)。
 4. 將轉換後的 Azure 行動應用程式專案部署到新的 App Service。
-5. 發行使用新的行動應用程式的新版用戶端應用程式。
+5. 發行使用新行動應用程式的新版用戶端應用程式。
 6. (可省略) 刪除您已移轉的原始行動服務應用程式。
 
 當已移轉的原始行動服務沒有任何流量時，就能加以刪除。
@@ -98,12 +98,12 @@ App Service Mobile 是一種使用 Microsoft Azure 建置行動應用程式的�
 3. 針對 [資源群組] ，選取現有的資源群組或建立新的群組 (使用與應用程式相同的名稱)。
 
     您可以選取另一個 App Service 方案或建立新方案。 如需有關應用程式服務方案以及如何在不同的定價層和您所要的位置建立新方案的詳細資訊，請參閱 [Azure App Service 方案深入概觀](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。
-4. 若為 **App Service 方案**，則會選取預設方案 (在 [標準層](https://azure.microsoft.com/pricing/details/app-service/))。 您也可以選取不同的方案，或[建立新的方案](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan)。 App Service 方案的設定會決定與您應用程式相關聯的 [位置、功能、成本和計算資源](https://azure.microsoft.com/pricing/details/app-service/) 。
+4. 若為 **App Service 方案**，則會選取預設方案 (在 [標準層](https://azure.microsoft.com/pricing/details/app-service/))。 您也可以選取不同的方案，或[建立新的方案](../app-service/app-service-plan-manage.md#create-an-app-service-plan)。 App Service 方案的設定會決定與您應用程式相關聯的[位置、功能、成本和計算資源](https://azure.microsoft.com/pricing/details/app-service/)。
 
     在決定方案之後，按一下 [建立] 。 這會建立行動應用程式後端。
 
 ### <a name="run-createviewssql"></a>執行 CreateViews.SQL
-已建立結構的應用程式包含稱為 `createViews.sql`的檔案。  您必須對目標資料庫執行這個指令碼。  目標資料庫的連接字串可取自已移轉的行動服務的 [設定] 刀鋒視窗底下的 [連接字串]。  其名稱為 `MS_TableConnectionString`。
+已建立結構的應用程式包含稱為 `createViews.sql`的檔案。  您必須對目標資料庫執行這個指令碼。  您可自 [連接字串] 下方的 [設定] 頁面，從已移轉的行動服務取得目標資料庫的連接字串。  其名稱為 `MS_TableConnectionString`。
 
 您可以從 SQL Server Management Studio 或 Visual Studio 內執行這個指令碼。
 
@@ -116,7 +116,7 @@ App Service Mobile 是一種使用 Microsoft Azure 建置行動應用程式的�
 * 在下拉式清單中，選取 [SQL Database] 
 * 在 [SQL Database] 底下選取現有資料庫，然後按一下 [選取]。
 * 在 [連接字串] 底下，輸入資料庫的使用者名稱和密碼，然後按一下 [確定]。
-* 在 [新增資料連接] 刀鋒視窗中，按一下 [確定]。
+* 在 [新增資料連接] 頁面中，按一下 [確定]。
 
 檢視已移轉的行動服務中目標資料庫的連接字串，就能找到使用者名稱和密碼。
 

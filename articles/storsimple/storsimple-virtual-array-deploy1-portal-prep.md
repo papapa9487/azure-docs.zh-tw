@@ -4,7 +4,7 @@ description: "部署 StorSimple Virtual Array 的第一個教學課程，內容�
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d0801053721f98ce7a2b0fcbe3c65da8dbdd8d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6685c5ab7768176a0c8e7084c8512d5345732d9a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>部署 StorSimple Virtual Array - 準備 Azure 入口網站
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 | **#** | **在此步驟中** | **執行此動作...** | **並使用這些文件。** |
 | --- | --- | --- | --- |
 | 1. |**設定 Azure 入口網站** |在佈建 StorSimple Virtual Array 之前，建立並設定 StorSimple 裝置管理員服務。 |[準備入口網站](storsimple-virtual-array-deploy1-portal-prep.md) |
-| 2. |**佈建 Virtual Array** |對於 Hyper-V，在執行 Windows Server 2012 R2、Windows Server 2012 或 Windows Server 2008 R2 之 Hyper-V 的主機系統上，佈建並連接至 StorSimple Virtual Array。 <br></br> <br></br> 對於 VMware，在執行 VMware ESXi 5.5 及更新版本的主機系統上，佈建並連接至 StorSimple Virtual Array。<br></br> |[在 Hyper-V 中佈建虛擬陣列](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [在 VMware 中佈建虛擬陣列](storsimple-virtual-array-deploy2-provision-vmware.md) |
+| 2. |**佈建 Virtual Array** |對於 Hyper-V，在執行 Windows Server 2012 R2、Windows Server 2012 或 Windows Server 2008 R2 之 Hyper-V 的主機系統上，佈建並連接至 StorSimple Virtual Array。 <br></br> <br></br> 對於 VMware，請在執行 VMware ESXi 5.0、5.5 或 6.0 的主機系統上，佈建並連線至 StorSimple Virtual Array。<br></br> |[在 Hyper-V 中佈建虛擬陣列](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [在 VMware 中佈建虛擬陣列](storsimple-virtual-array-deploy2-provision-vmware.md) |
 | 3. |**設定 Virtual Array** |對於檔案伺服器，請執行初始安裝程序、註冊 StorSimple 檔案伺服器，以及完成裝置安裝程序。 接下來，您可以佈建 SMB 共用。 <br></br> <br></br> 對於 iSCSI 伺服器，請執行初始安裝、註冊 StorSimple iSCSI 伺服器，並完成裝置安裝程序。 接下來，您可以佈建 iSCSI 磁碟區。 |[將虛擬陣列設定為檔案伺服器](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[將虛擬陣列設定為 iSCSI 伺服器](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 現在您可以開始設定 Azure 入口網站。
@@ -70,7 +70,7 @@ ms.lasthandoff: 10/11/2017
 
 在您部署虛擬陣列之前，請確定：
 
-* 您可以存取可用來佈建裝置、在 Windows Server 2008 R2 或更新版本或 VMware (ESXi 5.5 或更新版本) 上執行 Hyper-V 的主機系統。
+* 您可以存取可用來佈建裝置、在 Windows Server 2008 R2 或更新版本或 VMware (ESXi 5.0、5.5 或 6.0) 上執行 Hyper-V 的主機系統。
 * 主機系統能夠把下列資源專門用來佈建虛擬陣列：
   
   * 至少 4 顆核心。
@@ -136,7 +136,7 @@ ms.lasthandoff: 10/11/2017
    
    * VHDX (適用於 Windows Server 2012 及更新版本上的 Hyper-V)
    * VHD (適用於 Windows Server 2008 R2 及更新版本上的 Hyper-V)
-   * VMDK (適用於 VMWare ESXi 5.5 及更新版本)
+   * VMDK (適用於 VMWare ESXi 5.0、5.5 或 6.0)
 5. 下載檔案並將檔案解壓縮至本機磁碟機，記下解壓縮檔案的所在位置。
 
 ## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>選用步驟：為服務設定新的儲存體帳戶

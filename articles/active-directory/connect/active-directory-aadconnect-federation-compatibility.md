@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 11/08/2017
 ms.author: billmath
-ms.openlocfilehash: bce5867017647764546d872d97943d5d4f01f2d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ed1e9276425b2c8577275e7ec6b57f54e5f7ae92
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Azure AD 同盟相容性清單
 Azure Active Directory 在不需要任何非 Microsoft 解決方案的情況下，針對 Office 365 和混合式與僅限雲端實作的其他 Microsoft 線上服務，提供單一登入和增強的應用程式存取安全性。 Office 365，就像大部分 Microsoft 線上服務一樣，已經與 Azure Active Directory 整合以提供目錄服務、驗證及授權。 Azure Active Directory 也為數千個 SaaS 應用程式和內部部署 Web 應用程式提供單一登入。 請參閱 Azure Active Directory 應用程式庫以了解支援的 SaaS 應用程式有哪些。
@@ -46,6 +46,7 @@ Azure Active Directory 在不需要任何非 Microsoft 解決方案的情況下�
 * [Centrify](#centrify) 
 * [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71) 
 * [DigitalPersona Composite 驗證](#digitalpersona-composite-authentication)
+* [ForgeRock Identity Platform Access Management V5.x](#forgerock-identity-platform-access-management-v5x)
 * [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622) 
 * [IceWall Federation Version 3.0](#icewall-federation-version-30) 
 * [Memority](#memority)
@@ -186,6 +187,17 @@ Azure Active Directory 在不需要任何非 Microsoft 解決方案的情況下�
 
 如需詳細資訊，請參閱 [DigitalPersona Composite 驗證](http://www.crossmatch.com/uploadedFiles/Support/Reference_Material/DigitalPersona-Office-365-Deployment-Guide.pdf)。
 
+## <a name="forgerock-identity-platform-access-management-v5x"></a>ForgeRock Identity Platform Access Management V5.x
+
+以下是支援此單一登入體驗之矩陣的案例：
+
+| 用戶端 | 支援 | 例外狀況 |
+| --- | --- | --- |
+| Web 用戶端，例如 Exchange Web Access 和 SharePoint Online |支援 |None|
+| 豐富型用戶端應用程式，例如 Lync、Office 訂閱、CRM |支援 |None|
+| 豐富型電子郵件用戶端，例如 Outlook 和 ActiveSync |支援 |None |
+
+如需詳細資訊，請參閱 [ForgeRock Identity Platform Access Management V5.x](https://backstage.forgerock.com/knowledge/kb/article/a98278517)。
 
 ## <a name="ibm-tivoli-federated-identity-manager-622"></a>IBM Tivoli Federated Identity Manager 6.2.2
 

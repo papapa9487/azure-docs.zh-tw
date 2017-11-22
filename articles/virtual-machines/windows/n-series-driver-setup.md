@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/07/2017
+ms.date: 11/09/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b480d10df777a2757c073ff77e1845d33d63163a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b16e57e06d5055fc0c2750385630a908e10bd217
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="set-up-gpu-drivers-for-n-series-vms-running-windows-server"></a>為執行 Windows Server 的 N 系列 VM 設定 GPU 驅動程式
 若要利用 Azure N 系列 VM (執行 Windows Server 2016 或 Windows Server 2012 R2) 的 GPU 功能，請安裝支援的 NVIDIA 圖形驅動程式。 本文提供您在部署 N 系列 VM 後的驅動程式安裝步驟。 驅動程式設定資訊也適用於 [ VM](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 開啟命令提示字元然後變更位置到 **C:\Program Files\NVIDIA Corporation\NVSMI** 目錄中。
 
-2. 執行 **nvidia-smi**。 如果已安裝驅動程式，您會看到輸出如下。 請注意，除非您正在 VM上執行 GPU 工作負載，否則 [GPU-Util] 會顯示 **0%**。
+2. 執行 `nvidia-smi`。 如果已安裝驅動程式，您會看到類以以下的輸出。 請注意，除非您正在 VM上執行 GPU 工作負載，否則 [GPU-Util] 會顯示 **0%**。 您的驅動程式版本和 GPU 詳細資料可能會與顯示的不同。
 
 ![NVIDIA 裝置狀態](./media/n-series-driver-setup/smi.png)  
 

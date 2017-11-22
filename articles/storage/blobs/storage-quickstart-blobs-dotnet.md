@@ -3,33 +3,30 @@ title: "Azure 快速入門 - 使用 .NET 在 Azure Blob 儲存體之間傳送物
 description: "快速了解使用 .NET 在 Azure Blob 儲存體之間傳送物件"
 services: storage
 documentationcenter: storage
-author: robinsh
-manager: timlt
-editor: tysonn
-ms.assetid: 
+author: tamram
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/01/2017
-ms.author: robinsh
-ms.openlocfilehash: 9c5628307e76bd30d2dd59f284f2c4b30d434223
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 11/10/2017
+ms.author: tamram
+ms.openlocfilehash: 1eac4165c35cb116a359c074bd629c918b58097c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>使用 .NET 在 Azure Blob 儲存體之間傳送物件
 
-在本快速入門中，您會了解如何在 Windows 的 Azure Blob 儲存體容器中，使用 C#.NET 上傳、下載及列出區塊 Blob。
+在本快速入門中，您會了解如何使用適用於 Azure 儲存體的 .NET 用戶端程式庫來上傳、下載及列出容器中的區塊 Blob。
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本快速入門：
-
-* 使用下列工作負載安裝 [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)：
+若要完成本快速入門，請搭配下列工作負載安裝 [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)：
+    
     - **Azure 開發**
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
@@ -86,7 +83,11 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_cbd5f95c-6ab8-4cbf-b
 
 確認檔案之後，請按任一鍵以完成示範並刪除測試檔案。 現在您已知道這個範例的工作內容，請開啟 Program.cs 檔案中查看程式碼。 
 
-## <a name="get-references-to-the-storage-objects"></a>取得儲存體物件的參考
+## <a name="understand-the-sample-code"></a>了解範例程式碼
+
+接下來，我們將透過範例程式碼來了解其運作方式。
+
+### <a name="get-references-to-the-storage-objects"></a>取得儲存體物件的參考
 
 第一件事是建立用來存取和管理 Blob 儲存體的物件參考。 這些物件是互為建置基礎，各自都為清單中的下一個物件所使用。
 
@@ -124,7 +125,7 @@ permissions.PublicAccess = BlobContainerPublicAccessType.Blob;
 await cloudBlobContainer.SetPermissionsAsync(permissions);
 ```
 
-## <a name="upload-blobs-to-the-container"></a>將 Blob 上傳到容器
+### <a name="upload-blobs-to-the-container"></a>將 Blob 上傳到容器
 
 Blob 儲存體支援區塊 Blob、附加 Blob 和分頁 Blob。 最常使用的是區塊 Blob，這也是本快速入門中所使用的。 
 
@@ -148,7 +149,7 @@ await blockBlob.UploadFromFileAsync(fileAndPath);
 
 區塊 Blob 可以是任何類型的文字或二進位檔案。 分頁 Blob 主要用於備份 IaaS VM 所用的 VHD 檔案。 附加 Blob 是用於記錄，例如當您想要寫入檔案，並繼續新增更多資訊時。 儲存在 Blob 儲存體中的大部分物件都是區塊 Blob。
 
-## <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
+### <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
 
 您可以使用 [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync) 來取得容器中的檔案清單。 下列程式碼會擷取 Blob 的清單，透過它們執行迴圈，顯示找到的 Blob URI。 您可以複製命令視窗中的 URI，將它貼入至瀏覽器來檢視檔案。
 
@@ -168,7 +169,7 @@ do
 } while (blobContinuationToken != null);
 ```
 
-## <a name="download-blobs"></a>下載 Blob
+### <a name="download-blobs"></a>下載 Blob
 
 使用 [CloudBlob.DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync) 將 Blob 下載到本機磁碟。
 
@@ -184,7 +185,7 @@ Console.WriteLine("Downloading blob to {0}", fileAndPath2);
 await cloudBlockBlob.DownloadToFileAsync(fileAndPath2, FileMode.Create);
 ```
 
-## <a name="clean-up-resources"></a>清除資源
+### <a name="clean-up-resources"></a>清除資源
 
 如果不再需要本快速入門中上傳的 Blob，您可以使用 [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync) 刪除整個容器。 如果不再需要所建立的檔案，請一併刪除。
 
@@ -199,6 +200,8 @@ File.Delete(fileAndPath2);
 在此快速入門中，您已了解如何使用 .NET 在本機磁碟和 Azure Blob 儲存體之間傳輸檔案。 若要深入瞭解 Blob 儲存體的用法，請繼續閱讀 Blob 儲存體使用說明。
 
 > [!div class="nextstepaction"]
-> [Blob 儲存體作業的使用說明](storage-dotnet-how-to-use-blobs.md)
+> [Blob 儲存體作業操作說明](storage-dotnet-how-to-use-blobs.md)
+
+如需可供您下載並執行的其他 Azure 儲存體程式碼範例，請參閱[使用 .NET 的 Azure 儲存體範例](../common/storage-samples-dotnet.md)清單。
 
 如需儲存體總管和 Blob 的詳細資訊，請參閱[使用儲存體總管管理 Azure Blob 儲存體資源](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 1aaeeed2740179555c024792562a950f4fd6b29d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8050e116a48c69b2fccd6bdc1cf029dfdd6e6f28
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 開發人員指南
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -317,9 +317,9 @@ function GetEnvironmentVariable(name)
 
 當您使用 JavaScript 函式時，請留意下列兩節中的考量事項。
 
-### <a name="choose-single-core-app-service-plans"></a>選擇單一核心 App Service 方案
+### <a name="choose-single-vcpu-app-service-plans"></a>選擇單一 vCPU App Service 方案
 
-當您建立使用 App Service 方案的函數應用程式時，建議您選取單一核心方案，而非具有多核心的方案。 目前 Functions 在單一核心 VM 上執行 JavaScript 函式會較有效率，而使用較大的 VM 並不會產生預期的效能改進。 如有必要，您可以新增更多單一核心 VM 執行個體來手動進行相應放大，或者您可以啟用自動規模調整。 如需詳細資訊，請參閱[手動或自動調整執行個體計數規模](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json)。    
+當您建立使用 App Service 方案的函數應用程式時，建議您選取單一 vCPU 方案，而非具有多個 vCPU 的方案。 目前 Functions 在單一 vCPU VM 上執行 JavaScript 函式會較有效率，而使用較大的 VM 並不會產生預期的效能改進。 如有必要，您可以新增更多單一 vCPU VM 執行個體來手動進行相應放大，或者您可以啟用自動規模調整。 如需詳細資訊，請參閱[手動或自動調整執行個體計數規模](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json)。    
 
 ### <a name="typescript-and-coffeescript-support"></a>TypeScript 和 CoffeeScript 支援
 由於目前仍沒有針對透過執行階段自動編譯 TypeScript 或 CoffeeScript 的直接支援，因此需要在部署時期於執行階段之外處理這些支援。 

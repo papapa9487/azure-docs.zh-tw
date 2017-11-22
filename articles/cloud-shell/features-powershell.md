@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: damaerte
-ms.openlocfilehash: ffe5298678de6cc16af0ea29c7d887330f77589d
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 13289d9b18b4c53a2569b9a8772715b38ed22cf7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="features--tools-for-powershell-in-azure-cloud-shell"></a>Azure Cloud Shell 中 PowerShell 的功能和工具
+# <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Azure Cloud Shell (預覽) 中 PowerShell 的功能和工具
 
 [!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
 > [!TIP]
 > 也提供 [Bash](features.md) 的功能和工具。
 
-Cloud Shell 中的 PowerShell 是在 `Windows Server 2016` 上執行。
+Cloud Shell (預覽) 中的 PowerShell 在 `Windows Server 2016` 上執行。
 
 ## <a name="features"></a>特性
 
 ### <a name="secure-automatic-authentication"></a>安全的自動驗證
 
-Cloud Shell 中的 PowerShell 會安全地自動驗證 Azure PowerShell 的帳戶存取。
+Cloud Shell (預覽) 中的 PowerShell 會安全地自動驗證 Azure PowerShell 的帳戶存取。
 
 ### <a name="files-persistence-across-sessions"></a>工作階段之間的檔案持續性
 
@@ -45,7 +45,7 @@ Cloud Shell 中的 PowerShell 會安全地自動驗證 Azure PowerShell 的帳�
 
 ### <a name="azure-drive-azure"></a>Azure 磁碟機 (Azure:)
 
-Cloud Shell 中的 PowerShell 可讓您在 Azure 磁碟機 (`Azure:`) 中開始。
+Cloud Shell (預覽) 中的 PowerShell 可讓您在 Azure 磁碟機 (`Azure:`) 中開始。
 Azure 磁碟機會啟用輕鬆探索和導覽與檔案系統導覽類似的 Azure 資源 (例如計算、網路、儲存體等等)。
 您可以繼續使用熟悉的 [Azure PowerShell Cmdlet](https://docs.microsoft.com/en-us/powershell/azure) 來管理這些資源。
 對 Azure 資源進行的任何變更 (在 Azure 入口網站中直接進行，或透過 Azure PowerShell Cmdlet) 都會立即反映在 Azure 磁碟機中。
@@ -109,6 +109,6 @@ IntelliSense 支援的實作是透過與 [PowerShell Editor Services](https://gi
 
 ## <a name="next-steps"></a>後續步驟
 
-[Cloud Shell 中 PowerShell 的快速入門](quickstart-powershell.md)
+[Cloud Shell (預覽) 中 PowerShell 的快速入門](quickstart-powershell.md)
 
 [了解 Azure PowerShell](https://docs.microsoft.com/powershell/azure/)

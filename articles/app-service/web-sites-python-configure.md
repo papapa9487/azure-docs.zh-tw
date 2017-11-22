@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: 08b07053dd1507bcf0564f3071642f66f06b3559
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 86e19d5bb942937779665eb60d9dc0654c16747d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>使用 Azure App Service Web Apps 設定 Python
 本教學課程描述在 [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)上編寫與設定基本的 Web 伺服器閘道介面 (WSGI) 相容之 Python 應用程式的選項。
@@ -34,14 +34,14 @@ Azure Marketplace 包含 Bottle、Django 和 Flask 架構的範本。 如果您�
 * [利用 Flask 建立 Web 應用程式](https://portal.azure.com/#create/PTVS.Flask)
 
 ## <a name="web-app-creation-on-azure-portal"></a>在 Azure 入口網站上建立 Web 應用程式
-本教學課程假設定有現有的 Azure 訂用帳戶，而且能夠存取 Azure 入口網站。
+本教學課程假設有現有的 Azure 訂用帳戶，而且能夠存取 Azure 入口網站。
 
 如果您還沒有 Web 應用程式，則可以從 [Azure 入口網站](https://portal.azure.com)建立。  按一下左上角的 [新增] 按鈕，然後按一下 [Web + 行動] > [Web 應用程式]。
 
 ## <a name="git-publishing"></a>Git 發行
-依照 [本機 Git 部署至 Azure App Service](app-service-deploy-local-git.md)的指示，為您新建立的 Web 應用程式設定 Git 發佈功能。 本教學課程將使用 Git 來建立、管理並將您的 Python Web 應用程式發佈至 Azure App Service。
+依照 [本機 Git 部署至 Azure App Service](app-service-deploy-local-git.md)的指示，為您新建立的 Web 應用程式設定 Git 發佈功能。 本教學課程使用 Git 來建立、管理並將您的 Python Web 應用程式發佈至 Azure App Service。
 
-Git 發佈設定完畢後，會建立一個 Git 儲存機制並與您的 Web 應用程式產生關聯。 該儲存機制的 URL 會加以顯示，方便您將資料從本機開發環境推送到雲端。 若要透過 Git 發佈應用程式，請確保同時安裝了 Git 用戶端，並遵守提供的指示將您的 Web 應用程式內容推送到 Azure App Service。
+Git 發佈設定完畢後，會建立一個 Git 存放庫並與您的 Web 應用程式產生關聯。 隨即顯示該存放庫的 URL，並且可用於將資料從本機開發環境推送到雲端。 若要透過 Git 發佈應用程式，請確保同時安裝了 Git 用戶端，並遵守提供的指示將您的 Web 應用程式內容推送到 Azure App Service。
 
 ## <a name="application-overview"></a>應用程式概觀
 在後續章節中，會建立下列檔案。 它們應該放在 Git 儲存機制的根目錄中。
@@ -74,16 +74,16 @@ WSGI 是由 [PEP 3333](http://www.python.org/dev/peps/pep-3333/) 描述的一項
 您可以搭配 `python app.py` 在本機執行此應用程式，然後在您的網頁瀏覽器中瀏覽到 `http://localhost:5555`。
 
 ## <a name="virtual-environment"></a>虛擬環境
-雖然上述範例應用程式不需要任何外部的封裝，但您的應用程式可能需要。
+雖然上述範例應用程式不需要任何外部封裝，但您的應用程式可能需要。
 
 為了協助管理外部的封裝相依性，Azure Git 部署支援虛擬環境的建立。
 
 當 Azure 偵測到儲存機制根目錄中的 requirements.txt 時，會自動建立名為 `env`的虛擬環境。 這只會發生在第一次部署，或是選取之 Python 執行階段變更之後的任何部署期間。
 
-您可能想要在本機建立虛擬環境以進行開發，但是請勿將它包含在 Git 儲存機制中。
+您可能想要在本機建立虛擬環境以進行開發，但是請勿將它包含在 Git 存放庫中。
 
 ## <a name="package-management"></a>封裝管理
-Requirements.txt 中所列封裝，將會使用 pip 自動安裝於虛擬環境中。 這種情況會發生在每個部署，但是如果已安裝封裝，pip 會跳過安裝。
+Requirements.txt 中所列的封裝會使用 pip 自動安裝於虛擬環境中。 這種情況會發生在每個部署，但是如果已安裝封裝，pip 會跳過安裝。
 
 `requirements.txt`範例：
 
@@ -101,7 +101,7 @@ Requirements.txt 中所列封裝，將會使用 pip 自動安裝於虛擬環境�
 ## <a name="webconfig"></a>Web.config
 您需要建立 web.config 檔來指定伺服器應該如何處理要求。
 
-請注意，如果您在儲存機制中有 web.x.y. 組態檔，其中 x.y 符合所選的 Python 執行階段，則 Azure 會自動複製適當的檔案，做為 web.config。
+如果您在存放庫中有 web.x.y. 組態檔，其中 x.y 符合所選的 Python 執行階段，則 Azure 會自動複製適當的檔案，做為 web.config。
 
 下列 web.config 範例仰賴虛擬環境 Proxy 指令碼，於下一節中說明。  其會使用上述範例 `app.py` 中所使用之 WSGI 處理常式。
 
@@ -207,7 +207,7 @@ Python 3.4 的 `web.config` 範例：
 
 在上述範例中，磁碟上靜態檔案的位置應該符合在 URL 中的位置。 這表示 `http://pythonapp.azurewebsites.net/static/site.css` 要求將於 `\static\site.css` 提供磁碟上的檔案。
 
-`WSGI_ALT_VIRTUALENV_HANDLER` 是您指定 WSGI 處理常式的地方。 在上述範例中，為 `app.wsgi_app` 因為處理常式是根資料夾中 `app.py` 內名為 `wsgi_app` 的函式。
+`WSGI_ALT_VIRTUALENV_HANDLER` 是您指定 WSGI 處理常式的地方。 在上述範例中為 `app.wsgi_app`，因為處理常式是根資料夾中 `app.py` 內名為 `wsgi_app` 的函式。
 
 `PYTHONPATH` 可自訂，但是如果您藉由在 requirements.txt 中指定相依性，將其全部安裝於虛擬環境中，您應該不需要變更。
 
@@ -356,7 +356,3 @@ Python 3.4 的 `web.config` 範例：
 > 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至 [試用 App Service](https://azure.microsoft.com/try/app-service/)，即可在 App Service 中立即建立短期入門 Web 應用程式。 不需要信用卡；沒有承諾。
 > 
 > 
-
-## <a name="whats-changed"></a>變更的項目
-* 如需從網站變更為 App Service 的指南，請參閱： [Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-

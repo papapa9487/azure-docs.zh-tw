@@ -14,20 +14,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: alkarche
-ms.openlocfilehash: d201c8395adf47fa3d9f790b77b1d29dda5a0aeb
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 24bc439b6167d335a0862aa93debb9efe5aeae48
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="work-with-azure-functions-proxies-preview"></a>使用 Azure Functions Proxy (預覽)
-
-> [!NOTE] 
-> Azure Functions Proxy 目前為預覽版。 預覽版是免費的，但是標準 Functions 計費會套用至 Proxy 執行。 如需詳細資訊，請參閱 [Azure Functions 價格](https://azure.microsoft.com/pricing/details/functions/)。
+# <a name="work-with-azure-functions-proxies"></a>使用 Azure Functions Proxy
 
 這篇文章說明如何設定與使用 Azure Functions Proxy。 這項功能可讓您在函式應用程式上指定由其他資源所實作的端點。 您可以使用這些 Proxy 將大型 API 細分為多個函式應用程式 (如同在微服務架構中)，同時仍為用戶端呈現單一的 API 介面。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+> [!NOTE] 
+> 標準 Functions 計費會套用至 Proxy 執行。 如需詳細資訊，請參閱 [Azure Functions 價格](https://azure.microsoft.com/pricing/details/functions/)。
 
 ## <a name="create"></a>建立 Proxy
 

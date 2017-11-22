@@ -13,18 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 11/13/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 8f175f5711b9798153d209f6645aa8bae9f2a00b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9595b318b8bd974f778dc12b38cccd949a4e7a1a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="help-i-forgot-my-azure-ad-password"></a>忘記 Azure AD 密碼的說明
+# <a name="reset-your-work-or-school-password"></a>重設您的工作密碼或學校密碼
 
-如果您忘記密碼、未曾收到 IT 人員給予的密碼、系統鎖定了您帳戶的密碼或您想要變更密碼，我們都可以提供協助。 如果您知道密碼，而且只是需要加以變更，請逕行前往下面的[變更我的密碼](#change-my-password)一節。
+如果您忘記密碼、未曾收到公司支援團隊給予的密碼、系統鎖定了您帳戶的密碼、或是您想要變更密碼，我們都可以提供協助。 如果您知道密碼，而且只是需要加以變更，請逕行前往下面的[變更我的密碼](#change-my-password)一節。
 
    > [!NOTE]
    > 如果您想要回到個人帳戶 (例如，Xbox、hotmail.com 或 outlook.com)，請嘗試[這篇文章所提供的建議](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/31/2017
    ![確認驗證資料][Verification]
 
 4. 您的 IT 人員可能需要更多的驗證，因此您可能必須使用不同的選項來重複執行步驟 3。
-5. 在 [選擇新密碼] 頁面上輸入新的密碼，確認您的密碼，然後按一下 [完成]。 我們建議的密碼是 8-16 個字元，並具有大小寫字母、數字和特殊字元。
+5. 在 [選擇新密碼] 頁面上輸入新的密碼，確認您的密碼，然後按一下 [完成]。 您的工作或學校密碼可能有特定要求；我們建議的密碼是 8-16 個字元，並具有大小寫字母、數字和特殊字元。
 6. 當您看到**您的密碼已經重設**時，可以使用您的新密碼登入。
 
     ![您的密碼已經重設][Complete]
@@ -95,6 +95,27 @@ ms.lasthandoff: 10/31/2017
 3. 按一下 [變更密碼]
 4. 輸入舊密碼，設定並確認新密碼，然後按一下 [提交]
 
+## <a name="reset-password-at-login"></a>登入時重設密碼
+
+如果您的管理員已啟用該功能，則現在可以在 Windows 10 Fall Creators Update 登入畫面中看到**重設密碼**的連結。
+
+![LoginScreen][LoginScreen]
+
+按一下 [重設密碼] 連結，即會在登入畫面開啟 SSPR 體驗，如此即可以重設密碼，而無需登入使用一般的 Web 式體驗。
+
+1. 確認您的使用者識別碼，然後按一下 [下一步]
+2. 選擇並確認驗證的連絡方法。 您的 IT 人員可能需要更多的驗證，因此您可能必須使用不同的選項來重複此步驟。
+
+   ![ContactMethod][ContactMethod]
+
+3. 在 [建立新密碼] 頁面上輸入新的密碼，確認您的密碼，然後按一下 [下一步]。 我們建議的密碼是 8-16 個字元，並具有大小寫字母、數字和特殊字元。
+
+   ![ResetPassword][ResetPassword]
+
+4. 當您看到 [您的密碼已重設] 時，按一下 [完成]
+
+您現在應該可以存取帳戶了，如果情況不是如此，請連絡貴組織的 IT 人員以獲得進一步協助。
+
 ## <a name="common-problems-and-their-solutions"></a>常見問題及其解決方案
 
  以下提供一些常見的錯誤案例及其解決方案：
@@ -116,3 +137,6 @@ ms.lasthandoff: 10/31/2017
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "確認驗證資料"
 [Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png "變更密碼"
 [Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png "密碼已經重設"
+[LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Windows 10 Fall Creators Update 登入畫面重設密碼連結"
+[ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "確認驗證資料"
+[ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "變更密碼"

@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4cfdf3b70f6fdb2ddd5f89a72c931d3b6be54132
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: bd09e2a21c25097fa4b378cb2dbe2787edbb1967
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>計量遙測：Application Insights 資料模型
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 11/01/2017
 
 預先彙總的計量遙測會假設該彙總期間為一分鐘。
 
-Application Insights 支援數個已知的計量名稱。 
+Application Insights 支援數個已知的計量名稱。 這些計量會置入 performanceCounters 資料表。
 
 代表系統和程序計數器的計量︰
 
@@ -65,6 +65,8 @@ Application Insights 支援數個已知的計量名稱。
 彙總計量的標準差。 不應該為度量設定。
 
 ## <a name="custom-properties"></a>自訂屬性
+
+將自訂屬性 `CustomPerfCounter` 設為 `true` 的計量，會顯示出該計量代表 Windows 效能計數器。 這些計量會置入 performanceCounters 資料表。 而不會置入 customMetrics。 另外也會剖析此計量名稱，以擷取分類、計數器，以及執行個體名稱。
 
 [!INCLUDE [application-insights-data-model-properties](../../includes/application-insights-data-model-properties.md)]
 

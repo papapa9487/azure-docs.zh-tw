@@ -1,6 +1,6 @@
 ---
-title: "開始使用 Azure SQL 資料同步 (預覽) | Microsoft Docs"
-description: "本教學課程可協助您開始使用 Azure SQL 資料同步 (預覽)"
+title: "設定 Azure SQL 資料同步 (預覽) | Microsoft Docs"
+description: "本教學課程說明如何設定 Azure SQL 資料同步 (預覽)"
 services: sql-database
 documentationcenter: 
 author: douglaslms
@@ -13,16 +13,16 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: ddcf6868a0fca88a52774e20623d25de31c063bb
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: b356bc9db9e883c2514953b516d6dd51c1807610
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="get-started-with-azure-sql-data-sync-preview"></a>開始使用 Azure SQL 資料同步 (預覽)
+# <a name="set-up-sql-data-sync-preview"></a>設定 SQL 資料同步 (預覽)
 在本教學課程中，您將了解如何使用包含 Azure SQL Database 和 SQL Server 執行個體的混合式同步群組設定 Azure SQL 資料同步。 新的同步處理群組會依照您設定的排程完整設定和同步。
 
 本教學課程假設您先前至少有一些使用 SQL Database 和 SQL Server 的經驗。 
@@ -110,7 +110,7 @@ ms.lasthandoff: 11/08/2017
 
     ![已新增 SQL Database 同步處理成員](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadded.png)
 
-### <a name="add-an-on-premises-sql-server-database"></a>新增內部部署 SQL Server 資料庫
+### <a name="add-on-prem"></a> 新增內部部署 SQL Server 資料庫
 
 在 [成員資料庫] 區段中，選取 [新增內部部署資料庫]，可選擇性地將內部部署 SQL Server 新增至同步群組。 [設定內部部署] 頁面隨即開啟。
 
@@ -193,6 +193,83 @@ ms.lasthandoff: 11/08/2017
 
 4.  最後，選取 [儲存]。
 
+## <a name="faq-about-setup-and-configuration"></a>關於安裝和設定的常見問題集
+
+### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>資料同步多久會同步我的資料一次？ 
+至少每隔五分鐘。
+
+### <a name="does-sql-data-sync-fully-create-and-provision-tables"></a>SQL 資料同步是否會完整地建立和佈建資料表？
+
+如果尚未在目的地資料庫中建立同步結構描述資料表，SQL 資料同步 (預覽) 會使用您選取的資料行建立。 然而，此行為不會導致結構描述完整無缺，原因如下：
+
+-   只會在目的地資料表中建立您選取的資料行。 如果來源資料表中有些資料行不是同步群組的一部分，那些資料行便不會佈建在目的地資料表中。
+
+-   只會針對所選資料行建立索引。 如果來源資料表索引具有不是同步群組一部分的資料行，那些索引便不會佈建在目的地資料表中。
+
+-   不會佈建 XML 型別資料行的索引。
+
+-   不會佈建 CHECK 條件約束。
+
+-   不會佈建來源資料表上的現有觸發程序。
+
+-   檢視和預存程序不會建立在目的地資料庫上。
+
+由於有這些限制，我們的建議事項如下：
+-   在生產環境自行佈建完整無缺結構描述。
+-   只是試用服務時，非常適合使用 SQL 資料同步 (預覽) 的自動佈建功能。
+
+### <a name="why-do-i-see-tables-that-i-did-not-create"></a>為什麼我會看到並非自己建立的資料表？  
+資料同步會在資料庫中建立側邊資料表，以便進行變更追蹤。 請勿刪除它們，否則資料同步無法正常運作。
+
+### <a name="is-my-data-convergent-after-a-sync"></a>同步處理之後我的資料會聚合嗎？
+
+不一定。 在有一個中樞和三個支點 (A、B 及 C) 的同步群組中，同步處理是以中樞對 A 點、中樞對 B 點及中樞對 C 點的方式進行。如果在中樞對 A 點同步*之後*，才變更資料庫 A，在進行下次同步工作之前，該變更不會寫入資料庫 B 或資料庫 C。
+
+### <a name="how-do-i-get-schema-changes-into-a-sync-group"></a>如何變更同步群組中的結構描述？
+
+您必須手動執行結構描述變更。
+
+### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>如何使用資料同步匯出和匯入資料庫？
+將資料庫匯出為 `.bacpac` 檔案，並將該檔案匯入以建立新資料庫之後，您必須執行下列兩個動作，才能在新的資料庫中使用資料同步：
+1.  使用[這個指令碼](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql)清除**新資料庫**上的資料同步物件和側邊資料表。 這個指令碼會刪除資料庫中所有必要的資料同步物件。
+2.  利用新資料庫重新建立同步群組。 如果您不再需要舊有的同步群組，請將它刪除。
+
+## <a name="faq-about-the-client-agent"></a>關於用戶端代理程式的常見問題集
+
+### <a name="why-do-i-need-a-client-agent"></a>我為何需要用戶端代理程式？
+
+SQL 資料同步 (預覽) 服務會透過用戶端代理程式與 SQL Server 資料庫通訊。 這項安全性功能可防止直接與防火牆後方的資料庫通訊。 當 SQL 資料同步 (預覽) 服務與代理程式通訊時，會使用加密連線與唯一的權杖或代理程式金鑰來這麼做。 SQL Server 資料庫會使用連接字串和代理程式金鑰來驗證代理程式。 這項設計可為您的資料提供高階安全性。
+
+### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>一共可執行多少個本機代理程式 UI 執行個體？
+
+只能執行一個 UI 執行個體。
+
+### <a name="how-can-i-change-my-service-account"></a>如何變更我的服務帳戶？
+
+安裝用戶端代理程式之後，變更服務帳戶的唯一方式是予以解除安裝，並使用新的服務帳戶來安裝新的用戶端代理程式。
+
+### <a name="how-do-i-change-my-agent-key"></a>如何變更我的代理程式金鑰？
+
+代理程式只會使用代理程式金鑰一次。 當您移除再重新安裝新的代理程式時，並不能重複使用它，也不能由多個代理程式使用。 如果您需要為現有代理程式建立新的金鑰，務必確定要以用戶端代理程式和 SQL 資料同步 (預覽) 服務來記錄相同的金鑰。
+
+### <a name="how-do-i-retire-a-client-agent"></a>如何淘汰用戶端代理程式？
+
+若要讓代理程式立即失效或淘汰，請在入口網站中重新產生其金鑰，但不在代理程式 UI 中提交。 不論對應的代理程式處於連線或離線，重新產生金鑰即可讓先前的金鑰失效。
+
+### <a name="how-do-i-move-a-client-agent-to-another-computer"></a>如何將用戶端代理程式移至另一部電腦？
+
+如果您想要從另一部電腦執行本機代理程式，而非它目前所在的電腦，請執行下列動作：
+
+1. 在所需電腦上安裝代理程式。
+
+2. 登入 SQL 資料同步 (預覽) 入口網站，然後為新的代理程式重新產生代理程式金鑰。
+
+3. 使用新的代理程式 UI 來提交新的代理程式金鑰。
+
+4. 等待用戶端代理程式下載先前所註冊內部部署資料庫的清單。
+
+5. 提供資料庫認證給顯示為無法連線的所有資料庫。 這些資料庫必須要能從安裝該代理程式的新電腦連線。
+
 ## <a name="next-steps"></a>後續步驟
 恭喜！ 您已建立一個同時包含 SQL Database 執行個體與 SQL Server 資料庫的同步群組。
 
@@ -200,6 +277,7 @@ ms.lasthandoff: 11/08/2017
 
 -   [使用 Azure SQL 資料同步，跨多個雲端和內部部署資料庫同步處理資料](sql-database-sync-data.md)
 -   [Azure SQL 資料同步最佳做法](sql-database-best-practices-data-sync.md)
+-   [透過 OMS Log Analytics 監視 Azure SQL 資料同步](sql-database-sync-monitor-oms.md)
 -   [對 Azure SQL 資料同步的問題進行疑難排解](sql-database-troubleshoot-data-sync.md)
 
 -   示範如何設定 SQL 資料同步的完整 PowerShell 範例：

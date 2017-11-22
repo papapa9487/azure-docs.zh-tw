@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: e8b28bc9ccc12b280b1746272519bd4c9ea9e4a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45ae4ab4c832e7537e6ee78c32603734fa64ad86
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C：常見問題集 (FAQ) 
 此頁面會回答有關 Azure Active Directory (Azure AD) B2C 的常見問題。 請隨時回來查看最新消息。
@@ -57,7 +57,7 @@ Azure AD B2C 也新增了[自訂原則](https://docs.microsoft.com/en-us/azure/a
 在 Azure 入口網站的左側功能表中開啟 'Azure AD B2C' 之前，您必須切換到需要管理的目錄。  在 Azure 入口網站右上角按一下您的身分識別來切換目錄，然後選擇出現在下拉式清單中的目錄。  如需逐步映像，請參閱[瀏覽至 Azure AD B2C 設定](active-directory-b2c-app-registration.md#navigate-to-b2c-settings)。
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>我如何自訂 Azure AD B2C 傳送的驗證電子郵件 (內容和 [寄件者:] 欄位)？
-您可以使用 [公司商標功能](../active-directory/active-directory-add-company-branding.md) 自訂驗證電子郵件的內容。 明確地說，您可以自訂電子郵件的下列兩個元素：
+您可以使用 [公司商標功能](../active-directory/customize-branding.md) 自訂驗證電子郵件的內容。 明確地說，您可以自訂電子郵件的下列兩個元素：
 
 * **橫幅標幟**：顯示在右下方。
 * **背景色彩**：顯示在頂端。
@@ -66,11 +66,11 @@ Azure AD B2C 也新增了[自訂原則](https://docs.microsoft.com/en-us/azure/a
 
 電子郵件簽章包含您第一次建立 B2C 租用戶時提供的 B2C 租用戶名稱。 您可以使用這些指示變更名稱：
 
-1. 以訂用帳戶管理員身分登入 [Azure 傳統入口網站](https://manage.windowsazure.com/) 。
-1. 瀏覽至您的 B2C 租用戶。
-1. 按一下 [設定]  索引標籤。
-1. 變更 [目錄屬性] 區段底下的 [名稱] 欄位。
-1. 按一下頁面底部的 [儲存]  。
+1. 以訂用帳戶管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
+1. 開啟 [Azure Active Directory] 刀鋒視窗。
+1. 按一下 [屬性] 索引標籤。
+1. 變更 [名稱] 欄位。
+1. 按一下頁面頂端的 [儲存]。
 
 目前無法變更電子郵件中的 [從:] 欄位。 請在 [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) 上投票，表示您有興趣自訂驗證電子郵件的本文。
 
@@ -98,9 +98,9 @@ Azure AD B2C 不適用於 SharePoint 外部夥伴共用的情節。請改以參�
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Azure AD B2C 提供哪些報告和稽核功能？ 它們與 Azure AD Premium 的功能相同嗎？
 否，Azure AD B2C 不支援與 Azure AD Premium 相同的一組報告。 不過有許多共同點：
 
-* 登入報告會提供每次登入的記錄，並縮減詳細資料。
-* 稽核報告可在 Azure 入口網站中取得，位置在 Azure Active Directory > 活動-稽核記錄 > 選擇 B2C 並視需要套用篩選。 管理活動以及應用程式活動都包括在內。 
-* 您可以在[使用報告 API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)中取得使用報告，裡面記載了使用者人數、登入次數及 MFA 數量
+* **登入報告**只能在 Azure 入口網站 ([Azure Active Directory] > [活動] > [登入]) 中提供，而無法透過圖形 API 提供。 該報告會提供每次登入的記錄，並縮減詳細資料。
+* **稽核報告**只能在 Azure 入口網站 ([Azure Active Directory] > [活動] > [稽核記錄]) 中提供，而無法透過圖形 API 提供。 其包含管理活動以及應用程式活動。 
+* **使用報告**只能透過[使用報告 API](active-directory-b2c-reference-usage-reporting-api.md) 提供，無法透過 Azure 入口網站提供。 其包含使用者數目、登入數目，以及 MFA 的磁碟區。 
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>我可以將 Azure AD B2C 所提供的頁面 UI 當地語系化嗎？ 支援哪些語言？
 可以！  請參閱[語言自訂](active-directory-b2c-reference-language-customization.md) (處於公開預覽狀態)。  我們提供 36 種語言的翻譯，您可以覆寫任何字串以符合您的需求。

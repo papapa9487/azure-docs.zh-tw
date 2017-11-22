@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: 26a5854735bd197fb114fce409a093251dc5c2f0
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a33fedd765acde666eef280ba7dfa72536bf1bd2
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Application Insights 中分析的教學課程
 [分析](app-insights-analytics.md)是 [Application Insights](app-insights-overview.md) 的強大搜尋功能。 這些分頁說明 Log Analytics 查詢語言。
@@ -54,7 +54,7 @@ ms.lasthandoff: 11/01/2017
 ![選擇 [資料表]，並使用 [設定資料行]](./media/app-insights-analytics-tour/040.png)
 
 > [!NOTE]
-> 按一下資料行的標頭，以重新排列網頁瀏覽器中可用的結果。 但請注意，對大型結果集而言，下載至瀏覽器的資料列數目有限。 以這種方式排序並不一定會顯示實際的最高或最低項目。 若要可靠地將項目排序，請使用 `top` 或 `sort` 運算子。
+> 按一下資料行的標頭，以重新排列網頁瀏覽器中可用的結果。 但請注意，對大型結果集而言，下載至瀏覽器的資料列數目有限。 以這種方式排序只是簡單地排序傳回的結果集，並不一定會顯示實際的最高或最低項目。 若要可靠地將項目排序，請使用 `top` 或 `sort` 運算子。
 >
 >
 
@@ -92,7 +92,7 @@ ms.lasthandoff: 11/01/2017
 
 結果會相同，但執行速度比較慢一點  (您也可以撰寫 `order`，這是 `sort` 的別名)。
 
-資料表檢視中的資料行標頭也可用來排序畫面上的結果。 當然，如果您已使用 `take` 或 `top` 只擷取部分的資料表，您只會重新排列您所擷取的記錄。
+資料表檢視中的資料行標頭也可用來排序畫面上的結果。 當然，如果您已使用 `take` 或 `top` 只擷取部分的資料表，按一下資料行標頭只會重新排列您所擷取的記錄。
 
 ## <a name="wherehttpsdocsloganalyticsioquerylanguagequerylanguagewhereoperatorhtml-filtering-on-a-condition"></a>[Where](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html)︰篩選條件
 
@@ -115,8 +115,9 @@ ms.lasthandoff: 11/01/2017
 
 <!---Read all about [scalar expressions]().--->
 
-### <a name="getting-the-right-type"></a>取得合適的類型
-尋找失敗的要求︰
+### <a name="find-unsuccessful-requests"></a>尋找失敗的要求
+
+將字串值轉換為整數，以使用「大於」比較：
 
 ```AIQL
 
@@ -240,7 +241,7 @@ ms.lasthandoff: 11/01/2017
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize` 會將串流中的資料點收集到 `by` 子句評估為相同的群組中。 `by` 運算式中的每個值 (即上述範例中的各個運算名稱) 會在結果資料表中各產生一個資料列。
+`Summarize` 會將串流中的資料點收集到 `by` 子句評估為相同的群組中。 `by` 運算式中的每個值 (即上述範例中的各個唯一的運算名稱) 會在結果資料表中各產生一個資料列。
 
 或者，我們可以依一天當中的時間將結果分組︰
 

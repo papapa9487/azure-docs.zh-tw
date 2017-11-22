@@ -12,19 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/13/2017
 ms.author: helaw
-ms.openlocfilehash: ffad7bfd4ffcd9159dea23b70640f0ee761fbae0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9109c58b29d5f09f1a86068a87c5e7f839228af
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Azure Resource Manager 範本考量
 
 適用於：Azure Stack 整合系統和 Azure Stack 開發套件
 
 當您開發應用程式時，請務必確保 Azure 與 Azure Stack 之間的範本可攜性。  此主題提供開發 Azure Resource Manager [範本](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)時必須考量的事項，以便您可以建立原型應用程式並在 Azure 中測試部署，而不需要存取 Azure Stack 環境。
+
+## <a name="resource-provider-availability"></a>資源提供者可用性
+您計畫部署的範本必須使用已經可用或在 Azure Stack 中為預覽版的 Microsoft Azure 服務。
 
 ## <a name="public-namespaces"></a>公用命名空間
 因為 Azure Stack 是裝載在您的資料中心，它的服務端點命名空間與 Azure 公用雲端不同。 因此，當您嘗試將 Resource Manager 範本部署到 Azure Stack 時，以硬式編碼方式寫在 Resource Manager 範本中的公用端點將會失敗。 您可以改為使用*考參考*與*串連*函式根據在部署期間從資源提供者擷取的值來動態建置服務端點。 例如，您不需要在您的範本中指定 *blob.core.windows.net*，而是改為擷取 [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) 以動態設定 *osDisk.URI* 端點：
@@ -73,7 +76,6 @@ Resource Manager 範本使用位置屬性在部署期間放置資源。 在 Azur
       }
     }
     ]
-
 
 ## <a name="next-steps"></a>後續步驟
 * [使用 PowerShell 部署範本](azure-stack-deploy-template-powershell.md)

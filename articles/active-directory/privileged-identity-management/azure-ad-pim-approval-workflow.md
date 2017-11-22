@@ -14,27 +14,24 @@ ms.workload: identity
 ms.date: 04/28/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: cf6a9213fa0a1cba8725aabb42abe51b805ece7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90aec90edcbbfb7833efd85752afc8f1937f5b5a
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="approvals-preview"></a>核准 (預覽)
+# <a name="approvals"></a>核准
 
 ## <a name="overview"></a>概觀
 
 利用 Privileged Identity Management 的核准，您可以將角色設定為需要核准才能啟用，並選擇一或多個使用者或群組做為委派核准者。 請繼續閱讀，以了解如何設定角色和選取核准者。
 
->[!NOTE]
-請記住，這項功能仍處於開發階段，而您可能會遇到 Bug。 包括文字和命名慣例在內的功能均有可能變更，不應將其視為最終結果。
 
-
-## <a name="key-terminology"></a>重要術語
+## <a name="new-terminology"></a>重要術語
 
 *合格角色使用者*：合格角色使用者是您組織內已在符合資格時指派給 Azure AD 角色的使用者 (角色需要啟用)。
 
-*委派核准者*：委派核准者是您 Azure AD 內的一或多個個人或群組，其負責核准啟用角色的要求。
+*委派核准者* - 委派核准者是您 Azure AD 內的一或多個個人或群組，其負責核准啟用角色的要求。
 
 ## <a name="scenarios"></a>案例
 

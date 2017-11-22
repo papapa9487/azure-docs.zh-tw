@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: panarasi
-ms.openlocfilehash: 9e14e95793bcc81ad46783fd50ba223eec4ea360
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 81c731f560ed9cdc56416076cd44cba504fa614d
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>將驗證新增至 Xamarin Forms 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 
 安全的驗證會要求您為應用程式定義新的 URL 配置。 這讓驗證系統能夠在驗證程序完成之後，重新導向回到您的應用程式。 我們會在這整個教學課程中使用 URL 配置 appname。 不過，您可以使用任何您選擇的 URL 結構描述。 它對於您的行動應用程式而言應該是唯一的。 在伺服器端啟用重新導向：
 
-1. 在 [Azure 入口網站] 中，選取您的 App Service。
+1. 在 [Azure 入口網站][8] 中，選取您的 App Service。
 
 2. 按一下 [驗證/授權] 功能表選項。
 
@@ -166,9 +166,9 @@ Mobile Apps 會使用 [MobileServiceClient][4] 的 [LoginAsync][3] 擴充方法�
 
     如果您使用 Facebook 以外的識別提供者，請為 [MobileServiceAuthenticationProvider][7]選擇不同的值。
 
-6. 在 AndroidManifest.xml 的 <application> 節點內新增下列程式碼：
+6. 藉由新增下列 `<application>` 元素內部的 XML，更新 **AndroidManifest.xml** 檔案：
 
-```xml
+    ```xml
     <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
       <intent-filter>
         <action android:name="android.intent.action.VIEW" />
@@ -177,15 +177,15 @@ Mobile Apps 會使用 [MobileServiceClient][4] 的 [LoginAsync][3] 擴充方法�
         <data android:scheme="{url_scheme_of_your_app}" android:host="easyauth.callback" />
       </intent-filter>
     </activity>
-```
-
-1. 在 **MainActivity** 類別的 **OnCreate** 方法中，在呼叫 `LoadApplication()` 之前新增下列程式碼：
+    ```
+    將 `{url_scheme_of_your_app}` 取代為您的 URL 配置。
+7. 在 **MainActivity** 類別的 **OnCreate** 方法中，在呼叫 `LoadApplication()` 之前新增下列程式碼：
 
         // Initialize the authenticator before loading the app.
         App.Init((IAuthenticate)this);
 
     此程式碼可確保在應用程式載入之前初始化驗證器。
-2. 重新建置應用程式，執行它，然後以您選擇的驗證提供者登入，並確認您能夠以已驗證的使用者身分存取資料表。
+8. 重新建置應用程式，執行它，然後以您選擇的驗證提供者登入，並確認您能夠以已驗證的使用者身分存取資料表。
 
 ## <a name="add-authentication-to-the-ios-app"></a>將驗證加入 iOS 應用程式中
 本節說明如何在 iOS 應用程式專案中實作 **IAuthenticate** 介面。 如果您不要支援 iOS 裝置，請略過這一節。
@@ -236,23 +236,23 @@ Mobile Apps 會使用 [MobileServiceClient][4] 的 [LoginAsync][3] 擴充方法�
         }
 
     如果您使用 Facebook 以外的識別提供者，請為 [MobileServiceAuthenticationProvider] 選擇不同的值。
-
-6. 新增 OpenUrl(UIApplication app, NSUrl url, NSDictionary options) 方法多載來更新 AppDelegate 類別
+    
+6. 藉由新增 **OpenUrl** 方法多載來更新 **AppDelegate** 類別，如下所示：
 
         public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
         {
             return TodoItemManager.DefaultManager.CurrentClient.ResumeWithURL(url);
         }
-
-6. 在 **FinishedLaunching** 方法中，在呼叫 `LoadApplication()` 之前新增下面這行程式碼：
+   
+7. 在 **FinishedLaunching** 方法中，在呼叫 `LoadApplication()` 之前新增下面這行程式碼：
 
         App.Init(this);
 
     此程式碼可確保在應用程式載入之前初始化驗證器。
 
-6. 新增 **{url_scheme_of_your_app}** 到 Info.plist 中的 URL 配置。
+8. 開啟 Info.plist，並新增 **URL 類型**。 將**識別碼**設定為您選擇的名稱，將 **URL 配置**設為您應用程式的 URL 配置，並將**角色**設為「無」。
 
-7. 重新建置應用程式，執行它，然後以您選擇的驗證提供者登入，並確認您能夠以已驗證的使用者身分存取資料表。
+9. 重新建置應用程式，執行它，然後以您選擇的驗證提供者登入，並確認您能夠以已驗證的使用者身分存取資料表。
 
 ## <a name="add-authentication-to-windows-10-including-phone-app-projects"></a>將驗證新增至 Windows 10 (包括 Phone) 應用程式專案
 本節說明如何在 Windows 10 應用程式專案中實作 **IAuthenticate** 介面。 相同的步驟適用於通用 Windows 平台 (UWP) 專案，但使用 **UWP** 專案 (內含已標註的變更)。 如果您不要支援 Windows 裝置，請略過這一節。
@@ -306,7 +306,7 @@ Mobile Apps 會使用 [MobileServiceClient][4] 的 [LoginAsync][3] 擴充方法�
             return success;
         }
 
-    如果您使用 Facebook 以外的識別提供者，請為 [MobileServiceAuthenticationProvider] 選擇不同的值。
+    如果您使用 Facebook 以外的識別提供者，請為 [MobileServiceAuthenticationProvider][7]選擇不同的值。
 
 1. 在 **MainPage** 類別的建構函式中，在呼叫 `LoadApplication()` 之前新增下面這行程式碼：
 
@@ -326,12 +326,9 @@ Mobile Apps 會使用 [MobileServiceClient][4] 的 [LoginAsync][3] 擴充方法�
                 ProtocolActivatedEventArgs protocolArgs = args as ProtocolActivatedEventArgs;
                 TodoItemManager.DefaultManager.CurrentClient.ResumeWithURL(protocolArgs.Uri);
             }
-
        }
 
-   當此方法覆寫已存在時，請新增上述程式碼片段中的條件式程式碼。  通用 Windows 專案不需要此程式碼。
-
-3. 在 Package.appxmanifest 中新增 **{url_scheme_of_your_app}**。 
+3. 開啟 Package.appxmanifest，並新增**通訊協定**宣告。 將**顯示名稱**設定為您選擇的名稱，並將**名稱**設定為您應用程式的 URL 配置。
 
 4. 重新建置應用程式，執行它，然後以您選擇的驗證提供者登入，並確認您能夠以已驗證的使用者身分存取資料表。
 
@@ -355,3 +352,4 @@ Mobile Apps 會使用 [MobileServiceClient][4] 的 [LoginAsync][3] 擴充方法�
 [5]: app-service-mobile-dotnet-how-to-use-client-library.md#serverflow
 [6]: app-service-mobile-dotnet-how-to-use-client-library.md#clientflow
 [7]: https://msdn.microsoft.com/library/azure/jj730936(v=azure.10).aspx
+[8]: https://portal.azure.com

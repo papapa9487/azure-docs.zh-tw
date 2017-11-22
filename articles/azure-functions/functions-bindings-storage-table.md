@@ -1,6 +1,6 @@
 ---
-title: "Azure Functions 儲存體資料表繫結 | Microsoft Docs"
-description: "了解如何在 Azure Functions 中使用 Azure 儲存體繫結。"
+title: "Azure Functions 資料表儲存體繫結"
+description: "了解如何在 Azure Functions 中使用 Azure 資料表繫結。"
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -8,85 +8,105 @@ manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, 函數, 事件處理, 動態運算, 無伺服器架構"
-ms.assetid: 65b3437e-2571-4d3f-a996-61a74b50a1c2
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 11/08/2017
 ms.author: chrande
-ms.openlocfilehash: 486b7c31c914ba7bb2d75e3f83ccf346a09104e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f54df931d03318a50e9397211e3c50d0898556d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="azure-functions-storage-table-bindings"></a>Azure Functions 儲存體資料表繫結
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+# <a name="azure-functions-table-storage-bindings"></a>Azure Functions 資料表儲存體繫結
 
-本文說明如何在 Azure Functions 中為 Azure 儲存體資料表繫結進行設定及撰寫程式碼。 Azure Functions 支援 Azure 儲存體資料表的輸入和輸出繫結。
-
-儲存體資料表繫結支援下列案例：
-
-* **讀取 C# 或 Node 函式中的單一資料列** - 設定 `partitionKey` 和 `rowKey`。 此案例中不使用 `filter` 和 `take` 屬性。
-* **讀取 C# 函式中的多個資料列** - Functions 執行階段會提供一個繫結至資料表的 `IQueryable<T>` 物件。 類型 `T` 必須衍生自 `TableEntity` 或實作 `ITableEntity`。 此案例中不使用 `partitionKey`、`rowKey`、`filter` 和 `take`屬性；您可以使用 `IQueryable` 物件來執行任何所需的篩選。 
-* **讀取 Node 函式中的多個資料列** - 設定 `filter` 和 `take` 屬性。 請勿設定 `partitionKey` 或 `rowKey`。
-* **在 C# 函式中寫入一或多個資料列** - Functions 執行階段會提供一個繫結至資料表的 `ICollector<T>` 或 `IAsyncCollector<T>`，其中 `T` 指定您想要新增之實體的結構描述。 一般而言，類型 `T` 會衍生自 `TableEntity` 或實作 `ITableEntity`，但不一定如此。 此案例中不使用 `partitionKey`、`rowKey`、`filter` 和 `take` 屬性。
+本文說明如何在 Azure Functions 中使用 Azure 資料表儲存體繫結。 Azure Functions 支援 Azure 資料表儲存體的輸入和輸出繫結。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-<a name="input"></a>
+## <a name="table-storage-input-binding"></a>資料表儲存體輸入繫結
 
-## <a name="storage-table-input-binding"></a>儲存體資料表輸入繫結
-Azure 儲存體資料表輸入繫結可讓您在您的函式中使用儲存資料表。 
+使用 Azure 資料表儲存體輸入繫結以讀取 Azure 儲存體帳戶中的資料表。
 
-函式的儲存體資料表輸入會使用 function.json `bindings` 陣列中的下列 JSON 物件︰
+## <a name="input---example"></a>輸入 - 範例
 
-```json
+請參閱特定語言的範例：
+
+* [先行編譯 C# 讀取單一實體](#input---c-example-1)
+* [先行編譯 C# 讀取多個實體](#input---c-example-2)
+* [C# 指令碼 - 讀取單一實體](#input---c-script-example-1)
+* [C# 指令碼 - 讀取多個實體](#input---c-script-example-2)
+* [F#](#input---f-example-2)
+* [JavaScript](#input---javascript-example)
+
+### <a name="input---c-example-1"></a>輸入 - C# 範例 1
+
+下列範例所示範的是讀取單一資料表列的[先行編譯 C#](functions-dotnet-class-library.md) 程式碼。 
+
+列索引鍵值 "{queueTrigger}" 表示資料列索引鍵來自佇列訊息字串。
+
+```csharp
+public class TableStorage
 {
-    "name": "<Name of input parameter in function signature>",
-    "type": "table",
-    "direction": "in",
-    "tableName": "<Name of Storage table>",
-    "partitionKey": "<PartitionKey of table entity to read - see below>",
-    "rowKey": "<RowKey of table entity to read - see below>",
-    "take": "<Maximum number of entities to read in Node.js - optional>",
-    "filter": "<OData filter expression for table input in Node.js - optional>",
-    "connection": "<Name of app setting - see below>",
+    public class MyPoco
+    {
+        public string PartitionKey { get; set; }
+        public string RowKey { get; set; }
+        public string Text { get; set; }
+    }
+
+    [FunctionName("TableInput")]
+    public static void TableInput(
+        [QueueTrigger("table-items")] string input, 
+        [Table("MyTable", "MyPartition", "{queueTrigger}")] MyPoco poco, 
+        TraceWriter log)
+    {
+        log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}";
+    }
 }
 ```
 
-請注意： 
+### <a name="input---c-example-2"></a>輸入 - C# 範例 2
 
-* 一起使用 `partitionKey` 和 `rowKey` 來讀取單一實體。 這些屬性是選擇性的。 
-* `connection` 必須包含儲存體連接字串的應用程式設定名稱。 在 Azure 入口網站中，當您建立儲存體帳戶或選取一個現有的儲存體帳戶時，[整合] 索引標籤中的標準編輯器可設定此應用程式設定。 您也可以[手動進行此應用程式設定](functions-how-to-use-azure-function-app-settings.md#settings)。  
+下列範例示範讀取多個資料表列的[先行編譯 C#](functions-dotnet-class-library.md) 程式碼。 請注意，`MyPoco` 類別衍生自 `TableEntity`。
 
-<a name="inputusage"></a>
+```csharp
+public class TableStorage
+{
+    public class MyPoco : TableEntity
+    {
+        public string Text { get; set; }
+    }
 
-## <a name="input-usage"></a>輸入使用方式
-在 C# 函式中，您使用在您函式簽章中的具名參數 (例如 `<T> <name>`) 繫結至資料表實體 (或多個實體)。
-其中 `T` 是您要用來還原序列化資料的資料類型，而 `paramName` 是您在 [輸入繫結](#input) 中指定的名稱。 在 Node.js 函式中，您會使用 `context.bindings.<name>` 來存取輸入資料表實體 (或多個實體)。
+    [FunctionName("TableInput")]
+    public static void TableInput(
+        [QueueTrigger("table-items")] string input, 
+        [Table("MyTable", "MyPartition")] IQueryable<MyPoco> pocos, 
+        TraceWriter log)
+    {
+        foreach (MyPoco poco in pocos)
+        {
+            log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}";
+        }
+    }
+}
+```
 
-可以在 Node.js 或 C# 函式中將輸入資料還原序列化。 還原序列化的物件具有 `RowKey` 和 `PartitionKey` 屬性。
+### <a name="input---c-script-example-1"></a>輸入 - C# 指令碼範例 1
 
-在 C# 函式中，您也可以繫結至下列任何類型，Functions 的執行階段會嘗試使用該類型還原序列化資料表資料︰
+下列範例所示範的是使用繫結之 *function.json* 檔案，以及 [C# 指令碼](functions-reference-csharp.md)程式碼中的資料表輸入繫結。 此函式會使用佇列觸發程序來讀取單一資料表列。 
 
-* 實作 `ITableEntity` 的任何類型
-* `IQueryable<T>`
-
-<a name="inputsample"></a>
-
-## <a name="input-sample"></a>輸入範例
-假設您有下列 function.json，其使用佇列觸發程序來讀取單一資料表資料列。 JSON 會指定 `PartitionKey` 
-`RowKey`。 `"rowKey": "{queueTrigger}"` 表示資料列索引鍵來自佇列訊息字串。
+*function.json* 檔案會指定 `partitionKey` 和 `rowKey`。 `rowKey` 值 "{queueTrigger}" 表示資料列索引鍵來自佇列訊息字串。
 
 ```json
 {
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -97,7 +117,7 @@ Azure 儲存體資料表輸入繫結可讓您在您的函式中使用儲存資�
       "tableName": "Person",
       "partitionKey": "Test",
       "rowKey": "{queueTrigger}",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "direction": "in"
     }
   ],
@@ -105,15 +125,10 @@ Azure 儲存體資料表輸入繫結可讓您在您的函式中使用儲存資�
 }
 ```
 
-請參閱可讀取單一資料表實體的特定語言範例。
+[設定](#input---configuration)章節會說明這些屬性。
 
-* [C#](#inputcsharp)
-* [F#](#inputfsharp)
-* [Node.js](#inputnodejs)
+以下是 C# 指令碼程式碼：
 
-<a name="inputcsharp"></a>
-
-### <a name="input-sample-in-c"></a>C# 中的輸入範例 #
 ```csharp
 public static void Run(string myQueueItem, Person personEntity, TraceWriter log)
 {
@@ -129,9 +144,91 @@ public class Person
 }
 ```
 
-<a name="inputfsharp"></a>
+### <a name="input---c-script-example-2"></a>輸入 - C# 指令碼範例 2
 
-### <a name="input-sample-in-f"></a>F# 中的輸入範例 #
+下列範例所示範的是使用繫結之 *function.json* 檔案，以及 [C# 指令碼](functions-reference-csharp.md)程式碼中的資料表輸入繫結。 此函式會讀取佇列訊息中指定之分割區索引鍵的實體。
+
+以下是 *function.json* 檔案：
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "tableBinding",
+      "type": "table",
+      "connection": "MyStorageConnectionAppSetting",
+      "tableName": "Person",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+[設定](#input---configuration)章節會說明這些屬性。
+
+C# 指令碼程式碼會新增對「Azure 儲存體 SDK」的參考，讓實體類型可以衍生自 `TableEntity`：
+
+```csharp
+#r "Microsoft.WindowsAzure.Storage"
+using Microsoft.WindowsAzure.Storage.Table;
+
+public static void Run(string myQueueItem, IQueryable<Person> tableBinding, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    foreach (Person person in tableBinding.Where(p => p.PartitionKey == myQueueItem).ToList())
+    {
+        log.Info($"Name: {person.Name}");
+    }
+}
+
+public class Person : TableEntity
+{
+    public string Name { get; set; }
+}
+```
+
+### <a name="input---f-example"></a>輸入 - F# 範例
+
+下列範例所示範的是使用繫結之 *function.json* 檔案和 [F# 指令碼](functions-reference-fsharp.md)程式碼中的資料表輸入繫結。 此函式會使用佇列觸發程序來讀取單一資料表列。 
+
+*function.json* 檔案會指定 `partitionKey` 和 `rowKey`。 `rowKey` 值 "{queueTrigger}" 表示資料列索引鍵來自佇列訊息字串。
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "personEntity",
+      "type": "table",
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+[設定](#input---configuration)章節會說明這些屬性。
+
+以下是 F# 程式碼：
+
 ```fsharp
 [<CLIMutable>]
 type Person = {
@@ -145,9 +242,40 @@ let Run(myQueueItem: string, personEntity: Person) =
     log.Info(sprintf "Name in Person entity: %s" personEntity.Name)
 ```
 
-<a name="inputnodejs"></a>
+### <a name="input---javascript-example"></a>輸入 - JavaScript 範例
 
-### <a name="input-sample-in-nodejs"></a>Node.js 中的輸入範例
+下列範例所示範的是使用繫結之 *function.json* 檔案，以及 [JavaScript 程式碼] (functions-reference-node.md) 中的資料表輸入繫結。 此函式會使用佇列觸發程序來讀取單一資料表列。 
+
+*function.json* 檔案會指定 `partitionKey` 和 `rowKey`。 `rowKey` 值 "{queueTrigger}" 表示資料列索引鍵來自佇列訊息字串。
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "personEntity",
+      "type": "table",
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+[設定](#input---configuration)章節會說明這些屬性。
+
+以下是 JavaScript 程式碼：
+
 ```javascript
 module.exports = function (context, myQueueItem) {
     context.log('Node.js queue trigger function processed work item', myQueueItem);
@@ -156,46 +284,132 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-<a name="output"></a>
+## <a name="input---attributes-for-precompiled-c"></a>輸入 - 先行編譯 C# 的屬性
+ 
+對於[先行編譯 C#](functions-dotnet-class-library.md) 函數，請使用下列屬性以設定資料表輸入繫結：
 
-## <a name="storage-table-output-binding"></a>儲存體資料表輸出繫結
-Azure 儲存體資料表輸出繫結可讓您在函式中將實體寫入儲存體資料表。 
+* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs)，定義於 NuGet 封裝 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) 中。
 
-函式的儲存體資料表輸出會使用 function.json `bindings` 陣列中的下列 JSON 物件︰
+  屬性的建構函式採用資料表名稱、分割區索引鍵以及資料列索引鍵。 它可以用於 out 參數或函式的傳回值，如下列範例所示：
 
-```json
+  ```csharp
+  [FunctionName("TableInput")]
+  public static void Run(
+      [QueueTrigger("table-items")] string input, 
+      [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco, 
+      TraceWriter log)
+  ```
+
+  您可以設定 `Connection` 屬性來指定要使用的儲存體帳戶，如下列範例所示：
+
+  ```csharp
+  [FunctionName("TableInput")]
+  public static void Run(
+      [QueueTrigger("table-items")] string input, 
+      [Table("MyTable", "Http", "{queueTrigger}", Connection = "StorageConnectionAppSetting")] MyPoco poco, 
+      TraceWriter log)
+  ```
+
+* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)，定義於 NuGet 封裝 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) 中
+
+  提供另一種方式來指定要使用的儲存體帳戶。 建構函式採用的是內含儲存體連接字串的應用程式設定名稱。 屬性可以套用在參數、方法或類別層級。 下列範例所示範的是類別層級與方法層級：
+
+  ```csharp
+  [StorageAccount("ClassLevelStorageAppSetting")]
+  public static class AzureFunctions
+  {
+      [FunctionName("TableInput")]
+      [StorageAccount("FunctionLevelStorageAppSetting")]
+      public static void Run( //...
+  ```
+
+要使用的儲存體帳戶按以下順序決定：
+
+* `Table` 屬性的 `Connection` 內容。
+* `StorageAccount` 屬性套用至與 `Table` 屬性相同的參數。
+* `StorageAccount` 屬性套用至該函式。
+* `StorageAccount` 屬性套用至該類別。
+* 函數應用程式 (「AzureWebJobsStorage」應用程式設定) 的預設儲存體帳戶。
+
+## <a name="input---configuration"></a>輸入 - 組態
+
+下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `Table` 屬性。
+
+|function.json 屬性 | 屬性內容 |說明|
+|---------|---------|----------------------|
+|**type** | n/a | 必須設為 `table`。 當您在 Azure 入口網站中建立繫結時，會自動設定此屬性。|
+|**direction** | n/a | 必須設為 `in`。 當您在 Azure 入口網站中建立繫結時，會自動設定此屬性。 |
+|**name** | n/a | 代表函式程式碼中的資料表或實體的變數名稱。 | 
+|**tableName** | **TableName** | 資料表的名稱。| 
+|**partitionKey** | **PartitionKey** |選用。 要讀取之資料表實體的分割區索引鍵。 若要了解如何使用該屬性，請參閱[使用方式](#input---usage)一節。| 
+|**rowKey** |**RowKey** | 選用。 要讀取之資料表實體的資料列索引鍵。 若要了解如何使用該屬性，請參閱[使用方式](#input---usage)一節。| 
+|**take** |**Take** | 選用。 要在 JavaScript 中讀取的實體數目上限。 若要了解如何使用該屬性，請參閱[使用方式](#input---usage)一節。| 
+|**filter** |**Filter** | 選用。 用於在 JavaScript 中輸入資料表的 OData 篩選運算式。 若要了解如何使用該屬性，請參閱[使用方式](#input---usage)一節。| 
+|**連接** |**連接** | 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br/>當您要在本機開發時，應用程式設定會進入 [local.settings.json 檔案](functions-run-local.md#local-settings-file)的值。|
+
+## <a name="input---usage"></a>輸入 - 使用方式
+
+資料表儲存體輸入繫結支援下列案例：
+
+* **讀取 C# 或 C# 指令碼中的一個資料列**
+
+  請設定 `partitionKey` 和 `rowKey`。 使用方法參數 `T <paramName>` 存取資料表資料。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 `T` 通常是實作 `ITableEntity` 的型別或衍生自 `TableEntity`。 此案例中不使用 `filter` 和 `take` 屬性。 
+
+* **讀取 C# 或 C# 指令碼中的一或多個資料列**
+
+  使用方法參數 `IQueryable<T> <paramName>` 存取資料表資料。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 `T` 通常是實作 `ITableEntity` 的型別或衍生自 `TableEntity`。 您可以使用 `IQueryable` 方法，以執行任何所需的篩選條件。 此案例中不使用 `partitionKey`、`rowKey`、`filter` 和 `take` 屬性。  
+
+> [!NOTE]
+> `IQueryable` 無法在 .NET Core 中運作，因此它無法在 [Functions v2 執行階段](functions-versions.md)運作。
+
+  替代方式是使用 Azure 儲存體 SDK，藉此利用 `CloudTable paramName` 方法參數來讀取資料表。
+
+* **讀取 JavaScript 中的一或多個資料列**
+
+  請設定 `filter` 和 `take` 屬性。 請勿設定 `partitionKey` 或 `rowKey`。 使用 `context.bindings.<name>` 來存取輸入資料表實體 (或多個實體)。 還原序列化的物件具有 `RowKey` 和 `PartitionKey` 屬性。
+
+## <a name="table-storage-output-binding"></a>資料表儲存體輸出繫結
+
+使用 Azure 資料表儲存體輸出繫結以寫入 Azure 儲存體帳戶中的資料表。
+
+## <a name="output---example"></a>輸出 - 範例
+
+請參閱特定語言的範例：
+
+* [先行編譯 C#](#output---c-example)
+* [C# 指令碼](#output---c-script-example)
+* [F#](#output---f-example)
+* [JavaScript](#output---javascript-example)
+
+### <a name="output---c-example"></a>輸出 - C# 範例
+
+下列範例所示範的是使用 HTTP 觸發程序寫入單一資料表列的[先行編譯 C#](functions-dotnet-class-library.md) 程式碼。 
+
+```csharp
+public class TableStorage
 {
-    "name": "<Name of input parameter in function signature>",
-    "type": "table",
-    "direction": "out",
-    "tableName": "<Name of Storage table>",
-    "partitionKey": "<PartitionKey of table entity to write - see below>",
-    "rowKey": "<RowKey of table entity to write - see below>",
-    "connection": "<Name of app setting - see below>",
+    public class MyPoco
+    {
+        public string PartitionKey { get; set; }
+        public string RowKey { get; set; }
+        public string Text { get; set; }
+    }
+
+    [FunctionName("TableOutput")]
+    [return: Table("MyTable")]
+    public static MyPoco TableOutput([HttpTrigger] dynamic input, TraceWriter log)
+    {
+        log.Info($"C# http trigger function processed: {input.Text}");
+        return new MyPoco { PartitionKey = "Http", RowKey = Guid.NewGuid().ToString(), Text = input.Text };
+    }
 }
 ```
 
-請注意： 
+### <a name="output---c-script-example"></a>輸出 - C# 指令碼範例
 
-* 一起使用 `partitionKey` 和 `rowKey` 來寫入單一實體。 這些屬性是選擇性的。 在您的函式程式碼中建立實體物件時，您也可以指定 `PartitionKey` 和 `RowKey`。
-* `connection` 必須包含儲存體連接字串的應用程式設定名稱。 在 Azure 入口網站中，當您建立儲存體帳戶或選取一個現有的儲存體帳戶時，[整合] 索引標籤中的標準編輯器可設定此應用程式設定。 您也可以[手動進行此應用程式設定](functions-how-to-use-azure-function-app-settings.md#settings)。 
+下列範例所示範的是使用繫結之 *function.json* 檔案，以及 [C# 指令碼](functions-reference-csharp.md)程式碼中的資料表輸出繫結。 函式會寫入多個資料表實體。
 
-<a name="outputusage"></a>
-
-## <a name="output-usage"></a>輸出使用方式
-在 C# 函式中，您使用函式簽章中名為 `out` 的參數 (例如 `out <T> <name>`) 繫結至資料表輸出，其中 `T` 是您想要用來序列化資料的資料類型，而 `paramName` 是您在 [輸出繫結](#output) 中指定的名稱。 在 Node.js 函式中，您會使用 `context.bindings.<name>` 來存取資料表輸出。
-
-您可以在 Node.js 或 C# 函式中將物件序列化。 在 C# 函式中，您也可以繫結至下列類型︰
-
-* 實作 `ITableEntity` 的任何類型
-* `ICollector<T>` (可輸出多個實體。 請參閱[範例](#outcsharp)。)
-* `IAsyncCollector<T>` (`ICollector<T>` 的非同步版本)
-* `CloudTable` (使用「Azure 儲存體 SDK」。 請參閱[範例](#readmulti)。)
-
-<a name="outputsample"></a>
-
-## <a name="output-sample"></a>輸出範例
-下列 *function.json* 和 *run.csx* 範例示範如何在 C# 中撰寫多個資料表實體。
+以下是 *function.json* 檔案：
 
 ```json
 {
@@ -207,7 +421,7 @@ Azure 儲存體資料表輸出繫結可讓您在函式中將實體寫入儲存�
     },
     {
       "tableName": "Person",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "name": "tableBinding",
       "type": "table",
       "direction": "out"
@@ -217,15 +431,10 @@ Azure 儲存體資料表輸出繫結可讓您在函式中將實體寫入儲存�
 }
 ```
 
-請參閱可建立多個資料表實體的特定語言範例。
+[設定](#output---configuration)章節會說明這些屬性。
 
-* [C#](#outcsharp)
-* [F#](#outfsharp)
-* [Node.js](#outnodejs)
+以下是 C# 指令碼程式碼：
 
-<a name="outcsharp"></a>
-
-### <a name="output-sample-in-c"></a>C# 中的輸出範例 #
 ```csharp
 public static void Run(string input, ICollector<Person> tableBinding, TraceWriter log)
 {
@@ -250,9 +459,37 @@ public class Person
 }
 
 ```
-<a name="outfsharp"></a>
 
-### <a name="output-sample-in-f"></a>F# 中的輸出範例 #
+### <a name="output---f-example"></a>輸出 - F# 範例
+
+下列範例所示範的是使用繫結之 *function.json* 檔案，以及 [F# 指令碼](functions-reference-fsharp.md)程式碼中的資料表輸出繫結。 函式會寫入多個資料表實體。
+
+以下是 *function.json* 檔案：
+
+```json
+{
+  "bindings": [
+    {
+      "name": "input",
+      "type": "manualTrigger",
+      "direction": "in"
+    },
+    {
+      "tableName": "Person",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "tableBinding",
+      "type": "table",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+[設定](#output---configuration)章節會說明這些屬性。
+
+以下是 F# 程式碼：
+
 ```fsharp
 [<CLIMutable>]
 type Person = {
@@ -270,9 +507,36 @@ let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
               Name = "Name" + i.ToString() })
 ```
 
-<a name="outnodejs"></a>
+### <a name="output---javascript-example"></a>輸出 - JavaScript 範例
 
-### <a name="output-sample-in-nodejs"></a>Node.js 中的輸出範例
+下列範例所示範的是使用繫結之 *function.json* 檔案，以及 [JavaScript 函式](functions-reference-node.md)中的資料表輸出繫結。 函式會寫入多個資料表實體。
+
+以下是 *function.json* 檔案：
+
+```json
+{
+  "bindings": [
+    {
+      "name": "input",
+      "type": "manualTrigger",
+      "direction": "in"
+    },
+    {
+      "tableName": "Person",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "tableBinding",
+      "type": "table",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+[設定](#output---configuration)章節會說明這些屬性。
+
+以下是 JavaScript 程式碼：
+
 ```javascript
 module.exports = function (context) {
 
@@ -290,54 +554,65 @@ module.exports = function (context) {
 };
 ```
 
-<a name="readmulti"></a>
+## <a name="output---attributes-for-precompiled-c"></a>輸出 - 先行編譯 C# 的屬性
 
-## <a name="sample-read-multiple-table-entities-in-c"></a>範例：讀取 C# 中的多個資料表實體  #
-下列「function.json」  和 C# 程式碼範例會讀取佇列訊息中指定的資料分割金鑰的實體。
+ 對於[先行編譯 C#](functions-dotnet-class-library.md) 函式，會使用 [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs)，其定義於 NuGet 封裝 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)。
 
-```json
-{
-  "bindings": [
-    {
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
-      "name": "myQueueItem",
-      "type": "queueTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "tableBinding",
-      "type": "table",
-      "connection": "MyStorageConnection",
-      "tableName": "Person",
-      "direction": "in"
-    }
-  ],
-  "disabled": false
-}
-```
-
-C# 程式碼會新增對「Azure 儲存體 SDK」的參考，讓實體類型可以衍生自 `TableEntity`。
+屬性的建構函式採用資料表名稱。 它可以用於 `out` 參數或函式的傳回值，如下列範例所示：
 
 ```csharp
-#r "Microsoft.WindowsAzure.Storage"
-using Microsoft.WindowsAzure.Storage.Table;
-
-public static void Run(string myQueueItem, IQueryable<Person> tableBinding, TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-    foreach (Person person in tableBinding.Where(p => p.PartitionKey == myQueueItem).ToList())
-    {
-        log.Info($"Name: {person.Name}");
-    }
-}
-
-public class Person : TableEntity
-{
-    public string Name { get; set; }
-}
+[FunctionName("TableOutput")]
+[return: Table("MyTable")]
+public static MyPoco TableOutput(
+    [HttpTrigger] dynamic input, 
+    TraceWriter log)
 ```
 
-## <a name="next-steps"></a>後續步驟
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+您可以設定 `Connection` 屬性來指定要使用的儲存體帳戶，如下列範例所示：
 
+```csharp
+[FunctionName("TableOutput")]
+[return: Table("MyTable", Connection = "StorageConnectionAppSetting")]
+public static MyPoco TableOutput(
+    [HttpTrigger] dynamic input, 
+    TraceWriter log)
+```
+
+您可以使用 `StorageAccount` 屬性來指定類別、方法或參數層級的儲存體帳戶。 如需詳細資訊，請參閱[輸入 - 先行編譯 C# 的屬性](#input---attributes-for-precompiled-c)。
+
+## <a name="output---configuration"></a>輸出 - 設定
+
+下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `Table` 屬性。
+
+|function.json 屬性 | 屬性內容 |說明|
+|---------|---------|----------------------|
+|**type** | n/a | 必須設為 `table`。 當您在 Azure 入口網站中建立繫結時，會自動設定此屬性。|
+|**direction** | n/a | 必須設為 `out`。 當您在 Azure 入口網站中建立繫結時，會自動設定此屬性。 |
+|**name** | n/a | 函式程式碼中所使用的變數名稱，代表資料表或實體。 設為 `$return` 以參考函式傳回值。| 
+|**tableName** |**TableName** | 資料表的名稱。| 
+|**partitionKey** |**PartitionKey** | 要寫入之資料表實體的分割區索引鍵。 若要了解如何使用該屬性，請參閱[使用方式](#output---usage)一節。| 
+|**rowKey** |**RowKey** | 要寫入之資料表實體的資料列索引鍵。 若要了解如何使用該屬性，請參閱[使用方式](#output---usage)一節。| 
+|**連接** |**連接** | 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br/>當您要在本機開發時，應用程式設定會進入 [local.settings.json 檔案](functions-run-local.md#local-settings-file)的值。|
+
+## <a name="output---usage"></a>輸出 - 使用方式
+
+資料表儲存體輸出繫結支援下列案例：
+
+* **以任何語言寫入單一資料列**
+
+  在 C# 和 C# 指令碼中，使用方法參數 (例如 `out T paramName`) 或函式傳回值，藉此存取輸出資料表實體。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 如果分割區索引鍵和資料列索引鍵是由 *function.json* 檔案或 `Table` 屬性提供，`T` 可以是任何可序列化的型別。 否則，`T` 必須包含 `PartitionKey` 和 `RowKey` 屬性的型別。 在此案例中，`T` 通常會實作 `ITableEntity` 或衍生自 `TableEntity`，但不一定如此。
+
+* **寫入 C# 或 C# 指令碼中的一或多個資料列**
+
+  在 C# 和 C# 指令碼中，使用方法參數 `ICollector<T> paramName` 或 `ICollectorAsync<T> paramName` 存取輸出資料表實體。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 `T` 指定了您想要新增之實體的結構描述。 一般而言，`T` 會衍生自 `TableEntity` 或實作 `ITableEntity`，但不一定如此。 *function.json* 中的分割區索引鍵或資料列索引鍵值，或 `Table` 屬性建構函式不會在此案例中使用。
+
+  替代方式是藉由使用 Azure 儲存體 SDK，利用 `CloudTable paramName` 方法參數來寫入資料表。
+
+* **寫入 JavaScript 中的一或多個資料列**
+
+  在 JavaScript 函式中，會使用 `context.bindings.<name>` 來存取資料表輸出。
+
+## <a name="next-steps"></a>後續步驟
+
+> [!div class="nextstepaction"]
+> [深入了解 Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)

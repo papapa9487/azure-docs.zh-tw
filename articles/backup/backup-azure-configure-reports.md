@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/13/2017
+ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e817e327b8890c91bd7db640b083fd6c5c11aa14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40433df5ebe90aec3a9294f2c5a6083c4567b161
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configure-azure-backup-reports"></a>設定 Azure 備份報告
 本文說明使用復原服務保存庫針對 Azure 備份設定報告，以及使用 Power BI 存取這些報告的步驟。 執行這些步驟後，您可以直接移至 Power BI 以檢閱所有報告，以及自訂和建立報告。 
@@ -29,6 +29,7 @@ ms.lasthandoff: 10/11/2017
 2. 目前不支援針對 Azure SQL、DPM 和 Azure 備份伺服器的報告功能。
 3. 如果針對每個保存庫皆設定相同的儲存體帳戶，則可以檢閱跨保存庫和跨訂用帳戶的報告。 選取的儲存體帳戶應與復原服務保存庫位於相同的區域。
 4. Power BI 中報告的排程重新整理頻率為 24 小時。 您也可以在 Power BI 中執行報告的臨機操作重新整理，這會使用客戶儲存體帳戶中的最新資料來轉譯報告。 
+5. 國家雲端目前不支援 Azure 備份報告。
 
 ## <a name="prerequisites"></a>必要條件
 1. 建立 [Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)以針對報告進行設定。 這個儲存體帳戶是用來儲存與報告相關的資料。
@@ -50,19 +51,26 @@ ms.lasthandoff: 10/11/2017
 2. 從保存庫下的項目清單中，按一下 [監視和報告] 區段下的 [備份報告]，以針對報告設定儲存體帳戶。
 
       ![選取備份報告功能表項目步驟 2](./media/backup-azure-configure-reports/backup-reports-settings.PNG)
-3. 在 [備份報告] 刀鋒視窗上，按一下 [設定] 按鈕。 這會開啟 [Azure Application Insights] 刀鋒視窗，可用來將資料推送到客戶儲存體帳戶。
+3. 在 [備份報告] 刀鋒視窗中，按一下 [診斷設定] 連結。 此選項可開啟診斷設定 UI，其可用來將資料推送到客戶儲存體帳戶。
 
-      ![設定儲存體帳戶步驟 3](./media/backup-azure-configure-reports/configure-storage-account.PNG)
-4. 將 [狀態] 切換按鈕設定為[開啟] 並選取 [封存至儲存體帳戶] 核取方塊，讓報告資料可以開始流入儲存體帳戶。
+      ![啟用診斷步驟 3](./media/backup-azure-configure-reports/backup-azure-configure-reports.png)
+4. 按一下 [開啟診斷] 連結。 這會開啟 UI 以設定儲存體帳戶。 
 
-      ![啟用診斷步驟 4](./media/backup-azure-configure-reports/set-status-on.png)
-5. 按一下 [儲存體帳戶] 選擇器，並從儲存報告資料的清單中選取儲存體帳戶，然後按一下 [確定]。
+      ![開啟診斷步驟 4](./media/backup-azure-configure-reports/enable-diagnostics.png)
+5. 在 [名稱] 欄位中輸入設定名稱，並選取 [封存至儲存體帳戶] 核取方塊，讓報告資料可以開始流入儲存體帳戶。
 
-      ![選取儲存體帳戶步驟 5](./media/backup-azure-configure-reports/select-storage-account.png)
-6. 選取 [AzureBackupReport] 核取方塊，並移動滑桿以選取此報告資料的保留期限。 儲存體帳戶中的報告資料會在使用此滑桿選取的期限內保留。
+      ![啟用診斷步驟 5](./media/backup-azure-configure-reports/select-setting-name.png)
+6. 按一下 [儲存體帳戶] 選擇器，並從儲存報告資料的清單中選取相關訂用帳戶和儲存體帳戶，然後按一下 [確定]。
 
-      ![選取儲存體帳戶步驟 6](./media/backup-azure-configure-reports/save-configuration.png)
-7. 檢閱所有變更，然後按一下頂端的 [儲存] 按鈕，如上圖所示。 此動作可確保所有變更都會儲存，且儲存體帳戶已針對儲存報告資料進行設定。
+      ![選取儲存體帳戶步驟 6](./media/backup-azure-configure-reports/select-subscription-sa.png)
+7. 在 [記錄] 區段下選取 [AzureBackupReport] 核取方塊，並移動滑桿以選取此報告資料的保留期限。 儲存體帳戶中的報告資料會在使用此滑桿選取的期限內保留。
+
+      ![儲存儲存體帳戶步驟 7](./media/backup-azure-configure-reports/save-diagnostic-settings.png)
+8. 檢閱所有變更，然後按一下頂端的 [儲存] 按鈕，如上圖所示。 此動作可確保所有變更都會儲存，且儲存體帳戶已針對儲存報告資料進行設定。
+
+9. 診斷設定資料表目前應該顯示保存庫中啟用的新設定。 如果未顯示，請重新整理資料表，即可看見更新的設定。
+
+      ![檢視診斷設定步驟 9](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
 > 一旦您將儲存體帳戶儲存從而設定報告後，應該**等待 24 小時**，初始資料推送才會完成。 只有在該時間之後，您才需要將 Power BI 中的 Azure 備份內容套件匯入。 如需進一步的詳細資料，請參閱[常見問題集一節](#frequently-asked-questions)。 

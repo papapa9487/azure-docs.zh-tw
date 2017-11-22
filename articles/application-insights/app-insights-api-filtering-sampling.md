@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: borooji;mbullwin
-ms.openlocfilehash: 9261f44a0c0400a0a8d908b0ff72318c637771de
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 5f4db2e79575202d3d9fa1601fb182c7a0881338
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>在 Application Insights SDK 中篩選及前置處理遙測
 
@@ -335,6 +335,9 @@ public void Process(ITelemetry item)
 * TelemetryProcessors 可讓您完全取代或捨棄遙測項目。
 * TelemetryProcessors 不會處理效能計數器遙測。
 
+## <a name="troubleshooting-applicationinsightsconfig"></a>為 ApplicationInsights.config 疑難排解
+* 確認完整格式的類型名稱和組件名稱均正確。
+* 確認 applicationinsights.config 檔案在您的輸出目錄中，並且包含任何最近的變更。
 
 ## <a name="reference-docs"></a>參考文件
 * [API 概觀](app-insights-api-custom-events-metrics.md)

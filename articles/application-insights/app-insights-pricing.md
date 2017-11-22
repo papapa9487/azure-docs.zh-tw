@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5b3d1b9e0d176f29fbcc90410f1fe80085ec5fa8
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ecb6dd0343c36a0f1571b416817aad5e7a52fccb
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>管理 Application Insights 的價格和資料量
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/01/2017
 建立新的 Application Insights 資源時，基本方案是預設方案，應可滿足大部分客戶的需要。
 
 * 基本方案是依照您的資料量收費︰Application Insights 接收的遙測位元組數。 資料量是測量 Application Insights 從應用程式收到的未壓縮 JSON 資料套件的大小。
-對於[匯入分析的表格式資料](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-import)，資料磁碟區會測量為傳送至 Application Insights 之檔案的解壓縮大小。  
+對於[匯入分析的表格式資料](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import)，資料磁碟區會測量為傳送至 Application Insights 之檔案的解壓縮大小。  
 * 每個應用程式的第一個 1 GB 是免費的，因此如果只是實驗或開發，您可能不需要付費。
 * [即時計量串流](app-insights-live-stream.md)資料不會計入價格用途。
 * 在基本方案中，可以依照每一 GB 額外付費使用[連續匯出](app-insights-export-telemetry.md)。
@@ -110,7 +110,7 @@ Application Insights 費用會加到您的 Azure 帳單中。 您可以在 Azure
 有三種方式可限制您傳送的資料量︰
 
 * **取樣︰**這個機制可用來減少您的伺服器和用戶端應用程式所傳送的遙測量，計量的扭曲程度最小。 這是您調整資料量的主要工具。 深入了解[取樣功能](app-insights-sampling.md)。 
-* **每日上限：**從 Azure 入口網站建立 Application Insights 資源時，會將此設為每日 500 GB。 從 Visual Studio 建立 Application Insights 資源時的預設值很小 (只有 32.3 MB/天)，僅旨在協助測試。 在此情況下，用意在於使用者在將應用程式部署至實際執行環境之前，會提高每日的上限。 除非您針對高流量的應用程式要求更高的最大值，否則每日的最高上限是 500 GB。 設定每日的上限時請留意，您的目標應該是**絕不達到每日上限**，因為這樣一來您將會遺失每日剩餘項目的資料，且無法監視您的應用程式。 若要變更，請從 [資料量管理] 刀鋒視窗連結來使用 [每日用量上限] 刀鋒視窗 (如下所示)。 請注意，有些訂用帳戶類型的信用額度無法用於 Application Insights。 如果訂用帳戶內含消費限制，則 [每日上限] 刀鋒視窗中會有指示，說明如何將它移除，並讓每日上限提高至每天 32.3 MB。  
+* **每日上限：**從 Azure 入口網站建立 Application Insights 資源時，會將此設為每日 100 GB。 從 Visual Studio 建立 Application Insights 資源時的預設值很小 (只有 32.3 MB/天)，僅旨在協助測試。 在此情況下，用意在於使用者在將應用程式部署至實際執行環境之前，會提高每日的上限。 除非您針對高流量的應用程式要求更高的最大值，否則每日的最高上限是 1000 GB。 設定每日的上限時請留意，您的目標應該是**絕不達到每日上限**，因為這樣一來您將會遺失每日剩餘項目的資料，且無法監視您的應用程式。 若要變更，請從 [資料量管理] 刀鋒視窗連結來使用 [每日用量上限] 刀鋒視窗 (如下所示)。 請注意，有些訂用帳戶類型的信用額度無法用於 Application Insights。 如果訂用帳戶內含消費限制，則 [每日上限] 刀鋒視窗中會有指示，說明如何將它移除，並讓每日上限提高至每天 32.3 MB。  
 * **節流：**這會將資料速率限制在每秒 32,000 個事件，平均超過 1 分鐘。 
 
 

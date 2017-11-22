@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3674670e10500d2992539ab60fbdb31b666fcf9a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 104c2f087a38b3fe006ede4c4d6d283336c3511c
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>升級 Windows Azure Active Directory Sync 和 Azure Active Directory Sync
-Azure AD Connect 是連接內部部署目錄與 Azure AD 和 Office 365 的最佳方式。 這是將 Azure AD Connect 從 Windows Azure Active Directory Sync (DirSync) 或 Azure AD Sync 升級的最佳時機，因為這些工具現在已淘汰，而且會在 2017 年 4 月 13 日結束支援。
+Azure AD Connect 是連接內部部署目錄與 Azure AD 和 Office 365 的最佳方式。 這是將 Azure AD Connect 從 Windows Azure Active Directory Sync (DirSync) 或 Azure AD Sync 升級的最佳時機，因為這些工具現在已淘汰，而且從 2017 年 4 月 13 日起不再提供支援。
 
-已淘汰的兩個身分識別同步處理工具會提供給單一樹系客戶 (DirSync)，以及多樹系和其他進階客戶 (Azure AD Sync)。 這些較舊的工具已經取代為適用於所有案例的單一解決方案︰Azure AD Connect。 它提供新的功能、增強功能和新案例的支援。 若要能夠繼續同步處理內部部署身分識別資料至 Azure AD 和 Office 365，強烈建議您升級至 Azure AD Connect。
+已淘汰的兩個身分識別同步處理工具會提供給單一樹系客戶 (DirSync)，以及多樹系和其他進階客戶 (Azure AD Sync)。 這些較舊的工具已經取代為適用於所有案例的單一解決方案︰Azure AD Connect。 它提供新的功能、增強功能和新案例的支援。 若要能夠繼續同步處理內部部署身分識別資料至 Azure AD 和 Office 365，強烈建議您升級至 Azure AD Connect。 Microsoft 不保證舊版本在 2017 年 12 月 31 日之後能夠正常運作。
 
 最新版的 DirSync 發行於 2014 年 7 月，而最新版的 Azure AD Sync 發行於 2015 年 5 月。
 

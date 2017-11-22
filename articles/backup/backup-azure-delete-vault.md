@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/11/2017
+ms.date: 11/10/2017
 ms.author: markgal;trinadhk
-ms.openlocfilehash: ae4a73d12898c62fe2c5cf3683bc7c1c8c845fdf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b07b9e01a5a8d8a5189b130fb5a9baeef7a43f4f
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="delete-a-recovery-services-vault"></a>刪除復原服務保存庫
 Azure 備份服務有兩種類型的保存庫：備份保存庫和復原服務保存庫。 先是備份保存庫。 然後是復原服務保存庫，以支援擴充的 Resource Manager 部署。 由於擴充的功能和資訊相依性必須儲存在保存庫中，刪除備份或復原服務保存庫可能會造成混淆。 此文章說明如何在傳統入口網站和 Azure 入口網站中刪除保存庫。  
@@ -33,7 +33,7 @@ Azure 備份服務有兩種類型的保存庫：備份保存庫和復原服務�
 >
 
 > [!IMPORTANT]
-> 您現在可以將備份保存庫升級至復原服務保存庫。 如需詳細資訊，請參閱[將備份保存庫升級至復原服務保存庫](backup-azure-upgrade-backup-to-recovery-services.md)文章。 Microsoft 鼓勵您將備份保存庫升級至復原服務保存庫。<br/> 在 **2017 年 10 月 15 日**之後，您就無法使用 PowerShell 建立備份保存庫。 <br/> **自 2017 年 11 月 1 日起**：
+> 您現在可以將備份保存庫升級至復原服務保存庫。 如需詳細資訊，請參閱[將備份保存庫升級至復原服務保存庫](backup-azure-upgrade-backup-to-recovery-services.md)文章。 Microsoft 鼓勵您將備份保存庫升級至復原服務保存庫。<br/> 在 **2017 年 11 月 30 日**之後，您就無法使用 PowerShell 建立備份保存庫。 <br/> **在 2017 年 11 月 30 日以前**：
 >- 任何其餘的備份保存庫都會自動升級至復原服務保存庫。
 >- 您將無法在傳統入口網站中存取您的備份資料。 相反地，使用 Azure 入口網站來存取您在復原服務保存庫中的備份資料。
 >
@@ -64,7 +64,7 @@ Azure 備份服務有兩種類型的保存庫：備份保存庫和復原服務�
     ![在基本窗格中查看受保護的項目](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
 
     VM 和檔案/資料夾會被視為備份項目，列在 [基本] 窗格的 [備份項目]  區域中。 DPM 伺服器會列在 [基本] 窗格的 [備份管理伺服器]  區域中。  屬於 Azure Site Recovery 服務。
-3. 若要開始從保存庫移除受保護的項目，請在保存庫中找到這些項目。 在保存庫儀表板中，按一下 設定，然後按一下備份項目 開啟其刀鋒視窗。
+3. 若要開始從保存庫移除受保護的項目，請在保存庫中找到這些項目。 在保存庫儀表板中，按一下 [設定]，然後按一下 [備份項目] 開啟其刀鋒視窗。
 
     ![從清單中選擇保存庫](./media/backup-azure-delete-vault/open-settings-and-backup-items.png)
 
@@ -181,7 +181,7 @@ Azure 備份服務有兩種類型的保存庫：備份保存庫和復原服務�
 
     保存庫儀表板隨即開啟。 查看與保存庫相關聯的 Windows 伺服器和/或 Azure 虛擬機器數目。 並查看 Azure 中已使用的儲存體總計。 在刪除保存庫之前，請停止所有備份作業並刪除所有資料。
 
-3. 按一下 受保護的項目 索引標籤，然後按一下停止保護。
+3. 按一下 [受保護的項目] 索引標籤，然後按一下 [停止保護]。
 
     ![刪除備份資料](./media/backup-azure-delete-vault/classic-portal-delete-vault-stop-protect.png)
 
@@ -198,7 +198,7 @@ Azure 備份服務有兩種類型的保存庫：備份保存庫和復原服務�
 
     ![刪除備份資料](./media/backup-azure-delete-vault/classic-portal-unregister.png)
 
-  如果您想要刪除 Windows Server 的註冊，請從 [類型] 下拉式功能表中選取 [Windows Server]，按一下![核取記號](./media/backup-azure-delete-vault/checkmark.png)以重新整理畫面，然後按一下刪除]。 <br/>
+  如果您想要刪除 Windows Server 的註冊，請從 [類型] 下拉式功能表中選取 [Windows Server]，按一下![核取記號](./media/backup-azure-delete-vault/checkmark.png)以重新整理畫面，然後按一下 [刪除]。 <br/>
 
   ![選取 Windows Server](./media/backup-azure-delete-vault/select-windows-server.png)
 
@@ -223,6 +223,6 @@ Azure 備份服務有兩種類型的保存庫：備份保存庫和復原服務�
 4. 在 [備份基礎結構] 刀鋒視窗中，按一下 [備份管理伺服器]。 [備份管理伺服器] 刀鋒視窗隨即開啟。
 
     ![備份管理伺服器的清單](./media/backup-azure-delete-vault/list-of-backup-management-servers.png)
-5. 若要刪除清單中的伺服器，以滑鼠右鍵按一下伺服器的名稱，然後按一下刪除 。
+5. 若要刪除清單中的伺服器，以滑鼠右鍵按一下伺服器的名稱，然後按一下 [刪除] 。
     [刪除]  刀鋒視窗隨即開啟。
 6. 在 [刪除]  刀鋒視窗中，提供伺服器的名稱。 如果名稱很長，您可以從的備份管理伺服器的清單中複製並貼上。 然後按一下 [刪除] 。  

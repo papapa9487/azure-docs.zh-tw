@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: mbullwin
-ms.openlocfilehash: fe708b14fac971d18d95fd1619907023ec35af89
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ae204b79be228d55b30bb543dd25efdd9c3f0436
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="feed-power-bi-from-application-insights"></a>從 Application Insights 提供 Power BI
 [Power BI](http://www.powerbi.com/) 是一套商務分析工具，可協助您分析資料及分享見解。 每個裝置上都提供豐富的儀表板。 您可以結合許多來源的資料，包含來自 [Azure Application Insights](app-insights-overview.md) 的「分析」查詢。
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/01/2017
 有三種建議方法可將 Application Insights 資料匯出至 Power BI。 您可以單獨或一起使用這些方法。
 
 * [**Power BI 配接器**](#power-pi-adapter) - 從您的應用程式設定完整的遙測儀表板。 儀表板中已預先定義一組圖表，但您可以從任何其他來源新增您自己的查詢。
-* [**匯出 Analytics 查詢**](#export-analytics-queries) - 使用 Analytics 撰寫任何您想要的查詢，並將它匯出至 Power BI。 您可以將此查詢和任何其他資料一起放在儀表板上。
+* [**匯出 Analytics 查詢**](#export-analytics-queries) - 使用 Analytics 或從「使用方式漏斗圖」撰寫任何您想要的查詢，並將其匯出至 Power BI。 您可以將此查詢和任何其他資料一起放在儀表板上。
 * [**連續匯出和串流分析**](app-insights-export-stream-analytics.md) - 這牽涉到更多設定工作。 如果您想要長期保留資料，此方法很有用。 否則，建議您使用其他方法。
 
 ## <a name="power-bi-adapter"></a>Power BI 配接器
@@ -48,7 +48,7 @@ ms.lasthandoff: 11/01/2017
 初始匯入之後，儀表板和報告會持續每日更新。 您可以控制資料集上的重新整理排程。
 
 ## <a name="export-analytics-queries"></a>匯出 Analytics 查詢
-此途徑可讓您撰寫您喜歡的任何 Analytics 查詢，然後將其匯出至 Power BI 儀表板  (您可以新增至配接器所建立的儀表板)。
+此途徑可讓您撰寫您喜歡的任何 Analytics 查詢，或從「使用方式漏斗圖」匯出，然後將其匯出至 Power BI 儀表板。 (您可以新增至配接器所建立的儀表板)。
 
 ### <a name="one-time-install-power-bi-desktop"></a>一次︰安裝 Power BI Desktop
 若要匯入您的 Application Insights 查詢，您可以使用桌面版本的 Power BI。 但是，您接著可以將它發佈至 Web 或您的 Power BI 雲端工作區。 
@@ -81,6 +81,28 @@ ms.lasthandoff: 11/01/2017
    
     ![選取視覺效果](./media/app-insights-export-power-bi/publish-power-bi.png)
 4. 不時手動重新整理報表，或在選項頁面上設定排定的重新整理。
+
+### <a name="export-a-funnel"></a>匯出漏斗圖
+1. [建立您的漏斗圖](usage-funnels.md)
+2. 按一下 [Power BI] 按鈕 
+
+   ![PowerBI 按鈕](./media/app-insights-export-power-bi/button.png)
+   
+3. 在 Power BI Desktop 中選取 [取得資料]、[空白查詢]，然後在查詢編輯器中，於 [檢視] 底下選取 [進階查詢編輯器]。
+
+   ![空白查詢](./media/app-insights-export-power-bi/blankquery.png)
+
+   將匯出的 M 語言指令碼貼到進階查詢編輯器。 
+
+   ![進階查詢編輯器](./media/app-insights-export-power-bi/advancedquery.png)
+
+4. 從查詢中選取項目，並選擇漏斗圖視覺效果
+
+   ![選取順序和漏斗圖](./media/app-insights-export-power-bi/selectsequence.png)
+
+5. 變更為有意義的標題，並將報表發佈至 Power BI 雲端工作區。 
+
+   ![變更標題](./media/app-insights-export-power-bi/changetitle.png)
 
 ## <a name="troubleshooting"></a>疑難排解
 

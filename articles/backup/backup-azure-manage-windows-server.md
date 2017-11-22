@@ -12,22 +12,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/10/2017
 ms.author: markgal
-ms.openlocfilehash: 5922e308f5c205a07bd329c28322ae82cea0e1fa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58080d0e045f1825e89287fc421b7e84db36331e
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>監視和管理 Windows 電腦的 Azure 復原服務保存庫和伺服器
-> [!div class="op_single_selector"]
-> * [資源管理員](backup-azure-manage-windows-server.md)
-> * [傳統](backup-azure-manage-windows-server-classic.md)
->
->
 
-在本文中，您將了解透過 Azure 入口網站和 Microsoft Azure 備份代理程式提供之備份監視和管理工作的概觀。 本文假設您已經有 Azure 訂用帳戶，並至少建立了一個復原服務保存庫。
+本文內有透過 Azure 入口網站和 Microsoft Azure 備份代理程式提供之備份監視和管理工作的概觀。 本文假設您已經有 Azure 訂用帳戶，並至少建立了一個復原服務保存庫。
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -41,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 
     ![開啟復原服務保存庫清單的步驟 1](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
 
-3. 您想要開啟復原服務保存庫。 在對話方塊中，開始輸入**復原服務**。 當您開始輸入時，清單將會根據您輸入的文字進行篩選。 按一下 [復原服務保存庫]，以顯示您訂用帳戶中的復原服務保存庫清單。
+3. 您想要開啟復原服務保存庫。 在對話方塊中，開始輸入**復原服務**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 按一下 [復原服務保存庫]，以顯示您訂用帳戶中的復原服務保存庫清單。
 
     ![建立復原服務保存庫的步驟 1](./media/backup-azure-manage-windows-server/browse-to-rs-vaults-2.png) <br/>
 
@@ -49,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 
     ![建立復原服務保存庫的步驟 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
-4. 從保存庫清單中，選取您想要開啟的復原服務保存庫名稱。 [復原服務保存庫儀表板] 刀鋒視窗隨即開啟。
+4. 從保存庫清單中，選取您想要開啟的復原服務保存庫名稱。 [復原服務保存庫儀表板] 功能表隨即開啟。
 
     ![復原服務保存庫儀表板](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
@@ -66,13 +61,13 @@ ms.lasthandoff: 10/11/2017
 
 ![備份儀表板工作](./media/backup-azure-manage-windows-server/dashboard-tiles.png)
 
-按一下上述每個圖格中的資訊，將會開啟相關聯的刀鋒視窗以便管理相關工作。
+按一下上述每個圖格中的資訊，會開啟相關聯的功能表以便管理相關工作。
 
 在儀表板的頂端：
 
-* [設定] 可供存取可用的備份工作。
+* 設定 - 提供存取可用的備份工作。
 * 備份 - 協助您將新的檔案和資料夾 (或 Azure VM) 備份至復原服務保存庫。
-* 刪除 - 如果不再使用復原服務保存庫，您可予以刪除來釋出儲存空間。 只有在從保存庫中刪除了所有受保護的伺服器之後，[刪除] 才會啟用。
+* 刪除 - 如果不再使用復原服務保存庫，可予以刪除來釋出儲存空間。 只有在從保存庫中刪除了所有受保護的伺服器之後，[刪除] 才會啟用。
 
 ![備份儀表板工作](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
 
@@ -80,11 +75,11 @@ ms.lasthandoff: 10/11/2017
 | 警示層級 | 傳送的警示 |
 | --- | --- |
 | 重要 |備份失敗、復原失敗 |
-| 警告 |備份完成，但有警告 (當不到一百個檔案因為損毀問題而未備份，以及超過一百萬個檔案成功備份時) |
+| 警告 |備份完成，但有警告 (當不到 100 個檔案因為損毀問題而未備份，以及超過 100 萬個檔案成功備份時) |
 | 資訊 |None |
 
 ## <a name="manage-backup-alerts"></a>管理備份警示
-按一下 [備份警示] 圖格以開啟 [備份警示] 刀鋒視窗及管理警示。
+按一下 [備份警示] 圖格以開啟 [備份警示] 功能表及管理警示。
 
 ![備份警示](./media/backup-azure-manage-windows-server/manage-backup-alerts.png)
 
@@ -93,9 +88,9 @@ ms.lasthandoff: 10/11/2017
 * 過去 24 小時內未解決的重大警示
 * 過去 24 小時內未解決的警告警示
 
-按一下每個連結會帶您前往 [備份警示]  刀鋒視窗，其中包含這些警示 (重大或警告) 的篩選檢視。
+按一下連結以檢視 [備份警示]功能表，其中包含這些警示 (重大或警告) 的篩選檢視。
 
-在 [備份警示] 刀鋒視窗中，您可︰
+在 [備份警示] 功能表中，您可以︰
 
 * 選擇要與您的警示一起納入的適當資訊。
 
@@ -107,9 +102,9 @@ ms.lasthandoff: 10/11/2017
 
     ![篩選警示](./media/backup-azure-manage-windows-server/configure-notifications.png)
 
-如果選取 [每個警示] 做為 [通知] 頻率，則電子郵件不會分組或減少。 每個警示會產生 1 則通知。 這是預設設定，而且也會立即送出解決方式電子郵件。
+如果選取 [每個警示] 做為 [通知] 頻率，則電子郵件不會分組或減少。 每個警示會產生一個通知 (預設設定)，而解析電子郵件會立刻送出。
 
-如果選取 [每小時摘要] 做為 [通知] 頻率，則會傳送一封電子郵件給使用者，告知過去一小時有未解決的新警示產生。 解決方式電子郵件會在每小時結束時送出。
+如果選取 [每小時摘要] 做為 [通知] 頻率，則會傳送一封電子郵件給使用者，說明過去一小時有未解決的警示產生。 解決方式電子郵件會在每小時結束時送出。
 
 可以針對下列嚴重性等級傳送警示︰
 
@@ -117,12 +112,12 @@ ms.lasthandoff: 10/11/2017
 * 警告
 * 資訊
 
-您可使用 [作業詳細資料] 刀鋒視窗中的 [停用]  按鈕來停用警示。 當您按一下 [停用] 時，您可以提供解決方式資訊。
+您可使用 [作業詳細資料] 功能表中的 [停用] 按鈕來停用警示。 當您按一下 [停用] 時，您可以提供解決方式資訊。
 
 您可以使用 [選擇資料行]  按鈕，選擇您要顯示在警示中的資料行。
 
 > [!NOTE]
-> 在 設定 刀鋒視窗中，選取 監視和報告 > 警示和事件 > 備份警示，然後按一下篩選 或 設定通知，以管理備份警示。
+> 在 [設定] 功能表中，選取 [監視和報告] > [警示和事件] > [備份警示]，然後按一下 [篩選] 或 [設定通知]，以管理備份警示。
 >
 >
 
@@ -133,14 +128,14 @@ ms.lasthandoff: 10/11/2017
 
 ![備份項目圖格](./media/backup-azure-manage-windows-server/backup-items-tile.png)
 
-隨即開啟篩選器設定為 [檔案-資料夾] 的 [備份項目] 刀鋒視窗，其中列出每個特定備份項目。
+隨即開啟篩選器設定為 [檔案-資料夾] 的 [備份項目] 功能表，其中列出每個特定備份項目。
 
 ![備份項目](./media/backup-azure-manage-windows-server/backup-item-list.png)
 
 如果您選取清單中的特定備份項目，您會看到該項目的基本詳細資料。
 
 > [!NOTE]
-> 在 [設定] 刀鋒視窗中，您可選取 [受保護項目] > [備份項目]，然後從下拉式功能表中選取 [檔案-資料夾]，以管理檔案和資料夾。
+> 從 [設定] 功能表中，您可選取 [受保護項目] >[備份項目]，然後從下拉式功能表中選取 [檔案-資料夾]，以管理檔案和資料夾。
 >
 >
 
@@ -154,18 +149,18 @@ ms.lasthandoff: 10/11/2017
 * 進行中
 * 過去 24 小時內失敗。
 
-若要管理您的備份作業，請按一下 [備份作業]  圖格，即會開啟 [備份作業] 刀鋒視窗。
+若要管理您的備份作業，請按一下 [備份作業] 圖格，即會開啟 [備份作業] 功能表。
 
 ![從設定備份項目](./media/backup-azure-manage-windows-server/backup-jobs.png)
 
-您可使用頁面頂端的 [選擇資料行]  按鈕，修改 [備份作業] 刀鋒視窗中可用的資訊。
+您可使用頁面頂端的 [選擇資料行] 按鈕，修改 [備份作業] 功能表中可用的資訊。
 
 使用 [篩選]  按鈕來選取檔案和資料夾以及 Azure 虛擬機器備份。
 
 如果您未看到已備份的檔案和資料夾，按一下頁面頂端的 [篩選] 按鈕，然後從 [項目類型] 功能表中選取 [檔案和資料夾]。
 
 > [!NOTE]
-> 在 [設定] 刀鋒視窗中，您可選取 [監視和報告] > [作業] > [備份作業]，然後從下拉式功能表中選取 [檔案-資料夾]，以管理備份作業。
+> 在 [設定] 功能表中，您可選取 [監視和報告] > [作業] > [備份作業]，然後從下拉式功能表中選取 [檔案-資料夾]，以管理備份作業。
 >
 >
 
@@ -180,7 +175,7 @@ ms.lasthandoff: 10/11/2017
 
 按一下 [管理] 之下的 [備份基礎結構] > [生產伺服器]。
 
-[生產伺服器] 刀鋒視窗會列出所有可用的生產伺服器。 按一下清單中的伺服器以開啟伺服器詳細資料。
+[生產伺服器] 功能表會列出所有可用的生產伺服器。 按一下清單中的伺服器以開啟伺服器詳細資料。
 
 ![受保護項目](./media/backup-azure-manage-windows-server/production-server-list.png)
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure 上 SAP (A)SCS 執行個體的 Windows 容錯移轉叢集和共用磁碟上的 SAP NetWeaver HA 安裝 | Microsoft Docs"
-description: "SAP (A)SCS 執行個體的 Windows 容錯移轉叢集和共用磁碟上的 SAP NetWeaver HA 安裝"
+title: "在 Azure 中的 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和共用磁碟上安裝 SAP NetWeaver HA | Microsoft Docs"
+description: "了解如何在 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和共用磁碟上安裝 SAP NetWeaver HA。"
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,13 +17,13 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 938ab6be6b2ba9e1403919cb62f68c65f114c067
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 419bbdd57a391dbbf01c2110a1609cb3d0ded003
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="sap-netweaver-ha-installation-on-windows-failover-cluster-and-shared-disk-for-sap-ascs-instance-on-azure"></a>Azure 上 SAP (A)SCS 執行個體的 Windows 容錯移轉叢集和共用磁碟上的 SAP NetWeaver HA 安裝
+# <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>在 Azure 中的 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和共用磁碟上安裝 SAP NetWeaver HA
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -51,6 +51,8 @@ ms.lasthandoff: 10/16/2017
 [sap-ascs-high-availability-multi-sid-wsfc]:sap-ascs-high-availability-multi-sid-wsfc.md
 [sap-high-availability-infrastructure-wsfc-shared-disk]:sap-high-availability-infrastructure-wsfc-shared-disk.md
 [sap-high-availability-installation-wsfc-shared-disk]:sap-high-availability-installation-wsfc-shared-disk.md
+[sap-ha-guide-8.9]:high-availability-guide.md#fe0bd8b5-2b43-45e3-8295-80bee5415716
+[sap-ha-guide-8.11]:high-availability-guide.md#661035b2-4d0f-4d31-86f8-dc0a50d78158
 [sap-hana-ha]:sap-hana-high-availability.md
 [sap-suse-ascs-ha]:high-availability-guide-suse.md
 
@@ -144,56 +146,56 @@ ms.lasthandoff: 10/16/2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-本文件說明如何在 Azure 上透過 **Windows 容錯移轉叢集 (WSFC)** 以及使用**叢集共用磁碟**進行 SAP (A)SCS 執行個體叢集處理，以安裝並設定高可用的 SAP 系統。
+本文說明針對為 SAP ASCS/SCS 執行個體進行叢集處理，如何使用 Windows Server 容錯移轉和叢集共用磁碟在 Azure 中安裝及設定高可用性 SAP 系統。
 
 ## <a name="prerequisites"></a>必要條件
 
-請務必先檢閱這些文件，再開始安裝：
+在開始安裝之前，請檢閱這些文章：
 
-* [架構指南 - 使用叢集共用磁碟於 Windows 容錯移轉叢集上進行 SAP (A)SCS 執行個體叢集處理][sap-high-availability-guide-wsfc-shared-disk]
+* [架構手冊：使用叢集共用磁碟於 Windows 容錯移轉叢集上進行 SAP ASCS/SCS 執行個體叢集處理][sap-high-availability-guide-wsfc-shared-disk]
 
-* [使用 SAP (A)SCS 執行個體的 Windows 容錯移轉叢集和共用磁碟，為 SAP HA 進行 Azure 基礎結構準備][sap-high-availability-infrastructure-wsfc-shared-disk]
+* [使用 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和共用磁碟，為 SAP HA 準備 Azure 基礎結構][sap-high-availability-infrastructure-wsfc-shared-disk]
 
-設定會視使用的 DBMS 系統而異，因此我們不會說明 DBMS 設定。 不過，我們會假設 DBMS 在高可用性方面的疑慮已藉由不同 DBMS 廠商為 Azure 提供的功能支援而獲得解決。 例如，適用於 SQL Server 的 Always On 或資料庫鏡像，以及適用於 Oracle 資料庫的 Oracle Data Guard。 在本文使用的案例中，我們並未對 DBMS 加入更多保護。
+由於設定視使用的 DBMS 系統而異，因此我們不會在本文中說明 DBMS 設定。 我們會假設 DBMS 在高可用性方面的疑慮已藉由不同 DBMS 廠商為 Azure 提供的功能支援而獲得解決。 範例包括適用於 SQL Server 的 Always On 或資料庫鏡像，以及適用於 Oracle 資料庫的 Oracle Data Guard。 在本文使用的案例中，我們不對 DBMS 加入更多保護。
 
-當不同的 DBMS 服務與 Azure 中這種叢集 SAP ASCS/SCS 組態互動時，沒有任何特殊的考量。
+當不同的 DBMS 服務與 Azure 中的叢集 SAP ASCS/SCS 組態互動時，沒有任何特殊的考量。
 
 > [!NOTE]
 > SAP NetWeaver ABAP 系統、Java 系統及 ABAP+Java 系統的安裝程序幾乎完全相同。 最顯著的差異在於 SAP ABAP 系統有一個 ASCS 執行個體。 SAP Java 系統有一個 SCS 執行個體。 SAP ABAP+Java 系統有一個 ASCS 執行個體和一個 SCS 執行個體在相同 Microsoft 容錯移轉叢集群組中執行。 我們會明確說明每個 SAP NetWeaver 安裝堆疊的所有安裝差異。 您可以假設所有其他部分都相同。  
 >
 >
 
-## <a name="31c6bd4f-51df-4057-9fdf-3fcbc619c170"></a> 使用高可用性 ASCS/SCS 執行個體安裝 SAP
+## <a name="31c6bd4f-51df-4057-9fdf-3fcbc619c170"></a>使用高可用性 ASCS/SCS 執行個體安裝 SAP
 
 > [!IMPORTANT]
-> 請不要將分頁檔放在 DataKeeper 鏡像磁碟區上。 DataKeeper 不支援鏡像磁碟區。 您可以將分頁檔留在 Azure 虛擬機器的暫存磁碟機 D 中，此為預設值。 如果還不在此磁碟機中，請將 Windows 分頁檔移至 Azure 虛擬機器的磁碟機 D。
+> 請不要將分頁檔放在 SIOS DataKeeper 鏡像磁碟區上。 DataKeeper 不支援鏡像磁碟區。 您可以將分頁檔留在 Azure 虛擬機器的暫存磁碟機 D 中，此為預設值。 如果還不在此磁碟機中，請將 Windows 分頁檔移至 Azure 虛擬機器的磁碟機 D。
 >
 >
 
 使用高可用性 ASCS/SCS 執行個體安裝 SAP 包含下列工作︰
 
-* 建立叢集 SAP ASCS/SCS 執行個體的虛擬主機名稱
-* 安裝 SAP 的第一個叢集節點
-* 修改 ASCS/SCS 執行個體的 SAP 設定檔
-* 新增探查連接埠
-* 開啟 Windows 防火牆探查連接埠
+* 建立叢集 SAP ASCS/SCS 執行個體的虛擬主機名稱。
+* 安裝 SAP 的第一個叢集節點。
+* 修改 ASCS/SCS 執行個體的 SAP 設定檔。
+* 新增探查連接埠。
+* 開啟 Windows 防火牆探查連接埠。
 
-### <a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a> 建立叢集 SAP ASCS/SCS 執行個體的虛擬主機名稱
+### <a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a>建立叢集 SAP ASCS/SCS 執行個體的虛擬主機名稱
 
 1.  在「Windows DNS 管理員」中，為 ASCS/SCS 執行個體的虛擬主機名稱建立 DNS 項目。
 
   > [!IMPORTANT]
-  > 您指派給 ASCS/SCS 執行個體之虛擬主機名稱的 IP 位址必須與指派給 Azure Load Balancer (**<*SID*>-lb-ascs**) 的 IP 位址相同。  
+  > 您指派給 ASCS/SCS 執行個體之虛擬主機名稱的 IP 位址必須與指派給 Azure Load Balancer (\<SID\>-lb-ascs) 的 IP 位址相同。  
   >
   >
 
-  虛擬 SAP ASCS/SCS 主機名稱 (**pr1-ascs-sap**) 的 IP 位址與 Azure Load Balancer (**pr1-lb-ascs**) 的 IP 位址相同。
+  虛擬 SAP ASCS/SCS 主機名稱 (pr1-ascs-sap) 的 IP 位址與 Azure Load Balancer (pr1-lb-ascs) 的 IP 位址相同。
 
   ![圖 1：定義 SAP ASCS/SCS 叢集虛擬名稱和 TCP/IP 位址的 DNS 項目][sap-ha-guide-figure-3046]
 
   _**圖 1：**定義 SAP ASCS/SCS 叢集虛擬名稱和 TCP/IP 位址的 DNS 項目_
 
-2.  若要定義指派給虛擬主機名稱的 IP 位址，選取 [DNS 管理員] > [網域]
+2.  若要定義指派給虛擬主機名稱的 IP 位址，選取 [DNS 管理員] > [網域]。
 
   ![圖 2：SAP ASCS/SCS 叢集設定的新虛擬名稱和 TCP/IP 位址][sap-ha-guide-figure-3047]
 
@@ -201,14 +203,14 @@ ms.lasthandoff: 10/16/2017
 
 ### <a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a> 安裝 SAP 的第一個叢集節點
 
-1.  在叢集節點 A 上執行第一個叢集節點選項。例如，在 **pr1-ascs-0** 主機上。
+1.  在叢集節點 A 上執行第一個叢集節點選項。例如，在 pr1-ascs-0* 主機上。
 2.  如果要為 Azure 內部負載平衡器保留預設連接埠，請選取：
 
   * **ABAP 系統**：**ASCS** 執行個體號碼 **00**
   * **Java 系統**：**SCS** 執行個體號碼 **01**
   * **ABAP+Java 系統**：**ASCS** 執行個體號碼 **00** 和 **SCS** 執行個體號碼 **01**
 
-  若要針對 ABAP ASCS 執行個體使用 00 以外的執行個體號碼，以及針對 Java SCS 執行個體使用 01 以外的執行個體號碼，您必須先變更 Azure 內部負載平衡器預設負載平衡規則，如[變更 Azure 內部負載平衡器的 ASCS/SCS 預設負載平衡規則][sap-ha-guide-8.9]所述。
+  如果 ABAP ASCS 執行個體要使用 00 以外的執行個體編號，且 Java SCS 執行個體使用 01 以外的執行個體編號，首先，變更 Azure 內部負載平衡器預設負載平衡規則。 如需詳細資訊，請參閱[變更 Azure 內部負載平衡器的 ASCS/SCS 預設負載平衡規則][sap-ha-guide-8.9]。
 
 接下來幾個步驟並未在標準 SAP 安裝文件中說明。
 
@@ -219,7 +221,7 @@ ms.lasthandoff: 10/16/2017
 
 ### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> 修改 ASCS/SCS 執行個體的 SAP 設定檔
 
-您需要新增新的設定檔參數。 此設定檔參數可避免 SAP 工作程序與加入佇列伺服器之間的連線在閒置時間太長時關閉。 我們於[在 SAP ASCS/SCS 執行個體的兩個叢集節點上都新增登錄項目][sap-ha-guide-8.11]中提到這個問題案例。 在該部分，我們也介紹了對一些基本 TCP/IP 連線參數所做的兩項變更。 在第二個步驟中，您必須設定讓加入佇列伺服器傳送 `keep_alive` 訊號，如此連線才不會達到 Azure 內部負載平衡器的閒置臨界值。
+首先，新增新的設定檔參數。 此設定檔參數可避免 SAP 工作程序與加入佇列伺服器之間的連線在閒置時間太長時關閉。 我們在本文中的[在 SAP ASCS/SCS 執行個體的兩個叢集節點上都新增登錄項目][sap-ha-guide-8.11]中提到問題案例。 在該部分，我們也介紹了對一些基本 TCP/IP 連線參數所做的兩項變更。 在第二個步驟中，您必須設定讓加入佇列伺服器傳送 `keep_alive` 訊號，如此連線才不會達到 Azure 內部負載平衡器的閒置臨界值。
 
 若要修改 ASCS/SCS 執行個體的 SAP 設定檔：
 
@@ -236,15 +238,17 @@ ms.lasthandoff: 10/16/2017
 
   `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_SCS01_pr1-ascs-sap`
 
-2.  若要套用變更，請重新啟動 SAP ASCS /SCS 執行個體。
+2.  若要套用變更，請重新啟動 SAP ASCS/SCS 執行個體。
 
 ### <a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a> 新增探查連接埠
 
-使用內部負載平衡器探查功能，讓整個叢集組態使用 Azure Load Balancer。 Azure 內部負載平衡器通常會在參與的虛擬機器之間，平均分配內送的工作負載。 不過，這對某些叢集組態不會產生作用，因為只有一個執行個體是主動的。 另一個執行個體是被動的，而且不接受任何工作負載。 Azure 內部負載平衡器僅將工作指派給主動的執行個體時，探查功能才可提供協助。 使用探查功能，內部負載平衡器便能夠偵測哪些執行個體是主動的，然後只以該執行個體作為工作負載的目標。
+使用內部負載平衡器探查功能，讓整個叢集組態使用 Azure Load Balancer。 Azure 內部負載平衡器通常會在參與的虛擬機器之間，平均分配內送的工作負載。
+
+ 不過，這對某些叢集組態不會產生作用，因為只有一個執行個體是主動的。 另一個執行個體是被動的，而且不接受任何工作負載。 Azure 內部負載平衡器僅將工作指派給主動的執行個體時，探查功能才可提供協助。 使用探查功能，內部負載平衡器便能夠偵測哪些執行個體是主動的，然後只以該執行個體作為工作負載的目標。
 
 若要新增探查連接埠︰
 
-1.  執行下列 PowerShell 命令，檢查目前 **ProbePort** 設定：
+1.  執行下列 PowerShell 命令，檢查目前的 **ProbePort** 值：
 
   ```PowerShell
   $SAPSID = "PR1"     # SAP <SID>
@@ -253,9 +257,9 @@ ms.lasthandoff: 10/16/2017
   Get-ClusterResource $SAPNetworkIPClusterName | Get-ClusterParameter
   ```
 
-   在叢集組態中的其中一個虛擬機器中執行該檢查。
+   在叢集組態中的其中一個虛擬機器中執行命令。
 
-2.  定義探查連接埠。 預設探查連接埠號碼為 **0**。 在我們的範例中，我們會使用探查連接埠 **62000**。
+2.  定義探查連接埠。 預設探查連接埠號碼為 0。 在我們的範例中，我們會使用探查連接埠 62000。
 
   ![圖 3：叢集設定探查連接埠預設為 0][sap-ha-guide-figure-3048]
 
@@ -263,11 +267,11 @@ ms.lasthandoff: 10/16/2017
 
   SAP Azure Resource Manager 範本中已定義連接埠號碼。 您可以在 PowerShell 中指派連接埠號碼。
 
-  若要針對 **SAP <*SID*> IP** 叢集資源設定新的 ProbePort 值，請執行下列 PowerShell 指令碼來更新您環境的 PowerShell 變數：
+  若要針對 SAP \<SID\> IP 叢集資源設定新的 ProbePort 值，請執行下列 PowerShell 指令碼來更新您環境的 PowerShell 變數：
 
   ```PowerShell
   $SAPSID = "PR1"      # SAP <SID>
-  $ProbePort = 62000   # ProbePort of the Azure Internal Load Balancer
+  $ProbePort = 62000   # ProbePort of the Azure internal load balancer
 
   Clear-Host
   $SAPClusterRoleName = "SAP $SAPSID"
@@ -321,7 +325,7 @@ ms.lasthandoff: 10/16/2017
   }
   ```
 
-  讓 **SAP <*SID*>** 叢集角色上線之後，請確認 **ProbePort** 已設定為新值。
+  讓 SAP \<SID\> 叢集角色上線之後，請確認 **ProbePort** 已設定為新值。
 
   ```PowerShell
   $SAPSID = "PR1"     # SAP <SID>
@@ -338,15 +342,15 @@ ms.lasthandoff: 10/16/2017
 
 ### <a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a> 開啟 Windows 防火牆探查連接埠
 
-您需要開啟這兩個叢集節點上的 Windows 防火牆探查連接埠。 使用下列指令碼開啟 Windows 防火牆探查連接埠。 請更新您環境的 PowerShell 變數。
+開啟這兩個叢集節點上的 Windows 防火牆探查連接埠。 使用下列指令碼開啟 Windows 防火牆探查連接埠。 請更新您環境的 PowerShell 變數。
 
   ```PowerShell
-  $ProbePort = 62000   # ProbePort of the Azure Internal Load Balancer
+  $ProbePort = 62000   # ProbePort of the Azure internal load balancer
 
   New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
   ```
 
-**ProbePort** 已設為 **62000**。 現在您可以從其他主機存取檔案共用 **\\\ascsha-clsap\sapmnt**，例如從 **ascsha-dbas**。
+**ProbePort** 已設為 **62000**。 現在您可以從其他主機存取檔案共用 \\\ascsha-clsap\sapmnt，例如從 ascsha-dbas。
 
 ## <a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a> 安裝資料庫執行個體
 
@@ -354,7 +358,7 @@ ms.lasthandoff: 10/16/2017
 
 ## <a name="8a276e16-f507-4071-b829-cdc0a4d36748"></a> 安裝第二個叢集節點
 
-若要安裝第二個叢集，請依照 SAP 安裝指南中的步驟。
+若要安裝第二個叢集，請依照 SAP 安裝指南中所述的步驟。
 
 ## <a name="094bc895-31d4-4471-91cc-1513b64e406a"></a> 變更 SAP ERS Windows 服務執行個體的啟動類型
 
@@ -366,11 +370,11 @@ _**圖 5：**將 SAP ERS 執行個體的服務類型變更為延遲的自動類�
 
 ## <a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a> 安裝 SAP 主要應用程式伺服器
 
-在您指派來裝載 PAS 的虛擬機器上安裝主要應用程式伺服器 (PAS) 執行個體 <*SID*>-di-0。 Azure 或 DataKeeper 特定的設定沒有相依性。
+在您指派來裝載 PAS 的虛擬機器上安裝主要應用程式伺服器 (PAS) 執行個體 \<SID\>-di-0。 在 Azure 上沒有相依性。 沒有 DataKeeper 特定設定。
 
 ## <a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a> 安裝 SAP 其他應用程式伺服器
 
-在您指派來裝載 SAP 應用程式伺服器執行個體的所有虛擬機器上安裝 SAP 其他應用程式伺服器 (AAS)。 例如，在 <*SID*>-di-1 到 <*SID*>-di-&lt;n&gt;。
+在您指派來裝載 SAP 應用程式伺服器執行個體的所有虛擬機器上安裝 SAP 其他應用程式伺服器 (AAS)。 例如，在 \<SID\>-di-1 到 \<SID\>-di-&lt;n&gt;。
 
 > [!NOTE]
 > 這樣就完成高可用性的 SAP NetWeaver 系統的安裝。 接下來，繼續進行容錯移轉測試。
@@ -382,23 +386,23 @@ _**圖 5：**將 SAP ERS 執行個體的服務類型變更為延遲的自動類�
 
 ### <a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a> SAP ASCS/SCS 執行個體在叢集節點 A 上執行
 
-**SAP PR1**叢集群組在叢集節點 A 上執行，例如，在 **pr1-ascs-0** 上。 將屬於 **SAP PR1** 叢集群組並由 ASCS/SCS 執行個體使用的共用磁碟 S，指派給叢集節點 A。
+SAP PR1 叢集群組在叢集節點 A 上執行，例如，在 pr1-ascs-0 上。 將屬於 SAP PR1 叢集群組的共用磁碟 S 指派給叢集節點 A。ASCS/SCS 執行個體也使用磁碟 S。 
 
-![圖 6：容錯移轉叢集管理員︰SAP <SID> 叢集群組在叢集節點 A 上執行][sap-ha-guide-figure-5000]
+![圖 6：容錯移轉叢集管理員：SAP \<SID\> 叢集群組在叢集結點 A 上執行][sap-ha-guide-figure-5000]
 
-_**圖 6：**容錯移轉叢集管理員︰SAP <*SID*> 叢集群組在叢集節點 A 上執行_
+_**圖 6：**容錯移轉叢集管理員：SAP \<SID\> 叢集群組在叢集結點 A 上執行_
 
-在 SIOS DataKeeper 管理和組態工具中，您可以看到共用磁碟資料以同步方式從叢集節點 A 上的來源磁碟區 S 複寫到叢集節點 B 上的目標磁碟區 S。例如，從 **pr1-ascs-0 [10.0.0.40]** 複寫到 **pr1-ascs-1 [10.0.0.41]**。
+在 SIOS DataKeeper 管理和組態工具中，您可以看到共用磁碟資料以同步方式從叢集節點 A 上的來源磁碟區 S 複寫到叢集節點 B 上的目標磁碟區 S。例如，從 pr1-ascs-0 [10.0.0.40] 複寫到 pr1-ascs-1 [10.0.0.41]。
 
 ![圖 7：在 SIOS DataKeeper 中，將本機磁碟區從叢集節點 A 複寫到叢集節點 B][sap-ha-guide-figure-5001]
 
 _**圖 7：**在 SIOS DataKeeper 中，將本機磁碟區從叢集節點 A 複寫到叢集節點 B_
 
-### <a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a> 從節點 A 容錯移轉到節點 B
+### <a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a> 從節點 A 到節點 B 進行容錯移轉
 
-1.  使用下列其中一個選項以起始將 SAP <SID> 叢集群組從叢集節點 A 到叢集節點 B 的容錯移轉：
-  - 使用容錯移轉叢集管理員  
-  - 使用容錯移轉叢集 PowerShell
+1.  使用下列其中一個選項以起始將 SAP \<SID\> 叢集群組從叢集節點 A 到叢集節點 B 的容錯移轉：
+  - 容錯移轉叢集管理員  
+  - 容錯移轉叢集 PowerShell
 
   ```PowerShell
   $SAPSID = "PR1"     # SAP <SID>
@@ -407,17 +411,17 @@ _**圖 7：**在 SIOS DataKeeper 中，將本機磁碟區從叢集節點 A 複�
   Move-ClusterGroup -Name $SAPClusterGroup
 
   ```
-2.  在 Windows 客體作業系統內重新啟動叢集節點 A (這會起始將 SAP <SID> 叢集群組從節點 A 容錯移轉到節點 B 的自動容錯移轉)。  
-3.  從 Azure 入口網站重新啟動叢集節點 A (這會起始將 SAP <SID> 叢集群組從節點 A 到節點 B 的自動容錯移轉)。  
-4.  使用 Azure PowerShell 重新啟動叢集節點 A (這會起始將 SAP <SID> 叢集群組從節點 A 到節點 B 的自動容錯移轉)。
+2.  重新啟動 Windows 客體作業系統內的叢集節點 A。 這會起始將 SAP \<SID\> 叢集群組從節點 A 到節點 B 的自動容錯移轉。  
+3.  從 Azure 入口網站重新啟動叢集節點 A。 這會起始將 SAP \<SID\> 叢集群組從節點 A 到節點 B 的自動容錯移轉。  
+4.  使用 Azure PowerShell 重新啟動叢集節點 A。 這會起始將 SAP \<SID\> 叢集群組從節點 A 到節點 B 的自動容錯移轉。
 
-  容錯移轉之後，SAP <SID> 叢集群組會在叢集節點 B 上執行。例如，在 **pr1-ascs-1** 上執行。
+  容錯移轉之後，SAP \<SID\> 叢集群組會在叢集節點 B 上執行。例如，在 pr1-ascs-1 上執行。
 
-  ![圖 8：在「容錯移轉叢集管理員」中，SAP <SID> 叢集群組在叢集節點 B 上執行][sap-ha-guide-figure-5002]
+  ![圖 8：在「容錯移轉叢集管理員」中，SAP \<SID\> 叢集群組在叢集節點 B 上執行][sap-ha-guide-figure-5002]
 
-  _**圖 8：**在「容錯移轉叢集管理員」中，SAP <*SID*> 叢集群組在叢集節點 B 上執行_
+  _**圖 8**在「容錯移轉叢集管理員」中，SAP \<SID\> 叢集群組在叢集節點 B 上執行_
 
-  共用磁碟現在已掛接在叢集節點 B 上。SIOS DataKeeper 正在將資料從叢集節點 B 上的來源磁碟區 S 複寫到叢集節點 A 上的目標磁碟區 S。例如，從 **pr1-ascs-1 [10.0.0.41]** 複寫到 **pr1-ascs-0 [10.0.0.40]**。
+  共用磁碟現在已掛接在叢集節點 B 上。SIOS DataKeeper 正在將資料從叢集節點 B 上的來源磁碟區 S 複寫到叢集節點 A 上的目標磁碟區 S。例如，從 pr1-ascs-1 [10.0.0.41] 複寫到 pr1-ascs-0 [10.0.0.40]。
 
   ![圖 9：SIOS DataKeeper 將本機磁碟區從叢集節點 B 複寫到叢集節點 A][sap-ha-guide-figure-5003]
 

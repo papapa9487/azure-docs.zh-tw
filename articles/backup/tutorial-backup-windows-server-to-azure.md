@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.openlocfilehash: 7caf1dd3fa5ef295c2472cc11deb2895fc2a7111
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 67a5c1494f2944e91fed2b077cf04e8906788c1e
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="back-up-windows-server-to-azure"></a>將 Windows Server 備份到 Azure
 
@@ -42,9 +42,9 @@ ms.lasthandoff: 11/09/2017
 
 在您備份 Windows Server 之前，您必須先為備份建立一個位置，或建立一個要還原的還原點。 [復原服務保存庫](backup-azure-recovery-services-vault-overview.md)是 Azure 中儲存 Windows Server 備份的容器。 請遵循下列步驟來在 Azure 入口網站上建立復原服務保存庫。 
 
-1. 在左側功能表中，選取 [More services] \(更多服務)，然後在 [服務] 清單中鍵入「復原服務」。 按一下 [復原服務保存庫] 。
+1. 在左側功能表中，選取 [所有服務]，然後在服務清單中鍵入**復原服務**。 按一下 [復原服務保存庫] 。
 
-   ![開啟復原服務保存庫](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault.png)
+   ![開啟復原服務保存庫](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
 2.  在 [復原服務保存庫] 功能表上，按一下 [新增]。
 
@@ -134,7 +134,7 @@ Microsoft Azure 復原服務 (MARS) 代理程式可在您的 Windows Server 及�
 
 1.  在 Microsoft Azure 復原服務代理程式主控台中，按一下 [立即備份]。
 
-    ![準備基礎結構](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
+    ![準備基礎結構](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
 
 2.  在 [立即備份] 上，從您要備份的 [檔案和資料夾] 或 [系統狀態] 中選取一個項目，然後按一下 [下一步] 
 3. 在 [確認] 頁面上，檢閱 [立即備份精靈] 要用來備份您伺服器的設定。 然後按一下 [備份] 。

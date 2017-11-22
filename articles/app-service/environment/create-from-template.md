@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: cdaf09d5558e0453b826b9a3e52500379ced5422
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: b3829f0e1b87451bf0706edc268359be5c4480bc
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本立 ASE
 
@@ -150,7 +150,7 @@ App Service Environment 有兩個版本：ASEv1 和 ASEv2。 前述資訊架構�
 
 在 ASEv1 中，要手動管理所有資源， 包括前端、背景工作角色和用於 IP 型 SSL 的 IP 位址。 首先，您必須將想要在其中裝載的背景工作角色集區相應放大，才能相應放大 App Service 方案。
 
-ASEv1 使用與 ASEv2 不同的定價模式。 在 ASEv1 中，要支付每個配置的核心， 包括用於前端或未裝載任何工作負載之背景工作角色的核心。 在 ASEv1 中，ASE 的預設最大調整大小總計是 55 個主機， 包括背景工作角色與前端。 ASEv1 的其中一個優點，是可以部署在傳統虛擬網路和 Resource Manager虛擬網路中。 若要深入了解 ASEv1，請參閱 [App Service Environment v1 簡介][ASEv1Intro]。
+ASEv1 使用與 ASEv2 不同的定價模式。 在 ASEv1 中，您需要支付每個配置的 vCPU。 包括用於前端或未裝載任何工作負載之背景工作角色的 vCPU。 在 ASEv1 中，ASE 的預設最大調整大小總計是 55 個主機， 包括背景工作角色與前端。 ASEv1 的其中一個優點，是可以部署在傳統虛擬網路和 Resource Manager虛擬網路中。 若要深入了解 ASEv1，請參閱 [App Service Environment v1 簡介][ASEv1Intro]。
 
 若要使用 Resource Manager 範本建立 ASEv1，請參閱[使用 Resource Manager 範本建立 ILB ASE v1][ILBASEv1Template]。
 

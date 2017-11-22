@@ -1,6 +1,6 @@
 ---
 title: "Azure App Service 中的 Node.js API 應用程式 | Microsoft Docs"
-description: "了解如何使用 Azure 入口網站來監視 Azure App Service 中的 Web 應用程式。"
+description: "了解如何使用 Azure 入口網站來監視 Azure App Service 中的應用程式。"
 services: app-service
 documentationcenter: 
 author: btardif
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: byvinyal
-ms.openlocfilehash: 25d3776920d683fffedcd8ac6ed0e84dfe875974
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 283428c603cc73d23f0afa94670a23dbb45068d5
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>作法：監視 Azure App Service 中的應用程式
 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 在 [Azure 入口網站](https://portal.azure.com)中提供內建監視功能。
@@ -50,15 +50,15 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 
 唯一適用於**基本**、**標準**和**進階**方案上裝載之應用程式的配額是 **Filesystem**。
 
-這裡可以找到有關不同 App Service SKU 可用的特定配額、限制和功能的詳細資訊︰ [Azure 訂用帳戶服務限制](../azure-subscription-service-limits.md#app-service-limits)
+這裡可以找到有關不同 App Service SKU 之可用特定配額、限制和功能的詳細資訊︰[Azure 訂用帳戶服務限制](../azure-subscription-service-limits.md#app-service-limits)
 
 #### <a name="quota-enforcement"></a>強制配額
-如果應用程式的使用量超過 **CPU (短期)**、**CPU (天)** 或**頻寬**配額，則應用程式將會停止，直到重設配額為止。 在此期間，所有連入要求都會導致 **HTTP 403**。
+如果應用程式的使用量超過 **CPU (短期)**、**CPU (天)** 或**頻寬**配額，則應用程式會停止，直到重設配額為止。 在此期間，所有連入要求都會導致 **HTTP 403**。
 ![][http403]
 
-如果超出應用程式 **記憶體** 配額，則會重新啟動應用程式。
+如果超出應用程式**記憶體**配額，則會重新啟動應用程式。
 
-如果超出 **Filesystem** 配額，則所有寫入作業都會失敗，這包括寫入記錄檔。
+如果超出 **Filesystem** 配額，則所有寫入作業都會失敗，這包括寫入記錄。
 
 升級您的 App Service 方案，即可在應用程式中增加或移除配額。
 
@@ -78,9 +78,9 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 * **資料輸出**
   * 應用程式所耗用的連出頻寬量 (MiB)。
 * **Http 2xx**
-  * 導致 http 狀態碼 >= 200 但 < 300 的要求計數。
+  * 導致 HTTP 狀態碼 >= 200 但 < 300 的要求計數。
 * **Http 3xx**
-  * 導致 http 狀態碼 >= 300 但 < 400 的要求計數。
+  * 導致 HTTP 狀態碼 >= 300 但 < 400 的要求計數。
 * **Http 401**
   * 導致 HTTP 401 狀態碼的要求計數。
 * **Http 403**
@@ -90,9 +90,9 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 * **Http 406**
   * 導致 HTTP 406 狀態碼的要求計數。
 * **Http 4xx**
-  * 導致 http 狀態碼 >= 400 但 < 500 的要求計數。
+  * 導致 HTTP 狀態碼 >= 400 但 < 500 的要求計數。
 * **Http 伺服器錯誤**
-  * 導致 http 狀態碼 >= 500 但 < 600 的要求計數。
+  * 導致 HTTP 狀態碼 >= 500 但 < 600 的要求計數。
 * **記憶體工作集**
   * 應用程式目前使用的記憶體數量 (MiB)。
 * **要求**
@@ -101,7 +101,7 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 若為 **App Service 方案**，可用的計量如下︰
 
 > [!NOTE]
-> App Service 方案計量只適用於**基本**、**標準**和**進階** SKU 中的方案。
+> App Service 方案計量只適用於**基本**、**標準**和**進階**層中的方案。
 > 
 > 
 
@@ -121,11 +121,11 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 ### <a name="cpu-time-vs-cpu-percentage"></a>CPU 時間與 CPU 百分比
 <!-- To do: Fix Anchor (#CPU-time-vs.-CPU-percentage) -->
 
-有 2 個計量可反映 CPU 使用量。 **CPU 時間**與 **CPU 百分比**
+有兩個計量可反映 CPU 使用量。 **CPU 時間**與 **CPU 百分比**
 
 **CPU 時間**很適合用於**免費**或**共用**方案中裝載的應用程式，因為其中有一個配額是以應用程式使用的 CPU 分鐘數來定義。
 
-另一方面，**CPU 百分比**很適合用於**基本**、**標準**和**進階**方案中裝載的應用程式，因為它們可以相應放大，而此計量會清楚指出所有執行個體的整體使用量。
+**CPU 百分比**很適合用於**基本**、**標準**和**進階**方案中裝載的應用程式，因為它們可以相應放大，而此計量會清楚指出所有執行個體的整體使用量。
 
 ## <a name="metrics-granularity-and-retention-policy"></a>計量資料粒度和保留原則
 服務會記錄和彙總應用程式和 App Service 方案的計量，其資料粒度和保留原則如下︰
@@ -138,26 +138,23 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 您可以在 [Azure 入口網站](https://portal.azure.com)中，檢閱會影響應用程式的不同**配額**和**計量**狀態。
 
 在 [設定] > **配額** 之下可以找到 ![][quotas]
-**配額**。 UX 可讓您檢閱：(1) 配額名稱，(2) 其重設的間隔，(3) 以及其目前的限制和 (4) 目前的值。
+**配額**。 UX 可讓您檢閱：(1) 配額名稱，(2) 其重設的間隔，(3) 其目前的限制和 (4) 目前的值。
 
 ![][metrics]
-**計量** 可以直接從資源刀鋒視窗存取。 您也可以自訂圖表：(1) **按一下**圖表，然後選取 (2) [編輯圖表]。
+**計量**可以直接從資源頁面存取。 您也可以自訂圖表：(1) **按一下**圖表，然後選取 (2) [編輯圖表]。
 您可以從這裡變更要顯示的 (3) [時間範圍]、(4) [圖表類型] 和 (5) [計量]。  
 
 您可以在此進一步了解計量︰[監視服務計量](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)。
 
 ## <a name="alerts-and-autoscale"></a>警示和自動調整
-應用程式或 App Service 方案的計量可以連接到警示，若要深入了解這點，請參閱[接收警示通知](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
+應用程式或 App Service 方案的計量可以連接到警示。 若要深入了解，請參閱[接收警示通知](../monitoring-and-diagnostics/insights-alerts-portal.md)。
 
-基本、標準或進階 App Service 方案中裝載的 App Service 應用程式支援 **自動調整**。 這可讓您設定相關規則來監視 App Service 方案計量，而且可以增加或減少執行個體計數，並視需要提供其他資源，或在應用程式過度佈建時節省金錢。 您可以在此進一步了解自動調整︰[如何調整](../monitoring-and-diagnostics/insights-how-to-scale.md)以及這裡的[Azure 監視器自動調整的最佳做法](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
+基本、標準或進階 App Service 方案中裝載的 App Service 應用程式支援**自動調整**。 這可讓您設定相關規則來監視 App Service 方案計量，而且可以增加或減少執行個體計數，並視需要提供其他資源，或在應用程式過度佈建時節省金錢。 您可以在此進一步了解自動調整︰[如何調整](../monitoring-and-diagnostics/insights-how-to-scale.md)以及這裡的[Azure 監視器自動調整的最佳做法](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 
 > [!NOTE]
 > 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至 [試用 App Service](https://azure.microsoft.com/try/app-service/)，即可在 App Service 中立即建立短期入門 Web 應用程式。 不需要信用卡；沒有承諾。
 > 
 > 
-
-## <a name="whats-changed"></a>變更的項目
-* 如需從網站變更為 App Service 的指南，請參閱： [Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 [fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:http://go.microsoft.com/fwlink/?LinkID=309169
