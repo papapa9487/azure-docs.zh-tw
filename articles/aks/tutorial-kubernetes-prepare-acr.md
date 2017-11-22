@@ -1,5 +1,5 @@
 ---
-title: "Azure 上的 Kubernertes 教學課程 - 準備 ACR | Microsoft Docs"
+title: "Azure 上的 Kubernetes 教學課程 - 準備 ACR | Microsoft Docs"
 description: "AKS 教學課程 - 準備 ACR"
 services: container-service
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 22aa6c82aec7b8f6a16131878943fadd7762c1c0
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 15b54f6131c847551295061df6c6ad6a476a7da6
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>部署和使用 Azure Container Registry
 
@@ -32,22 +32,22 @@ Azure Container Registry (ACR) 是以 Azure 為基礎的私人登錄，用於裝
 > * 標記 ACR 的容器映像
 > * 將映像上傳至 ACR
 
-在後續教學課程中，此 ACR 執行個體會與 AKS 中的 Kubernetes 叢集整合。 
+在後續教學課程中，此 ACR 執行個體會與 AKS 中的 Kubernetes 叢集整合。
 
 ## <a name="before-you-begin"></a>開始之前
 
 在[上一個教學課程](./tutorial-kubernetes-prepare-app.md)中，已針對簡單的 Azure Voting 應用程式建立容器映像。 如果您尚未建立 Azure Voting 應用程式映像，請回到[教學課程 1 – 建立容器映像](./tutorial-kubernetes-prepare-app.md)。
 
-本教學課程需要您執行 Azure CLI 2.0.20 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
+本教學課程需要您執行 Azure CLI 2.0.21 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
 ## <a name="deploy-azure-container-registry"></a>部署 Azure Container Registry
 
 部署 Azure Container Registry 時，您必須先有資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
-使用 [az group create](/cli/azure/group#create) 命令來建立資源群組。 在此範例中，`westus2` 區域中會建立名為 `myResourceGroup` 的資源群組。
+使用 [az group create](/cli/azure/group#create) 命令來建立資源群組。 在此範例中，`eastus` 區域中會建立名為 `myResourceGroup` 的資源群組。
 
 ```azurecli
-az group create --name myResourceGroup --location westus2
+az group create --name myResourceGroup --location eastus
 ```
 
 使用 [az acr create](/cli/azure/acr#create) 命令來建立 Azure Container Registry。 Container Registry 的名稱**必須是唯一的**。
@@ -117,7 +117,7 @@ tiangolo/uwsgi-nginx-flask                           flask               788ca94
 
 ## <a name="push-images-to-registry"></a>將映像推送到登錄
 
-將 `azure-vote-front`映像推送至登錄。 
+將 `azure-vote-front`映像推送至登錄。
 
 使用下列範例，以您環境中的 loginServer 取代 ACR loginServer 名稱。
 

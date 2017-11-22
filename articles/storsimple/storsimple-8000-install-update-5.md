@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/02/2017
+ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 9f5b5cc597da714369d4c452edce42ea7fe205dd
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: eefeedfb87bd30630439d13a434b246508defa96
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>在 StorSimple 裝置上安裝 Update 5
 
@@ -29,6 +29,7 @@ ms.lasthandoff: 11/04/2017
 Update 5 包含裝置軟體、Storport 和 Spaceport、OS 安全性更新和 OS 更新，以及磁碟韌體更新。  裝置軟體、Spaceport、Storport、安全性和其他 OS 更新皆為非干擾性更新。 您可以透過 Azure 入口網站或透過 Hotfix 方法，套用非干擾性或定期更新。 磁碟韌體更新為干擾性更新，會在裝置進入維護模式時使用裝置的 Windows PowerShell 介面透過 Hotfix 方法來套用。
 
 > [!IMPORTANT]
+> * Update 5 是強制性更新，應立即安裝。 如需詳細資訊，請參閱 [Update 5 版本資訊](storsimple-update5-release-notes.md)。
 > * 安裝前會執行一組手動和自動預先檢查，以根據硬體狀態和網路連線來判斷裝置健全狀況。 這些預先檢查只會在您從 Azure 入口網站套用更新時執行。
 > * 強烈建議您在更新執行 Update 3 之前版本的裝置時，使用 Hotfix 方法安裝更新。 如果您遇到任何問題，請[記錄支援票證](storsimple-8000-contact-microsoft-support.md)。
 > * 建議您透過 Azure 入口網站安裝軟體和其他定期更新。 如果入口網站中的更新前閘道器檢查失敗，請移至裝置的 Windows PowerShell 介面安裝更新 (勿透過其他方式)。 視您從哪一個版本更新而定，可能需要 4 小時 (或以上) 來安裝更新。 維護模式更新必須透過裝置的 Windows PowerShell 介面安裝。 由於維護模式更新是干擾性更新，它們會導致裝置的停機時間。

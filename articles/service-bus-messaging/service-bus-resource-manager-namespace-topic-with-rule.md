@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/10/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: 35e67d86b42358c4ce28b41beae1ee8e1896e939
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 976c7b425dd17f8ed38f18b6ffa50b4368ab44b3
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立服務匯流排命名空間與主題、訂用帳戶和規則
 
-本文說明如何使用 Azure Resource Manager 範本，建立服務匯流排命名空間與主題、訂用帳戶和規則 (篩選器)。 您將學習如何定義要部署哪些資源，以及如何定義執行部署時所指定的參數。 您可以直接在自己的部署中使用此範本，或自訂此範本以符合您的需求
+本文說明如何使用 Azure Resource Manager 範本，建立服務匯流排命名空間與主題、訂用帳戶和規則 (篩選器)。 本文說明如何指定要部署哪些資源，以及如何定義執行部署時所指定的參數。 您可以直接在自己的部署中使用此範本，或自訂此範本以符合您的需求
 
 如需關於建立範本的詳細資訊，請參閱[編寫 Azure Resource Manager 範本][Authoring Azure Resource Manager templates]。
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="what-are-rules-filters"></a>什麼是規則 (篩選器)？
 
-在許多情況下，必須以不同的方式處理具有特定特性的訊息。 若要這麼做，您可以設定訂用帳戶以尋找具有特定屬性的訊息，然後對這些屬性進行修改。 雖然服務匯流排訂用帳戶可看見所有傳送至主題的訊息，但您只可以將部分的訊息複製到虛擬訂用帳戶佇列。 使用訂用帳戶篩選器即可達成。 若要深入了解規則 (篩選條件)，請參閱 [規則和動作](service-bus-queues-topics-subscriptions.md#rules-and-actions)。
+在許多情況下，必須以不同的方式處理具有特定特性的訊息。 若要這樣自訂處理，您可以設定訂用帳戶以尋找具有特定屬性的訊息，然後對這些屬性進行修改。 雖然服務匯流排訂用帳戶可看見所有傳送至主題的訊息，但您只可以將部分的訊息複製到虛擬訂用帳戶佇列。 使用訂用帳戶篩選器即可達成。 若要深入了解規則 (篩選條件)，請參閱 [規則和動作](service-bus-queues-topics-subscriptions.md#rules-and-actions)。
 
 若要自動執行部署，請按一下下列按鈕：
 
@@ -100,9 +100,12 @@ ms.lasthandoff: 10/11/2017
 範本的服務匯流排 API 版本。
 
 ```json
-"serviceBusApiVersion": {
-"type": "string"
-}
+"serviceBusApiVersion": { 
+       "type": "string", 
+       "defaultValue": "2017-04-01", 
+       "metadata": { 
+           "description": "Service Bus ApiVersion used by the template" 
+       }
 ```
 ## <a name="resources-to-deploy"></a>要部署的資源
 建立**訊息**類型的標準服務匯流排命名空間與主題、訂用帳戶和規則。

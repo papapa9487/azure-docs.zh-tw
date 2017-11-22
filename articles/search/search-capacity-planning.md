@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/08/2017
+ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 26f5e71f3d00161a92de702209e224008ec8a5ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47dcd5366ef8ba3d4598e6d418b11997c61bddea
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>在 Azure 搜尋服務中調整適用於查詢和編製索引工作負載的資源等級
 在您[選擇定價層](search-sku-tier.md)和[佈建搜尋服務](search-create-service-portal.md)之後，下一個步驟是選擇性地增加服務所使用的複本或分割區數目。 每一層都提供固定的計費單位數目。 本文說明如何配置這些單位以達到最佳的組態，讓您在查詢執行、編制索引和儲存體等需求之間取得平衡。
 
-當您在[基本層](http://aka.ms/azuresearchbasic)或其中一個[標準層](search-limits-quotas-capacity.md)設定服務時，便可使用資源組態。 對於這些層的可計費服務，購買容量就是增加「搜尋單位」(SU)，每個分割區和複本會計為一個 SU。 
+當您在[基本層](http://aka.ms/azuresearchbasic)或其中一個[標準層](search-limits-quotas-capacity.md)設定服務時，便可使用資源組態。 對於這些層的服務，購買容量就是增加「搜尋單位」(SU)，每個分割區和複本會計為一個 SU。 
 
 使用較少 SU，帳單費用也會相應降低。 只要服務處於已設定的狀態，就會持續計費。 如果您暫時不使用某項服務，避免計費的唯一方法就是刪除該服務，然後當您需要該服務時再予以重建。
 
@@ -51,21 +51,19 @@ ms.lasthandoff: 10/11/2017
 1. 登入 [Azure 入口網站](https://portal.azure.com/)，然後選取搜尋服務。
 2. 在 [設定] 中，開啟 [級別] 刀鋒視窗，然後使用滑桿來增加或減少分割區和複本的數目。
 
-如果您需要指令碼或程式碼式佈建方法，可使用[管理 REST API](https://msdn.microsoft.com/library/azure/dn832687.aspx) 來替代入口網站。
+如果您需要指令碼或程式碼式佈建方法，可使用[管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement/services) 來替代入口網站。
 
 一般而言，搜尋應用程式需要的複本數量會多於分割區數量，特別是在服務作業偏向查詢工作負載的情況下。 [高可用性](#HA) 一節將會說明原因。
 
 > [!NOTE]
-> 服務在佈建之後，即無法升級到較高的 SKU。 您將必須在新層中建立搜尋服務，然後重新載入您的索引。 如需有關服務佈建的說明，請參閱 [在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md) 。
+> 服務在佈建之後，即無法升級到較高的 SKU。 您必須在新層中建立搜尋服務，然後重新載入您的索引。 如需有關服務佈建的說明，請參閱 [在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md) 。
 >
 >
 
 <a id="HA"></a>
 
 ## <a name="high-availability"></a>高可用性
-由於相應增加非常快速簡單，我們通常建議您從一個資料分割和一或兩個複本開始，然後於查詢量增長時再相應增加。 對於許多「基本」和 S1 層的服務來說，一個分割區即可提供足夠的儲存體和 I/O (每個分割區 1500 萬個文件)。
-
-查詢工作負載主要是在複本上執行。 如果您需要更多的輸送量或高可用性，可能會需要額外的複本。
+由於相應增加非常快速簡單，我們通常建議您從一個資料分割和一或兩個複本開始，然後於查詢量增長時再相應增加。 查詢工作負載主要是在複本上執行。 如果您需要更多的輸送量或高可用性，可能會需要額外的複本。
 
 針對高可用性的一般建議為：
 
@@ -73,6 +71,8 @@ ms.lasthandoff: 10/11/2017
 * 針對讀寫工作負載 (查詢再加上新增、更新或刪除個別文件時的索引編製)，需有 3 個或更多個複本才能達到高可用性
 
 「Azure 搜尋服務」的「服務等級協定」(SLA) 是針對查詢作業和由新增、更新或刪除文件所組成的索引更新。
+
+基本層最多一個分割區和三個複本。 如果想要具備立即回應檢索和查詢輸送量需求波動的彈性，請考慮標準層的其中一個。
 
 ### <a name="index-availability-during-a-rebuild"></a>索引在重建期間的可用性
 
@@ -89,9 +89,9 @@ ms.lasthandoff: 10/11/2017
 ## <a name="increase-query-performance-with-replicas"></a>利用複本提高查詢效能
 查詢延遲是一項指標，代表需要額外的複本。 一般而言，改善查詢效能的第一步是新增更多這項資源。 當您新增複本時，額外的幾份索引會上線以支援較大的查詢工作負載，以及讓多個複本上的要求達到負載平衡。
 
-我們無法提供固定的每秒查詢數目 (QPS) 預估值：查詢效能取決於查詢和競爭工作負載的複雜性。 平均來說，一個「基本」或 S1 SKU 複本可以提供大約 15 QPS 的服務，但您的輸送量會因為查詢的複雜性 (多面向查詢較為複雜) 和網路延遲而較高或較低。 此外，請務必了解雖然新增複本會明顯地增加規模和效能，但是最終結果並不會完全地呈線性關係：新增 3 個複本並不保證有 3 倍的輸送量。
+我們無法提供固定的每秒查詢數目 (QPS) 預估值：查詢效能取決於查詢和競爭工作負載的複雜性。 雖然新增複本會明顯獲得更好的效能，但是最終結果並不會完全地呈線性關係：新增 3 個複本並不保證有 3 倍的輸送量。
 
-若要深入了解 QPS (包括預估您工作負載之 QPS 的方法)，請參閱 [管理搜尋服務](search-manage.md)。
+如需有關評估工作負載 QPS 的指引，請參閱 [Azure 搜尋服務的效能與最佳化考量](search-performance-optimization.md)。
 
 ## <a name="increase-indexing-performance-with-partitions"></a>使用資料分割提高編製索引的效能
 要求近乎即時資料重新整理的搜尋應用程式，按比例需要比複本更多的資料分割數。 新增資料分割可將讀取/寫入作業分配到更大量的計算資源。 它也提供更多磁碟空間來儲存額外的索引和文件。

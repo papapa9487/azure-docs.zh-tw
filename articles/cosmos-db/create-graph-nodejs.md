@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/29/2017
 ms.author: denlee
-ms.openlocfilehash: 228d739ac4505d9f16c43bb484dd8050631f084e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 361f63141a8bf3f901eee6c93742f1a7fdc4348f
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB：使用圖形 API 來建置 Node.js 應用程式
 
@@ -75,9 +75,23 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
         });
     ```
 
-  這些組態都位於我們下一節編輯的 `config.js`。
+  這些設定都位於我們在[下一節](#update-your-connection-string)要編輯的 `config.js`。
 
-* 已使用 `client.execute` 方法執行一系列的 Gremlin 步驟。
+* 定義了一系列的函式來執行不同的 Gremlin 作業。 這是其中一個：
+
+    ```nodejs
+    function addVertex1(callback)
+    {
+        console.log('Running Add Vertex1'); 
+        client.execute("g.addV('person').property('id', 'thomas').property('firstName', 'Thomas').property('age', 44).property('userid', 1)", { }, (err, results) => {
+          if (err) callback(console.error(err));
+          console.log("Result: %s\n", JSON.stringify(results));
+          callback(null)
+        });
+    }
+    ```
+
+* 每個函式會搭配一個 Gremlin 查詢字串參數執行 `client.execute` 方法。 以下是執行 `g.V().count()` 的範例：
 
     ```nodejs
     console.log('Running Count'); 
@@ -88,17 +102,34 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     });
     ```
 
+* 在檔案結尾，會使用 `async.waterfall()` 方法叫用所有的方法。 這會一個接著一個執行所有方法：
+
+    ```nodejs
+    try{
+        async.waterfall([
+            dropGraph,
+            addVertex1,
+            addVertex2,
+            addEdge,
+            countVertices
+            ], finish);
+    } catch(err) {
+        console.log(err)
+    }
+    ```
+
+
 ## <a name="update-your-connection-string"></a>更新您的連接字串
 
 1. 更新 config.js 檔案。 
 
-2. 在 config.js 中，使用 Azure 入口網站的 [概觀] 頁面中的 [Gremlin URI] 值填入 config.endpoint 金鑰。 
+2. 在 config.js 中，替 `config.endpoint` 金鑰填入 Azure 入口網站的 [概觀] 頁面中的 [Gremlin URI] 值。 
 
     `config.endpoint = "GRAPHENDPOINT";`
 
     ![在 Azure 入口網站的 [金鑰] 刀鋒視窗中檢視並複製存取金鑰](./media/create-graph-nodejs/gremlin-uri.png)
 
-   如果 **Gremlin URI** 值是空的，您可以從入口網站的 [索引鍵]頁面產生值。 使用 **URI** 值、移除 https://， 然後將文件變更為圖形。
+   如果 **Gremlin URI** 值是空的，您可以從入口網站的 [索引鍵]頁面產生值。 使用 **URI** 值、移除 https://，然後將文件變更為圖形。
 
    Gremlin 端點必須是沒有通訊協定/連接埠號碼的主機名稱，像是 `mygraphdb.graphs.azure.com` (而不是 `https://mygraphdb.graphs.azure.com` 或 `mygraphdb.graphs.azure.com:433`)。
 

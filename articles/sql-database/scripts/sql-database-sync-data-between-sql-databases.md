@@ -17,13 +17,13 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: b96fc9525110729c618469665a697a4a2887f0bc
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 81bec820bd815f0a8826f3a5dc46b1924aa07772
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="use-powershell-to-sync-between-multiple-azure-sql-databases"></a>使用 PowerShell 在多個 Azure SQL Database 之間進行同步處理
+# <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>使用 PowerShell 在多個 SQL Database 之間進行同步處理
  
 此 PowerShell 範例會設定「資料同步」，以在多個 Azure SQL Database 之間進行同步處理。
 
@@ -367,8 +367,9 @@ Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 如需 SQL 資料同步的詳細資訊，請參閱：
 
 -   [使用 Azure SQL 資料同步，跨多個雲端和內部部署資料庫同步處理資料](../sql-database-sync-data.md)
--   [開始使用 Azure SQL 資料同步](../sql-database-get-started-sql-data-sync.md)
+-   [設定 Azure SQL 資料同步](../sql-database-get-started-sql-data-sync.md)
 -   [Azure SQL 資料同步最佳做法](../sql-database-best-practices-data-sync.md)
+-   [透過 OMS Log Analytics 監視 Azure SQL 資料同步](../sql-database-sync-monitor-oms.md)
 -   [對 Azure SQL 資料同步的問題進行疑難排解](../sql-database-troubleshoot-data-sync.md)
 
 -   示範如何設定 SQL 資料同步的完整 PowerShell 範例：

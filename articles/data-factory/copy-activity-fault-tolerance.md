@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 11/10/2017
 ms.author: jingwang
-ms.openlocfilehash: 5b2658cecba80ef871cc38b930b0e52bc3952530
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 990bffa728977efead7b2b20847ff2adaa63a7f8
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/10/2017
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Azure Data Factory 中複製活動的容錯
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/18/2017
 Azure Data Factory 中的複製活動可在來源和接收資料存放區之間複製資料時，提供您兩個方式來處理不相容的資料列：
 
 - 遇到不相容的資料時，您可以中止並捨棄複製活動 (預設行為)。
-- 您可以繼續複製所有的資料，方法是新增容錯並跳過不相容的資料列。 此外，您可以在 Azure Blob 儲存體中記錄不相容的資料列。 接著，您可以檢查記錄來了解失敗的原因、修正資料來源上的資料，並重試複製活動。
+- 您可以繼續複製所有的資料，方法是新增容錯並跳過不相容的資料列。 此外，您可以在 Azure Blob 儲存體或 Azure Data Lake Store 中記錄不相容的資料列。 接著，您可以檢查記錄來了解失敗的原因、修正資料來源上的資料，並重試複製活動。
 
 > [!NOTE]
 > 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務，也就是正式推出 (GA) 的版本，請參閱[第 1 版的複製活動容錯](v1/data-factory-copy-activity-fault-tolerance.md)。
@@ -50,23 +50,24 @@ Azure Data Factory 中的複製活動可在來源和接收資料存放區之間�
     },
     "sink": {
         "type": "SqlSink",
-    },         
-    "enableSkipIncompatibleRow": true,           
+    },
+    "enableSkipIncompatibleRow": true,
     "redirectIncompatibleRowSettings": {
          "linkedServiceName": {
-              "referenceName": "AzureBlobLinkedService",
+              "referenceName": "<Azure Storage or Data Lake Store linked service>",
               "type": "LinkedServiceReference"
             },
             "path": "redirectcontainer/erroroutput"
      }
 }
 ```
+
 屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | 指定是否要在複製期間略過不相容的資料列。 | True<br/>FALSE (預設值) | 否
 redirectIncompatibleRowSettings | 當您想要記錄不相容的資料列時，可指定的一組屬性。 | &nbsp; | 否
-linkedServiceName | Azure 儲存體的連結服務，儲存包含跳過資料列的記錄。 | AzureStorage 或 AzureStorageSas 連結服務的名稱，以代表您需要用來儲存記錄檔的儲存體執行個體。 | 否
-路徑 | 包含跳過之資料列的記錄檔路徑。 | 指定需要用來記錄不相容資料的 Blob 儲存體路徑。 如不提供路徑，服務會為您建立容器。 | 否
+linkedServiceName | [Azure 儲存體](connector-azure-blob-storage.md#linked-service-properties)或 [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) 的連結服務，儲存包含跳過之資料列的記錄。 | `AzureStorage` 或 `AzureDataLakeStore` 類型連結服務的名稱，以代表您需要用來儲存記錄檔的儲存體執行個體。 | 否
+路徑 | 包含跳過之資料列的記錄檔路徑。 | 指定需要用來記錄不相容資料的路徑。 如不提供路徑，服務會為您建立容器。 | 否
 
 ## <a name="monitor-skipped-rows"></a>監視略過的資料列
 複製活動執行完成之後，您會在複製活動的輸出中看到略過的資料列數目：

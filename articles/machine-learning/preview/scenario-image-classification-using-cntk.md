@@ -9,11 +9,11 @@ ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: eefede6196bedf208d9b14cee63632922223a6d6
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 2f8b2d9d2396c1f9c9e509257f3cd031a816729f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>使用 Azure Machine Learning Workbench 進行影像分類
 
@@ -52,9 +52,11 @@ DNN 不僅在影像分類的領域上有重大的改善，在物件偵測和影�
 4. 不需要專用 GPU 來執行第 1 部分的 SVM 訓練，但需要它來進行第 2 部分所描述的 DNN 調整作業。 如果您缺乏強大的 GPU、想要在多個 GPU 上訓練或沒有一部 Windows 電腦，請考慮搭配使用 Azure 的深度學習虛擬機器與 Windows 作業系統。 請參閱[這裡](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)以取得一鍵部署指南。 一旦部署之後，請透過遠端桌面連線連接到 VM，在該處安裝 Workbench，並在 VM 的本機上執行程式碼。
 5. 需要安裝各種 Python 程式庫，例如 OpenCV。 從 Workbench 的 [檔案] 功能表按一下 [開啟命令提示字元]，並執行下列命令來安裝這些相依性：  
     - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.0-cp35-cp35m-win_amd64.whl`  
-    - 從 http://www.lfd.uci.edu/~gohlke/pythonlibs/ 下載 OpenCV Wheel 之後，執行 `pip install opencv_python-3.3.0-cp35-cp35m-win_amd64.whl` (確切的檔名和版本可能變更)
-    - `conda install matplotlib numpy pillow`
-    - `conda install -c conda-forge bqplot`
+    - 從 http://www.lfd.uci.edu/~gohlke/pythonlibs/ 下載 OpenCV Wheel 之後，執行 `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` (確切的檔名和版本可能變更)
+    - `conda install pillow`
+    - `pip install -U numpy`
+    - `pip install bqplot`
+    - `jupyter nbextension enable --py --sys-prefix bqplot`
 
 ### <a name="troubleshooting--known-bugs"></a>疑難排解/已知錯誤
 - 第 2 部分需要 GPU，否則在嘗試調整 DNN 時會擲回錯誤「尚未實作 CPU 上的批次正規化訓練」。
@@ -91,12 +93,10 @@ DNN 不僅在影像分類的領域上有重大的改善，在物件偵測和影�
 
 指令碼 `0_downloadData.py` 會將所有影像下載到 *DATA_DIR/images/fashionTexture/* 目錄。 428 個 URL 中可能有某些 URL 已中斷。 這不構成問題，而只表示我們進行訓練和測試的影像稍微較少。
 
-下圖顯示圓點 (左側兩個資料行)、條紋 (中間兩個資料行) 和豹紋 (右側兩個資料行) 特徵的範例。 會根據上衣項目完成註解。
+下圖顯示圓點 (左側)、條紋 (中間) 和豹紋 (右側) 特徵的範例。 會根據上衣項目完成註解。
 
 <p align="center">
-<img src="media/scenario-image-classification-using-cntk/examples_dotted.jpg"  alt="alt text" height="200">
-<img src="media/scenario-image-classification-using-cntk/examples_striped.jpg" alt="alt text" height="200">
-<img src="media/scenario-image-classification-using-cntk/examples_leopard.jpg" alt="alt text" height="200">
+<img src="media/scenario-image-classification-using-cntk/examples_all.jpg"  alt="alt text" width="700">
 </p>
 
 

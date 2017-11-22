@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/09/2017
 ms.author: shlo
-ms.openlocfilehash: 8f0207853097a3d31e06a722025f3964678414bf
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 085328a9bbe304004f25f46ba5c366e911ac3836
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - 命名規則
 下表提供 Data Factory 購件命名規則。
@@ -33,4 +33,4 @@ ms.lasthandoff: 11/01/2017
 | 資源群組 |在 Microsoft Azure 中是唯一的。 名稱不區分大小寫。 |<ul><li>字元數目上限︰1000。</li><li>名稱可包含字母、數字及下列字元：“-”、“_”、“,” 和 “.”。</li></ul> |
 
 ## <a name="next-steps"></a>後續步驟
-藉由遵循[快速入門：建立 Data Factory](quickstart-create-data-factory-powershell.md)一文中的逐步指示，來了解如何建立 Data Factory。 
+遵循[快速入門：建立 Data Factory](quickstart-create-data-factory-powershell.md) 一文中的逐步指示，以了解如何建立 Data Factory。 

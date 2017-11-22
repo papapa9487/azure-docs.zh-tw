@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 11/09/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
-ms.openlocfilehash: ffef289e154986e4b08a072d3a95f77818fb9c35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db19729f652430c80ad0a7af1b630c1c5a1561d3
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>準備使用 Azure 備份伺服器來備份工作負載
 > [!div class="op_single_selector"]
@@ -61,7 +61,7 @@ ms.lasthandoff: 10/11/2017
 
 > [!IMPORTANT]
 > 從 2017 年 3 月開始，您無法再使用傳統入口網站來建立備份保存庫。
-> 您現在可以將備份保存庫升級至復原服務保存庫。 如需詳細資訊，請參閱[將備份保存庫升級至復原服務保存庫](backup-azure-upgrade-backup-to-recovery-services.md)文章。 Microsoft 鼓勵您將備份保存庫升級至復原服務保存庫。<br/> 在 2017 年 10 月 15 日之後，您就不能使用 PowerShell 建立備份保存庫。 **在 2017 年 11 月 1 日以前**：
+> 您現在可以將備份保存庫升級至復原服務保存庫。 如需詳細資訊，請參閱[將備份保存庫升級至復原服務保存庫](backup-azure-upgrade-backup-to-recovery-services.md)文章。 Microsoft 鼓勵您將備份保存庫升級至復原服務保存庫。<br/> 自 2017 年 11 月 30 日之後，您就無法使用 PowerShell 建立備份保存庫。 **在 2017 年 11 月 30 日以前**：
 >- 所有其餘的備份保存庫都會自動升級至復原服務保存庫。
 >- 您將無法在傳統入口網站中存取您的備份資料。 相反地，使用 Azure 入口網站來存取您在復原服務保存庫中的備份資料。
 >

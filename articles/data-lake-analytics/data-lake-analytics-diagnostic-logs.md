@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 11/08/2017
 ms.author: larryfr
-ms.openlocfilehash: 6c74db1659742aa41306388273bec46800ba7609
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bab7a0646d34de3b6d71370a0fa4216845ee6a2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>存取 Azure Data Lake Analytics 的診斷記錄
 
@@ -36,11 +36,9 @@ ms.lasthandoff: 10/11/2017
 
     ![開啟診斷以收集稽核和要求記錄](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
-3. 從 [診斷設定] 中，將狀態設為 [啟用]，然後選取記錄選項。
+3. 在 [診斷設定] 中，輸入此記錄組態的 [名稱]，然後選取記錄選項。
 
     ![開啟診斷以收集稽核和要求記錄](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "啟用診斷記錄")
-
-   * 將 [狀態] 設定為 [開啟] 以啟用診斷記錄。
 
    * 您可以選擇三種不同的資料儲存/處理方法。
 
@@ -58,34 +56,14 @@ ms.lasthandoff: 10/11/2017
         > [!NOTE]
         > 您必須先選取 [封存至儲存體帳戶]、[串流至事件中樞] 或 [傳送至 Log Analytics]，再按一下 [儲存] 按鈕。
 
-一旦您啟用了診斷設定，即可返回 [診斷記錄] 刀鋒視窗來檢視記錄。
-
-## <a name="view-logs"></a>檢視記錄檔
-
-### <a name="use-the-data-lake-analytics-view"></a>使用 Data Lake Analytics 檢視
-
-1. 從 [Data Lake Analytics 帳戶] 刀鋒視窗的 [監視] 下，選取 [診斷記錄]，然後選取要顯示記錄的項目。
-
-    ![檢視診斷記錄](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "檢視診斷記錄")
-
-2. 記錄類別分為 [稽核記錄] 和 [要求記錄]。
-
-    ![記錄項目](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
-
-   * 要求記錄能擷取所有以 Data Lake Analytics 帳戶提出的 API 要求。
-   * 稽核記錄與要求記錄相似，不過能針對作業提供更詳細的明細。 例如，要求記錄中的一個上傳 API 呼叫可能會致使其稽核記錄出現多個「附加」作業。
-
-3. 針對記錄項目按一下 [下載]  連結來下載該記錄。
-
 ### <a name="use-the-azure-storage-account-that-contains-log-data"></a>使用包含記錄資料的 Azure 儲存體帳戶
 
-1. 開啟與用於記錄之 Data Lake Analytics 建立關聯的Azure 儲存體帳戶刀鋒視窗，然後按一下Blob。 [Blob 服務]  刀鋒視窗會列出兩個容器。
-
-    ![檢視診斷記錄](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "檢視診斷記錄")
+1. 若要顯示存放記錄資料的 blob 容器，開啟 Data Lake Analytics 記錄所使用的 Azure 儲存體帳戶，然後按一下 [Blob]。
 
    * 容器 **insights-logs-audit** 包含稽核記錄檔。
    * 容器 **insights-logs-requests** 包含要求記錄檔。
-2. 在這些容器中，記錄會儲存在下列結構底下：
+
+2. 在這些容器中，記錄都會儲存在下列結構底下：
 
         resourceId=/
           SUBSCRIPTIONS/

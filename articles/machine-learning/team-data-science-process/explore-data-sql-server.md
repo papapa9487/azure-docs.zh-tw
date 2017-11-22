@@ -4,7 +4,7 @@ description: "如何瀏覽儲存在 Azure 上 SQL Server VM 中的資料。"
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: ccbb3085-af9e-4ec2-9df2-15dcab261d05
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/09/2017
 ms.author: bradsev
-ms.openlocfilehash: 4777a6acbf3b45ab207d64feb7cba52f61f38eeb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d5079fc9d9a0ccd89664407fcdba9a7958e1407d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>在 Azure 上瀏覽 SQL Server 虛擬機器中的資料
 本文件涵蓋如何瀏覽儲存在 Azure 上 SQL Server VM 中的資料。 使用 SQL整理資料或使用 Python 這類程式設計語言，即可完成此動作。
@@ -69,6 +69,6 @@ Python 中的 [Pandas 程式庫](http://pandas.pydata.org/) 提供一組豐富�
 
 現在您可以利用 [在資料科學環境中處理 Azure Blob 資料](data-blob.md)主題中說明的方式來使用 Pandas 資料框架。
 
-## <a name="cortana-analytics-process-in-action-example"></a>Cortana 分析程序實務範例
+## <a name="the-team-data-science-process-in-action-example"></a>Team Data Science Process 實務範例
 如需使用公用資料集進行 Cortana Analytics 程序的端對端逐步解說範例，請參閱 [Team Data Science Process 實務：使用 SQL Server](sql-walkthrough.md)。
 

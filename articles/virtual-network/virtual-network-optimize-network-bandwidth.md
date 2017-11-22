@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: steveesp
-ms.openlocfilehash: 914747983d4d974810836be66d6c6af343f58b60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d77440fe62bbd0e720e5ae60b15574dacc4180c0
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>最佳化 Azure 虛擬機器的網路輸送量
 
@@ -51,11 +51,11 @@ Azure 虛擬機器 (VM) 有預設網路設定，可進一步針對網路輸送�
 
 ## <a name="linux-vm"></a>Linux VM
 
-根據預設，Azure Linux VM 中一律會啟用 RSS。 2017 年 1 月之後發行的 Linux 核心包含新的網路最佳化選項，它們可讓 Linux VM 達到更高的網路輸送量。
+根據預設，Azure Linux VM 中一律會啟用 RSS。 2017 年 10 月之後發行的 Linux 核心包含新的網路最佳化選項，它們可讓 Linux VM 達到更高的網路輸送量。
 
-### <a name="ubuntu"></a>Ubuntu
+### <a name="ubuntu-for-new-deployments"></a>新部署的 Ubuntu
 
-若要獲得最佳化，請先更新至截至 2017 年 6 月推出的最新支援版本，也就是：
+若要進行最佳化，請先安裝最新支援版本的 16.04-LTS，如下所示：
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
@@ -75,35 +75,39 @@ apt-get -y upgrade
 選擇性命令︰
 
 `apt-get -y dist-upgrade`
-#### <a name="ubuntu-azure-preview-kernel"></a>Ubuntu 的 Azure 預覽版核心
-> [!WARNING]
-> 此 Azure Linux 預覽版核心可能沒有與正式發行版本的 Marketplace 映像和核心相同層級的可用性和可靠性。 此功能未受支援、能力可能受限，並且可能不如預設核心可靠。 請勿將此核心使用於生產工作負載。
+#### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>現有 VM 的 Ubuntu Azure 核心升級
 
-藉由安裝建議的 Azure Linux 核心，可獲得顯著的輸送量效能。 若要嘗試此核心，請將這一行加入至 /etc/apt/sources.list
+藉由升級至 Azure Linux 核心，可獲得顯著的輸送量效能。 若要確認您是否擁有此核心，請檢查您的核心版本。
 
 ```bash
-#add this to the end of /etc/apt/sources.list (requires elevation)
-deb http://archive.ubuntu.com/ubuntu/ xenial-proposed restricted main multiverse universe
+#Azure kernel name ends with "-azure"
+uname -r
+
+#sample output on Azure kernel:
+#4.11.0-1014-azure
 ```
 
 然後以 root 身分執行這些命令。
 ```bash
+#run as root or preface with sudo
 apt-get update
+apt-get upgrade -y
+apt-get dist-upgrade -y
 apt-get install "linux-azure"
 reboot
 ```
 
 ### <a name="centos"></a>CentOS
 
-若要獲得最佳化，請先更新至截至 2017 年 7 月推出的最新支援版本，也就是：
+若要進行最新最佳化，請先更新至最新支援版本，如下所示：
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
-"Sku": "7.3",
+"Sku": "7.4",
 "Version": "latest"
 ```
 更新完成之後，請安裝最新的 Linux Integration Services (LIS)。
-輸送量最佳化選項從 LIS 4.2.2-2 版開始提供。 輸入下列命令以安裝 LIS：
+輸送量最佳化選項從 LIS 4.2.2-2 版開始提供，雖然較新版本包含進一步的改善。 輸入下列命令以安裝最新的 LIS：
 
 ```bash
 sudo yum update
@@ -113,21 +117,21 @@ sudo yum install microsoft-hyper-v
 
 ### <a name="red-hat"></a>Red Hat
 
-若要獲得最佳化，請先更新至截至 2017 年 7 月推出的最新支援版本，也就是：
+若要進行最佳化，請先更新至最新支援版本，如下所示：
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
-"Sku": "7.3"
-"Version": "7.3.2017071923"
+"Sku": "7-RAW"
+"Version": "latest"
 ```
 更新完成之後，請安裝最新的 Linux Integration Services (LIS)。
 輸送量最佳化選項從 LIS 4.2 版開始提供。 輸入下列命令以下載並安裝 LIS：
 
 ```bash
-mkdir lis4.2.2-2
-cd lis4.2.2-2
-wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
-tar xvzf lis-rpms-4.2.2-2.tar.gz
+mkdir lis4.2.3-1
+cd lis4.2.3-1
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
+tar xvzf lis-rpms-4.2.3-1.tar.gz
 cd LISISO
 install.sh #or upgrade.sh if prior LIS was previously installed
 ```

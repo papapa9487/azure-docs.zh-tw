@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/01/2017
+ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: aff54b86da6a8a062a3f1c76aa69e32c60008274
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3ab8029d035c3ba88ddb8a112e27f9054f7c203c
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>設定 ExpressRoute 線路的網路效能監視器 (預覽)
 
@@ -39,21 +39,27 @@ ms.lasthandoff: 11/02/2017
 
 * 查看先前時間點的 ExpressRoute 系統狀態
 
-**運作方式**
+## <a name="regions"></a>支援的區域
+
+您可以在世界各地監視 ExpressRoute 電路，方法是使用下列其中一個區域中裝載的工作區：
+
+* 西歐 
+* 美國東部 
+* 東南亞 
+
+## <a name="workflow"></a>工作流程
 
 監視代理程式安裝在內部部署和 Azure 中的多部伺服器上。 這些代理程式會彼此互相通訊但不會傳送資料，而是會傳送 TCP 交握封包。 代理程式之間的通訊可讓 Azure 對應流量可採用的網路拓撲和路徑。
 
-**Workflow**
-
-1. 在美國中西部區域建立 NPM 工作區。 這是目前唯一支援此預覽版的區域。
+1. 在其中一個[支援的區域](#regions)中建立 NPM 工作區。
 2. 安裝並設定軟體代理程式： 
     * 在內部部署伺服器和 Azure VM 上安裝監視代理程式。
     * 設定監視代理程式伺服器上的設定，以允許監視代理程式進行通訊。 (開啟防火牆連接埠等)。
 3. 設定網路安全性群組 (NSG) 規則，以允許安裝在 Azure VM 上的監視代理程式與內部部署監視代理程式進行通訊。
-4. 要求將您的 NPM 工作區加入白名單
+4. 要求將您的 NPM 工作區加入白名單。
 5. 設定監視功能：自動探索及管理要在 NPM 中顯示哪些網路。
 
-如果您已經使用「網路效能監視器」來監視其他物件或服務，並且在美國中西部已經有工作區，則可以略過步驟 1 和步驟 2，然後從步驟 3 開始進行設定。
+如果您已經使用「網路效能監視器」來監視其他物件或服務，並且在其中一個支援的區域中已經有工作區，則可以略過步驟 1 和步驟 2，然後從步驟 3 開始進行設定。
 
 ## <a name="configure"></a>步驟 1：建立工作區
 
@@ -66,8 +72,13 @@ ms.lasthandoff: 11/02/2017
   * OMS 工作區：輸入您工作區的名稱。
   * 訂用帳戶 - 如果您有多個訂用帳戶，請選擇要與新工作區建立關聯的帳戶。
   * 資源群組 - 建立資源群組，或使用現有的資源群組。
-  * 位置 - 針對此預覽版，您必須選取 [美國中西部]
+  * 位置 - 您必須選取[支援的區域](#regions)。
   * 定價層 - 選取 [免費]
+  
+  >[!NOTE]
+  >ExpressRoute 電路可能位於全世界的任何位置，且不一定要與工作區位於相同的區域。
+  >
+
 
   ![工作區](.\media\how-to-npm\4.png)<br><br>
 4. 按一下 [確定] 以儲存並部署設定範本。 在範本驗證之後，按一下 [建立] 以部署工作區。
@@ -88,14 +99,14 @@ ms.lasthandoff: 11/02/2017
   >目前不支援使用 Linux 代理程式來進行 ExpressRoute 監視。
   >
   >
-2. 接著，將 [工作區識別碼] 和 [主要金鑰] 複製並貼到「記事本」。
+2. 接著，將 [工作區識別碼] 和 [主要金鑰] 複製到 [記事本]。
 3. 在 [設定代理程式] 區段中，下載 Powershell 指令碼。 此 PowerShell 指令碼將協助您開啟 TCP 交易的相關防火牆連接埠。
 
   ![PowerShell 指令碼](.\media\how-to-npm\7.png)
 
 ### <a name="installagent"></a>2.2：在每部監視伺服器上安裝監視代理程式
 
-1. 執行**安裝程式**，以在您想要用於監視 ExpressRoute 的每部伺服器上安裝代理程式。 您用來進行監視的伺服器可以是 VM 或內部部署伺服器，而且必須能夠存取網際網路。 您必須至少在內部部署環境安裝一個代理程式，以及在 Azure 中您想監視的每個網路區段安裝一個代理程式。
+1. 執行**安裝程式**，以在您想要用於監視 ExpressRoute 的每部伺服器上安裝代理程式。 您用來進行監視的伺服器可以是 VM 或內部部署伺服器，而且必須能夠存取網際網路。 您必須至少在內部部署環境安裝一個代理程式，以及在 Azure 中您需要監視的每個網路區段安裝一個代理程式。
 2. 在 [歡迎] 頁面中按 [下一步]。
 3. 閱讀 [授權條款] 頁面上的授權，然後按一下 [我接受]。
 4. 在 [目的資料夾] 頁面上，變更或保留預設的安裝資料夾，然後按 [下一步]。
@@ -116,7 +127,7 @@ ms.lasthandoff: 11/02/2017
 
 ### <a name="proxy"></a>2.3：設定 Proxy 設定 (選擇性)
 
-如果您要使用 Web Proxy 來存取網際網路，請使用下列步驟來設定 Microsoft Monitoring Agent 的 Proxy 設定。 您必須針對每一部伺服器執行這些步驟。 如果您需要設定許多伺服器，使用指令碼將此程序自動化會比較容易。 如果是這種情況，請參閱[使用指令碼設定 Microsoft Monitoring Agent 的 Proxy 設定](../log-analytics/log-analytics-windows-agents.md#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script)。
+如果您要使用 Web Proxy 來存取網際網路，請使用下列步驟來設定 Microsoft Monitoring Agent 的 Proxy 設定。 針對每一部伺服器執行這些步驟。 如果您需要設定許多伺服器，使用指令碼將此程序自動化會比較容易。 如果是這種情況，請參閱[使用指令碼設定 Microsoft Monitoring Agent 的 Proxy 設定](../log-analytics/log-analytics-windows-agents.md#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script)。
 
 使用 [控制台] 來設定 Microsoft Monitoring Agent 的 Proxy 設定：
 
@@ -168,8 +179,7 @@ ms.lasthandoff: 11/02/2017
 >
 >
 
-您必須先要求將工作區加入白名單中，才能開始使用 NPM 的 ExpressRoute 監視功能。 [請按一下這裡以移至該頁面，並填寫要求表單](https://go.microsoft.com/fwlink/?linkid=862263)。 (提示：您可以在新視窗或索引標籤中開啟此連結)。 加入白名單的程序可能需要一或多個工作天的時間。 加入白名單完成之後，我們會傳送電子郵件給您。
-
+您必須先要求將工作區加入白名單中，才能開始使用 NPM 的 ExpressRoute 監視功能。 [請按一下這裡以移至該頁面，並填寫要求表單](https://aka.ms/npmcohort)。 (提示：您可以在新視窗或索引標籤中開啟此連結)。 加入白名單的程序可能需要一或多個工作天的時間。 加入白名單完成之後，您會收到一封電子郵件。
 
 ## <a name="setupmonitor"></a>步驟 5：設定 NPM 來進行 ExpressRoute 監視
 
@@ -189,7 +199,7 @@ ms.lasthandoff: 11/02/2017
 3. 在設定頁面上，瀏覽至位於左側面板上的 [ExpressRoute 對等互連] 索引標籤。 按一下 [立即探索]。
 
   ![探索](.\media\how-to-npm\13.png)
-4. 探索完成時，您會看到獨特線路名稱和 VNet 名稱的規則。 這些規則一開始處於停用狀態。 您必須啟用這些規則，然後選取監視代理程式和臨界值。
+4. 探索完成時，您會看到獨特線路名稱和 VNet 名稱的規則。 這些規則一開始處於停用狀態。 請啟用這些規則，然後選取監視代理程式和臨界值。
 
   ![規則](.\media\how-to-npm\14.png)
 5. 啟用規則並選取值和您要監視的代理程式之後，大約需要等候 30-60 分鐘，值才會開始填入且 [ExpressRoute 監視] 圖格才會變成可用。 看到監視圖格之後，即表示 NPM 正在監視您的 ExpressRoute 線路和連線資源。
@@ -229,6 +239,7 @@ NPM 頁面包含 ExpressRoute 頁面，當中顯示 ExpressRoute 線路和對等
 
 ![filters](.\media\how-to-npm\topology.png)
 
-#### <a name="detailed-topology-view-of-a-particular-expressroute-circuit---with-vnet-connections"></a>特定 ExpressRoute 線路的詳細拓撲檢視 - 含 VNet 連線
+#### <a name="detailed-topology-view-of-a-circuit"></a>電路的詳細拓撲檢視
 
+此檢視會顯示 VNet 連線。
 ![詳細拓撲](.\media\how-to-npm\17.png)

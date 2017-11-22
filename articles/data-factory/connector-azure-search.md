@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: ebf63cd6d0f9e62d1001d74ce06b4849e08c0de0
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 2b6219dc509b1af8f196f056b489a31fa331acaf
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure 搜尋服務索引
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/06/2017
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 > [!IMPORTANT]
-> 將資料從雲端資料存放區複製到「Azure 搜尋服務」索引時，在「Azure 搜尋服務」已連結的服務中，您必須藉由在 connactVia 中指定明確的區域來參考 Azure Integration Runtime。 請將區域設定為您「Azure 搜尋服務」所在的區域。 若要深入了解，請參閱 [Azure Integration Runtime] (concepts-integration-runtime.md#azure-integration-runtime)。
+> 將資料從雲端資料存放區複製到「Azure 搜尋服務」索引時，在「Azure 搜尋服務」已連結的服務中，您必須藉由在 connactVia 中指定明確的區域來參考 Azure Integration Runtime。 請將區域設定為您「Azure 搜尋服務」所在的區域。 請參閱 [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime) 以深入了解。
 
 **範例：**
 

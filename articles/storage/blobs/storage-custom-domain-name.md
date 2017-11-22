@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: tamram
-ms.openlocfilehash: cbc8654bf1755826afa2cf83e5476e88903e0854
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4dfca37e3a369fdfb41b4064b72ccd027bd8cbd3
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>針對 Blob 儲存體端點設定自訂網域名稱
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 [使用 *asverify* 子網域註冊自訂網域](#register-a-custom-domain-using-the-asverify-subdomain)涵蓋中繼方法。
 
 ## <a name="register-a-custom-domain"></a>註冊自訂網域
-若您不需要顧及使用者會短暫地無法存取網域的問題，或是自訂網域目前未主控應用程式，您可以使用此程序來註冊自訂網域。
+若您不需要顧及使用者會短暫地無法存取網域的問題，或是自訂網域目前未主控應用程式，您可以使用此程序來註冊自訂網域。 您可以使用 Azure DNS 來設定 Azure Blob 存放區的自訂 DNS 名稱。 如需詳細資訊，請參閱[使用 Azure DNS 為 Azure 服務提供自訂網域設定](https://docs.microsoft.com/azure/dns/dns-custom-domain#blob-storage)。
 
 若自訂網域目前支援不允許發生任何停機狀況的應用程式，請遵循[使用 *asverify* 子網域註冊自訂網域](#register-a-custom-domain-using-the-asverify-subdomain)中所述的程序操作。
 

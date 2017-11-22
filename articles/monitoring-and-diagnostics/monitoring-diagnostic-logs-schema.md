@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: johnkem
-ms.openlocfilehash: 2e99b7afa4e458e9ef62314e65d9e386657a747b
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f571a723d91db060a1aff5e14bc452d56794db6c
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 診斷記錄支援的服務、結構描述和類別
 
@@ -56,20 +56,36 @@ ms.lasthandoff: 10/11/2017
 ## <a name="supported-log-categories-per-resource-type"></a>每個資源類型支援的記錄檔類別
 |資源類型|類別|類別顯示名稱|
 |---|---|---|
+|Microsoft.AnalysisServices/servers|引擎|引擎|
+|Microsoft.AnalysisServices/servers|服務|服務|
 |Microsoft.ApiManagement/service|GatewayLogs|ApiManagement 閘道的相關記錄檔|
 |Microsoft.Automation/automationAccounts|JobLogs|作業記錄檔|
 |Microsoft.Automation/automationAccounts|JobStreams|作業串流|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Dsc 節點狀態|
 |Microsoft.Batch/batchAccounts|ServiceLog|服務記錄檔|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|取得端點的計量，例如頻寬、輸出等資訊。|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
+|Microsoft.DataFactory/factories|ActivityRuns|管線活動執行記錄|
+|Microsoft.DataFactory/factories|PipelineRuns|管線執行記錄|
+|Microsoft.DataFactory/factories|TriggerRuns|觸發程序執行記錄|
 |Microsoft.DataLakeAnalytics/accounts|稽核|稽核記錄檔|
 |Microsoft.DataLakeAnalytics/accounts|要求|要求記錄檔|
 |Microsoft.DataLakeStore/accounts|稽核|稽核記錄檔|
 |Microsoft.DataLakeStore/accounts|要求|要求記錄檔|
+|Microsoft.Devices/IotHubs|連線|連線|
+|Microsoft.Devices/IotHubs|DeviceTelemetry|裝置遙測|
+|Microsoft.Devices/IotHubs|C2DCommands|C2D 命令|
+|Microsoft.Devices/IotHubs|DeviceIdentityOperations|裝置身分識別作業|
+|Microsoft.Devices/IotHubs|FileUploadOperations|檔案上傳作業|
+|Microsoft.Devices/IotHubs|路由|路由|
+|Microsoft.Devices/IotHubs|D2CTwinOperations|D2C 對應項作業|
+|Microsoft.Devices/IotHubs|C2DTwinOperations|C2D 對應項作業|
+|Microsoft.Devices/IotHubs|TwinQueries|對應項查詢|
+|Microsoft.Devices/IotHubs|JobsOperations|作業的操作|
+|Microsoft.Devices/IotHubs|DirectMethods|直接方法|
 |Microsoft.Devices/provisioningServices|DeviceOperations|裝置作業|
 |Microsoft.Devices/provisioningServices|ServiceOperations|服務作業|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
+|Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
 |Microsoft.EventHub/namespaces|ArchiveLogs|封存記錄檔|
 |Microsoft.EventHub/namespaces|OperationalLogs|作業記錄|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|自動調整規模記錄檔|
@@ -78,6 +94,7 @@ ms.lasthandoff: 10/11/2017
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|整合帳戶追蹤事件|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|網路安全性群組事件|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|網路安全性群組規則計數器|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|網路安全性群組規則流程事件|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|負載平衡器警示事件|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|負載平衡器探查健全狀況狀態|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|DDoS 保護通知|
@@ -85,6 +102,11 @@ ms.lasthandoff: 10/11/2017
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|應用程式閘道存取記錄檔|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|應用程式閘道效能記錄檔|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|應用程式閘道防火牆記錄檔|
+|Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|閘道診斷記錄|
+|Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|通道診斷記錄|
+|Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|路由診斷記錄|
+|Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|流量管理員探查健康情況結果事件|
+|Microsoft.Network/expressRouteCircuits|GWMCountersTable|GWM 計數器的資料表|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure 備份報表資料|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery 作業|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Azure Site Recovery 事件|
@@ -93,7 +115,6 @@ ms.lasthandoff: 10/11/2017
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Azure Site Recovery 復原點|
 |Microsoft.Search/searchServices|OperationLogs|作業記錄|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|作業記錄|
-|Microsoft.Sql/servers/databases|QueryStore|查詢存放區|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|查詢存放區執行階段統計資料|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|查詢存放區等候統計資料|
 |Microsoft.Sql/servers/databases|Errors|Errors|

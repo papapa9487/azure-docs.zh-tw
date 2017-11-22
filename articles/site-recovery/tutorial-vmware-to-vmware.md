@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: raynew
-ms.openlocfilehash: 17bd7f424117842fd0687ba8a5fcf4d83c96a0bb
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 503d7060437d08ed35681fca7f1b9306746b7f44
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>設定內部部署 VMware 虛擬機器或實體伺服器至次要網站的災害復原
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/12/2017
 2. 選取 [到復原站台] > [Yes, with VMware vSphere Hypervisor] \(是，使用 VMware vSphere Hypervisor)。 然後按一下 [確定] 。
 3. 在 [Scout 設定] 中，下載 InMage Scout 8.0.1 GA 軟體和註冊金鑰。 所有元件的安裝程式檔案都包含在下載的 .zip 檔中。
 
-## <a name="install-component-updates"></a>安裝元件更新
+## <a name="download-and-install-component-updates"></a>下載及安裝元件更新
 
  檢閱並安裝最新[更新](#updates)。 請依下列順序在伺服器上安裝更新：
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 10/12/2017
 ## <a name="enable-replication"></a>啟用複寫
 
 1. 設定來源與目標 VMware 網站之間的複寫。
-2. 如需指引，請使用隨產品下載的 InMage Scout 文件。 或者，您可以存取下列文件：
+2. 請參閱下列文件，以深入了解安裝 保護及復原：
 
    * [版本資訊](https://aka.ms/asr-scout-release-notes)
    * [相容性矩陣](https://aka.ms/asr-scout-cm)
@@ -95,6 +95,8 @@ ms.lasthandoff: 10/12/2017
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 Update 6 
 更新日期：2017 年 10 月 12 日
+
+下載 [Scout Update 6](https://aka.ms/asr-scout-update6)。
 
 Scout Update 6 是累積更新。 其中包含 Update 1 到 Update 5 的所有修正及以下描述的新修正和增強功能。 
 

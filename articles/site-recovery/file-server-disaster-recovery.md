@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 10/23/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: a746ace47c4f1190b7a695014543670a1a9cf879
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 78ce74450ce933e2aced4b6e62504373de7954f8
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>使用 Azure Site Recovery 保護檔案伺服器 
 
 [Azure Site Recovery](site-recovery-overview.md) 服務藉由確保您的商務應用程式可在計劃性與非計劃性中斷期間持續啟動並執行，來提供商務持續性和災害復原 (BCDR) 策略。 Site Recovery 會管理並協調內部部署機器和 Azure 虛擬機器 (VM) 的災害復原，包括各種工作負載的複寫、容錯移轉和復原。
 
-本文說明如何使用 Azure Site Recovery 保護檔案伺服器，以及因應不同環境的其他建議。 
+本文說明如何使用 Azure Site Recovery 保護檔案伺服器，以及因應不同環境的其他建議。     
 
 - [保護 Azure IaaS 檔案伺服器的機器](#disaster-recovery-recommendation-for-azure-iaas-virtual-machines)
 - [保護內部部署檔案伺服器](#replicate-an-onpremises-file-server-using-azure-site-recovery)
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/01/2017
 
 下圖提供的圖解，可讓您在決定為檔案伺服器環境使用哪種策略時更輕鬆。
 
-![決策樹](media/site-recovery-file-server/decisiontree.png)
+![decisiontree](media/site-recovery-file-server/decisiontree.png)
 
 
 ### <a name="factors-to-consider-while-making-disaster-recovery-decision"></a>進行災害復原決策時所考量的因素

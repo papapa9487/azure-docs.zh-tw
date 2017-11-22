@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 11/09/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: e1da8bce96078a43c656f84005cefc8bbe81c9e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ca3fb650a133efb67c0ad2cd96847c6a0e21c876
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="back-up-azure-virtual-machines-classic-portal"></a>備份 Azure 虛擬機器 (傳統入口網站)
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 >
 > [!IMPORTANT]
 > 從 2017 年 3 月開始，您無法再使用傳統入口網站來建立備份保存庫。
-> 您現在可以將備份保存庫升級至復原服務保存庫。 如需詳細資訊，請參閱[將備份保存庫升級至復原服務保存庫](backup-azure-upgrade-backup-to-recovery-services.md)文章。 Microsoft 鼓勵您將備份保存庫升級至復原服務保存庫。<br/> 在 2017 年 10 月 15 日之後，您就不能使用 PowerShell 建立備份保存庫。 **在 2017 年 11 月 1 日以前**：
+> 您現在可以將備份保存庫升級至復原服務保存庫。 如需詳細資訊，請參閱[將備份保存庫升級至復原服務保存庫](backup-azure-upgrade-backup-to-recovery-services.md)文章。 Microsoft 鼓勵您將備份保存庫升級至復原服務保存庫。<br/> 自 2017 年 11 月 30 日之後，您就無法使用 PowerShell 建立備份保存庫。 **在 2017 年 11 月 30 日以前**：
 >- 所有其餘的備份保存庫都會自動升級至復原服務保存庫。
 >- 您將無法在傳統入口網站中存取您的備份資料。 相反地，使用 Azure 入口網站來存取您在復原服務保存庫中的備份資料。
 >
@@ -86,7 +86,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="step-2---register-azure-virtual-machines"></a>步驟 2 - 註冊 Azure 虛擬機器
 您必須註冊 Azure 虛擬機器，使其與 Azure 備份服務相關聯。 這通常是一次性活動。
 
-1. 在 Azure 入口網站中，瀏覽至 復原服務 下的備份保存庫，然後按一下註冊的項目。
+1. 在 Azure 入口網站中，瀏覽至 [復原服務] 下的備份保存庫，然後按一下 [註冊的項目]。
 2. 從下拉式選單中選取 [Azure 虛擬機器]  。
 
     ![選取工作負載](./media/backup-azure-vms/discovery-select-workload.png)
@@ -117,7 +117,7 @@ ms.lasthandoff: 10/11/2017
 
 2015 年 5 月之後建立的 Azure 備份保存庫，會隨附內建於保存庫的預設原則。 這項預設原則會隨附 30 天預設保留和每日一次的備份排程。
 
-1. 在 Azure 入口網站中，瀏覽至 復原服務 下的備份保存庫，然後按一下註冊的項目。
+1. 在 Azure 入口網站中，瀏覽至 [復原服務] 下的備份保存庫，然後按一下 [註冊的項目]。
 2. 從下拉式選單中選取 [Azure 虛擬機器]  。
 
     ![在入口網站中選取工作負載](./media/backup-azure-vms/select-workload.png)

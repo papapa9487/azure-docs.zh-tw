@@ -8,7 +8,7 @@
 
 每一筆 DNS 記錄都有名稱和類型。 記錄根據所包含的資料而組織成各種類型。 最常見的類型為 'A' 記錄，可將名稱對應到 IPv4 位址。 另一個一般類型為 'MX' 記錄，可將名稱對應到郵件伺服器。
 
-Azure DNS 支援所有常見的 DNS 記錄類型：A、AAAA、CNAME、MX、NS、PTR、SOA、SRV 和 TXT。 請注意，[SPF 記錄是使用 TXT 記錄表示](../articles/dns/dns-zones-records.md#spf-records)。
+Azure DNS 支援所有常見的 DNS 記錄類型：A、AAAA、CAA、CNAME、MX、NS、PTR、SOA、SRV 和 TXT。 請注意，[SPF 記錄是使用 TXT 記錄表示](../articles/dns/dns-zones-records.md#spf-records)。
 
 ### <a name="record-sets"></a>記錄集
 

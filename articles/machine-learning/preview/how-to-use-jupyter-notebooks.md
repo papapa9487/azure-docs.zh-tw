@@ -2,19 +2,19 @@
 title: "如何在 Azure Machine Learning Workbench 中使用 Jupyter Notebook | Microsoft Docs"
 description: "使用 Azure Machine Learning Workbench 的 Jupyter Notebook 功能指南"
 services: machine-learning
-author: jopela
-ms.author: jopela
+author: rastala
+ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: 93850a7c9e3d9d69b0da22ebd0656ae40cee2e63
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.date: 11/09/2017
+ms.openlocfilehash: 80cdd07bff865776a68897a7b8c1b3fe66b76b18
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>如何在 Azure Machine Learning Workbench 中使用 Jupyter Notebook
 
@@ -36,7 +36,7 @@ Azure Machine Learning Workbench 透過它與 Jupyter Notebook 的整合，來�
 ![筆記本架構](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-architecture.png)
 
 ## <a name="kernels-in-azure-ml-workbench-notebook"></a>Azure ML Workbench 筆記本中的核心
-您只需在專案的 `aml_config` 資料夾中設定執行組態和計算目標，就能在 Azure ML Workbench 中存取許多不同核心。 藉由發出 `az ml computetarget attach` 命令來新增計算目標，相當於新增核心。
+在專案的 `aml_config` 資料夾中設定回合組態和計算目標，就能在 Azure ML Workbench 中存取許多不同核心。 藉由發出 `az ml computetarget attach` 命令來新增計算目標，相當於新增核心。
 
 >[!NOTE]
 >如需更多執行組態與計算目標的詳細資料，請檢閱[設定執行](experimentation-service-configuration.md)。
@@ -48,6 +48,9 @@ Workbench 目前支援下列類型的核心。
 
 ### <a name="local-python-kernel"></a>本機 Python 核心
 此 Python 核心支援在本機電腦上執行。 它會與 Azure Machine Learning 的執行歷程記錄支援整合。 核心名稱通常是 "my_project_name local"。
+
+>[!NOTE]
+>請勿使用「Python 3 」核心。 它是 Jupyter 預設提供的獨立核心。 它不會與 Azure Machine Learning 的功能整合。
 
 ### <a name="python-kernel-in-docker-local-or-remote"></a>Docker (本機或遠端) 中的 Python 核心
 此 Python 核心會在您本機電腦上或遠端 Linux VM 上的 Docker 容器中執行。 核心名稱通常是 "my_project docker"。 相關聯的 `docker.runconfig` 檔案具有已設為 `Python` 的 `Framework` 欄位。
@@ -104,6 +107,33 @@ $ az ml notebook start
 您現在可以按一下 `.ipynb` 筆記本檔案、開啟它並設定核心 (如果尚未設定)，然後啟動您的互動式工作階段。
 
 ![專案儀表板](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-08.png)
+
+## <a name="use-magic-commands-to-manage-experiments"></a>使用 magic 命令來管理實驗
+
+您可以在筆記本資料格中使用 [magic 命令](http://ipython.readthedocs.io/en/stable/interactive/magics.html)，來追蹤執行歷程記錄和儲存輸出，例如模型或資料集。
+
+若要追蹤個別筆記本資料格的執行，使用 "%azureml history on" magic 命令。 開啟歷程記錄之後，每一個資料格執行將在執行歷程記錄中顯示為一個項目。
+
+```
+%azureml history on
+from azureml.logging import get_azureml_logger
+logger = get_azureml_logger()
+logger.log("Cell","Load Data")
+```
+
+若要關閉資料格執行追蹤，使用 "%azureml history off" magic 命令。
+
+您可以使用 "%azureml upload" magic 命令來儲存您的執行的模型和資料檔案。 在指定執行的執行歷程記錄檢視中，已儲存的物件會顯示為輸出。
+
+```
+modelpath = os.path.join("outputs","model.pkl")
+with open(modelpath,"wb") as f:
+    pickle.dump(model,f)
+%azureml upload outputs/model.pkl
+```
+
+>[!NOTE]
+>輸出都必須儲存到名為 "outputs" 的資料夾。
 
 ## <a name="next-steps"></a>後續步驟
 - 若要了解如何使用 Jupyter Notebook，請造訪 [Jupyter 官方文件](http://jupyter-notebook.readthedocs.io/en/latest/) \(英文\)。    

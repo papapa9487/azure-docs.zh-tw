@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/14/2017
 ms.author: sethm
-ms.openlocfilehash: 1403184d96388cb03b2c767c4da342ec1c6fe236
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e64e7d9f203debe19dfa222f501c7902cfe2ae98
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="service-bus-faq"></a>服務匯流排常見問題集
-本文提供 Microsoft Azure 服務匯流排的一些常見問題解集。 您也可以造訪 [Azure 支援常見問題集](http://go.microsoft.com/fwlink/?LinkID=185083)，以取得一般的 Azure 價格和支援資訊。
+本文討論 Microsoft Azure 服務匯流排的一些常見問題解集。 您也可以造訪 [Azure 支援常見問題集](http://go.microsoft.com/fwlink/?LinkID=185083)，以取得一般的 Azure 價格和支援資訊。
 
 ## <a name="general-questions-about-azure-service-bus"></a>關於 Azure 服務匯流排的一般問題
 ### <a name="what-is-azure-service-bus"></a>什麼是 Azure 服務匯流排？
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 [命名空間](service-bus-create-namespace-portal.md)提供範圍容器，可在應用程式內定址服務匯流排資源。 必須建立命名空間才能使用服務匯流排，而且這也是開始使用的第一個步驟。
 
 ### <a name="what-is-an-azure-service-bus-queue"></a>什麼是 Azure 服務匯流排佇列？
-[服務匯流排佇列](service-bus-queues-topics-subscriptions.md)是訊息儲存所在的實體。 如果您有多個應用程式，或多個需要彼此通訊的分散式應用程式部分，佇列會特別有用。 佇列和配送中心的類似之處在於，兩者都會接收多個產品 (訊息)，再從該處送出。
+[服務匯流排佇列](service-bus-queues-topics-subscriptions.md)是訊息儲存所在的實體。 如果您有多個應用程式，或多個需要彼此通訊的分散式應用程式部分，佇列很有用。 佇列和配送中心的類似之處在於，兩者都會接收多個產品 (訊息)，再從該處送出。
 
 ### <a name="what-are-azure-service-bus-topics-and-subscriptions"></a>什麼是 Azure 服務匯流排主題和訂用帳戶？
 主題可視覺化為佇列，而且在使用多個訂用帳戶時，主題會變成更豐富的訊息模型；基本上是一對多的通訊工具。 此發佈/訂閱模型 (或「pub/sub」) 可讓應用程式將訊息傳送至具有多個訂用帳戶的主題，以便讓多個應用程式接收該訊息。
@@ -43,10 +43,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="best-practices"></a>最佳作法
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Azure 服務匯流排的最佳做法有哪些？
-* [使用服務匯流排的效能改進最佳作法][Best practices for performance improvements using Service Bus] - 這篇文章說明如何在交換訊息時將效能最佳化。
+請參閱[使用服務匯流排的效能改進最佳作法][Best practices for performance improvements using Service Bus] - 這篇文章說明如何在交換訊息時將效能最佳化。
 
 ### <a name="what-should-i-know-before-creating-entities"></a>建立實體前的須知事項為何？
-佇列和主題的下列屬性是不可變的。 在佈建實體時請將這一點納入考量，因為若要修改屬性，就必須建立新的替代實體。
+佇列和主題的下列屬性是不可變的。 在佈建實體時請將這個限制納入考量，因為若要修改這些屬性，就必須建立新的替代實體。
 
 * 大小
 * 分割
@@ -57,7 +57,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="pricing"></a>價格
 本節提供服務匯流排價格結構的一些常見問題解答。
 
-[服務匯流排價格和計費](service-bus-pricing-billing.md)一文說明服務匯流排中的計費計量，如需服務匯流排價格選項的相關資訊，請參閱[服務匯流排價格詳細資料](https://azure.microsoft.com/pricing/details/service-bus/)。
+[服務匯流排定價與計費](service-bus-pricing-billing.md)一文說明服務匯流排中的計費計量。 如需服務匯流排價格選項的特定資訊，請參閱[服務匯流排價格詳細資料](https://azure.microsoft.com/pricing/details/service-bus/)。
 
 您也可以造訪 [Azure 支援常見問題集](http://go.microsoft.com/fwlink/?LinkID=185083)，以取得一般 Azure 價格資訊。 
 
@@ -75,9 +75,9 @@ ms.lasthandoff: 10/11/2017
 如需服務匯流排限制和配額的清單，請參閱[服務匯流排配額概觀][Quotas overview]。
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>服務匯流排是否有任何使用量配額？
-根據預設，對於所有雲端服務，Microsoft 會設定針對所有客戶的訂用帳戶計算的彙總每月使用量配額。 因為我們了解您的需求可能超過這些限制，請隨時連絡客戶服務部門，讓我們能夠了解您的需求並適當地調整這些限制。 針對服務匯流排，彙總使用量配額為每個月 50 億則訊息。
+根據預設，對於所有雲端服務，Microsoft 會設定針對所有客戶的訂用帳戶計算的彙總每月使用量配額。 因為我們了解您的需求可能超過這些限制，您可以隨時連絡客戶服務部門，讓我們能夠了解您的需求並適當地調整這些限制。 針對服務匯流排，彙總使用量配額為每個月 50 億則訊息。
 
-雖然我們有權停用在指定的月份內超出其使用量配額的客戶帳戶，但我們將提供電子郵件通知並且在採取任何動作之前多次嘗試連絡客戶。 超出這些配額的客戶仍需負責支付超出配額的費用。
+雖然我們有權停用在指定的月份內超出其使用量配額的客戶帳戶，但我們會提供電子郵件通知並且在採取任何動作之前多次嘗試連絡客戶。 超出這些配額的客戶仍需負責支付超出配額的費用。
 
 如同 Azure 上的其他服務，服務匯流排會強制執行一組特定的配額，以確保公平的資源使用量。 您可以在[服務匯流排配額概觀][Quotas overview]中找到更多關於這些配額的詳細資料。
 
@@ -113,7 +113,7 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 ```
 
 ## <a name="next-steps"></a>後續步驟
-若要深入了解服務匯流排，請參閱下列主題。
+若要深入了解服務匯流排，請參閱下列文章：
 
 * [Azure 服務匯流排進階簡介 (部落格文章)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Azure 服務匯流排進階簡介 (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)

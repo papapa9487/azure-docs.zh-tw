@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1c9bfe567b1e0872abc7aba054127735d5f61754
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 461feb952f7e2eddba9c7218b3463868e8cb7965
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>為內部部署 VMware VM 設定災害復原至 Azure
 
@@ -87,18 +87,12 @@ ms.lasthandoff: 11/01/2017
 
 確定組態伺服器可以存取下列 URL：
 
-- *.accesscontrol.windows.net。 用於存取控制和身分識別管理。
-- *.backup.windowsazure.com。用於複寫資料的傳輸和協調。
-- *.blob.core.windows.net。 用於存取儲存體帳戶來儲存複寫的資料。
-- *.hypervrecoverymanager.windowsazure.com。用於複寫管理作業和協調。
-- time.nist.gov and time.windows.com。用於檢查系統時間與通用時間之間的時間同步處理。
+   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+    
+    - 任何以 IP 位址為基礎的防火牆規則都應該允許對 Azure 的通訊。
 
-適用於 Azure Government 雲端的 URL：
-
-- *.ugv.hypervrecoverymanager.windowsazure.us
-- *.ugv.backup.windowsazure.us
-- *.ugi.hypervrecoverymanager.windowsazure.us
-- *.ugi.backup.windowsazure.us
+- 允許 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/confirmation.aspx?id=41653)和 HTTPS (443) 連接埠。
+    - 允許訂用帳戶的 Azure 區域和美國西部 (用於存取控制和身分識別管理) 使用 IP 位址範圍。
 
 任何以 IP 位址為基礎的防火牆規則都應該允許對 [Azure Datacenter IP 範圍](https://www.microsoft.com/download/confirmation.aspx?id=41653)，以及連接埠 443 (HTTPS) 和 9443 (資料複寫) 進行通訊。 務必允許訂用帳戶的 Azure 區域和美國西部使用 IP 位址範圍 (用於存取控制和身分識別管理)。
 

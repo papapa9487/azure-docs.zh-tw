@@ -1,5 +1,5 @@
 ---
-title: "在 Azure CDN 中管理 Azure 儲存體 Blob 的到期 | Microsoft Docs"
+title: "管理 Azure 內容傳遞網路中 Azure Blob 儲存體的期限 | Microsoft Docs"
 description: "深入了解選項，以控制 Azure CDN 快取中的 Blob 存留時間。"
 services: cdn
 documentationcenter: 
@@ -12,31 +12,30 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: d4741921806e443d92c385a04b781cec296c2ae8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41b8f9d439184b91f8105e6bd136e48525632a85
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="manage-expiration-of-azure-storage-blobs-in-azure-cdn"></a>在 Azure CDN 中管理 Azure 儲存體 Blob 的到期
+# <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>管理 Azure 內容傳遞網路中 Azure Blob 儲存體的期限
 > [!div class="op_single_selector"]
 > * [Azure Web Apps/雲端服務、ASP.NET 或 IIS](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Azure 儲存體 Blob 服務](cdn-manage-expiration-of-blob-content.md)
+> * [Azure Blob 儲存體](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
 
-[Azure 儲存體](../storage/common/storage-introduction.md)中的 [Blob 服務](../storage/common/storage-introduction.md#blob-storage)是數個已與 Azure CDN 整合之 Azure 型來源的其中一個。  任何可公開存取的 Blob 內容均可在 Azure CDN 中加以快取，直到其存留時間 (TTL) 結束。  TTL 是由來自 Azure 儲存體之 HTTP 回應中的 [ 標頭](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) 所決定。
+[Azure 儲存體](../storage/common/storage-introduction.md)中的 [blob 服務](../storage/common/storage-introduction.md#blob-storage)是數個已與 Azure 內容傳遞網路 (CDN) 整合之 Azure 型來源的其中一個。 任何可公開存取的 Blob 內容均可在 Azure CDN 中加以快取，直到其存留時間 (TTL) 結束。 TTL 是由來自 Azure 儲存體之 HTTP 回應中的 [`Cache-Control` 標頭](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)所決定。
 
 > [!TIP]
-> 您可以選擇不對 Blob 設定任何 TTL。  在此情況下，Azure CDN 會自動套用預設為期 7 天的 TTL。
+> 您可以選擇不替 blob 設定 TTL。 在此情況下，Azure CDN 會自動套用預設為期 7 天的 TTL。
 > 
-> 如需 Azure CDN 如何運作以加快對 Blob 和其他檔案存取速度的詳細資訊，請參閱 [Azure CDN 概觀](cdn-overview.md)。
+> 針對 Azure CDN 如何加快對 blob 和其他檔案的存取速度，如需詳細資訊請參閱 [Azure 內容傳遞網路概觀](cdn-overview.md)。
 > 
-> 如需 Azure 儲存體 Blob 服務的詳細資料，請參閱 [Blob 服務概念](https://msdn.microsoft.com/library/dd179376.aspx)。 
-> 
-> 
+> 若要深入了解 Azure Blob 儲存體，請參閱 [Blob 儲存體簡介](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)。
+ 
 
 本教學課程會示範幾種可對 Azure 儲存體中的 Blob 設定 TTL 的方法。  
 
@@ -100,7 +99,7 @@ class Program
 ## <a name="other-methods"></a>其他方法
 * [Azure 命令列介面](../cli-install-nodejs.md)
   
-    上傳 Blob 時，使用 `-p` 參數設定 *cacheControl* 屬性。  本範例將 TTL 設定為一小時 (3600 秒)。
+    上傳 blob 時，使用 `-p` 參數設定 *cacheControl* 屬性。 本範例將 TTL 設定為一小時 (3600 秒)。
   
     ```text
     azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
@@ -112,10 +111,10 @@ class Program
   
     某些協力廠商 Azure 儲存體管理工具可讓您對 Blob 設定「CacheControl」  屬性。 
 
-## <a name="testing-the-cache-control-header"></a>測試「Cache-Control」  標頭
-您可以輕鬆地確認 Blob 的 TTL。  使用瀏覽器的[開發人員工具](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)，測試 Blob 是否包含 *Cache-Control* 回應標頭。  您也可以使用 **wget**、[Postman](https://www.getpostman.com/) 或 [Fiddler](http://www.telerik.com/fiddler) 之類的工具來檢查回應標頭。
+## <a name="testing-the-cache-control-header"></a>測試 Cache-Control 標頭
+您可以輕鬆地確認 Blob 的 TTL。  使用瀏覽器的[開發人員工具](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)，測試 blob 是否包含 `Cache-Control` 的回應標頭。 您也可以使用 **wget**、[Postman](https://www.getpostman.com/) 或 [Fiddler](http://www.telerik.com/fiddler) 之類的工具來檢查回應標頭。
 
 ## <a name="next-steps"></a>後續步驟
-* [了解 *Cache-Control* 標頭](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
+* [深入了解 `Cache-Control` 標頭](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
 * [了解如何在 Azure CDN 中管理雲端服務內容的到期](cdn-manage-expiration-of-cloud-service-content.md)
 

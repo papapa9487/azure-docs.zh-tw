@@ -12,15 +12,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 9eb39989bdec330e47e6233be5c1347ff716bed2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: df767617842d5f331b5c4dda6d87d6a999ee1d1b
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="use-spark-structured-streaming-with-kafka-preview-on-hdinsight"></a>搭配 HDInsight 上的 Kafka (預覽) 使用 Spark 結構化串流
+# <a name="use-spark-structured-streaming-with-kafka-on-hdinsight"></a>使用 Spark 結構化串流搭配 Kafka on HDInsight
 
 了解如何使用 Spark 結構化串流，從 Azure HDInsight 上的 Apache Kafka 讀取資料。
 
@@ -52,7 +52,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
     此範本會建立下列資源：
 
-    * HDInsight 3.5 叢集上的 Kafka。
+    * HDInsight 3.6 叢集上的 Kafka。
     * HDInsight 3.6 叢集上的 Spark。
     * Azure 虛擬網路，其中包含 HDInsight 叢集。
 

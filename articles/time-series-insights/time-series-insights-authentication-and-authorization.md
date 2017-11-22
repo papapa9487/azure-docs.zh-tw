@@ -1,29 +1,26 @@
 ---
-title: "為呼叫 Azure Time Series Insights API 的自訂應用程式設定驗證和授權 | Microsoft Docs"
-description: "本教學課程說明如何為呼叫 Azure Time Series Insights API 的自訂應用程式設定驗證和授權"
-keywords: 
+title: "如何為呼叫 Azure Time Series Insights API 的自訂應用程式設定驗證和授權 | Microsoft Docs"
+description: "本文說明如何為呼叫 Azure Time Series Insights API 的自訂應用程式設定驗證和授權。"
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: dmdenmsft
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/24/2017
 ms.author: dmden
-ms.openlocfilehash: abc3b5400e6961a798e1e6bf9e4986304046e845
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 7772f6be0c60c1c2e59499d46e3c56975053e551
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API 的驗證和授權
 
-本文說明如何設定可呼叫 Azure Time Series Insights API 的自訂應用程式。
+本文說明如何設定在呼叫 Azure Time Series Insights API 之自訂應用程式中使用的驗證和授權。
 
 ## <a name="service-principal"></a>服務主體
 
@@ -102,11 +99,9 @@ ms.lasthandoff: 10/11/2017
     string accessToken = token.AccessToken;
     ```
 
+使用應用程式中的應用程式識別碼和金鑰，以使用 Azure Time Series Insight 進行驗證。 
+
 ## <a name="next-steps"></a>後續步驟
-
-在您的應用程式中使用應用程式識別碼和金鑰。 如需呼叫 Time Series Insights API 的範例程式碼，請參閱[使用 C# 查詢資料](time-series-insights-query-data-csharp.md)。
-
-## <a name="see-also"></a>另請參閱
-
-* [查詢 API](/rest/api/time-series-insights/time-series-insights-reference-queryapi) 可取得完整的查詢 API 參考
-* [在 Azure 入口網站中建立服務主體](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+- 如需呼叫 Time Series Insights API 的範例程式碼，請參閱[使用 C# 查詢資料](time-series-insights-query-data-csharp.md)。
+- 如需 API 參考資訊，請參閱[查詢 API 參考](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
+- [在 Azure 入口網站中建立服務主體](../azure-resource-manager/resource-group-create-service-principal-portal.md)

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/10/2017
+ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: e59cfa85c6bf584e44bdc6e88cc19d67df390041
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbb752692fbd618d9e7e14c8a80b582aad657b38
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api-preview"></a>Azure Cosmos DB：如何使用資料表 API (預覽) 來查詢資料表資料？
+# <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api"></a>Azure Cosmos DB：如何使用資料表 API 來查詢資料表資料？
 
-Azure Cosmos DB [資料表 API](table-introduction.md) (預覽) 支援對索引鍵/值 (資料表) 資料進行 OData 和 [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) 查詢。  
+Azure Cosmos DB [資料表 API](table-introduction.md) 支援對索引鍵/值 (資料表) 資料進行 OData 和 [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) 查詢。  
 
 本文涵蓋下列工作： 
 
@@ -38,13 +38,13 @@ Azure Cosmos DB [資料表 API](table-introduction.md) (預覽) 支援對索引�
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jeff | Jeff@contoso.com| 425-555-0104 | 
 
-由於 Azure Cosmos DB 與 Azure 資料表儲存體 API 相容，因此請參閱 [Querying Tables and Entities (查詢資料表和實體)] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities)，以了解有關如何使用資料表 API 進行查詢的詳細資料。 
+請參閱 [Querying Tables and Entities (查詢資料表和實體)] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities)，以了解有關如何使用資料表 API 進行查詢的詳細資料。 
 
 如需 Azure Cosmos DB 所提供之進階功能的詳細資訊，請參閱 [Azure Cosmos DB：資料表 API](table-introduction.md) 和[在 .NET 中使用資料表 API 進行開發](tutorial-develop-table-dotnet.md)。 
 
 ## <a name="prerequisites"></a>必要條件
 
-若要讓這些查詢能夠運作，您必須具備 Azure Cosmos DB 帳戶，並且在容器中有實體資料。 不符合上述其中任何一項條件嗎？ 請完成 [5 分鐘快速入門](https://aka.ms/acdbtnetqs)或[開發人員教學課程](https://aka.ms/acdbtabletut)，以建立帳戶並在資料庫中填入資料。
+若要讓這些查詢能夠運作，您必須具備 Azure Cosmos DB 帳戶，並且在容器中有實體資料。 不符合上述其中任何一項條件嗎？ 請完成 [5 分鐘快速入門](create-table-dotnet.md)或[開發人員教學課程](tutorial-develop-table-dotnet.md)，以建立帳戶並在資料庫中填入資料。
 
 ## <a name="query-on-partitionkey-and-rowkey"></a>在 PartitionKey 和 RowKey 上執行查詢
 由於 PartitionKey 和 RowKey 屬性會構成實體的主索引鍵，因此您可以使用下列特殊語法來識別實體： 
@@ -109,9 +109,9 @@ await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
 在本教學課程中，您已完成下列操作：
 
 > [!div class="checklist"]
-> * 了解如何使用資料表 API (預覽) 來進行查詢 
+> * 了解如何使用資料表 API 來進行查詢
 
 您現在可以繼續進行到下一個教學課程，以了解如何全域散發您的資料。
 
 > [!div class="nextstepaction"]
-> [全域散發您的資料](tutorial-global-distribution-documentdb.md)
+> [全域散發您的資料](tutorial-global-distribution-table.md)

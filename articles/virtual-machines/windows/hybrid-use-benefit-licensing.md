@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/02/2017
+ms.date: 11/13/2017
 ms.author: kmouss
-ms.openlocfilehash: d47b8ab2cd6391e937fe7f9ba6eded3b89fe2c40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 11b491b52fe359427c5e395d5d8c3be3cddcdc89
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>適用於 Windows Server 的 Azure Hybrid Benefit
-對於擁有軟體保證的客戶，適用於 Windows Server 的 Azure Hybrid Benefit 讓您能夠以較低的成本來使用內部部署 Windows Server 授權，以及在 Azure 上執行 Windows 虛擬機器。 您可以使用適用於 Windows Server 的 Azure Hybrid Benefit，從任何 Azure 支援的平台 Windows Server 映像或 Windows 自訂映像來部署新的虛擬機器。 前提是該映像未隨附其他軟體，例如 SQL Server 或協力廠商市集映像。 本文章會詳述使用適用於 Windows Server 的 Azure Hybrid Benefit 來部署新 VM 的步驟。 如需有關適用於 Windows Server 之 Azure Hybrid Benefit 的授權和節省成本詳細資訊，請參閱[適用於 Windows Server 的 Azure Hybrid Benefit 授權頁面](https://azure.microsoft.com/pricing/hybrid-use-benefit/)。
+對於擁有軟體保證的客戶，適用於 Windows Server 的 Azure Hybrid Benefit 讓您能夠以較低的成本來使用內部部署 Windows Server 授權，以及在 Azure 上執行 Windows 虛擬機器。 您可以使用適用於 Windows Server 的 Azure Hybrid Benefit，從任何 Azure 支援的平台 Windows Server 映像或 Windows 自訂映像來部署新的虛擬機器。 本文章會詳述使用適用於 Windows Server 的 Azure Hybrid Benefit 來部署新 VM 的步驟，以及您如何更新現有的執行中 VM。 如需有關適用於 Windows Server 之 Azure Hybrid Benefit 的授權和節省成本詳細資訊，請參閱[適用於 Windows Server 的 Azure Hybrid Benefit 授權頁面](https://azure.microsoft.com/pricing/hybrid-use-benefit/)。
 
 > [!IMPORTANT]
 > Azure Marketplace 上針對 Enterprise 合約客戶所發行的舊版 '[HUB]' Windows Server 映像已於 2017 年 9 月 11 日終止服務。請使用入口網站上附有「省錢」選項的標準 Windows Server ，以取得適用於 Windows Server 的 Azure Hybrid Benefit。 如需詳細資訊，請參閱此[文章](https://support.microsoft.com/en-us/help/4036360/retirement-azure-hybrid-use-benefit-images-for-ea-subscriptions)。
 >
 
 > [!NOTE]
-> 適用於 Windows Server 的 Azure Hybrid Benefit 無法搭配需支付如 SQL Server 或任何協力廠商市集映像等其他軟體費用的 VM 使用。 如果您嘗試轉換具有其他軟體成本的 Windows Server VM，您會收到 409 錯誤，例如：「不允許變更屬性 'LicenseType'」。 
+> 搭配需支付如 SQL Server 或任何協力廠商市集映像等其他軟體費用的 VM ，來使用適用於 Windows Server 的 Azure Hybrid Benefit 已推出。如果您收到 409 錯誤，例如：不允許變更屬性 'LicenseType'，則您是嘗試轉換或部署有其他軟體成本的新 Windows Server VM，在該區域中可能不受支援。
 >
 
 
@@ -42,10 +42,11 @@ ms.lasthandoff: 10/11/2017
 
 1. 您可以從 [Azure Marketplace 上所提供的其中一個 Windows Server 映像](#https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview) \(英文\) 來部署 VM
 2. 您可以[上傳自訂 VM](#upload-a-windows-vhd)，並使用 [Resource Manager 範本](#deploy-a-vm-via-resource-manager)或 [Azure PowerShell](#detailed-powershell-deployment-walkthrough) 進行部署
+3. 您可以在使用 Azure Hybrid Benefit 執行或支付 Windows Server 的隨選成本之間，切換及轉換現有的 VM
 4. 您也可以使用適用於 Windows Server 的 Azure Hybrid Benefit 部署新的虛擬機器擴展集
 
 > [!NOTE]
-> 目前不支援將現有的虛擬機器或虛擬機器擴展集轉換為使用適用於 Windows Server 的 Azure Hybrid Benefit
+> 不支援將現有的虛擬機器擴展集轉換為使用適用於 Windows Server 的 Azure Hybrid Benefit
 >
 
 ## <a name="deploy-a-vm-from-a-windows-server-marketplace-image"></a>從 Windows Server 市集映像部署 VM
@@ -61,6 +62,26 @@ Get-AzureRmVMImagesku -Location westus -PublisherName MicrosoftWindowsServer -Of
 
 ### <a name="portal"></a>入口網站
 您可以遵循步驟來[使用 Azure 入口網站建立 Windows 虛擬機器](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal)，然後選取要使用現有 Windows Server 授權的選項。
+
+## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>轉換使用適用於 Windows Server 的 Azure Hybrid Benefit 的現有 VM
+如果您有想要將其轉換為利用適用於 Windows Server 的 Azure Hybrid Benefit 的現有 VM，您可以更新 VM 的授權類型，如下所示：
+
+### <a name="convert-to-using-azure-hybrid-benefit-for-windows-server"></a>轉換為使用適用於 Windows Server 的 Azure Hybrid Benefit
+```powershell
+$vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
+$vm.LicenseType = "Windows_Server"
+Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
+```
+
+### <a name="convert-back-to-pay-as-you-go"></a>轉換回隨用隨付
+```powershell
+$vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
+$vm.LicenseType = "None"
+Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
+```
+
+### <a name="portal"></a>入口網站
+您可以從入口網站 VM 刀鋒視窗中，藉由選取 [設定] 選項並且切換 [Azure Hybrid Benefit] 選項，將 VM 更新為使用 Azure Hybrid Benefit
 
 ## <a name="upload-a-windows-server-vhd"></a>上傳 Windows Server VHD
 若要在 Azure 中部署 Windows Server VM，您必須先建立包含基底 Windows 組建的 VHD。 您必須先透過 Sysprep 妥善準備這個 VHD，再將其上傳至 Azure。 您可以深入了解 [VHD 需求和 Sysprep 處理序](upload-generalized-managed.md)及 [伺服器角色的 Sysprep 支援](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)。 執行 Sysprep 前，請先備份 VM。 
@@ -78,7 +99,6 @@ Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\m
 >
 
 您也可以深入了解 [將 VHD 上傳至 Azure 的程序](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account)
-
 
 ## <a name="deploy-a-vm-via-resource-manager-template"></a>透過 Resource Manager 範本部署 VM
 在 Resource Manager 範本內，必須指定 `licenseType` 的額外參數。 您可以進一步了解如何 [製作 Azure Resource Manager 範本](../../resource-group-authoring-templates.md)。 將 VHD 上傳至 Azure 之後，請編輯 Resource Manager 範本以將授權類型納入計算提供者，之後再照常部署範本即可：
@@ -100,7 +120,6 @@ New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -
 ```
 
 您可以閱讀透過不同步驟來[使用 Resource Manager 和 PowerShell 建立 Windows VM](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 的詳述指南。
-
 
 ## <a name="verify-your-vm-is-utilizing-the-licensing-benefit"></a>確認您的 VM 可享受授權權益
 透過 PowerShell、Resource Manager 範本或入口網站部署 VM 之後，您可以依下列方式使用 `Get-AzureRmVM` 來驗證授權類型：
@@ -161,7 +180,9 @@ foreach ($vm in $vms) {"VM Name: " + $vm.Name, "   Azure Hybrid Benefit for Wind
 您也可以[建立和部署虛擬機器擴展集](#https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create)，並設定 LicenseType 屬性
 
 ## <a name="next-steps"></a>後續步驟
-深入了解[適用於 Windows Server 的 Azure Hybrid Benefit 授權](https://azure.microsoft.com/pricing/hybrid-use-benefit/)。
+深入了解[如何使用 Azure Hybrid Benefit 來節省成本](https://azure.microsoft.com/pricing/hybrid-use-benefit/)。
+
+深入了解[適用於 Windows Server 的 Azure Hybrid Benefit 授權詳細指導方針](http://go.microsoft.com/fwlink/?LinkId=859786)
 
 深入了解如何[使用 Resource Manager 範本](../../azure-resource-manager/resource-group-overview.md)。
 

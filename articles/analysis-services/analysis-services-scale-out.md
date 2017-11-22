@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: owend
-ms.openlocfilehash: 0e58862684e62a65cf11266cc0320a9acd781f07
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: a97f9648efef7f07659110d720c200dcd0a241a9
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 擴充
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/06/2017
 
 無論您在查詢集區中擁有多少個查詢複本，處理工作負載都不會分散在各查詢複本之間。 單一伺服器可作為處理伺服器使用。 查詢複本僅針對查詢集區中每個複本之間同步的模型提供查詢。 
 
-處理作業完成之後，必須在處理伺服器與查詢複本伺服器之間執行同步處理。 自動化處理作業時，請務必在成功完成處理作業後設定同步作業。
+處理作業完成之後，必須在處理伺服器與查詢複本伺服器之間執行同步處理。 自動化處理作業時，請務必在成功完成處理作業後設定同步作業。 透過入口網站中或使用 PowerShell 或 REST API，可以手動執行同步。
 
 > [!NOTE]
 > 標準定價層中的伺服器可以使用擴充。 每個查詢複本會以您伺服器的相同費率計費。
@@ -58,12 +58,10 @@ ms.lasthandoff: 11/06/2017
 
 主要伺服器上的表格式模型會與複本伺服器同步。 同步處理完成時，查詢集區即會開始分散複本伺服器之間的傳入查詢。 
 
-### <a name="powershell"></a>PowerShell
-使用 [Set-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver) Cmdlet。 指定 `-Capacity` 參數值 > 1。
 
 ## <a name="synchronization"></a>同步處理 
 
-當您佈建新查詢複本時，Azure Analysis Services 會自動在所有複本上複寫您的模型。 也可以手動執行同步。 當您處理模型時，應該先執行同步處理，以便在查詢複本之間同步更新。
+當您佈建新查詢複本時，Azure Analysis Services 會自動在所有複本上複寫您的模型。 您也可以使用入口網站或 REST API 來執行手動同步。 當您處理模型時，應該先執行同步處理，以便在您的查詢複本之間同步更新。
 
 ### <a name="in-azure-portal"></a>Azure 入口網站
 
@@ -72,12 +70,16 @@ ms.lasthandoff: 11/06/2017
 ![擴充滑桿](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>REST API
+使用**同步**作業。
 
-同步處理模型   
-`POST https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+#### <a name="synchronize-a-model"></a>同步處理模型   
+`POST https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
-取得模型同步處理狀態  
-`GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+#### <a name="get-sync-status"></a>取得同步處理狀態  
+`GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
+
+### <a name="powershell"></a>PowerShell
+若要從 PowerShell 執行同步處理，請[更新至最新](https://github.com/Azure/azure-powershell/releases) 5.01 版或更高版本的 AzureRM 模組。 使用 [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance)。
 
 ## <a name="connections"></a>連線
 

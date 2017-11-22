@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/02/2017
+ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: 35d05b7003d731610df816c8470acc9133a4a6de
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: d0f835db8a9fbe3833a9c7931ad1d8b4a778f016
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>使用 Azure PowerShell 執行 Azure Cosmos DB 資料表 API 作業 
 
@@ -47,7 +47,7 @@ Azure Cosmos DB 資料表 API 可讓您儲存和查詢龐大的結構化、非�
 Install-Module AzureRmStorageTable
 ```
 
-由於 Azure Cosmos DB 資料表 API 處於預覽狀態，您必須在本機上安裝其組件，才能使用這些 PowerShell Cmdlet。 如需如何執行該動作的指示，請參閱[適用於 Cosmos DB 資料表的 Azure RM 儲存體資料表 PowerShell 模組](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/) \(英文\)。
+然後須在本機安裝 Azure Cosmos DB 組件，才能使用這些 PowerShell。 如需如何執行該動作的指示，請參閱[適用於 Cosmos DB 資料表的 Azure RM 儲存體資料表 PowerShell 模組](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/) \(英文\)。
 
 若要嘗試下列練習，您需要 Azure Cosmos DB 資料庫帳戶。 如果您還沒有帳戶，請使用 [Azure 入口網站](https://portal.azure.com)建立一個新的 Azure Cosmos DB 帳戶。 如需建立新資料庫帳戶的說明，請參閱 [Azure Cosmos DB：建立資料庫帳戶](create-table-dotnet.md#create-a-database-account)。
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure 上的 Kubernertes 教學課程 - 部署叢集 | Microsoft Docs"
+title: "Azure 上的 Kubernetes 教學課程 - 部署叢集 | Microsoft Docs"
 description: "AKS 教學課程 - 部署叢集"
 services: container-service
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7f9991d2254011080185a555f5351dce85f73704
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 69dea4ab748d88d18cf01dc9b3fc1bdddd562681
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>部署 Azure Container Service (AKS) 叢集
 
@@ -52,7 +52,7 @@ az provider register -n Microsoft.ContainerService
 下列範例會在名為 `myResourceGroup` 的資源群組中，建立名為 `myK8sCluster` 的叢集。 我們已在[先前的教學課程](./tutorial-kubernetes-prepare-acr.md)中建立此資源群組。
 
 ```azurecli
-az aks create --resource-group myResourceGroup --name myK8sCluster --agent-count 1 --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
 ```
 
 幾分鐘之後，部署就會完成，並以 JSON 格式傳回 AKS 部署的相關資訊。

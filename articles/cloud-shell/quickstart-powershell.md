@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
-ms.openlocfilehash: fd1d340bc0408eaeb0b7b18235df109224eae5f5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 995a5bf0b28f6bfa0e501f5930b9efcad9041b8c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Azure Cloud Shell 中 PowerShell 的快速入門
+# <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Azure Cloud Shell 中 PowerShell 的快速入門 (預覽)
 
 本文件會詳細說明如何在 [Azure 入口網站](https://aka.ms/PSCloudPreview)中使用 Azure Cloud Shell 中的 PowerShell。
 
@@ -227,7 +227,7 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 
 ### <a name="discover-webapps"></a>探索 WebApp
 
-進入 `WebApps` 資料夾，即可輕鬆地導覽儲存體資源
+進入 `WebApps` 資料夾，即可輕鬆地導覽 Web 應用程式資源
 
 ``` PowerShell
 PS Azure:\MySubscriptionName> dir .\WebApps\
@@ -243,15 +243,15 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 
 
-# You can use Azure cmdlets to Start/Stop your web apps for example,
+# You can use Azure cmdlets to Start/Stop your web apps
 PS Azure:\MySubscriptionName\WebApps> Start-AzureRmWebApp -Name mywebapp1 -ResourceGroupName MyResourceGroup1
 
 Name           State    ResourceGroup        EnabledHostNames                   Location
 ----           -----    -------------        ----------------                   --------
 mywebapp1      Running  MyResourceGroup1     {mywebapp1.azurewebsites.net ...   West US
 
-# Refresh the current state with -force
-PS Azure:\MySubscriptionName\WebApps> dir -force
+# Refresh the current state with -Force
+PS Azure:\MySubscriptionName\WebApps> dir -Force
 
     Directory: Azure:\MySubscriptionName\WebApps
 
@@ -266,7 +266,7 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ## <a name="list-available-commands"></a>列出可用命令
 
-在 `Azure` 磁碟機下，鍵入 `Get-AzureRmCommand` 以取得內容特定 Azure 命令。
+在 `Azure` 磁碟機下，輸入 `Get-AzureRmCommand` 以取得內容特定的 Azure 命令。
 
 或者，您可以一律使用 `Get-Command *azurerm* -Module AzureRM.*` 來找出可用的 Azure 命令。
 
@@ -282,7 +282,7 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 PS Azure:\> Get-Help
 ```
 
-例如，針對特定命令，您仍然可以執行後接 Cmdlet 的 Get-Help。
+如要查找某個特定命令，您仍然可以執行後接 Cmdlet 的 Get-Help。
 
 ``` Powershell
 PS Azure:\> Get-Help Get-AzureRmVM
@@ -290,7 +290,7 @@ PS Azure:\> Get-Help Get-AzureRmVM
 
 ## <a name="use-azure-file-storage-to-store-your-data"></a>使用 Azure 檔案儲存體來儲存資料
 
-您可以建立指令碼 (例如 `helloworld.ps1`)，並將它儲存至 clouddrive，以跨殼層工作階段使用它。
+您可以建立指令碼 (例如 `helloworld.ps1`)，並將它儲存至 `CloudDrive`，以跨殼層工作階段使用它。
 
 ``` Powershell
 cd C:\users\ContainerAdministrator\CloudDrive
@@ -310,13 +310,13 @@ Hello World!
 
 ## <a name="use-git"></a>使用 Git
 
-若要在 CloudShell 中複製 git 存放庫，您需要建立[個人存取權杖][githubtoken]，並使用它作為使用者名稱。 有了權杖之後，請複製存放庫，如下所示：
+若要在 Cloud Shell 中複製 git 存放庫，您需要建立[個人存取權杖][githubtoken]，並使用它作為使用者名稱。 有了權杖之後，請複製存放庫，如下所示：
 
  ``` PowerShell
   git clone https://<your-access-token>@github.com/username/repo.git
 
 ```
-因為在您登出或工作階段逾時之後不會保存 CloudShell 中的工作階段，所以下次登入時不會有 Git 設定檔。 若要保存您的 Git 設定，您必須將 .gitconfig 儲存至 `CloudDrive`，並複製它，或在啟動 `CloudShell` 時建立符號連結。 在 profile.ps1 中使用下列程式碼片段，建立與 `CloudDrive` 的符號連結。
+因為在您登出或工作階段逾時之後不會保存 Cloud Shell 中的工作階段，所以下次登入時不會有 Git 設定檔。 若要保存您的 Git 設定，您必須將 .gitconfig 儲存至 `CloudDrive`並複製它，或是在啟動 Cloud Shell 時建立符號連結。 在 profile.ps1 中使用下列程式碼片段，建立與 `CloudDrive` 的符號連結。
 
  ``` PowerShell
  

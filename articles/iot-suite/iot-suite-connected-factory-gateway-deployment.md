@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/24/2017
+ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: e99a7bc34ac5ed060100e5f5032513bf4b18b2eb
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: f6a69ecbeb09dc042eff7c1f95ee518e701b0507
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>在 Windows 或 Linux 上部署連線處理站預先設定解決方案的閘道
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/06/2017
 ## <a name="windows-deployment"></a>Windows 部署
 
 > [!NOTE]
-> 如果您還沒有閘道裝置，Microsoft 建議您從我們的合作夥伴購買商業閘道。 請瀏覽 [Azure IoT 裝置目錄]尋找與連線處理站解決方案相容的閘道裝置清單。 依照裝置隨附的指示來設定閘道。 或者，使用下列指示手動設定其中一個現有的閘道。
+> 如果您還沒有閘道裝置，Microsoft 建議您向合作夥伴購買商業閘道。 請瀏覽 [Azure IoT 裝置目錄]尋找與連線處理站解決方案相容的閘道裝置清單。 依照裝置隨附的指示來設定閘道。 或者，使用下列指示手動設定其中一個現有的閘道。
 
 ### <a name="install-docker"></a>安裝 Docker
 
@@ -103,7 +103,7 @@ ms.lasthandoff: 11/06/2017
 ## <a name="linux-deployment"></a>Linux 部署
 
 > [!NOTE]
-> 如果您還沒有閘道裝置，Microsoft 建議您從我們的合作夥伴購買商業閘道。 請瀏覽 [Azure IoT 裝置目錄]尋找與連線處理站解決方案相容的閘道裝置清單。 依照裝置隨附的指示來設定閘道。 或者，使用下列指示手動設定其中一個現有的閘道。
+> 如果您還沒有閘道裝置，Microsoft 建議您向合作夥伴購買商業閘道。 請瀏覽 [Azure IoT 裝置目錄]尋找與連線處理站解決方案相容的閘道裝置清單。 依照裝置隨附的指示來設定閘道。 或者，使用下列指示手動設定其中一個現有的閘道。
 
 在 Linux 閘道裝置上[安裝 Docker]。
 

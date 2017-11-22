@@ -4,7 +4,7 @@ description: "了解 StorSimple Virtual Array 的軟體和網路功能需求"
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/16/2017
+ms.date: 11/14/2017
 ms.author: alkohli
-ms.openlocfilehash: 8cae0577d950e3968bc25083e59d637963e6b442
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 5d01523f326bd7e2518bff06e62ae62db8f318d3
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple Virtual Array 系統需求
 ## <a name="overview"></a>概觀
@@ -41,7 +41,10 @@ ms.lasthandoff: 11/06/2017
 | **Hypervisor** | **版本** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 和更新版本 |
-| VMware ESXi |5.5 和 6.0 |
+| VMware ESXi |5.0、5.5 和 6.0 <br> (不支援 6.5。) |
+
+> [!IMPORTANT]
+> 請勿在您的 StorSimple Virtual Array 上安裝 VMware 工具，這樣會導致不支援的設定。
 
 ### <a name="virtual-device-requirements"></a>虛擬裝置需求
 | **元件** | **需求** |
@@ -79,8 +82,8 @@ ms.lasthandoff: 11/06/2017
 | SMB 3.02 |
 
 > [!IMPORTANT]
-> 請勿將 Windows 加密檔案系統 (EFS) 保護的檔案複製或儲存到 StorSimple 虛擬陣列檔案伺服器；這會導致不支援的組態。 
-> 
+> 請勿將 Windows 加密檔案系統 (EFS) 保護的檔案複製或儲存到 StorSimple 虛擬陣列檔案伺服器；這會導致不支援的組態。
+
 
 ### <a name="supported-storage-format"></a>支援的儲存體格式
 僅支援 Azure 區塊 Blob 儲存體。 不支援分頁 Blob。 關於[區塊 Blob 和分頁 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 的其他資訊。

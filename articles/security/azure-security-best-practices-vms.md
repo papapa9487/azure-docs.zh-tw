@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: yurid
-ms.openlocfilehash: c8a920a0523cb4737e6bbca7e49d0b9e2c942565
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7122e2f5f7ebc8ef0c6b2083257f26d8d2e5e345
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Azure VM 安全性的最佳作法
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="vm-authentication-and-access-control"></a>VM 驗證和存取控制
 
-保護 VM 的第一個步驟是確保只有已獲授權的使用者能夠設定新的 VM。 您可以使用 [Azure Resource Manager 原則](../azure-resource-manager/resource-manager-policy.md)來建立組織中資源的慣例、建立自訂原則，並將這些原則套用到資源，例如[資源群組](../azure-resource-manager/resource-group-overview.md)。
+保護 VM 的第一個步驟是確保只有已獲授權的使用者能夠設定新的 VM。 您可以使用 [Azure 原則](../azure-policy/azure-policy-introduction.md)來建立組織中資源的慣例、建立自訂原則，並將這些原則套用到資源，例如[資源群組](../azure-resource-manager/resource-group-overview.md)。
 
 屬於資源群組的 VM 自然會繼承其原則。 雖然建議這種方法來管理 VM，您也可以使用[角色型存取控制 (RBAC)](../active-directory/role-based-access-control-configure.md)來控制存取個別 VM 原則。
 

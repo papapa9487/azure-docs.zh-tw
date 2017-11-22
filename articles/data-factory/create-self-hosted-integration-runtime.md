@@ -3,7 +3,7 @@ title: "在 Azure Data Factory 中建立自我裝載整合執行階段 | Microso
 description: "了解如何在 Azure Data Factory 中建立自我裝載整合執行階段，它可讓資料處理站存取私人網路中的資料存放區。"
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: nabhishek
 manager: jhubbard
 editor: monicar
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: spelluru
-ms.openlocfilehash: 63e4bb600d053a43c500b601a3942eb96ac16b07
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.author: abnarain
+ms.openlocfilehash: 0fcc245369d90042066cbfc516a8c32db7272bd3
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>如何建立和設定自我裝載整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。
@@ -103,11 +103,11 @@ ms.lasthandoff: 10/19/2017
 
 
 ## <a name="high-availability-and-scalability"></a>高可用性和延展性
-自我裝載整合執行階段可以與多部內部部署電腦相關聯。 這些電腦稱為節點。 您最多可以將四個節點關聯到一個自我裝載整合執行階段。 讓邏輯閘道擁有多個節點 (安裝了閘道的內部部署機器) 的好處如下：
+自我裝載的 Integration Runtime 可以與多部內部部署電腦相關聯。 這些電腦稱為節點。 您最多可以將四個節點關聯到一個自我裝載整合執行階段。 讓邏輯閘道擁有多個節點 (安裝了閘道的內部部署機器) 的好處如下：
 1. 自我裝載整合執行階段的高可用性能夠確保最多 4 個節點的持續性，如此一來它就不再是您的巨量資料解決方案或 Azure Data Factory 雲端資料整合的單一失敗點。
 2. 提升在內部部署和雲端資料存放區之間移動資料時的效能和輸送量。 如需詳細資訊，請參閱[效能比較](copy-activity-performance.md)。
 
-您可以關聯多個節點，方法是直接從[下載中心](https://www.microsoft.com/download/details.aspx?id=39717)安裝自我裝載整合執行階段軟體，並使用從 New-AzureRmDataFactoryV2IntegrationRuntimeKey Cmdlet 取得的驗證金鑰來註冊它，如[教學課程](tutorial-hybrid-copy-powershell.md)中所述
+您可以關聯多個節點，方法是直接從[下載中心](https://www.microsoft.com/download/details.aspx?id=39717)安裝自我裝載 Integration Runtime 軟體，並使用從 New-AzureRmDataFactoryV2IntegrationRuntimeKey Cmdlet 取得的驗證金鑰來註冊它，如[教學課程](tutorial-hybrid-copy-powershell.md)中所述。
 
 > [!NOTE]
 > 您不需要建立新的自我裝載整合執行階段來關聯每個節點。

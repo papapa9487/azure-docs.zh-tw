@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/24/2017
 ms.author: adegeo
-ms.openlocfilehash: b8a9204b9eece396fbc30eacc8912ba9e655b963
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: d203580f676d55acbad4936160982a40592af1d0
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="scale-a-service-fabric-cluster"></a>調整 Service Fabric 叢集
 
-本教學課程為系列的第三個部分，解說如何相應放大和縮小現有叢集。 完成時，您將知道如何調整叢集，以及如何清除任何剩餘的資源。
+本教學課程為系列課程的第二個部分，解說如何相應放大和縮小現有叢集。 完成時，您將知道如何調整叢集，以及如何清除任何剩餘的資源。
 
 在本教學課程中，您將了解如何：
 

@@ -15,22 +15,24 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 1a40c4cc064b32aced7e976f40f6ed6a57e62204
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 1860ede19202566947b68b715e6bd354f64c1085
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="deploy-openshift-origin-in-azure"></a>在 Azure 中部署 OpenShift Origin
 
-有多種方式可以在 Azure 中部署 OpenShift Origin。 您可以手動部署所需的所有 Azure 基礎結構元件，然後依照 OpenShift Origin [文件](https://docs.openshift.org/3.6/welcome/index.html) \(英文\) 進行。
-您也可以使用能夠簡化 OpenShift Origin 叢集部署的現有 Resource Manager 範本。 一旦這類範本位於[這裡](https://github.com/Microsoft/openshift-origin) \(英文\)。
+您可使用這兩種方式之一在 Azure 中部署 OpenShift Origin：
 
-## <a name="deploy-using-the-openshift-origin-template"></a>使用 OpenShift Origin 範本部署
+- 您可以手動部署所需的所有 Azure 基礎結構元件，然後依照 OpenShift Origin [文件](https://docs.openshift.org/3.6/welcome/index.html)進行。
+- 您也可以使用能夠簡化 OpenShift Origin 叢集部署的現有 [Resource Manager 範本](https://github.com/Microsoft/openshift-origin)。
+
+## <a name="deploy-by-using-the-openshift-origin-template"></a>使用 OpenShift Origin 範本部署進行部署
 
 使用您稍早針對 `aadClientId` 參數所建立之服務主體中的 `appId` 值。
 
-下列範例會建立名為 **azuredeploy.parameters.json**，且具有所有必要輸入的參數檔案。
+下列範例會建立名為 azuredeploy.parameters.json，且具有所有必要輸入的參數檔案。
 
 ```json
 {
@@ -92,13 +94,13 @@ ms.lasthandoff: 10/25/2017
 }
 ```
 
-### <a name="deploy-using-azure-cli"></a>使用 Azure CLI 部署
+### <a name="deploy-by-using-azure-cli"></a>使用 Azure CLI 進行部署
 
 
 > [!NOTE] 
-> 下列命令需要 Azure CLI 2.0.8 或更新版本。 您可以使用 `az --version` 命令來確認 az CLI 版本。 若要更新 CLI 版本，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+> 下列命令需要 Azure CLI 2.0.8 或更新版本。 您可以使用 `az --version` 命令來確認 CLI 版本。 若要更新 CLI 版本，請參閱[安裝 Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)。
 
-下列範例會使用 myOpenShiftCluster 的部署名稱，將 OpenShift 叢集和所有相關的資源部署到名稱為 myResourceGroup 的資源群組。 範本直接參考自 Github 儲存機制，而且會使用名為 **azuredeploy.parameters.json** 檔案的本機參數檔案。
+下列範例會使用 myOpenShiftCluster 的部署名稱，將 OpenShift 叢集和所有相關的資源部署到名稱為 myResourceGroup 的資源群組。 範本使用名為 azuredeploy.parameters.json 的本機參數檔案，直接參考自 Github 存放庫。
 
 ```azurecli 
 az group deployment create -g myResourceGroup --name myOpenShiftCluster \
@@ -125,7 +127,7 @@ $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
 
 ## <a name="clean-up-resources"></a>清除資源
 
-若不再需要，您可以使用 [az group delete](/cli/azure/group#delete) 命令將資源群組、OpenShift 叢集和所有相關資源移除。
+當不再需要資源時，您可以使用 [az group delete](/cli/azure/group#delete) 命令，移除資源群組、OpenShift 叢集和所有相關資源。
 
 ```azurecli 
 az group delete --name myResourceGroup
@@ -134,5 +136,5 @@ az group delete --name myResourceGroup
 ## <a name="next-steps"></a>後續步驟
 
 - [部署後工作](./openshift-post-deployment.md)
-- [OpenShift 部署疑難排解](./openshift-troubleshooting.md)
-- [開始使用 OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html) \(英文\)
+- [針對 OpenShift 部署進行疑難排解](./openshift-troubleshooting.md)
+- [開始使用 OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: 0598ee93a38c07aa7b1102cdaf228c2a4b4dcf71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8a42638c79a8a53f80102fc344eccb521e4c1c5
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本來建立服務匯流排命名空間
 
 本文說明如何使用 Azure Resource Manager 範本，建立**訊息**類型的服務匯流排命名空間與標準 SKU。 本文也會定義針對部署執行而指定的參數。 您可以直接在自己的部署中使用此範本，或自訂此範本以符合您的需求。
 
-如需建立範本的詳細資訊，請參閱[編寫 Azure Resource Manager 範本][Authoring Azure Resource Manager templates]。
+如需關於建立範本的詳細資訊，請參閱[編寫 Azure Resource Manager 範本][Authoring Azure Resource Manager templates]。
 
 如需完整的範本，請參閱 GitHub 上的 [服務匯流排命名空間範本][Service Bus namespace template]。
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="parameters"></a>參數
 透過 Azure 資源管理員，您可以定義在部署範本時想要指定之值的參數。 此範本有一個 `Parameters` 區段，內含所有參數值。 您應該為會隨著要部署的專案或要部署到的環境而變化的值定義參數。 請不要為永遠保持不變的值定義參數。 每個參數值都可在範本中用來定義所部署的資源。
 
-此範本會定義下列參數。
+此範本會定義下列參數：
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 要建立的服務匯流排命名空間名稱。
@@ -81,7 +81,7 @@ ms.lasthandoff: 10/11/2017
 
 ```
 
-此範本會定義此參數允許使用的值 (標準或進階)，並指派未指定任何值時的預設值 (標準)。
+此範本會定義此參數允許使用的值 (標準或進階)。 如果未指定任何值，資源管理員會指定預設值 (標準)。
 
 如需服務匯流排定價的詳細資訊，請參閱[服務匯流排定價與計費][Service Bus pricing and billing]。
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 10/11/2017
 ```json
 "serviceBusApiVersion": { 
        "type": "string", 
-       "defaultValue": "2015-08-01", 
+       "defaultValue": "2017-04-01", 
        "metadata": { 
            "description": "Service Bus ApiVersion used by the template" 
        } 

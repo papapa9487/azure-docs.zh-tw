@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2017
+ms.date: 11/10/2017
 ms.author: larryfr
-ms.openlocfilehash: 6ea3114a30b0ae313efb14495f5556e5484bef06
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d7e4e064a451831c7cf0753064522d0a0b4f5d63
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>使用 HDInsight 上的 Spark 分析 Application Insights 遙測記錄檔
 
@@ -61,7 +61,7 @@ Application Insights 可以設定為持續將遙測資訊匯出到 blob。 HDIns
 
 * **blob 類型**：HDInsight 僅支援區塊 blob。 Application Insights 預設為使用區塊 blob，因此應該使用預設項目來搭配 HDInsight。
 
-如需將其他儲存體新增至現有 HDInsight 叢集的資訊，請參閱[新增其他儲存體帳戶](../hdinsight-hadoop-add-storage.md)文件。
+如需將儲存體新增至現有 叢集的資訊，請參閱[新增其他儲存體帳戶](../hdinsight-hadoop-add-storage.md)。
 
 ### <a name="data-schema"></a>資料結構描述
 
@@ -79,7 +79,7 @@ Application Insights 提供 [匯出資料模型](../../application-insights/app-
 
 ## <a name="analyze-the-data-pyspark"></a>分析資料︰PySpark
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中選取您 HDInsight 叢集上的 Spark。 在 [快速連結] 區段中，選取 [叢集儀表板]，然後選取 [叢集儀表板] 刀鋒視窗中的 [Jupyter Notebook]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中選取您 HDInsight 叢集上的 Spark。 在 [快速連結] 區段中，選取 [叢集儀表板]，然後選取 [叢集儀表板] 區段中的 [Jupyter Notebook]。
 
     ![叢集儀表板](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
 
@@ -222,7 +222,7 @@ Application Insights 提供 [匯出資料模型](../../application-insights/app-
 
 ## <a name="analyze-the-data-scala"></a>分析資料︰Scala
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中選取您 HDInsight 叢集上的 Spark。 在 [快速連結] 區段中，選取 [叢集儀表板]，然後選取 [叢集儀表板] 刀鋒視窗中的 [Jupyter Notebook]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中選取您 HDInsight 叢集上的 Spark。 在 [快速連結] 區段中，選取 [叢集儀表板]，然後選取 [叢集儀表板] 區段中的 [Jupyter Notebook]。
 
     ![叢集儀表板](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
 2. 在 Jupyter 頁面右上角依序選取 [新增]、[Scala]。 新的瀏覽器索引標籤隨即出現，其中包含以 Scala 為基礎的 Jupyter Notebook。

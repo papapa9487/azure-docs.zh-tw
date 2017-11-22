@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: b9fd985c23558596408e78eadae00dd0f95c4214
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18eac72d75680ab12c4a0bea9dfc5ac8a5fce566
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk 服務：簽發者名稱和簽發者金鑰
 
@@ -76,13 +76,9 @@ Azure BizTalk 服務使用服務匯流排簽發者名稱和簽發者金鑰，以
 BizTalk 配接器服務會使用服務匯流排簽發者名稱和簽發者金鑰。 在 Visual Studio 中，您在 BizTalk 服務專案中使用 BizTalk 配接器服務來連線至內部部署企業營運 (LOB) 系統。 若要連線，您需要建立 LOB 轉送並輸入 LOB 系統詳細資料。 如果這樣做，則您也需要輸入服務匯流排簽發者名稱和簽發者金鑰。
 
 ### <a name="to-retrieve-the-service-bus-issuer-name-and-issuer-key"></a>擷取服務匯流排簽發者名稱和簽發者金鑰
-1. 登入 [Azure 傳統入口網站](http://go.microsoft.com/fwlink/p/?LinkID=213885)。
-2. 在左導覽窗格中，選取 [ **服務匯流排**]。
-3. 選取您的命名空間。 在工作列中，選取 [ **連線資訊**]。 這會顯示 **預設簽發者** (簽發者名稱) 和 **預設金鑰** (簽發者金鑰)。 您可以複製這些值。  
-
-總結：  
-簽發者名稱 = 預設簽發者  
-簽發者金鑰 = 預設金鑰
+1. 登入 [Azure 入口網站](http://portal.azure.com)。
+2. 搜尋**服務匯流排**，並選取您的命名空間。 
+3. 開啟 [共用存取原則] 屬性，選取您的原則，並檢視 [連接字串] 的名稱和金鑰值。  
 
 ## <a name="next"></a>下一步
 其他 Azure BizTalk 服務主題：
@@ -95,7 +91,7 @@ BizTalk 配接器服務會使用服務匯流排簽發者名稱和簽發者金鑰
 ## <a name="see-also"></a>另請參閱
 * [做法：使用 ACS 管理服務來設定服務身分識別](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
 * [BizTalk 服務：開發人員、基本、標準和高級版本圖表](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [BizTalk 服務：使用 Azure 傳統入口網站進行佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [BizTalk 服務：佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 * [BizTalk 服務：佈建狀態圖](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
 * [BizTalk 服務：儀表板、監視和調整索引標籤](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [BizTalk 服務：備份與還原](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>

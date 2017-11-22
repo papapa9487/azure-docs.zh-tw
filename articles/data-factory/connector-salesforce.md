@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure Data Factory 從 Salesforce 複製資料 | Microsoft Docs"
-description: "了解如何使用 Azure Data Factory 管線中的複製活動，將資料從 Salesforce 複製到支援的接收資料存放區。"
+title: "使用 Azure Data Factory 從/至 Salesforce 複製資料 | Microsoft Docs"
+description: "了解如何使用 Azure Data Factory 管線中的複製活動，將資料從 Salesforce 複製到支援的接收資料存放區，或是從支援的接收資料存放區複製到 Salesforce。"
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -11,29 +11,32 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: 7978e955bf5516a853443555ab10a69dcf22d63f
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 017d03b76bd19a0b3a1e19c22233c61be9067d0d
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="copy-data-from-salesforce-using-azure-data-factory"></a>使用 Azure Data Factory 從 Salesforce 複製資料
+# <a name="copy-data-fromto-salesforce-using-azure-data-factory"></a>使用 Azure Data Factory 從/至 Salesforce 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版 - 正式推出](v1/data-factory-salesforce-connector.md)
 > * [第 2 版 - 預覽](connector-salesforce.md)
 
-本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Salesforce 資料庫複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
+本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Salesforce 複製資料及將資料複製到 Salesforce。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
 > [!NOTE]
 > 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (也就是正式推出版 (GA))，請參閱 [V1 中的 Salesforce 連接器](v1/data-factory-salesforce-connector.md)。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
-您可以將資料從 Salesforce 資料庫複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
+您可以將資料從 Salesforce 複製到任何支援的接收資料存放區，或將資料從任何支援的來源資料存放區複製到 Salesforce。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
-具體而言，這個 Salesforce 連接器支援下列 Salesforce 版本：**Developer Edition、Professional Edition、Enterprise Edition 或 Unlimited Edition**。 並且支援從 Salesforce **生產環境、沙箱及自訂網域**複製資料。
+具體而言，這個 Salesforce 連接器支援：
+
+- 下列其中一個 Salesforce 版本︰**Developer Edition、Professional Edition、Enterprise Edition 或 Unlimited Edition**。
+- 從/至 Salesforce **生產環境、沙箱、自訂網域**複製資料。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -60,15 +63,20 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | 類型 |類型屬性必須設為： **Salesforce**。 |是 |
-| environmentUrl | 指定 Salesforce 執行個體的 URL。 <br><br> - 預設為 `"https://login.salesforce.com"`. <br> - 若要從沙箱複製資料，請指定 `"https://test.salesforce.com"`。 <br> - 若要從自訂網域複製資料，舉例來說，請指定 `"https://[domain].my.salesforce.com"`。 |否 |
+| environmentUrl | 指定 Salesforce 執行個體的 URL。 <br> - 預設為 `"https://login.salesforce.com"`. <br> - 若要從沙箱複製資料，請指定 `"https://test.salesforce.com"`。 <br> - 若要從自訂網域複製資料，舉例來說，請指定 `"https://[domain].my.salesforce.com"`。 |否 |
 | username |指定使用者帳戶的使用者名稱。 |是 |
-| password |指定使用者帳戶的密碼。 |是 |
-| securityToken |指定使用者帳戶的安全性權杖。 如需如何重設/取得安全性權杖的指示，請參閱 [取得安全性權杖](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 。 若要整體了解安全性權杖，請參閱[安全性和 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)。 |是 |
+| password |指定使用者帳戶的密碼。<br/><br/>您可以選擇將這個欄位標記為 SecureString 將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault，然後在執行複製資料時，讓 ADF 複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 |是 |
+| securityToken |指定使用者帳戶的安全性權杖。 如需如何重設/取得安全性權杖的指示，請參閱 [取得安全性權杖](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 。 若要整體了解安全性權杖，請參閱[安全性和 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)。<br/><br/>您可以選擇將這個欄位標記為 SecureString 將它安全地儲存在 ADF，或將安全性權杖儲存在 Azure Key Vault，然後在執行複製資料時，讓 ADF 複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 |是 |
+| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否 (來源)；是 (接收) |
 
-**範例：**
+>[!IMPORTANT]
+>若要將資料複製到 Salesforce，以 Salesforce 附近的位置明確[建立 Azure IR](create-azure-integration-runtime.md#create-azure-ir)，並在下列範例所示的連結服務中產生關聯。
+
+**範例： 將認證儲存在 ADF**
 
 ```json
 {
+    "name": "SalesforceLinkedService",
     "properties": {
         "type": "Salesforce",
         "typeProperties": {
@@ -81,22 +89,59 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
                 "type": "SecureString",
                 "value": "<security token>"
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
-    },
-    "name": "SalesforceLinkedService"
+    }
+}
+```
+
+**範例： 將認證儲存在 Azure Key Vault**
+
+```json
+{
+    "name": "SalesforceLinkedService",
+    "properties": {
+        "type": "Salesforce",
+        "typeProperties": {
+            "username": "<username>",
+            "password": {
+                "type": "AzureKeyVaultSecret",
+                "secretName": "<secret name of password in AKV>",
+                "store":{
+                    "referenceName": "<Azure Key Vault linked service>",
+                    "type": "LinkedServiceReference"
+                }
+            },
+            "securityToken": {
+                "type": "AzureKeyVaultSecret",
+                "secretName": "<secret name of security token in AKV>",
+                "store":{
+                    "referenceName": "<Azure Key Vault linked service>",
+                    "type": "LinkedServiceReference"
+                }
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
 }
 ```
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-如需可用來定義資料集的區段和屬性完整清單，請參閱資料集文章。 本節提供 Salesforce 資料集所支援的屬性清單。
+如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 Salesforce 資料集所支援的屬性清單。
 
-若要從 Salesforce 複製資料，請將資料集的類型屬性設定為 **RelationalTable**。 以下是支援的屬性：
+若要從 Salesforce 複製資料/複製資料至 Salesforce，將資料集的 type 屬性設定為 **SalesforceObject**。 以下是支援的屬性：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的類型屬性必須設定為：**RelationalTable** | 是 |
-| tableName | Salesforce 資料庫中的資料表名稱。 | 否 (如果已指定活動來源中的「查詢」) |
+| 類型 | type 屬性必須設為 **SalesforceObject**。  | 是 |
+| objectApiName | 要從其中擷取資料的 Salesforce 物件名稱。 | 否 (來源)；是 (接收) |
 
 > [!IMPORTANT]
 > 任何自訂物件都需要 API 名稱的「__c」部分。
@@ -108,31 +153,38 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 ```json
 {
     "name": "SalesforceDataset",
-    "properties":
-    {
-        "type": "RelationalTable",
+    "properties": {
+        "type": "SalesforceObject",
         "linkedServiceName": {
             "referenceName": "<Salesforce linked service name>",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
-            "tableName": "MyTable__c"
+            "objectApiName": "MyTable__c"
         }
     }
 }
 ```
 
-## <a name="copy-activity-properties"></a>複製活動屬性
-
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Salesforce 來源所支援的屬性清單。
-
-### <a name="salesforce-as-source"></a>Salesforce 作為來源
-
-若要從 Salesforce 複製資料，請將複製活動中的來源類型設定為 **RelationalSource**。 複製活動的 **source** 區段支援下列屬性：
+>[!NOTE]
+>基於向下相容性，從 Salesforce 複製資料時，使用先前的 RelationalTable 類型資料集仍能正常運作，但建議您改用新的 SalesforceObject 類型。
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
+| 類型 | 資料集的類型屬性必須設定為：**RelationalTable** | 是 |
+| tableName | Salesforce 中資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
+
+## <a name="copy-activity-properties"></a>複製活動屬性
+
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Salesforce 來源和接收所支援的屬性清單。
+
+### <a name="salesforce-as-source"></a>Salesforce 作為來源
+
+若要從 Salesforce 複製資料，請將複製活動中的來源類型設定為 **SalesforceSource**。 複製活動的 **source** 區段支援下列屬性：
+
+| 屬性 | 說明 | 必要 |
+|:--- |:--- |:--- |
+| 類型 | 複製活動來源的類型屬性必須設定為：**SalesforceSource** | 是 |
 | query |使用自訂查詢來讀取資料。 您可以使用 SQL-92 查詢或 [Salesforce 物件查詢語言 (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 查詢。 例如： `select * from MyTable__c`。 | 否 (如果已指定資料集中的 "tableName") |
 
 > [!IMPORTANT]
@@ -161,7 +213,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "SalesforceSource",
                 "query": "SELECT Col_Currency__c, Col_Date__c, Col_Email__c FROM AllDataType__c"
             },
             "sink": {
@@ -172,11 +224,61 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 ]
 ```
 
+>[!NOTE]
+>基於向下相容性，從 Salesforce 複製資料時，使用先前的 RelationalSource 類型複製來源仍能正常運作，但建議您改用新的 SalesforceSource 類型。
+
+### <a name="salesforce-as-sink"></a>Salesforce 作為接收
+
+若要將資料複製到 Salesforce，請將複製活動中的接收器類型設定為 **SalesforceSink**。 複製活動的 **sink** 區段支援下列屬性：
+
+| 屬性 | 說明 | 必要 |
+|:--- |:--- |:--- |
+| 類型 | 複製活動接收器的類型屬性必須設定為：**SalesforceSink** | 是 |
+| writeBehavior | 作業的寫入行為。<br/>允許的值為：**Insert** 和 **Upsert**。 | 否 (預設為 Insert) |
+| externalIdFieldName | upsert 作業的外部識別碼欄位的名稱。 指定的欄位在 Salesforce 物件中必須定義為「外部識別碼欄位」，且在對應的輸入資料中不能有 NULL 值。 | 是 (用於 upsert) |
+| writeBatchSize | 每個批次中寫入 Salesforce 的資料列計數。 | 否 (預設值為 5000) |
+| ignoreNullValues | 指出在寫入作業期間是否要忽略輸入資料中的 null 值。<br/>允許的值為：**true** 和 **false**。<br>- **true**：進行 upsert/更新作業時，目的地物件中的資料保持不變，進行插入作業時，插入定義的預設值。<br/>- **false**：進行 upsert/更新作業時，將目的地物件中的資料更加為 NULL，進行插入作業時，插入 NULL 值。 | 否 (預設值為 false) |
+
+### <a name="example-salesforce-sink-in-copy-activity"></a>範例：複製活動中的 Salesforce 接收
+
+```json
+"activities":[
+    {
+        "name": "CopyToSalesforce",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<Salesforce input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "SalesforceSink",
+                "writeBehavior": "Upsert",
+                "externalIdFieldName": "CustomerId__c",
+                "writeBatchSize": 10000,
+                "ignoreNullValues": true
+            }
+        }
+    }
+]
+```
+
 ## <a name="query-tips"></a>查詢秘訣
 
 ### <a name="retrieving-data-from-salesforce-report"></a>從 Salesforce 報表擷取資料
 
-您可以藉由以 `{call "<report name>"}. Example: `"query": "{call \"TestReport\"}"` 方式指定查詢，從 Salesforce 報表擷取資料。
+您可以藉由指定 `{call "<report name>"}` 格式的查詢，從 Salesforce 報表擷取資料。 範例：`"query": "{call \"TestReport\"}"`.
 
 ### <a name="retrieving-deleted-records-from-salesforce-recycle-bin"></a>從 Salesforce 資源回收筒擷取已刪除的記錄
 
@@ -189,8 +291,8 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 指定 SOQL 或 SQL 查詢時，請注意 DateTime 格式差異。 例如：
 
-* **SOQL 範例**：`$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', <datetime parameter>, <datetime parameter>)`
-* **SQL 範例**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', <datetime parameter>, <datetime parameter>)`
+* **SOQL 範例**：`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
+* **SQL 範例**`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}"`
 
 ## <a name="data-type-mapping-for-salesforce"></a>Salesforce 的資料類型對應
 
@@ -218,6 +320,5 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 | 文字 (加密) |String |
 | URL |String |
 
-
 ## <a name="next-steps"></a>後續步驟
-如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md##supported-data-stores-and-formats)。
+如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

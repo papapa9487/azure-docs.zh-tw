@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: 02317d1b74d10d0fb3a2a08d8f4292a6be0438c2
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 5d22b23d687dba2382e009e73f20014a5d528d78
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>快速入門：使用 .NET 與 Azure Cosmos DB 建置資料表 API 應用程式 
 
@@ -67,7 +67,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 2. 執行下列命令來複製範例存放庫。 此命令會在您的電腦上建立範例應用程式副本。 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
+    git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
 
 3. 然後在 Visual Studio 中開啟 TableStorage 方案檔案。 
@@ -78,22 +78,25 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 1. 在 [Azure 入口網站](http://portal.azure.com/)中按一下 [連接字串]。 
 
-    使用畫面右方的複製按鈕來複製連接字串。
+    使用畫面右方的複製按鈕來複製主要連接字串。
 
-    ![在 [連接字串] 窗格中檢視及複製「連接字串」](./media/create-table-dotnet/connection-string.png)
+    ![在 [連接字串] 窗格中檢視及複製主要連接字串](./media/create-table-dotnet/connection-string.png)
 
 2. 在 Visual Studio 中，開啟 App.config 檔案。 
 
-3. 將連接字串值貼到 App.config 檔案來做為 AzureCosmosDBTableAPIConnectionString 的值。 
+3. 本教學課程不會使用儲存體模擬器，因此請取消註解第 8 行的 StorageConnectionString，並將第 7 行的 StorageConnectionString 註解化。 
 
-    `<add key="CosmosDBStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
+3. 將主要連接字串值貼到第 8 行上的 StorageConnectionString 值。 
 
-    > [!NOTE]
-    > 若要將此應用程式與「Azure 資料表」儲存體搭配使用，您必須變更 `App.config file` 中的連接字串。 使用帳戶名稱作為資料表帳戶名稱，使用金鑰作為「Azure 儲存體」主要金鑰。 <br>
-    >`<add key="StandardStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
-    > 
-    >
+    ```
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />`
+    ```
+
+    行 8 現在看起來應該會類似
+
+    ```
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
+    ```
 
 4. 儲存 App.config 檔案。
 

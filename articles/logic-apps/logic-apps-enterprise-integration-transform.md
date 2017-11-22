@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: fb6027769377b3527b11f7831dab3bb8d7061c84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f09819a1bfd380cd826a478471e673b6d5ff9ee7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>具備 XML 轉換的企業整合
 ## <a name="overview"></a>概觀
@@ -50,6 +50,11 @@ ms.lasthandoff: 10/11/2017
    ![](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
 5. 選取 [轉換 XML] 動作   
 6. 新增您將轉換的 XML **內容**。 您可以使用在 HTTP 要求中收到的任何 XML 資料做為 **內容**。 在此範例中，選取觸發邏輯應用程式的 HTTP 要求本文。
+
+   > [!NOTE]
+   > 請確定 **轉換 XML** 的內容是 XML。 如果內容不是 XML 或是 base64 編碼，您必須指定可處理內容的運算式。 例如，您可以使用[函式](logic-apps-workflow-definition-language.md#functions)，如使用 ```@base64ToBinary``` 將內容解碼，或使用 ```@xml``` 將內容處理為 XML。
+ 
+
 7. 選取您想要用來執行轉換的 **對應** 名稱。 對應必須已經位於您的整合帳戶中。 在先前步驟中，您已經為邏輯應用程式提供權限來存取包含對應的整合帳戶。      
    ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
 8. 儲存您的工作   

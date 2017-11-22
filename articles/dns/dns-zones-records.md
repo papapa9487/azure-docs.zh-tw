@@ -15,11 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
-ms.openlocfilehash: 5818986c939c464a364c52ab31225e15130ab30e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 00f6309114039db23a1d22f1eb70076b842dadca
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS 區域和記錄的概觀
 
@@ -54,6 +54,16 @@ Azure DNS 目前不支援購買網域名稱。 若想要購買網域名稱，必
 Azure DNS 支援 [萬用字元記錄](https://en.wikipedia.org/wiki/Wildcard_DNS_record)。 萬用字元記錄會傳回具有相符名稱的任何查詢 (除非在非萬用字元記錄集內，還有更接近的相符項目)。 Azure DNS 支援 NS 和 SOA 以外的所有記錄類型的萬用字元記錄集。
 
 若要建立萬用字元記錄集，請使用記錄集名稱 '\*'。 或者，也可以使用最左邊標籤是 '\*' 的名稱，例如 '\*.foo'。
+
+### <a name="caa-records"></a>CAA 記錄
+
+CAA 記錄可讓網域擁有者指定哪些憑證授權單位 (CA) 有權為其網域發行憑證。 這可讓 CA 避免在某些情況下誤發憑證。 CAA 記錄都有三個屬性：
+* **旗標**：這是介於 0 到 255 之間的整數，用來表示對每個 [RFC](https://tools.ietf.org/html/rfc6844#section-3) 具有特殊意義的重要旗標
+* **標記**：ASCII 字串，可以是下列其中一項：
+    * **issue**：當您想要指定有權發行憑證 (所有類型) 的 CA 時，使用此選項
+    * **issuewild**：當您想要指定有權發行憑證 (僅限 Wildcard 憑證) 的 CA 時，使用此屬性
+    * **iodef**：指定當發生未授權的憑證發行要求時，CA 可通知的電子郵件地址或主機名稱
+* **值**：所選特定標記的值
 
 ### <a name="cname-records"></a>CNAME 記錄
 

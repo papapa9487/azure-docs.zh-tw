@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 2266bf17dd769102e70c20728ededb304f73beb4
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: df9ba6367b2d2ce1b2c281ce483e63b0baa9feb6
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-from-and-to-oracle-using-azure-data-factory"></a>使用 Azure Data Factory 從 Oracle 複製資料及將資料複製到該處
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -164,7 +164,7 @@ ms.lasthandoff: 11/06/2017
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為：**OracleSink** | 是 |
+| 類型 | 複製活動接收器的 type 屬性必須設定為：**OracleSink** | 是 |
 | writeBatchSize | 當緩衝區大小達到 writeBatchSize 時，將資料插入 SQL 資料表中<br/>允許的值為：整數 (資料列數目)。 |否 (預設值為 10000) |
 | writeBatchTimeout | 在逾時前等待批次插入作業完成的時間。<br/>允許的值為：時間範圍。 範例：00:30:00 (30 分鐘)。 | 否 |
 | preCopyScript | 指定一個供「複製活動」在每次執行時將資料寫入到 Oracle 前執行的 SQL 查詢。 您可以使用此屬性來清除預先載入的資料。 | 否 |

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/21/2017
+ms.date: 11/10/2017
 ms.author: larryfr
-ms.openlocfilehash: 4b606ea3797d685b9deacf72f1bd31e0ef007f98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f55abc84a8afea398cf0e95761d922b77e1c248
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>使用 SSH 通道來存取 Ambari Web UI、JobHistory、NameNode、Oozie 及其他 Web UI
 
@@ -48,7 +48,7 @@ Ambari 中的數個功能表只有透過 SSH 通道才能運作。 這些功能�
 
 ## <a name="prerequisites"></a>必要條件
 
-* SSH 用戶端。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
+* SSH 用戶端。 大多數系統可透過 `ssh` 命令提供 SSH 用戶端。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 * 可以設定為使用 SOCKS5 Proxy 的網頁瀏覽器。
 
@@ -74,9 +74,9 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 * **C** - 壓縮所有資料，因為網路流量大多是文字。
 * **2** - 強制 SSH 僅嘗試通訊協定第 2 版。
 * **q** - 無訊息模式。
-* **T** - 停用虛擬 tty 配置，因為我們只是轉送連接埠。
-* **n** - 防止讀取 STDIN，因為我們只是轉送連接埠。
-* **N** - 不執行遠端命令，因為我們只是轉送連接埠。
+* **T** - 停用虛擬 tty 配置，因為您只是轉送連接埠。
+* **n** - 防止讀取 STDIN，因為您只是轉送連接埠。
+* **N** - 不執行遠端命令，因為您只是轉送連接埠。
 * **f** - 在背景中執行。
 
 在命令完成後，會將傳送至本機電腦上連接埠 9876 的流量路由傳送至叢集前端節點。
@@ -99,7 +99,7 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
      
      ![通道處理選項的影像](./media/hdinsight-linux-ambari-ssh-tunnel/puttytunnel.png)
 
-4. 按一下 新增 以新增設定，然後按一下開啟 開啟 SSH 連線。
+4. 按一下 [新增] 以新增設定，然後按一下 [開啟] 開啟 SSH 連線。
 
 5. 出現提示時，登入伺服器。
 

@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 11/15/2017
 ms.author: denlee
-ms.openlocfilehash: b6cc51ad2bab294035f3ed8f300423d1d320df1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 71d9d03b45d8c4fcf8acb41871dcf3f1304955aa
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Azure Cosmos DB：圖形 API 簡介
 
@@ -44,7 +44,7 @@ Azure Cosmos DB 圖形 API 提供：
 - 可彈性調整的儲存體和輸送量，小於 10 毫秒的讀取延遲和低於 15 毫秒 (第 99 個百分位數)。
 - 透過立即查詢可用性自動編製索引。
 - 可調式一致性層級。
-- 完整的 SLA (包括 99.99% 可用性)。
+- 全面性的 SLA，包括對使用寬鬆一致性的所有單一區域帳戶和所有多重區域帳戶提供 99.99% 可用性 SLA ，對所有多區域資料庫帳戶提供 99.999% 的讀取可用性。
 
 若要查詢 Azure Cosmos DB，您可以使用 [Apache TinkerPop](http://tinkerpop.apache.org) 圖形周遊語言 [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)，或是其他 TinkerPop 相容的圖形系統 (如 [Apache Spark GraphX](spark-connector-graph.md))。
 

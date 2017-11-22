@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 3eb604321c244c6ceeb76d08ae39b21d1e777ece
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 373abb8f40a8acf557b7cd4a0d0b3fb55f4a545c
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="model-management-command-line-interface-reference"></a>模型管理命令列介面參考
 
@@ -69,6 +69,8 @@ ms.lasthandoff: 11/09/2017
                      the active MLC env.
 
 **設定部署環境**
+
+設定命令要求您具有訂用帳戶的參與者存取權。 如果您沒有該權限，您至少需有所要部署到資源群組的參與者存取權。 若要執行後者，您需要使用 `-g` 旗標將資源群組名稱指定為設定命令的一部分。 
 
 有兩個部署選項：「本機」和「叢集」。 設定 `--cluster` (或 `-c`) 旗標可進行叢集部署，以佈建 ACS 叢集。 基本設定語法如下所示：
 

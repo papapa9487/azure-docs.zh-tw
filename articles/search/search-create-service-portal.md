@@ -11,17 +11,17 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/01/2017
+ms.date: 11/07/2017
 ms.author: heidist
-ms.openlocfilehash: 58f4eab190e40e16ed261c165ffdfc8155eeb434
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eaf317b42026298cc42edcc907bc48169f869460
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>在入口網站中建立 Azure 搜尋服務
 
-本文說明如何在入口網站中建立或佈建 Azure 搜尋服務。 如需 PowerShell 的指示，請參閱[使用 PowerShell 管理 Azure 搜尋服務](search-manage-powershell.md)。
+了解如何在入口網站中建立或佈建 Azure 搜尋服務。 如需 PowerShell 的指示，請參閱[使用 PowerShell 管理 Azure 搜尋服務](search-manage-powershell.md)。
 
 ## <a name="subscribe-free-or-paid"></a>訂閱 (免費或付費)
 
@@ -34,20 +34,21 @@ ms.lasthandoff: 10/11/2017
 2. 按一下左上角的加號 ("+")。
 3. 選取 [Web + 行動] > [Azure 搜尋服務]。
 
-![](./media/search-create-service-portal/find-search2.png)
+![](./media/search-create-service-portal/find-search3.png)
 
 ## <a name="name-the-service-and-url-endpoint"></a>為服務和 URL 端點命名
 
-服務名稱是 URL 端點的一部分，API 呼叫是根據此端點所發出。 在 [URL] 欄位中輸入您的服務名稱。 
+服務名稱是 URL 端點的一部分，API 呼叫是根據此端點所發出：`https://your-service-name.search.windows.net`。 在 [URL] 欄位中輸入您的服務名稱。 
 
 服務名稱需求：
+   * 此名稱在 search.windows.net 命名空間中必須是唯一名稱
    * 長度為 2 到 60 個字元
-   * 小寫字母、數字或連字號 ("-")
-   * 不能使用連字號 ("-") 作為前 2 個字元或最後一個字元
-   * 不能是連續的破折號 ("-")
+   * 使用小寫字母、數字或連字號 ("-")
+   * 前 2 個字元或最後一個字元不可使用連字號 ("-")
+   * 不能連續使用破折號 ("--")
 
 ## <a name="select-a-subscription"></a>選取一個訂用帳戶
-如果您有一個以上的訂用帳戶，請選擇一個同樣具有資料或檔案儲存體服務的訂用帳戶。 Azure 搜尋服務可以透過「索引子」自動偵測 Azure 資料表和 Blob 儲存體、SQL Database 和 Azure Cosmos DB 以進行索引編製，但只會針對相同訂用帳戶中的服務。
+如果您有一個以上的訂用帳戶，請選擇一個同樣具有資料或檔案儲存體服務的訂用帳戶。 Azure 搜尋服務可以透過[索引子](search-indexer-overview.md)自動偵測 Azure 資料表和 Blob 儲存體、SQL Database 和 Azure Cosmos DB 以進行索引編製，但只會針對相同訂用帳戶中的服務。
 
 ## <a name="select-a-resource-group"></a>選取資源群組
 資源群組是一起使用之 Azure 服務和資源的集合。 例如，如果您使用 Azure 搜尋服務來編製 SQL 資料庫的索引，則這兩個服務應該屬於同一個資源群組。
@@ -63,11 +64,13 @@ ms.lasthandoff: 10/11/2017
 
 在此逐步解說中，我們已為服務選擇標準層。
 
+服務建立之後便無法變更定價層。 如果您稍後需要高或較低的定價層，必須重新建立服務。
+
 ## <a name="create-your-service"></a>建立您的服務
 
 請記得將您的服務釘選到儀表板，以方便在登入時存取。
 
-![](./media/search-create-service-portal/new-service2.png)
+![](./media/search-create-service-portal/new-service3.png)
 
 ## <a name="scale-your-service"></a>調整您的服務
 可能需要幾分鐘的時間來建立服務 (視層級而定，15 分鐘或更多)。 佈建完您的服務之後，您可以調整它以符合您的需求。 由於您為「Azure 搜尋服務」選擇了「標準」層，因此您可以在兩個維度調整服務︰複本和資料分割。 如果您選擇的是「基本」層，則只能新增複本。 如果您佈建的是免費服務，則無法進行調整。
@@ -79,7 +82,7 @@ ms.lasthandoff: 10/11/2017
 > [!Important]
 > 服務必須具有 [2 個唯讀 SLA 的複本和 3 個讀/寫 SLA 的複本](https://azure.microsoft.com/support/legal/sla/search/v1_0/)。
 
-1. 在 Azure 入口網站中移至您的搜尋服務刀鋒視窗。
+1. 在 Azure 入口網站中移至您的搜尋服務頁面。
 2. 在左導覽窗格中，選取 [設定] > [調整]。
 3. 使用滑桿來新增複本或分割區。
 
@@ -105,9 +108,7 @@ ms.lasthandoff: 10/11/2017
 不需要第二個服務即可獲得高可用性。 當您在同一個服務中使用 2 個或更多的複本，查詢就會達到高可用性。 複本更新是循序的，這表示當服務更新推出時，至少會有一個複本是可運作的。如需執行時間的詳細資訊，請參閱[服務等級協定](https://azure.microsoft.com/support/legal/sla/search/v1_0/)。
 
 ## <a name="next-steps"></a>後續步驟
-佈建 Azure 搜尋服務之後，您就可以[定義索引](search-what-is-an-index.md)，以便上傳和搜尋您的資料。
+佈建 Azure 搜尋服務之後，您就可以[定義索引](search-what-is-an-index.md)，以便上傳和搜尋您的資料。 
 
-若要從程式碼或指令碼存取服務，請提供 URL (*service-name*.search.windows.net) 和金鑰。 系統管理金鑰授與完整存取權；查詢金鑰則授與唯讀存取權。 請參閱[如何在 .NET 中使用 Azure 搜尋服務](search-howto-dotnet-sdk.md)以便開始使用。
-
-請參閱[建置及查詢您的第一個索引](search-get-started-portal.md)，來取得以入口網站為基礎的快速教學課程。
-
+> [!div class="nextstepaction"]
+> [如何以 .NET 使用 Azure 搜尋服務](search-howto-dotnet-sdk.md)

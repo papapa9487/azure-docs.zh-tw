@@ -1,5 +1,5 @@
 ---
-title: "Azure 上的 Kubernertes 教學課程 - 調整應用程式 | Microsoft Docs"
+title: "Azure 上的 Kubernetes 教學課程 - 調整應用程式 | Microsoft Docs"
 description: "AKS 教學課程 - 調整應用程式"
 services: container-service
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: aurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: c60bdf18f80f6922631e02855b83adeb876daa4c
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: f060b37d5ae02dfd53f513b134692186024cf727
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="scale-application-in-azure-container-service-aks"></a>調整 Azure Container Service (AKS) 中的應用程式
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/24/2017
 下列範例會在名為 *myK8sCluster* 的 Kubernetes 叢集中，將節點的數目增加到三個。 此命令需要幾分鐘的時間來完成。
 
 ```azurecli
-az aks scale --resource-group=myResourceGroup --name=myK8SCluster --agent-count 3
+az aks scale --resource-group=myResourceGroup --name=myK8SCluster --node-count 3
 ```
 
 輸出如下：

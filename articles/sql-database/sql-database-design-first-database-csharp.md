@@ -16,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 08/25/2017
 ms.author: genemi
-ms.openlocfilehash: 7d6c1ca0f48974f8a7d839b23f71d43bfeb400ba
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 1e13a9a89873b189e1ea05c0208e7c8646881655
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>設計 Azure SQL Database 並連接 C&#x23; 和 ADO.NET
 
-Azure SQL Database 是 Microsoft 雲端 ("Azure") 中的關聯式資料庫即服務 (DBaaS)。 在本教學課程裡，您將了解如何搭配使用 Visual Studio 與 Azure 入口網站和 ADO.NET 執行下列操作： 
+Azure SQL Database 是 Microsoft Cloud (Azure) 中的關聯式資料庫即服務 (DBaaS)。 在本教學課程裡，您將了解如何搭配使用 Visual Studio 與 Azure 入口網站和 ADO.NET 執行下列操作： 
 
 > [!div class="checklist"]
 > * 在 Azure 入口網站中建立資料庫

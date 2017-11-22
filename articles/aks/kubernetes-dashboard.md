@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 764bbb95b661bb750d7802ee5996d8a491be928d
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 85be41cd6d355e4a38eceacb5589c1df6029ad16
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Kubernetes 儀表板和 Azure Container Service (AKS)
 
-您可以使用 Azure CLI 啟動 Kubernetes 儀表板。 本文件會逐步示範以 Azure CLI 啟動 Kubernetes 儀表板，以及逐步說明某些基本的儀表板作業。 如需 Kubernetes 儀表板的詳細資訊，請參閱 [Kubernetes Web UI 儀表板](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)。 
+您可以使用 Azure CLI 啟動 Kubernetes 儀表板。 本文件會逐步示範以 Azure CLI 啟動 Kubernetes 儀表板，以及逐步說明某些基本的儀表板作業。 如需 Kubernetes 儀表板的詳細資訊，請參閱 [Kubernetes Web UI 儀表板](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)。
 
 ## <a name="before-you-begin"></a>開始之前
 
 本文件中詳述的步驟假設您已建立 AKS 叢集，並建立與叢集的 kubectl 連線。 如果您需要這些項目，請參閱 [AKS 快速入門](./kubernetes-walkthrough.md)。
 
-您也必須安裝和設定 Azure CLI 版本 2.0.20 或更新版本。 執行 az --version 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
+您也必須安裝和設定 Azure CLI 版本 2.0.21 或更新版本。 執行 az --version 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
 ## <a name="start-kubernetes-dashboard"></a>啟動 Kubernetes 儀表板
 

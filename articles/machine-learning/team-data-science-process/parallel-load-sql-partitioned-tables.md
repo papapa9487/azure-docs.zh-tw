@@ -4,7 +4,7 @@ description: "使用 SQL 資料分割資料表平行處理大量資料匯入"
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: ff90fdb0-5bc7-49e8-aee7-678b54f901c8
 ms.service: machine-learning
@@ -12,20 +12,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/09/2017
 ms.author: bradsev
-ms.openlocfilehash: 899f20b3642612386f2513c9c8649cd845be826e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77638ff52edbc2b782b21a4ca1c727a2b46f22f3
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>使用 SQL 資料分割資料表平行處理大量資料匯入
 本文件說明如何建置資料分割資料表，以快速的平行處理方式將大量資料匯入 SQL Server 資料庫。 若要將巨量資料載入/傳輸至 SQL Database，可使用*資料分割資料表和檢視*，來改善將資料匯入 SQL DB 和後續查詢的效能。 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>建立新的資料庫和一組檔案群組
 * [建立新的資料庫](https://technet.microsoft.com/library/ms176061.aspx) (如果尚不存在)。
-* 將資料庫檔案群組新增至將用來保留資料分割實體檔案的資料庫。這可以透過 [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) (如果是新的資料庫) 或 [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) (如果資料庫已存在) 來完成。
+* 將資料庫檔案群組新增至將用來保留資料分割實體檔案的資料庫。 
+* 這可透過 [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) (如果是新的資料庫) 或 [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) (如果資料庫已經存在) 來完成。
 * 將一或多個檔案 (視需要) 新增至每個資料庫檔案群組。
   
   > [!NOTE]
@@ -55,18 +56,19 @@ ms.lasthandoff: 10/11/2017
     ')
 
 ## <a name="create-a-partitioned-table"></a>建立資料分割資料表
-根據資料結構描述來建立資料分割資料表，其會對應到上一個步驟中建立的資料庫檔案群組。 將資料大量匯入資料分割資料表時，記錄將根據資料分割配置分佈於檔案群組中，如下所述。
+為了要根據資料結構描述建立資料分割資料表，來對應到上一個步驟建立的資料庫檔案群組，您必須先建立資料分割函數和結構描述。 將資料大量匯入資料分割資料表時，記錄將根據資料分割配置分佈於檔案群組中，如下所述。
 
-**若要建立資料分割資料表，您需要：**
-
-* [建立資料分割函數](https://msdn.microsoft.com/library/ms187802.aspx)，以定義要在每個個別資料分割資料表中包含的值/界限範圍，例如，若要依 2013 年的月份來限制資料分割 (some\_datetime\_field)：
+### <a name="1-create-a-partition-function"></a>1.建立資料分割函數
+[建立資料分割函數](https://msdn.microsoft.com/library/ms187802.aspx)。此函數定義要在每個個別資料分割資料表中包含的值/界限範圍，例如，若要依 2013 年的月份來限制資料分割 (some\_datetime\_field)：
   
         CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
         AS RANGE RIGHT FOR VALUES (
             '20130201', '20130301', '20130401',
             '20130501', '20130601', '20130701', '20130801',
             '20130901', '20131001', '20131101', '20131201' )
-* [建立資料分割配置](https://msdn.microsoft.com/library/ms179854.aspx) ，將資料分割函數中的每個資料分割範圍對應至實體檔案群組，例如：
+
+### <a name="2-create-a-partition-scheme"></a>2.建立資料分割配置
+[建立資料分割配置](https://msdn.microsoft.com/library/ms179854.aspx)。 此配置會將資料分割函數中的每個資料分割範圍對應至實體檔案群組，例如：
   
         CREATE PARTITION SCHEME <DatetimeFieldPScheme> AS  
         PARTITION <DatetimeFieldPFN> TO (
@@ -83,7 +85,9 @@ ms.lasthandoff: 10/11/2017
         INNER JOIN sys.partition_schemes psch ON pfun.function_id = psch.function_id
         INNER JOIN sys.partition_range_values prng ON prng.function_id=pfun.function_id
         WHERE pfun.name = <DatetimeFieldPFN>
-* 根據您的資料結構描述來[建立資料分割資料表](https://msdn.microsoft.com/library/ms174979.aspx)，並指定用來為資料表進行資料分割的資料分割配置和條件約束欄位，例如：
+
+### <a name="3-create-a-partition-table"></a>3.建立資料分割資料表
+根據您的資料結構描述來[建立資料分割資料表](https://msdn.microsoft.com/library/ms174979.aspx)，並指定用來為資料表進行資料分割的資料分割配置和條件約束欄位，例如：
   
         CREATE TABLE <table_name> ( [include schema definition here] )
         ON <TablePScheme>(<partition_field>)
@@ -91,8 +95,9 @@ ms.lasthandoff: 10/11/2017
 如需詳細資訊，請參閱 [建立分割區資料表及索引](https://msdn.microsoft.com/library/ms188730.aspx)。
 
 ## <a name="bulk-import-the-data-for-each-individual-partition-table"></a>大量匯入每個個別資料分割資料表的資料
+
 * 您可以使用 BCP、BULK INSERT 或其他方法，例如 [SQL Server 移轉精靈](http://sqlazuremw.codeplex.com/)。 所提供的範例會使用 BCP 方法。
-* [改變資料庫](https://msdn.microsoft.com/library/bb522682.aspx)，將交易記錄配置變更為 BULK_LOGGED，以便將記錄額外負荷降到最低，例如：
+* [修改資料庫](https://msdn.microsoft.com/library/bb522682.aspx)，將交易記錄配置變更為 BULK_LOGGED，以便將記錄額外負荷降到最低，例如：
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
 * 若要加速資料載入，可以平行方式啟動大量匯入作業。 如需加速將巨量資料大量匯入 SQL Server 資料庫的提示，請參閱 [載入 1 TB 的時間少於 1 小時](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx)(英文)。
@@ -173,10 +178,10 @@ ms.lasthandoff: 10/11/2017
         ON <TablePScheme>(<partition)field>)
   
   > [!NOTE]
-  > 您可以選擇在大量匯入資料之前建立索引。 在大量匯入之前建立索引，將讓資料載入速度變慢。
+  > 您可以選擇在大量匯入資料之前建立索引。 在大量匯入之前建立索引，會讓資料載入的速度變慢。
   > 
   > 
 
 ## <a name="advanced-analytics-process-and-technology-in-action-example"></a>進階分析程序和技術實務範例
-如需使用公用資料集進行 Cortana 分析程序的端對端逐步解說範例，請參閱 [Cortana 分析程序實務範例：使用 SQL Server](sql-walkthrough.md)。
+如需搭配使用 Team Data Science Process 與公用資料集的端對端逐步解說範例，請參閱 [Team Data Science Process 實務：使用 SQL Server](sql-walkthrough.md)。
 

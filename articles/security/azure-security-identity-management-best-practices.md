@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2017
 ms.author: yurid
-ms.openlocfilehash: 50f9073d3c35bd9dcfd826ff44e767fb69558757
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d80fdd5a2e4339823c05368d76de333f3314d4ec
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure 身分識別管理和存取控制安全性最佳作法
 許多人認為身分識別是安全性的新界限層，並從傳統以網路為中心的觀點來接收該角色。 此安全性注意和投資進展的主要關鍵是由於網路周邊的漏洞日益增加，而且周邊防禦的效果不如 [BYOD](http://aka.ms/byodcg) 裝置和雲端應用程式暴增前的效果。
@@ -115,7 +115,7 @@ ms.lasthandoff: 10/11/2017
 
 不控制資源建立方式的組織比較容易遇到使用者因建立超過所需的資源而濫用服務。 強化資源建立程序是保護多租用戶案例的重要步驟。
 
-您可以閱讀使用原則來管理資源和控制存取，進一步了解如何[使用 Azure Resource Manager 建立原則](../azure-resource-manager/resource-manager-policy.md)。
+您可以閱讀[什麼是 Azure 原則？](../azure-policy/azure-policy-introduction.md)一文，進一步了解如何使用 Azure Resource Manager 建立原則。
 
 ## <a name="guide-developers-to-leverage-identity-capabilities-for-saas-apps"></a>引導開發人員運用 SaaS 應用程式的身分識別功能
 當使用者存取可與內部部署或雲端目錄整合的 [SaaS 應用程式時](https://azure.microsoft.com/marketplace/active-directory/all/)，使用者身分識別會運用在許多案例中。 最重要的是，我們建議開發人員使用安全的方法來開發這些應用程式，例如 [Microsoft 安全性開發生命週期 (SDL)](https://www.microsoft.com/sdl/default.aspx)。 Azure AD 提供身分識別做為服務，支援業界標準通訊協定 (例如 [OAuth 2.0](http://oauth.net/2/) 和 [OpenID Connect](http://openid.net/connect/))，以及適用於不同平台的開放原始碼程式庫，來簡化開發人員的驗證工作。

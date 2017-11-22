@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 11/13/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 7c66a95d5a056f59e0f28dba4e0880e72e74dc3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6de9526a1a72cfc81caca51207e000f8b3673cc
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory 和 Multi-factor Authentication：使用身分識別和存取控制來保護個人資料
 
@@ -73,7 +73,7 @@ Microsoft Azure 提供身分識別和存取管理工具，協助公司控管誰�
 
 3. 選取 [更多服務] 並使用 [篩選器] 文字方塊來搜尋 [Azure AD Privileged Identity Management]。
 
-4. 選取 釘選到儀表板，然後按一下建立。 Privileged Identity Management 應用程式隨即開啟。
+4. 選取 [釘選到儀表板]，然後按一下 [建立]。 Privileged Identity Management 應用程式隨即開啟。
 
 Azure AD Privileged Identity Management 設定完畢後，您會在每次開啟應用程式時看到導覽刀鋒視窗。
 
@@ -121,23 +121,23 @@ Azure AD Privileged Identity Management 設定完畢後，您會在每次開啟�
 
 #### <a name="how-do-i-enable-azure-to-use-mfa"></a>如何讓 Azure 能夠使用 MFA？
 
-如果您的使用者具有包含 Azure Multi-Factor Authentication 的授權，您就不需要手動開啟 Azure MFA。 若非如此，您需要在目錄中建立 Multi-Factor Auth Provider。 若要這樣做，請遵循下列步驟：
+如果您的使用者具有包含 Azure Multi-Factor Authentication 的授權，您只需要依照每個使用者或群組設定 Azure MFA。 
 
-1. 在 Azure 傳統入口網站中選取 [Active Directory] \(以系統管理員身分登入)。
+![啟用 MFA 的使用者](media/protect-personal-data-identity-access-controls/enable-mfa.png)
 
-2. 選取 [Multi-Factor Authentication Provider]。
+如果您目前沒有授權，您必須經歷為您的案例決定最合適部署類型的程序。 您可以從查看[為您選擇 Azure Multi-Factor Autehntication 方案](../multi-factor-authentication/multi-factor-authentication-get-started.md)這篇文章著手。 如果您這麼決定，您需要建立 Multi-Factor Authentication 伺服器。 首先，依照下列步驟進行。
 
-3. 選取 [新增]，然後在 [應用程式服務] 之下，選取 [Multi-Factor Auth Provider]。
+1. 在 Azure 入口網站中選取 [Active Directory] (以系統管理員身分登入)。
 
-4. 選取 [快速建立]。
+2. 選取 [MFA 伺服器]
 
-5. 填寫名稱欄位，然後選取使用量模型 (根據驗證或根據啟用的使用者)。
+3. 指定逾時值。 
 
-6. 指定與 MFA Provider 相關聯的目錄。
+    ![](media/protect-personal-data-identity-access-controls/mfa-server-settings.png)
 
-7. 按一下 [ **建立** ] 按鈕。
+4. 按一下 [儲存] 
 
-![](media/protect-personal-data-identity-access-controls/quick-create.png)
+在此視窗中，您也可以選擇下載 MFA Server。 檢閱[開始使用 Azure Multi-factor Authentication 伺服器](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)，即可取得如何調整及規劃您的部署的其他詳細資訊
 
 如需如何管理 Multi-Factor Auth Provider 的詳細指示，請參閱[開始使用 Azure Multi-Factor Auth Provider](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-auth-provider)。
 
@@ -158,7 +158,7 @@ Azure AD Privileged Identity Management 設定完畢後，您會在每次開啟�
 5. 勾選使用者名稱旁邊的方塊。
 6. 在右邊的快速步驟底下，選擇 [啟用]。
 
-   ![](media/protect-personal-data-identity-access-controls/quick-create.png)
+   ![](media/protect-personal-data-identity-access-controls/mfa-bulk.png)
 
 7. 在開啟的快顯視窗中確認您的選取項目。  系統會要求已啟用 MFA 的使用者會下一次登入時進行註冊。
 

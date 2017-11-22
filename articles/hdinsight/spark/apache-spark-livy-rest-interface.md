@@ -17,15 +17,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: nitinme
-ms.openlocfilehash: 7b6b551fa1009da744598715b09f13355ded2884
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4f6c27fb651fc13877a889c26aa47903985625a0
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>使用 Apache Spark REST API 將遠端作業提交至 HDInsight Spark 叢集
 
-了解如何使用可將遠端作業提交至 Azure HDInsight Spark 叢集的 Livy (也就是 Apache Spark REST API)。 如需詳細文件，請參閱 [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)。
+了解如何使用可將遠端作業提交至 Azure HDInsight Spark 叢集的 Livy (也就是 Apache Spark REST API)。 如需詳細文件，請參閱 [http://livy.incubator.apache.org/](http://livy.incubator.apache.org/)。
 
 您可以使用 Livy 執行互動式 Spark 殼層，或提交要在 Spark 上執行的批次作業。 本文將討論如何使用 Livy 提交批次作業。 本文中的程式碼片段會使用 cURL 向 Livy Spark 端點發出 REST API 呼叫。
 
@@ -189,6 +189,7 @@ Livy 可為在叢集上執行的 Spark 作業提供高可用性。 以下是一�
 
 ## <a name="next-step"></a>後續步驟
 
+* [Livy REST API 文件](http://livy.incubator.apache.org/docs/latest/rest-api.html)
 * [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
 * [追蹤和偵錯在 HDInsight 中的 Apache Spark 叢集上執行的作業](apache-spark-job-debugging.md)
 

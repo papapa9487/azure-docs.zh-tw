@@ -5,7 +5,7 @@ services: container-instances
 documentationcenter: 
 author: seanmck
 manager: timlt
-editor: 
+editor: mmacy
 tags: 
 keywords: 
 ms.assetid: 
@@ -14,20 +14,20 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 11/18/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: ff6da0ce95d0405714602c3872da34a2bff344d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 78bd45f7f71fd25e351d4e9b922a6a3f171437fd
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>使用 Azure Container Instances 進行部署問題的疑難排解
 
 本文說明如何在將容器部署至 Azure Container Instances 時進行問題的疑難排解。 此外，也會說明一些您可能會碰到的常見問題。
 
-## <a name="getting-diagnostic-events"></a>取得診斷事件
+## <a name="get-diagnostic-events"></a>取得診斷事件
 
 若要在容器內檢視應用程式程式碼中的記錄，您可以使用 [az container logs](/cli/azure/container#logs) 命令。 但如果容器的部署並未成功，您就需要檢閱由 Azure Container Instances 資源提供者所提供的診斷資訊。 若要檢視容器的事件，請執行下列命令：
 
@@ -91,7 +91,7 @@ az container show -n mycontainername -g myresourcegroup
 
 部署時所發生的大部分錯誤都可歸咎於幾個常見問題。
 
-### <a name="unable-to-pull-image"></a>無法提取映像
+## <a name="unable-to-pull-image"></a>無法提取映像
 
 如果 Azure Container Instances 一開始無法提取您的映像，它會先重試一段時間，最後才會失敗。 如果它無法提取映像，系統便會顯示如下所示的事件：
 
@@ -123,75 +123,54 @@ az container show -n mycontainername -g myresourcegroup
 
 若要解決，請刪除容器並重試部署，特別注意您所輸入的映像名稱是否正確。
 
-### <a name="container-continually-exits-and-restarts"></a>容器不斷結束又重新啟動
+## <a name="container-continually-exits-and-restarts"></a>容器不斷結束又重新啟動
 
-Azure Container Instances 目前僅支援長時間執行的服務。 如果您的容器執行完畢並結束，該容器會自動重新啟動並再次執行。 如果發生這種情況，系統會顯示如下所示的事件。 請注意，容器會在成功啟動後又迅速重新啟動。 Container Instances API 會包含 `retryCount` 屬性，以顯示特定容器的重新啟動次數。
+如果您的容器執行到完成又自動重新啟動，可能需要設定 **OnFailure** 或 **Never** 的 [restart policy](container-instances-restart-policy.md) (重新啟動原則)。 如果指定 **OnFailure** 後仍持續重新啟動，可能是容器中執行的應用程式或指令碼的問題。
 
-```bash
-"events": [
-  {
-    "count": 5,
-    "firstTimestamp": "2017-08-03T22:21:55+00:00",
-    "lastTimestamp": "2017-08-03T22:23:22+00:00",
-    "message": "Pulling: pulling image \"alpine\"",
-    "type": "Normal"
-  },
-  {
-    "count": 5,
-    "firstTimestamp": "2017-08-03T22:21:57+00:00",
-    "lastTimestamp": "2017-08-03T22:23:23+00:00",
-    "message": "Pulled: Successfully pulled image \"alpine\"",
-    "type": "Normal"
-  },
-  {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:21:57+00:00",
-    "lastTimestamp": "2017-08-03T22:21:57+00:00",
-    "message": "Created: Created container with id ad2bf9bc51761c5f935260b4bab53b164d52d9cbc045b16afcb26fb4d14d0a70",
-    "type": "Normal"
-  },
-  {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:21:57+00:00",
-    "lastTimestamp": "2017-08-03T22:21:57+00:00",
-    "message": "Started: Started container with id ad2bf9bc51761c5f935260b4bab53b164d52d9cbc045b16afcb26fb4d14d0a70",
-    "type": "Normal"
-  },
-  {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:21:58+00:00",
-    "lastTimestamp": "2017-08-03T22:21:58+00:00",
-    "message": "Created: Created container with id 7687b9bd15dc01731fa66fc45f6f0241495600602dd03841e559453245e7f70b",
-    "type": "Normal"
-  },
-  {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:21:58+00:00",
-    "lastTimestamp": "2017-08-03T22:21:58+00:00",
-    "message": "Started: Started container with id 7687b9bd15dc01731fa66fc45f6f0241495600602dd03841e559453245e7f70b",
-    "type": "Normal"
-  },
-  {
-    "count": 13,
-    "firstTimestamp": "2017-08-03T22:21:59+00:00",
-    "lastTimestamp": "2017-08-03T22:24:36+00:00",
-    "message": "BackOff: Back-off restarting failed container",
-    "type": "Warning"
-  },
-  {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:22:13+00:00",
-    "lastTimestamp": "2017-08-03T22:22:13+00:00",
-    "message": "Created: Created container with id 72e347e891290e238135e4a6b3078748ca25a1275dbbff30d8d214f026d89220",
-    "type": "Normal"
-  },
-  ...
+容器執行個體 API 有一個 `restartCount` 屬性。 若要檢查容器的重新啟動次數，可以在 Azure CLI 2.0 中使用 [az container show](/cli/azure/container#az_container_show) 命令。 在下列範例輸出中 (為簡潔起見已截斷畫面)，您可以在輸出的結尾看到 `restartCount` 屬性。
+
+```json
+...
+ "events": [
+   {
+     "count": 1,
+     "firstTimestamp": "2017-11-13T21:20:06+00:00",
+     "lastTimestamp": "2017-11-13T21:20:06+00:00",
+     "message": "Pulling: pulling image \"myregistry.azurecr.io/aci-tutorial-app:v1\"",
+     "type": "Normal"
+   },
+   {
+     "count": 1,
+     "firstTimestamp": "2017-11-13T21:20:14+00:00",
+     "lastTimestamp": "2017-11-13T21:20:14+00:00",
+     "message": "Pulled: Successfully pulled image \"myregistry.azurecr.io/aci-tutorial-app:v1\"",
+     "type": "Normal"
+   },
+   {
+     "count": 1,
+     "firstTimestamp": "2017-11-13T21:20:14+00:00",
+     "lastTimestamp": "2017-11-13T21:20:14+00:00",
+     "message": "Created: Created container with id bf25a6ac73a925687cafcec792c9e3723b0776f683d8d1402b20cc9fb5f66a10",
+     "type": "Normal"
+   },
+   {
+     "count": 1,
+     "firstTimestamp": "2017-11-13T21:20:14+00:00",
+     "lastTimestamp": "2017-11-13T21:20:14+00:00",
+     "message": "Started: Started container with id bf25a6ac73a925687cafcec792c9e3723b0776f683d8d1402b20cc9fb5f66a10",
+     "type": "Normal"
+   }
+ ],
+ "previousState": null,
+ "restartCount": 0
+...
+}
 ```
 
 > [!NOTE]
-> Linux 散發套件的大部分容器映像都會設定殼層 (例如 bash) 來作為預設命令。 因為殼層本身不是長時間執行的服務，因此這些容器會立即結束並落入重新啟動迴圈。
+> Linux 散發套件的大部分容器映像都會設定殼層 (例如 bash) 來作為預設命令。 因為殼層本身不是長時間執行的服務，當設定為預設的 **Always** 重新啟動原則時，這些容器會立即結束並落入重新啟動迴圈。
 
-### <a name="container-takes-a-long-time-to-start"></a>容器要等很久才會啟動
+## <a name="container-takes-a-long-time-to-start"></a>容器要等很久才會啟動
 
 如果您的容器要等很久才會啟動，但最終還是會啟動成功，請先看看您的容器映像大小。 因為 Azure Container Instances 會視需要來提取您的容器映像，因此啟動時間的長短會與其大小直接相關。
 
@@ -212,7 +191,7 @@ microsoft/aci-helloworld               latest              7f78509b568e        1
 
 另一種可在容器啟動階段降低對於映像提取作業影響的方式，是在您想要使用 Azure Container Instances 的相同區域中，使用 Azure Container Registry 來裝載容器映像。 這種方式會縮短容器映像需要經過的網路路徑，從而大幅縮短下載時間。
 
-### <a name="resource-not-available-error"></a>資源無法使用錯誤
+## <a name="resource-not-available-error"></a>資源無法使用錯誤
 
 Azure 中有各種不同的地區資源負載，因此您在嘗試部署容器執行個體時，可能會收到下列錯誤訊息：
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 9a8ba64f1d4b2d638f156c0dfc20d6686312daa5
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 441bb0a269de400c82abc083118f5e0642523640
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>建立虛擬網路對等互連 - 不同部署模型和訂用帳戶
 
@@ -33,17 +33,17 @@ ms.lasthandoff: 11/06/2017
 |[兩者皆使用 Resource Manager](create-peering-different-subscriptions.md) |不同|
 |[一個使用 Resource Manager、一個使用傳統部署模型](create-peering-different-deployment-models.md) |相同|
 
-虛擬網路對等互連無法在透過傳統部署模型建立的兩個虛擬網路之間建立。 如果您需要將兩個都是透過傳統部署模型建立的虛擬網路連接，可以使用 Azure [VPN 閘道](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)來連接這些虛擬網路。 
+虛擬網路對等互連無法在透過傳統部署模型建立的兩個虛擬網路之間建立。 目前，只有預覽中的功能能夠對等互連透過不同訂用帳戶中不同部署模型建立的虛擬網路。 若要完成本教學課程，您必須先[註冊](#register)以使用該功能。 本教學課程會使用存在同一個區域中的虛擬網路。 將不同區域中的虛擬網路視為對等的功能也是處於預覽狀態。 若要使用這項功能，您也必須先[註冊](#register)。 這兩個功能各自獨立。 若要完成本教學課程，您必須只註冊能夠將透過不同訂用帳戶中不同部署模型建立的虛擬網路對等互連的功能。 
 
-此教學課程將同一個區域中的虛擬網路視為對等。 將不同區域中的虛擬網路視為對等的功能目前為預覽狀態。 完成[註冊通用虛擬網路對等互連](#register)中的步驟，然後再嘗試將不同區域中的虛擬網路視為對等，否則對等互連會失敗。 一般可以使用透過 Azure [VPN 閘道](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)連接不同區域中的虛擬網路，而且不需要註冊。
+在存在於不同訂用帳戶中的虛擬網路之間建立虛擬網路對等互連時，兩個訂用帳戶必須都與相同的 Azure Active Directory 租用戶關聯。 如果您還沒有 Azure Active Directory 租用戶，可以快速地[建立一個租用戶](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch)。 
 
-在存在於不同訂用帳戶中的虛擬網路之間建立虛擬網路對等互連時，兩個訂用帳戶必須都與相同的 Azure Active Directory 租用戶關聯。 如果您還沒有 Azure Active Directory 租用戶，可以快速地[建立一個租用戶](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch)。 如果您需要將兩個都是透過傳統部署模型建立的虛擬網路連接、將存在於不同 Azure 區域中的虛擬網路連接，或是將存在於與不同 Azure Active Directory 租用戶關聯之訂用帳戶中的虛擬網路連接，可以使用 Azure [VPN 閘道](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)來連接這些虛擬網路。
+無論虛擬網路是透過與相同或不同 Azure Active Directory 租用戶相關聯的部署模型、不同部署模型、不同區域或訂用帳戶所建立，能使用 Azure [VPN 閘道](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)來連線至這些虛擬網路的功能已在預覽版本中，且不需要註冊。
 
 您可以使用 [Azure 入口網站](#portal)、Azure [命令列介面](#cli) (CLI) 或 Azure [PowerShell](#powershell) 來建立虛擬網路對等互連。 按一下任何先前的工具連結，直接前往使用您所選工具建立虛擬網路對等互連的步驟。
 
 ## <a name="portal"></a>建立對等互連 - Azure 入口網站
 
-本教學課程針對每個訂用帳戶使用不同的帳戶。 如果您使用對兩個訂用帳戶都有權限的帳戶，便可以使用該相同帳戶來進行所有步驟、略過登出入口網站的步驟，以及略過指派另一位使用者權限給虛擬網路的步驟。 在完成下列任何步驟之前，您必須先註冊預覽版。 若要註冊，請完成本文中[註冊預覽版](#register)一節中的步驟。 請等到兩個訂用帳戶都已針對預覽版註冊之後，才繼續進行剩餘的步驟。
+本教學課程針對每個訂用帳戶使用不同的帳戶。 如果您使用對兩個訂用帳戶都有權限的帳戶，便可以使用該相同帳戶來進行所有步驟、略過登出入口網站的步驟，以及略過指派另一位使用者權限給虛擬網路的步驟。 在完成下列任何步驟之前，您必須先註冊預覽版。 若要註冊，請完成本文中[註冊預覽版](#register)一節中的步驟。 如果您沒有在預覽中註冊這兩個訂用帳戶，則剩下的步驟皆會失敗。
  
 1. 以 UserA 身分登入 [Azure 入口網站](https://portal.azure.com)。 您登入時使用的帳戶必須擁有必要的權限，才能建立虛擬網路對等互連。 如需詳細資訊，請參閱本文的[權限](#permissions)一節。
 2. 依序按一下 [新增]、[網路] 及 [虛擬網路]。
@@ -100,7 +100,7 @@ ms.lasthandoff: 11/06/2017
 
 本教學課程針對每個訂用帳戶使用不同的帳戶。 如果您使用對兩個訂用帳戶都有權限的帳戶，便可以使用該相同帳戶來進行所有步驟、略過登出 Azure 的步驟，以及移除建立使用者角色指派項目的指令碼行。 請使用您要用於 UserA 和 UserB 的使用者名稱來取代下列指令碼中的 UserA@azure.com 和 UserB@azure.com。 
 
-在完成下列任何步驟之前，您必須先註冊預覽版。 若要註冊，請完成本文中[註冊預覽版](#register)一節中的步驟。 請等到兩個訂用帳戶都已針對預覽版註冊之後，才繼續進行剩餘的步驟。
+在完成下列任何步驟之前，您必須先註冊預覽版。 若要註冊，請完成本文中[註冊預覽版](#register)一節中的步驟。 如果您沒有在預覽中註冊這兩個訂用帳戶，則剩下的步驟皆會失敗。
 
 1. [安裝](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure CLI 1.0 以建立虛擬網路 (傳統)。
 2. 開啟 CLI 工作階段，然後使用 `azure login` 命令來以 UserB 身分登入 Azure。
@@ -187,7 +187,7 @@ ms.lasthandoff: 11/06/2017
 
 本教學課程針對每個訂用帳戶使用不同的帳戶。 如果您使用對兩個訂用帳戶都有權限的帳戶，便可以使用該相同帳戶來進行所有步驟、略過登出 Azure 的步驟，以及移除建立使用者角色指派項目的指令碼行。 請使用您要用於 UserA 和 UserB 的使用者名稱來取代下列指令碼中的 UserA@azure.com 和 UserB@azure.com。 
 
-在完成下列任何步驟之前，您必須先註冊預覽版。 若要註冊，請完成本文中[註冊預覽版](#register)一節中的步驟。 請等到兩個訂用帳戶都已針對預覽版註冊之後，才繼續進行剩餘的步驟。
+在完成下列任何步驟之前，您必須先註冊預覽版。 若要註冊，請完成本文中[註冊預覽版](#register)一節中的步驟。 如果您沒有在預覽中註冊這兩個訂用帳戶，則剩下的步驟皆會失敗。
 
 1. 安裝最新版的 PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) 和 [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模組。 如果您不熟悉 Azure PowerShell，請參閱 [Azure PowerShell 概觀](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 2. 啟動 PowerShell 工作階段。
@@ -342,11 +342,11 @@ ms.lasthandoff: 11/06/2017
     > [!WARNING]
     > 匯入變更過的網路組態檔會導致您訂用帳戶中現有的虛擬網路 (傳統) 發生變更。 請確定您只移除先前的虛擬網路，並且未變更或移除您訂用帳戶中任何其他現有的虛擬網路。 
 
-## <a name="register"></a>註冊可獲得虛擬網路對等互連全球預覽版
+## <a name="register"></a>註冊預覽版
 
-將不同區域中的虛擬網路視為對等的功能目前為預覽狀態。 僅有限的區域 (初期為美國中西部、加拿大中部和美國西部 2) 可使用此功能。 在不同區域中的虛擬網路之間建立的虛擬網路對等互連，可能無法達到與同一個區域中的虛擬網路之間的對等互連相同程度的可用性和可靠性。 如需此功能可用性和狀態的最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network) 頁面。
+目前，只有預覽中的功能能夠對等互連透過不同訂用帳戶中不同 Azure 部署模型建立的虛擬網路。 預覽功能可能沒有與一般版本中的功能相同層級的可用性和可靠性。 如需預覽功能可用性和狀態的最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network)頁面。 
 
-若要使各區域的虛擬網路對等互連，您必須使用 Azure PowerShell 或 Azure CLI 完成下列步驟 (在您想要對等互連的虛擬網路適用的訂用帳戶內)，先註冊預覽：
+您必須先註冊跨訂用帳戶和跨部署模型功能，才能使用。 使用 Azure PowerShell 或 Azure CLI，在要對等連線的虛擬網路所屬訂用帳戶中完成以下步驟：
 
 ### <a name="powershell"></a>PowerShell
 
@@ -356,7 +356,7 @@ ms.lasthandoff: 11/06/2017
 
     ```powershell
     Register-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
+      -FeatureName AllowClassicCrossSubscriptionPeering `
       -ProviderNamespace Microsoft.Network
     
     Register-AzureRmResourceProvider `
@@ -366,11 +366,14 @@ ms.lasthandoff: 11/06/2017
 
     ```powershell    
     Get-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
+      -FeatureName AllowClassicCrossSubscriptionPeering `
       -ProviderNamespace Microsoft.Network
     ```
 
     請等到您為兩個訂用帳戶輸入上述命令後所收到的 **RegistrationState** 輸出都變成 **Registered** 之後，才完成本文中入口網站、Azure CLI、PowerShell 或 Resource Manager 範本等節中的步驟。
+
+> [!NOTE]
+> 本教學課程會使用存在同一個區域中的虛擬網路。 將不同區域中的虛擬網路視為對等的功能也是處於預覽狀態。 若要註冊跨區域或全域對等互連，請使用 `-FeatureName AllowGlobalVnetPeering` (而不是 `-FeatureName AllowClassicCrossSubscriptionPeering`) 再次完成步驟 1-4。 這兩個功能彼此各自獨立。 您不需要兩個都註冊，除非您想要同時使用這兩個功能。 僅有限的區域 (初期為美國中西部、加拿大中部和美國西部 2) 可使用此功能。
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -391,6 +394,9 @@ ms.lasthandoff: 11/06/2017
     ```
 
     請等到您為兩個訂用帳戶輸入上述命令後所收到的 **RegistrationState** 輸出都變成 **Registered** 之後，才完成本文中入口網站、Azure CLI、PowerShell 或 Resource Manager 範本等節中的步驟。
+
+> [!NOTE]
+> 本教學課程會使用存在同一個區域中的虛擬網路。 將不同區域中的虛擬網路視為對等的功能也是處於預覽狀態。 若要註冊跨區域或全域對等互連，請使用 `--name AllowGlobalVnetPeering` (而不是`--name AllowClassicCrossSubscriptionPeering`) 再次完成步驟 1-5。 這兩個功能彼此各自獨立。 您不需要兩個都註冊，除非您想要同時使用這兩個功能。 僅有限的區域 (初期為美國中西部、加拿大中部和美國西部 2) 可使用此功能。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: cfffe5145f8762558e6ee573f6f2bb69d32424ad
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 07e74c64e587cce99612cd5047516bf131943f2e
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="aerial-image-classification"></a>空拍影像分類
 
@@ -133,6 +133,11 @@ ms.lasthandoff: 10/31/2017
     記錄 `key1` 的值，並作為下列命令中的儲存體金鑰，然後執行命令來儲存值。
     ```
     set STORAGE_ACCOUNT_KEY=[storage account key]
+    ```
+1. 請使用下列命令在儲存體帳戶中建立名為 `baitshare` 的檔案共用：
+
+    ```
+    az storage share create --account-name %STORAGE_ACCOUNT_NAME% --account-key %STORAGE_ACCOUNT_KEY% --name baitshare
     ```
 1. 使用您慣用的文字編輯器，從 Azure Machine Learning Workbench 專案的 "Code" 子目錄中載入 `settings.cfg` 檔案，並依據指示插入儲存體帳戶名稱和金鑰。 儲存並關閉 `settings.cfg` 檔案。
 1. 如果您尚未這樣做，請下載並安裝 [AzCopy](http://aka.ms/downloadazcopy) 公用程式。 您可以藉由輸入 "AzCopy" 並按下 Enter 以顯示其文件的方式，來確認 AzCopy 可執行檔存在您的系統路徑上。

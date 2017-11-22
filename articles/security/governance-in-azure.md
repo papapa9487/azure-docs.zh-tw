@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: c63eb15e8d575da91fd8198ca9d486f7fdb2b38d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 10a92f301584d4e676da9a1eb229667925a6c72c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="governance-in-azure"></a>Azure 中的治理
 
@@ -225,14 +225,14 @@ Azure Resource Manager 會分析相依性，確保以正確的順序建立資源
 資源原則可讓您建立組織適用的標準規則。 您可以建立原則，以確保會為資源標記適當的值。
 
 > [!Note]
-> 如需詳細資訊，請參閱[套用標籤的資源原則](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags)。
+> 如需詳資訊，請參閱[計費標籤原則計畫](../azure-policy/scripts/billing-tags-policy-init.md)。
 
 您也可以透過 Azure 入口網站檢視已加上標籤的資源。
 
 訂用帳戶的[使用報告](https://docs.microsoft.com/azure/billing/billing-understand-your-bill)包含標籤名稱和值，可讓您依標籤細分成本。
 
 > [!Note]
-> 如需標記的詳細資訊，請參閱 [使用標記來組織您的 Azure 資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)。
+> 如需標籤的詳資訊，請參閱[計費標籤原則計畫](../azure-policy/scripts/billing-tags-policy-init.md)。
 
 標籤具有下列限制：
 

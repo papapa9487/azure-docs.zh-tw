@@ -16,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 08/25/2017
 ms.author: carlrab
-ms.openlocfilehash: e4848eb366faea134a484c8a494fed6a83203116
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 329003c7c4abe89f4af04473ee3664605b2ea81f
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="design-your-first-azure-sql-database"></a>設計您的第一個 Azure SQL Database
 
-Azure SQL Database 是 Microsoft 雲端 ("Azure") 中的關聯式資料庫即服務 (DBaaS)。 在本教學課程中，您會了解如何使用 Azure 入口網站和 [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)： 
+Azure SQL Database 是 Microsoft Cloud (Azure) 中的關聯式資料庫即服務 (DBaaS)。 在本教學課程中，您會了解如何使用 Azure 入口網站和 [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)： 
 
 > [!div class="checklist"]
 > * 在 Azure 入口網站中建立資料庫

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/06/2017
-ms.openlocfilehash: a294a3f92163f78bace56654c284c4e83623b829
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 2b2f35b3241bd1700bb1fb3319d38fdfda2545f9
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="sprint-1---november-2017"></a>Sprint 1 - 2017 年 11 月 
 
@@ -127,13 +127,13 @@ ms.lasthandoff: 11/09/2017
 - 映像建構服務現在支援 Azure IoT 服務/裝置的組建映像。
 
 ### <a name="sample-projects"></a>範例專案
-- _分類光圈_範例專案：
+- [_分類光圈_](./tutorial-classifying-iris-part-1.md)範例專案：
     - `iris_pyspark.py` 已重新命名為 `iris_spark.py`。
-    - `iris_score.py` 已重新命名為 `iris-score.py`。
+    - `iris_score.py` 已重新命名為 `score_iris.py`。
     - `iris.dprep` 和 `iris.dsource` 已更新，以反映最新的資料準備引擎更新。
     - 已修改 `iris.ipynb` Notebook 使適用於 HDInsight 叢集。
     - `iris.ipynb` Notebook 資料格已開啟執行歷程記錄。
-- 已修正_使用自行車共用資料的進階資料準備_範例專案「處理錯誤值」步驟。
-- _MMLSpark 成人人口普查資料_範例專案 `docker.runconfig` 格式從 JSON 更新為 YAML。
-- 分散式超參數微調範例專案 `docker.runconfig` 格式從 JSON 更新為 YAML。
-- 新的範例專案_使用 CNTK 進行影像分類_。
+- 已修正[_使用自行車共用資料的進階資料準備_](./tutorial-bikeshare-dataprep.md)範例專案「處理錯誤值」步驟。
+- [_MMLSpark 成人人口普查資料_](https://github.com/Azure/MachineLearningSamples-mmlspark)範例專案 `docker.runconfig` 格式從 JSON 更新為 YAML。
+- [_分散式超參數微調_](./scenario-distributed-tuning-of-hyperparameters.md)範例專案 `docker.runconfig` 格式從 JSON 更新為 YAML。
+- 新的範例專案[_使用 CNTK 進行影像分類_](./scenario-image-classification-using-cntk.md)。
