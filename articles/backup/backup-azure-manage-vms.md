@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
-ms.openlocfilehash: 35a21cb99ca4bad124a9f764cef9da453e1fe47f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 597d8e12377ca19b0c58eb2fc8bdb7597c1c6c07
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>管理 Azure 虛擬機器備份
 > [!div class="op_single_selector"]
@@ -32,10 +32,10 @@ ms.lasthandoff: 10/11/2017
 ## <a name="manage-vaults-and-protected-virtual-machines"></a>管理保存庫與受保護的虛擬機器
 在 Azure 入口網站中，復原服務保存庫儀表板可讓您存取保存庫的相關資訊，包括︰
 
-* 最近的備份快照，也就是最新的還原點 <br\>
-* 備份原則 <br\>
-* 所有備份快照的大小總計 <br\>
-* 使用保存庫保護的虛擬機器數目 <br\>
+* 最近的備份快照，也就是最新的還原點
+* 備份原則
+* 所有備份快照的大小總計
+* 使用保存庫保護的虛擬機器數目
 
 虛擬機器備份的許多管理工作都是從儀表板中開啟保存庫開始。 不過，因為保存庫可以用來保護多個項目 (或多個 VM)，若要檢視特定 VM 的詳細資料，請開啟保存庫項目儀表板。 下列程序示範如何開啟「保存庫儀表板」，然後繼續開啟「保存庫項目儀表板」。 兩個程序都有「提示」，指出如何使用「釘選到儀表板」命令，將保存庫和保存庫項目新增至 Azure 儀表板。 「釘選到儀表板」是建立保存庫捷徑或項目捷徑的方法。 您也可以從捷徑執行常用的命令。
 
@@ -50,11 +50,11 @@ ms.lasthandoff: 10/11/2017
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 在 [中樞] 功能表上按一下 [瀏覽]，然後在資源清單中輸入**復原服務**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 按一下 [復原服務保存庫] 。
 
-    ![建立復原服務保存庫的步驟 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png) <br/>
+    ![建立復原服務保存庫的步驟 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 
     隨即會顯示 [復原服務保存庫] 清單。
 
-    ![復原服務保存庫清單 ](./media/backup-azure-manage-vms/list-o-vaults.png) <br/>
+    ![復原服務保存庫清單 ](./media/backup-azure-manage-vms/list-o-vaults.png)
 
    > [!TIP]
    > 如果您將保存庫釘選到 Azure 儀表板，則一開啟 Azure 入口網站就可立即存取該保存庫。 若要將保存庫釘選到儀表板，請在保存庫清單中以滑鼠右鍵按一下保存庫，然後選取 [釘選到儀表板] 。
@@ -89,13 +89,13 @@ ms.lasthandoff: 10/11/2017
 
     從保存庫項目儀表板，您可以完成許多重要的管理工作，例如︰
 
-   * 變更原則或建立新的備份原則 <br\>
-   * 檢視還原點並查看其一致性狀態 <br\>
-   * 虛擬機器的隨選備份 <br\>
-   * 停止保護虛擬機器 <br\>
-   * 繼續保護虛擬機器 <br\>
-   * 刪除備份資料 (或復原點) <br\>
-   * [還原備份磁碟](backup-azure-arm-restore-vms.md#restore-backed-up-disks)  <br\>
+   * 變更原則或建立新的備份原則
+   * 檢視還原點並查看其一致性狀態
+   * 虛擬機器的隨選備份
+   * 停止保護虛擬機器
+   * 繼續保護虛擬機器
+   * 刪除備份資料 (或復原點)
+   * [還原備份磁碟](backup-azure-arm-restore-vms.md#restore-backed-up-disks)
 
 在以下的程序中，起始點是保存庫項目儀表板。
 
@@ -110,7 +110,7 @@ ms.lasthandoff: 10/11/2017
     ![備份原則刀鋒視窗](./media/backup-azure-manage-vms/backup-policy-blade.png)
 3. 從 [選擇備份原則]  功能表︰
 
-   * 若要變更原則，請選取不同的原則，然後按一下 [儲存] 。 新原則時會立即套用至保存庫。 <br\>
+   * 若要變更原則，請選取不同的原則，然後按一下 [儲存] 。 新原則時會立即套用至保存庫。
    * 若要建立原則，請選取 [建立新項目] 。
 
      ![虛擬機器備份](./media/backup-azure-manage-vms/backup-policy-create-new.png)
@@ -148,7 +148,7 @@ ms.lasthandoff: 10/11/2017
 如果您選擇停止保護虛擬機器，系統會詢問您是否要保留復原點。 有兩種方式可停止保護虛擬機器︰
 
 * 停止所有未來的備份作業並刪除所有復原點，或
-* 停止所有未來的備份作業但保留復原點  <br/>
+* 停止所有未來的備份作業但保留復原點 
 
 在儲存體中保留復原點需要付出相關的成本。 不過，保留復原點的好處是以後可以在需要時還原虛擬機器。 如需復原點保留成本的相關資訊，請參閱[價格詳細資料](https://azure.microsoft.com/pricing/details/backup/)。 如果您選擇刪除所有復原點，則無法還原虛擬機器。
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: 2dd5fe36105f4013c36dd4dc952424d5672ba91f
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: dba3da6f1aaf47c1b518fe0dba7ea22ae555c8c0
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>將 App Service 資源提供者新增到 Azure Stack
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 10/18/2017
 
     ![App Service 安裝程式](media/azure-stack-app-service-deploy/image07.png)    
 
-11. 檢閱角色執行個體和 SKU 選項。 填入的預設值為 ASDK 部署中每個角色的最少執行個體數目和最低 SKU。 系統會提供核心和記憶體需求的摘要來協助規劃您的部署。 進行選擇之後，按一下 [下一步]。
+11. 檢閱角色執行個體和 SKU 選項。 填入的預設值為 ASDK 部署中每個角色的最少執行個體數目和最低 SKU。 系統會提供 vCPU 和記憶體的需求摘要，以協助您規劃部署。 進行選擇之後，按一下 [下一步]。
 
     > [!NOTE]
     > 對於生產環境部署，請按照 [Azure Stack 中的 Azure App Service 伺服器角色的容量規劃](azure-stack-app-service-capacity-planning.md)中的指導方針進行。
@@ -106,11 +106,11 @@ ms.lasthandoff: 10/18/2017
 
     | 角色 | 最少執行個體 | 最低 SKU | 注意事項 |
     | --- | --- | --- | --- |
-    | Controller | 1 | Standard_A1 - (1 個核心，1792 MB) | 管理及維護 App Service 雲端的健全狀況。 |
-    | 管理 | 1 | Standard_A2 - (2 核心，3584 MB) | 管理 App Service Azure Resource Manager 和 API 端點、入口網站擴充功能 (管理員、租用戶、Functions 入口網站)，以及資料服務。 為了支援容錯移轉，已將建議的執行個體增加為 2 個。 |
-    | 發佈者 | 1 | Standard_A1 - (1 個核心，1792 MB) | 透過 FTP 和 Web 部署發佈內容。 |
-    | FrontEnd | 1 | Standard_A1 - (1 個核心，1792 MB) | 將要求傳送至 App Service 應用程式。 |
-    | 共用背景工作 | 1 | Standard_A1 - (1 個核心，1792 MB) | 裝載 Web 或 API 應用程式和 Azure Functions 應用程式。 建議您新增更多執行個體。 身為操作員，您可以定義您的供應項目，並選擇任何 SKU 層。 各層必須具有至少一個核心。 |
+    | Controller | 1 | Standard_A1 - (1 vCPU, 1792 MB) | 管理及維護 App Service 雲端的健全狀況。 |
+    | 管理 | 1 | Standard_A2 - (2 vCPUs, 3584 MB) | 管理 App Service Azure Resource Manager 和 API 端點、入口網站擴充功能 (管理員、租用戶、Functions 入口網站)，以及資料服務。 為了支援容錯移轉，已將建議的執行個體增加為 2 個。 |
+    | 發佈者 | 1 | Standard_A1 - (1 vCPU, 1792 MB) | 透過 FTP 和 Web 部署發佈內容。 |
+    | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | 將要求傳送至 App Service 應用程式。 |
+    | 共用背景工作 | 1 | Standard_A1 - (1 vCPU, 1792 MB) | 裝載 Web 或 API 應用程式和 Azure Functions 應用程式。 建議您新增更多執行個體。 身為操作員，您可以定義您的供應項目，並選擇任何 SKU 層。 各層必須具有至少一個 vCPU。 |
 
     ![App Service 安裝程式](media/azure-stack-app-service-deploy/image08.png)    
 

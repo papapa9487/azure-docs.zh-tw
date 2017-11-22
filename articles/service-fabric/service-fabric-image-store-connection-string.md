@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: alexwun
-ms.openlocfilehash: 49003c16c262180afcdba22c5557c91297cb2840
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 723cf7d98022e8bbb4f1e3c8c0836a4c53c6a078
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>了解 ImageStoreConnectionString 設定
 
@@ -44,7 +44,7 @@ Service Fabric 由許多不同的小組以內部 Microsoft 耗用量的平台開
 
 在開發期間會針對本機一整體叢集使用檔案系統提供者而非映像存放區服務，以稍微加速啟動叢集。 差別通常很小，但它在開發期間對於大部分人是有用的最佳化。 可以使用其他存放裝置提供者類型部署本機一整體叢集，但通常沒有理由這麼做，因為開發/測試工作流程將保持不變，不論提供者為何。 除了這項用法以外，檔案系統和 Azure 儲存體提供者只存在於舊版支援。
 
-因此，當 ImageStoreConnectionString 可設定時，您通常只使用預設設定。 透過 [Visual Studio][12] 發佈至 Azure 時，參數會據以自動為您設定。 針對以程式設計方式部署至 Azure 中裝載的叢集，連接字串一律是 "fabric:ImageStore"。 但是當有疑問時，其值一律能夠藉由 [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest)[.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) 或 [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest) 擷取叢集資訊清單來驗證。 內部部署測試與生產叢集也應該一律設定為使用映像存放區服務提供者。
+因此，當 ImageStoreConnectionString 可設定時，您通常只使用預設設定。 透過 Visual Studio 發佈至 Azure 時，參數會自動針對您進行相對應的設定。 針對以程式設計方式部署至 Azure 中裝載的叢集，連接字串一律是 "fabric:ImageStore"。 但是當有疑問時，其值一律能夠藉由 [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest)[.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) 或 [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest) 擷取叢集資訊清單來驗證。 內部部署測試與生產叢集也應該一律設定為使用映像存放區服務提供者。
 
 ### <a name="next-steps"></a>後續步驟
 [使用 PowerShell 部署與移除應用程式][10]
@@ -55,4 +55,4 @@ Service Fabric 由許多不同的小組以內部 Microsoft 耗用量的平台開
 
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-cluster-creation-via-portal.md
-[12]: service-fabric-publish-app-remote-cluster.md
+

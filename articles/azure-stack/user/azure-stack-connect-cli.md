@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 11/11/2017
 ms.author: sngun
-ms.openlocfilehash: 5ef64e727615d17ae550efbc7ea427936d7d4c3b
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 60b06cf41ea632219d2f16b29607899bd2e8d789
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>安裝並設定 CLI 以與 Azure Stack 搭配使用
 
@@ -204,6 +204,15 @@ az group create \
 如果資源群組成功建立，先前的命令會輸出新建立資源的下列內容：
 
 ![資源群組建立輸出](media/azure-stack-connect-cli/image1.png)
+
+## <a name="known-issues"></a>已知問題
+使用 Azure Stack 中的 CLI 時，有一些已知問題必須留意：
+
+* CLI 互動模式 (例如 `az interactive` 命令) 在 Azure Stack 中尚未支援。
+* 若要取得 Azure Stack 中的可用虛擬機器映像清單，請使用 `az vm images list --all` 命令，而非 `az vm image list` 命令。 指定 `--all` 選項可確保回應只傳回您 Azure Stack 環境中的可用映像。 
+* Azure 中可用的虛擬機器映像別名可能不適用於 Azure Stack。 使用虛擬機器映像時，您必須使用整個 URN 參數 (Canonical:UbuntuServer:14.04.3-LTS:1.0.0)，而非映像別名。 此 URN 必須符合從 `az vm images list` 命令衍生的映像規格。
+* 根據預設值，CLI 2.0 使用 “Standard_DS1_v2” 作為預設虛擬機器映像大小。 不過，此大小在 Azure Stack 中還無法使用，因此您必須在建立虛擬機器時明確地指定 `--size` 參數。 您可以使用 `az vm list-sizes --location <locationName>` 命令來取得 Azure Stack 中的可用虛擬機器大小清單。
+
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/19/2017
 ms.author: raynew
-ms.openlocfilehash: 0b2a36c293e899ebed9d1220dff043a85321cacf
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: ad6f70cf9c2f420e887031c8b240d2f831e6c359
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery：常見問題集 (FAQ)
 本文包含有關 Azure Site Recovery 的常見問題集。 如果您在閱讀本文後有問題，請將問題張貼在 [Azure 復原服務論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)。
@@ -75,22 +75,7 @@ Site Recovery 可協調並自動執行區域、內部部署虛擬機器和實體
 是。 當您使用 Site Recovery 來協調分公司中的複寫與容錯移轉時，會為您集中提供所有分公司工作負載的整合協調與檢視。 您不需要造訪分公司，就可以從總公司輕鬆執行所有分公司的容錯移轉及管理災害復原。
 
 ## <a name="pricing"></a>價格
-
-### <a name="what-charges-do-i-incur-while-using-azure-site-recovery"></a>使用 Azure Site Recovery 時有哪些費用？
-使用 Site Recovery 時，會產生 Site Recovery 授權、Azure 儲存體、儲存體交易和輸出資料傳輸的費用。 [深入了解](https://azure.microsoft.com/pricing/details/site-recovery)。
-
-Site Recovery 授權是根據受保護的執行個體，其中的執行個體是 VM 或實體伺服器。
-
-- 如果 VM 磁碟複寫到標準儲存體帳戶，Azure 儲存體會依據儲存體使用量收費。 例如，如果來源磁碟大小是 1 TB，使用量是 400 GB，Site Recovery 會在 Azure 中建立 1 TB 的 VHD，但要收費的儲存體是 400 GB (加上複寫記錄檔使用的儲存體空間量)。
-- 如果 VM 磁碟複寫到進階儲存體帳戶，Azure 儲存體會依據佈建的儲存體大小收費，四捨五入到最接近的進階儲存體磁碟選項。 例如，如果來源磁碟大小是 50GB，Site Recovery 會在 Azure 中建立 50 GB 的磁碟，而 Azure 會將此對應到最接近的進階儲存體磁碟 (P10)。  成本是依據 P10 計算，而非 50 GB 的磁碟大小。  [深入了解](https://aka.ms/premium-storage-pricing)。  如果您使用進階儲存體，也需要複寫記錄所需的標準儲存體帳戶，這些記錄檔使用的標準儲存體空間量也會計費。
-- 在測試容錯移轉或容錯移轉發生之前，不會建立任何磁碟。 在複寫狀態下，系統會依據[儲存體定價計算機](https://azure.microsoft.com/en-in/pricing/calculator/)產生「分頁 Blob 和磁碟」類別的儲存體費用。 這些費用會依據進階/標準的儲存體類型和資料備援類型 (LRS、GRS、RA-GRS 等) 而定。
-- 如果您選取要在容錯移轉時使用受控磁碟的選項，即會在容錯移轉/測試容錯移轉之後套用[受控磁碟的費用](https://azure.microsoft.com/en-in/pricing/details/managed-disks/)。 在複寫期間不會套用受控磁碟的費用。
-- 如果您未選取要在容錯移轉時使用受控磁碟的選項，系統會在容錯移轉之後依據[儲存體定價計算機](https://azure.microsoft.com/en-in/pricing/calculator/)產生「分頁 Blob 和磁碟」類別的儲存體費用。 這些費用會依據進階/標準的儲存體類型和資料備援類型 (LRS、GRS、RA-GRS 等) 而定。
-- 在穩定狀態複寫期間，以及容錯移轉/測試容錯移轉之後的一般 VM 操作，均會收取儲存體交易費用。 不過，這些費用微乎其微。
-
-測試容錯移轉期間也會產生成本，將適用 VM、儲存體、輸出和儲存體交易成本。
-
-
+若有關於價格的疑問，請參閱 [Azure Site Recovery 價格](https://azure.microsoft.com/en-in/pricing/details/site-recovery/)中的常見問題集。
 
 ## <a name="security"></a>安全性
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>複寫資料會傳送到 Site Recovery 服務嗎？

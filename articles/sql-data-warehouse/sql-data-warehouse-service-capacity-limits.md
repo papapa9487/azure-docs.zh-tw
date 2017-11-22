@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 10/31/2016
+ms.date: 11/10/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: 52026a58a5b6e26a660f9e1374e67036c67ac525
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d10d06edfc75594854d8f4da5cf29d6c2fd5ed24
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL 資料倉儲容量限制
 下表包含 Azure SQL 資料倉儲各種元件的最大允許值。
@@ -27,12 +27,12 @@ ms.lasthandoff: 10/11/2017
 ## <a name="workload-management"></a>工作負載管理
 | 類別 | 說明 | 最大值 |
 |:--- |:--- |:--- |
-| [資料倉儲單位 (DWU)][Data Warehouse Units (DWU)] |單一 SQL 資料倉儲的最大 DWU |6000 |
-| [資料倉儲單位 (DWU)][Data Warehouse Units (DWU)] |單一 SQL Server 的最大 DWU |預設為 6000<br/><br/> 每個 SQL Server (例如 myserver.database.windows.net) 的 DTU 配額為 45,000，最多允許 6000 DWU。 此配額僅是安全限制。 您可以藉由[建立支援票證][creating a support ticket]，並選取 [配額] 做為要求類型來增加配額。  若要計算 DTU 需求，將所需的總 DWU 乘以 7.5。 您可以在入口網站的 [SQL Server] 刀鋒視窗中檢視目前的 DTU 耗用量。 已暫停和未暫停的資料庫都會計入 DTU 配額。 |
-| 資料庫連接 |同時開啟的工作階段 |1024<br/><br/>我們支援最多 1024 個使用中的連線，每個連線可以同時針對一個 SQL 資料倉儲資料庫提交要求。 請注意，實際可以並行執行的查詢數是有限的。 超過並行存取限制時，要求會進入內部佇列以等待處理。 |
+| [資料倉儲單位 (DWU)][Data Warehouse Units (DWU)] |單一 SQL 資料倉儲的最大 DWU | 針對彈性最佳化的[效能層級](performance-tiers.md)：DW6000<br></br>針對計算最佳化的[效能層級](performance-tiers.md)：DW30000c |
+| [資料倉儲單位 (DWU)][Data Warehouse Units (DWU)] |每一部伺服器的預設 DTU |54,000<br></br>每個 SQL Server (例如 myserver.database.windows.net) 的 DTU 配額為 54,000，最多允許 DW6000c。 此配額僅是安全限制。 您可以藉由[建立支援票證][creating a support ticket]，並選取 [配額] 做為要求類型來增加配額。  若要計算 DTU 需求，將所需的總 DWU 乘以 7.5，或將所需的總 cDWU 乘以 9.0。 例如：<br></br>DW6000 x 7.5 = 45,000 DTU<br></br>DW600c x 9.0 = 54,000 DTU。<br></br>您可以在入口網站的 [SQL Server] 選項中檢視目前的 DTU 耗用量。 已暫停和未暫停的資料庫都會計入 DTU 配額。 |
+| 資料庫連接 |同時開啟的工作階段 |1024<br/><br/>每一個 1024 使用中工作階段都可以同時將要求提交至 SQL 資料倉儲資料庫。 請注意，可同時執行的查詢數目有所限制。 超過並行存取限制時，要求會進入內部佇列以等待處理。 |
 | 資料庫連接 |準備陳述式的最大記憶體 |20 MB |
-| [工作負載管理][Workload management] |並行查詢上限 |32<br/><br/> 根據預設，SQL 資料倉儲可以執行最多 32 並行查詢和佇列剩餘查詢。<br/><br/>當使用者指派給較高的資源類別，或以低的 DWU 設定 SQL 資料倉儲時，可能會降低並行處理等級。 系統總是會允許某些查詢 (例如 DMV 查詢) 執行。 |
-| [Tempdb][Tempdb] |Tempdb 的大小上限 |每一 DW100 399 GB。 因此，DWU1000 Tempdb 大小為 3.99 TB |
+| [工作負載管理][Workload management] |並行查詢上限 |32<br/><br/> 根據預設，SQL 資料倉儲可以執行最多 32 並行查詢和佇列剩餘查詢。<br/><br/>將使用者指派給較高的資源類別，或在 SQL 資料倉儲的[服務等級](performance-tiers.md#service-levels)較低時，並行查詢的數目會減少。 系統總是會允許某些查詢 (例如 DMV 查詢) 執行。 |
+| [tempdb][Tempdb] |GB 上限 |每一 DW100 399 GB。 因此在 DWU1000，tempdb 大小為 3.99 TB |
 
 ## <a name="database-objects"></a>資料庫物件
 | 類別 | 說明 | 最大值 |
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 | 資料表 |每個資料庫的資料表 |20 億 |
 | 資料表 |每個資料表的資料行 |1024 個資料行 |
 | 資料表 |每個資料行的位元組 |相依於資料行[資料類型][data type]。  char 資料類型的限制為 8000、nvarchar 為 4000 或 MAX 資料類型為 2 GB。 |
-| 資料表 |每個資料列的位元組，已定義的大小 |8060 個位元組<br/><br/>每個資料列的位元組數目計算方式和使用頁面壓縮的 SQL Server 所使用的方式相同。 就像 SQL Server，SQL 資料倉儲支援資料列溢位儲存，讓 **可變長度的資料行** 能發送至超出資料列。 可變長度的資料列會發送至超出資料列，只有 24 位元組的根會儲存在主要記錄中。 如需詳細資訊，請參閱[超過 8 KB 的資料列溢位資料][Row-Overflow Data Exceeding 8 KB] MSDN 文章。 |
+| 資料表 |每個資料列的位元組，已定義的大小 |8060 個位元組<br/><br/>每個資料列的位元組數目計算方式和使用頁面壓縮的 SQL Server 所使用的方式相同。 就像 SQL Server，SQL 資料倉儲支援資料列溢位儲存，讓**可變長度的資料行**能發送至超出資料列。 可變長度的資料列會發送至超出資料列，只有 24 位元組的根會儲存在主要記錄中。 如需詳細資訊，請參閱[超過 8-KB 的資料列溢位資料][Row-Overflow Data Exceeding 8 KB]。 |
 | 資料表 |每個資料表的資料分割 |15,000<br/><br/>為了獲得高效能，建議在仍能支援業務需求的情況下，將您需要的資料分割數目降至最低。 隨著資料分割數目增加，資料定義語言 (DDL) 和資料操作語言 (DML) 作業的負荷會加重，導致效能變慢。 |
 | 資料表 |每個資料分割界限值的字元。 |4000 |
 | 索引 |每個資料表的非叢集索引。 |999<br/><br/>僅適用於資料列存放區資料表。 |
@@ -58,7 +58,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="loads"></a>載入
 | 類別 | 說明 | 最大值 |
 |:--- |:--- |:--- |
-| PolyBase 載入 |每列 MB 數 |1<br/><br/>PolyBase 載入被限制為只能載入小於 1MB 的資料列，且不能載入至 VARCHR(MAX)、NVARCHAR(MAX) 或 VARBINARY(MAX)。<br/><br/> |
+| PolyBase 載入 |每列 MB 數 |1<br/><br/>PolyBase 載入只能載入小於 1 MB 的資料列，且不能載入至 VARCHAR(MAX)、NVARCHAR(MAX) 或 VARBINARY(MAX) 的資料列。<br/><br/> |
 
 ## <a name="queries"></a>查詢
 | 類別 | 說明 | 最大值 |

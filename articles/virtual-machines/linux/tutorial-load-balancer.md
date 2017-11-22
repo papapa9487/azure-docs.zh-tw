@@ -13,14 +13,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 11/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 25e2538e220327a078a6527e667dfcd6cb838b1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc25d6106ad67710660b1a5c48270a7082688d51
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>如何平衡 Azure 中 Linux 虛擬機器的負載以建立高可用性應用程式
 負載平衡會將傳入要求分散到多部虛擬機器，藉此提供高可用性。 在本教學課程中，您會了解 Azure Load Balancer 的不同元件，以分散流量並提供高可用性。 您會了解如何：
@@ -162,10 +162,13 @@ for i in `seq 1 3`; do
 done
 ```
 
+當建立好所有三個虛擬 NIC 時，繼續執行下一個步驟
+
+
 ## <a name="create-virtual-machines"></a>建立虛擬機器
 
 ### <a name="create-cloud-init-config"></a>建立 Cloud-init 組態
-在[如何在首次開機時自訂 Linux 虛擬機器](tutorial-automate-vm-deployment.md)的先前教學課程中，您已了解如何使用 cloud-init 自動進行 VM 自訂。 您可以使用相同的 cloud-init 組態檔來安裝 NGINX 和執行簡單的 'Hello World' Node.js 應用程式。
+在[如何在首次開機時自訂 Linux 虛擬機器](tutorial-automate-vm-deployment.md)的先前教學課程中，您已了解如何使用 cloud-init 自動進行 VM 自訂。 在下一個步驟中，您可以使用相同的 cloud-init 組態檔來安裝 NGINX 和執行簡單的 'Hello World' Node.js 應用程式。 若要查看作用中的負載平衡器，在本教學課程結尾處，您可以在網頁瀏覽器中存取這個簡單應用程式。
 
 您目前的殼層中，建立名為 cloud-init.txt 的檔案，並貼上下列組態。 例如，在 Cloud Shell 中建立不在本機電腦上的檔案。 輸入 `sensible-editor cloud-init.txt` 可建立檔案，並查看可用的編輯器清單。 請確定已正確複製整個 cloud-init 檔案，特別是第一行：
 
@@ -277,6 +280,24 @@ az network nic ip-config address-pool remove \
 
 若要查看負載平衡器如何將流量分散到其餘兩部執行您應用程式的 VM，您可以強制重新整理您的 Web 瀏覽器。 您現在可以在 VM 上執行維護，例如安裝 OS 更新或執行 VM 重新開機。
 
+若要檢視連線到負載平衡器之虛擬 NIC 的 VM 清單，請使用 [az network lb address-pool show](/cli/azure/network/lb/address-pool#show)。 查詢和篩選虛擬 NIC 的識別碼，如下所示：
+
+```azurecli-interactive
+az network lb address-pool show \
+    --resource-group myResourceGroupLoadBalancer \
+    --lb-name myLoadBalancer \
+    --name myBackEndPool \
+    --query backendIpConfigurations \
+    --output tsv | cut -f4
+```
+
+輸出類似於下列範例，其中顯示 VM 2 的虛擬 NIC 已不再是後端位址集區的一部分：
+
+```bash
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic1/ipConfigurations/ipconfig1
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic3/ipConfigurations/ipconfig1
+```
+
 ### <a name="add-a-vm-to-the-load-balancer"></a>將 VM 新增至負載平衡器
 在執行 VM 維護之後，或者如果需要擴充容量，您可以使用 [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#add) 將 VM 新增至後端位址集區。 下列範例會將 myVM2 的虛擬 NIC 新增至 myLoadBalancer：
 
@@ -288,6 +309,8 @@ az network nic ip-config address-pool add \
     --lb-name myLoadBalancer \
     --address-pool myBackEndPool
 ```
+
+若要確認虛擬 NIC 已連線到後端位址集區，請從上一步驟再次使用 [az network lb address-pool show](/cli/azure/network/lb/address-pool#show)。
 
 
 ## <a name="next-steps"></a>後續步驟

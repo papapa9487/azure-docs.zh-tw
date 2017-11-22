@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli;markgal;
-ms.openlocfilehash: f3195fa83479986a3e605abce618c78bcdb64dac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a07fb9388f1e83bd167cf7c65cd3cd1e4f51ecd1
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式和/或擴充功能相關的問題
 
@@ -67,6 +67,11 @@ ms.lasthandoff: 10/11/2017
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>原因 5︰[備份擴充功能無法更新或載入](#the-backup-extension-fails-to-update-or-load)
 
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>系統不支援指定的磁碟設定
+
+> [!NOTE]
+> 我們有私人預覽，可支援未受管理磁碟大小超過 1 TB 的虛擬機器的備份作業。 如需詳細資訊，請參閱[適用於大型磁碟虛擬機器備份支援的私人預覽](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+>
+>
 
 Azure 備份目前不支援容量 [大於 1023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm) 的磁碟。 
 - 如果您有容量大於 1 TB 的磁碟，請[附加新磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)，磁碟需要小於 1 TB <br>
@@ -161,9 +166,9 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 
 #### <a name="solution"></a>方案
 
- **Windows 客體：**確認 iaasvmprovider 服務已啟用，而且啟動類型為「自動」。 如果服務不是使用此方式所設定，請啟用該服務以判斷下一次備份是否成功。
+**Windows 客體：**確認 iaasvmprovider 服務已啟用，而且啟動類型為「自動」。 如果服務不是使用此方式所設定，請啟用該服務以判斷下一次備份是否成功。
 
- **Linux 客體：**VMSnapshot for Linux (備份所使用的擴充功能) 的最新版本是 1.0.91.0。<br>
+**Linux 客體：**VMSnapshot for Linux (備份所使用的擴充功能) 的最新版本是 1.0.91.0。<br>
 
 
 如果還是無法更新或載入備份擴充功能，您可以透過解除安裝擴充功能來強制重新載入 VMSnapshot 擴充功能。 下一次的備份嘗試將會重新載入擴充功能。

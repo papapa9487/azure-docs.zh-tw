@@ -1,6 +1,6 @@
 ---
 title: "使用 .NET 透過媒體編碼器標準為資產編碼 | Microsoft Docs"
-description: "本主題說明如何使用 .NET 來使用 Media Encoder Standard 為資產編碼。"
+description: "本文說明如何使用 .NET 來使用媒體編碼器標準為資產編碼。"
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 929592368501c54277748bf46b2160c9058db3fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cce668007030672aff7af60c70339c1e079c75b1
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>使用 .NET 透過 Media Encoder Standard 為資產編碼
 編碼工作是媒體服務中最常見的處理作業。 您建立編碼工作以將媒體檔案從一種編碼轉換成另一種編碼。 編碼時，您可以使用媒體服務內建的 Media Encoder。 您也可以使用媒體服務合作夥伴提供的編碼器；第三方編碼器可透過 Azure Marketplace 取得。 
 
-本主題說明如何使用 .NET 透過 Media Encoder Standard (MES) 將您的資產編碼。 Media Encoder Standard 使用 [這裡](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)描述的其中一個編碼器預設值進行設定。
+本文說明如何使用 .NET 透過媒體編碼器標準 (MES) 將您的資產編碼。 媒體編碼器標準是使用[這裡](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)所描述的其中一個編碼器預設來進行設定。
 
 建議一律將來源檔編碼為調適性位元速率 MP4 集，然後使用[動態封裝](media-services-dynamic-packaging-overview.md)將該集合轉換為所要的格式。 
 
-如果您的輸出資產是儲存體加密，必須設定資產傳遞原則。 如需詳細資訊，請參閱 [設定資產傳遞原則](media-services-dotnet-configure-asset-delivery-policy.md)。
+如果您的輸出資產是儲存體加密，必須設定資產傳遞原則。 如需詳細資訊，請參閱[設定資產傳遞原則](media-services-dotnet-configure-asset-delivery-policy.md)。
 
 > [!NOTE]
 > MES 會產生一個輸出檔案，其名稱包含輸入檔案名稱的前 32 個字元。 名稱是以預設檔案中指定的名稱為基礎。 例如，"FileName": "{Basename}_{Index}{Extension}"。 {Basename} 會由輸入檔案名稱的前 32 個字元取代。
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 [格式和轉碼器](media-services-media-encoder-standard-formats.md)
 
 ### <a name="mes-presets"></a>MES 預設值
-Media Encoder Standard 使用 [這裡](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)描述的其中一個編碼器預設值進行設定。
+媒體編碼器標準是使用[這裡](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)所描述的其中一個編碼器預設來進行設定。
 
 ### <a name="input-and-output-metadata"></a>輸入和輸出中繼資料
 如果您使用 MES 為輸入資產 (或資產) 編碼，在該編碼工作完成時，您便能取得輸出資產。 輸出資產包含視訊、音訊、縮圖、資訊清單等等，依據您所使用的編碼預設格式而定。
@@ -61,7 +61,7 @@ Media Encoder Standard 使用 [這裡](http://go.microsoft.com/fwlink/?linkid=61
 * 指定要使用[彈性資料流](media-services-autogen-bitrate-ladder-with-mes.md)預設值。 
 * 將單一編碼工作加入工作。 
 * 指定要編碼的輸入資產。
-* 建立將包含已編碼資產的輸出資產。
+* 建立包含已編碼資產的輸出資產。
 * 加入事件處理常式來檢查工作進度。
 * 提交作業。
 
@@ -181,6 +181,14 @@ Media Encoder Standard 使用 [這裡](http://go.microsoft.com/fwlink/?linkid=61
                 }
             }
         }
+
+
+## <a name="advanced-encoding-features-to-explore"></a>可探索的進階編碼功能
+* [如何產生縮圖](media-services-dotnet-generate-thumbnail-with-mes.md)
+* [在編碼期間產生縮圖](media-services-dotnet-generate-thumbnail-with-mes.md#example-of-generating-a-thumbnail-while-encoding)
+* [在編碼期間裁剪影片](media-services-crop-video.md)
+* [自訂編碼預設](media-services-custom-mes-presets-with-dotnet.md)
+* [使用影像在影片上進行重疊或加上浮水印](media-services-advanced-encoding-with-mes.md#overlay)
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

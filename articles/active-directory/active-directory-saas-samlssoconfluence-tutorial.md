@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 9a36d686ba39b5168860a20e8c4db357888df6a7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 17bd8294c957c0666ffe75d1ff06b863f1176048
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>教學課程：Azure Active Directory 與 SAML SSO for Confluence by resolution GmbH 整合
 
@@ -74,7 +74,7 @@ SAML SSO for Confluence by resolution GmbH 與 Azure AD 整合提供下列優點
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_search.png)
 
-5. 在結果窗格中，選取 SAML SSO for Confluence by resolution GmbH，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [SAML SSO for Confluence by resolution GmbH]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_addfromgallery.png)
 
@@ -169,26 +169,53 @@ SAML SSO for Confluence by resolution GmbH 與 Azure AD 整合提供下列優點
 
     ![設定單一登入](./media/active-directory-saas-samlssoconfluence-tutorial/addon3.png)
     
-16. 在 [SAML SingleSignOn 外掛程式組態] 頁面上，按一下 [新增額外的識別提供者] 按鈕以進行識別提供者的設定。
+16. 在 [SAML SingleSignOn 外掛程式組態] 頁面上，按一下 [新增識別提供者] 按鈕以進行識別提供者的設定。
 
     ![設定單一登入](./media/active-directory-saas-samlssoconfluence-tutorial/addon4.png)
 
-17. 在這個頁面上執行下列步驟：
+17. 在 [選擇您的 SAML 識別提供者] 頁面上，執行下列步驟：
 
-    ![設定單一登入](./media/active-directory-saas-samlssoconfluence-tutorial/addon5.png)
+    ![設定單一登入](./media/active-directory-saas-samlssoconfluence-tutorial/addon5a.png)
  
-    a. 新增識別提供者的**名稱** (例如 Azure AD)。
+    a. 將 **Azure AD** 設定為識別提供者類型。
     
-    b.這是另一個 C# 主控台應用程式。 新增識別提供者的**描述** (例如 Azure AD)。
+    b. 新增識別提供者的**名稱** (例如 Azure AD)。
+    
+    c. 新增識別提供者的**描述** (例如 Azure AD)。
+    
+    d. 按一下 [下一步] 。
+    
+18. 在 [識別提供者設定] 頁面上，按一下 [下一步] 按鈕。
 
-    c. 按一下 [XML]，然後選取您從 Azure 入口網站下載的**中繼資料**檔案。
+    ![設定單一登入](./media/active-directory-saas-samlssoconfluence-tutorial/addon5b.png)
 
-    d. 按一下 [載入] 按鈕。
+19. 在 [匯入 SAML 識別提供者中繼資料] 頁面上，執行下列步驟：
 
-    e. 它會讀取 IdP 中繼資料，並且填入螢幕擷取畫面中反白顯示的欄位。 
-18. 按一下 [儲存設定] 按鈕以儲存設定。
+    ![設定單一登入](./media/active-directory-saas-samlssoconfluence-tutorial/addon5c.png)
 
-    ![設定單一登入](./media/active-directory-saas-samlssoconfluence-tutorial/addon6.png)
+    a. 按一下 [載入檔案] 按鈕，然後選取您在步驟 5 下載的中繼資料 XML 檔案。
+
+    b. 按一下 [匯入] 按鈕。
+    
+    c. 請稍候，直到匯入成功。
+    
+    d. 按一下 [下一步] 按鈕。
+    
+20. 在 [使用者識別碼屬性與轉換] 頁面上，按一下 [下一步] 按鈕。
+
+    ![設定單一登入](./media/active-directory-saas-samlssoconfluence-tutorial/addon5d.png)
+    
+21. 在 [使用者建立與更新] 頁面上，按一下 [儲存並進行下一個]，以儲存設定。   
+    
+    ![設定單一登入](./media/active-directory-saas-samlssoconfluence-tutorial/addon6a.png)
+    
+22. 在 [測試您的設定] 頁面上，按一下 [跳過測試和手動設定]，以跳過目前的使用者測試。 這將在下一節中進行，並需要在 Azure 入口網站中進行一些設定。 
+    
+    ![設定單一登入](./media/active-directory-saas-samlssoconfluence-tutorial/addon6b.png)
+    
+23. 在顯示的 [跳過測試表示...] 對話方塊中，按一下 [確定]。
+    
+    ![設定單一登入](./media/active-directory-saas-samlssoconfluence-tutorial/addon6c.png)
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)

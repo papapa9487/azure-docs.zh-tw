@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d3df59afe595265fba88f7274154a36d42139859
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d59ef16de433ac9691f6996eab2bf56f056feb88
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>將 Azure Functions 效能和可靠性最佳化
 
@@ -66,8 +66,7 @@ ms.lasthandoff: 10/18/2017
 
 如果佇列項目已經過處理，請讓您的函式成為無作業。
 
-利用已針對您在 Azure Functions 平台中所使用元件提供的防禦性措施。 例如，請參閱文件中**處理有害的佇列訊息**中的 [Azure 儲存體佇列觸發程序](functions-bindings-storage-queue.md#trigger)。
- 
+利用已針對您在 Azure Functions 平台中所使用元件提供的防禦性措施。 例如，請參閱文件中**處理有害的佇列訊息**，以了解 [Azure 儲存體佇列觸發程序和繫結](functions-bindings-storage-queue.md#trigger---poison-messages)。 
 
 ## <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>不要在相同函式應用程式中混用測試和實際執行程式碼
 
@@ -97,4 +96,3 @@ ms.lasthandoff: 10/18/2017
 
 因為 Azure Functions 使用 Azure App Service，所以您也應該充分了解 Azure App Service 指導方針。
 * [HTTP 效能最佳化的模式與做法](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)
-

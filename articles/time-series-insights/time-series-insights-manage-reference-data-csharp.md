@@ -1,36 +1,35 @@
 ---
 title: "使用 C# 來管理 Azure Time Series Insights 環境的參考資料 | Microsoft Docs"
-description: "本教學課程涵蓋如何使用 C# 來管理 Azure Time Series Insights 環境的參考資料"
-keywords: 
+description: "本文說明如何建立使用 C# (c-sharp) .NET 語言撰寫的自訂應用程式來管理 Azure 時間序列深入解析環境的參考資料。"
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: venkatgct
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/29/2017
 ms.author: venkatja
-ms.openlocfilehash: 528a33cf01b2a0a07880dad62ba6bbaf4a605153
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: cd4d37ae2a68be3c061706f80055efb7e5387d98
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>使用 C# 來管理 Azure Time Series Insights 環境的參考資料
 
-這個 C# 範例示範如何管理 Azure Time Series Insights 環境的參考資料。
-執行此範例之前，請確定已完成下列步驟。
+本文說明您可以編譯的 C# 範例程式碼來管理 Azure 時間序列深入解析環境的參考資料。
+
+編譯並執行範例程式碼之前，請確定已完成下列步驟：
 1. 已使用[這篇文章](time-series-insights-add-reference-data-set.md)來建立參考資料集。
-2. 已透過 Azure Active Directory API 取得執行應用程式時使用的存取權杖。 應該在每個「查詢」API 要求的 `Authorization` 標頭中傳送此權杖。 如需了解如何設定非互動式應用程式，請參閱[驗證與授權](time-series-insights-authentication-and-authorization.md)一文。
-3. 已正確設定在此範例開頭定義的所有常數。
 
-## <a name="c-sample"></a>C# 範例
+2. 設定要用於授權應用程式的存取權杖。 請務必透過 Azure Active Directory API 取得該權杖。 應該在每個「查詢」API 要求的 `Authorization` 標頭中傳送此權杖。 如需了解如何設定非互動式應用程式，請參閱[驗證與授權](time-series-insights-authentication-and-authorization.md)一文。
 
+3. 編輯範例程式碼以取代在接近程式碼開頭之 **#DUMMY#** 所指定的範例常數。 
+
+## <a name="c-sample-code"></a>C# 範例程式碼 
 ```csharp
 // Copyright (c) Microsoft Corporation.  All rights reserved.
 
@@ -233,5 +232,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 ```
 
 ## <a name="next-steps"></a>後續步驟
-
-如需完整的 API 參考，請參閱[參考資料 API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) 文件。
+如需完整的 REST API 參考，請參閱[參考資料 API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)。

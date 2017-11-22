@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: 57d9ebc5a9689a6f1d48464aa20ffdc7fa61b00f
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 4a6647e30657a6d2d076cd254069d96f99a0aa60
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="usage-analysis-with-application-insights"></a>使用 Application Insights 進行使用量分析
 
@@ -34,7 +34,7 @@ Web 或行動應用程式的哪些功能最受歡迎？ 您的使用者是否利
 
     ![將指令碼複製到您主版頁面的標頭。](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
-3. **行動應用程式程式碼：**使用 Mobile Center SDK 從應用程式收集事件，然後將這些事件的複本傳送至 Application Insights，[按照此指南](app-insights-mobile-center-quickstart.md)的指示進行分析。
+3. **行動應用程式程式碼：**使用 App Center SDK 從應用程式收集事件，然後將這些事件的複本傳送至 Application Insights，[按照此指南](app-insights-mobile-center-quickstart.md)的指示進行分析。
 
 4. **取得遙測資料：**以偵錯模式執行您的專案幾分鐘，然後在 Application Insights 的 [概觀] 刀鋒視窗中尋找結果。
 

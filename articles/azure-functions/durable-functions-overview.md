@@ -1,6 +1,6 @@
 ---
-title: "Durable Functions 概觀 - Azure"
-description: "Azure Functions 的 Durable Functions 擴充功能簡介。"
+title: "Durable Functions 概觀 - Azure (預覽)"
+description: "Azure Functions 的 Durable Functions 擴充簡介。"
 services: functions
 author: cgillum
 manager: cfowler
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 04d660d5fdd878788c09e46b078b2e2b043b7dbb
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: fa0d5cf7469a1a36fe0ab9a712cd4f8c963ceb48
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="durable-functions-overview-azure-functions"></a>Durable Functions 概觀 (Azure Functions)
+# <a name="durable-functions-overview-preview"></a>Durable Functions 概觀 (預覽)
 
 *Durable Functions* 是 [Azure Functions](functions-overview.md) 和 [Azure WebJobs](../app-service/web-sites-create-web-jobs.md) 的擴充功能，可讓您在無伺服器環境中撰寫具狀態函式。 此擴充功能會為您管理狀態、設定檢查點和重新啟動。
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/13/2017
 * 協調器函式每次在進行等候時，都會自動設定其進度的檢查點。 如果處理序回收或 VM 重新開機，本機狀態永遠不會消失。
 
 > [!NOTE]
-> Durable Functions 是 Azure Functions 的進階擴充功能，因此並非所有應用程式都適用。 本文其餘部分會假設您已非常熟悉無伺服器應用程式開發過程中所涉及的 [Azure Functions](functions-overview.md) 概念和挑戰。
+> 處於預覽狀態的 Durable Functions 是 Azure Functions 的進階擴充功能，並非所有應用程式都適用。 本文其餘部分會假設您已非常熟悉無伺服器應用程式開發過程中所涉及的 [Azure Functions](functions-overview.md) 概念和挑戰。
 
 Durable Functions 主要用來簡化無伺服器應用程式中複雜的具狀態協調問題。 下列各節會說明一些可因為 Durable Functions 而受益的典型應用程式模式。
 

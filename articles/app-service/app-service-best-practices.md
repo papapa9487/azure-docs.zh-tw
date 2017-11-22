@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: a65b50a90a67b718f2a0cdd8657194d9740b3bd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 251ce238b745734bdfb508b30097304a9a650a8c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="best-practices-for-azure-app-service"></a>Azure App Service 的最佳作法
 本文將摘要說明使用 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)的最佳作法。 
@@ -40,7 +40,26 @@ ms.lasthandoff: 10/11/2017
 如需「具狀態」與「無狀態」應用程式的相關資訊，請觀賞這段影片︰ [在 Microsoft Azure Web 應用程式上規劃可調整的端對端多層應用程式](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid)。 如需 App Service 調整和自動調整選項的詳細資訊，請參閱 [在 Azure App Service 中調整 Web 應用程式規模](web-sites-scale.md)。  
 
 ## <a name="socketresources"></a>當通訊端資源耗盡時
-耗盡輸出 TCP 連線的常見原因是使用的用戶端程式庫未實作為重複使用 TCP 連線，或因為沒有利用更高階的通訊協定，例如 HTTP - Keep-Alive。 請檢閱 App Service 方案中各應用程式所參考的每個程式庫的說明文件，以確保在程式碼中設定或存取程式庫時，能夠有效率地重複使用輸出連線。 此外，請遵循程式庫文件指引，適當地建立和釋放或清除，以免連線流失。 在進行這類用戶端程式庫調查時，可相應放大至多個執行個體來緩和影響。  
+耗盡輸出 TCP 連線的常見原因是使用的用戶端程式庫未實作為重複使用 TCP 連線，或因為沒有利用更高階的通訊協定，例如 HTTP - Keep-Alive。 請檢閱 App Service 方案中各應用程式所參考的每個程式庫的說明文件，以確保在程式碼中設定或存取程式庫時，能夠有效率地重複使用輸出連線。 此外，請遵循程式庫文件指引，適當地建立和釋放或清除，以免連線流失。 在進行這類用戶端程式庫調查時，可相應放大至多個執行個體來緩和影響。
+
+### <a name="nodejs-and-outgoing-http-requests"></a>Node.js 和傳出 http 要求
+使用 Node.js 和許多傳出 http 要求時，HTTP-Keep-Alive 的處理非常重要。 您可以使用 [agentkeepalive](https://www.npmjs.com/package/agentkeepalive) `npm` 封裝，使之得以更輕鬆地在程式碼中運作。
+
+即使您在處理常式中沒有任何操作，也應該一律處理 `http` 回應。 如果未正確地處理回應，您的應用程式最終會困住，因為沒有更多的通訊端可使用。
+
+舉例而言，使用 `http` 或 `https` 封裝時：
+
+```
+var request = https.request(options, function(response) {
+    response.on('data', function() { /* do nothing */ });
+});
+```
+
+如果您在多核心機器上的 Linux 上執行 App Service，另一個最佳做法是使用 PM2 啟動多個 Node.js 處理序來執行您的應用程式。 您可以為容器指定啟動命令來進行此操作。
+
+例如，若要啟動四個執行個體：
+
+`pm2 start /home/site/wwwroot/app.js --no-daemon -i 4`
 
 ## <a name="appbackup"></a>當您的應用程式備份啟動失敗時
 應用程式備份為什麼會失敗有兩個最常見的原因：儲存體設定無效和資料庫組態無效。 這些失敗通常會在下列情況中發生：對儲存體或資料庫資源進行變更，或者針對存取這些資源的方式進行變更 (例如，針對備份設定中所選取的資料庫更新了認證)。 備份通常會依排程執行，而且需要存取儲存體 (用於輸出的備份檔案) 和資料庫 (用於複製和讀取要包含於備份中的內容)。 無法存取這其中一個資源的結果就是備份一律會失敗。 

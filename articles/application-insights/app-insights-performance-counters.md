@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 26837a72dd4539cd5b32e5b49a127a714f3a1426
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 40821d32c5bdfe51bb3cb205660d6f25b2c3fadc
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application Insights 中的系統效能計數器
 Windows 提供多種[效能計數器](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) (例如 CPU 使用、記憶體、磁碟和網路使用量)。 您也可以自行定義。 如果應用程式是在您具有系統管理存取權的內部部署主機或虛擬機器上於 IIS 下執行，則 [Application Insights](app-insights-overview.md) 可以顯示這些效能計數器。 這些圖表指出即時應用程式可用的資源，而且有助於識別伺服器執行個體之間的不平衡負載。
@@ -83,7 +83,6 @@ Windows 提供多種[效能計數器](http://www.codeproject.com/Articles/8590/A
       @"\.NET CLR Memory([replace-with-application-process-name])\# GC Handles", "GC Handles")));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 ```
-
 或者，您可以透過您建立的自訂度量執行相同的作業︰
 
 ``` C#
@@ -115,6 +114,9 @@ Windows 提供多種[效能計數器](http://www.codeproject.com/Articles/8590/A
 
 *  是系統效能計數器。 CLR 會計算所有擲回之已處理和未處理的例外狀況，並依據間隔的長度將總數分割為取樣間隔。 Application Insights SDK 會收集此結果並將它傳送至入口網站。
 *  是在圖表的取樣間隔中由入口網站接收之 TrackException 報告的計數。 它只包含您程式碼中撰寫 TrackException 呼叫所在位置的已處理例外狀況，並且不包含所有的 [未處理例外狀況](app-insights-asp-net-exceptions.md)。 
+
+## <a name="performance-counters-in-aspnet-core-applications"></a>Asp.Net Core 應用程式中的效能計數器
+只有在應用程式以完整的 .NET Framework 為目標時，方可支援效能計數器。 無法為 .Net Core 應用程式收集效能計數器。
 
 ## <a name="alerts"></a>Alerts
 與其他計量一樣，您可以[設定警示](app-insights-alerts.md)，在效能計數器超出您指定的界限時提出警告。 開啟 [警示] 刀鋒視窗，然後按一下 [新增警示]。

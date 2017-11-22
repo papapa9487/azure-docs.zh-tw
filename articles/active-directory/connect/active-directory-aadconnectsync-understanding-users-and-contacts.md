@@ -1,6 +1,6 @@
 ---
-title: "Azure AD Connect 同步：了解使用者和連絡人 | Microsoft Docs"
-description: "說明 Azure AD Connect 同步處理中的使用者和連絡人。"
+title: "Azure AD Connect 同步處理：了解使用者、群組和連絡人 | Microsoft Docs"
+description: "說明 Azure AD Connect 同步處理中的使用者、群組和連絡人。"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -13,24 +13,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi;andkjell
-ms.openlocfilehash: 0ad3194a0827c4ef68267ce5e3e3fcbe225e8a3d
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: c298a2f99750ead099b8761699c914a3a6e41ce1
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="azure-ad-connect-sync-understanding-users-and-contacts"></a>Azure AD Connect 同步處理：了解使用者和連絡人
+# <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect 同步處理：了解使用者、群組和連絡人
 您可能有幾種不同的原因，而擁有多個 Active Directory 樹系並且具有幾種不同的部署拓撲。 常見的模型包括合併與收購之後的帳戶-資源部署與 GAL 同步處理的樹系。 雖然有單純的模型，但混合模型也同樣常見。 Azure AD Connect 同步處理中的預設組態不會採用任何特定的模型，但是根據在安裝指南中選取使用者比對的方式，可以觀察到不同的行為。
 
 在本主題中，我們將詳細解說預設組態在某些拓撲中的運作方式。 我們將詳細解說組態，以及可用來查看組態的同步處理規則編輯器。
 
 組態假設幾個一般規則：
-
 * 無論我們以何種順序從來源 Active Directory 匯入，最後的結果應一律相同。
 * 使用中的帳戶一律會提供登入資訊，包括 **userPrincipalName** 和 **sourceAnchor**。
 * 如果找不到使用中的帳戶，除非帳戶是連結的信箱，否則停用的帳戶將會提供 userPrincipalName 和 sourceAnchor。
 * 具有連結信箱的帳戶永遠不會用於 userPrincipalName 和 sourceAnchor。 它假設稍後就會找到使用中的帳戶。
 * 連絡人物件可能會佈建到 Azure AD 成為連絡人或使用者。 一直要到處理了所有來源 Active Directory 樹系之後，您才會知道物件成為何者。
+
+## <a name="groups"></a>群組
+將 Active Directory 的群組同步至 Azure AD 時應該注意的重點：
+
+* Azure AD Connect 會將內建安全性群組從目錄同步作業中排除。
+
+* Azure AD Connect 不支援將[主要群組成員資格](https://technet.microsoft.com/library/cc771489(v=ws.11).aspx)同步至 Azure AD。
+
+* Azure AD Connect 不支援將[動態通訊群組成員資格](https://technet.microsoft.com/library/bb123722(v=exchg.160).aspx)同步至 Azure AD。
+
+* 若要將 Active Directory 群組同步至 Azure AD 做為擁有郵件功能的群組：
+
+    * 如果群組的 *proxyAddress* 屬性是空的，其 *mail* 屬性必須有值，或 
+
+    * 如果群組的 *proxyAddress* 屬性不是空的，它也必須包含主要 SMTP Proxy 位址值 (以大寫的 **SMTP** 前置詞表示)。 這裡有一些範例：
+    
+      * proxyAddress 屬性值為 *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* 的 Active Directory 群組在 Azure AD 中不會擁有郵件功能。 該群組沒有主要 SMTP 位址。
+      
+      * proxyAddress 屬性值為 *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* 的 Active Directory 群組在 Azure AD 中不會擁有郵件功能。 它有 smtp 位址，但不是主要位址。
+      
+      * proxyAddress 屬性值為 *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe@contoso.com"}* 的 Active Directory 群組在 Azure AD 中會擁有郵件功能。
 
 ## <a name="contacts"></a>連絡人
 在合併與收購時使用 GALSync 解決方案橋接兩個或多個 Exchange 樹系之後，常會有多個連絡人代表不同樹系中的某個使用者。 連絡人物件一律從連接器空間使用 mail 屬性加入 Metaverse。 如果已經有具相同郵件地址的連絡人物件或使用者物件，則物件會一起加入。 這設定在規則 **In from AD – Contact Join**中。 另外還有一個名為 **In from AD - Contact Common** 的規則，其屬性流程是使用常數 **Contact** 提供給 Metaverse 屬性 **sourceObjectType**。 此規則的優先順序非常低，因此，如果已將任何使用者物件聯結到同一個 Metaverse 物件，則規則 **In from AD – User Common** 會提供 User 值給這個屬性。 有了這項規則，如果沒有使用者加入，此屬性的值就會是 Contact，如果至少找到了一個使用者，則屬性的值就會是 User。

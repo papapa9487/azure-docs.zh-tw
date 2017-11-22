@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 73d5c33cec1ebec76ea738e03cd29e88d482b905
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f0f6578b14b2fdd3807303eb94df077df92ba77
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB 資料庫安全性
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 10/11/2017
 |Azure 目錄整合 (RBAC)| 您也可以在 Azure 入口網站中使用存取控制 (IAM) 提供資料庫帳戶的存取權，如本表格之後的螢幕擷取畫面所示。 IAM 提供角色型存取控制，並與 Active Directory 整合。 您可以對個人或群組使用內建角色或自訂角色，如下圖所示。|
 |全球複寫|Azure Cosmos DB 提供現成的全域散發，您只要按一下按鈕，就能將資料複寫至 Azure 的任何一個全球資料中心。 全球複寫可讓您擴大到全球規模，確保存取世界各地資料時的低延遲性。<br><br>在安全性方面，全球複寫可確保資料不受區域性失敗所波及。<br><br>請參閱[將資料分散到全球](distribute-data-globally.md)以深入了解。|
 |區域性容錯移轉|如果您已將資料複寫至多個資料中心，萬一某個區域資料中心離線，Azure Cosmos DB 會自動轉移您的作業。 您可以使用已複寫資料的區域，建立容錯移轉區域的優先順序清單。 <br><br>請參閱 [Azure Cosmos DB 的區域性容錯移轉](regional-failover.md)以深入了解。|
-|區域複寫|即使在單一資料中心內，Azure Cosmos DB 也會自動複寫資料來達到高可用性，還可讓您選擇[一致性層級](consistency-levels.md)。 這樣可保證  [99.99% 執行時間可用性 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db)，同時帶來財務保證 - 其他任何資料庫服務都沒有這種能力。|
+|區域複寫|即使在單一資料中心內，Azure Cosmos DB 也會自動複寫資料來達到高可用性，還可讓您選擇[一致性層級](consistency-levels.md)。 如此保證所有單一區域帳戶和所有多重區域帳戶具有鬆散的一致性，可達到 99.99% [可用性 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db)，而所有多重區域資料庫帳戶有 99.999% 的讀取可用性。|
 |自動化線上備份|Azure Cosmos DB 資料庫會定期備份，並儲存在異地備援存放區。 <br><br>請參閱[使用 Azure Cosmos DB 進行自動線上備份及還原](online-backup-and-restore.md)以深入了解。|
 |還原已刪除的資料|自動化線上備份可用來復原您不小心刪除的資料，最多可還原意外發生後 30 天內的資料。 <br><br>請參閱[使用 Azure Cosmos DB 進行自動線上備份及還原](online-backup-and-restore.md)以深入了解|
 |保護並隔離機密資料|在列於[新功能](#whats-new)的區域中，所有資料均已加密靜止。<br><br>PII 和其他機密資料可隔離至特定集合，而讀寫或唯讀存取權可以限制只給特定使用者。|

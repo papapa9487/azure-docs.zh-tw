@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
-ms.openlocfilehash: affa68b6aeedb031914b12dac711d93c7ed4a47a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: adfcf53f9fca0efafb538edfd65b95313dcf1559
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-user-defined-route---azure-cli"></a>建立使用者定義的路由 - Azure CLI
 
@@ -293,6 +293,12 @@ ms.lasthandoff: 10/31/2017
         - **Ubuntu**：執行 `tracepath myvm-private` 命令。
       流量會先通過 10.0.2.4 (NVA)，然後到達 10.0.1.4 (私人子網路中的虛擬機器)。 
     - 連線至 *myVm-Private* 虛擬機器，並 Ping *myVm-Public* 虛擬機器，以完成上述步驟。 追蹤路由會顯示經過 10.0.2.4 再到達 10.0.0.4 (公用子網路中的虛擬機器) 的通訊。
+      
+      > [!NOTE]
+      > 先前的步驟可讓您確認 Azure 私人 IP 位址之間的路由。 如果您想要透過網路虛擬應用裝置將流量轉送 (或 proxy 處理) 至公用 IP 位址：
+      > - 應用裝置必須提供網路位址轉譯或 proxy 功能。 如果是網路位址轉譯，裝置必須將來源 IP 位址轉譯為其自己的位址，然後將該要求轉送至公用 IP 位址。 不論應用裝置是否有將來源位址轉譯為網路位址 (或 proxy 處理)，Azure 會將網路虛擬應用裝置的私人 IP 位址轉譯為公用 IP 位址。 如需 Azure 用來將私人 IP 位址轉譯成公用 IP 位址之不同方法的詳細資訊，請參閱[了解輸出連線](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+      > - 路由表中的其他路由，例如首碼：0.0.0.0/0、下一個躍點類型 VirtualAppliance，與下一個躍點 IP 位址 10.0.2.4 (在先前的範例指令碼)。
+      >
     - **選擇性**：若要驗證 Azure 內兩部虛擬機器之間的下一個躍點，請使用 Azure 網路監看員的 [下一個躍點] 功能。 使用網路監看員之前，您必須先針對您想要使用網路監看員的區域，[建立 Azure 網路監看員執行個體](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 在本教學課程中，使用的是美國東部區域。 一旦您啟用區域的網路監看員執行個體之後，請輸入下列命令，查看公用與私人子網路中虛擬機器之間的下一個躍點資訊：
      
         ```azurecli-interactive

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/14/2017
+ms.date: 11/15/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: d5ae2a68f749310d4d6a2514055fb258978eec9c
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: f34790ad670b488159e945be9bf4ba378cc5e94a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>歡迎使用 Azure Cosmos DB
 
@@ -42,8 +42,9 @@ Azure Cosmos DB 是一個全域分散式資料庫服務，提供下列功能以�
     * 透過以多種語言提供的 SDK，支援下列資料模型的 API：
         * [DocumentDB API](documentdb-introduction.md)：具有 SQL 查詢功能的無結構描述 JSON 資料庫引擎。
         * [MongoDB API](mongodb-introduction.md)：以 Cosmos DB 為基礎所建置的 MongoDB 資料庫服務。 與現有 MongoDB 程式庫、驅動程式、工具和應用程式相容。
-        * [資料表 API](table-introduction.md)：建置目的是要為 Azure 資料表儲存體應用程式提供進階功能的索引鍵/值儲存體資料庫服務。
+        * [資料表 API](table-introduction.md)：建置目的是要為 Azure 資料表儲存體應用程式提供進階功能的索引鍵/值資料庫服務。
         * [Graph (Gremlin) API](graph-introduction.md)：遵循 [Apache TinkerPop 規格](http://tinkerpop.apache.org/)所建置的圖表資料庫服務。
+        * [Cassandra API](cassandra-introduction.md)：在 [Apache Cassandra](https://cassandra.apache.org/) 實作上建立的索引鍵/值。 
         * 其他資料模型即將登場！
 
 * **全球性依需求彈性調整輸送量和儲存體**
@@ -55,7 +56,7 @@ Azure Cosmos DB 是一個全域分散式資料庫服務，提供下列功能以�
     * 針對典型的 1 KB 項目，Cosmos DB 保證在相同的 Azure 區域內讀取低於 10 毫秒以及索引化寫入低於 15 毫秒的端對端延遲 (99 個百分位數)。 中間的延遲性就可大幅降低 (低於 5 毫秒)。
 
 * **確保「永遠可用」可用性**
-    * 單一區域內的 99.99% 可用性。
+    * 99.99% 可用性 SLA 適用於一致性很寬鬆的所有單一區域帳戶和所有多重區域帳戶，而所有多重區域資料庫帳戶有 99.999% 的讀取可用性。
     * 針對更高的可用性部署至任意數目的 [Azure 區域](https://azure.microsoft.com/regions)。
     * 透過資料零遺失保證來[模擬一或多個區域的錯誤](regional-failover.md)。 
 

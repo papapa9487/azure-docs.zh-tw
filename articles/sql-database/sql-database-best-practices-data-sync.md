@@ -2,19 +2,19 @@
 title: "Azure SQL 資料同步最佳做法 | Microsoft Docs"
 description: "了解設定及執行 Azure SQL 資料同步的最佳做法"
 services: sql-database
-ms.date: 11/2/2017
+ms.date: 11/13/2017
 ms.topic: article
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 7492fffd1c18a149ef12174c79d64b47afbaa3e4
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 7d9529fc8acd9347b0505b1c578febc1c2219b37
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="best-practices-for-azure-sql-data-sync-preview"></a>Azure SQL 資料同步 (預覽) 最佳做法 
+# <a name="best-practices-for-sql-data-sync-preview"></a>SQL 資料同步最佳做法 (預覽) 
 
 本文描述 SQL 資料同步 (預覽) 的最佳做法。
 
@@ -44,54 +44,40 @@ ms.lasthandoff: 11/08/2017
 
 **同步群組中的資料庫只有單一認證時如何使用這項資訊？**
 
--   變更不同階段的認證 (例如，credential1 適用於設定，credential2 適用於持續)。
+-   變更不同階段的認證 (例如，*credential1* 適用於設定，*credential2* 適用於持續)。
 
 -   變更認證的權限 (也就是在設定同步處理後變更權限)。
 
-## <a name="locate-hub"></a> 要在哪裡尋找中樞資料庫
+## <a name="setup"></a>設定
 
-### <a name="enterprise-to-cloud-scenario"></a>企業至雲端案例
+### <a name="database-considerations-and-constraints"></a> 資料庫考量與限制
 
-若要將延遲降至最低，請讓中樞資料庫靠近最集中的同步群組資料庫流量。
-
-### <a name="cloud-to-cloud-scenario"></a>雲端至雲端案例
-
--   當同步群組中的所有資料庫都在一個資料中心時，中樞應該位於相同的資料中心。 此設定可減少延遲以及資料中心之間的資料傳輸成本。
-
--   同步群組中的資料庫在多個資料中心時，中樞應該位於與大多數的資料庫和資料庫流量相同的資料中心。
-
-### <a name="mixed-scenarios"></a>混合案例
-
-將上述指導方針套用於更複雜的同步群組設定。
-
-## <a name="database-considerations-and-constraints"></a> 資料庫考量與限制
-
-### <a name="sql-database-instance-size"></a>SQL Database 執行個體大小
+#### <a name="sql-database-instance-size"></a>SQL Database 執行個體大小
 
 當您建立新的 SQL Database 執行個體時，請設定大小上限，使它一律大於您部署之資料庫。 如果您未將大小上限設為大於已部署的資料庫，同步處理將會失敗。 雖然沒有自動成長 - 您可以執行 ALTER DATABASE 在建立之後增加資料庫的大小。 確定您在 SQL Database 執行個體的大小限制範圍內。
 
 > [!IMPORTANT]
 > SQL 資料同步會與每個資料庫一起儲存其他中繼資料。 請務必在計算所需的空間時，考量此中繼資料。 所增加的額外負荷量由資料表寬度 (例如，窄的資料表需要更多額外負荷) 和流量控管。
 
-## <a name="table-considerations-and-constraints"></a> 資料表考量與限制
+### <a name="table-considerations-and-constraints"></a> 資料表考量與限制
 
-### <a name="selecting-tables"></a>選取資料表
+#### <a name="selecting-tables"></a>選取資料表
 
-並非資料庫中的所有資料表都必須在[同步群組](#sync-group)中。 選取哪些資料表要包含在同步群組中，以及哪些要排除 (或包含在不同的同步群組中)，可能會影響效率與成本。 請您只將企業需要的資料表，以及它們依賴的資料表，包含在同步群組中。
+並非資料庫中的所有資料表都必須在同步群組中。 選取哪些資料表要包含在同步群組中，以及哪些要排除 (或包含在不同的同步群組中)，可能會影響效率與成本。 請您只將企業需要的資料表，以及它們依賴的資料表，包含在同步群組中。
 
-### <a name="primary-keys"></a>主索引鍵
+#### <a name="primary-keys"></a>主索引鍵
 
 同步群組中的每個資料表都必須有主索引鍵。 SQL 資料同步 (預覽) 服務無法同步處理沒有主索引鍵的任何資料表。
 
 在實際執行之前，請測試初始和持續進行的同步處理效能。
 
-## <a name="provisioning-destination-databases"></a> 佈建目的地資料庫
+### <a name="provisioning-destination-databases"></a> 佈建目的地資料庫
 
 SQL 資料同步 (預覽) 預覽提供基本資料庫自動佈建。
 
 本節將討論 SQL 資料同步 (預覽) 的佈建限制。
 
-### <a name="auto-provisioning-limitations"></a>自動佈建限制
+#### <a name="auto-provisioning-limitations"></a>自動佈建限制
 
 以下是 SQL 資料同步 (預覽) 的自動佈建限制。
 
@@ -109,39 +95,87 @@ SQL 資料同步 (預覽) 預覽提供基本資料庫自動佈建。
 
 -   檢視和預存程序不會建立在目的地資料庫上。
 
-### <a name="recommendations"></a>建議
+#### <a name="recommendations"></a>建議
 
 -   自動佈建功能僅適用於試用服務。
 
 -   針對實際執行，您應該佈建資料庫結構描述。
 
-## <a name="avoid-a-slow-and-costly-initial-synchronization"></a> 避免慢速和高成本的首次同步處理
+### <a name="locate-hub"></a> 要在哪裡尋找中樞資料庫
+
+#### <a name="enterprise-to-cloud-scenario"></a>企業至雲端案例
+
+若要將延遲降至最低，請讓中樞資料庫靠近最集中的同步群組資料庫流量。
+
+#### <a name="cloud-to-cloud-scenario"></a>雲端至雲端案例
+
+-   當同步群組中的所有資料庫都在一個資料中心時，中樞應該位於相同的資料中心。 此設定可減少延遲以及資料中心之間的資料傳輸成本。
+
+-   同步群組中的資料庫在多個資料中心時，中樞應該位於與大多數的資料庫和資料庫流量相同的資料中心。
+
+#### <a name="mixed-scenarios"></a>混合案例
+
+將上述指導方針套用於更複雜的同步群組設定。
+
+## <a name="sync"></a>Sync
+
+### <a name="avoid-a-slow-and-costly-initial-synchronization"></a> 避免慢速和高成本的首次同步處理
 
 本節討論同步處理群組的首次同步處理，以及您可以如何避免首次同步處理花費的時間比所需還多，以及成本超過應有水準。
 
-### <a name="how-initial-synchronization-works"></a>首次同步處理如何運作
+#### <a name="how-initial-synchronization-works"></a>首次同步處理如何運作
 
 當您建立同步群組時，請從只有一個資料庫的資料開始。 如果您有多個資料庫中的資料，則 SQL 資料同步 (預覽) 會將每個資料列視為需要解決的衝突。 這項衝突解決會導致首次同步處理進展緩慢，需要數天到數個月，視資料庫大小而定。
 
 此外，如果資料庫在不同的資料中心，首次同步處理的成本會比所需還多，因為每個資料列都必須在不同的資料中心之間傳送。
 
-### <a name="recommendation"></a>建議
+#### <a name="recommendation"></a>建議
 
 只要可能，便只從同步群組的其中一個資料庫的資料開始。
 
-## <a name="design-to-avoid-synchronization-loops"></a> 避免同步處理迴圈的設計
+### <a name="design-to-avoid-synchronization-loops"></a> 避免同步處理迴圈的設計
 
 同步迴圈會在同步群組內有循環參考時形成，一個資料庫中的每項變更都會循環且無止盡地複寫通過同步群組中的資料庫。 您想要避免同步迴圈，因為它們會降低效能，而且可能會大幅增加成本。
 
-## <a name="avoid-out-of-date-databases-and-sync-groups"></a> 避免資料庫和同步群組過期
+### <a name="handling-changes-that-fail-to-propagate"></a> 處理無法傳播的變更
+
+#### <a name="reasons-that-changes-fail-to-propagate"></a>未能傳播變更的原因
+
+變更可能會因為許多原因而傳播失敗。 部分原因是：
+
+-   結構描述/資料類型不相容。
+
+-   嘗試在不可為 Null 的資料行中插入 null。
+
+-   違反外部索引鍵條件約束。
+
+#### <a name="what-happens-when-changes-fail-to-propagate"></a>未能傳播變更時會發生什麼事？
+
+-   同步群組顯示處於警告狀態。
+
+-   詳細資料位於在入口網站 UI 記錄檢視器。
+
+-   如果問題未解決達 45 天，資料庫會變成過期。
+
+> [!NOTE]
+> 這些變更無法傳播。 唯一的復原方法是重新建立同步群組。
+
+#### <a name="recommendation"></a>建議
+
+透過入口網站和記錄介面定期監視同步群組和資料庫健康狀態。
+
+
+## <a name="maintenance"></a>維護 
+
+### <a name="avoid-out-of-date-databases-and-sync-groups"></a> 避免資料庫和同步群組過期
 
 同步群組或同步群組中的資料庫可能會過期。 當同步群組的狀態為「過期」時，它會停止運作。 當資料庫的狀態為「過期」時，可能會遺失資料。 所以最好避免這些狀況，而不是必須從中復原。
 
-### <a name="avoid-out-of-date-databases"></a>避免資料庫過期
+#### <a name="avoid-out-of-date-databases"></a>避免資料庫過期
 
 資料庫已離線 45 天以上時，狀態會設定為過期。 確保沒有任何資料庫離線 45 天以上，以避免資料庫變成過期狀態。
 
-### <a name="avoid-out-of-date-sync-groups"></a>避免同步群組過期
+#### <a name="avoid-out-of-date-sync-groups"></a>避免同步群組過期
 
 當同步群組內的任何變更無法傳播到其餘同步群組達到 45 天以上時，狀態設定為過期。 定期檢查同步群組的歷程記錄，以避免同步群組變成過期狀態。 請確定所有衝突都已解決，而且變更已成功傳播到同步群組資料庫。
 
@@ -163,11 +197,11 @@ SQL 資料同步 (預覽) 預覽提供基本資料庫自動佈建。
 
 -   更新失敗資料列中的資料值，以和目標資料庫中的結構描述或外部索引鍵相容。
 
-## <a name="avoid-deprovisioning-issues"></a>避免取消佈建問題
+### <a name="avoid-deprovisioning-issues"></a>避免取消佈建問題
 
 在某些情況下，向用戶端代理程式取消註冊資料庫可能會導致同步處理失敗。
 
-### <a name="scenario"></a>案例
+#### <a name="scenario"></a>案例
 
 1. 同步群組 A 已建立，具有 SQL Database 執行個體和內部部署 SQL Server 資料庫，它與本機代理程式 1 建立關聯。
 
@@ -177,7 +211,7 @@ SQL 資料同步 (預覽) 預覽提供基本資料庫自動佈建。
 
 4. 現在，同步群組 A 作業失敗，並發生下列錯誤：「目前的作業無法完成，因為資料庫未佈建以進行同步處理，或是您沒有同步設定資料表的權限。」
 
-### <a name="solution"></a>方案
+#### <a name="solution"></a>方案
 
 絕不向多個代理程式註冊資料庫，即可完全避免此狀況。
 
@@ -189,34 +223,7 @@ SQL 資料同步 (預覽) 預覽提供基本資料庫自動佈建。
 
 3. 部署每個受影響的同步群組 (會佈建資料庫)。
 
-## <a name="handling-changes-that-fail-to-propagate"></a> 處理無法傳播的變更
-
-### <a name="reasons-that-changes-fail-to-propagate"></a>未能傳播變更的原因
-
-變更可能會因為許多原因而傳播失敗。 部分原因是：
-
--   結構描述/資料類型不相容。
-
--   嘗試在不可為 Null 的資料行中插入 null。
-
--   違反外部索引鍵條件約束。
-
-### <a name="what-happens-when-changes-fail-to-propagate"></a>未能傳播變更時會發生什麼事？
-
--   同步群組顯示處於警告狀態。
-
--   詳細資料位於在入口網站 UI 記錄檢視器。
-
--   如果問題未解決達 45 天，資料庫會變成過期。
-
-> [!NOTE]
-> 這些變更無法傳播。 唯一的復原方法是重新建立同步群組。
-
-### <a name="recommendation"></a>建議
-
-透過入口網站和記錄介面定期監視同步群組和資料庫健康狀態。
-
-## <a name="modifying-your-sync-group"></a> 修改同步群組
+### <a name="modifying-your-sync-group"></a> 修改同步群組
 
 請勿嘗試從同步群組移除資料庫，然後編輯同步群組而不先部署其中一項變更。
 
@@ -227,8 +234,9 @@ SQL 資料同步 (預覽) 預覽提供基本資料庫自動佈建。
 ## <a name="next-steps"></a>後續步驟
 如需 SQL 資料同步的詳細資訊，請參閱：
 
--   [使用 Azure SQL 資料同步，跨多個雲端和內部部署資料庫同步資料](sql-database-sync-data.md)
--   [開始使用 Azure SQL 資料同步](sql-database-get-started-sql-data-sync.md)
+-   [使用 Azure SQL 資料同步，跨多個雲端和內部部署資料庫同步處理資料](sql-database-sync-data.md)
+-   [設定 Azure SQL 資料同步](sql-database-get-started-sql-data-sync.md)
+-   [透過 OMS Log Analytics 監視 Azure SQL 資料同步](sql-database-sync-monitor-oms.md)
 -   [對 Azure SQL 資料同步的問題進行疑難排解](sql-database-troubleshoot-data-sync.md)
 
 -   示範如何設定 SQL 資料同步的完整 PowerShell 範例：

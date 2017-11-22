@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 1366cd79248b2e0008234a5da0d87552e6530d80
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a9c5743c92ac48202c19c2f6f024238c147d8444
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>在 Azure App Service 中針對 Web 應用程式啟用診斷記錄功能。
 ## <a name="overview"></a>Overview
-Azure 提供內建診斷功能，可協助對 [App Service Web 應用程式](http://go.microsoft.com/fwlink/?LinkId=529714)進行偵錯。 本文將說明如何啟用診斷記錄，並在您的應用程式中加入檢測，以及如何存取 Azure 所記錄的資訊。
+Azure 提供內建診斷功能，可協助對 [App Service Web 應用程式](http://go.microsoft.com/fwlink/?LinkId=529714)進行偵錯。 您會在本文中了解如何啟用診斷記錄，並在您的應用程式中加入檢測，以及如何存取 Azure 所記錄的資訊。
 
 本文使用 [Azure 入口網站](https://portal.azure.com)、Azure PowerShell 及 Azure 命令列介面 (Azure CLI) 來處理診斷記錄。 如需使用 Visual Studio 來處理診斷記錄的詳細資訊，請參閱 [在 Visual Studio 中疑難排解 Azure](web-sites-dotnet-troubleshoot-visual-studio.md)。
 
@@ -48,19 +48,19 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 當您將內容發行至 Web 應用程式時，App Service Web 應用程式也會記錄部署資訊。 此動作會自動發生，因此無須任何組態設定即會記錄部署動作。 部署記錄功能可讓您判斷部署失敗的原因。 例如，如果您是使用自訂的部署指令碼，則您可以使用部署記錄功能來判斷指令碼失敗的原因。
 
 ## <a name="enablediag"></a>如何啟用診斷
-若要在 [Azure 入口網站](https://portal.azure.com)中啟用診斷，請移至 Web 應用程式的刀鋒視窗，然後依序按一下 [設定] > [診斷記錄]。
+若要在 [Azure 入口網站](https://portal.azure.com)中啟用診斷，請移至 Web 應用程式的頁面，然後依序按一下 [設定] > [診斷記錄]。
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![記錄部分](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-啟用 [應用程式診斷] 時，也會選擇 [層級]。 此設定可讓您篩選擷取至**資訊**、**警告**或**錯誤**資訊中的資訊。 將此功能設為 [詳細資訊] 會記錄所有由該應用程式所產生的資訊。
+啟用 [應用程式診斷] 時，也會選擇 [層級]。 此設定可讓您篩選擷取至**資訊**、**警告**或**錯誤**資訊中的資訊。 將此功能設為**詳細資訊**會記錄所有由該應用程式所產生的資訊。
 
 > [!NOTE]
 > 與變更 web.config 檔案不同，啟用應用程式診斷或是變更診斷記錄層級並不會回收用來執行應用程式的應用程式網域。
 >
 >
 
-在[傳統入口網站](https://manage.windowsazure.com) Web 應用程式的 [設定] 索引標籤中，您可以針對 [Web 伺服器記錄] 選取 [儲存體] 或 [檔案系統]。 選取 [儲存]  可讓您選取儲存體帳戶，並接著選取可供寫入記錄的 Blob 容器。 [網站診斷] 的其他所有記錄  都只會寫入檔案系統。
+在[傳統入口網站](https://manage.windowsazure.com) Web 應用程式的 [設定] 索引標籤中，您可以針對 [Web 伺服器記錄] 選取 [儲存體] 或 [檔案系統]。 選取 [儲存體] 可讓您選取儲存體帳戶，並接著選取可供寫入記錄的 Blob 容器。 [網站診斷] 的其他所有記錄  都只會寫入檔案系統。
 
 [傳統入口網站](https://manage.windowsazure.com) Web 應用程式的 [設定] 索引標籤也有其他應用程式診斷的設定：
 
@@ -113,7 +113,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 
     Save-AzureWebSiteLog -Name webappname
 
-此舉會將 **-Name** 參數所指定的 Web 應用程式記錄儲存到目前目錄中名為 **logs.zip** 的檔案中。
+此命令會將 **-Name** 參數所指定的 Web 應用程式記錄儲存到目前目錄中名為 **logs.zip** 的檔案中。
 
 > [!NOTE]
 > 如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱 [如何使用 Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/)(英文)。
@@ -125,7 +125,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 
     azure site log download webappname
 
-此舉會將名為 'webappname' 的 Web 應用程式記錄儲存至目前目錄中名為 **diagnostics.zip** 的檔案。
+此命令會將名為 'webappname' 的 Web 應用程式記錄儲存至目前目錄中名為 **diagnostics.zip** 的檔案。
 
 > [!NOTE]
 > 如果您尚未安裝 Azure 命令列介面 (Azure CLI)，或是尚未將其設定為使用您的 Azure 訂用帳戶，請參閱 [如何使用 Azure CLI](../cli-install-nodejs.md)。
@@ -136,11 +136,11 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及將記錄與要求及其他事件建立相互關聯的工具。
 
 1. 在 Visual Studio 中將 Application Insights SDK 加入至專案。
-   * 在 [方案總管] 中，以滑鼠右鍵按一下專案，然後選擇 [加入 Application Insights]。 系統將指導您完成包括建立 Application Insights 資源在內的所有步驟。 [深入了解](../application-insights/app-insights-asp-net.md)
+   * 在 [方案總管] 中，以滑鼠右鍵按一下專案，然後選擇 [加入 Application Insights]。 介面會指導您完成包括建立 Application Insights 資源在內的所有步驟。 [深入了解](../application-insights/app-insights-asp-net.md)
 2. 將追蹤接聽套件新增至專案。
-   * 以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 套件]。 選取 `Microsoft.ApplicationInsights.TraceListener` [深入了解](../application-insights/app-insights-asp-net-trace-logs.md)
+   * 以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。 選取 `Microsoft.ApplicationInsights.TraceListener` [深入了解](../application-insights/app-insights-asp-net-trace-logs.md)
 3. 上傳您的專案並執行，以產生記錄資料。
-4. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您新的 Application Insights 資源，然後開啟 [搜尋]。 您將會看到您的記錄資料，以及要求、使用情況及其他遙測。 有些遙測可能需要數分鐘才能抵達：按一下 [重新整理]。 [深入了解](../application-insights/app-insights-diagnostic-search.md)
+4. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您新的 Application Insights 資源，然後開啟 [搜尋]。 您應該會看到您的記錄資料，以及要求、使用情況及其他遙測。 有些遙測可能需要數分鐘才能抵達：按一下 [重新整理]。 [深入了解](../application-insights/app-insights-diagnostic-search.md)
 
 [深入了解使用 Application Insights 的效能追蹤](../application-insights/app-insights-azure-web-apps.md)
 
@@ -160,7 +160,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 
     Get-AzureWebSiteLog -Name webappname -Tail
 
-此舉會連線 **-Name** 參數所指定的 Web 應用程式，並在該 Web 應用程式產生記錄事件時，開始將資訊串流至 PowerShell 視窗。 任何寫入副檔名為 .txt、.log 或 .htm 的檔案中並存放在 /LogFiles 目錄 (d:/home/logfiles) 的資訊，都會串流至本機主控台。
+此命令會連線至 **-Name** 參數所指定的 Web 應用程式，並在該 Web 應用程式產生記錄事件時，開始將資訊串流至 PowerShell 視窗。 任何寫入副檔名為 .txt、.log 或 .htm 的檔案中並存放在 /LogFiles 目錄 (d:/home/logfiles) 的資訊，都會串流至本機主控台。
 
 若要篩選特定事件，例如錯誤，請使用 **-Message** 參數。 例如：
 
@@ -182,7 +182,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 
     az webapp log tail --name webappname --resource-group myResourceGroup
 
-這會連接至名為 'webappname' 的 Web 應用程式，並在該 Web 應用程式產生記錄事件時，開始將資訊串流至視窗。 任何寫入副檔名為 .txt、.log 或 .htm 的檔案中並存放在 /LogFiles 目錄 (d:/home/logfiles) 的資訊，都會串流至本機主控台。
+此命令會連線至名為 'webappname' 的 Web 應用程式，並在該 Web 應用程式產生記錄事件時，開始將資訊串流至視窗。 任何寫入副檔名為 .txt、.log 或 .htm 的檔案中並存放在 /LogFiles 目錄 (d:/home/logfiles) 的資訊，都會串流至本機主控台。
 
 若要篩選特定事件，例如錯誤，請使用 **--Filter** 參數。 例如：
 
@@ -203,9 +203,9 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 
 **檔案系統**
 
-每一行記錄到檔案系統的訊息，或是透過串流方式收到的訊息，都將採下列格式：
+每一行記錄到檔案系統的訊息，或是使用串流收到的訊息，皆採用下列格式：
 
-    {Date}  PID[{process id}] {event type/level} {message}
+    {Date}  PID[{process ID}] {event type/level} {message}
 
 例如，錯誤事件可能會類似下列訊息：
 
@@ -253,12 +253,12 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> 記錄的第一行會包含如此範例所示的資料行標題。
+> 記錄的第一行會包含資料行標頭，如此範例所示。
 >
 >
 
 ### <a name="failed-request-traces"></a>失敗要求追蹤
-失敗要求追蹤會儲存在名為 **fr######.xml**的 XML 檔案中。 為了讓您輕鬆地檢視記錄資訊，系統會在 XML 檔案所屬的相同目錄中，提供名為 **freb.xsl** 的 XSL 樣式表。 在 Internet Explorer 中開啟其中一個 XML 檔案會使用 XSL 樣式表，提供格式化的追蹤資訊顯示。 此資訊類似以下內容：
+失敗要求追蹤會儲存在名為 **fr######.xml**的 XML 檔案中。 為了讓您輕鬆地檢視記錄資訊，系統會在 XML 檔案所屬的相同目錄中，提供名為 **freb.xsl** 的 XSL 樣式表。 如果您在 Internet Explorer 中開啟其中一個 XML 檔案，Internet Explorer 會使用 XSL 樣式表提供格式化的追蹤資訊顯示。 您會看到類似下列的內容：
 
 ![在瀏覽器中檢視的失敗要求](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
@@ -282,7 +282,3 @@ Web 伺服器記錄使用 [W3C 擴充記錄檔案格式](http://msdn.microsoft.c
 > 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至 [試用 App Service](https://azure.microsoft.com/try/app-service/)，即可在 App Service 中立即建立短期入門 Web 應用程式。 不需要信用卡；沒有承諾。
 >
 >
-
-## <a name="whats-changed"></a>變更的項目
-* 如需從網站變更為 App Service 的指南，請參閱： [Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱： [瀏覽 Azure 入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)

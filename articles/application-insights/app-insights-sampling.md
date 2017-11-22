@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: af184574bdfa7d3a11baf75d8cdfbf80f1544dde
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: bf5f12e4a20d9692e311550fc7a02f14f0b4aaad
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights 中的取樣
 
@@ -38,9 +38,9 @@ ms.lasthandoff: 11/07/2017
 ## <a name="types-of-sampling"></a>取樣類型
 有三個替代的取樣方法：
 
-* **調適性取樣** 會自動調整從您 ASP.NET 應用程式中 SDK 所傳送的遙測量。 預設從 SDK v 2.0.0-beta3 傳送。 目前僅供 ASP.NET 伺服器端遙測使用。 
+* **調適性取樣** 會自動調整從您 ASP.NET 應用程式中 SDK 所傳送的遙測量。 從 SDK v 2.0.0-beta3 起，此為預設取樣方法。 調適型取樣目前僅供 ASP.NET 伺服器端遙測使用。 
 * 「固定比例取樣」可減少從您 ASP.NET 伺服器和使用者的瀏覽器所傳送的遙測量， 而比例則由您設定。 用戶端和伺服器會同步處理它們的取樣，讓您可以在 [搜尋] 終於相關的頁面檢視和要求之間瀏覽。
-* 「擷取取樣」可在 Azure 入口網站中運作。 它會根據您設定的比例，捨棄來自您應用程式的一些遙測。 這不會減少遙測流量，但可協助您讓流量不要超過每月配額。 擷取取樣的一大優點是您不需重新部署應用程式即可設定它，並且它對所有伺服器和用戶端的運作方式都一致。 
+* 「擷取取樣」可在 Azure 入口網站中運作。 它會根據您設定的取樣比例，捨棄來自您應用程式的一些遙測。 這不會減少從應用程式傳送的遙測流量，但可協助您讓流量不要超過每月配額。 擷取取樣的主要優點是您不需重新部署應用程式即可設定取樣比例，並且它對所有伺服器和用戶端的運作方式都一致。 
 
 如果自適性或固定速率取樣正在作業中，則會停用擷取取樣。
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 11/07/2017
 ## <a name="adaptive-sampling-at-your-web-server"></a>在您 Web 伺服器上的調適性取樣
 Application Insights SDK for ASP.NET v 2.0.0-beta3 及更新版本提供調適性取樣功能，且預設為啟用。 
 
-調適性取樣會影響從您的 Web 伺服器應用程式傳送給 Application Insights 服務的遙測量。 系統會自動調整遙測量，以便讓流量速率不會超出指定的上限。
+調適性取樣會影響從您的 Web 伺服器應用程式傳送給 Application Insights 服務端點的遙測量。 系統會自動調整遙測量，以便讓流量速率不會超出指定的上限。
 
 它無法在低遙測量的情況下運作，因此偵錯中的應用程式或使用率低的網站不會受到影響。
 
@@ -75,7 +75,11 @@ Application Insights SDK for ASP.NET v 2.0.0-beta3 及更新版本提供調適�
 
 度量計量 (例如要求率及例外狀況率) 會受到調整來補償取樣率，讓它們能在計量瀏覽器中顯示大致上正確的值。
 
-**將您專案的 NuGet 套件更新**至 Application Insights 的最新「發行前」版本：在 [方案總管] 中的專案上按一下滑鼠右鍵、選擇 [管理 NuGet 套件]、核取 [包含發行前版本]，然後搜尋 Microsoft.ApplicationInsights.Web。 
+### <a name="update-nuget-packages"></a>更新 NuGet 套件 ###
+
+將您專案的 NuGet 封裝更新至 Application Insights 的最新*發行前*版本。 在 Visual Studio 中，以滑鼠右鍵按一下方案總管中的專案，選擇 [管理 NuGet 封裝]，然後核取 [包含發行前版本]，並搜尋 Microsoft.ApplicationInsights.Web。 
+
+### <a name="configuring-adaptive-sampling"></a>使用調適性取樣 ###
 
 在 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 中，您可以調整 `AdaptiveSamplingTelemetryProcessor` 節點中的數個參數。 顯示的數字是預設值：
 
@@ -116,7 +120,7 @@ Application Insights SDK for ASP.NET v 2.0.0-beta3 及更新版本提供調適�
 **若要關閉**調適型取樣，請將 AdaptiveSamplingTelemetryProcessor 節點從 applicationinsights-config 移除。
 
 ### <a name="alternative-configure-adaptive-sampling-in-code"></a>替代方法：在程式碼中設定調適性取樣
-除了在 .config 檔中調整取樣之外，您還可以使用程式碼。 這可讓您指定在每次取樣率重新評估時叫用的回呼函式。 例如，您可以使用這個方法來找出使用中的取樣率。
+除了在 .config 檔中設定取樣參數之外，您還可以透過程式設計的方式來設定這些值。 這可讓您指定在每次取樣率重新評估時叫用的回呼函式。 例如，您可以使用這個方法來找出使用中的取樣率。
 
 移除 .config 檔案中的 `AdaptiveSamplingTelemetryProcessor` 節點。
 
@@ -168,7 +172,7 @@ Application Insights SDK for ASP.NET v 2.0.0-beta3 及更新版本提供調適�
 ## <a name="sampling-for-web-pages-with-javascript"></a>具有 JavaScript 的網頁的取樣
 您可以從任何伺服器設定固定取樣率的網頁。 
 
-當您 [設定 Application Insights 的網頁](app-insights-javascript.md)時，請修改您從 Application Insights 入口網站取得的程式碼片段。 (在 ASP.NET 應用程式中，程式碼片段通常會出現在 _Layout.cshtml。)在檢測金鑰之前插入類似 `samplingPercentage: 10,` 的一行：
+當您[設定 Application Insights 的網頁](app-insights-javascript.md)時，請修改您從 Application Insights 入口網站取得的 JavaScript 片段。 (在 ASP.NET 應用程式中，程式碼片段通常會出現在 _Layout.cshtml。)在檢測金鑰之前插入類似 `samplingPercentage: 10,` 的一行：
 
     <script>
     var appInsights= ... 
@@ -191,13 +195,15 @@ Application Insights SDK for ASP.NET v 2.0.0-beta3 及更新版本提供調適�
 如果您也在伺服器啟用固定比例取樣，用戶端和伺服器就會同步，讓您可以在 [搜尋] 中的相關頁面檢視與要求之間瀏覽。
 
 ## <a name="fixed-rate-sampling-for-aspnet-web-sites"></a>適用於 ASP.NET 網站的固定取樣率
-固定取樣率會減少從您的 Web 伺服器及網頁瀏覽器所傳送的流量。 但它會依照您設定的速率來降低遙測，這與調適性取樣不同。 它也會同步處理用戶端及伺服器取樣，讓相關項目能夠保留；舉例來說，讓您在 [搜尋] 中查看頁面檢視時，能夠尋找其相關要求。
+固定取樣率會減少從您的 Web 伺服器及網頁瀏覽器所傳送的流量。 但它會依照您設定的速率來降低遙測，這與調適性取樣不同。 它也會同步處理用戶端及伺服器取樣，讓相關項目能夠保留；舉例來說，當您在 [搜尋] 中查看頁面檢視時，可以尋找其相關要求。
 
-取樣演算法會保留相關項目。 對於每個 HTTP 要求事件，它及其相關事件會遭到捨棄或傳輸。 
+取樣演算法會保留相關項目。 對於每個 HTTP 要求事件，該要求及其相關事件會一併遭到捨棄或傳輸。 
 
 在計量瀏覽器中，速率 (例如要求及例外狀況數) 會乘以某個係數來補償取樣率，讓它們能大致上正確。
 
-1. **將您專案的 NuGet 套件更新**至 Application Insights 的最新「發行前」版本。 以滑鼠右鍵按一下方案總管中的專案，選擇 [管理 NuGet 封裝]，然後核取 [包含發行前版本]  並搜尋 Microsoft.ApplicationInsights.Web。 
+### <a name="configuring-fixed-rate-sampling"></a>設定固定取樣率 ###
+
+1. **將您專案的 NuGet 套件更新**至 Application Insights 的最新「發行前」版本。 在 Visual Studio 中，以滑鼠右鍵按一下方案總管中的專案，選擇 [管理 NuGet 封裝]，然後核取 [包含發行前版本]，並搜尋 Microsoft.ApplicationInsights.Web。 
 2. **停用調適性取樣**：在 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 中，將 `AdaptiveSamplingTelemetryProcessor` 節點移除或設成註解。
    
     ```xml
@@ -233,7 +239,7 @@ Application Insights SDK for ASP.NET v 2.0.0-beta3 及更新版本提供調適�
 > 
 
 ### <a name="alternative-enable-fixed-rate-sampling-in-your-server-code"></a>替代方法：在伺服器程式碼中啟用固定取樣率
-除了在 .config 檔中設定取樣參數之外，您還可以使用程式碼。 
+除了在 .config 檔中設定取樣參數之外，您還可以透過程式設計的方式來設定這些值。 
 
 *C#*
 
@@ -256,9 +262,9 @@ Application Insights SDK for ASP.NET v 2.0.0-beta3 及更新版本提供調適�
 ([深入了解遙測處理器](app-insights-api-filtering-sampling.md#filtering))。
 
 ## <a name="when-to-use-sampling"></a>何時使用取樣？
-如果您使用 ASP.NET SDK 版本 2.0.0-beta3 或更新版本，調適性取樣會自動啟用。 無論您使用哪個版本的 SDK，都可以 (在我們的伺服器上) 使用擷取取樣 。
+如果您使用 ASP.NET SDK 版本 2.0.0-beta3 或更新版本，調適性取樣會自動啟用。 無論您使用哪個版本的 SDK，都可以啟用擷取取樣，允許 Application Insights 對收集的資料取樣。
 
-對大多數小型和中型大小應用程式，您不需要取樣。 最有用的診斷資訊和最準確的統計資料會是透過收集所有使用者活動的資料取得。 
+通常，對於大多數小型和中型的應用程式，您不需要取樣。 最有用的診斷資訊和最準確的統計資料會是透過收集所有使用者活動的資料取得。 
 
 取樣的主要優點如下：
 
@@ -281,7 +287,7 @@ Application Insights SDK for ASP.NET v 2.0.0-beta3 及更新版本提供調適�
 
 **使用調適性取樣：**
 
-否則，建議使用調適性取樣。 在 ASP.NET 伺服器 SDK 版本 2.0.0-beta3 或更新版本中，此功能為預設啟用。 它只會影響速率達到某個最低值的流量，因此不會影響使用率較低的網站。
+如果欲使用其他形式取樣但條件不適用，建議使用適應型取樣。 在 ASP.NET 伺服器 SDK 版本 2.0.0-beta3 或更新版本中，此功能為預設啟用。 在達到一定的比率下限之前，不會減少流量，因此低使用率的網站不會受到影響。
 
 ## <a name="how-do-i-know-whether-sampling-is-in-operation"></a>如何得知取樣是否正在運作中？
 若要找出實際的取樣率 (不論是否已套用)，請使用如下所示的 [分析查詢](app-insights-analytics.md) ︰
@@ -330,7 +336,7 @@ Application Insights SDK for ASP.NET v 2.0.0-beta3 及更新版本提供調適�
 
 * 開始使用調適性取樣的其中一個方法，就是找出它選擇的取樣率 (請參閱上一個問題)，然後再切換為使用該取樣率的固定取樣率。 
   
-    否則，您就必須猜測。 分析 AI 中您目前的遙測使用量、觀察目前的節流，並估計所收集之遙測的量。 這三項輸入與所選定價層，可對您可能想要減少收集的遙測量提出建議。 不過，使用者數目的增加或遙測量的其他某些變化可能會讓您的評估失效。
+    否則，您就必須猜測。 分析 Application Insights 中您目前的遙測使用量、觀察目前的節流，並估計所收集之遙測的量。 這三項輸入與所選定價層，可對您可能想要減少收集的遙測量提出建議。 不過，使用者數目的增加或遙測量的其他某些變化可能會讓您的評估失效。
 
 *如果將取樣百分比設定成太低會發生什麼事？*
 

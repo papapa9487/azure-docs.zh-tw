@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: badaefb4986f573362babea81d704bf2be067d6b
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 28ceb7345c0d74e2a7d7911d5b4bf24a0ceb214a
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>在 Microsoft Azure Stack 上使用 MySQL 資料庫
 
@@ -153,7 +153,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 根據系統效能和下載速度，安裝可能需要少至 20 分鐘或長達幾小時的時間。 如果無法使用 MySQLAdapter 刀鋒視窗，請重新整理管理員入口網站。
 
 > [!NOTE]
-> 如果安裝需要超過 90 分鐘，它可能會失敗，並在畫面和記錄檔中看到失敗訊息。 部署會從失敗的步驟開始重試。 不符合建議的記憶體及核心規格的系統可能無法部署 MySQL RP。
+> 如果安裝需要超過 90 分鐘，它可能會失敗，並在畫面和記錄檔中看到失敗訊息。 部署會從失敗的步驟開始重試。 記憶體及 vCPU 規格不符合建議的系統可能無法部署 MySQL RP。
 
 
 

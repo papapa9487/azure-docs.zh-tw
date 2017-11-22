@@ -17,17 +17,18 @@ ms.workload: na
 ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb6ade65879b245bf44800da3352354ba274ee5a
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 09bb662e30a97e2741303e2e4630582625954909
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-functions-hosting-plans-comparison"></a>Azure Functions 主控方案比較
 
-## <a name="introduction"></a>簡介
-
 Azure Functions 的執行模式有兩種︰取用方案和 Azure App Service 方案。 取用方案會在您的程式碼執行時自動配置計算能力、視需要相應放大來處理負載，然後在程式碼未執行時相應減少。 因此，您不必支付閒置 VM 的費用，或必須預先保留容量。 本文的重點是取用方案 ([無伺服器](https://azure.microsoft.com/overview/serverless-computing/)應用程式模型)。 如需 App Service 方案運作方式的詳細資訊，請參閱 [Azure App Service 方案深入概觀](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。 
+
+>[!NOTE]  
+> Linux 裝載目前僅適用於 App Service 方案。
 
 如果您還不熟悉 Azure Functions，請參閱 [Azure Functions 概觀](functions-overview.md)。
 
@@ -55,7 +56,7 @@ Azure Functions 的執行模式有兩種︰取用方案和 Azure App Service 方
 
 ## <a name="app-service-plan"></a>App Service 方案
 
-在 App Service 方案中，您的函式應用程式是依據基本、標準、進階和隔離 SKU 在專用的 VM 上執行，就像 Web 應用程式、API Apps 和行動應用程式一樣。 會配置專用的 VM 給您的 App Service 應用程式，這表示函式主機執行不間斷。
+在 App Service 方案中，您的函式應用程式是依據基本、標準、進階和隔離 SKU 在專用的 VM 上執行，就像 Web 應用程式、API Apps 和行動應用程式一樣。 會配置專用的 VM 給您的 App Service 應用程式，這表示函式主機執行不間斷。 App Service 方案支援 Linux。
 
 在下列情況中請考慮使用 App Service 方案︰
 - 您有現有的、使用量過低的 VM 已在執行其他 App Service 執行個體。
@@ -63,12 +64,13 @@ Azure Functions 的執行模式有兩種︰取用方案和 Azure App Service 方
 - 您需要的 CPU 或記憶體選項比取用方案所提供的更多。
 - 您的執行時間超過取用方案允許的執行時間上限 (10 分鐘)。
 - 您需要 App Service 方案才有提供的功能，例如 App Service 環境、VNET/VPN 連線和較大 VM 大小的支援。 
+- 您想要在 Linux 上執行函數應用程式，或想要在其上提供自訂映像以執行函數。
 
 VM 可以減少執行數目、執行時間以及使用記憶體的成本。 如此一來，您不會支付超過您配置的 VM 執行個體的成本。 如需 App Service 方案運作方式的詳細資訊，請參閱 [Azure App Service 方案深入概觀](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。 
 
 使用 App Service 方案時，您可以透過手動新增更多 VM 執行個體來相應放大，或者您可以啟用自動規模調整。 如需詳細資訊，請參閱[手動或自動調整執行個體計數規模](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json)。 您也可以透過選擇不同的 App Service 方案來相應增加。 如需詳細資訊，請參閱[在 Azure 中為應用程式進行相應增加](../app-service/web-sites-scale.md)。 
 
-若計畫在 App Service 方案上執行 JavaScript 函式，您應該選擇核心數目較少的方案。 如需詳細資訊，請參閱 [JavaScript 函式參考資料](functions-reference-node.md#choose-single-core-app-service-plans)。  
+若計畫在 App Service 方案上執行 JavaScript 函式，您應該選擇 vCPU 數目較少的方案。 如需詳細資訊，請參閱[選擇單一核心 Azure Service 方案](functions-reference-node.md#considerations-for-javascript-functions)。  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 <a name="always-on"></a>
@@ -93,7 +95,7 @@ VM 可以減少執行數目、執行時間以及使用記憶體的成本。 如�
 > [!NOTE]
 > 在執行取用方案中使用 blob 觸發程序時，如果函數應用程式已進入閒置狀態，則處理新 blob 時最多會有 10 分鐘的延遲。 在函數應用程式開始執行之後，會立即處理 blob。 為了避免發生此初始延遲，請考慮下列做法︰
 > - 在 App Service 方案上主控函式應用程式，並啟用「永遠開啟」。
-> - 使用其他機制來觸發 blob 處理，像是包含 blob 名稱的佇列訊息。 如需範例，請參閱[具有 blob 輸入繫結的佇列觸發程序](functions-bindings-storage-blob.md#input-sample)。
+> - 使用其他機制來觸發 blob 處理，像是包含 blob 名稱的佇列訊息。 如需範例，請參閱 [Blob 輸入和輸出繫結的 C# 指令碼和 JavaScript 範例](functions-bindings-storage-blob.md#input--output---example)。
 
 ### <a name="runtime-scaling"></a>執行階段調整
 

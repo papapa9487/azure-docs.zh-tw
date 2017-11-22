@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure Site Recovery 進行容錯移轉至 Azure 之後連線至 VM | Microsoft Docs"
-description: "使用 Azure Site Recovery 從內部部署環境容錯移轉之後，可供連線到 Azure VM 的網路服務指引"
+title: "設定 IP 位址以在使用 Azure Site Recovery 容錯移轉至 Azure 之後進行連線 | Microsoft Docs"
+description: "說明如何設定 IP 位址以在使用 Azure Site Recovery 從內部部署容錯移轉之後連線至 Azure VM"
 services: site-recovery
 documentationcenter: 
 author: prateek9us
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/05/2017
+ms.date: 11/14/2017
 ms.author: pratshar
-ms.openlocfilehash: 6c0fa27aeed3e500bd69567f90743cc274144978
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 5519a965d9828cfa1e73ba12f8acd1d509a36a66
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="connecting-to-vms-after-failover-to-azure"></a>在容錯移轉至 Azure 之後連線至 VM
+# <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>設定 IP 位址以在容錯移轉至 Azure 之後進行連線
 
 本文說明使用 [Azure Site Recovery](site-recovery-overview.md) 服務來複寫和容錯移轉至 Azure之後，連線至 Azure VM 的網路服務需求。
 

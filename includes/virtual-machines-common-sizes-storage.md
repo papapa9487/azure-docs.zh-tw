@@ -1,5 +1,6 @@
+儲存體最佳化的虛擬機器大小可提供高磁碟輸送量與高 IO，並且適用於巨量資料、SQL 及 NoSQL 資料庫。 本文提供 vCPU 數量、資料磁碟和 NIC 的相關資訊，亦會介紹此群組中各種大小之儲存體輸送量和網路效能。 
 
-Ls 系列最適合需要低延遲暫存儲存體的工作負載，例如 NoSQL 資料庫 (包括 Cassandra、MongoDB、Cloudera 和 Redis)。 Ls 系列使用[Intel® Xeon® 處理器 E5 v3 系列](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html)，提供最多 32 個 vCPU。 Ls 系列會取得與 G/GS 系列相同的 CPU 效能，而且每個 vCPU 會有 8 GiB 的記憶體。  
+Ls 系列使用[Intel® Xeon® 處理器 E5 v3 系列](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html)，提供最多 32 個 vCPU。 Ls 系列會取得與 G/GS 系列相同的 CPU 效能，而且每個 vCPU 會有 8 GiB 的記憶體。  
 
 ## <a name="ls-series"></a>Ls 系列
 
@@ -13,7 +14,7 @@ ACU：180 - 240
 | Standard_L32s* | 32 | 256  | 5,630 | 64             | NA / NA (0)          | 40,000 / 1,000                            | 8 / 20000 | 
  
 
-Ls 系列 VM 的最大磁碟輸送量，可能會受到任何連結磁碟的數量、大小和串接所限制。 如需詳細資訊，請參閱 [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../articles/storage/common/storage-premium-storage.md)。 
+Ls 系列 VM 的最大磁碟輸送量，可能會受到任何連結磁碟的數量、大小和串接所限制。 如需詳細資訊，請參閱 [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../articles/virtual-machines/windows/premium-storage.md)。 
 
 *執行個體會隔離至單一客戶專用的硬體。
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 3a19f2cf7566f38f80639d7c966638a3ec900cf4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5950bad397e4b0f08f998ea6756e3c258e84b63e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Azure 企業 Scaffold - 規定的訂用帳戶治理
 企業日漸採用公用雲端，以獲取其靈活度和彈性。 它們利用雲端的優勢來產生收益，或讓企業的資源達到最佳化。 Microsoft Azure 提供許多服務，企業可以像堆積木一樣組合這些服務，以處理各式各樣的工作負載和應用程式。 
@@ -89,7 +89,7 @@ Scaffold 的第一要件是命名標準。 設計良好的命名標準可讓您�
 > 上述的祕訣可協助您實作一致的命名慣例。
 
 ## <a name="policies-and-auditing"></a>原則和稽核
-Scaffold 的第二要件牽涉到建立 [Azure Resource Manager 原則](resource-manager-policy.md)和[稽核活動記錄檔](resource-group-audit.md)。 Resource Manager 原則讓您能夠管理 Azure 中的風險。 您可以定義一些原則，藉由限制、強制執行或稽核特定動作來確保資料主權。 
+Scaffold 的第二要件牽涉到建立 [Azure 原則](../azure-policy/azure-policy-introduction.md)和[稽核活動記錄](resource-group-audit.md)。 Resource Manager 原則讓您能夠管理 Azure 中的風險。 您可以定義一些原則，藉由限制、強制執行或稽核特定動作來確保資料主權。 
 
 * 原則是預設**允許**系統。 您可定義原則並將原則指派給拒絕或稽核資源動作的資源，藉此控制動作。
 * 原則定義會以原則定義語言 (if-then 條件) 描述原則。

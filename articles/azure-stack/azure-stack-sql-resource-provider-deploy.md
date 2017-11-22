@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 329970d8717053ab7126fb8fb6a4a119ccbff6b7
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 6e65af68dcd2306aabda65efdf8fe056c0d9b4a4
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>在 Microsoft Azure Stack 上使用 SQL 資料庫
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 10/18/2017
 - 向本機 Azure Resource Manager 註冊您的資源提供者 (使用者和管理員)。
 
 > [!NOTE]
-> 如果安裝時間超過 90 分鐘，表示安裝可能失敗，且您會在畫面上和記錄檔中看到失敗訊息，但會從失敗的步驟重新嘗試執行部署作業。 不符合建議的記憶體及核心規格的系統可能無法部署 SQL RP。
+> 如果安裝時間超過 90 分鐘，表示安裝可能失敗，且您會在畫面上和記錄檔中看到失敗訊息，但會從失敗的步驟重新嘗試執行部署作業。 記憶體及 vCPU 規格不符合建議的系統可能無法部署 SQL RP。
 >
 
 以下是可從 PowerShell 提示字元執行的範例 (視需要變更帳戶資訊和密碼)：

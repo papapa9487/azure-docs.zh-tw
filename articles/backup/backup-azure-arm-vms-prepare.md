@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 7ee2e42e05fb4866d32c24b0d4c788b0197970ad
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: b8a770323d115390d323352826457eee62be5f6f
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>準備環境以備份 Resource Manager 部署的虛擬機器
 > [!div class="op_single_selector"]
@@ -56,6 +56,12 @@ Azure 備份服務提供兩種類型的保存庫 (備份保存庫和復原服務
 
 * 不支援備份具有 16 個以上資料磁碟的虛擬機器。
 * 不支援備份資料磁碟大小超過 1023 GB 的虛擬機器。
+
+> [!NOTE]
+> 我們有私人預覽，可支援未受管理磁碟大小超過 1 TB 的虛擬機器的備份作業。 如需詳細資訊，請參閱[適用於大型磁碟虛擬機器備份支援的私人預覽](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+>
+>
+
 * 不支援備份具有保留的 IP 且沒有已定義之端點的虛擬機器。
 * 不支援備份只使用 BEK 加密的 VM。 不支援備份使用 LUKS 加密的 Linux VM。
 * 不建議備份包含叢集共用磁碟區 (CSV) 或相應放大檔案伺服器設定的 VM，因為需要連同進行快照集工作期間，叢集設定包含的所有 VM 一起備份。 Azure 備份無法保持 VM 間的一致性。 

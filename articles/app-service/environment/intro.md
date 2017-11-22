@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 322cf2ebbe83d00fcebcec618e07141d26f4f255
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a619943abaf8835e591872cba0ed046d4c6c4a9
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="introduction-to-app-service-environments"></a>App Service Environment 簡介 #
  
@@ -48,13 +48,13 @@ ASE 是由前端和背景工作角色所組成。 前端負責處理 HTTP/HTTPS 
 
 背景工作角色是裝載客戶應用程式的角色。 背景工作角色可以三個固定的大小提供：
 
-* 單核心/3.5 GB RAM
-* 雙核心/7 GB RAM
-* 四核心/14 GB RAM
+* 一個 vCPU/3.5 GB RAM
+* 兩個 vCPU/7 GB RAM
+* 四個 vCPU/14 GB RAM
 
 客戶不需要管理前端和背景工作角色。 所有的基礎結構會隨客戶的 App Service 方案相應放大而自動新增。 隨著 App Service 方案建立或相應縮小 ASE，會視需要將基礎結構新增或移除。
 
-ASE 會有一般每月費率來支付基礎結構，且不會依 ASE 的大小而變更。 此外，每個 App Service 方案核心都會有其成本。 ASE 中裝載的所有應用程式都會位於隔離價格 SKU 中。 如需有關 ASE 價格的資訊，請參閱 [App Service 價格][Pricing]頁面並檢閱 ASE 的可用選項。
+ASE 會有一般每月費率來支付基礎結構，且不會依 ASE 的大小而變更。 此外，每個 App Service 方案 vCPU 核心都會有其成本。 ASE 中裝載的所有應用程式都會位於隔離價格 SKU 中。 如需有關 ASE 價格的資訊，請參閱 [App Service 價格][Pricing]頁面並檢閱 ASE 的可用選項。
 
 ## <a name="virtual-network-support"></a>虛擬網路支援 ##
 
@@ -68,13 +68,15 @@ ASE 可以是具有公用 IP 位址的網際網路對應，或只具有 Azure �
 
 如需有關 ASE 與虛擬網路和內部部署網路搭配運作方式的詳細資訊，請參閱 [App Service Environment 的網路考量][ASENetwork]。
 
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud/player]
+
 ## <a name="app-service-environment-v1"></a>App Service 環境 v1 ##
 
 App Service Environment 有兩個版本：ASEv1 和 ASEv2。 前述資訊架構在 ASEv2 上。 本節說明 ASEv1 與 ASEv2 之間的差異。 
 
 在 ASEv1 中，您必須手動管理所有資源。 其中包括前端、背景工作角色和用於 IP 型 SSL 的 IP 位址。 首先，您必須將想要在其中裝載的背景工作角色集區相應放大，才能相應放大 App Service 方案。
 
-ASEv1 使用與 ASEv2 不同的定價模式。 在 ASEv1 中，您需要支付每個配置的核心。 其中包括用於前端或未裝載任何工作負載之背景工作角色的核心。 在 ASEv1 中，ASE 的預設最大調整大小總計是 55 個主機， 包括背景工作角色與前端。 ASEv1 的其中一個優點，是可以部署在傳統虛擬網路和 Resource Manager虛擬網路中。 若要深入了解 ASEv1，請參閱 [App Service Environment v1 簡介][ASEv1Intro]。
+ASEv1 使用與 ASEv2 不同的定價模式。 在 ASEv1 中，您需要支付每個配置的 vCPU。 其中包括用於前端或未裝載任何工作負載之背景工作角色的 vCPU。 在 ASEv1 中，ASE 的預設最大調整大小總計是 55 個主機， 包括背景工作角色與前端。 ASEv1 的其中一個優點，是可以部署在傳統虛擬網路和 Resource Manager虛擬網路中。 若要深入了解 ASEv1，請參閱 [App Service Environment v1 簡介][ASEv1Intro]。
 
 <!--Links-->
 [Intro]: ./intro.md

@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06d6b38537fbf413185e8d536865f7bc7a61369a
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: cf60a053c832c6f201705301454ab7cdbe106087
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>SAP NetWeaver 的 Azure 虛擬機器高可用性
 
@@ -178,69 +178,54 @@ ms.lasthandoff: 10/16/2017
 [sap-hana-ha]:sap-hana-high-availability.md
 [sap-suse-ascs-ha]:high-availability-guide-suse.md
 
-對於需要在最短的時間內處理計算、儲存和網路資源，而不需要漫長的採購週期的組織而言，「Azure 虛擬機器」是適用的解決方案。 您可以使用「Azure 虛擬機器」以部署傳統的應用程式，例如 **SAP NetWeaver 架構 ABAP**、**Java**，以及 **ABAP+Java 堆疊**。 擴充的可靠性與可用性，無須其他內部部署資源。 「Azure 虛擬機器」支援跨單位連線能力，貴公司可將「Azure 虛擬機器」整合到其內部部署網域、私人雲端，以及 SAP 系統環境中。
+對於需要在最短的時間內處理計算、儲存和網路資源，而不需要漫長的採購週期的組織而言，「Azure 虛擬機器」是適用的解決方案。 您可以使用「Azure 虛擬機器」以部署傳統的應用程式，例如 SAP NetWeaver 架構 ABAP、Java，以及 ABAP+Java 堆疊。 擴充的可靠性與可用性，無須其他內部部署資源。 「Azure 虛擬機器」支援跨單位連線能力，貴公司可將「Azure 虛擬機器」整合到其內部部署網域、私人雲端，以及 SAP 系統環境中。
 
-在下列文章中，我們將討論：
+這一系列的文章涵蓋：
 
-* 架構和案例、
+* 架構和案例。
+* 基礎結構準備。
+* 使用 Azure Resource Manager 部署模型，在 Azure 中部署高可用性 SAP 系統的 SAP 安裝步驟。
 
-* 基礎結構準備，及
+    > [!IMPORTANT]
+    > 強烈建議您針對 SAP 安裝使用 Azure Resource Manager 部署模型。 它提供傳統部署模型所沒有的許多好處。 進一步了解 Azure [部署模型][virtual-machines-azure-resource-manager-architecture-benefits-arm]。   
+    >
+* 在下列項目的 SAP 高可用性：
+  * ![Windows][Logo_Windows]  **Windows**使用 **Windows Server 容錯移轉叢集 (WSFC)**
+  * ![Linux][Logo_Linux] **Linux**使用 **Linux 叢集架構**
 
-* 可使用
+在這些文章中，您會了解如何協助保護單一失敗點 (SPOF) 元件，例如 SAP 中央服務 (ASCS/SCS) 和資料庫管理系統 (DBMS)。 您也會了解 Azure 中的備援元件，例如 SAP 應用程式伺服器。
 
-**Azure Resource Manager** 部署模型，在 Azure 中部署高可用性 SAP 系統時可採取的 SAP 安裝步驟。
+## <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>SAP NetWeaver 的高可用性架構和案例
 
-> [!IMPORTANT]
-> 強烈建議您針對 SAP 安裝使用 Azure Resource Manager 部署模型。 它提供傳統部署模型所沒有的許多好處。 進一步了解 Azure [部署模型][virtual-machines-azure-resource-manager-architecture-benefits-arm]。   
->
->
-
-
-本文涵蓋下列的 SAP HA：
-* ![Windows][Logo_Windows] **Windows** (使用**Windows 容錯移轉叢集 (WSFC)**) 和
-
-* ![Linux][Logo_Linux] **Linux** (使用**Linux 叢集架構**)。
-
-您可了解如何在 Azure 中保護**單一失敗點 (SPOF)** 元件，例如 **SAP Central Services (ASCS)** / **SAP Central Services (SCS)** 和**資料庫管理系統 (DBMS)**，以及**備援元件**，例如 **SAP 應用程式伺服器**。
-
-
-## <a name="high-availability-ha-architecture-and-scenarios-for-sap-netweaver"></a>SAP NetWeaver 的高可用性 (HA) 架構和案例
-
-**摘要：**在本文件中，我們會討論 Azure 中 SAP 系統的 HA 架構。 我們會討論如何解決 SAP 單一失敗點 (SPOF) 和多餘元件的 HAVV Azure 基礎結構的 HA 細節，及它們如何針對 SAP 系統元件作反映。 此外，也會討論 Windows 和 Linux 細節。 在結束時，也會說明不同的 SAP HA 情節。
+**摘要：**在本文中，我們會討論 Azure 中 SAP 系統的高可用性架構。 我們會討論如何解決 SAP 單一失敗點 (SPOF) 和備援元件的高可用性，以及 Azure 基礎結構高可用性的詳細資料。 我們也會說明這些組件與 SAP 系統元件的關係。 此外，這些討論都針對 Windows 和 Linux 詳細資料而劃分。 同時也涵蓋了各種 SAP 高可用性案例。
 
 **更新日期：**2017 年 10 月
-
-這裡可以找到本指南：
 
 * [SAP NetWeaver 的 Azure 虛擬機器的高可用性架構和案例][sap-high-availability-architecture-scenarios]
 
-它涵蓋了 ![Windows][Logo_Windows] **Windows** 和 ![Linux][Logo_Linux] **Linux** 二者
+文章涵蓋了 ![Windows][Logo_Windows] **Windows** 和 ![Linux][Logo_Linux] **Linux** 二者。
 
 
-## <a name="azure-infrastructure-preparation-for-sap-netweaver-ha-deployment"></a>SAP NetWeaver HA 部署的 Azure 基礎結構準備
+## <a name="azure-infrastructure-preparation-for-sap-netweaver-high-availability-deployment"></a>SAP NetWeaver 高可用性部署的 Azure 基礎結構準備
 
-**摘要：**在這些文件中，我們將討論部署 Azure 基礎結構以準備 SAP 安裝時可採取的步驟。 為了簡化 Azure 基礎結構部署，SAP Azure Resource Manager 範本可自動化整個程序。
-
-**更新日期：**2017 年 10 月
-
-您可以在這裡找到這些指南：
-
-* ![Windows][Logo_Windows] [使用 **SAP (A)SCS** 執行個體][sap-high-availability-infrastructure-wsfc-shared-disk]的 **Windows 容錯移轉叢集**和**共用磁碟**，為 SAP HA 進行 Azure 基礎結構準備
-
-* ![Windows][Logo_Windows] [使用 **SAP (A)SCS** 執行個體][sap-high-availability-infrastructure-wsfc-file-share]的 **Windows 容錯移轉叢集**和**檔案共用**，為 SAP HA 進行 Azure 基礎結構準備
-
-* ![Linux][Logo_Linux] [使用 **SAP (A)SCS** 執行個體][sap-suse-ascs-ha-setting-ha-nfs]的 **SUSE Linux Enterprise Server Cluster Framework**，為 SAP HA 進行 Azure 基礎結構準備
-
-## <a name="installation-of-an-sap-netweaver-ha-system-in-azure"></a>Azure 中的 SAP NetWeaver HA 系統安裝
-
-**摘要：**在這些文件中，會說明 Azure 中的 Windows Server 容錯移轉叢集和 Linux 叢集架構的高可用性 SAP 系統之安裝和設定的逐步範例。
+**摘要：**在此處所列的文件中，我們將討論部署 Azure 基礎結構以準備 SAP 安裝時可採取的步驟。 為了簡化 Azure 基礎結構部署，使用 SAP Azure Resource Manager 範本來自動化整個程序。
 
 **更新日期：**2017 年 10 月
 
-您可以在這裡找到這些指南：
+* ![Windows][Logo_Windows] [使用 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和**共用磁碟**，為 SAP 高可用性準備 Azure 基礎結構][sap-high-availability-infrastructure-wsfc-shared-disk]
 
-* ![Windows][Logo_Windows] [ 使用 SAP (A)SCS 執行個體][sap-high-availability-installation-wsfc-shared-disk]的 **Windows 容錯移轉叢集**和**共用磁碟**執行 SAP NetWeaver HA 安裝
+* ![Windows][Logo_Windows] [使用 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和**檔案共用**，為 SAP 高可用性準備 Azure 基礎結構][sap-high-availability-infrastructure-wsfc-file-share]
 
-* ![Windows][Logo_Windows] [ 使用 SAP (A)SCS 執行個體][sap-high-availability-installation-wsfc-file-share]的 **Windows 容錯移轉叢集**和**檔案共用**執行 SAP NetWeaver HA 安裝
+* ![Linux][Logo_Linux] [使用 SAP ASCS/SCS 執行個體的 SUSE Linux Enterprise Server 叢集架構，為 SAP 高可用性準備 Azure 架構][sap-suse-ascs-ha-setting-ha-nfs]
 
-* ![Linux][Logo_Linux] [使用 **SAP (A)SCS** 執行個體][sap-suse-ascs-ha-sap-installation]的 **SUSE Linux Enterprise Server Cluster Framework** 執行 SAP NetWeaver HA 安裝
+## <a name="installation-of-an-sap-netweaver-high-availability-system-in-azure"></a>Azure 中的 SAP NetWeaver 高可用性系統安裝
+
+**摘要：**此處所列的文章中，會說明 Azure 中的 Windows Server 容錯移轉叢集的叢集和 Linux 叢集架構的高可用性 SAP 系統之安裝和設定的逐步範例。
+
+**更新日期：**2017 年 10 月
+
+* ![Windows][Logo_Windows] [使用 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和**共用磁碟**，安裝 SAP NetWeaver 高可用性][sap-high-availability-installation-wsfc-shared-disk]
+
+* ![Windows][Logo_Windows] [使用 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和**檔案共用**，安裝 SAP NetWeaver 高可用性][sap-high-availability-installation-wsfc-file-share]
+
+* ![Linux][Logo_Linux] [使用 SAP ASCS/SCS 執行個體的 SUSE Linux Enterprise Server 叢集架構，安裝 SAP NetWeaver 高可用性][sap-suse-ascs-ha-sap-installation]

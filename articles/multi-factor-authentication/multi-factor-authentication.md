@@ -6,7 +6,7 @@ services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: yossib
+ms.reviewer: richagi
 ms.assetid: c40d7a34-1274-4496-96b0-784850c06e9b
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2017
 ms.author: joflore
-ms.openlocfilehash: 89c395d50d87db51cb2c502fe83490d104cd1c79
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: a928344dfc41687c92e7845bc304a05122ab8a92
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-azure-multi-factor-authentication"></a>什麼是 Azure Multi-Factor Authentication？
 雙步驟驗證是需要多種驗證方法，並在使用者登入和交易中新增重要的第二層安全性的驗證方法。 其運作方式需要下列其中任何二或多個驗證方法：
@@ -33,9 +33,9 @@ ms.lasthandoff: 11/04/2017
 Azure Multi-Factor Authentication (MFA) 是 Microsoft 的雙步驟驗證解決方案。 Azure MFA 有助於保護對資料與應用程式的存取，同時可以滿足使用者對簡單登入程序的需求。 它可以透過一些驗證方法 (包括電話、文字訊息，或行動應用程式驗證) 來提供強大的驗證功能。
 
 ## <a name="why-use-azure-multi-factor-authentication"></a>為何使用 Azure Multi-Factor Authentication？
-與以前比較起來，現今人們連線網路的時間越來越長。 透過智慧型手機、平板電腦、膝上型電腦以及電腦，人們有幾種不同選擇可隨時用來連線網路並維持連線。 人們可以從任何地方存取他們的帳戶與應用程式，這表示他們可以完成更多工作並為客戶提供更好的服務。
+與以前比較起來，現今人們連線網路的時間越來越長。 透過智慧型手機、平板電腦、膝上型電腦和電腦，人們有多種不同的選擇可從任何地方存取他們的帳戶和應用程式，並隨時保持連線。
 
-Azure Multi-Factor Authentication 是一個容易使用、可調整且可靠的解決方案，可提供第二種驗證方法讓您的使用者永遠受到保護。
+Azure Multi-Factor Authentication 是一個容易使用、可調整且可靠的解決方案，可提供第二種驗證方法來保護您的使用者。
 
 | ![容易使用](./media/multi-factor-authentication/simple.png) | ![可調整](./media/multi-factor-authentication/scalable.png) | ![永遠受到保護](./media/multi-factor-authentication/protected.png) | ![可靠](./media/multi-factor-authentication/reliable.png) |
 |:---:|:---:|:---:|:---:|
@@ -44,7 +44,7 @@ Azure Multi-Factor Authentication 是一個容易使用、可調整且可靠的�
 * **容易使用** - Azure Multi-Factor Authentication 很容易設定及使用。 隨附於 Azure Multi-Factor Authentication 的額外保護可讓使用者管理他們自己的裝置。 最棒的是，在許多情況下，只需簡單按幾下滑鼠即可進行設定。
 * **可調整** - Azure Multi-Factor Authentication 採用雲端技術且與您內部部署的 AD 與自訂應用程式整合。 此保護功能甚至可以擴充以因應您高任務關鍵性的狀況。
 * **永遠受到保護** - Azure Multi-Factor Authentication 使用最高工業標準提供強大驗證功能。
-* **可靠** - 我們保證 Azure Multi-Factor Authentication 的可用性可達到 99.9%。 當服務無法接收或處理雙步驟驗證的驗證要求時，服務會被視為無法使用。
+* **可靠** - Microsoft 保證 Azure Multi-Factor Authentication 的可用性可達到 99.9%。 當服務無法接收或處理雙步驟驗證的驗證要求時，服務會被視為無法使用。
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Windows-Azure-Multi-Factor-Authentication/player]
 

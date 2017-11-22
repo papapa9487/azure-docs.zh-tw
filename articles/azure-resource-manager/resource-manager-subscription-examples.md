@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 6e8335b9c2f3609bf0c48c563205ffaee8575b20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ab816d0392816c2293f9d70eb249bbcfa09bfba
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>實作 Azure 企業 Scaffold 的範例
 本主題提供企業如何實作 [Azure 企業 Scaffold](resource-manager-subscription-governance.md)建議的範例。 它會使用名為 Contoso 的虛構公司來說明常見案例的最佳作法。
@@ -68,7 +68,7 @@ Dave 管理訂用帳戶中資源的需求如下︰
 * 他很關心成本問題。 因此，他想要防止應用程式擁有者建立貴得離譜的虛擬機器。  
 * 因為此應用程式可為許多業務單位的開發人員提供服務，所以他想要在每個資源上標記業務單位和應用程式擁有者。 藉由使用這些標記，ETS 即可向適當的小組收費。
 
-他會建立下列 [Resource Manager 原則](resource-manager-policy.md)︰
+他會建立下列 [Azure 原則](../azure-policy/azure-policy-introduction.md)：
 
 | 欄位 | 效果 | 說明 |
 | --- | --- | --- |
