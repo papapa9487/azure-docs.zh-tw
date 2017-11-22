@@ -1,6 +1,6 @@
 ---
-title: "快速入門：使用 Azure 入口網站建立 Azure Databricks 工作區 | Microsoft Docs"
-description: "此快速入門會說明如何使用 Azure 入口網站來建立 Azure Databricks 工作區和 Apache Spark 叢集。"
+title: "快速入門：使用 Azure 入口網站在 Azure Databricks 上執行第一個 Spark 作業 | Microsoft Docs"
+description: "此快速入門會說明如何使用 Azure 入口網站來建立 Azure Databricks 工作區、Apache Spark 叢集和執行 Spark 作業。"
 services: azure-databricks
 documentationcenter: 
 author: nitinme
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: nitinme
-ms.openlocfilehash: 9d4ee88cf3788071ba6b1eca909c1fe5e6044d03
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: d384a1aef89941c2c9b547e5e0d05bb562578393
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="quickstart-get-started-with-azure-databricks-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站來開始使用 Azure Databricks
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站在 Azure Databricks 上執行 Spark 作業
 
 此快速入門會說明如何建立 Azure Databricks 工作區，以及該工作區內的 Apache Spark 叢集。 最後，您會了解如何在 Databricks 叢集上執行 Spark 作業。 如需 Azure Databricks 的詳細資訊，請參閱[何謂 Azure Databricks？](what-is-azure-databricks.md)
 
@@ -31,7 +31,11 @@ ms.lasthandoff: 11/15/2017
 
 在本節中，您會使用 Azure 入口網站建立 Azure Databricks 工作區。 
 
-1. 在 Azure 入口網站中，依序按一下 **+**、[資料 + 分析] 和 [Azure Databricks (預覽)]。 在 [Azure Databricks] 底下，按一下 [建立]。
+1. 在 Azure 入口網站中，依序按一下 **+**、[資料 + 分析] 和 [Azure Databricks (預覽)]。 
+
+    ![Azure 入口網站上的 Databricks](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Azure 入口網站上的 Databricks")
+
+2. 在 [Azure Databricks (預覽)] 底下，按一下 [建立]。
 
     > [!NOTE]
     > Azure Databricks 目前以有限預覽形式提供。 如果您想讓您的 Azure 訂用帳戶加入到預覽版的允許清單考慮對象，您必須填寫[報名表單](https://databricks.azurewebsites.net/)。

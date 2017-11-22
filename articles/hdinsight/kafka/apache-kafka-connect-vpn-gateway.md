@@ -13,15 +13,15 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 1721f985214b9a9fbefed628308b1a72f5cc186a
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 2b55de4de6bb94be78649112161211346090b23a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="connect-to-kafka-on-hdinsight-preview-through-an-azure-virtual-network"></a>透過 Azure 虛擬網路連線到 HDInsight (預覽版) 上的 Kafka
+# <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>透過 Azure 虛擬網路連線到 HDInsight 上的 Kafka
 
 了解如何透過 Azure 虛擬網路，直接連線到 HDInsight 上的 Kafka。 本文件提供使用下列設定連線到 Kafka 的相關資訊：
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/06/2017
 
 HDInsight 不允許透過公用網際網路直接連線至 Kafka。 Kafka 用戶端 (生產者和取用者) 必須改用下列其中一個連線方法：
 
-* 在與 HDInsight 上之 Kafka 相同的虛擬網路中執行用戶端。 [開始在 HDInsight 上使用 Apache Kafka (預覽)](apache-kafka-get-started.md) 文件中使用的就是此設定。 用戶端會直接在 HDInsight 叢集節點或相同網路中的另一部虛擬機器上執行。
+* 在與 HDInsight 上之 Kafka 相同的虛擬網路中執行用戶端。 [開始在 HDInsight 上使用 Apache Kafka](apache-kafka-get-started.md) 文件中使用的就是此設定。 用戶端會直接在 HDInsight 叢集節點或相同網路中的另一部虛擬機器上執行。
 
 * 將私人網路 (例如，您的內部部署網路) 連線至虛擬網路。 此設定可讓您內部部署網路中的用戶端直接使用 Kafka。 若要啟用此設定，請執行下列工作：
 
@@ -251,7 +251,7 @@ HDInsight 不允許透過公用網際網路直接連線至 Kafka。 Kafka 用戶
 
 ### <a name="configure-kafka-for-ip-advertising"></a>設定 Kafka 進行 IP 公告
 
-Zookeeper 預設會將 Kafka 代理程式的網域名稱傳回給用戶端。 這個設定無法搭配 VPN 軟體用戶端使用，因為它無法為虛擬網路中的實體使用名稱解析。 針對此設定，使用下列步驟來設定 Kafka 以公告 IP 位址而不是網域名稱：
+Zookeeper 預設會將 Kafka 代理程式的網域名稱傳回給用戶端。 這個設定不會使用 VPN 軟體用戶端，因為它無法為虛擬網路中的實體使用名稱解析。 針對此設定，使用下列步驟來設定 Kafka 以公告 IP 位址而不是網域名稱：
 
 1. 使用網頁瀏覽器移至 https://CLUSTERNAME.azurehdinsight.net。 將 __CLUSTERNAME__ 取代為 HDInsight 叢集上 Kafka 的名稱。
 
@@ -261,11 +261,11 @@ Zookeeper 預設會將 Kafka 代理程式的網域名稱傳回給用戶端。 �
 
     ![反白顯示 Kafka 的服務清單](./media/apache-kafka-connect-vpn-gateway/select-kafka-service.png)
 
-3. 若要檢視 Kafka 組態，請從正上方選取 [Configs] \(設定\)。
+3. 若要檢視 Kafka 組態，請從正上方選取 [Configs (設定)]。
 
     ![Kafka 的 Configs (設定) 連結](./media/apache-kafka-connect-vpn-gateway/select-kafka-config.png)
 
-4. 若要找出 __kafka-env__ 組態，請在右上角的 [Filter] \(篩選\)欄位中輸入 `kafka-env`。
+4. 若要找出 __kafka-env__ 組態，請在右上角的 [Filter (篩選)] 欄位中輸入 `kafka-env`。
 
     ![Kafka 組態，找出 kafka-env](./media/apache-kafka-connect-vpn-gateway/search-for-kafka-env.png)
 
@@ -279,23 +279,23 @@ Zookeeper 預設會將 Kafka 代理程式的網域名稱傳回給用戶端。 �
     echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
     ```
 
-6. 若要設定 Kafka 接聽的介面，請在右上角的 [Filter] \(篩選\) 欄位中輸入 `listeners`。
+6. 若要設定 Kafka 接聽的介面，請在右上角的 [Filter (篩選)] 欄位中輸入 `listeners`。
 
-7. 若要設定 Kafka 在所有網路介面上接聽，請將 [listeners] \(接聽程式\) 欄位的值變更為 `PLAINTEXT://0.0.0.0:9092`。
+7. 若要設定 Kafka 在所有網路介面上接聽，請將 [listeners (接聽程式)] 欄位的值變更為 `PLAINTEXT://0.0.0.0:9092`。
 
-8. 若要儲存組態變更，請使用 [Save] \(儲存\) 按鈕。 輸入描述變更的文字訊息。 儲存變更後，請選取 [OK] \(確定\)。
+8. 若要儲存組態變更，請使用 [Save (儲存)] 按鈕。 輸入描述變更的文字訊息。 儲存變更後，請選取 [OK (確定)]。
 
     ![儲存組態按鈕](./media/apache-kafka-connect-vpn-gateway/save-button.png)
 
-9. 若要避免重新啟動 Kafka 時發生錯誤，請使用 [Service Actions] \(服務動作\) 按鈕，然後選取 [Turn On Maintenance Mode] \(開啟維護模式\)。 選取 [OK] \(確定\) 以完成此作業。
+9. 若要避免重新啟動 Kafka 時發生錯誤，請使用 [Service Actions (服務動作)] 按鈕，然後選取 [Turn On Maintenance Mode (開啟維護模式)]。 選取 [OK (確定)] 以完成此作業。
 
     ![服務動作，反白顯示開啟維護](./media/apache-kafka-connect-vpn-gateway/turn-on-maintenance-mode.png)
 
-10. 若要重新啟動 Kafka，請使用 [Restart] \(重新啟動\) 按鈕，然後選取 [Restart All Affected] \(重新啟動所有受影響項目\)。 確認重新啟動，然後在作業完成之後使用 [OK] \(確定\) 按鈕。
+10. 若要重新啟動 Kafka，請使用 [Restart (重新啟動)] 按鈕，然後選取 [Restart All Affected (重新啟動所有受影響項目)]。 確認重新啟動，然後在作業完成之後使用 [OK (確定)] 按鈕。
 
     ![重新啟動按鈕，反白顯示重新啟動所有受影響項目](./media/apache-kafka-connect-vpn-gateway/restart-button.png)
 
-11. 若要停用維護模式，請使用 [Service Actions] \(服務動作\) 按鈕，然後選取 [Turn Off Maintenance Mode] \(關閉維護模式\)。 選取 [OK] \(確定\) 以完成此作業。
+11. 若要停用維護模式，請使用 [Service Actions (服務動作)] 按鈕，然後選取 [Turn Off Maintenance Mode (關閉維護模式)]。 選取 [OK (確定)] 以完成此作業。
 
 ### <a name="connect-to-the-vpn-gateway"></a>連線到 VPN 閘道
 
@@ -303,7 +303,7 @@ Zookeeper 預設會將 Kafka 代理程式的網域名稱傳回給用戶端。 �
 
 ## <a id="python-client"></a> 範例：Python 用戶端
 
-若要驗證 Kafka 的連線能力，請使用下列步驟來建立和執行 Python 生產者和取用者：
+若要驗證 Kafka 的連接能力，請使用下列步驟來建立和執行 Python 生產者和取用者：
 
 1. 使用下列其中一個方法來擷取 Kafka 叢集中節點的完整網域名稱 (FQDN) 與 IP 位址：
 
@@ -371,9 +371,9 @@ Zookeeper 預設會將 Kafka 代理程式的網域名稱傳回給用戶端。 �
 
     使用從本節的步驟 1 傳回的位址來取代 `'kafka_broker'` 項目：
 
-    * 如果您使用__軟體 VPN 用戶端__，請使用背景工作節點的 IP 位址來取代 `kafka_broker` 項目。
+    * 如果您使用__軟體 VPN 用戶端__，使用背景工作節點的 IP 位址來取代 `kafka_broker` 項目。
 
-    * 如果您具有__透過自訂 DNS 伺服器啟用的名稱解析__，請使用背景工作節點的 FQDN 來取代 `kafka_broker` 項目。
+    * 如果您具有__透過自訂 DNS 伺服器啟用的名稱解析__，使用背景工作節點的 FQDN 來取代 `kafka_broker` 項目。
 
 ## <a name="next-steps"></a>後續步驟
 

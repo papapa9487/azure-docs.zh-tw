@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 1513fc53501f1cfec93134841fbef9a8552dd43c
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: c0c8f1aee75c4ee5cc35758b71ef573637fd3edd
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>使用 Azure Cosmos DB 資料表 API 和 Azure 表格儲存體進行開發
 
@@ -25,11 +25,13 @@ Azure Cosmos DB 資料表 API 和 Azure 表格儲存體共用同一個資料表�
 
 ## <a name="developing-with-the-azure-cosmos-db-table-api"></a>使用 Azure Cosmos DB 資料表 API 進行開發
 
-此時，[Azure Cosmos DB 資料表 API](table-introduction.md) 有一個 .NET SDK，也就是 [Windows Azure 儲存體進階資料表 (預覽)](https://aka.ms/premiumtablenuget)。 此文件庫具有與公用 [Windows Azure 儲存體 SDK](https://www.nuget.org/packages/WindowsAzure.Storage) 相同的類別和方法簽章，但它也可以使用資料表 API (預覽) 來連線到 Azure Cosmos DB 帳戶。 如需使用 Azure Cosmos DB 資料表 API 的快速入門和教學課程，請參閱下列文章：
-- 快速入門：[Azure Cosmos DB：使用資料表 API 來建置 .NET 應用程式](create-table-dotnet.md)
-- 教學課程：[Azure Cosmos DB：使用 .NET 搭配資料表 API 進行開發](tutorial-develop-table-dotnet.md)
+此時，[Azure Cosmos DB 資料表 API](table-introduction.md) 有四個 SDK 可供開發使用： 
+- [Microsoft.Azure.CosmosDB.Table](https://aka.ms/tableapinuget) .NET SDK。 此文件庫具有與公用 [Windows Azure 儲存體 SDK](https://www.nuget.org/packages/WindowsAzure.Storage) 相同的類別和方法簽章，但它也可以使用資料表 API 來連線到 Azure Cosmos DB 帳戶。 
+- [Python SDK](table-sdk-python.md)。 新的 Azure Cosmos DB Python SDK 是唯一支援 Azure 表格儲存體 (Python) 的 SDK。 此 SDK 與 Azure 表格儲存體和 Azure Cosmos DB 資料表 API 連線。
+- [Java SDK](table-sdk-java.md)。 此 Azure 儲存體 SDK 能夠使用資料表 API 連線至 Azure Cosmos DB 帳戶。
+- [Node.js SDK](table-sdk-nodejs.md)。 此 Azure 儲存體 SDK 能夠使用資料表 API 連線至 Azure Cosmos DB 帳戶。
 
-[常見問題集：使用資料表 API 開發](faq.md#develop-with-the-table-api-preview)一文提供使用資料表 API 的其他資訊。
+[常見問題集：使用資料表 API 開發](faq.md#develop-with-the-table-api)一文提供使用資料表 API 的其他資訊。
 
 ## <a name="developing-with-the-azure-table-storage"></a>使用 Azure 表格儲存體進行開發
 

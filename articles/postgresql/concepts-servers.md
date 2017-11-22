@@ -1,6 +1,6 @@
 ---
 title: "適用於 PostgreSQL 的 Azure 資料庫中的伺服器概念 | Microsoft Docs"
-description: "本主題提供使用適用於 PostgreSQL 之 Azure 資料庫伺服器的考量和指導方針。"
+description: "本主題提供設定及管理適用於 PostgreSQL 之 Azure 資料庫伺服器的考量和指導方針。"
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 67cf6b133e8e869ee3a157d79d68602760d9137c
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 11/08/2017
+ms.openlocfilehash: 46e109c25f8cbdba9b3769db7563259f7c6705d4
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-database-for-postgresql-servers"></a>適用於 PostgreSQL 的 Azure 資料庫伺服器
 本文提供使用適用於 PostgreSQL 之 Azure 資料庫伺服器的考量和指導方針。
@@ -47,9 +47,16 @@ ms.lasthandoff: 11/06/2017
 |||
 
 ## <a name="how-do-i-manage-a-server"></a>如何管理伺服器？
-您可以使用 Azure 入口網站或 [Azure CLI](/cli/azure/postgres)，來管理適用於 PostgreSQL 的 Azure 資料庫伺服器。
+您可以使用 [Azure 入口網站](https://portal.azure.com)或 [Azure CLI](/cli/azure/postgres)，來管理適用於 PostgreSQL 的 Azure 資料庫伺服器。
+
+## <a name="server-parameters"></a>伺服器參數
+PostgreSQL 伺服器參數會判斷伺服器的設定。 在適用於 PostgreSQL 的 Azure 資料庫中，可以透過 Azure 入口網站或 Azure CLI 檢視和編輯參數清單。 
+
+適用於 PostgreSQL 的 Azure 資料庫是 Postgres 的受管理服務，其中的可設定參數是本機 Postgres 執行個體中參數的子集 (如需有關 Postgres 參數的詳細資訊，請參閱 [PostgreSQL 文件](https://www.postgresql.org/docs/9.6/static/runtime-config.html))。 適用於 PostgreSQL 的 Azure 資料庫伺服器會在建立時為每個參數啟用預設值。 需要伺服器重新啟動或是需要 superuser 存取之後變更才會生效的參數，無法由使用者設定。
+
 
 ## <a name="next-steps"></a>後續步驟
 - 如需服務的概觀，請參閱[適用於 PostgreSQL 的 Azure 資料庫概觀](overview.md)。
 - 如需有關以您**服務層**為依據之特定資源配額和限制的資訊，請參閱[服務層](concepts-service-tiers.md)。
 - 如需連接到服務的相關資訊，請參閱[適用於 PostgreSQL 的 Azure 資料庫的連線庫](concepts-connection-libraries.md)。
+- 透過 [Azure 入口網站](howto-configure-server-parameters-using-portal.md)或 [Azure CLI](howto-configure-server-parameters-using-cli.md) 檢視和編輯伺服器參數。

@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: singhkay
-ms.openlocfilehash: 58eaab4fa03afc1e6a5e38bef691cce62a921ea9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72abb01a3ce7f4dea2ee97219e9a406c69cda7c5
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>使用 Azure Resource Manager 將原則套用至 Linux VM
 藉由使用原則，組織可以強制執行整個企業的各種慣例和規則。 強制執行所要的行為有助於降低風險，同時促進組織的成功。 我們會在本文中說明如何使用 Azure Resource Manager 原則來為您組織的虛擬機器定義所要的行為。
 
-如需原則的簡介，請參閱 [使用原則來管理資源和控制存取](../../azure-resource-manager/resource-manager-policy.md)。
+如需原則簡介，請參閱[什麼是 Azure 原則？](../../azure-policy/azure-policy-introduction.md)。
 
 ## <a name="permitted-virtual-machines"></a>允許的虛擬機器
 若要確保您組織的虛擬機器與應用程式相容，您可以針對允許使用哪些作業系統設下限制。 您可以透過以下原則範例，允許只能建立 Ubuntu 14.04.2-LTS 虛擬機器。
@@ -88,7 +88,7 @@ ms.lasthandoff: 10/11/2017
 }
 ```
 
-如需原則欄位的相關資訊，請參閱[原則別名](../../azure-resource-manager/resource-manager-policy.md#aliases)。
+如需原則欄位的相關資訊，請參閱[原則別名](../../azure-policy/policy-definition.md#aliases)。
 
 ## <a name="managed-disks"></a>受控磁碟
 
@@ -209,6 +209,6 @@ ms.lasthandoff: 10/11/2017
 
 
 ## <a name="next-steps"></a>後續步驟
-* 定義原則規則 (如上述範例所示) 之後，您必須建立原則定義，並將它指派到某個範圍。 範圍可以是訂用帳戶、資源群組或資源。 若要透過入口網站來指派原則，請參閱[使用 Azure 入口網站來指派和管理資源原則](../../azure-resource-manager/resource-manager-policy-portal.md)。 若要透過 REST API、PowerShell 或 Azure CLI 來指派原則，請參閱[透過指令碼來指派和管理原則](../../azure-resource-manager/resource-manager-policy-create-assign.md)。
-* 如需資源原則的簡介，請參閱[資源原則概觀](../../azure-resource-manager/resource-manager-policy.md)。
-* 如需關於企業如何使用 Resource Manager 有效地管理訂閱的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](../../azure-resource-manager/resource-manager-subscription-governance.md)。
+* 定義原則規則 (如上述範例所示) 之後，您必須建立原則定義，並將它指派到某個範圍。 範圍可以是訂用帳戶、資源群組或資源。 若要指派原則，請參閱[使用 Azure 入口網站來指派和管理資源原則](../../azure-policy/assign-policy-definition.md)、[使用 PowerShell 來指派原則](../../azure-policy/assign-policy-definition-ps.md)或[使用 Azure CLI 來指派原則](../../azure-policy/assign-policy-definition-cli.md)。
+* 如需資源原則簡介，請參閱[什麼是 Azure 原則？](../../azure-policy/azure-policy-introduction.md)。
+* 如需關於企業如何使用 Resource Manager 有效地管理訂用帳戶的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](../../azure-resource-manager/resource-manager-subscription-governance.md)。

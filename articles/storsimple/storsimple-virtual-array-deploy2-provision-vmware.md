@@ -4,7 +4,7 @@ description: "部署 StorSimple Virtual Array 的第二個教學課程，內容�
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
@@ -12,25 +12,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/15/2017
+ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 118521a127b2e4b765efabdbdde71605440d81c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 495ef6a93ee06423495269306ad06e76dda13e10
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>部署 StorSimple Virtual Array：在 VMware 中佈建
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## <a name="overview"></a>概觀
-本教學課程說明如何在執行 VMware ESXi 5.5 及更新版本 的主機系統上佈建及連線到 StorSimple 虛擬陣列。 本文適用於在 Azure 入口網站及 Microsoft Azure 政府服務雲端部署 StorSimple Virtual Array。
+本教學課程說明如何在執行 VMware ESXi 5.0、5.5 或 6.0 的主機系統上佈建及連線到 StorSimple 虛擬陣列。 本文適用於在 Azure 入口網站及 Microsoft Azure 政府服務雲端部署 StorSimple Virtual Array。
 
 您需要有系統管理員權限，才能佈建並連接至虛擬裝置。 佈建及初始安裝程序可能需要大約 10 分鐘的時間才能完成。
 
 ## <a name="provisioning-prerequisites"></a>佈建的必要條件
-在執行 VMware ESXi 5.5 及更新版本的主機系統上佈建虛擬裝置的必要條件如下。
+在執行 VMware ESXi 5.0、5.5 或 6.0 的主機系統上佈建虛擬裝置的必要條件如下。
 
 ### <a name="for-the-storsimple-device-manager-service"></a>StorSimple 裝置管理員服務
 在您開始前，請確定：
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>步驟 1：確認主機系統符合最低的虛擬裝置需求
 若要建立虛擬裝置，您將需要：
 
-* 能夠存取執行 VMware ESXi 伺服器 5.5 及更新版本的主機系統。
+* 能夠存取執行 VMware ESXi 伺服器 5.0、5.5 或 6.0 的主機系統。
 * 您系統上的 VMware vSphere 用戶端，以便管理 ESXi 主機。
 
   * 至少 4 顆核心。
@@ -183,6 +183,9 @@ ms.lasthandoff: 10/11/2017
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image36.png)
 
 您的虛擬機器已成功佈建。 下一個步驟是啟動該虛擬機器，然後取得 IP 位址。
+
+> [!NOTE]
+> 我們建議您不要在您的虛擬陣列上安裝 VMware 工具 (如同上面所佈建)。 安裝 VMware 工具將導致不支援的組態。
 
 ## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>步驟 3：啟動虛擬裝置，並取得 IP 位址
 請執行下列步驟來啟動您的虛擬裝置，並連線到該虛擬裝置。

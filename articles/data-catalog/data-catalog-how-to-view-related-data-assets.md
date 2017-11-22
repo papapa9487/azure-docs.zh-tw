@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 11/01/2017
 ms.author: maroche
-ms.openlocfilehash: 0623847ea1e79c3a45a8fbdcc1d3a551864aefd6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: da7ac8f323f9b2ec6303fbc85aa570373a538bcf
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>如何檢視 Azure 資料目錄中的相關資料資產？
 「Azure 資料目錄」可讓您檢視與所選資料資產相關的資料資產，並檢視它們之間的關係。 
@@ -30,6 +30,9 @@ ms.lasthandoff: 11/03/2017
 - Azure SQL Database
 - MySQL
 - Oracle
+
+> [!NOTE]
+> 若要讓資料目錄匯入兩個資料資產之間的關聯性，您必須同時註冊兩個資產。 如果您已個別新增其中一個，將它再新增一次，然後新增另一個資料資產，接著匯入它們之間的關聯性。
 
 ## <a name="view-related-data-assets"></a>檢視相關的資料資產
 若要檢視與所選資料集相關的資料資產，請使用 [關聯性] 索引標籤，如下圖所示： 

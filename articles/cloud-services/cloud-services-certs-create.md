@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 689977491e6df37e48536f59234bf4ddba6a1575
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 37a3a990b5f0164b1b6f53727e92e09fece7f6fb
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure 雲端服務的憑證概觀
 Azure 中的憑證用於雲端服務 ([服務憑證](#what-are-service-certificates)) 及用於向管理 API 進行驗證 (使用 Azure 傳統入口網站而不是非傳統 Azure 入口網站時[管理憑證](#what-are-management-certificates))。 本主題提供兩種憑證類型的一般概觀、如何[建立](#create)這些憑證類型，以及如何將其[部署](#deploy)到 Azure。
 
 在 Azure 中使用的憑證是 x.509 v3 憑證，而且可以由其他受信任的憑證簽署，或者可以自我簽署。 自我簽署的憑證是由自己的建立者簽署，因此預設不受到信任。 大部分的瀏覽器都可以忽略這個問題。 您應該僅在開發和測試雲端服務時使用自我簽署的憑證。 
 
-Azure 所使用的憑證可以包含私密或公開金鑰。 憑證具有指紋，可以明確的方式提供識別它們的方法。 這個指紋用於 Azure [組態檔](cloud-services-configure-ssl-certificate.md) 中，以識別雲端服務應該使用哪個憑證。 
+Azure 所使用的憑證可以包含私密或公開金鑰。 憑證具有指紋，可以明確的方式提供識別它們的方法。 這個指紋用於 Azure [組態檔](cloud-services-configure-ssl-certificate-portal.md) 中，以識別雲端服務應該使用哪個憑證。 
 
 ## <a name="what-are-service-certificates"></a>什麼是服務憑證？
 服務憑證會附加至雲端服務，並啟用進出服務的安全通訊。 例如，如果您部署了一個 Web 角色，您會想要提供可以驗證公開的 HTTPS 端點的憑證。 在服務定義中定義的服務憑證會自動部署至執行您角色的執行個體的虛擬機器。 
@@ -93,7 +93,7 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 [本文](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)說明如何使用 SSH 建立憑證。
 
 ## <a name="next-steps"></a>後續步驟
-[將服務憑證上傳至 Azure 傳統入口網站](cloud-services-configure-ssl-certificate.md) (或 [Azure 入口網站](cloud-services-configure-ssl-certificate-portal.md))。
+[將服務憑證上傳到 Azure 入口網站](cloud-services-configure-ssl-certificate-portal.md)。
 
 將 [管理 API 憑證](../azure-api-management-certs.md) 上傳至 Azure 傳統入口網站。 Azure 入口網站並不使用管理憑證來進行驗證。
 

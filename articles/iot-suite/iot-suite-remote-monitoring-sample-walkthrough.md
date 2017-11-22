@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: a4b28e8a1269374a24e169f9363401109bacc471
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: e19ba9c88e4fbe4f065c45ce7029247436f7155c
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="remote-monitoring-preconfigured-solution-architecture"></a>遠端監視預先設定解決方案架構
 
@@ -141,5 +141,6 @@ Cosmos DB 資料庫會儲存預先設定解決方案中的資料。 **storage-ad
 
 * [使用 Azure IoT (.NET) 的遠端監視預先設定解決方案](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/)。
 * [使用 Azure IoT (Java) 的遠端監視預先設定解決方案](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)。
+* [遠端監視架構的預先設定解決方案](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture)。
 
 如需關於遠端監視預先設定解決方案的詳細概念資訊，請參閱[自訂預先設定的解決方案](iot-suite-remote-monitoring-customize.md)。

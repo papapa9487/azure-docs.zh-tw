@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: edbab30d949daa8d564ec60e9f1650f38b01d942
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: c0a6a19cffafb940b13135fb3df4d7bdf57aa7ce
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Azure File Storage 複製資料，或將資料複製到 Azure File Storage
 
@@ -48,11 +48,11 @@ ms.lasthandoff: 11/06/2017
 | 主機 | 指定 Azure File Storage 端點成為 `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`。 | 是 |
 | userid | 指定存取 Azure File Storage 的使用者成為 `"userid": "AZURE\\<storage name>"`。 | 是 |
 | password | 指定儲存體存取金鑰。 請將此欄位標示為 SecureString。<br/> | 是 |
-| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
+| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 (來源)；是 (接收) |
 
->[!TIP]
-> - 若要使用 Azure Integration Runtime 複製到 Azure File Storage，請明確使用檔案儲存體的位置[建立 Azure IR](create-azure-integration-runtime.md#create-azure-ir)，並在下列範例所示的連結服務中產生關聯。
-> - 若要在 Azure 以外使用自我裝載的 Integration Runtime 從 Azure File Storage 複製/複製到 Azure File Storage，務必開啟區域網路的輸出 TCP 連接埠 445。
+>[!IMPORTANT]
+> - 若要使用 Azure Integration Runtime 將資料複製到 Azure 檔案儲存體，請明確使用檔案儲存體的位置[建立 Azure IR](create-azure-integration-runtime.md#create-azure-ir)，並在下列範例所示的連結服務中產生關聯。
+> - 若要在 Azure 以外使用自我裝載的 Integration Runtime，從 Azure 檔案儲存體複製資料或複製資料到 Azure 檔案儲存體，務必開啟區域網路的輸出 TCP 連接埠 445。
 
 **範例：**
 

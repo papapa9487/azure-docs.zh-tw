@@ -11,19 +11,19 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/26/2016
+ms.date: 11/09/2017
 ms.author: ashmaka
-ms.openlocfilehash: 33897e7966de5d467602f6cb36fe16caf0786ffd
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 622ae64e118dd2498aff0bf2e9f6c1dbfb0ab045
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>多租用戶 SaaS 應用程式與 Azure 搜尋服務的設計模式
 多租用戶應用程式是為不能查看或共用任何其他租用戶之資料的租用戶提供相同服務和功能的應用程式，其中租用戶的數目並無限制。 本文件將討論以「Azure 搜尋服務」建置的多租用戶應用程式的租用戶隔離策略。
 
 ## <a name="azure-search-concepts"></a>Azure 搜尋服務概念
-「Azure 搜尋服務」是一個搜尋即服務解決方案，可讓開發人員不需管理任何基礎結構或成為搜尋專家，就能夠將豐富的搜尋體驗新增到應用程式中。 資料會上傳至服務，然後儲存在雲端。 使用對「Azure 搜尋服務」API 的簡單要求，接著便可修改及搜尋資料。 如需此服務的概觀，請參閱 [這篇文章](http://aka.ms/whatisazsearch)。 在討論設計模式之前，請務必了解「Azure 搜尋服務」的一些概念。
+「Azure 搜尋服務」是一個搜尋即服務解決方案，可讓開發人員不需管理任何基礎結構或成為資訊擷取專家，就能夠將豐富的搜尋體驗新增到應用程式中。 資料會上傳至服務，然後儲存在雲端。 使用對「Azure 搜尋服務」API 的簡單要求，接著便可修改及搜尋資料。 如需此服務的概觀，請參閱 [這篇文章](http://aka.ms/whatisazsearch)。 在討論設計模式之前，請務必了解「Azure 搜尋服務」的一些概念。
 
 ### <a name="search-services-indexes-fields-and-documents"></a>搜尋服務、索引、欄位及文件
 使用「Azure 搜尋服務」時，使用者需訂閱「搜尋服務」 。 由於資料是上傳到「Azure 搜尋服務」，因此它會儲存在該搜尋服務內的「索引」  中。 單一服務內可能會有好幾個索引。 若要使用熟悉的資料庫概念，搜尋服務可以比喻為資料庫，而服務內的索引則可比喻為資料庫內的資料表。

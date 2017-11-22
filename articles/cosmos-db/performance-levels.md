@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6692d5b75954b2162862e6be7c2e39c63fa8408b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a0567df53dff15d7fbacf4850f6eae07c8985598
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>淘汰 S1、S2 和 S3 效能層級
 
@@ -55,7 +55,7 @@ S1、S2 和 S3 效能層級不提供 DocumentDB API 集合所提供的彈性。 
 |   |資料分割的集合|單一資料分割集合|S1|S2|S3|
 |---|---|---|---|---|---|
 |最大輸送量|無限制|10K RU/秒|250 RU/秒|1 K RU/秒|2.5 K RU/秒|
-|輸送量下限|2.5K RU/秒|400 RU/秒|250 RU/秒|1 K RU/秒|2.5 K RU/秒|
+|輸送量下限|2.5 K RU/秒|400 RU/秒|250 RU/秒|1 K RU/秒|2.5 K RU/秒|
 |儲存體上限|無限制|10 GB|10 GB|10 GB|10 GB|
 |價格 (每月)|輸送量：$6 / 100 RU/秒<br><br>儲存體：$0.25/GB|輸送量：$6 / 100 RU/秒<br><br>儲存體：$0.25/GB|$25 美元|$50 美元|$100 美元|
 
@@ -119,13 +119,13 @@ S1、S2 和 S3 效能層級不提供 DocumentDB API 集合所提供的彈性。 
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [Azure Cosmos DB]，然後選取要修改的 Cosmos DB 帳戶。 
  
-    如果 [Azure Cosmos DB] 不在動態工具列中，按一下 >，捲動到 [資料庫]，選取 [Azure Cosmos DB]，然後選取 DocumentDB 帳戶。  
+    如果 [Azure Cosmos DB] 不在動態工具列中，按一下 >，捲動到 [資料庫]，選取 [Azure Cosmos DB]，然後選取帳戶。  
 
-2. 在 資源 功能表上，於 容器 下，按一下 級別，從下拉式清單選取要修改的集合，然後按一下定價層。 使用預先定義的輸送量的帳戶具有 S1、S2 或 S3 定價層。  在 選擇定價層 刀鋒視窗中按一下 標準 來變更使用者定義的輸送量，然後按一下選取 以儲存變更。
+2. 在 [資源] 功能表上，於 [容器] 下，按一下 [級別]，從下拉式清單選取要修改的集合，然後按一下 [定價層]。 使用預先定義的輸送量的帳戶具有 S1、S2 或 S3 定價層。  在 [選擇定價層] 頁面中，按一下 [標準] 來變更使用者定義的輸送量，然後按一下 [選取] 以儲存變更。
 
-    ![[設定] 刀鋒視窗的螢幕擷取畫面，其中顯示可供變更輸送量值的位置](./media/performance-levels/change-performance-set-thoughput.png)
+    ![[設定] 頁面的螢幕擷取畫面，其中顯示可供變更輸送量值的位置](./media/performance-levels/change-performance-set-thoughput.png)
 
-3. 回到 [調整] 刀鋒視窗中，[定價層] 已變更為 [標準]，並且 [輸送量 (RU/秒)] 方塊會顯示預設值 400。 將輸送量設定為介於 400 到 10,000 個 [要求單位](request-units.md)/秒 (RU/秒)。 頁面底部的 [估計每月帳單] 會自動更新以提供每月成本估計。 
+3. 回到 [調整] 頁面中，[定價層] 已變更為 [標準]，並且 [輸送量 (RU/秒)] 方塊會顯示預設值 400。 將輸送量設定為介於 400 到 10,000 個 [要求單位](request-units.md)/秒 (RU/秒)。 頁面底部的 [估計每月帳單] 會自動更新以提供每月成本估計。 
 
     >[!IMPORTANT] 
     > 一旦您儲存變更並移至標準定價層後，將無法復原為 S1、S2 或 S3 效能層級。
@@ -141,7 +141,7 @@ S1、S2 和 S3 效能層級不提供 DocumentDB API 集合所提供的彈性。 
 
 **若要使用 .NET SDK 移轉至單一資料分割集合**
 
-變更集合的效能層級的另一個選項是透過我們的 SDK。 本節只涵蓋使用我們的 [DocumentDB .NET API](documentdb-sdk-dotnet.md)來變更集合的效能層級，但程序類似於我們的其他 SDK。
+另一個變更集合的效能層級的選項是透過 Azure Cosmos DB SDK。 本節只涵蓋使用 [DocumentDB .NET API](documentdb-sdk-dotnet.md)來變更集合的效能層級，但程序類似於我們的其他 SDK。
 
 以下是變更集合輸送量為每秒 5,000 要求單位的程式碼片段：
     

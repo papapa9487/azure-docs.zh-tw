@@ -1,5 +1,5 @@
 ---
-title: "在 Azure Cloud Shell (預覽) 中保存檔案 | Microsoft Docs"
+title: "在 Azure Cloud Shell 的 PowerShell 中保存檔案 (預覽) | Microsoft Docs"
 description: "逐步解說 Azure Cloud Shell 如何保存檔案。"
 services: azure
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: damaerte
-ms.openlocfilehash: 933af3860bfe087a0b4db7eff53d4b978a1475da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66d0e20d670e49cdfe64614d1fc6f5739fde6155
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
-## <a name="how-cloud-shell-works"></a>Cloud Shell 的運作方式
-Cloud Shell 透過下列方法來保存檔案： 
+## <a name="how-powershell-in-azure-cloud-shell-preview-works"></a>Azure Cloud Shell 中的 PowerShell (預覽) 如何運作
+Azure Cloud Shell 中的 PowerShell (預覽) 透過下列方法保存檔案： 
 * 在您的 `$Home` 目錄中，將指定的檔案共用掛接為 `clouddrive`，以便直接與檔案共用互動。
 
 ## <a name="list-cloud-drive-file-shares"></a>列出雲端磁碟機檔案共用

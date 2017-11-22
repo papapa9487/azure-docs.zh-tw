@@ -3,7 +3,7 @@ title: "什麼是 Azure 搜尋服務 | Microsoft Docs"
 description: "Azure 搜尋服務是受完整管理的託管雲端搜尋服務。 深入了解此功能概觀。"
 services: search
 manager: jhubbard
-author: ashmaka
+author: HeidiSteen
 documentationcenter: 
 ms.assetid: 50bed849-b716-4cc9-bbbc-b5b34e2c6153
 ms.service: search
@@ -11,18 +11,18 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/26/2017
-ms.author: ashmaka
-ms.openlocfilehash: 9893be47ec0c2f58ca206ec7c1bce13734513390
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 11/10/2017
+ms.author: heidist
+ms.openlocfilehash: 63c7bcc1bf4e650f913d31e5687c31257a85bfee
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="what-is-azure-search"></a>何謂 Azure 搜尋服務？
-Azure 搜尋服務是搜尋即服務雲端解決方案，可為開發人員提供 API 和工具，以透過資料在 Web、行動和企業應用程式中增添豐富的搜尋體驗。
+Azure 搜尋服務是搜尋即服務雲端解決方案，可為開發人員提供 API 和工具，以透過內容在 Web、行動和企業應用程式中增添豐富的搜尋體驗。
 
-透過簡單的 [REST API](/rest/api/searchservice/) 或 [.NET SDK](search-howto-dotnet-sdk.md) 展現功能，並同時隱蔽搜尋技術固有之複雜性。 除了 API 之外，Azure 入口網站也提供管理和原型設計支援。 Microsoft 會管理基礎結構和可用性。
+透過簡單的 [REST API](/rest/api/searchservice/) 或 [.NET SDK](search-howto-dotnet-sdk.md) 展現功能，並同時隱蔽資訊擷取固有之複雜性。 除了 API 之外，Azure 入口網站也提供系統管理和內容管理的支援，以及建立原型和查詢索引的工具。 因為服務在雲端執行，Microsoft 會管理基礎結構和可用性。
 
 <a name="feature-drilldown"></a>
 

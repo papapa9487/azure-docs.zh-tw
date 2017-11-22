@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: raynew
-ms.openlocfilehash: c0f86e13e21f2af323e0a306b381054b6eb76755
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: da120d8e325867eaf9eb8b9be1ae8d9152db54c4
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>使用 Azure Site Recovery 複寫至次要網站的支援矩陣
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/01/2017
 
 **部署** | **詳細資料** 
 --- | ---
-**VMware 至 VMware** | 內部部署 VMware VM 至次要 VMware 網站的災害復原。<br/><br/> 下載 [InMage Scout 使用者指南](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)
+**VMware 至 VMware** | 內部部署 VMware VM 至次要 VMware 網站的災害復原。<br/><br/> 下載 [InMage Scout 使用者指南](https://aka.ms/asr-scout-user-guide)
 **Hyper-V 至 Hyper-V** | VMM 雲端中的內部部署 Hyper-V VM 至次要 VMM 雲端的災害復原。<br></br> 不支援沒有 VMM 的情況。
 
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/01/2017
 
 **部署** | **支援**
 --- | ---
-**VMware VM/實體伺服器** | vCenter 5.5 或 6.0 (僅支援 5.5 功能)
+**VMware VM/實體伺服器** | vCenter 5.5、6.0 和 6.5 (僅支援 5.5 功能)
 **Hyper-V (含 VMM)** | 具有最新更新的 Windows Server 2016 和 Windows Server 2012 R2。<br/><br/> Windows Server 2016 主機應由 VMM 2016 所管理。<br/><br/> 目前不支援混用 Windows Server 2016 和 2012 R2 主機的 VMM 2016 雲端。<br/><br/> 目前不支援包含將現有的 VMM 2012 R2 升級為 System Center 2016 的部署。
 
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/01/2017
 
 **VMware/實體伺服器** | **Hyper-V (含 VMM)**
 --- | ---
-64 位元的 Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2 (至少含 SP1)<br/><br/> Red Hat Enterprise Linux 6.7、7.1、7.2 <br/><br/> CentOS 6.5、6.6、6.7、7.0、7.1、7.2 <br/><br/> Oracle Enterprise Linux 6.4 或 6.5，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | [Hyper-V 所支援的](https://technet.microsoft.com/library/mt126277.aspx)任何一種客體作業系統
+64 位元的 Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2 (至少含 SP1)<br/><br/> Red Hat Enterprise Linux 6.7、6.8、6.9、7.1、7.2 <br/><br/> Centos 6.5、6.6、6.7、6.8、6.9、7.0、7.1、7.2 <br/><br/> Oracle Enterprise Linux 6.4、6.5 或 6.8，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3、11 SP4  | [Hyper-V 所支援的](https://technet.microsoft.com/library/mt126277.aspx)任何一種客體作業系統
 
 ## <a name="linux-machine-storage"></a>Linux 機器儲存體
 
@@ -104,15 +104,15 @@ VHD/VHDX | N/A | 是 (最多 16 個磁碟)
 第 2 代 VM | N/A | 是
 共用叢集磁碟 | 是  | 否
 已加密磁碟 | 否 | 否
-UEFI| 否 | N/A
+UEFI| 是 | N/A
 NFS | 否 | 否
 SMB 3.0 | 否 | 否
 RDM | 是 | N/A
-磁碟 > 1 TB | 否 | 是
+磁碟 > 1 TB | 是 | 是
 使用等量磁碟的磁碟區 > 1 TB<br/><br/> LVM | 是 | 是
 儲存空間 | 否 | 是
-熱新增/移除磁碟 | 否 | 否
-排除磁碟 | 否 | 是
+熱新增/移除磁碟 | 是 | 否
+排除磁碟 | 是 | 是
 多重路徑 (MPIO) | N/A | 是
 
 ## <a name="vaults"></a>保存庫

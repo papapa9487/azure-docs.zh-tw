@@ -13,16 +13,16 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 5c4509bc1d05bc422f6bc5599d4635020ded63e9
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8bcecdff2bb9ac037e2cd71a431619883dfb5084
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-azure-sql-data-sync-preview"></a>使用 Azure SQL 資料同步 (預覽)，跨多個雲端和內部部署資料庫同步處理資料
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>使用 SQL 資料同步 (預覽) 跨多個雲端和內部部署資料庫同步資料
 
 「SQL 資料同步」是一種建置在 Azure SQL Database 上的服務，可讓您跨多個 SQL 資料庫和 SQL Server 執行個體，雙向同步您選取的資料。
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/08/2017
 -   **同步處理資料庫**包含「資料同步」的中繼資料和記錄。「同步處理資料庫」必須是與「中樞資料庫」位於相同區域的 Azure SQL Database。 「同步處理資料庫」是由客戶建立，並由客戶擁有。
 
 > [!NOTE]
-> 如果您使用內部部署資料庫，必須[設定本機代理程式](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-sql-data-sync)。
+> 如果您使用內部部署資料庫，必須[設定本機代理程式](sql-database-get-started-sql-data-sync.md#add-on-prem)。
 
 ![資料庫之間的同步資料](media/sql-database-sync-data/sync-data-overview.png)
 
@@ -78,38 +78,11 @@ ms.lasthandoff: 11/08/2017
     -   如果您選取 [中樞獲勝]，中樞的變更永遠會覆寫成員的變更。
     -   如果您選取 [成員獲勝]，成員的變更永遠會覆寫中樞的變更。 如果有多個成員，最終的值則取決於哪一個成員先同步。
 
-## <a name="common-questions"></a>常見問題
-
-### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>資料同步多久會同步我的資料一次？ 
-至少每隔五分鐘。
-
-### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>資料同步能否僅在 SQL Server 內部部署資料庫之間同步？ 
-無法直接進行。 您可以間接在 SQL Server 內部部署資料庫之間同步，不過，必須先在 Azure 建立中樞資料庫，然後將內部部署資料庫新增到同步群組。
-   
-### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>能否使用資料同步將生產環境資料庫的資料植入空白資料庫，然後讓資料保持同步？ 
-是。 請從原始結構描述編寫結構描述，藉此在新的資料庫中手動建立結構描述。 建立結構描述之後，請將資料表新增到同步群組，以複製資料並讓資料保持同步。
-
-### <a name="why-do-i-see-tables-that-i-did-not-create"></a>為什麼我會看到並非自己建立的資料表？  
-資料同步會在資料庫中建立側邊資料表，以便進行變更追蹤。 請勿刪除它們，否則資料同步無法正常運作。
-   
-### <a name="i-got-an-error-message-that-said-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-the-error"></a>我看見錯誤訊息顯示「無法將 NULL 值插入資料行\<資料行\>。 資料行不允許 Null。」 這是什麼意思，該如何修正錯誤？ 
-此錯誤訊息表示發生了下列兩種問題的其中之一：
-1.  資料表缺少主索引鍵。 若要修正此問題，請將主索引鍵新增至要同步的所有資料表。
-2.  在 CREATE INDEX 陳述式中可能有 WHERE 子句。 同步無法處理這種狀況。 若要修正此問題，請移除 WHERE 子句或手動變更所有資料庫。 
- 
-### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>資料同步如何處理循環參考？ 也就是，相同的資料已在多個同步群組中同步，且因此持續變更？
-資料同步不會處理循環參考。 請務必避免。 
-
-### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>如何使用資料同步匯出和匯入資料庫？
-將資料庫匯出為 `.bacpac` 檔案，並將該檔案匯入以建立新資料庫之後，您必須執行下列兩個動作，才能在新的資料庫中使用資料同步：
-1.  使用[這個指令碼](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql)清除**新資料庫**上的資料同步物件和側邊資料表。 這個指令碼會刪除資料庫中所有必要的資料同步物件。
-2.  利用新資料庫重新建立同步群組。 如果您不再需要舊有的同步群組，請將它刪除。
-
 ## <a name="sync-req-lim"></a> 需求和限制
 
 ### <a name="general-requirements"></a>一般需求
 
--   每個資料表都必須有主索引鍵。 請勿變更任何資料列的主索引鍵值。 如果您需要執行這個動作，請刪除資料列，再利用新的主索引鍵值重新建立。 
+-   每個資料表都必須有主索引鍵。 請勿變更任何資料列的主索引鍵值。 如果您必須變更主索引鍵值，請刪除資料列，再利用新的主索引鍵值重新建立。 
 
 -   資料表不能有非主索引鍵的識別欄位。
 
@@ -151,12 +124,51 @@ ms.lasthandoff: 11/08/2017
 | 最小同步處理間隔                                           | 5 分鐘              |                             |
 |||
 
+## <a name="faq-about-sql-data-sync"></a>SQL 資料同步常見問題集
+
+### <a name="how-much-does-the-sql-data-sync-preview-service-cost"></a>SQL 資料同步 (預覽) 服務的成本為何？
+
+在預覽期間，SQL 資料同步 (預覽) 服務本身免費。  不過，您仍需對於資料移入和移出您的 SQL Database 執行個體支付資料傳輸費用。 如需詳細資訊，請參閱 [SQL Database 價格](https://azure.microsoft.com/pricing/details/sql-database/)。
+
+### <a name="what-regions-support-data-sync"></a>哪些區域支援資料同步？
+
+SQL 資料同步 (預覽) 適用於所有公用雲端區域。
+
+### <a name="is-a-sql-database-account-required"></a>是否需要 SQL Database 帳戶？ 
+
+是。 您必須具有可裝載中樞資料庫的 SQL Database 帳戶。
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>資料同步能否僅在 SQL Server 內部部署資料庫之間同步？ 
+無法直接進行。 您可以間接在 SQL Server 內部部署資料庫之間同步，不過，必須先在 Azure 建立中樞資料庫，然後將內部部署資料庫新增到同步群組。
+   
+### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>能否使用資料同步將生產環境資料庫的資料植入空白資料庫，然後讓資料保持同步？ 
+是。 請從原始結構描述編寫結構描述，藉此在新的資料庫中手動建立結構描述。 建立結構描述之後，請將資料表新增到同步群組，以複製資料並讓資料保持同步。
+
+### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>應該使用 SQL 資料同步來備份及還原資料庫嗎？
+
+不建議使用 SQL 資料同步 (預覽) 來建立資料的備份。 您無法備份並還原到特定點時間，因為 SQL 資料同步 (預覽) 同步處理並未設定版本。 此外，SQL 資料同步 (預覽) 不會備份其他 SQL 物件 (例如預存程序)，而且不會快速進行同等的還原作業。
+
+如需建議的備份技術，請參閱[複製 Azure SQL Database](sql-database-copy.md)。
+
+### <a name="is-collation-supported-in-sql-data-sync"></a>SQL 資料同步是否支援定序？
+
+是。 在下列案例中 SQL 資料同步可支援定序：
+
+-   如果所選取的同步結構描述資料表尚未存在您的中樞或成員資料庫中，則當您部署同步群組時，此服務會在空的目的地資料庫中，使用所選的定序設定，自動建立對應的資料表和資料行。
+
+-   如果要同步處理的資料表已存在於您的中樞和成員資料庫中，則 SQL 資料同步會要求主索引鍵資料行在中樞與成員資料庫之間有相同的定序，才能成功部署同步群組。 主索引鍵資料行以外的資料行沒有任何定序限制。
+
+### <a name="is-federation-supported-in-sql-data-sync"></a>SQL 資料同步是否支援同盟？
+
+同盟根資料庫可使用於 SQL 資料同步 (預覽) 服務 (無任何限制)。 您無法將同盟資料庫端點新增至目前的 SQL 資料同步 (預覽) 版本。
+
 ## <a name="next-steps"></a>後續步驟
 
 如需 SQL 資料同步的詳細資訊，請參閱：
 
--   [開始使用 Azure SQL 資料同步](sql-database-get-started-sql-data-sync.md)
+-   [設定 Azure SQL 資料同步](sql-database-get-started-sql-data-sync.md)
 -   [Azure SQL 資料同步最佳做法](sql-database-best-practices-data-sync.md)
+-   [透過 OMS Log Analytics 監視 Azure SQL 資料同步](sql-database-sync-monitor-oms.md)
 -   [對 Azure SQL 資料同步的問題進行疑難排解](sql-database-troubleshoot-data-sync.md)
 
 -   示範如何設定 SQL 資料同步的完整 PowerShell 範例：

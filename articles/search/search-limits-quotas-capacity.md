@@ -13,23 +13,23 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/07/2017
+ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 60e63401e3915e62e1ec5ac03cd548c291580b24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3deb0ff81114c840798c5927ad7311d7e603813d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="service-limits-in-azure-search"></a>Azure 搜尋中的服務限制
 儲存體與工作負載的最大限制，以及索引、文件和其他物件的數量上限，皆取決於您是否在**免費**、**基本**，還是**標準**定價層中[佈建 Azure 搜尋服務](search-create-service-portal.md)。
 
-* **免費** 的是 Azure 訂用帳戶隨附的多租用戶共用服務。 此為針對現有訂用帳戶提供的免費選項，無須額外費用，可讓您試驗服務後再註冊專用資源。
+* **免費** 的是 Azure 訂用帳戶隨附的多租用戶共用服務。 
 * **基本**會針對生產環境工作負載提供較小規模的專用計算資源。
-* **標準** 是在專用的機器上執行，在各層級具有更多的儲存和處理容量。 標準共有四個等級︰S1、S2、S3 及 S3 高密度 (S3 HD)。
+* **標準**是在專用的機器上執行，在各層級具有更多的儲存和處理容量。 標準共有四個等級︰S1、S2、S3 及 S3 高密度 (S3 HD)。
 
 > [!NOTE]
-> 服務會佈建在特定層。 如果您需要跨層以取得更多容量，您必須佈建新服務 (未提供就地升級)。 如需詳細資訊，請參閱[選擇 SKU 或階層](search-sku-tier.md)。 若要深入了解如何在已佈建的服務內調整容量，請參閱[調整適用於查詢和編製索引工作負載的資源等級](search-capacity-planning.md)。
+> 服務會佈建在特定層。 跨層以取得容量牽涉到佈建新服務 (未提供就地升級)。 如需詳細資訊，請參閱[選擇 SKU 或階層](search-sku-tier.md)。 若要深入了解如何在已佈建的服務內調整容量，請參閱[調整適用於查詢和編製索引工作負載的資源等級](search-capacity-planning.md)。
 >
 
 ## <a name="per-subscription-limits"></a>每一訂用帳戶限制
@@ -66,16 +66,11 @@ ms.lasthandoff: 10/11/2017
 
 為了降低文件大小，請記得從要求中排除不可查詢的資料。 影像和其他二進位資料無法執行查詢，而且不應該儲存於索引中。 若要將不可搜尋的資料整合到搜尋結果，請定義不可搜尋的欄位，將 URL 參考儲存於資源中。
 
-## <a name="workload-limits-queries-per-second"></a>工作負載限制 (每秒查詢次數)
-| 資源 | 免費 | 基本 | S1 | S2 | S3 | S3 HD |
-| --- | --- | --- | --- | --- | --- | --- |
-| QPS |N/A  |~3/每個複本 |~15/每個複本 |~60/每個複本 |>60/每個複本 |>60/每個複本 |
+## <a name="queries-per-second-qps"></a>每秒查詢數目 (QPS)
 
-每秒查詢次數 (QPS) 是根據啟發學習法所得的近似值，這是使用模擬及實際的客戶工作負載來導出的估計值。 確實的 QPS 輸送量會視您的資料和查詢本質而有所差異。
+每個客戶必須獨立開發 QPS 估計值。 索引大小和複雜性、查詢大小和複雜性、流量，這三者是 QPS 的主要決定因素。 不知道這些因素，便無法提供有意義的估計值。
 
-雖然上面提供粗略的估計值，但是實際的查詢率難以判斷，尤其是在輸送量會依可用頻寬和系統資源競爭而有所不同的「免費」共用服務中。 在「免費層」中，運算資源和儲存體資源是由多個訂用帳戶共用，因此您解決方案的 QPS 將一律依有多少其他工作負載在同時執行而有所不同。
-
-在標準層級中，由於可控制較多的參數，所以能更準確地估計 QPS。 如需有關如何計算您工作負載之 QPS 的指引，請參閱 [管理您的搜尋解決方案](search-manage.md) 。
+計算在專用資源 (基本和標準層) 上執行的服務，更容易預測估計值。 由於可控制較多的參數，所以能更準確地估計 QPS。 如需有關如何進行估計的指引，請參閱 [Azure 搜尋服務的效能與最佳化](search-performance-optimization.md)。
 
 ## <a name="api-request-limits"></a>API 要求限制
 * 每個要求最多 16 MB <sup>1</sup>

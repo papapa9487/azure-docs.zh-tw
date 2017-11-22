@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: f4df68a5cb240e9483cc088c620716bba207439b
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 41842806aecfc0ed6ac663262305785a23c5ba5d
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 SQL Server 及從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -252,7 +252,7 @@ GO
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為：**SqlSink** | 是 |
+| 類型 | 複製活動接收器的 type 屬性必須設定為：**SqlSink** | 是 |
 | writeBatchSize |當緩衝區大小達到 writeBatchSize 時，將資料插入 SQL 資料表中<br/>允許的值為：整數 (資料列數目)。 |否 (預設值：10000) |
 | writeBatchTimeout |在逾時前等待批次插入作業完成的時間。<br/>允許的值為：時間範圍。 範例：“00:30:00” (30 分鐘)。 |否 |
 | sqlWriterStoredProcedureName |將資料更新插入 (更新/插入) 目標資料表中的預存程序名稱。 |否 |

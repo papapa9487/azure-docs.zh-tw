@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: 33a3474ed91194efbaf2ef96957ad268f43a717e
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 84b219d31635af6fbdb6bd618e3a9bb4e4848809
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>將 Service Fabric Linux 叢集部署到 Azure 虛擬網路
 本教學課程是一個系列的第一部分。 您將會了解如何使用 Azure CLI 將 Linux Service Fabric 叢集部署到現有的 Azure 虛擬網路 (VNET) 和子網路。 完成時，您會有在您可以部署應用程式的雲端中執行的叢集。 若要使用 PowerShell 建立 Windows 叢集，請參閱[在 Azure 上建立安全的 Windows 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)。
@@ -35,6 +35,7 @@ ms.lasthandoff: 11/04/2017
 在本教學課程系列中，您將了解如何：
 > [!div class="checklist"]
 > * 在 Azure 上建立安全叢集
+> * [將叢集相應縮小或相應放大](/service-fabric-tutorial-scale-cluster.md)
 > * [使用 Service Fabric 部署 API 管理](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>必要條件
@@ -90,7 +91,7 @@ az group deployment create \
 - [linuxcluster.json][cluster-arm]
 - [linuxcluster.parameters.json][cluster-parameters-arm]
 
-使用此範本建立安全叢集。  叢集憑證是用來保護節點對節點通訊並向管理用戶端驗證叢集管理端點的 X.509 憑證。  該憑證也會為 HTTPS 管理 API 及透過 HTTPS 使用的 Service Fabric Explorer 提供 SSL。 Azure 金鑰保存庫可用來管理 Azure 中 Service Fabric 叢集的憑證。  在 Azure 中部署叢集時，負責建立 Service Fabric 叢集的 Azure 資源提供者會從金鑰保存庫提取憑證，並將它們安裝在叢集 VM 上。 
+使用此範本來建立安全叢集。  叢集憑證是用來保護節點對節點通訊，並向管理用戶端驗證叢集管理端點的 X.509 憑證。  該憑證也會為 HTTPS 管理 API 及透過 HTTPS 使用的 Service Fabric Explorer 提供 SSL。 Azure 金鑰保存庫可用來管理 Azure 中 Service Fabric 叢集的憑證。  在 Azure 中部署叢集時，負責建立 Service Fabric 叢集的 Azure 資源提供者會從金鑰保存庫提取憑證，並將它們安裝在叢集 VM 上。 
 
 您可以使用憑證授權單位 (CA) 的憑證作為叢集憑證，或對於測試目的，建立自我簽署憑證。 叢集憑證必須︰
 

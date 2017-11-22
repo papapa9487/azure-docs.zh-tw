@@ -1,5 +1,5 @@
 ---
-title: "使用 Azure Resource Manager 範本建立 Azure 服務匯流排資源 | Microsoft Docs"
+title: "使用 Resource Manager 範本建立 Azure 服務匯流排資源 | Microsoft Docs"
 description: "使用 Azure Resource Manager 範本自動建立服務匯流排資源"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,22 +12,22 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/10/2017
 ms.author: sethm
-ms.openlocfilehash: c8142d8edfd3a527b13d655bac21acf5332f2d14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ceeb138a7432e51cabe2597c680cb01ea9eac4a
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本建立服務匯流排資源
 
 本文說明如何使用 Azure Resource Manager 範本、PowerShell 和服務匯流排資源提供者來建立和部署服務匯流排資源。
 
-Azure Resource Manager 範本會協助您定義要部署給解決方案的資源，以及指定參數和變數，讓您可以針對不同的環境來輸入值。 範本由 JSON 與運算式所組成，可讓您用來為部署建構值。 如需撰寫 Azure Resource Manager 範本和討論範本格式的詳細資訊，請參閱 [Azure Resource Manager 範本的結構和語法](../azure-resource-manager/resource-group-authoring-templates.md)。
+Azure Resource Manager 範本會協助您定義要部署給解決方案的資源，以及指定參數和變數，讓您可以針對不同的環境來輸入值。 範本以 JSON 編寫，由用於為部署建構值的運算式組成。 如需撰寫 Azure Resource Manager 範本和討論範本格式的詳細資訊，請參閱 [Azure Resource Manager 範本的結構和語法](../azure-resource-manager/resource-group-authoring-templates.md)。
 
 > [!NOTE]
-> 本文中的範例會示範如何使用 Azure Resource Manager 來建立服務匯流排命名空間和訊息實體 (佇列)。 如需其他範本範例，請造訪 [Azure 快速入門範本資源庫][Azure Quickstart Templates gallery]並搜尋「服務匯流排」。
+> 本文中的範例會示範如何使用 Azure Resource Manager 來建立服務匯流排命名空間和訊息實體 (佇列)。 如需其他範本範例，請造訪 [Azure 快速入門範本資源庫][Azure Quickstart Templates gallery]並搜尋**服務匯流排**。
 >
 >
 
@@ -43,7 +43,7 @@ Azure Resource Manager 範本會協助您定義要部署給解決方案的資源
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 部署
 
-下列程序描述如何使用 PowerShell 部署建立了**標準**層服務匯流排命名空間的 Azure Resource Manager 範本，以及如何在該命名空間內部署佇列。 這個範例是以[建立有佇列的服務匯流排命名空間](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue)範本為基礎。 近似的工作流程如下︰
+下列程序描述如何使用 PowerShell 部署建立了標準層服務匯流排命名空間的 Azure Resource Manager 範本，以及如何在該命名空間內部署佇列。 這個範例是以[建立有佇列的服務匯流排命名空間](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue)範本為基礎。 近似的工作流程如下︰
 
 1. 安裝 PowerShell。
 2. 建立範本和 (選擇性) 參數檔案。
@@ -65,67 +65,72 @@ Azure Resource Manager 範本會協助您定義要部署給解決方案的資源
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "serviceBusNamespaceName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the Service Bus namespace"
-            }
-        },
-        "serviceBusQueueName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the Queue"
-            }
-        },
-        "serviceBusApiVersion": {
-            "type": "string",
-            "defaultValue": "2015-08-01",
-            "metadata": {
-                "description": "Service Bus ApiVersion used by the template"
-            }
-        }
+  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "serviceBusNamespaceName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Service Bus namespace"
+      }
     },
-    "variables": {
-        "location": "[resourceGroup().location]",
-        "sbVersion": "[parameters('serviceBusApiVersion')]",
-        "defaultSASKeyName": "RootManageSharedAccessKey",
-        "authRuleResourceId": "[resourceId('Microsoft.ServiceBus/namespaces/authorizationRules', parameters('serviceBusNamespaceName'), variables('defaultSASKeyName'))]"
-    },
-    "resources": [{
-        "apiVersion": "[variables('sbVersion')]",
-        "name": "[parameters('serviceBusNamespaceName')]",
-        "type": "Microsoft.ServiceBus/Namespaces",
-        "location": "[variables('location')]",
-        "kind": "Messaging",
-        "sku": {
-            "name": "StandardSku",
-            "tier": "Standard"
-        },
-        "resources": [{
-            "apiVersion": "[variables('sbVersion')]",
-            "name": "[parameters('serviceBusQueueName')]",
-            "type": "Queues",
-            "dependsOn": [
-                "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
-            ],
-            "properties": {
-                "path": "[parameters('serviceBusQueueName')]"
-            }
-        }]
-    }],
-    "outputs": {
-        "NamespaceConnectionString": {
-            "type": "string",
-            "value": "[listkeys(variables('authRuleResourceId'), variables('sbVersion')).primaryConnectionString]"
-        },
-        "SharedAccessPolicyPrimaryKey": {
-            "type": "string",
-            "value": "[listkeys(variables('authRuleResourceId'), variables('sbVersion')).primaryKey]"
-        }
+    "serviceBusQueueName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Queue"
+      }
     }
+  },
+  "variables": {
+    "defaultSASKeyName": "RootManageSharedAccessKey",
+    "authRuleResourceId": "[resourceId('Microsoft.ServiceBus/namespaces/authorizationRules', parameters('serviceBusNamespaceName'), variables('defaultSASKeyName'))]",
+    "sbVersion": "2017-04-01"
+  },
+  "resources": [
+    {
+      "apiVersion": "2017-04-01",
+      "name": "[parameters('serviceBusNamespaceName')]",
+      "type": "Microsoft.ServiceBus/Namespaces",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard"
+      },
+      "properties": {},
+      "resources": [
+        {
+          "apiVersion": "2017-04-01",
+          "name": "[parameters('serviceBusQueueName')]",
+          "type": "Queues",
+          "dependsOn": [
+            "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
+          ],
+          "properties": {
+            "lockDuration": "PT5M",
+            "maxSizeInMegabytes": "1024",
+            "requiresDuplicateDetection": "false",
+            "requiresSession": "false",
+            "defaultMessageTimeToLive": "P10675199DT2H48M5.4775807S",
+            "deadLetteringOnMessageExpiration": "false",
+            "duplicateDetectionHistoryTimeWindow": "PT10M",
+            "maxDeliveryCount": "10",
+            "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+            "enablePartitioning": "false",
+            "enableExpress": "false"
+          }
+        }
+      ]
+    }
+  ],
+  "outputs": {
+    "NamespaceConnectionString": {
+      "type": "string",
+      "value": "[listkeys(variables('authRuleResourceId'), variables('sbVersion')).primaryConnectionString]"
+    },
+    "SharedAccessPolicyPrimaryKey": {
+      "type": "string",
+      "value": "[listkeys(variables('authRuleResourceId'), variables('sbVersion')).primaryKey]"
+    }
+  }
 }
 ```
 
@@ -145,13 +150,13 @@ Azure Resource Manager 範本會協助您定義要部署給解決方案的資源
             "value": "<myQueueName>"
         },
         "serviceBusApiVersion": {
-            "value": "2015-08-01"
+            "value": "2017-04-01"
         }
     }
 }
 ```
 
-如需詳細資訊，請參閱[參數](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)主題。
+如需詳細資訊，請參閱[參數](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)一文。
 
 ### <a name="log-in-to-azure-and-set-the-azure-subscription"></a>登入 Azure 並設定 Azure 訂用帳戶
 
@@ -161,13 +166,13 @@ Azure Resource Manager 範本會協助您定義要部署給解決方案的資源
 Login-AzureRmAccount
 ```
 
-系統會提示您登入您的 Azure 帳戶。 登入之後，執行下列命令以檢視可用的訂用帳戶。
+系統會提示您登入您的 Azure 帳戶。 登入之後，執行下列命令以檢視可用的訂用帳戶：
 
 ```powershell
 Get-AzureRMSubscription
 ```
 
-這個命令會傳回可用的 Azure 訂用帳戶清單。 執行下列命令為目前的工作階段選擇訂用帳戶。 以您要使用的 Azure 訂用帳戶 GUID取代 `<YourSubscriptionId>`。
+這個命令會傳回可用的 Azure 訂用帳戶清單。 執行下列命令為目前的工作階段選擇訂用帳戶。 以您要使用的 Azure 訂用帳戶 GUID 取代 `<YourSubscriptionId>`：
 
 ```powershell
 Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
@@ -209,7 +214,7 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <p
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
-若要改為指定參數檔案，請使用下列命令。
+若要改為指定參數檔案，使用下列命令：
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
@@ -234,7 +239,7 @@ New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -Resour
 DeploymentName    : MyDemoDeployment
 ResourceGroupName : MyDemoRG
 ProvisioningState : Succeeded
-Timestamp         : 4/19/2016 10:38:30 PM
+Timestamp         : 4/19/2017 10:38:30 PM
 Mode              : Incremental
 TemplateLink      :
 Parameters        :
@@ -242,7 +247,7 @@ Parameters        :
                     ===============  =========================  ==========
                     serviceBusNamespaceName  String             <namespaceName>
                     serviceBusQueueName  String                 <queueName>
-                    serviceBusApiVersion  String                2015-08-01
+                    serviceBusApiVersion  String                2017-04-01
 
 ```
 

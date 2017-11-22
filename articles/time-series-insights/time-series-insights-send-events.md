@@ -12,14 +12,14 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 543fafac63423ab874c6c8e40d91a1ce0f161987
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 2c1b91fb87857eee8ca938be193b61e01bbdb886
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>使用事件中樞將事件傳送至 Time Series Insights 環境
-本文說明如何建立和設定事件中樞，並執行應用程式範例以推送事件。 如果您現有的事件中樞內含 JSON 格式的事件，請跳過本教學課程，並在 [Time Series Insights](https://insights.timeseries.azure.com) 檢視您的環境。
+本文說明如何建立和設定事件中樞，並執行應用程式範例以推送事件。 如果您現有的事件中樞內含 JSON 格式的事件，請跳過本教學課程，並在[時間序列深入解析](https://insights.timeseries.azure.com)檢視您的環境。
 
 ## <a name="configure-an-event-hub"></a>設定事件中樞
 1. 若要建立事件中樞，請遵循事件中樞[文件](../event-hubs/event-hubs-create.md)的指示。
@@ -244,4 +244,5 @@ namespace Microsoft.Rdx.DataGenerator
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## <a name="next-steps"></a>後續步驟
-在[時間序列深入解析總管](https://insights.timeseries.azure.com)中檢視您的環境。
+> [!div class="nextstepaction"]
+> 在[時間序列深入解析總管](https://insights.timeseries.azure.com)中檢視您的環境。

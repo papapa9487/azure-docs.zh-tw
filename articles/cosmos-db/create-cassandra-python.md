@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 0048dde11b2ddb4f09e94e20b5b252998205cf18
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 95d58c600bc43059025e739a8cdb062287f4ffb5
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>快速入門：使用 Python 和 Azure Cosmos DB 建置 Cassandra 應用程式
 
@@ -188,6 +188,8 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 3. 從命令列確認結果符合預期。
 
     按 CTRL + C 來停止執行程式，並關閉主控台視窗。 
+
+    ![檢視並確認輸出](./media/create-cassandra-python/output.png)
     
     您現在可在 Azure 入口網站中開啟 [資料總管]，以查看、查詢、修改及使用這項新資料。 
 

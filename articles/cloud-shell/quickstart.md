@@ -1,5 +1,5 @@
 ---
-title: "Azure Cloud Shell (預覽) 中的 Bash 快速入門 | Microsoft Docs"
+title: "Azure Cloud Shell 中的 Bash 快速入門 | Microsoft Docs"
 description: "Cloud Shell 中 Bash 的快速入門"
 services: 
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: bbad2735acf06ebefda020410731fb307c4ec614
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ed83b28fe5f0f1e9626115390f8697dfb2c8ead
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Azure Cloud Shell 中 Bash 的快速入門
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="start-cloud-shell"></a>啟動 Cloud Shell
 1. 從 Azure 入口網站的頂端導覽啟動 **Cloud Shell** <br>
 ![](media/quickstart/shell-icon.png)
-2. 選取用來建立儲存體帳戶和 Azure 檔案共用的訂用帳戶
+2. 選取用來建立儲存體帳戶和 Microsoft Azure 檔案共用的訂用帳戶
 3. 選取 [建立儲存體]
 
 > [!TIP]
@@ -59,7 +59,7 @@ ms.lasthandoff: 10/11/2017
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
-> Azure CLI 2.0 預設會將用來驗證 VM 的公開金鑰和私密金鑰置於 `/User/.ssh/id_rsa` 和 `/User/.ssh/id_rsa.pub`。 您的 .ssh 資料夾會保存在所連接 Azure 檔案共用的 5-GB 映像中。
+> Azure CLI 2.0 預設會將用來驗證 VM 的公開金鑰和私密金鑰置於 `/User/.ssh/id_rsa` 和 `/User/.ssh/id_rsa.pub`。 您的 .ssh 資料夾會保存在所附加之 Azure 檔案共用的 5-GB 映像中。
 
 您在此 VM 上的使用者名稱，將會是用於 Cloud Shell 中的使用者名稱 ($User@Azure:)。
 

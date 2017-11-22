@@ -12,26 +12,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: 7a94fd5065de93384460e851627a9813d439956b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 27213482c3ef6b35e1e3f887c9a336b946850802
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="manage-azure-resources-through-portal"></a>透過入口網站管理 Azure 資源
-> [!div class="op_single_selector"]
-> * [Azure PowerShell](powershell-azure-resource-manager.md)
-> * [Azure CLI](xplat-cli-azure-resource-manager.md)
-> * [入口網站](resource-group-portal.md) 
-> * [REST API](resource-manager-rest-api.md)
-> 
-> 
 
-本主題示範如何使用 [Azure 入口網站](https://portal.azure.com)搭配 [Azure Resource Manager](resource-group-overview.md) 來管理您的 Azure 資源。 若要了解如何透過入口網站部署資源，請參閱 [使用 Resource Manager 範本與 Azure 入口網站來部署資源](resource-group-template-deploy-portal.md)。
-
-目前並非所有服務都支援入口網站或資源管理員。 針對這些服務，您必須使用 [傳統入口網站](https://manage.windowsazure.com)。 如需每個服務的狀態，請參閱 [Azure 入口網站可用性圖表](https://azure.microsoft.com/features/azure-portal/availability/)。
+本文示範如何使用 [Azure 入口網站](https://portal.azure.com)搭配 [Azure Resource Manager](resource-group-overview.md) 來管理您的 Azure 資源。 若要了解如何透過入口網站部署資源，請參閱 [使用 Resource Manager 範本與 Azure 入口網站來部署資源](resource-group-template-deploy-portal.md)。
 
 ## <a name="manage-resource-groups"></a>管理資源群組
 
@@ -58,7 +49,7 @@ ms.lasthandoff: 10/11/2017
    
     ![新增資料行](./media/resource-group-portal/add-columns.png)
 7. 若要了解如何將資源部署至新的資源群組，請參閱 [使用 Resource Manager 範本與 Azure 入口網站來部署資源](resource-group-template-deploy-portal.md)。
-8. 若要快速存取資源群組，您可以將此刀鋒視窗釘選到您的儀表板。
+8. 若要快速存取資源群組，您可以將資源群組釘選到您的儀表板。
    
     ![釘選資源群組](./media/resource-group-portal/pin-group.png)
 9. 儀表板會顯示資源群組及其資源。 您可以選取資源群組或其任意資源，以瀏覽至這些項目。
@@ -71,12 +62,12 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 
 ## <a name="monitor-resources"></a>監視資源
-當您選取資源時，資源刀鋒視窗會顯示預設圖形和資料表，以便監視該資源類型。
+當您選取資源時，入口網站會顯示預設圖形和資料表，以便監視該資源類型。
 
 1. 選取資源並注意 [監視]  區段。 它包含與該資源類型相關的圖形。 下圖顯示儲存體帳戶的預設監視資料。
    
     ![顯示監視](./media/resource-group-portal/show-monitoring.png)
-2. 您可以選取區段上方的省略符號 (...)，將此刀鋒視窗的區段釘選到您的儀表板。 您也可以自訂刀鋒視窗中的區段大小或完全予以移除。 下圖顯示如何釘選、自訂或移除 [CPU 和記憶體] 區段。
+2. 您可以選取區段上方的省略符號 (...)，將區段釘選到您的儀表板。 您也可以自訂區段大小或完全予以移除。 下圖顯示如何釘選、自訂或移除 [CPU 和記憶體] 區段。
    
     ![釘選區段](./media/resource-group-portal/pin-cpu-section.png)
 3. 將此區段釘選到儀表板之後，您會在儀表板上看見摘要。 而且，立即加以選取，您即可看到更多有關資料的詳細資訊。
@@ -92,7 +83,7 @@ ms.lasthandoff: 10/11/2017
      若要了解如何使用儀表板，請參閱 [Creating and sharing dashboards in the Azure portal (在 Azure 入口網站建立和共用儀表板)](../azure-portal/azure-portal-dashboards.md)。
 
 ## <a name="manage-resources"></a>管理資源
-在資源的刀鋒視窗中，您會看到管理資源的選項。 入口網站會顯示該特定資源類型的管理選項。 您可以在資源刀鋒視窗的上方和左邊看到管理命令。
+在入口網站中檢視資源時，您會看到用於管理特定資源的選項。
 
 ![管理資源](./media/resource-group-portal/manage-resources.png)
 
@@ -111,7 +102,7 @@ ms.lasthandoff: 10/11/2017
 
 ![訂用帳戶](./media/resource-group-portal/select-subscription.png)
 
-在訂用帳戶刀鋒視窗內，您會看到完工速率。
+您會看到完工速率。
 
 ![完工速率](./media/resource-group-portal/burn-rate.png)
 
@@ -128,7 +119,7 @@ ms.lasthandoff: 10/11/2017
 如需逐步指引，請參閱 [從現有資源匯出 Azure Resource Manager 範本](resource-manager-export-template.md)。
 
 ## <a name="delete-resource-group-or-resources"></a>刪除資源群組或資源
-刪除資源群組會刪除其內含的所有資源。 您也可以刪除資源群組內的個別資源。 在刪除資源群組時應多加留意，因為可能會有其他資源群組中的資源連結至該群組。 Resource Manager 不會刪除連結的資源，但是若沒有預期的資源則可能無法正常運作。
+刪除資源群組會刪除其內含的所有資源。 您也可以刪除資源群組內的個別資源。 刪除資源群組時請務必小心。 資源群組中包含的資源，可能是其他資源群組中資源的依存項目。
 
 ![刪除群組](./media/resource-group-portal/delete-group.png)
 

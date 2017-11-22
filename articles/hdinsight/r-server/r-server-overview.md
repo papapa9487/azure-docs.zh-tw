@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 47896493fdaf651b8cf74a1ddf4fcffdd51d2972
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 57e28215124bc0330517c541e4cb74a66d939ff5
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>HDInsight 上的 R 伺服器與開放原始碼 R 功能簡介
 
@@ -44,7 +44,9 @@ HDInsight 叢集 HDFS 檔案系統的預設儲存體可以與 Azure 儲存體帳
 您也可以將 [Azure 檔案](../../storage/files/storage-how-to-use-files-linux.md)作為在邊緣節點上使用的儲存體選項。 Azure 檔案可讓您將建立於 Azure 儲存體的檔案共用掛接至 Linux 檔案系統。 如需適用於 HDInsight 叢集上 R 伺服器的這些資料儲存體選項詳細資訊，請參閱[適用於 HDInsight 叢集上的 R 伺服器的 Azure 儲存體選項](r-server-storage.md)。
 
 ## <a name="access-r-server-on-the-cluster"></a>存取叢集上的 R 伺服器
-您可以使用瀏覽器連線到邊緣節點上的 R 伺服器，但前提是您必須已經在佈建程序期間選擇包括 RStudio Server。 若未在叢集佈建期間安裝它，您可以稍後新增它。 如需在建立叢集之後安裝 RStudio Server 的相關資訊，請參閱[在 HDInsight 叢集上安裝 RStudio Server](r-server-install-r-studio.md)。 您也可以使用 SSH/PuTTY 來存取 R 主控台，以連線到 R 伺服器。 
+您可以使用瀏覽器連線到邊緣節點上的 R 伺服器。 它預設會在叢集建立期間安裝。 如需詳細資訊，請參閱[開始使用 HDInsight 上的 R 伺服器](r-server-get-started.md)。
+
+您也可以使用 SSH/PuTTY 來存取 R 主控台，從命令列連線到 R 伺服器。 
 
 ## <a name="develop-and-run-r-scripts"></a>開發和執行 R 指令碼
 您所建立與執行的 R 指令碼，可以任意運用 8000 多種開放原始碼 R 套件，以及 ScaleR 程式庫中的平行與分散式常式。 一般而言，以 R 伺服器在邊緣節點上執行的指令碼會在該節點上的 R 解譯器內執行。 但是必須以設定為 Hadoop Map Reduce (RxHadoopMR) 或 Spark (RxSpark) 之計算內容呼叫 ScaleR 函數的那些步驟除外。 在此情況中，函數會以分散方式，跨越與參考資料相關聯之叢集的那些資料 (工作) 節點執行。 如需不同計算內容選項的詳細資訊，請參閱[適用於 HDInsight 上 R 伺服器的計算內容選項](r-server-compute-contexts.md)。
@@ -87,7 +89,7 @@ HDInsight 叢集 HDFS 檔案系統的預設儲存體可以與 Azure 儲存體帳
 由於前端節點是備援節點，且並非所有資料節點都會受到影響，因此在這段期間執行的任何工作可能會變慢。 不過，應該都可執行完成。 除非發生需要重建叢集的嚴重失敗，否則您擁有的任何自訂軟體或本機資料，在這些維護事件中皆會保留。
 
 ## <a name="learn-about-ide-options-for-r-server-on-an-hdinsight-cluster"></a>了解適用於 HDInsight 叢集上 R 伺服器的 IDE 選項
-HDInsight 叢集的 Linux 邊緣節點，是 R 型分析的登陸區域。 HDInsight 的最近幾個版本，提供在邊緣節點上將社群版 [RStudio Server ](https://www.rstudio.com/products/rstudio-server/) \(英文\) 安裝為瀏覽器型 IDE 的預設選項。 比起僅使用 R 主控台，使用 RStudio Server 當作開發及執行 R 指令碼的 IDE 可大幅提升生產力。 如果您選擇不要在建立叢集的時候新增 RStudio Server，而想要稍後再新增，請參閱[在 HDInsight 叢集上安裝 R Studio Server](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-install-r-studio)。+
+HDInsight 叢集的 Linux 邊緣節點，是 R 型分析的登陸區域。 HDInsight 最近的幾個版本，提供在邊緣節點上將 RStudio Server 安裝為瀏覽器型 IDE 的預設選項。 比起僅使用 R 主控台，使用 RStudio Server 當作開發及執行 R 指令碼的 IDE 可大幅提升生產力。
 
 另一個完整 IDE 選項是安裝電腦 IDE 並透過使用遠端 Map Reduce 或 Spark 計算內容，使用它來存取叢集。 選項包括 Microsoft 的 [Visual Studio R 工具](https://www.visualstudio.com/features/rtvs-vs.aspx) (RTVS)、RStudio 與 Walware 的 Eclipse 型 [StatET](http://www.walware.de/goto/statet)。
 
@@ -100,6 +102,5 @@ HDInsight 叢集的 Linux 邊緣節點，是 R 型分析的登陸區域。 HDIns
 若要深入了解如何搭配 HDInsight 叢集使用 R 伺服器，請參閱下列主題：
 
 * [開始使用 HDInsight 上的 R 伺服器](r-server-get-started.md)
-* [將 RStudio Server 新增至 HDInsight (若未在建立叢集期間安裝)](r-server-install-r-studio.md)
 * [適用於 HDInsight 中 R 伺服器的計算內容選項](r-server-compute-contexts.md)
 * [適用於 HDInsight R 伺服器的 Azure 儲存體選項](r-server-storage.md)

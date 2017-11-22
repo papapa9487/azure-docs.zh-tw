@@ -17,13 +17,13 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: f0729286afdf01ea0ce0e0060f4d7415fa122014
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8d021538b34c96c1d486c9508df9d4ee91404337
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="use-powershell-to-sync-between-an-azure-sql-database-and-a-sql-server-on-premises-database"></a>使用 PowerShell 設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理
+# <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>使用 PowerShell 設定「資料同步」在內部部署的 SQL Database 和 SQL Server 之間進行同步處理
 
 此 PowerShell 範例會設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理。 
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/08/2017
  
 執行 `Login-AzureRmAccount` 來建立與 Azure 的連線。
 
-如需 SQL 資料同步處理的概觀，請參閱[跨多個雲端和內部部署資料庫使用 Azure SQL 資料同步 (預覽) 同步處理資料](../sql-database-sync-data.md)。
+如需 SQL 資料同步的概觀，請參閱[使用 Azure SQL 資料同步 (預覽)，跨多個雲端和內部部署資料庫同步處理資料](../sql-database-sync-data.md)。
 
 ## <a name="sample-script"></a>範例指令碼
 
@@ -392,9 +392,10 @@ Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 
 如需 SQL 資料同步的詳細資訊，請參閱：
 
--   [使用 Azure SQL 資料同步，跨多個雲端和內部部署資料庫同步資料](../sql-database-sync-data.md)
--   [開始使用 Azure SQL 資料同步](../sql-database-get-started-sql-data-sync.md)
+-   [使用 Azure SQL 資料同步，跨多個雲端和內部部署資料庫同步處理資料](../sql-database-sync-data.md)
+-   [設定 Azure SQL 資料同步](../sql-database-get-started-sql-data-sync.md)
 -   [Azure SQL 資料同步最佳做法](../sql-database-best-practices-data-sync.md)
+-   [透過 OMS Log Analytics 監視 Azure SQL 資料同步](../sql-database-sync-monitor-oms.md)
 -   [對 Azure SQL 資料同步的問題進行疑難排解](../sql-database-troubleshoot-data-sync.md)
 
 -   示範如何設定 SQL 資料同步的完整 PowerShell 範例：

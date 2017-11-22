@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/09/2017
 ms.author: twooley
-ms.openlocfilehash: a66c7dddab1a2246dd0a9fa3c7533063140d2f01
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 32ca25998046caa6cf29410644f3cd86868b679d
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-stack-1710-update-build-201710201"></a>Azure Stack 1710 更新 (組建 20171020.1)
 
@@ -60,12 +60,12 @@ ms.lasthandoff: 11/03/2017
 
 | 徵狀  | 原因  | 解決方案 |
 |---------|---------|---------|
-|當您執行更新時，可能會在更新動作方案的「儲存體主機重新啟動儲存體節點」步驟期間發生類似下列錯誤的錯誤。<br><br>**{"name":"重新啟動儲存體主機","description":"重新啟動儲存體主機。","errorMessage":"類型 'Restart' 的角色 'BareMetal' 引發了例外狀況:\n\n已略過電腦 HostName-05。無法透過 WMI 服務擷取其 LastBootUpTime，錯誤訊息如下: RPC 伺服器無法使用。(發生例外狀況於: 0x800706BA)。\nat Restart-Host** | 這個問題是由可能會在某些設定中出現的錯誤驅動程式所導致的。 | 1.登入基礎板管理控制器 (BMC) Web 介面，然後重新啟動錯誤訊息中識別出的主機。<br><br>2.使用具有特殊權限的端點來繼續更新。 |
-| 當您執行更新時，更新程序在更新動作方案的「步驟：正在執行步驟 2.4 - 安裝更新」步驟之後似乎停止且無任何進度。<br><br>接著，此步驟後面會跟著一連串將 .nupkg 檔案複製到內部基礎結構檔案共用的程序。 例如：<br><br>**正在將 1 個檔案從 content\PerfCollector\VirtualMachines 複製到 \VirtualMachineName-ERCS03\C$\TraceCollectorUpdate\PerfCounterConfiguration**  | 這個問題是由在基礎結構虛擬機器上填滿磁碟的記錄檔，以及將在後續更新中傳遞之 Windows Server 向外延展檔案伺服器 (SOFS) 中的問題所導致的。 | 請連絡 Microsoft 客戶服務與支援中心 (CSS) 以尋求協助。 | 
-| 當您執行更新時，可能會在更新動作方案的「步驟：正在執行步驟 2.13.2 - 更新 *VM_Name*」步驟期間發生類似下列錯誤的錯誤 (虛擬機器的名稱可能不同)。<br><br>**ActionPlanInstanceWarning ece/MachineName: WarningMessage:Task: 角色 'Cloud\Fabric\WAS' 的介面 'LiveUpdate' 引動過程失敗:<br>類型 'LiveUpdate' 的角色 'WAS' 引發了例外狀況:<br>儲存體初始化期間發生錯誤: 嘗試對 Microsoft 存放裝置服務進行 API 呼叫時發生錯誤: {"Message":"與 Service Fabric 通訊時發生逾時。例外狀況類型: TimeoutException。例外狀況訊息: 作業已逾時。"}**  | 這個問題是由 Windows Server 中的 I/O 逾時所導致，將在後續更新中加以修正。 | 請連絡 Microsoft CSS 以尋求協助。
-| 當您執行更新時，可能會在「步驟 21 重新啟動 SQL Server VM」步驟期間發生類似下列的錯誤。<br><br>**類型 'LiveUpdateRestart' 的角色 'VirtualMachines' 引發了例外狀況:<br>VerboseMessage:[VirtualMachines:LiveUpdateRestart] 正在查詢 VM MachineName-Sql01。 - 10/13/2017 5:11:50 PM VerboseMessage:[VirtualMachines:LiveUpdateRestart] 已將 VM 標記為 HighlyAvailable。 - 10/13/2017 5:11:50 PM VerboseMessage:[VirtualMachines:LiveUpdateRestart] at MS.Internal.ServerClusters.ExceptionHelp.Build at MS.Internal.ServerClusters.ClusterResource.BeginTakeOffline(Boolean force) at Microsoft.FailoverClusters.PowerShell.StopClusterResourceCommand.BeginTimedOperation() at Microsoft.FailoverClusters.PowerShell.TimedCmdlet.WrappedProcessRecord() at Microsoft.FailoverClusters.PowerShell.FCCmdlet.ProcessRecord() - 10/13/2017 5:11:50 PM WarningMessage:Task: 角色 'Cloud\Fabric\VirtualMachines' 的介面 'LiveUpdateRestart' 引動過程失敗:** | 如果虛擬機器無法重新啟動，可能會發生這個問題。 | 請連絡 Microsoft CSS 以尋求協助。
-| 當您執行更新時，可能會發生類似下列的錯誤：<br><br>**2017-10-22T01:37:37.5369944Z 類型 'Shutdown' 的角色 'SQL' 引發了例外狀況:暫停節點 's45r1004-Sql01' 時發生錯誤。at Stop-SQL, C:\ProgramData\SF\ErcsClusterNode2\Fabric\work\Applications\EnterpriseCloudEngineApplicationType_App1\EnterpriseCloudEngineServicePkg.Code.1.0.597.18\CloudDeployment\Roles\SQL\SQL.psm1: line 542at Shutdown, C:\ProgramData\SF\ErcsClusterNode2\Fabric\work\Applications\EnterpriseCloudEngineApplicationType_App1\EnterpriseCloudEngineServicePkg.Code.1.0.597.18\CloudDeployment\Classes\SQL\SQL.psm1: line 50at <ScriptBlock>, <No file>: line 18at <ScriptBlock>, <No file>: line 16** | 如果無法使虛擬機器成為暫停狀態以清空角色，即會發生這個問題。 | 請連絡 Microsoft CSS 以尋求協助。
-| 當您執行更新時，可能會發生下列其中一個錯誤：<br><br>**類型 'Validate' 的角色 'ADFS' 引發了例外狀況: 驗證 ADFS/Graph 角色失敗，錯誤為: 檢查 ADFS 探查端點 endpoint_URI 時發生錯誤: 以 "0" 引數呼叫 "GetResponse" 時發生例外狀況: "遠端伺服器傳回一個錯誤: (503) 伺服器無法使用。" at Invoke-ADFSGraphValidation**<br><br>**類型 'Validate' 的角色 'ADFS' 引發了例外狀況: 驗證 ADFS/Graph 角色失敗，錯誤為: 擷取 ADFS 屬性時發生錯誤: 無法連接到 net.tcp://localhost:1500/policy。連線嘗試持續了 00:00:02.0498923 時間範圍。TCP 錯誤碼 10061: 無法連線，因為目標電腦主動拒絕連線 127.0.0.1:1500。at Invoke-ADFSGraphValidation** | 更新動作方案無法驗證 Active Directory 同盟服務 (AD FS) 的健康情況。 | 請連絡 Microsoft CSS 以尋求協助。
+|當您執行更新時，在更新動作計劃的「儲存體<br>主機重新啟動儲存體節點」步驟的期間<br> 可能發生類似下列的錯誤。<br><br>**{"name":"Restart Storage Hosts","description":"Restart<br> Storage Hosts.","errorMessage":"Type 'Restart' of Role<br> 'BareMetal' raised an exception:\n\n The computer<br> HostName-05 is skipped.Fail to retrieve its LastBootUpTime<br> via the WMI service with the following error message:<br> The RPC server is unavailable.<br>(發生例外狀況於: 0x800706BA)。\nat Restart-Host** | 這個問題是由可能會在某些設定中出現的錯誤驅動程式所導致的。 | 1.登入基礎板管理控制器 (BMC) Web 介面，然後重新啟動錯誤訊息中識別出的主機。<br><br>2.使用具有特殊權限的端點來繼續更新。 |
+| 當您執行更新時，更新程序似乎停止，且在更新動作<br> 計劃的「步驟：執行步驟 2.4 - 安裝更新」<br> 步驟之後不再有進度。<br><br>接著，此步驟後面會跟著一連串將 .nupkg 檔案<br> 複製到內部基礎結構檔案共用的程序。 例如：<br><br>**Copying 1 files from content\PerfCollector\VirtualMachines to <br> \VirtualMachineName-ERCS03\C$\TraceCollectorUpdate\ <br>PerfCounterConfiguration**  | 這個問題是由在基礎結構虛擬機器上填滿磁碟的記錄檔，以及將在後續更新中傳遞之 Windows Server 向外延展檔案伺服器 (SOFS) 中的問題所導致的。 | 請連絡 Microsoft 客戶服務與支援中心 (CSS) 以尋求協助。 | 
+| 當您執行更新時，<br> 在更新動作計劃的<br> 「步驟：執行步驟 2.13.2 - 更新 *VM_Name*」步驟的期間可能發生類似下列的錯誤。 (虛擬機器<br> 名稱可能不同。)<br><br>**ActionPlanInstanceWarning ece/MachineName:<br> WarningMessage:Task: Invocation of interface 'LiveUpdate' of<br> role 'Cloud\Fabric\WAS'failed: Type 'LiveUpdate' of Role<br> 'WAS' raised an exception: ERROR during storage<br> initialization: An error occurred while trying to make an API<br> call to Microsoft Storage service: {"Message": "A timeout<br> occurred while communicating with Service Fabric.<br>Exception Type: TimeoutException.<br>例外狀況訊息: 作業已逾時。"}**  | 這個問題是由 Windows Server 中的 I/O 逾時所導致，將在後續更新中加以修正。 | 請連絡 Microsoft CSS 以尋求協助。
+| 當您執行更新時，<br> 的期間可能發生類似下列的錯誤。<br><br>**Type 'LiveUpdateRestart' of Role 'VirtualMachines' raised an<br> exception: VerboseMessage:[VirtualMachines:LiveUpdateRestart]<br> Querying for VM MachineName-Sql01. - 10/13/2017 5:11:50 PM VerboseMessage:[VirtualMachines:LiveUpdateRestart]<br> VM is marked as HighlyAvailable. - 10/13/2017 5:11:50 PM<br> VerboseMessage:[VirtualMachines:LiveUpdateRestart] at<br>MS.Internal.ServerClusters.ExceptionHelp.Build at<br>MS.Internal.ServerClusters.ClusterResource.BeginTakeOffline<br>(Boolean force) at Microsoft.FailoverClusters.PowerShell.<br>StopClusterResourceCommand.BeginTimedOperation() at <br>Microsoft.FailoverClusters.PowerShell.TimedCmdlet.Wrapped<br>ProcessRecord() at  Microsoft.FailoverClusters.PowerShell.<br>FCCmdlet.ProcessRecord() - 10/13/2017 5:11:50 PM Warning<br>Message: Task: Invocation of interface 'LiveUpdateRestart' of<br> role 'Cloud\Fabric\VirtualMachines' failed:** | 如果虛擬機器無法重新啟動，可能會發生這個問題。 | 請連絡 Microsoft CSS 以尋求協助。
+| 當您執行更新時，可能會發生類似下列的錯誤：<br><br>**2017-10-22T01:37:37.5369944Z Type 'Shutdown' of Role 'SQL'<br> raised an exception: An error occurred pausing node<br> 's45r1004-Sql01'.at Stop-SQL, C:\ProgramData\SF\ErcsClusterNode2 <br>\Fabric\work\Applications\ EnterpriseCloud <br>EngineApplicationType&#95;App1\ <br>EnterpriseCloudEngineServicePkg.Code.1.0.597.18\ <br> CloudDeployment\Roles\SQL\SQL.psm1:line 542 at<br> Shutdown,C:\ProgramData\SF\ErcsClusterNode2\Fabric\work\ <br>Applications \EnterpriseCloudEngineApplicationType&#95;App1\ <br>EnterpriseCloudEngineServicePkg.Code.1.0.597.18\Cloud<br>Deployment\Classes\SQL\SQL.psm1: line 50 at &#60;ScriptBlock&#62;,<br> &#60;No file>: line 18 at &#60;ScriptBlock&#62;, &#60;No file&#62;: line 16** | 如果無法使虛擬機器成為暫停狀態以清空角色，即會發生這個問題。 | 請連絡 Microsoft CSS 以尋求協助。
+| 當您執行更新時，可能會發生下列其中一個錯誤：<br><br>**Type 'Validate' of Role 'ADFS' raised an exception: Validation<br> for ADFS/Graph role failed with error: Error checking ADFS<br> probe endpoint *endpoint_URI*: Exception calling<br> "GetResponse" with "0" argument(s): "The remote server<br> returned an error: (503) Server Unavailable." at Invoke-<br>ADFSGraphValidation**<br><br>**Type 'Validate' of Role 'ADFS' raised an exception: Validation<br> for ADFS/Graph role failed with error: Error fetching<br> ADFS properties: Could not connect to <br>net.tcp://localhost:1500/policy.The connection attempt lasted<br> for a time span of 00:00:02.0498923.TCP error code<br> 10061: No connection could be made because the target<br> machine actively refused it 127.0.0.1:1500.<br> at Invoke-ADFSGraphValidation** | 更新動作方案無法驗證 Active Directory 同盟服務 (AD FS) 的健康情況。 | 請連絡 Microsoft CSS 以尋求協助。
 
 ## <a name="known-issues-post-installation"></a>已知問題 (安裝後)
 
@@ -75,16 +75,16 @@ ms.lasthandoff: 11/03/2017
 
 - 它無法在管理員入口網站中檢視計算或儲存體資源。 這表示在更新安裝期間發生錯誤，且誤將更新報告為成功。 如果發生此問題，請連絡 Microsoft CSS 以尋求協助。
 - 您可能會在入口網站中看到空白的儀表板。 若要復原儀表板，請選取位於入口網站右上角的齒輪圖示，然後選取 [還原預設設定]。
-- 使用者不需訂用帳戶就能瀏覽完整的市集，而且將會看到如方案和供應項目的管理項目。 對使用者而言，這些都是非功能性項目。
-- [移動] 按鈕會在您檢視資源群組的內容時停用。 這是預期的行為。 目前不支援在訂用帳戶之間移動資源群組。
-- 您無法使用 Azure Stack 入口網站檢視訂用帳戶的權限。 因應措施是，可以使用 PowerShell 確認權限。
--  針對任何您可在下拉式清單中選取訂用帳戶、資源群組或位置的工作流程，您可能會遇到一或多個下列問題：
+- 當您檢視資源群組的內容時，會停用 [移動] 按鈕。 這是預期的行為。 目前不支援在訂用帳戶之間移動資源群組。
+- 針對任何您可在下拉式清單中選取訂用帳戶、資源群組或位置的工作流程，您可能會遇到一或多個下列問題：
 
    - 您可能會在清單頂端看到一個空白資料列。 您應該仍能如預期般選取項目。
    - 如果下拉式清單中的項目清單很短，您可能無法檢視任何項目名稱。
    - 如果您有多個使用者訂用帳戶，資源群組的下拉式清單可能是空的。 
 
    若要解決後兩個問題，您可以輸入訂用帳戶或資源群組的名稱 (如果您知道)，或者可以改用 PowerShell。
+- 刪除使用者訂用帳戶會產生孤立的資源。 因應措施是，先刪除使用者資源或整個資源群組，然後再刪除使用者訂用帳戶。
+- 您無法使用 Azure Stack 入口網站檢視訂用帳戶的權限。 因應措施是，可以使用 PowerShell 確認權限。
   
 ### <a name="backup"></a>備份
 
@@ -94,26 +94,27 @@ ms.lasthandoff: 11/03/2017
 
 - 如果您重新啟動基礎結構角色執行個體，則可能會收到訊息，指出重新開機失敗。 不過，重新開機實際上是成功的。
 
-### <a name="services"></a>服務
-
-**Marketplace**
+### <a name="marketplace"></a>Marketplace
 - 當您嘗試使用 [從 Azure 新增] 選項來將項目新增至 Azure Stack 市集時，可能不會看見所有可供下載的項目。
-- 沒有任何可用以建立虛擬機器擴展集的市集體驗。 您可以使用範本來建立擴展集。
-- 在訂用帳戶中建立第一個 Azure 函式之前，租用戶必須先註冊儲存體資源提供者。
-- 刪除使用者訂用帳戶會產生孤立的資源。 因應措施是，先刪除使用者資源或整個資源群組，然後再刪除使用者訂用帳戶。 
+- 使用者不需訂用帳戶就能瀏覽完整的市集，而且將會看到如方案和供應項目的管理項目。 對使用者而言，這些都是非功能性項目。
 
-**SQL/MySQL**
-- 這最多可能需要一個小時，然後租用戶才能在新的 SQL 或 MySQL SKU 中建立資料庫。 
-- 不支援在不是由資源提供者執行的 SQL 和 MySQL 主控伺服器中直接建立項目，且可能導致不相符的狀態。
-
-**計算**
+### <a name="compute"></a>計算
 - 系統會提供選項，供使用者建立具備異地備援儲存體的虛擬機器。 此設定會導致虛擬機器建立失敗。
 - 您可以設定只含一個容錯網域和一個更新網域的虛擬機器可用性設定組。
+- 沒有任何可用以建立虛擬機器擴展集的市集體驗。 您可以使用範本來建立擴展集。
+- 無法在入口網站中使用虛擬機器擴展集的調整設定。 您可以使用 [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set) 作為因應措施。 由於 PowerShell 版本差異，您必須使用 `-Name` 參數，而不是 `-VMScaleSetName`。
  
-**網路**
+### <a name="networking"></a>網路
 - 您無法使用入口網站，利用公用 IP 位址來建立負載平衡器。 作為因應措施，您可以使用 PowerShell 來建立負載平衡器。
 - 當您建立網路負載平衡器時，必須建立網路位址轉譯 (NAT) 規則。 如果沒有，在建立負載平衡器之後嘗試新增 NAT 規則時會收到錯誤。
 - 建立 VM 並與公用 IP 位址建立關聯之後，您就無法取消該 IP 位址與虛擬機器 (VM) 的關聯。 取消關聯看似正常運作，但先前指派的公用 IP 位址仍然會與原始 VM 建立關聯。 即使您將 IP 位址重新指派給新的 VM (通常稱為 *VIP 交換*)，還是會發生這種行為。 之後透過此 IP 位址連線的所有嘗試都會導致連線到原先關聯的 VM，而不是新的 VM。 您目前只有在建立新的 VM 時，才能使用新的公用 IP 位址。
+ 
+### <a name="sqlmysql"></a>SQL/MySQL
+- 這最多可能需要一個小時，然後租用戶才能在新的 SQL 或 MySQL SKU 中建立資料庫。 
+- 不支援在不是由資源提供者執行的 SQL 和 MySQL 主控伺服器中直接建立項目，且可能導致不相符的狀態。
+ 
+### <a name="app-service"></a>App Service
+- 在訂用帳戶中建立第一個 Azure 函式之前，使用者必須先註冊儲存體資源提供者。
  
 ### <a name="field-replaceable-unit-fru-procedures"></a>現場可更換單位 (FRU) 程序
 

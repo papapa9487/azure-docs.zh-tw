@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
-ms.openlocfilehash: aaceb556d926dbb09aeb2843a7941eadaaeb588b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 13c11902e275d1023e474d717800b3a36a6b31f2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>修補 Service Fabric 叢集中的 Windows 作業系統
 
@@ -51,14 +51,6 @@ ms.lasthandoff: 10/18/2017
 > 修補程式協調流程應用程式是使用 Service Fabric 的修復管理器系統服務，將節點停用或啟用以及執行健康情況檢查。 修補程式協調流程應用程式所建立的修復工作會追蹤每個節點的 Windows Update 進度。
 
 ## <a name="prerequisites"></a>必要條件
-
-### <a name="minimum-supported-service-fabric-runtime-version"></a>支援的最低 Service Fabric 執行階段版本
-
-#### <a name="azure-clusters"></a>Azure 叢集
-修補程式協調流程應用程式必須在具有 Service Fabric 執行階段 5.5 版或更新版本的 Azure 叢集上執行。
-
-#### <a name="standalone-on-premises-clusters"></a>獨立的內部部署叢集
-修補程式協調流程應用程式必須在具有 Service Fabric 執行階段 5.6 版或更新版本的獨立叢集上執行。
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>啟用修復管理器服務 (如果尚未執行中)
 
@@ -135,59 +127,6 @@ ms.lasthandoff: 10/18/2017
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>停用所有節點上的自動 Windows Update
 
 自動 Windows Update 可能會導致可用性遺失，因為在相同時間重新啟動多個叢集節點。 依預設，修補程式協調流程應用程式會在每個叢集節點上嘗試將自動 Windows Update 停用。 不過，如果設定是由系統管理員或群組原則所管理，建議將 Windows Update 原則明確地設定為「下載前先通知」。
-
-### <a name="optional-enable-azure-diagnostics"></a>選擇性：啟用 Azure 診斷
-
-執行 Service Fabric 執行階段版本 `5.6.220.9494` 和以上版本的叢集，會收集修補程式協調流程應用程式記錄作為 Service Fabric 記錄的一部分。
-如果您的叢集是在 Service Fabric 執行階段 `5.6.220.9494` 版和以上版本執行，您可以略過此步驟。
-
-對於執行 Service Fabric 執行階段 `5.6.220.9494` 以下版本的叢集，只會在每個叢集節點的本機收集修補程式協調流程應用程式記錄。
-我們建議您設定 Azure 診斷，將所有節點的記錄上傳到中央位置。
-
-如需啟用 Azure 診斷的詳細資訊，請參閱[使用 Azure 診斷收集記錄](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad)。
-
-產生的修補程式協調流程應用程式的記錄，具有下列的固定提供者識別碼：
-
-- e39b723c-590c-4090-abb0-11e3e6616346
-- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
-- 24afa313-0d3b-4c7c-b485-1047fd964b60
-- 05dc046c-60e9-4ef7-965e-91660adffa68
-
-在 Resource Manager 範本中，移至 `WadCfg` 下的 `EtwEventSourceProviderConfiguration` 區段，並新增下列項目：
-
-```json
-  {
-    "provider": "e39b723c-590c-4090-abb0-11e3e6616346",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-      "eventDestination": "PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "fc0028ff-bfdc-499f-80dc-ed922c52c5e9",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "24afa313-0d3b-4c7c-b485-1047fd964b60",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "05dc046c-60e9-4ef7-965e-91660adffa68",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  }
-```
-
-> [!NOTE]
-> 如果 Service Fabric 叢集有多種節點類型，則必須在所有的 `WadCfg` 區段新增上述區段。
 
 ## <a name="download-the-app-package"></a>下載安裝套件
 
@@ -303,20 +242,16 @@ RebootRequired | true - 需要重新開機<br> false - 不需要重新開機 | �
 
 ## <a name="diagnosticshealth-events"></a>診斷/健康情況事件
 
-### <a name="collect-patch-orchestration-app-logs"></a>收集修補程式協調流程應用程式記錄
+### <a name="diagnostic-logs"></a>診斷記錄檔
 
-收集修補程式協調流程應用程式的記錄，是執行階段版本 `5.6.220.9494` 及以上版本作為 Service Fabric 記錄的一部分。
-至於執行 Service Fabric 執行階段 `5.6.220.9494` 以下版本的叢集，可使用下列方法收集記錄。
+收集修補程式協調流程應用程式的記錄，是 Service Fabric 執行階段記錄的一部分。
 
-#### <a name="locally-on-each-node"></a>本機的每個節點上
+以免您想要透過您選擇的診斷工具/管線擷取記錄。 修補程式協調流程應用程式使用以下的固定提供者識別碼透過 [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1) 記錄事件
 
-如果 Service Fabric 執行階段版本小於 `5.6.220.9494`，則只會在每個 Service Fabric 叢集節點的本機收集記錄。 存取記錄的位置為 \[Service Fabric\_Installation\_Drive\]:\\PatchOrchestrationApplication\\logs。
-
-例如︰如果 Service Fabric 是安裝在 D 磁碟機上，則路徑為 D:\\PatchOrchestrationApplication\\logs。
-
-#### <a name="central-location"></a>中央位置
-
-如果 Azure 診斷設為必要條件步驟的一部分，就可在 Azure 儲存體中使用修補程式協調流程應用程式的記錄。
+- e39b723c-590c-4090-abb0-11e3e6616346
+- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
+- 24afa313-0d3b-4c7c-b485-1047fd964b60
+- 05dc046c-60e9-4ef7-965e-91660adffa68
 
 ### <a name="health-reports"></a>健康狀態報告
 

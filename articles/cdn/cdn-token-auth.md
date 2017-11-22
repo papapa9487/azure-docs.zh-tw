@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/03/2017
 ms.author: mezha
-ms.openlocfilehash: 700f4c49bbcda1eccbcc7eafc703e625697fa2b4
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 2f62c0c6783c3cdaf1ffda3299673071b8e4a6f2
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>使用權杖驗證來保護 Azure 內容傳遞網路資產
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/06/2017
 
 ## <a name="how-it-works"></a>運作方式
 
-權杖驗證會藉由提出要求需包含權杖值 (其中包含關於要求者的編碼資訊) 的要求，來驗證要求是由受信任的網站所產生。 只有在編碼資訊符合需求時，才會將內容提供給要求者，否則會拒絕要求。 您可以使用下列一或多個參數來設定需求：
+權杖驗證會藉由提出要求需包含權杖值 (其中包含關於要求者的編碼資訊) 的要求，來確認要求是由受信任的網站所產生。 只有在編碼資訊符合需求時，才會將內容提供給要求者，否則會拒絕要求。 您可以使用下列一或多個參數來設定需求：
 
 - Country (國家/地區)︰允許或拒絕來自以其[國碼/地區碼](https://msdn.microsoft.com/library/mt761717.aspx)指定之國家/地區的要求。
 - URL：只允許與指定資產或路徑相符的要求。
@@ -41,8 +41,6 @@ ms.lasthandoff: 11/06/2017
 - Expiration time (到期時間)︰指派日期和時段，以確保連結只能在有限的時段內維持有效。
 
 如需詳細資訊，請參閱[設定權杖驗證](#setting-up-token-authentication)中每個參數的詳細設定範例。
-
-產生加密的權杖之後，您需將它以查詢字串的形式，附加在檔案 URL 路徑結尾。 例如： `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`。
 
 ## <a name="reference-architecture"></a>參考架構
 
@@ -64,15 +62,21 @@ ms.lasthandoff: 11/06/2017
 
 2. 將滑鼠移至 [HTTP 大型] 上，然後按一下飛出視窗上的 [權杖驗證]。 接著，您便可以依下列方式設定加密金鑰和加密參數：
 
-    1. 在 [Primary Key] \(主要金鑰\) 方塊中輸入唯一加密金鑰，並視需要在 [Backup Key] \(備份金鑰\) 方塊中輸入備份金鑰。
-
-        ![CDN 權杖驗證安裝識別碼](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
+    1. 建立一或多個加密金鑰。 加密金鑰會區分大小寫，可包含英數字元的任何組合。 不允許任何其他類型的字元，包括空格。 長度上限是 250 個字元。 為了確保加密金鑰為隨機的，建議使用 OpenSSL 工具建立金鑰。 OpenSSL 工具的語法為：`rand -hex <key length>`。 例如： `OpenSSL> rand -hex 32`。 若要避免產生停機時間，請建立主要和備份金鑰。 當主要金鑰正在更新時，可用備份金鑰存取您的內容，讓存取不致於中斷。
     
-    2. 使用加密工具來設定加密參數。 使用加密工具時，您可以根據到期時間、國家/地區、訪客來源、通訊協定及用戶端 IP (任意組合) 來允許或拒絕要求。 
+    2. 在 [Primary Key] \(主要金鑰\) 方塊中輸入唯一加密金鑰，並視需要在 [Backup Key] \(備份金鑰\) 方塊中輸入備份金鑰。
 
-        ![CDN 加密工具](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
+    3. 從每個金鑰的 [最低加密版本] 下拉式清單中選取其最低加密版本，然後按一下 [更新]：
+       - **V2**：指出金鑰可用來產生 2.0 和 3.0 版權杖。 只有當您會將舊的 2.0 版加密金鑰轉換成 3.0 版金鑰，才使用此選項。
+       - **V3**：(建議選項) 指出金鑰僅可用來產生 3.0 版權杖。
 
-       請在 [Encrypt Tool] \(加密工具\) 區域中，為下列一或多個加密參數輸入值：  
+    ![CDN 權杖驗證安裝識別碼](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
+    
+    4. 使用加密工具設定加密參數，並產生權杖。 使用加密工具時，您可以根據到期時間、國家/地區、訪客來源、通訊協定及用戶端 IP (任意組合) 來允許或拒絕要求。 雖然組成權杖的參數沒有任何數目和組合上的限制，但是權杖的總長度限制為 512 個字元。 
+
+       ![CDN 加密工具](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
+
+       請在 [加密工具] 區段中，為下列一或多個加密參數輸入值：  
 
        - **ec_expire**：會為權杖指派一個到期時間，在此時間之後，權杖就會過期。 在到期時間之後提交的要求都會遭到拒絕。 這個參數使用 Unix 時間戳記，是以自標準 Epoch `1/1/1970 00:00:00 GMT` 算起的秒數為依據。 (您可以使用線上工具在標準時間與 Unix 時間之間轉換)。例如，如果您想要讓權杖在 `12/31/2016 12:00:00 GMT` 到期，請使用 Unix 時間戳記值 `1483185600`，如下所示。 
     
@@ -98,7 +102,7 @@ ms.lasthandoff: 11/06/2017
     
        - **ec_ref_allow**︰只允許來自指定訪客來源的要求。 訪客來源會識別連結到所要求之資源的網頁 URL。 請勿在訪客來源參數值中包含通訊協定。 以下是允許作為參數值的輸入類型：
            - 主機名稱或主機名稱和路徑。
-           - 多個訪客來源。 若要新增多個訪客來源，請以逗號分隔每個訪客來源。 如果您指定訪客來源值，但因瀏覽器設定而導致不會在要求中傳送訪客來源資訊，系統預設將會拒絕這些要求。 
+           - 多個訪客來源。 若要新增多個訪客來源，請以逗號分隔每個訪客來源。 如果您指定訪客來源值，但因瀏覽器設定而導致不會在要求中傳送訪客來源資訊，系統預設將會拒絕要求。 
            - 遺漏訪客來源資訊的要求。 若要允許這些類型的要求，請輸入 "missing" 文字或輸入空白值。 
            - 子網域。 若要允許子網域，請輸入星號 (\*)。 例如，若要允許 `consoto.com` 的所有子網域，請輸入 `*.consoto.com`。 
            
@@ -116,13 +120,17 @@ ms.lasthandoff: 11/06/2017
             
          ![CDN ec_clientip 範例](./media/cdn-token-auth/cdn-token-auth-clientip.png)
 
-    3. 輸入完加密參數值之後，請從 [Key To Encrypt] \(要加密的金鑰\) 清單中選取要加密的金鑰類型 (如果您已同時建立主要金鑰和備份金鑰)、從 [Encryption Version] \(加密版本\) 清單中選取加密版本，然後按一下 [Encrypt] \(加密\)。
+    5. 輸入完加密參數值之後，請從 [要加密的金鑰] 清單中選取要加密的金鑰 (如果您已建立主要金鑰和備份金鑰)。
+    
+    6. 從 [加密版本] 清單中選取加密版本：版本 2 請選 [V2]，版本 3 請選 [V3] (建議選項)。 然後，按一下 [加密] 來產生權杖。
+
+    權杖產生之後，會顯示在 [產生的權杖] 方塊中。 若要使用此權杖，將它以查詢字串的形式，附加在 URL 路徑中檔案的結尾。 例如： `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`。
         
-    4. 視需要使用解密工具來測試您的權杖。 將權杖值貼到 [Token to Decrypt] \(要解密的權杖\) 方塊中。 從 [Key To Decrypt] \(要解密的金鑰\) 下拉式清單中選取要解密的加密金鑰類型，然後按一下 [Decrypt] \(解密\)。
+    7. 視需要使用解密工具來測試您的權杖。 將權杖值貼到 [Token to Decrypt] \(要解密的權杖\) 方塊中。 從 [要解密的金鑰] 下拉式清單中選取要使用的加密金鑰，然後按一下 [解密]。
 
-    5. 視需要自訂要求遭拒時傳回的回應碼類型。 從 [Response Code] \(回應碼\) 下拉式清單中選取代碼，然後按一下 [Save] \(儲存\)。 預設選取的回應碼是 **403** (禁止)。 針對特定回應碼，您還可以在 [Header Value] \(標頭值\) 方塊中輸入您錯誤頁面的 URL。 
+    權杖被解密之後，其參數會顯示在 [原始參數] 方塊中。
 
-    6. 產生加密的權杖之後，您需將它以查詢字串的形式，附加在 URL 路徑中檔案的結尾。 例如： `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`。
+    8. 視需要自訂要求遭拒時傳回的回應碼類型。 從 [Response Code] \(回應碼\) 下拉式清單中選取代碼，然後按一下 [Save] \(儲存\)。 預設選取的回應碼是 **403** (禁止)。 針對特定回應碼，您還可以在 [Header Value] \(標頭值\) 方塊中輸入您錯誤頁面的 URL。 
 
 3. 在 [HTTP Large] \(HTTP 大型\) 底下，按一下 [Rules Engine] \(規則引擎\)。 您需使用此規則引擎來定義路徑，以套用功能、啟用權杖驗證功能，以及啟用其他與權杖驗證相關的功能。 如需詳細資訊，請參閱[規則引擎參考](cdn-rules-engine-reference.md)。
 
@@ -151,4 +159,4 @@ ms.lasthandoff: 11/06/2017
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Azure CDN 功能和提供者定價
 
-如需相關資訊，請參閱 [CDN 概觀](cdn-overview.md)。
+如需功能的詳細資訊，請參閱 [CDN 概觀](cdn-overview.md)。 如需價格的詳細資訊，請參閱[內容傳遞網路的價格](https://azure.microsoft.com/pricing/details/cdn/)。

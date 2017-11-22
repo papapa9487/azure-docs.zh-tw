@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: adegeo
-ms.openlocfilehash: a7e891d05ffe4cc2b4f68dce072a81499cc6de80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 409b3bb26648ef1b811dfaaf37690c8220046729
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-configure-cloud-services"></a>如何設定雲端服務
-> [!div class="op_single_selector"]
-> * [Azure 入口網站](cloud-services-how-to-configure-portal.md)
-> * [Azure 傳統入口網站](cloud-services-how-to-configure.md)
->
->
-
 您可以在 Azure 入口網站中設定雲端服務的最常用設定。 或者，如果您想要直接更新組態檔，可以下載要更新的服務組態檔、上傳更新過的檔案，然後將雲端服務更新為使用這些組態變更。 使用上述任一種方式，都會將組態更新推送到所有角色執行個體。
 
 您也可以管理雲端服務角色的執行個體，或從遠端桌面存取它們。
@@ -77,9 +71,9 @@ ms.lasthandoff: 10/11/2017
 您可以從這裡自訂與圖格一起使用的圖表，或新增警示規則。
 
 ## <a name="reboot-reimage-or-remote-desktop"></a>重新啟動、重新安裝映像或遠端桌面
-目前，您無法使用 **Azure 入口網站**來設定遠端桌面。 不過，您可以透過 [Azure 傳統入口網站](cloud-services-role-enable-remote-desktop.md)、[PowerShell](cloud-services-role-enable-remote-desktop-powershell.md) 或 [Visual Studio](../vs-azure-tools-remote-desktop-roles.md) 來設定它。
+您可以透過 [Azure 入口網站 (安裝遠端桌面)](cloud-services-role-enable-remote-desktop-new-portal.md)、[PowerShell](cloud-services-role-enable-remote-desktop-powershell.md) 或 [Visual Studio](../vs-azure-tools-remote-desktop-roles.md) 來設定遠端桌面。
 
-首先，請按一下雲端服務執行個體。
+若要重新開機、重新安裝映像或從遠端登入雲端服務，請按一下雲端服務執行個體。
 
 ![雲端服務執行個體](./media/cloud-services-how-to-configure-portal/cs-instance.png)
 

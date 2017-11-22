@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 11/10/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: a8daa6a4655b72936b6299c0fa5b80459ffa5da3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 717d1f377e1a074984a0332b978754bea26ce144
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="back-up-a-windows-server-or-workstation-to-azure-using-the-classic-portal"></a>使用傳統入口網站將 Windows 伺服器或工作站備份至 Azure
 > [!div class="op_single_selector"]
@@ -41,8 +41,8 @@ Azure 建立和處理資源的部署模型有二種：資源管理員和傳統�
 > [!IMPORTANT]
 > 從 2017 年 3 月開始，您無法再使用傳統入口網站來建立備份保存庫。
 >
-> 您現在可以將備份保存庫升級至復原服務保存庫。 如需詳細資訊，請參閱[將備份保存庫升級至復原服務保存庫](backup-azure-upgrade-backup-to-recovery-services.md)文章。 Microsoft 鼓勵您將備份保存庫升級至復原服務保存庫。<br/> 在 **2017 年 10 月 15 日**之後，您就無法使用 PowerShell 建立備份保存庫。 <br/> **自 2017 年 11 月 1 日起**：
->- 任何其餘的備份保存庫都會自動升級至復原服務保存庫。
+> 您現在可以將備份保存庫升級至復原服務保存庫。 如需詳細資訊，請參閱[將備份保存庫升級至復原服務保存庫](backup-azure-upgrade-backup-to-recovery-services.md)文章。 Microsoft 鼓勵您將備份保存庫升級至復原服務保存庫。<br/> 自 **2017 年 11 月 30 日**之後，您就無法使用 PowerShell 建立備份保存庫。 <br/> **在 2017 年 11 月 30 日以前**：
+>- 所有其餘的備份保存庫都會自動升級至復原服務保存庫。
 >- 您將無法在傳統入口網站中存取您的備份資料。 相反地，使用 Azure 入口網站來存取您在復原服務保存庫中的備份資料。
 >
 
@@ -75,8 +75,8 @@ Azure 建立和處理資源的部署模型有二種：資源管理員和傳統�
 
     ![儲存代理程式](./media/backup-configure-vault-classic/agent.png)
 3. 下載 MARSagentinstaller.exe 檔案之後，按一下 [執行] \(或從儲存的位置按兩下 **MARSAgentInstaller.exe**)。
-4. 選擇代理程式所需的安裝資料夾和快取資料夾，然後按一下下一步 。 您指定的快取位置必須至少包含等於備份資料大小 5% 的可用空間。
-5. 您可以繼續透過預設 Proxy 設定連線網際網路。             若您使用 Proxy 伺服器連線網際網路，請在 [Proxy 組態] 頁面上選取 [使用自訂 Proxy 設定]  核取方塊，然後輸入 Proxy 伺服器詳細資料。 若您使用已驗證的 Proxy，請輸入使用者名稱和密碼詳細資料，然後按一下下一步 。
+4. 選擇代理程式所需的安裝資料夾和快取資料夾，然後按一下 [下一步] 。 您指定的快取位置必須至少包含等於備份資料大小 5% 的可用空間。
+5. 您可以繼續透過預設 Proxy 設定連線網際網路。             若您使用 Proxy 伺服器連線網際網路，請在 [Proxy 組態] 頁面上選取 [使用自訂 Proxy 設定]  核取方塊，然後輸入 Proxy 伺服器詳細資料。 若您使用已驗證的 Proxy，請輸入使用者名稱和密碼詳細資料，然後按一下 [下一步] 。
 6. 按一下 [安裝]  開始代理程式安裝。 備份代理程式會安裝 .NET Framework 4.5 和 Windows PowerShell (若尚未安裝) 來完成安裝。
 7. 安裝代理程式之後，按一下 [繼續註冊]  以繼續工作流程。
 8. 在 [保存庫識別] 頁面中，瀏覽並選取先前下載的保存庫認證檔。
@@ -94,7 +94,7 @@ Azure 建立和處理資源的部署模型有二種：資源管理員和傳統�
     >
     >
 
-11. 設定加密金鑰之後，讓 啟動 Microsoft Azure 復原服務代理程式 核取方塊保持已選取狀態，然後按一下關閉。
+11. 設定加密金鑰之後，讓 [啟動 Microsoft Azure 復原服務代理程式] 核取方塊保持已選取狀態，然後按一下 [關閉]。
 
 ## <a name="complete-the-initial-backup"></a>完成初始備份
 初始備份包括兩項重要工作：
@@ -113,7 +113,7 @@ Azure 建立和處理資源的部署模型有二種：資源管理員和傳統�
     ![Windows Server 備份排程](./media/backup-configure-vault-classic/schedule-backup-close.png)
 3. 在排程備份精靈的 [開始使用] 頁面上，按 [下一步] 。
 4. 在 [選取要備份的項目] 頁面上，按一下 [新增項目] 。
-5. 選取您要備份的檔案和資料夾，然後按一下確定 。
+5. 選取您要備份的檔案和資料夾，然後按一下 [確定] 。
 6. 按 [下一步] 。
 7. 在 [指定備份排程] 頁面上，指定[備份排程]，然後按 [下一步]。
 
@@ -132,7 +132,7 @@ Azure 建立和處理資源的部署模型有二種：資源管理員和傳統�
 9. 在 [選擇初始備份類型] 頁面上，選擇初始備份類型。 讓 [自動透過網路] 選項保持已選取狀態，然後按 [下一步]。
 
     您可以透過網路自動備份，也可以離線備份。 這篇文章的其餘部分說明自動備份的程序。 如果您想要執行離線備份，請檢閱 [在 Azure Backup 中離線備份工作流程](backup-azure-backup-import-export.md) 一文以了解其他資訊。
-10. 在 確認 頁面上檢閱資訊，然後按一下完成 。
+10. 在 [確認] 頁面上檢閱資訊，然後按一下 [完成] 。
 11. 當精靈建立好備份排程時，請按一下 [關閉] 。
 
 ### <a name="enable-network-throttling-optional"></a>啟用網路節流 (選擇性)

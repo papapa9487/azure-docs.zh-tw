@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43f957d8549adb8bbc94111ee9f9eb216f5d8210
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6aecdce1de2e852c8683df0ec29e91de940ba25
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-python-sdk-release-notes-and-resources"></a>Azure Cosmos DB Python SDK︰版本資訊與資源
 > [!div class="op_single_selector"]
@@ -51,6 +51,9 @@ ms.lasthandoff: 10/11/2017
 </table></br>
 
 ## <a name="release-notes"></a>版本資訊
+### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
+* 此 SDK 版本需要從 https://aka.ms/cosmosdb-emulator 下載之最新版本的 Azure Cosmos DB 模擬器。
+
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * 彙總字典的修正錯誤。
 * 資源連結中的修剪斜線修正錯誤。
@@ -131,6 +134,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [2.3.0](#2.3.0) |2017 年 11 月 10 日 |--- |
 | [2.2.1](#2.2.1) |2017 年 9 月 29 日 |--- |
 | [2.2.0](#2.2.0) |2017 年 5 月 10 日 |--- |
 | [2.1.0](#2.1.0) |2017 年 5 月 1 日 |--- |

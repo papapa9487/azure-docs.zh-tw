@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 9629a86e72e0d5943f0e50e04268720fbedf6c35
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 36443ec86c15edce27bdc4f50cabcaf2e14936bc
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory 中的複製活動
 
@@ -65,6 +65,10 @@ ms.lasthandoff: 11/04/2017
 * 從內部部署檔案系統複製文字 (CSV) 格式的檔案，然後以 Avro 格式寫入 Azure Blob 中。
 * 從內部部署檔案系統複製壓縮檔，然後解壓縮到 Azure Data Lake Store。
 * 從 Azure Blob 複製 GZip 壓縮文字 (CSV) 格式的資料，然後寫入 Azure SQL Database 中。
+
+## <a name="supported-regions"></a>支援區域
+
+支援複製活動的服務可在 [Azure Integration Runtime 位置](concepts-integration-runtime.md#integration-runtime-location)中列出的區域和地理位置全域提供使用。 全域可用的拓撲可確保進行有效率的資料移動，通常可避免發生跨區域躍點的情況。 如需了解某區域中是否有 Data Factory 和「資料移動」可供使用，請參閱 [依區域提供的服務](https://azure.microsoft.com/regions/#services) 。
 
 ## <a name="configuration"></a>組態
 

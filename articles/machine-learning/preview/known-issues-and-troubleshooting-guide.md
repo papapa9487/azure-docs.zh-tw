@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: e1ce5d337e8dea6e1dc48f04238ecb31c31909b1
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 050758240c9670a6f120f069d736cf6d6475b534
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - 已知問題和疑難排解指南 
 本文可協助您尋找和修正使用 Azure Machine Learning Workbench 應用程式過程中遇到的錯誤與失敗。 
@@ -84,8 +84,25 @@ $ az ml experiment diagnostics -r <run_id> -t <target_name>
 
 - 只有在 Windows 和 Linux (在 Docker 容器中) 上支援 RevoScalePy 程式庫。 在 macOS 上不提供支援。
 
-## <a name="delete-experimentation-account"></a>刪除測試帳戶
-您可以使用 CLI 來刪除測試帳戶，但是必須先刪除子工作區和子工作區內的子專案。
+## <a name="cant-update-workbench"></a>無法更新 Workbench
+有新的更新可用時，Workbench 應用程式首頁會顯示一則訊息，通知您有關新的更新。 您應會看到更新徽章出現在鈴鐺圖示上應用程式的左下角。 按一下徽章並遵循安裝程式精靈來安裝更新。 
+
+![更新影像](./media/known-issues-and-troubleshooting-guide/update.png)
+
+如果您沒有看到通知，請嘗試重新啟動應用程式。 如果在重新啟動之後，您仍然沒看到更新通知，則可能會有幾個原因。
+
+### <a name="you-are-launching-workbench-from-a-pinned-shortcut-on-the-task-bar"></a>您是從工作列上釘選的捷徑啟動 Workbench
+您可能已經安裝此更新。 但是，您釘選的捷徑仍然指向磁碟上舊的位元。 您可以瀏覽至 `%localappdata%/AmlWorkbench` 資料夾進行確認，查看那裡是否已安裝最新版本，然後檢查釘選捷徑的屬性，查看它指向何處。 確認之後，只要移除舊的捷徑，從 [開始] 功能表啟動 Workbench，然後選擇性地在工作列上建立新的釘選捷徑。
+
+### <a name="you-installed-workbench-using-the-install-azure-ml-workbench-link-on-a-windows-dsvm"></a>您已使用 Windows DSVM 上的「安裝 Azure ML Workbench」連結來安裝 Workbench
+不幸的是，這種情況沒有輕鬆的修正方式。 您必須執行下列步驟來移除已安裝的位元，並下載最新的安裝程式來全新安裝 Workbench： 
+   - 移除資料夾 `C:\Users\<Username>\AppData\Local\amlworkbench`
+   - 移除指令碼 `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - 移除可啟動上述指令碼的桌面捷徑
+   - 下載安裝程式 https://aka.ms/azureml-wb-msi 並重新安裝。
+
+## <a name="cant-delete-experimentation-account"></a>無法刪除測試帳戶
+您可以使用 CLI 來刪除測試帳戶，但是必須先刪除子工作區和子工作區內的子專案。 否則，您會看到錯誤。
 
 ```azure-cli
 # delete a project
@@ -100,9 +117,11 @@ $ az ml account experimentation delete -g <resource group name> -n <experimentat
 
 您也可以從 Workbench 應用程式內刪除專案和工作區。
 
+## <a name="cant-open-file-if-project-is-in-onedrive"></a>如果專案位於 OneDrive 中，則無法開啟檔案
+如果您有 Windows 10 Fall Creators Update，而且您的專案建立於 OneDrive 對應的本機資料夾，您可能會發現您無法在 Workbench 中開啟任何檔案。 這是因為 Fall Creators Update 所引進的 Bug 造成 node.js 程式碼在 OneDrive 資料夾中發生失敗。 Windows Update 很快就會修正此 Bug，請不要在 OneDrive 資料夾中建立專案。
 
 ## <a name="file-name-too-long-on-windows"></a>檔案名稱在 Windows 上太長
-如果您在 Windows 上使用 Workbench，您可能會遇到預設最大 260 個字元的檔案名稱長度限制，這可能讓人誤解成「系統找不到指定的路徑」錯誤。 您可以修改登錄機碼設定，以允許更長的檔案路徑名稱。 檢閱[本文](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath)，以取得有關如何設定 _MAX_PATH_ 登錄機碼的詳細資訊。
+如果您在 Windows 上使用 Workbench，您可能會遇到預設最大 260 個字元的檔案名稱長度限制，這可能呈現為「系統找不到指定的路徑」錯誤。 您可以修改登錄機碼設定，以允許更長的檔案路徑名稱。 檢閱[本文](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath)，以取得有關如何設定 _MAX_PATH_ 登錄機碼的詳細資訊。
 
 ## <a name="docker-error-read-connection-refused"></a>Docker 錯誤 "read: connection refused"
 對本機 Docker 容器執行時，有時您可能會看到下列錯誤： 

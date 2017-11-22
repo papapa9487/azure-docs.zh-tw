@@ -1,6 +1,6 @@
 ---
 title: "Azure Application Insights 快速入門 | Microsoft Docs"
-description: "提供指示說明如何快速設定行動應用程式，以透過 Application Insights 和 Mobile Center 來監視"
+description: "提供指示說明如何快速設定行動應用程式，以透過 Application Insights 和 App Center 來監視"
 services: application-insights
 keywords: 
 author: numberbycolors
@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: a8af65a9a9f31200f833a47f811ae50a0a9d2f9b
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 897c45322148aeb088f1ec2e7f8d9f46b58c71aa
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="start-analyzing-your-mobile-app-with-mobile-center-and-application-insights"></a>開始使用 Mobile Center 和 Application Insights 分析您的行動應用程式
+# <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>開始使用 App Center 和 Application Insights 分析您的行動應用程式
 
-本快速入門會引導您將應用程式的 Mobile Center 執行個體連線到 Application Insights。 Application Insights 提供查詢、分割、篩選及分析遙測資料的強大工具，遠勝於 Mobile Center 的 [Analytics](https://docs.microsoft.com/mobile-center/analytics/) \(英文\) 服務。
+本快速入門會引導您將應用程式的 App Center 執行個體連線到 Application Insights。 Application Insights 提供查詢、分割、篩選及分析遙測資料的強大工具，遠勝於 App Center 的 [Analytics](https://docs.microsoft.com/mobile-center/analytics/) \(英文\) 服務。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -29,11 +29,11 @@ ms.lasthandoff: 10/26/2017
  
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
-## <a name="onboard-to-mobile-center"></a>在 Mobile Center 上架
+## <a name="onboard-to-app-center"></a>登入 App Center
 
-您必須先將應用程式上架至 [Mobile Center](https://docs.microsoft.com/mobile-center/) \(英文\)，才能將 Application Insights 與行動應用程式搭配使用。 Application Insights 不會直接從您的行動應用程式接收遙測資料。 相反地，您的應用程式會將自訂事件遙測資料傳送到 Mobile Center。 之後，當 Mobile Center 接收到這些自訂事件，會持續將這些自訂事件的複本匯出到 Application Insights。
+您必須先將應用程式上架至 [App Center](https://docs.microsoft.com/mobile-center/) \(英文\)，才能將 Application Insights 與行動應用程式搭配使用。 Application Insights 不會直接從您的行動應用程式接收遙測資料。 相反地，您的應用程式會將自訂事件遙測資料傳送到 App Center。 之後，當 App Center 接收到這些自訂事件，會持續將這些自訂事件的複本匯出到 Application Insights。
 
-若要將應用程式上架，請針對應用程式支援的每個平台，遵循 Mobile Center 快速入門來操作。 針對每個平台建立個別的 Mobile Center 執行個體：
+若要將應用程式上架，請針對應用程式支援的每個平台，遵循 App Center 快速入門來操作。 針對每個平台建立個別的 App Center 執行個體：
 
 * [iOS](https://docs.microsoft.com/mobile-center/sdk/getting-started/ios)。
 * [Android](https://docs.microsoft.com/mobile-center/sdk/getting-started/android)。
@@ -43,27 +43,27 @@ ms.lasthandoff: 10/26/2017
 
 ## <a name="track-events-in-your-app"></a>追蹤應用程式中的事件
 
-您的應用程式上架到 Mobile Center 之後，必須使用 Mobile Center SDK 將它修改成會傳送自訂事件遙測資料。 自訂事件是唯一會匯出到 Application Insights 的 Mobile Center 遙測資料類型。
+您的應用程式上架到 App Center 之後，必須使用 App Center SDK 將它修改成會傳送自訂事件遙測資料。 自訂事件是唯一會匯出到 Application Insights 的 App Center 遙測資料類型。
 
-若要從 iOS 應用程式傳送自訂事件，請使用 Mobile Center SDK 中的 `trackEvent` 或 `trackEvent:withProperties` 方法。 [深入了解追蹤 iOS 應用程式的事件。](https://docs.microsoft.com/mobile-center/sdk/analytics/ios) \(英文\)
+若要從 iOS 應用程式傳送自訂事件，請使用 App Center SDK 中的 `trackEvent` 或 `trackEvent:withProperties` 方法。 [深入了解追蹤 iOS 應用程式的事件。](https://docs.microsoft.com/mobile-center/sdk/analytics/ios) \(英文\)
 
 ```Swift
 MSAnalytics.trackEvent("Video clicked")
 ```
 
-若要從 Android 應用程式傳送自訂事件，請使用 Mobile Center SDK 中的 `trackEvent` 方法。 [深入了解追蹤 Android 應用程式的事件](https://docs.microsoft.com/mobile-center/sdk/analytics/android) \(英文\)。
+若要從 Android 應用程式傳送自訂事件，請使用 App Center SDK 中的 `trackEvent` 方法。 [深入了解追蹤 Android 應用程式的事件](https://docs.microsoft.com/mobile-center/sdk/analytics/android) \(英文\)。
 
 ```Java
 Analytics.trackEvent("Video clicked")
 ```
 
-若要從其他應用程式平台傳送自訂事件，請使用其 Mobile Center SDK 中的 `trackEvent`。
+若要從其他應用程式平台傳送自訂事件，請使用其 App Center SDK 中的 `trackEvent`。
 
-若要確認有接收到您的自訂事件，請移至 Mobile Center 中 [分析] 區段下的 [事件] 索引標籤。 事件從應用程式傳送之後，可能需要幾分鐘的時間才會顯示。
+若要確認有接收到您的自訂事件，請移至 App Center 中 [分析] 區段下的 [事件] 索引標籤。 事件從應用程式傳送之後，可能需要幾分鐘的時間才會顯示。
 
 ## <a name="create-an-application-insights-resource"></a>建立 Application Insights 資源
 
-一旦您的應用程式開始傳送自訂事件，且 Mobile Center 已經收到這些事件，您就需要在 Azure 入口網站中建立 Mobile Center 類型的 Application Insights 資源：
+一旦您的應用程式開始傳送自訂事件，且 App Center 已經收到這些事件，您就需要在 Azure 入口網站中建立 App Center 類型的 Application Insights 資源：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 選取 [新增] > **[監視 + 管理]** > **[Application Insights]**。
@@ -75,7 +75,7 @@ Analytics.trackEvent("Video clicked")
     | 設定        |  值           | 說明  |
    | ------------- |:-------------|:-----|
    | **名稱**      | 某些全域唯一的值，例如 "myApp-iOS" | 此名稱可識別您要監視的應用程式 |
-   | **應用程式類型** | Mobile Center 應用程式 | 您要監視的應用程式類型 |
+   | **應用程式類型** | App Center 應用程式 | 您要監視的應用程式類型 |
    | **資源群組**     | 新的資源群組或功能表中現有的資源群組 | 要在其中建立新 Application Insights 資源的資源群組 |
    | **位置** | 功能表中的位置 | 選擇您附近或接近應用程式裝載位置的地點 |
 
@@ -87,7 +87,7 @@ Analytics.trackEvent("Video clicked")
 
 在 [概觀] 頁面頂端 [必要] 區段的新 Application Insights 資源中，複製該資源的檢測金鑰。
 
-在應用程式的 Mobile Center 執行個體中：
+在應用程式的 App Center 執行個體中：
 
 1. 在 [設定] 頁面上，按一下 [匯出]。
 2. 選擇 [新匯出]，挑選 [Application Insights]，然後按一下 [自訂]。
@@ -96,13 +96,13 @@ Analytics.trackEvent("Video clicked")
 
 請記得對應用程式支援的每個平台重複執行此程序。
 
-一旦設定好[匯出](https://docs.microsoft.com/mobile-center/analytics/export) \(英文\) 之後，Mobile Center 收到的每個自訂事件就都會複製到 Application Insights。 事件可能需要幾分鐘才會送達 Application Insights，因此如果它們沒有馬上顯示，請先稍等一下再進行進一步的診斷。
+一旦設定好[匯出](https://docs.microsoft.com/mobile-center/analytics/export) \(英文\) 之後，App Center 收到的每個自訂事件就都會複製到 Application Insights。 事件可能需要幾分鐘才會送達 Application Insights，因此如果它們沒有馬上顯示，請先稍等一下再進行進一步的診斷。
 
-為了在您第一次連線時提供更多資料，Mobile Center 中最近 48 小時的自訂事件會自動匯出到 Application Insights。
+為了在您第一次連線時提供更多資料，App Center 中最近 48 小時的自訂事件會自動匯出到 Application Insights。
 
 ## <a name="start-monitoring-your-app"></a>開始監視應用程式
 
-Application Insights 可以查詢、分割、篩選及分析應用程式的自訂事件遙測資料，遠勝於 Mobile Center 提供的分析工具。
+Application Insights 可以查詢、分割、篩選及分析應用程式的自訂事件遙測資料，遠勝於 App Center 提供的分析工具。
 
 1. **查詢您的自訂事件遙測資料。** 從 Application Insights [概觀] 頁面，選擇 [分析]。 
 
@@ -131,7 +131,7 @@ Application Insights 可以查詢、分割、篩選及分析應用程式的自�
 
    ![使用者工具圖示](./media/app-insights-mobile-center-quickstart/users-icon.png)
 
-   [使用者] 工具可以針對您使用 Mobile Center SDK 追蹤做為事件的項目，顯示有多少應用程式使用者按過特定按鈕、瀏覽特定畫面，或執行過任何其他動作。 如果您在尋找分割及篩選 Mobile Center 事件的方法，[使用者] 工具是絕佳的選擇。
+   [使用者] 工具可以針對您使用 App Center SDK 追蹤做為事件的項目，顯示有多少應用程式使用者按過特定按鈕、瀏覽特定畫面，或執行過任何其他動作。 如果您在尋找分割及篩選 App Center 事件的方法，[使用者] 工具是絕佳的選擇。
 
    ![使用者工具](./media/app-insights-mobile-center-quickstart/users.png) 
 
@@ -152,11 +152,11 @@ Application Insights 可以查詢、分割、篩選及分析應用程式的自�
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您不想繼續搭配 Application Insights 使用 Mobile Center，請在 Mobile Center 中關閉匯出並刪除 Application Insights 資源。 這樣可以避免 Application Insights 針對此資源進一步向您收費。
+如果您不想繼續搭配 Application Insights 使用 App Center，請在 App Center 中關閉匯出並刪除 Application Insights 資源。 這樣可以避免 Application Insights 針對此資源進一步向您收費。
 
-在 Mobile Center 中關閉匯出：
+在 App Center 中關閉匯出：
 
-1. 在 Mobile Center 中，移至 [設定] 並選擇 [匯出]。
+1. 在 App Center 中，移至 [設定] 並選擇 [匯出]。
 2. 按一下您要刪除的 Application Insights 匯出，然後按一下底端的 [刪除匯出] 並確認。
 
 刪除 Application Insights 資源：

@@ -8,13 +8,13 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: e1099d2cd7eeccbe76d762028a0c5d5f95f53026
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: ace0eb671556dc980836464a365731d6100eab25
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="monitor-azure-sql-data-sync-preview-with-oms-log-analytics"></a>使用 OMS Log Analytics 監視 Azure SQL 資料同步 (預覽) 
+# <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>使用 OMS Log Analytics 監視 SQL 資料同步 (預覽) 
 
 以往，若要檢查 SQL 資料同步活動記錄檔並偵測錯誤和警告，您必須在 Azure 入口網站中以手動方式檢查 SQL 資料同步，或使用 PowerShell 或 REST API。 請遵循本文中的步驟，設定自訂解決方案，以改善資料同步的監視體驗。 您可以依據自己的案例來自訂這個解決方案。
 
@@ -24,19 +24,19 @@ ms.lasthandoff: 11/09/2017
 
 當您要尋找問題時，再也不用分別查看每個同步群組的記錄檔。 您可以使用自訂的 OMS (Operations Management Suite) 檢視，從單一位置監視任何訂用帳戶的所有同步群組。 此檢視會呈現 SQL 資料同步客戶重視的相關資訊。
 
-![資料同步監視儀表板](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.jpg)
+![資料同步監視儀表板](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
 ## <a name="automated-email-notifications"></a>自動電子郵件通知
 
-您再也不用在 Azure 入口網站中手動檢查記錄檔，也不用透過 PowerShell 或 REST API 來進行。 利用 [OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 時，您可以建立警示，使其直接傳送至發生錯誤時必須看到這些警示的電子郵件地址。
+您再也不用在 Azure 入口網站中手動檢查記錄檔，也不用透過 PowerShell 或 REST API 來進行。 有了 [OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)，您可以建立警示，使其在錯誤發生時直接傳送至必須看到警示的人員電子郵件地址。
 
-![資料同步電子郵件通知](media/sql-database-sync-monitor-oms/sync-email-notifications.jpg)
+![資料同步電子郵件通知](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
-## <a name="how-do-you-set-this-up"></a>該如何設定？ 
+## <a name="how-do-you-set-up-these-monitoring-features"></a>如何設定這些監視功能？ 
 
-您可以執行下列動作，在一小時內，為 SQL 資料同步實作自訂的 OMS 監視解決方案。
+您可以執行下列動作，在一小時內，為 SQL 資料同步實作自訂的 OMS 監視解決方案：
 
-您必須設定 3 個元件：
+您必須設定三個元件：
 
 -   PowerShell Runbook，以將 SQL 資料同步記錄資料摘要至 OMS。
 
@@ -80,23 +80,23 @@ ms.lasthandoff: 11/09/2017
 
 6.  在您的 Azure 自動化帳戶中，選取 [共用資源] 下方的 [變數] 索引標籤。
 
-7.  在 [變數] 頁面上，選取 [新增變數]。 我們需要建立一個變數來儲存上次執行 Runbook 的時間。 如果您有多個 Runbook，則每個 Runbook 都需要一個變數。
+7.  在 [變數] 頁面上，選取 [新增變數]。 需要建立一個變數來儲存上次執行 Runbook 的時間。 如果您有多個 Runbook，則每個 Runbook 都需要一個變數。
 
 8.  請將變數的名稱設為 `DataSyncLogLastUpdatedTime`，並將其類型設為 DateTime。
 
 9.  選取 Runbook，然後按一下頁面頂端的 [編輯] 按鈕。
 
-10. 針對您的帳戶和 SQL 資料同步設定，進行所需的變更。 如需詳細資訊，請參閱範例指令碼。
+10. 針對您的帳戶和 SQL 資料同步設定，進行所需的變更。 (如需詳細資訊，請參閱範例指令碼。)
 
     1.  Azure 資訊。
 
     2.  同步群組資訊。
 
-    3.  OMS 資訊。 在 OMS 入口網站 | 設定 | 連接的來源，尋找這項資訊。 如需將資料傳送到 Log Analytics 的詳細資訊，請參閱[使用 HTTP 資料收集器 API 將資料傳送給 Log Analytics (公開預覽狀態)](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)。
+    3.  OMS 資訊。 在 OMS 入口網站 | 設定 | 連接的來源，尋找這項資訊。 如需將資料傳送到 Log Analytics 的詳細資訊，請參閱[使用 HTTP 資料收集器 API 將資料傳送給 Log Analytics (公開預覽狀態)](../log-analytics/log-analytics-data-collector-api.md)。
 
 11. 在 [測試] 窗格中執行 Runbook。 檢查並確定已順利完成。
 
-    如果發生錯誤，請確定您已安裝最新的 PowerShell 模組。 您可以在自動化帳戶中的 [模組庫] 進行確認。
+    如果發生錯誤，請確定您已安裝最新的 PowerShell 模組。 您可以在自動化帳戶的 [模組庫] 中安裝最新的 PowerShell 模組。
 
 12. 按一下 [發行]。
 
@@ -118,7 +118,7 @@ ms.lasthandoff: 11/09/2017
 
 ### <a name="check-the-automation"></a>檢查自動化
 
-若要監視您的自動化是否如預期般運作，請在自動化帳戶的 [概觀] 下方，找到 [作業統計資料] 檢視 (位於 [監視] 下方)。 將它釘選到儀表板，以便輕鬆檢視。 Runbook 執行成功時會顯示為「已完成」，執行失敗時會顯示為「失敗」。
+若要監視您的自動化是否如預期般運作，請在自動化帳戶的 [概觀] 下方，找到 [作業統計資料] 檢視 (位於 [監視] 下方)。 將此檢視釘選到儀表板，以便輕鬆檢視。 Runbook 執行成功時會顯示為「已完成」，執行失敗時會顯示為「失敗」。
 
 ## <a name="create-an-oms-log-reader-alert-for-email-notifications"></a>建立 OMS 記錄讀取器警示，以用於電子郵件通知
 
@@ -168,7 +168,7 @@ ms.lasthandoff: 11/09/2017
 
         2.  在每個同步群組圖格中，更新同步群組的名稱。
 
-    3.  視需要更新每個圖格中的標題。
+    3.  視需要更新每個圖格的標題。
 
 4.  按一下 [儲存]，即已完成檢視。
 
@@ -192,7 +192,8 @@ ms.lasthandoff: 11/09/2017
 如需 SQL 資料同步的詳細資訊，請參閱：
 
 -   [使用 Azure SQL 資料同步，跨多個雲端和內部部署資料庫同步處理資料](sql-database-sync-data.md)
--   [開始使用 Azure SQL 資料同步](sql-database-get-started-sql-data-sync.md)
+-   [設定 Azure SQL 資料同步](sql-database-get-started-sql-data-sync.md)
+-   [Azure SQL 資料同步最佳做法](sql-database-best-practices-data-sync.md)
 -   [對 Azure SQL 資料同步的問題進行疑難排解](sql-database-troubleshoot-data-sync.md)
 
 -   示範如何設定 SQL 資料同步的完整 PowerShell 範例：

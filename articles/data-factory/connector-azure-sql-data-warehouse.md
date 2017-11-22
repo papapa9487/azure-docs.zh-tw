@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: fa660dd72acb5b19a49fc0100c3c1e5fc8e87dee
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: bd5de92a418ae5caa23ae4b081b688707cedcf06
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -223,7 +223,7 @@ GO
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為：**SqlDWSink** | 是 |
+| 類型 | 複製活動接收器的 type 屬性必須設定為：**SqlDWSink** | 是 |
 | allowPolyBase |指出是否使用 PolyBase (適用的話) 而不是使用 BULKINSERT 機制。 <br/><br/> 建議使用 PolyBase 將資料載入 SQL 資料倉儲。 請參閱 [使用 PolyBase 將資料載入 Azure SQL 資料倉儲](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 一節中的條件約束和詳細資料。<br/><br/>允許的值為：**True** (預設值) 和 **False**。  |否 |
 | polyBaseSettings |可以在 **allowPolybase** 屬性設定為 **true** 時指定的一組屬性。 |否 |
 | rejectValue |指定在查詢失敗前可以拒絕的資料列數目或百分比。<br/><br/>在 **CREATE EXTERNAL TABLE (Transact-SQL)** 主題的 [引數](https://msdn.microsoft.com/library/dn935021.aspx) 一節中，深入了解 PolyBase 的拒絕選項。 <br/><br/>允許的值為：0 (預設值)、1、2… |否 |

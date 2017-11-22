@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: jingwang
-ms.openlocfilehash: d7da4c3c4aa902cf9ccb97ebd13b7d16940f2c32
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: ca5f8e43b6667aa1c2e3ac38e7ea00b5bd86b72f
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="copy-data-to-or-from-azure-table-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure 資料表或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -187,11 +187,11 @@ ms.lasthandoff: 11/07/2017
 
 ### <a name="azure-table-as-sink"></a>Azure 資料表作為接收器
 
-若要從「Azure 資料表」複製資料，請將複製活動中的來源類型設定為 **AzureTableSink**。 複製活動的 **sink** 區段支援下列屬性：
+若要將資料複製到 Azure 資料表，將複製活動中的接收類型設定為 **AzureTableSink**。 複製活動的 **sink** 區段支援下列屬性：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的類型屬性必須設定為：**AzureTableSink** |是 |
+| 類型 | 複製活動接收的 type 屬性必須設定為：**AzureTableSink** |是 |
 | azureTableDefaultPartitionKeyValue |可供接收器使用的預設資料分割索引鍵值。 |否 |
 | azureTablePartitionKeyName |指定其值用來作為分割區索引鍵的資料行名稱。 如果未指定，則會使用 "AzureTableDefaultPartitionKeyValue" 作為分割區索引鍵。 |否 |
 | azureTableRowKeyName |指定其值用來作為資料列索引鍵的資料行名稱。 如果未指定，則會針對每個資料列使用 GUID。 |否 |

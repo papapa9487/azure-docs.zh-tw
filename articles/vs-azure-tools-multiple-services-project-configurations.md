@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.openlocfilehash: deb69101e855bcad56b9212736c52ace72631f0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59492ccc64a70680d71ad1de0700ed30f9e45306
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-your-azure-project-using-multiple-service-configurations"></a>使用多個服務組態設定 Azure 專案
 Azure 雲端服務專案包含兩個組態檔：ServiceDefinition.csdef 和 ServiceConfiguration.cscfg。 這些檔案會與您的 Azure 雲端服務應用程式一起封裝並部署至 Azure。
@@ -30,7 +30,7 @@ Azure Tools for Microsoft Visual Studio 提供的屬性頁面可供您設定這�
 
 ![VS_Solution_Explorer_Roles_Properties](./media/vs-azure-tools-multiple-services-project-configurations/IC784076.png)
 
-如需服務定義檔和服務組態檔的基礎結構描述相關資訊，請參閱 [結構描述參考](https://msdn.microsoft.com/library/azure/dd179398.aspx)。 如需服務組態的詳細資訊，請參閱 [如何設定雲端服務](cloud-services/cloud-services-how-to-configure.md)。
+如需服務定義檔和服務組態檔的基礎結構描述相關資訊，請參閱 [.csdef XML Schema](cloud-services/schema-csdef-file.md)和 [.cscfg XML Schema](cloud-services/schema-cscfg-file.md)。 如需服務組態的詳細資訊，請參閱 [如何設定雲端服務](cloud-services/cloud-services-how-to-configure-portal.md)。
 
 ## <a name="configuring-role-properties"></a>設定角色屬性
 下列各節指出 Web 角色和背景工作角色的屬性頁很類似，但有一些差異。
@@ -88,7 +88,7 @@ Web 角色預設會啟用診斷。 Azure 雲端服務專案和儲存體帳戶已
 ## <a name="certificates-page"></a>憑證頁面
 在 [憑證]  頁面上，您可以讓憑證與您的角色產生關聯。 您新增的憑證可用來在 [端點]  屬性頁面上設定 HTTPS 端點。
 
-[憑證]  屬性頁面會將憑證的相關資訊新增至您的服務組態。 請注意，您的憑證不會與您的服務一起封裝；您必須透過 [Azure 傳統入口網站](http://go.microsoft.com/fwlink/?LinkID=213885)將憑證分別上傳至 Azure。
+[憑證]  屬性頁面會將憑證的相關資訊新增至您的服務組態。 請注意，您的憑證不會與您的服務一起封裝；您必須透過 [Azure 入口網站](http://portal.azure.com)將憑證分別上傳至 Azure。
 
 若要讓憑證與角色產生關聯，請提供憑證的名稱。 在 [端點]  屬性頁面上設定 HTTPS 端點時，您可以使用這個名稱來參照憑證。 接下來，指定憑證存放區為 [本機電腦] 或 [目前使用者] 和存放區的名稱。 最後，輸入憑證的指紋。 如果憑證在目前使用者 \ 個人 (我的) 存放區中，您可從填入的清單中選取憑證，以輸入憑證的指紋。 如果憑證位於任何其他位置，請以手動方式輸入指紋值。
 

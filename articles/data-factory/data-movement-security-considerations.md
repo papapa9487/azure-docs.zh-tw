@@ -13,13 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2017
 ms.author: abnarain
-ms.openlocfilehash: 9caea4191a2ca99e6e98cc8ce7ca9ca0c7b8dc87
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: bba2781d43aff9e462246cfe21961695e48196d8
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - 資料移動的安全性考量
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [第 1 版 - 正式推出](v1/data-factory-data-movement-security-considerations.md)
+> * [第 2 版 - 預覽](data-movement-security-considerations.md)
+
 本文說明 Azure Data Factory 中資料移動服務用來保護您資料的基本安全性基礎結構。 Azure Data Factory 管理資源建置在 Azure 安全性基礎結構上，並使用 Azure 提供的所有可能安全性措施。
 
 > [!NOTE]
@@ -27,7 +31,7 @@ ms.lasthandoff: 10/26/2017
 
 在 Data Factory 方案中，您可以建立一或多個資料 [管線](concepts-pipelines-activities.md)。 管線是一起執行某個工作的活動所組成的邏輯群組。 這些管線位於建立 Data Factory 的區域中。 
 
-雖然 Data Factory 只有在**美國西部**和**美國東部 2**區域才有提供 (版本 2 預覽)，但[全球數個區域](concepts-integration-runtime.md#azure-ir)都有提供資料移動服務。 如果資料移動服務尚未部署到該區域，Data Factory 服務可確保資料不會離開某個地區/區域，除非您明確指示服務使用替代區域。 
+雖然 Data Factory 只有在**美國東部**、**美國東部 2**、**歐洲西部**區域才有提供 (版本 2 預覽)，但[全球數個區域](concepts-integration-runtime.md#azure-ir)都有提供資料移動服務。 如果資料移動服務尚未部署到該區域，Data Factory 服務可確保資料不會離開某個地區/區域，除非您明確指示服務使用替代區域。 
 
 Azure Data Factory 本身除了用於雲端資料存放區的已連結服務認證 (會使用憑證加密) 之外，並不會儲存任何資料。 它可讓您建立資料導向工作流程，藉由使用其他區域或內部部署環境中的[計算服務](compute-linked-services.md)，協調[所支援資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)之間的資料移動和資料處理。 它也能讓您使用 SDK 和 Azure 監視器來監視和管理工作流程。
 

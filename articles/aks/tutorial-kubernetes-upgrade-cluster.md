@@ -1,6 +1,6 @@
 ---
-title: "Azure 上的 Kubernertes 教學課程 - 更新叢集 | Microsoft Docs"
-description: "Azure 上的 Kubernertes 教學課程 - 更新叢集"
+title: "Azure 上的 Kubernetes 教學課程 - 更新叢集 | Microsoft Docs"
+description: "Azure 上的 Kubernetes 教學課程 - 更新叢集"
 services: container-service
 documentationcenter: 
 author: neilpeterson
@@ -14,14 +14,14 @@ ms.devlang: aurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2cb81b5cd8b70df8077d9574e0232bc6b3d37c52
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: d0193e891c6c41687f1aaa3a8033bc71e85b10c3
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="upgrade-kubernetes-in-azure-container-service-aks"></a>在 Azure Container Service (AKS) 中升級 Kubernetes
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/09/2017
 
 ## <a name="before-you-begin"></a>開始之前
 
-在先前的教學課程中，已將應用程式封裝成容器映像、將此映像上傳至 Azure Container Registry，並已建立 Kubernetes 叢集。 該應用程式接著便在 Kubernetes 叢集上執行。 
+在先前的教學課程中，已將應用程式封裝成容器映像、將此映像上傳至 Azure Container Registry，並已建立 Kubernetes 叢集。 該應用程式接著便在 Kubernetes 叢集上執行。
 
 如果您尚未完成這些步驟，而想要跟著做，請回到[教學課程 1 – 建立容器映像](./tutorial-kubernetes-prepare-app.md)。
 
@@ -52,7 +52,7 @@ az aks get-versions --name myK8sCluster --resource-group myResourceGroup --outpu
 您可以看到目前的節點版本是 `1.7.7`，有版本 `1.7.9`、`1.8.1` 和 `1.8.2` 可用。
 
 ```
-Name     ResourceGroup    MasterVersion    MasterUpgrades       AgentPoolVersion    AgentPoolUpgrades
+Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion     NodePoolUpgrades
 -------  ---------------  ---------------  -------------------  ------------------  -------------------
 default  myAKSCluster     1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
 ```
@@ -70,7 +70,7 @@ az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes
 ```json
 {
   "id": "/subscriptions/4f48eeae-9347-40c5-897b-46af1b8811ec/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myK8sCluster",
-  "location": "westus2",
+  "location": "eastus",
   "name": "myK8sCluster",
   "properties": {
     "accessProfiles": {
@@ -96,7 +96,7 @@ az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes
       }
     ],
     "dnsPrefix": "myK8sClust-myResourceGroup-4f48ee",
-    "fqdn": "myk8sclust-myresourcegroup-4f48ee-406cc140.hcp.westus2.azmk8s.io",
+    "fqdn": "myk8sclust-myresourcegroup-4f48ee-406cc140.hcp.eastus.azmk8s.io",
     "kubernetesVersion": "1.8.2",
     "linuxProfile": {
       "adminUsername": "azureuser",
@@ -134,7 +134,7 @@ az aks show --name myK8sCluster --resource-group myResourceGroup --output table
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myK8sCluster  westus2     myResourceGroup  1.8.2                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.westus2.azmk8s.io
+myK8sCluster  eastus     myResourceGroup  1.8.2                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="next-steps"></a>後續步驟

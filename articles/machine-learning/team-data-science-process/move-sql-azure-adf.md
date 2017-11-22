@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 8f0186900caf6bff19e15ef6b99c1f49fbf90a81
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: bbf969927e96053df055ac6e347bb8fb746054c8
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>使用 Azure Data Factory 從內部部署 SQL Server 將資料移至 SQL Azure
 本主題說明如何使用 Azure Data Factory (ADF)，透過 Azure Blob 儲存體，將資料從內部部署的 SQL Server 資料庫移動至 SQL Azure 資料庫。
@@ -80,32 +80,14 @@ ADF 允許使用定期管理資料移動的簡易 JSON 指令碼，來進行排�
 如需關於資料管理閘道的設定指示及詳細資料，請參閱 [利用資料管理閘道在內部部署來源和雲端之間移動資料](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md)
 
 ## <a name="adflinkedservices"></a>建立連結服務以連接至資料資源
-連結服務定義會定義 Azure Data Factory 所需的資訊，以便連接到資料資源。 用於建立連結服務的逐步程序，已在[建立連結服務](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services)中提供。
+連結服務定義會定義 Azure Data Factory 所需的資訊，以便連接到資料資源。 此案例中的三個資源都必須使用連結服務：
 
-此案例中的三個資源都必須使用連結服務。
+1. 內部部署 SQL Server
+2. Azure Blob 儲存體
+3. Azure SQL Database
 
-1. [內部部署 SQL Server 的連結服務](#adf-linked-service-onprem-sql)
-2. [Azure Blob 儲存體的連結服務](#adf-linked-service-blob-store)
-3. [Azure SQL Database 的連結服務](#adf-linked-service-azure-sql)
+用於建立連結服務的逐步程序，已在[建立連結服務](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services)中提供。
 
-### <a name="adf-linked-service-onprem-sql"></a>內部部署 SQL Server 資料庫的連結服務
-若要建立內部部署 SQL Server 的連結服務：
-
-* 在 Azure 傳統入口網站的 ADF 登陸頁面按一下 [資料存放區] 
-* 選取 [SQL]，然後輸入內部部署 SQL Server 的 [使用者名稱] 和 [密碼] 認證。 您必須以**完整伺服器名稱 + 反斜線 + 執行個體名稱 (伺服器名稱\執行個體名稱) 格式輸入伺服器名稱**。 將連結服務命名為 *adfonpremsql*。
-
-### <a name="adf-linked-service-blob-store"></a>Blob 的連結服務
-若要建立 Azure Blob 儲存體帳戶的連結服務：
-
-* 在 Azure 傳統入口網站的 ADF 登陸頁面按一下 [資料存放區] 
-* 選取 [Azure 儲存體帳戶] 
-* 輸入 Azure Blob 儲存體帳戶金鑰和容器名稱。 將連結服務命名為「adfds」 。
-
-### <a name="adf-linked-service-azure-sql"></a>Azure SQL Database 的連結服務
-若要建立 Azure SQL Database 的連結服務：
-
-* 在 Azure 傳統入口網站的 ADF 登陸頁面按一下 [資料存放區] 
-* 選取 [Azure SQL]，然後輸入 Azure SQL Database 的 [使用者名稱] 和 [密碼] 認證。 *username* 必須指定為 *user@servername*。   
 
 ## <a name="adf-tables"></a>定義和建立資料表以指定存取資料集的方式
 使用下列指令碼型程序，建立指定資料集結構、位置及可用性的資料表。 JSON 檔案可用來定義資料表。 如需這些檔案結構的詳細資訊，請參閱 [資料集](../../data-factory/v1/data-factory-create-datasets.md)。
@@ -311,9 +293,6 @@ SQL Azure 輸出的資料表定義如下 (此結構描述會對應來自 Blob �
 
     New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 
-確認您可以在 Azure 傳統入口網站的 ADF 上看見管線，如下所示 (當您按一下圖表時)
-
-![ADF 管線](./media/move-sql-azure-adf/DJP1kji.png)
 
 ## <a name="adf-pipeline-start"></a>啟動管線
 現在可使用下列命令來執行管線：

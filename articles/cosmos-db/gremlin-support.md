@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 06/10/2017
+ms.date: 11/15/2017
 ms.author: denlee
-ms.openlocfilehash: 9d83e392774b60b795b7027188ef22d0a8e1b71d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 746cf8f88f84c81ff76340f2cfbfa11609c6483a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin graph 支援
 Azure Cosmos DB 支援 [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) \(英文\)，該圖形 API 是 [Apache Tinkerpop](http://tinkerpop.apache.org) \(英文\) 的圖形周遊語言，可用於建立圖表實體和執行圖表查詢作業。 您可以使用 Gremlin 語言建立圖表實體 (頂點和邊緣)、修改這些實體內的屬性、執行查詢和周遊，以及刪除實體。 
 
-Azure Cosmos DB 在圖表資料庫中提供符合企業需求的功能。 其中包括全域散發、獨立調整儲存體和輸送量、可預測的個位數毫秒延遲、自動編製索引，以及 99.99% 的 SLA。 由於 Azure Cosmos DB 支援 TinkerPop/Gremlin，您可以輕鬆地移轉使用另一個圖表資料庫撰寫的應用程式，而不必變更程式碼。 此外，憑藉 Gremlin 支援，Azure Cosmos DB 與啟用 TinkerPop 的分析架構緊密整合，例如 [Apache Spark GraphX](http://spark.apache.org/graphx/)。 
+Azure Cosmos DB 在圖表資料庫中提供符合企業需求的功能。 包括跨越兩個以上 Azure 區域之資料庫的全域散發、獨立調整儲存體和輸送量、可預測的個位數毫秒延遲、自動編製索引、SLA、讀取可用性。 由於 Azure Cosmos DB 支援 TinkerPop/Gremlin，您可以輕鬆地移轉使用另一個圖表資料庫撰寫的應用程式，而不必變更程式碼。 此外，憑藉 Gremlin 支援，Azure Cosmos DB 與啟用 TinkerPop 的分析架構緊密整合，例如 [Apache Spark GraphX](http://spark.apache.org/graphx/)。 
 
 在本文中，我們提供 Gremlin 的快速逐步解說，並列舉圖形 API 支援預覽中所支援的 Gremlin 功能和步驟。
 

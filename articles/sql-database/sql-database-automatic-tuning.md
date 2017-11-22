@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 09/19/2017
+ms.date: 11/08/2017
 ms.author: jovanpop
-ms.openlocfilehash: 1e884754682ecab4cdf097bd75caa6fcf2e0a29c
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 34aa035368a0516f9fa1c71c1bda491daf5ab370
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL Database 中的自動調整
 
@@ -46,10 +46,7 @@ Azure SQL Database 自動調整是您可以啟用以提供穩定且執行良好�
 
 自動調整是成熟的機制，且已在數十萬個於 Azure 上執行的資料庫上達到完美。 已套用的自動調整作業都會進行自動驗證，以確保對工作負載效能有正面的改進。 系統會動態地偵測迴歸的效能建議，並迅速地做出還原。 透過調整歷程記錄，使用者可清楚查看對每個 Azure SQL Database 所做出的調整改進。 
 
-如需自動調整運作方式的概觀與典型的使用案例，請觀賞內嵌影片：
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player]
->
+![自動調整的運作方式為何](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
 Azure SQL Database 自動調整與 SQL Server 自動調整引擎共用其核心邏輯。 如需內建智慧機制的其他技術資訊，請參閱 [SQL Server 自動調整](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning) \(英文\)。
 
@@ -60,6 +57,12 @@ Azure SQL Database 自動調整與 SQL Server 自動調整引擎共用其核心�
 自動調整可透過自動套用調整建議 (包括自動驗證效能提升) 來自主地運作。 
 
 如需更充分的控制，可以關閉自動套用調整建議的功能，並透過 Azure 入口網站手動套用調整建議。 您也可以僅使用此解決方案來檢視自動調整建議，並透過偏好的指令碼和工具來手動套用那些調整建議。 
+
+如需自動調整運作方式的概觀與典型的使用案例，請觀賞內嵌影片：
+
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player]
+>
 
 ## <a name="automatic-tuning-options"></a>自動調整選項
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: b8df9623bf3826807ba066d4e625c3138c80c5b7
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 50190642f59aa8fa7d5cce8bfde5cec9fcfbe7e4
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB：資料移轉工具
 
@@ -210,7 +210,7 @@ CSV 檔案來源匯入工具選項可讓您匯入一或多個 CSV 檔案。 新�
 ## <a id="AzureTableSource"></a>從 Azure 資料表儲存體匯入
 Azure 資料表儲存體來源匯入工具選項可讓您從個別的 Azure 資料表儲存體資料表匯入。 您可以選擇性地篩選要匯入的資料表實體。 
 
-從 Azure 資料表儲存體匯入的資料，可以輸出到 Azure Cosmos DB 資料表和實體以用於資料表 API，或是輸出到集合和文件以用於 DocumentDB API。  
+從 Azure 資料表儲存體匯入的資料，可以輸出到 Azure Cosmos DB 資料表和實體以用於資料表 API，或是輸出到集合和文件以用於 DocumentDB API。 不過，在命令列公用程式中，資料表 API 只可做為目標，您無法使用資料移轉工具使用者介面來匯出到資料表 API。 如需詳細資訊，請參閱[匯入資料以用於 Azure Cosmos DB 資料表 API](table-import.md)。 
 
 ![Azure 資料表儲存體來源選項的螢幕擷取畫面](./media/import-data/azuretablesource.png)
 
@@ -522,20 +522,6 @@ Azure Cosmos DB JSON 匯出工具可讓您將任何可用的來源選項匯出�
       }
     ]
     }]
-
-## <a id="tableapibulkexport"></a>匯出到資料表 API (大量匯入)
-
-Azure Cosmos DB 資料表 API 匯出工具可讓您從 Azure 資料表儲存體來源將資訊匯出到 Azure Cosmos DB 資料表 API 資料庫。 
-
-要做為匯入目標之 Azure Cosmos DB 資料表 API 帳戶的連接字串，可從 Azure 入口網站的 [連接字串] 頁面中擷取。 使用 [複製] 按鈕 ![Azure 入口網站中連接字串的螢幕擷取畫面](./media/import-data/copy-button.png) 在要複製整個字串的畫面右邊。
-
-![Azure 入口網站中連接字串的螢幕擷取畫面](./media/import-data/connection-string.png)
-
-## <a id="tableapiseqtarget"></a>匯出到資料表 API (循序記錄匯入)
-
-Azure Cosmos DB 資料表 API 匯出工具可讓您從 Azure 資料表儲存體來源將資訊匯出到 Azure Cosmos DB 資料表 API 資料庫。
-
-要做為匯入目標之 Azure Cosmos DB 資料表 API 帳戶的連接字串，可從 Azure 入口網站的 [連接字串] 頁面中擷取，如上面的[匯出到資料表 API (大量匯入)](#tableapibulkexport) 中的影像所示。
 
 ## <a name="advanced-configuration"></a>進階組態
 在 [進階組態] 畫面中，指定您想要寫入所有錯誤的記錄檔位置。 下列規則會套用到此頁面：

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: jroth
-ms.openlocfilehash: e502be189a29590ebe0d848b3ec43611db8d035d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 6386678bdac3630f3e003187ff3d12c0ce053b90
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server 效能最佳做法
 
@@ -113,7 +113,7 @@ D 系列、Dv2 系列和 G 系列 VM 的暫存磁碟機皆為 SSD 式。 如果�
 
   * 如果您不是使用「進階儲存體」(開發/測試案例)，建議您新增您 [VM 大小](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 所支援的最大數目資料磁碟，並使用「磁碟等量分割」。
 
-* **快取原則**：針對「進階儲存體」資料磁碟，請只在裝載資料檔和 TempDB 的資料磁碟上啟用讀取快取。 如果您並非使用進階儲存體，請勿啟用任何資料磁碟上的任何快取功能。 如需有關設定磁碟快取功能的指示，請參閱下列主題：[Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) 和 [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx)。
+* **快取原則**：針對「進階儲存體」資料磁碟，請只在裝載資料檔和 TempDB 的資料磁碟上啟用讀取快取。 如果您並非使用進階儲存體，請勿啟用任何資料磁碟上的任何快取功能。 如需有關設定磁碟快取功能的指示，請參閱下列主題。 對於傳統 (ASM) 部署模型，請參閱：[Set-azureosdisk](https://msdn.microsoft.com/library/azure/jj152847) 和 [Set-azuredatadisk](https://msdn.microsoft.com/library/azure/jj152851.aspx)。 對於 Azure Resource Manager 部署模型，請參閱：[Set-AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) 和 [Set-AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1)。
 
   > [!WARNING]
   > 變更 Azure VM 磁碟的快取設定時，請停止 SQL Server 服務，以避免任何發生資料庫損毀的可能性。

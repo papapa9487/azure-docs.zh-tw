@@ -1,5 +1,5 @@
 ---
-title: "啟用或停用 Azure 內容傳遞網路自訂網域上的 HTTPS | Microsoft Docs"
+title: "設定 Azure 內容傳遞網路自訂網域上的 HTTPS | Microsoft Docs"
 description: "了解如何在具有自訂網域的 Azure CDN 端點上啟用或停用 HTTPS。"
 services: cdn
 documentationcenter: 
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: casoper
-ms.openlocfilehash: 68a171ee6da58e6d84b466daf573577c909c7f5c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 82de79cde208cdce1ed7cbd600f1e804ff1d45ff
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="enable-or-disable-https-on-an-azure-content-delivery-network-custom-domain"></a>啟用或停用 Azure 內容傳遞網路自訂網域上的 HTTPS
+# <a name="configure-https-on-an-azure-content-delivery-network-custom-domain"></a>設定 Azure 內容傳遞網路自訂網域上的 HTTPS
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Microsoft Azure 內容傳遞網路 (CDN) 自訂網域的 HTTPS 支援，可讓您使用自己的網域名稱透過 SSL 傳遞安全內容，以改善資料傳送的安全性。 啟用自訂網域 HTTPS 的端對端工作流程已簡化為一步啟用和完整憑證管理，而且不須額外費用。
+Microsoft 支援 Azure 內容傳遞網路 (CDN) 上的自訂網域使用 HTTPS 通訊協定。 有了 HTTPS 自訂網域的支援，您可以使用自訂的網域名稱透過 SSL 傳遞安全內容，以改善資料傳送的安全性。 啟用自訂網域 HTTPS 的工作流程已簡化為一步啟用和完整憑證管理，而且不須額外費用。
 
-確保您所有 Web 應用程式在傳輸資料時的隱私和資料完整性非常重要。 使用 HTTPS 通訊協定可確保您的機密資料在網際網路上傳遞時已經過加密。 它提供信任與認證，並保護您的 Web 應用程式免於攻擊。 Azure CDN 預設支援 CDN 端點上的 HTTPS。 舉例來說，當您從 Azure CDN (例如 `https://contoso.azureedge.net`) 建立 CDN 端點時，會自動啟用 HTTPS。 此外，透過自訂網域 HTTPS 支援，您也可以針對自訂網域 (例如 `https://www.contoso.com`) 啟用安全傳遞。 
+確保您的 Web 應用程式在傳輸資料時的隱私和資料完整性非常重要。 藉由使用 HTTPS 通訊協定，可確保您的機密資料在網際網路上傳遞時已經過加密。 它提供信任與認證，並保護您的 Web 應用程式免於攻擊。 Azure CDN 預設支援 CDN 端點上的 HTTPS。 舉例來說，當您從 Azure CDN (例如 `https://contoso.azureedge.net`) 建立 CDN 端點時，會自動啟用 HTTPS。 此外，透過自訂網域 HTTPS 支援，您也可以針對自訂網域 (例如 `https://www.contoso.com`) 啟用安全傳遞。 
 
 HTTPS 功能的一些重要特色如下：
 
@@ -41,7 +41,7 @@ HTTPS 功能的一些重要特色如下：
 
 ## <a name="enabling-https"></a>啟用 HTTPS
 
-若要啟用 HTTPS，請依照下列步驟執行：
+依照下列步驟啟用自訂網域的 HTTPS︰
 
 ### <a name="step-1-enable-the-feature"></a>步驟 1︰啟用功能 
 
@@ -66,7 +66,7 @@ HTTPS 功能的一些重要特色如下：
 在您的自訂網域上啟用 HTTPS 之後，DigiCert 憑證授權單位 (CA) 會根據網域的 [WHOIS](http://whois.domaintools.com/) 註冊資訊連絡其註冊人，以驗證網域的所有權。 連絡方式為透過電子郵件地址 (預設) 或列示在 WHOIS 註冊資訊中的電話號碼。 
 
 >[!NOTE]
->如果您具有 DNS 提供者的憑證授權單位授權 (CAA) 記錄，它必須包括 DigiCert 作為有效的 CA。 CAA 記錄可讓網域擁有者透過其 DNS 提供者，指定哪些 CA 有權為其網域發行憑證。 如果 CA 收到具有 CAA 記錄之網域的憑證訂單，而且該 CA 未列出為授權簽發者，則禁止該 CA 將憑證發行給該網域或子網域。
+>如果您具有 DNS 提供者的憑證授權單位授權 (CAA) 記錄，它必須包括 DigiCert 作為有效的 CA。 CAA 記錄可讓網域擁有者透過其 DNS 提供者，指定哪些 CA 有權為其網域發行憑證。 如果 CA 收到具有 CAA 記錄之網域的憑證訂單，而且該 CA 未列出為授權簽發者，則禁止該 CA 將憑證發行給該網域或子網域。 如需管理 CAA 記錄的相關資訊，請參閱[管理 CAA 記錄](https://support.dnsimple.com/articles/manage-caa-record/)。 有關 CAA 記錄工具，請參閱 [CAA 記錄協助程式](https://sslmate.com/caa/)。
 
 ![WHOIS 記錄](./media/cdn-custom-ssl/whois-record.png)
 
@@ -82,7 +82,7 @@ postmaster@&lt;your-domain-name.com&gt;
     
 ![網域驗證電子郵件](./media/cdn-custom-ssl/domain-validation-email.png)
 
-當您按一下核准連結時，系統會將您導向以下線上核准表單： 
+當您按一下核准連結時，系統會將您導向以下的線上核准表單： 
     
 ![網域驗證表單](./media/cdn-custom-ssl/domain-validation-form.png)
 
@@ -128,7 +128,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 ## <a name="disabling-https"></a>停用 HTTPS
 
-HTTPS 啟用後，您可以在日後將它停用。 若要停用 HTTPS，請依照下列步驟執行：
+啟用自訂網域的 HTTPS 後，可以在日後將它停用。 若要停用 HTTPS，請依照下列步驟執行：
 
 ### <a name="step-1-disable-the-feature"></a>步驟 1︰停用功能 
 

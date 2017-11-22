@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: a6f10e14e3f9e5761734738caddc247d9e4a90cd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d3c8b2b1ba220bf07a2bcdbd7fb26b94f897981f
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>如何調整您的 Time Series Insights 環境規模
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/15/2017
 
    ![configure.png](media/scale-your-environment/configure.png)
 
-3. 調整 [容量] 滑桿來選取符合您所需輸入速率和儲存容量的容量。 請注意，輸入速率、儲存容量和估計成本會動態更新，以顯示變更的影響。 
+3. 調整 [容量] 滑桿來選取符合您所需輸入速率和儲存容量的容量。 請注意，**輸入速率**、**儲存容量**和**估計成本**會動態更新，以顯示變更的影響。 
 
    ![滑桿](media/scale-your-environment/slider.png)
 
@@ -59,4 +59,5 @@ ms.lasthandoff: 11/15/2017
 4. 選取 [儲存] 來調整環境。 認可變更之後，系統就會立即顯示進度列指示器。 
 
 ## <a name="next-steps"></a>後續步驟
-請確定新容量足夠以避免產生節流。 如需詳細資訊，請參閱[如果您的環境受到節流](time-series-insights-diagnose-and-solve-problems.md)。
+> [!div class="nextstepaction"]
+> [請確定新容量足夠以避免產生節流](time-series-insights-diagnose-and-solve-problems.md)。

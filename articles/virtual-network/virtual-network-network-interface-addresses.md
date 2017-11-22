@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 254d5d43f0f665f64ddfe276fe31702f66f16758
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c309c7c25a3ed75e96dec8046934530e24890f38
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>新增、變更或移除 Azure 網路介面的 IP 位址
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
     |---|---|---|
     |名稱|是|在網路介面中必須是唯一的|
     |類型|是|由於您要新增 IP 組態至現有的網路介面，而每個網路介面都必須有一個[主要](#primary) IP 組態，所以您只能選擇 [次要]。|
-    |私人 IP 位址指派方法|是|如果虛擬機器在處於已停止 (已解除配置) 狀態之後重新啟動，[**動態**](#dynamic)位址可能變更。 Azure 會指派網路介面所連線子網路之位址空間中可用的位址。 直到網路介面遭到刪除，才會釋出[**靜態**](#static)位址。 指定子網路位址空間範圍中其他 IP 組態目前未使用的 IP 位址。|
+    |私人 IP 位址指派方法|是|[**動態**](#dynamic)：Azure 會為其中部署網路介面的子網路位址範圍指派下一個可用位址。 [**靜態**](#static)：您會為其中部署網路介面的子網路位址範圍指派未使用的位址。|
     |公用 IP 位址|否|**已停用：**IP 組態目前沒有相關聯的公用 IP 位址資源。 **已啟用：**選取現有的 IPv4 公用 IP 位址，或建立一個新的。 若要了解如何建立公用 IP 位址，請閱讀[公用 IP 位址](virtual-network-public-ip-address.md#create-a-public-ip-address)一文。|
 7. 請完成[將多個 IP 位址指派給虛擬機器作業系統](virtual-network-multiple-ip-addresses-portal.md#os-config)一文中的指示，以手動方式將次要私人 IP 位址新增至虛擬機器作業系統。 有關手動將 IP 位址新增至虛擬機器作業系統之前的特殊考量，請參閱[私人](#private) IP 位址。 請勿將任何公用 IP 位址新增至虛擬機器作業系統。
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 10/11/2017
 
 私人 [IPv4](#ipv4) 位址可讓虛擬機器與虛擬網路或其他已連線網路中的其他資源進行通訊。 虛擬機器無法使用私人 [IPv6](#ipv6) 位址進行輸入或輸出通訊。唯一的例外是， 虛擬機器可以使用 IPv6 位址與 Azure Load Balancer 通訊。 如需詳細資訊，請參閱 [IPv6 的詳細資訊和限制](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#details-and-limitations)。 
 
-根據預設，Azure DHCP 伺服器會將網路介面[主要 IP 組態](#primary)的私人 IPv4 位址指派給虛擬機器作業系統內的網路介面。 除非必要，您永遠不應手動設定虛擬機器作業系統內的網路介面 IP 位址。 
+根據預設，Azure DHCP 伺服器會將 Azure 網路介面[主要 IP 組態](#primary)的私人 IPv4 位址指派給虛擬機器作業系統內的網路介面。 除非必要，您永遠不應手動設定虛擬機器作業系統內的網路介面 IP 位址。 
 
 > [!WARNING]
 > 如果設為虛擬機器作業系統內之網路介面主要 IP 位址的 IPv4 位址，不同於連接至 Azure 中的虛擬機器之主要網路介面主要 IP 組態的私人 IPv4 位址，可能會中斷與該虛擬機器的連線。
@@ -148,28 +148,34 @@ ms.lasthandoff: 10/11/2017
  
 若依上述步驟執行，指派給 Azure 內之網路介面的私人 IP 位址，將與虛擬機器作業系統內的私人 IP 位址相同。 若要記錄訂用帳戶內已為哪些虛擬機器手動設定作業系統內的 IP 位址，請考慮在虛擬機器加入 Azure[標記](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags)。 例如，您可以使用「IP 位址指派：靜態」。 如此一來，就可以輕鬆了解在訂用帳戶內，已為哪些虛擬機器手動設定作業系統內的 IP 位址。
 
-除了讓虛擬機器與同一虛擬網路或已連線虛擬網路內的其他資源通訊，私人 IP 位址也可讓虛擬機器與網際網路進行輸出通訊。 輸出連線是由 Azure 轉譯為不可預測的公用 IP 位址的來源網路位址。 若要深入了解 Azure 輸出網際網路連線能力，請閱讀[Azure 輸出網際網路連線能力](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)一文。 您無法從網際網路對虛擬機器的私人 IP 位址進行輸入通訊。
+除了讓虛擬機器與同一虛擬網路或已連線虛擬網路內的其他資源通訊，私人 IP 位址也可讓虛擬機器與網際網路進行輸出通訊。 輸出連線是由 Azure 轉譯為不可預測的公用 IP 位址的來源網路位址。 若要深入了解 Azure 輸出網際網路連線能力，請閱讀[Azure 輸出網際網路連線能力](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)一文。 您無法從網際網路對虛擬機器的私人 IP 位址進行輸入通訊。 如果您的輸出連線需要可預測的公用 IP 位址，請建立公用 IP 位址資源與網路介面的關聯。
 
 ### <a name="public"></a>公開
 
-公用 IP 位址可從網際網路對虛擬機器進行輸入連線。 對網際網路的輸出連線使用的是可預測的 IP 位址。 如需詳細資訊，請參閱[了解 Azure 中的輸出連線](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 您可以 (但不需要) 對 IP 組態指派公用 IP 位址。 如果您不指派公用 IP 位址給虛擬機器，它仍然可使用其私人 IP 位址和網際網路進行輸出通訊。 若要深入了解公用 IP 位址，請閱讀[公用 IP 位址](virtual-network-public-ip-address.md)一文。
+透過公用 IP 位址資源指派的公用 IP 位址，可從網際網路對虛擬機器進行輸入連線。 對網際網路的輸出連線使用的是可預測的 IP 位址。 如需詳細資訊，請參閱[了解 Azure 中的輸出連線](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 您可以 (但不需要) 對 IP 組態指派公用 IP 位址。 如果您不透過與公用 IP 位址資源建立關聯，來指派公用 IP 位址給虛擬機器，虛擬機器仍然可和網際網路進行輸出通訊。 在此情況下，私人 IP 位址是由 Azure 轉譯為不可預測的公用 IP 位址的來源網路位址。 若要深入了解公用 IP 位址資源，請參閱[公用 IP 位址資源](virtual-network-public-ip-address.md)。
 
 您可以指派給網路介面的私人和公用 IP 位址數目有所限制。 如需詳細資訊，請閱讀 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)一文。
 
 > [!NOTE]
-> Azure 會將虛擬機器的私人 IP 位址轉譯為公用 IP 位址。 因此，作業系統不會察覺有任何公用 IP 位址指派給它，所以不需在作業系統內手動指派公用 IP 位址。
+> Azure 會將虛擬機器的私人 IP 位址轉譯為公用 IP 位址。 因此，虛擬機器的作業系統不會察覺有任何公用 IP 位址指派給它，所以不需在作業系統內手動指派公用 IP 位址。
 
 ## <a name="assignment-methods"></a>指派方法
 
-您可以使用下列指派方法來指派公用和私人 IP 位址︰
+您可以使用下列其中一個指派方法來指派公用和私人 IP 位址︰
 
 ### <a name="dynamic"></a>動態
 
-系統預設會指派動態的私人 IPv4 和 IPv6 (選擇性) 位址。 如果虛擬機器在進入已停止 (已解除配置) 狀態後又啟動，動態位址將會變更。 如果您希望 IPv4 位址在虛擬機器存留期內不要變更，請使用靜態方法指派位址。 您只能使用動態指派方法指派私人 IPv6 位址。 無論使用任一種方法，都無法將公用 IPv6 位址指派給 IP 組態。
+系統預設會指派動態的私人 IPv4 和 IPv6 (選擇性) 位址。 
+
+- **僅限公用**：Azure 會從每個 Azure 區域專屬的範圍指派位址。 若要了解每個區域會被指派哪些範圍，請參閱 [Microsoft Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。 您可以在虛擬機器停止 (解除配置) 並重新啟動時變更位址。 無論使用任一種指派方法，都無法將公用 IPv6 位址指派給 IP 組態。
+- **僅限私人**：Azure 會保留每個子網路位址範圍內的前四個位址，並不會指派位址。 Azure 會將子網路位址範圍內的下一個可用位址指派給資源。 例如，如果子網路的位址範圍是 10.0.0.0/16，而且已指派位址 10.0.0.0.4-10.0.0.14 (已保留 0-.3)，Azure 會將 10.0.0.15 指派給資源。 動態是預設配置方法。 指派之後，只有在網路介面遭到刪除、指派給相同虛擬網路內的不同子網路，或配置方法變更為靜態，並指定不同的 IP 位址後，才會釋出動態 IP 位址。 根據預設，當您的配置方法從動態變更為靜態時，Azure 會將先前動態指派的位址指派為靜態位址。 您只能使用動態指派方法指派私人 IPv6 位址。
 
 ### <a name="static"></a>靜態
 
-使用靜態方法指派的位址，在虛擬機器刪除之前不會變更。 您是從網路介面所在之子網路的位址空間，手動指派靜態私人 IPv4 位址給 IP 組態。 您可以 (選擇性) 指派公用或私人靜態 IPv4 位址給 IP 組態。 您無法指派靜態公用或私人 IPv6 位址給 IP 組態。 若要深入了解 Azure 如何指派靜態的公用 IPv4 位址，請參閱[公用 IP 位址](virtual-network-public-ip-address.md)一文。
+您可以 (選擇性) 指派公用或私人靜態 IPv4 位址給 IP 組態。 您無法指派靜態公用或私人 IPv6 位址給 IP 組態。 若要深入了解 Azure 如何指派靜態的公用 IPv4 位址，請參閱[公用 IP 位址](virtual-network-public-ip-address.md)一文。
+
+- **僅限公用**：Azure 會從每個 Azure 區域專屬的範圍指派位址。 若要了解每個區域會被指派哪些範圍，請參閱 [Microsoft Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。 位址不會變更，除非其指派目的地的公用 IP 位址資源遭到刪除，或指派方法變更為動態。 如果公用 IP 位址資源與 IP 設定相關聯，則變更指派方法前，必須先取消與 IP 設定的關聯。
+- **僅限私人**：您選取並指派子網路位址範圍內的位址。 您指派的位址可以是子網路位址範圍內的任何位址，但該位址不是子網路位址範圍內的前四個位址之一，而且目前並未指派給子網路中的任何其他資源。 只有在刪除網路介面後，才會釋出靜態位址。 如果您將配置方法變更為靜態，Azure 會以動態方式將先前指派的靜態 IP 位址指派為動態位址 (即使此位址不是子網路位址範圍內的下一個可用位址)。 如果網路介面已指派給相同虛擬網路內的不同子網路，位址也會跟著變更，但若要將網路介面指派給不同的子網路，您必須先將配置方法從靜態變更為動態。 一旦您將網路介面指派給不同的子網路，您即可將配置方法變回靜態，並從新的子網路位址範圍中指派 IP 位址。
 
 ## <a name="ip-address-versions"></a>IP 位址版本
 

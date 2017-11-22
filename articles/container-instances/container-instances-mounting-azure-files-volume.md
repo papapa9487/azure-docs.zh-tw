@@ -14,16 +14,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 11/09/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 41c3a449b39d6ef77e1dd0cf10699f8debcad475
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 0f824dad7ba5b661941e952383025e5171f32e55
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="mounting-an-azure-file-share-with-azure-container-instances"></a>使用 Azure 容器執行個體來掛接 Azure 檔案共用
+# <a name="mount-an-azure-file-share-with-azure-container-instances"></a>使用 Azure 容器執行個體來掛接 Azure 檔案共用
 
 根據預設，Azure 容器執行個體都是無狀態的。 如果容器損毀或停止，其所有狀態都會遺失。 若要在容器超過存留期後保存其狀態，您必須從外部存放區掛接磁碟區。 本文說明如何掛接 Azure 檔案共用以便與 Azure 容器執行個體搭配使用。
 
@@ -66,7 +66,7 @@ STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_G
 echo $STORAGE_KEY
 ```
 
-## <a name="store-storage-account-access-details-with-azure-key-vault"></a>使用 Azure 金鑰保存庫來儲存儲存體帳戶的存取詳細資料
+## <a name="store-storage-account-access-details-with-azure-key-vault"></a>使用 Azure Key Vault 儲存儲存體帳戶的存取詳細資料
 
 儲存體帳戶金鑰可保護資料的存取，因此建議您將金鑰儲存在 Azure 金鑰保存庫中。
 
@@ -185,16 +185,16 @@ az keyvault show --name $KEYVAULT_NAME --query [id] -o tsv
 透過定義的範本，您可以使用 Azure CLI 建立容器並掛接其磁碟區。 假設範本檔案的名稱為 azuredeploy.json，參數檔案的名稱為 azuredeploy.parameters.json，則命令列如下：
 
 ```azurecli-interactive
-az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group myResourceGroup
+az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group $ACI_PERS_RESOURCE_GROUP
 ```
 
-容器啟動後，您即可使用 **seanmckenna/aci-hellofiles** 映像部署的簡單 Web 應用程式，管理位於指定掛接路徑之 Azure 檔案共用中的檔案。 透過下列操作取得 Web 應用程式的 IP 位址：
+容器啟動後，您即可使用 **seanmckenna/aci-hellofiles** 映像部署的簡單 Web 應用程式，管理位於指定掛接路徑之 Azure 檔案共用中的檔案。 使用 [az container show](/cli/azure/container#az_container_show) 取得 Web 應用程式的 IP 位址：
 
 ```azurecli-interactive
-az container show --resource-group myResourceGroup --name hellofiles -o table
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles -o table
 ```
 
-您可以使用 [Microsoft Azure 儲存體總管](http://storageexplorer.com)之類的工具擷取和檢查寫入至檔案共用的檔案。
+您可以使用 [Microsoft Azure 儲存體總管](https://storageexplorer.com)之類的工具擷取和檢查寫入至檔案共用的檔案。
 
 >[!NOTE]
 > 若要深入了解如何使用 Azure Resource Manager 範本、參數檔案以及使用 Azure CLI 進行部署，請參閱[使用 Resource Manager 範本與 Azure CLI 部署資源](../azure-resource-manager/resource-group-template-deploy-cli.md)。

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: sethm;babanisa
-ms.openlocfilehash: db8b119178de0e565b2064e9a52d5e9989d60d38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 613ea691e38b6f0bcd8873fc2ec6bcafb3cc6c78
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>事件中樞專用的概觀
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 | 發行者原則 | 是 | 是 |   
 | 用戶群組 | 20 | 20 |
 | 訊息重播 | 是 | 是 |
-| 最大輸送量單位 | 20 (可通融至 100)   | 1 CU≈200 |
+| 最大輸送量單位 | 20 (可通融至 100)   | 1 CU≈50 |
 | 代理連線 | 包含 1,000 個 | 包含 10 萬個 |
 | 其他代理連線 | 是 | 是 |
 | 訊息保留期 | 含 1 天 | 最多含 7 天 |
@@ -48,18 +48,25 @@ ms.lasthandoff: 10/11/2017
 * 相較於標準的 256 KB，訊息大小增加至 1 MB。
 * 可重複每次效能。
 * 容量保證符合您暴增的需求。
-* 可在 1 與 8 容量單位 (CU) 之間調整，每秒最多可提供 2 百萬個輸入事件。
-  * CU 可管理事件中樞專用的規模，每個 CU 可提供大約相當於 200 個輸送量單位 (TU)。
+* 包含 Azure 事件中樞的[擷取](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)功能，以提供與微批次和長期保留的整合
 * 零維護：負載平衡、作業系統更新、安全性修補程式及資料分割都由我們管理。
-* 每月價格固定。
+* 固定的每小時定價。
+* 訊息保留最多 7 天，不額外收費
 
 事件中樞專用也會移除一些標準供應項目的輸送量限制。 標準層的輸送量單位可讓您每個 TU 的輸入為每秒 1000 個事件或每秒 1 MB，而輸出則為該數量的兩倍。 專用規模的供應項目的輸入和輸出事件計數沒有限制。 這些限制僅取決於所購買事件中樞的處理能力。
+
+這個保留的專用環境提供了其他這一層獨有的功能，例如：
+
+* 控制叢集中的命名空間數目
+* 指定每個命名空間的輸送量限制
+* 設定每個命名空間下事件中樞的數目
+* 決定分割區的數目限制
 
 這項服務以最大型遙測使用者為目標，同時提供給企業合約客戶。
 
 ## <a name="how-to-onboard"></a>如何加入
 
-事件中樞專用平台是透過企業合約，以不同的 CU 大小來提供。 每個 CU 可提供大約相當於 200 個輸送量單位。 您可以根據需求新增或移除 CU 於當月上下調整容量。 專用方案的獨特之處在於可從事件中樞產品小組獲得更為實際的加入體驗，以最適合您的方式彈性部署。 
+您可以根據需求新增或移除 CU 於當月上下調整容量。 專用方案的獨特之處在於可從事件中樞產品小組獲得更為實際的加入體驗，以最適合您的方式彈性部署。 若要使用此 SKU，請連絡 (帳務支援) [https://ms.portal.azure.com/#create/Microsoft.Support] 或您的 Microsoft 業務代表。
 
 ## <a name="next-steps"></a>後續步驟
 請連絡 Microsoft 銷售代表或 Microsoft 支援服務，以取得事件中樞專用容量的其他詳細資料。 您也可以造訪下列連結以深入了解事件中樞︰

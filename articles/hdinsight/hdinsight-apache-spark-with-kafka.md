@@ -4,7 +4,7 @@ description: "了解如何使用 DStreams 以 Spark Apache Spark 串流方式將
 keywords: "kafka 範例,kafka zookeeper,spark 串流 kafka,spark 串流 kafka 範例"
 services: hdinsight
 documentationcenter: 
-author: maxluk
+author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.assetid: dd8f53c1-bdee-4921-b683-3be4c46c2039
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
-ms.author: maxluk
-ms.openlocfilehash: 6608363f90b61fe60f26d3f9fafd77b1e2232838
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: larryfr
+ms.openlocfilehash: 652719a80133434ecb31c00738dcda261cfa0683
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="apache-spark-streaming-dstream-example-with-kafka-preview-on-hdinsight"></a>在 HDInsight 上使用 Kafka 的 Apache Spark 串流 (DStream) 範例 (預覽)
+# <a name="apache-spark-streaming-dstream-example-with-kafka-on-hdinsight"></a>在 HDInsight 上使用 Kafka 的 Apache Spark 串流 (DStream) 範例
 
 了解如何在 HDInsight 上使用 DStreams，以 Spark Apache Spark 串流方式將資料送入或送出 Apache Kafka。 這個範例會使用在 Spark 叢集上執行的 Jupyter Notebook。
 > [!NOTE]
@@ -43,9 +43,9 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 1. 使用以下按鈕，在 Azure 入口網站中登入 Azure 並開啟範本。
     
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v2.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    Azure Resource Manager 範本位於 **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v2.1.json**。
+    Azure Resource Manager 範本位於 **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json**。
 
     > [!WARNING]
     > 若要保證 Kafka 在 HDInsight 上的可用性，您的叢集必須包含至少三個背景工作角色節點。 此範本會建立包含三個背景工作角色節點的 Kafka 叢集。
@@ -60,7 +60,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
     * **位置**：選取在地理上靠近您的位置。
 
-    * **基底叢集名稱**︰此值會做為 Spark 和 Kafka 叢集的基底名稱。 例如，輸入 **hdi** 可建立名為 spark-hdi__ 的 Spark 叢集以及名為 **kafka-hdi** 的 Kafka 叢集。
+    * **基底叢集名稱**︰此值會做為 Spark 和 Kafka 叢集的基底名稱。 例如，輸入 **hdi** 可建立名為 __spark-hdi__ 的 Spark 叢集以及名為 **kafka-hdi** 的 Kafka 叢集。
 
     * **叢集登入使用者名稱**：Spark 和 Kafka 叢集的系統管理員使用者名稱。
 

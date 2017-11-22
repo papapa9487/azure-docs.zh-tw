@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: denlee
 ms.custom: mvc
-ms.openlocfilehash: b1419e5aad9446b9d96450cfad79b200cda9a518
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 613956416d35687c5f2fe0123a9a59182390b440
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB：使用 .NET 搭配圖形 API 進行開發
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。 
@@ -53,7 +53,6 @@ Gremlin 是一個函式程式設計語言，可支援寫入作業 (DML) 及查�
 
 > [!TIP]
 > * 已經有 Azure Cosmos DB 帳戶？ 如果是，請直接跳到[設定您的 Visual Studio 方案](#SetupVS)
-> * 您是否已有 Azure DocumentDB 帳戶？ 如果是，您的帳戶現在會是 Azure Cosmos DB 帳戶，且您可以直接跳到[設定您的 Visual Studio 方案](#SetupVS)。  
 > * 如果您使用「Azure Cosmos DB 模擬器」，請依照 [Azure Cosmos DB 模擬器](local-emulator.md)的步驟來設定模擬器，然後直接跳到[設定您的 Visual Studio 方案](#SetupVS)。 
 >
 > 
@@ -63,8 +62,8 @@ Gremlin 是一個函式程式設計語言，可支援寫入作業 (DML) 及查�
 ## <a id="SetupVS"></a>設定您的 Visual Studio 方案
 1. 在電腦上開啟 **Visual Studio**。
 2. 從 [檔案] 功能表中，選取 [新增]，然後選擇 [專案]。
-3. 在 新增專案  對話方塊中，選取 範本 / Visual C# / 主控台應用程式 (.NET Framework)、為專案命名，然後按一下確定。
-4. 在 方案總管 中，以滑鼠右鍵按一下 Visual Studio 方案底下的新主控台應用程式，然後按一下管理 NuGet 套件...
+3. 在 [新增專案]  對話方塊中，選取 [範本] / [Visual C#] / [主控台應用程式 (.NET Framework)]、為專案命名，然後按一下 [確定]。
+4. 在 [方案總管] 中，以滑鼠右鍵按一下 Visual Studio 方案底下的新主控台應用程式，然後按一下 [管理 NuGet 套件...]
 5. 在 [NuGet] 索引標籤中，按一下 [瀏覽]，然後在搜尋方塊中輸入 **Microsoft.Azure.Graphs**，接著選取 [包含發行前版本]。
 6. 在結果中尋找 **Microsoft.Azure.Graphs**，然後按一下 [安裝]。
    
@@ -82,11 +81,11 @@ string authKey = ConfigurationManager.AppSettings["AuthKey"];
 ``` 
 接著，返回 [Azure 入口網站](https://portal.azure.com)以擷取您的端點 URL 和主要金鑰。 必須提供端點 URL 和主要金鑰，您的應用程式才能了解要在連接到哪裡，而 Azure Cosmos DB 才會信任您的應用程式連接。 
 
-在 Azure 入口網站中，瀏覽至您的 Azure Cosmos DB 帳戶，按一下 金鑰，然後按一下讀寫金鑰。 
+在 Azure 入口網站中，瀏覽至您的 Azure Cosmos DB 帳戶，按一下 [金鑰]，然後按一下 [讀寫金鑰]。 
 
 從入口網站中複製 URI，然後將它貼到上述端點屬性中的 `Endpoint`。 然後從入口網站複製「主要金鑰」，並將它貼到上述的 `AuthKey` 屬性。 
 
-![本教學課程用來建立 C# 應用程式的 Azure 入口網站螢幕擷取畫面。 顯示 Azure Cosmos DB 帳戶，其中 Azure Cosmos DB 瀏覽區上醒目提示 [金鑰] 按鈕，[金鑰] 刀鋒視窗上則醒目提示 [URI] 和 [主要金鑰] 的值 [keys] 
+![本教學課程用來建立 C# 應用程式的 Azure 入口網站螢幕擷取畫面。 顯示 Azure Cosmos DB 帳戶，其中 Azure Cosmos DB 瀏覽區上醒目提示 [金鑰] 按鈕，[金鑰] 刀鋒視窗上則醒目提示 [URI] 和 [主要金鑰] 的值](./media/tutorial-develop-graph-dotnet/keys.png) 
  
 ## <a id="instantiate"></a>將 DocumentClient 具現化 
 接著，建立 **DocumentClient** 的新執行個體。  
@@ -269,7 +268,7 @@ IDocumentQuery<Vertex> friendsOfFriendsOfThomas = client.CreateGremlinQuery<Vert
 如果您將不繼續使用此應用程式，請使用下列步驟，在 Azure 入口網站中刪除本教學課程所建立的所有資源。  
 
 1. 從 Azure 入口網站的左側功能表中，按一下 [資源群組]，然後按一下您所建立資源的名稱。 
-2. 在資源群組頁面上，按一下 刪除，在文字方塊中輸入要刪除之資源的名稱，然後按一下刪除。
+2. 在資源群組頁面上，按一下 [刪除]，在文字方塊中輸入要刪除之資源的名稱，然後按一下 [刪除]。
 
 ## <a name="next-steps"></a>後續步驟
 

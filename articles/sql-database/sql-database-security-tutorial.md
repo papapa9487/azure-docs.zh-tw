@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/28/2017
 ms.author: daredis
-ms.openlocfilehash: d25a0461bf194808f9bd66ddbd120448620eeba0
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 90c03f1538197e1cd1c90165417a4ec74c9c5961
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="secure-your-azure-sql-database"></a>保護 Azure SQL Database
 
@@ -242,7 +242,7 @@ Azure SQL Database 稽核會追蹤資料庫事件並將事件寫入您 Azure 儲
 在本教學課程中，您已了解只需要幾個簡單步驟，就可以讓資料庫預防惡意使用者或未經授權的存取。  您已了解如何︰ 
 
 > [!div class="checklist"]
-> * 設定伺服器和/或資料庫的防火牆規則
+> * 設定伺服器和資料庫的防火牆規則
 > * 使用安全的連接字串來與資料庫連線
 > * 管理使用者的存取
 > * 使用加密來保護您的資料

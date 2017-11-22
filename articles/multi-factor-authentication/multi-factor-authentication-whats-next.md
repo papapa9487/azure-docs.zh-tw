@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
-ms.reviewer: alexwe
-ms.openlocfilehash: 723bd7135a59bcc0bce648460f871a841a684d3c
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.reviewer: richagi
+ms.openlocfilehash: 4900707baa875ae4527d82e8189d5bc4d319ae0c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>設定 Azure Multi-Factor Authentication 設定 - 公開預覽
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/08/2017
 
 | 功能 | 說明 | 
 |:--- |:--- |
-| [封鎖/解除封鎖使用者](#block/unblock-users) |封鎖/解除封鎖使用者可以防止使用者接收驗證要求。 |
+| [封鎖及解除封鎖使用者](#block-and-unblock) |封鎖/解除封鎖使用者可以防止使用者接收驗證要求。 |
 | [詐騙警示](#fraud-alert) |您可以設定詐騙警示，讓使用者得以針對存取其資源的詐騙嘗試提出報告。 |
 | [一次性略過](#one-time-bypass) |一次性略過可讓使用者「略過」Multi-Factor Authentication 來通過驗證一次。 |
 | [自訂語音訊息](#custom-voice-messages) |自訂語音訊息可讓您將自己的錄音或問候語用於 Multi-Factor Authentication。 |
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/08/2017
 | [針對已記住的裝置和瀏覽器，記住其 Multi-Factor Authentication](#remember-multi-factor-authentication-for-devices-that-users-trust) |可讓您在使用者使用 MFA 成功登入後的設定天數內記住裝置。 |
 | [可選取的驗證方法](#selectable-verification-methods) |可讓您選擇可供使用者使用的驗證方法。 |
 
-## <a name="blockunblock-users"></a>封鎖/解除封鎖使用者
+## <a name="block-and-unblock"></a>封鎖及解除封鎖
 使用封鎖/解除封鎖使用者，可以防止使用者接收驗證要求。 系統會自動拒絕已封鎖使用者的任何驗證嘗試。 封鎖的使用者自封鎖時間開始，將持續封鎖 90 天。
 
 ### <a name="block-a-user"></a>封鎖使用者
@@ -70,7 +70,7 @@ ms.lasthandoff: 11/08/2017
 
 ### <a name="configuration-options"></a>組態選項
 
-- **回報詐騙時封鎖使用者** - 如果使用者報告詐騙，將會封鎖其帳戶。
+- **回報詐騙時封鎖使用者** - 如果使用者回報詐騙，他們的帳戶會被封鎖 90 天，或者封鎖直到系統管理員解除封鎖其帳戶。 系統管理員可以使用登入報表來檢閱登入，並採取適當的動作以避免未來的詐騙。 系統管理員接著可以[解除封鎖](#unblock-a-user)使用者的帳戶。
 - **初始問候語期間以代碼報告詐騙** - 當使用者收到電話以執行雙步驟驗證時，他們一般會按下 # 來確認登入。 如果他們想要報告詐騙，則需要在按 # 之前輸入代碼。 根據預設，此代碼是 **0**，但您可以自訂。
 
 > [!NOTE]
