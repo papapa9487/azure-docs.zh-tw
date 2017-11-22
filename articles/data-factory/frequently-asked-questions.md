@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: shlo
-ms.openlocfilehash: 2cc128e8f7792a6a363aacf50f8724d689892c83
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 197ecff6728a7a2ce78cc6ca2861a10222a6b56b
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory 常見問題集
 本文適用於第 2 版的 Azure Data Factory 服務。 本文提供 Data Factory 常見問題集的解答。  
@@ -152,7 +152,7 @@ Data Factory 中的連結服務，有兩個用途：
 請參閱 [Data Factory 定價詳細資料](https://azure.microsoft.com/pricing/details/data-factory/)頁面，以瞭解 Azure Data Factory 的定價詳細資料。
 
 ## <a name="what-regions-support-azure-data-factory-version-2"></a>哪些區域支援 Azure Data Factory 第 2 版？
-您目前可以在「美國東部」和「美國東部 2」區域建立第 2 版的資料處理站。 不過，資料處理站可以在另一個區域中使用整合執行階段，以在資料存放區之間移動資料、對計算服務分派活動，或分派 SSIS 封裝。 如需詳細資訊，請參閱 [Data Factory 位置](concepts-integration-runtime.md#integration-runtime-location)。
+您目前可以在「美國東部」和「美國東部 2」和「西歐」區域建立第 2 版的資料處理站。 不過，資料處理站可以在另一個區域中使用整合執行階段，以在資料存放區之間移動資料、對計算服務分派活動，或分派 SSIS 封裝。 如需詳細資訊，請參閱 [Data Factory 位置](concepts-integration-runtime.md#integration-runtime-location)。
 
 ## <a name="how-can-i-stay-up-to-date-with-information-about-data-factory"></a>如何掌握 Data Factory 的最新資訊？
 移至下列網站掌握 Azure Data Factory 的最新資訊：
