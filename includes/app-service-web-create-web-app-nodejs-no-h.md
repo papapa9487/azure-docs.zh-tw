@@ -1,6 +1,6 @@
-在 Cloud Shell 中，使用 [aaz webapp create](/cli/azure/webapp#create) 命令，在 `myAppServicePlan` App Service 方案中建立 Web 應用程式。 別忘了以唯一的應用程式名稱取代 `<app_name>`。
+在 Cloud Shell 中，使用 [az webapp create](/cli/azure/webapp#create) 命令，在 `myAppServicePlan` App Service 方案中建立 Web 應用程式。 
 
-下列命令中的執行階段會設定為 `NODE|6.9`。 若要查看所有支援的執行階段，請執行 [az webapp list-runtimes](/cli/azure/webapp#list-runtimes)。 
+在下列範,了中，使用全域唯一的應用程式名稱 (有效的字元為 `a-z`、`0-9` 和 `-`) 取代 `<app_name>`。 執行階段設定為 `NODE|6.9`。 若要查看所有支援的執行階段，請執行 [az webapp list-runtimes](/cli/azure/webapp#list-runtimes)。 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9" --deployment-local-git

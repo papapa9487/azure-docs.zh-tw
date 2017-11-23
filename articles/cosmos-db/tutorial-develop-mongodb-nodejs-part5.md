@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 09/05/2017
 ms.author: mimig
-ms.openlocfilehash: e752e18f6d579633c0cf553224ae7617b774ad0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 697ea4aedb025f4bff4b88df3370ed7c12e7b0d7
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-use-mongoose-to-connect-to-azure-cosmos-db"></a>使用 Angular 和 Azure Cosmos DB 建立 MongoDB 應用程式 - 第 5 部分：使用 Mongoose 來連線至 Azure Cosmos DB
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 10/11/2017
     const env = require('./env/environment');
 
     // eslint-disable-next-line max-len
-    const mongoUri = `mongodb://${env.dbName}:${env.key}@${env.dbName}.documents.azure.com:${env.cosmosPort}/?ssl=true`; //&replicaSet=globaldb`;
+    const mongoUri = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.com:${env.port}/${env.databaseName}?ssl=true`;
 
     function connect() {
      mongoose.set('debug', true);
@@ -91,26 +91,24 @@ ms.lasthandoff: 10/11/2017
 5. 從 mongo.js 檔案，我們知道我們必須包含`dbName`、`key` 和 `cosmosPort`，所以將下列程式碼複製到 **environment.js**。
 
     ```javascript
-    const cosmosPort = 1234; // replace with your port
-    const dbName = 'your-cosmos-db-name-goes-here';
-    const key = 'your-key-goes-here';
-
+    // TODO: replace if yours are different
     module.exports = {
-      dbName,
-      key,
-      cosmosPort
+      accountName: 'your-cosmosdb-account-name-goes-here',
+      databaseName: 'admin', 
+      key: 'your-key-goes-here',
+      port: 10255
     };
     ```
 
 ## <a name="get-the-connection-string-information"></a>取得連接字串資訊
 
-1. 在 **environment.js** 中，將 `cosmosPort` 的值變更為 10255。 (您可以在 Azure 入口網站中找到您的 Cosmos DB 連接埠)
+1. 在 **environment.js** 中，將 `port` 的值變更為 10255。 (您可以在 Azure 入口網站中找到您的 Cosmos DB 連接埠)
 
     ```javascript
-    const cosmosPort = 10255;
+    const port = 10255;
     ```
 
-2. 在 **environment.js** 中，將 `dbName` 的值變更為您在[步驟 4](tutorial-develop-mongodb-nodejs-part4.md) 中建立的 Azure Cosmos DB 帳戶名稱。 
+2. 在 **environment.js** 中，將 `accountName` 的值變更為您在[步驟 4](tutorial-develop-mongodb-nodejs-part4.md) 中建立的 Azure Cosmos DB 帳戶名稱。 
 
 3. 在終端機視窗中使用下列的 CLI 命令，擷取 Azure Cosmos DB 帳戶的主索引鍵： 
 

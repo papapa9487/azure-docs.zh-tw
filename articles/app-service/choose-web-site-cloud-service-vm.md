@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: edd5099d2804fdb5867b4be5b11a361004db1665
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: bac9169bc41927ef8cf88aee256b2e057ccad4e9
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service、虛擬機器、Service Fabric 及雲端服務的比較
 ## <a name="overview"></a>概觀
@@ -48,7 +48,7 @@ Azure App Service 是大多數 Web 應用程式的最佳選擇。 部署和管�
 | 存取服務匯流排、儲存體、SQL Database 等服務。 |X |X |X |X | |
 | 裝載多層式架構的 Web 或 Web 服務層 |X |X |X |X | |
 | 裝載多層式架構的中間層 |X |X |X |X |App Service Web 應用程式可以輕易裝載 REST API 中間層，而 [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) 功能可以裝載背景處理工作。 您可以在專用網站中執行 WebJobs，以實現此層的獨立擴充性。 |
-| 整合 MySQL 即服務的支援 |X |X |X | |雲端服務可透過 ClearDB 的供應項目來整合 MySQL 即服務，而不需要在 Azure 入口網站工作流程中進行。 |
+| 整合 MySQL 即服務的支援 |X |X | | | |
 | 支援 ASP.NET、傳統 ASP、Node.js、PHP、Python |X |X |X |X |Service Fabric 支援使用 [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md) 建立 Web 前端，也可讓您以[來賓可執行檔](../service-fabric/service-fabric-deploy-existing-app.md)的形式部署任何類型的應用程式 (Node.js、Java 等)。 |
 | 向外延展至多個執行個體而不重新部署 |X |X |X |X |「虛擬機器」可向外延展至多個執行個體，但這些機器上執行的服務必須設計成應付這個向外延展情況。您必須設定負載平衡器來將要求路由傳送到各機器，並建立同質群組，以避免在維護或硬體故障時所有執行個體同時重新啟動。 |
 | 支援 SSL |X |X |X |X |在 App Service Web 應用程式中，只有基本和標準模式才支援自訂網域名稱的 SSL。 如需 Web 應用程式使用 SSL 的相關資訊，請參閱[設定 Azure 網站的 SSL 憑證](app-service-web-tutorial-custom-ssl.md)。 |
@@ -97,7 +97,7 @@ Azure App Service 是裝載公司網站的絕佳解決方案。 它可讓 Web �
 * 與 Active Directory 整合
 
 ### <a id="iis6"></a> 我有一個在 Windows Server 2003 上執行的 IIS6 應用程式。
-Azure App Service 可讓您輕鬆地省去移轉舊版 IIS6 應用程式時相關的基礎結構成本。 Microsoft 建立 [簡單易用的移轉工具和詳細的移轉指引](https://www.movemetowebsites.net/) ，可讓您檢查相容性和識別任何需要進行的變更。 與 Visual Studio、TFS 和一般 CMS 工具整合，讓您輕鬆地將 IIS6 應用程式直接部署到雲端。 部署之後，Azure 入口網站提供健全的管理工具，可讓您依需要相應減少來管理成本，或相應增加來符合需求。 移轉工具可讓您：
+Azure App Service 可讓您輕鬆地省去移轉舊版 IIS6 應用程式時相關的基礎結構成本。 Microsoft 建立 [簡單易用的移轉工具和詳細的移轉指引](https://www.migratetoazure.net/) ，可讓您檢查相容性和識別任何需要進行的變更。 與 Visual Studio、TFS 和一般 CMS 工具整合，讓您輕鬆地將 IIS6 應用程式直接部署到雲端。 部署之後，Azure 入口網站提供健全的管理工具，可讓您依需要相應減少來管理成本，或相應增加來符合需求。 移轉工具可讓您：
 
 * 快速又輕鬆地將舊式的 Windows Server 2003 Web 應用程式移轉至雲端。
 * 選擇將連結的 SQL 資料庫留在內部部署，以建立混合式應用程式。
@@ -174,7 +174,6 @@ HTTP 型 Web 服務可讓您支援各種用戶端，包括行動用戶端。 ASP
 [Cloud Services]: /azure/cloud-services/
 [Virtual Machines]: /azure/virtual-machines/
 [Service Fabric]: /azure/service-fabric/
-[ClearDB]: http://www.cleardb.com/
 [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
 [Configuring an SSL certificate for an Azure Website]: app-service-web-tutorial-custom-ssl.md
 [azurestore]: https://azuremarketplace.microsoft.com/en-us/marketplace/apps

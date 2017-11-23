@@ -13,31 +13,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: genemi
-ms.openlocfilehash: fbfaea938676991cf6280e5dd8c1e1190aa268a8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 4c90d70bb3b043ef81a224f0f69107eaa6eb0547
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="guidance-and-tips-for-azure-sql-database-multi-tenant-saas-app-example"></a>Azure SQL Database 多租用戶 SaaS 應用程式範例的指引和祕訣
 
 
-## <a name="download-and-unblock-the-wingtip-saas-scripts"></a>下載並解除封鎖 Wingtip SaaS 指令碼
+## <a name="download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts"></a>下載並解除封鎖 Wingtip Tickets SaaS Database per Tenant 指令碼
 
 從外部來源下載 zip 檔案並進行解壓縮時，Windows 可能會封鎖可執行的內容 (指令碼、dll)。 從 zip 檔案解壓縮指令碼時，***請遵循下列步驟先解除封鎖 .zip 檔案，再進行解壓縮***。 這可確保允許執行指令碼。
 
-1. 瀏覽至 [Wingtip SaaS github 存放庫](https://github.com/Microsoft/WingtipSaaS)。
+1. 瀏覽至 [Wingtip Tickets SaaS Database per Tenant GitHub 存放庫](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)。
 2. 按一下 [複製或下載]。
 3. 按一下 [下載 ZIP]，並儲存檔案。
-4. 以滑鼠右鍵按一下 **WingtipSaaS-master.zip** 檔案，然後選取 [內容]。
+4. 以滑鼠右鍵按一下 **WingtipTicketsSaaS-DbPerTenant-master.zip** 檔案，然後選取 [屬性]。
 5. 在 [一般] 索引標籤上，選取 [解除封鎖]。
 6. 按一下 [確定] 。
 7. 將檔案解壓縮。
 
-指令碼位於 *..\\WingtipSaaS-master\\Learning Modules* 資料夾中。
+指令碼檔案位於 *..\\學習模組*資料夾中。
 
 
-## <a name="working-with-the-wingtip-saas-powershell-scripts"></a>使用 Wingtip SaaS PowerShell 指令碼
+## <a name="working-with-the-wingtip-tickets-saas-database-per-tenant-powershell-scripts"></a>搭配使用 Wingtip Tickets SaaS Database per Tenant PowerShell 指令碼
 
 若要充分利用此範例，您必須深入了解所提供的指令碼。 使用中斷點和逐步執行指令碼，並檢查不同 SaaS 模式的實作方式詳細資料。 若要輕鬆地逐步執行所提供的指令碼和模組，以獲得充分瞭解，我們建議使用 [PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise)。
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 11/14/2017
 部署一開始有兩部可連線的 SQL Database 伺服器 - *tenants1-&lt;User&gt;* 伺服器和 *catalog-&lt;User&gt;* 伺服器。 若要確保示範連線成功，這兩部伺服器都有允許所有 IP 通過的[防火牆規則](sql-database-firewall-configure.md)。
 
 
-1. 開啟 SSMS 並連線到 tenants1-*&lt;User&gt;.database.windows.net* 伺服器。
+1. 開啟 *SSMS* 並連線到 *tenants1-dpt-&lt;User&gt;.database.windows.net* 伺服器。
 2. 按一下 [連線] > **[資料庫引擎...]**：
 
    ![目錄伺服器](media/saas-dbpertenant-wingtip-app-guidance-tips/connect.png)
@@ -85,7 +85,7 @@ ms.lasthandoff: 11/14/2017
 
    ![connection](media/saas-dbpertenant-wingtip-app-guidance-tips/tenants1-connect.png)
 
-4. 重複步驟 2-3 並連線到 catalog-&lt;User&gt;.database.windows.net 伺服器。
+4. 重複步驟 2-3 並連線到 *catalog-dpt-&lt;User&gt;.database.windows.net* 伺服器。
 
 
 成功連線之後，您會看到這兩部伺服器。 視您已佈建的租用戶而定，您的資料庫清單可能有所不同。
@@ -96,5 +96,5 @@ ms.lasthandoff: 11/14/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-[部署 Wingtip SaaS 應用程式](saas-dbpertenant-get-started-deploy.md)
+[部署 Wingtip Tickets SaaS Database Per Tenant 應用程式](saas-dbpertenant-get-started-deploy.md)
 

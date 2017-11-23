@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2017
 ms.author: dobett
-ms.openlocfilehash: 45016e6383761ffe78f13ccef1112ab3d9753498
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 764c6bd3c2466ceb93e33d03bece1c9036c1b1d9
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-iot-hub-get-started-tutorials"></a>Azure IoT 中樞快速入門教學課程
 
@@ -46,13 +46,6 @@ ms.lasthandoff: 10/11/2017
 | Adafruit Feather M0              | [Arduino][M0_Ard]              |
 | 電腦上的模擬的裝置           | [.NET][Sim_NET]、[Java][Sim_Jav]、[Node.js][Sim_Nd]、[Python][Sim_Pyth] |
 | 線上裝置模擬器         | [Raspberry Pi (Node.js)][Ol_Sim] |
-
-此外，您可以使用 IoT Edge 閘道來將裝置連線到您的 IoT 中樞：
-
-| 閘道裝置               | 程式設計語言 | 平台         |
-|------------------------------|----------------------|------------------|
-| Intel NUC (模型 DE3815TYKE) | C                    | [Wind River Linux][NUC_Lnx] |
-| 模擬閘道            | C                    | [Linux][Sim_Lnx]、[Windows][Sim_Win] |
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
 

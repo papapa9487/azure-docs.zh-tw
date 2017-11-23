@@ -3,7 +3,7 @@ title: "將 Windows 電腦連接到 Azure Log Analytics | Microsoft Docs"
 description: "本文說明使用自訂版本的 Microsoft Monitoring Agent (MMA) 將內部部署基礎結構中的 Windows 電腦連接到 Log Analytics 服務的步驟。"
 services: log-analytics
 documentationcenter: 
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: 
 ms.assetid: 932f7b8c-485c-40c1-98e3-7d4c560876d2
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/03/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5f04f3b9135167c0f339c58323ebd931b260109
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaf3e596f8c287c60531a6911c5797b3de26e570
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>將 Windows 電腦連接到 Azure 中的 Log Analytics 服務
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 您可以使用安裝程式、命令列、或 Azure 自動化中的期望狀態設定 (DSC) 來安裝代理程式。  
 
 >[!NOTE]
-若需要在 Azure 中執行的虛擬機器，可使用[虛擬機器擴充功能](log-analytics-azure-vm-extension.md)簡化安裝。
+若需要在 Azure 中執行的虛擬機器，可使用[虛擬機器擴充功能](../virtual-machines/windows/extensions-oms.md)簡化安裝。
 
 在有網際網路連線的電腦上，代理程式會使用網際網路連線將資料傳送給 OMS。 若電腦沒有網際網路連線，您可以使用 Proxy 或 [OMS 閘道](log-analytics-oms-gateway.md)。
 
@@ -84,15 +84,15 @@ Windows 代理程式若要連線到 OMS 服務並向其註冊，就必須能夠�
 ## <a name="install-the-agent-using-setup"></a>使用安裝程式安裝代理程式
 1. 在您想要管理的電腦上執行安裝程式以安裝代理程式。
 2. 在 [歡迎] 頁面中按 [下一步] 。
-3. 閱讀 授權條款 頁面上的授權，然後按一下我接受 。
-4. 在 目的地資料夾 頁面中，變更或保留預設的安裝資料夾，然後按一下下一步 。
+3. 閱讀 [授權條款] 頁面上的授權，然後按一下 [我接受] 。
+4. 在 [目的地資料夾] 頁面中，變更或保留預設的安裝資料夾，然後按一下 [下一步] 。
 5. 在 [代理程式安裝程式選項] 頁面中，您可以選擇將代理程式連接至 Azure Log Analytics (OMS)、Operations Manager，或者，如果您想要稍後再設定代理程式可以選擇保留空白。 按一下 [下一步] 。   
     - 如果您選擇連接至 Azure Log Analytics (OMS)，請將您在上一個程序複製到 [記事本] 的內容貼到 [工作區識別碼] 和 [工作區索引鍵 (主索引鍵)]，然後按 [下一步]。  
         ![貼上工作區識別碼和主索引鍵](./media/log-analytics-windows-agents/connect-workspace.png)
-    - 如果您選擇連接到 Operations Manager，請輸入 管理群組名稱、管理伺服器 名稱、管理伺服器連接埠，然後按一下下一步。 在 代理程式動作帳戶 頁面上，選擇本機系統帳戶或本機網域帳戶，然後按一下下一步 。  
+    - 如果您選擇連接到 Operations Manager，請輸入 [管理群組名稱]、[管理伺服器] 名稱、[管理伺服器連接埠]，然後按一下 [下一步]。 在 [代理程式動作帳戶] 頁面上，選擇本機系統帳戶或本機網域帳戶，然後按一下 [下一步] 。  
         ![管理群組設定](./media/log-analytics-windows-agents/oms-mma-om-setup01.png)![代理程式動作帳戶](./media/log-analytics-windows-agents/oms-mma-om-setup02.png)
 
-6. 在 準備好安裝 頁面上，檢閱您的選擇，然後按一下安裝 。
+6. 在 [準備好安裝] 頁面上，檢閱您的選擇，然後按一下 [安裝] 。
 7. 在 [組態完成] 頁面中，按一下 [完成] 。
 8. 完成時，[Microsoft 監視代理程式] 會出現在 [控制台] 中。 您可以檢閱您的設定，並確認代理程式已連接到 Operational Insights (OMS)。 當連接到 OMS，代理程式會顯示訊息︰**Microsoft Monitoring Agent 已成功連接到 Microsoft Operations Management Suite 服務。**
 
@@ -284,9 +284,9 @@ foreach ($Application in $InstalledApplications)
 如果您已安裝代理程式但尚未設定，或是您希望代理程式向多個工作區報告，您可以使用下列資訊來啟用或重新設定代理程式。 設定代理程式之後，它會註冊代理程式服務，並將獲得所需的組態資訊及包含解決方案資訊的管理組件。
 
 1. 安裝 Microsoft Monitoring Agent 之後，開啟 [控制台] 。
-2. 開啟 **Microsoft Monitoring Agent**，然後按一下Azure Log Analytics (OMS) 索引標籤。   
+2. 開啟 **Microsoft Monitoring Agent**，然後按一下 [Azure Log Analytics (OMS)] 索引標籤。   
 3. 按一下 [新增] 以開啟 [新增 Log Analytics 工作區] 方塊。
-4. 針對您要新增的工作區，將您在上一個程序複製到 記事本 的內容貼到 工作區識別碼 和 工作區索引鍵 (主索引鍵)，然後按一下確定。  
+4. 針對您要新增的工作區，將您在上一個程序複製到 [記事本] 的內容貼到 [工作區識別碼] 和 [工作區索引鍵 (主索引鍵)]，然後按一下 [確定]。  
     ![設定 Operational Insights](./media/log-analytics-windows-agents/add-workspace.png)
 
 代理程式從所監視的電腦收集資料之後，受 OMS 監視的電腦數目會出現在 OMS 入口網站的 [設定] 中 [連接的來源] 索引標籤下的 [連接的伺服器]。
@@ -294,8 +294,8 @@ foreach ($Application in $InstalledApplications)
 
 ## <a name="to-disable-an-agent"></a>停用代理程式
 1. 安裝代理程式之後，開啟 [ **控制台**]。
-2. 開啟 Microsoft Monitoring Agent，然後按一下Azure Log Analytics (OMS)  索引標籤。
-3. 選取工作區，然後按一下移除 。 對其他所有工作區重複此步驟。
+2. 開啟 Microsoft Monitoring Agent，然後按一下 [Azure Log Analytics (OMS)]  索引標籤。
+3. 選取工作區，然後按一下 [移除] 。 對其他所有工作區重複此步驟。
 
 
 ## <a name="optionally-configure-agents-to-report-to-an-operations-manager-management-group"></a>(選擇性) 將代理程式設定為向 Operations Manager 管理群組報告
@@ -304,7 +304,7 @@ foreach ($Application in $InstalledApplications)
 
 ### <a name="to-configure-mma-agents-to-report-to-an-operations-manager-management-group"></a>將 MMA 代理程式設定為向 Operations Manager 管理群組報告
 1.  在已安裝代理程式的電腦上，開啟 [控制台] 。  
-2.  開啟 **Microsoft Monitoring Agent**，然後按一下Operations Manager 索引標籤。  
+2.  開啟 **Microsoft Monitoring Agent**，然後按一下 [Operations Manager] 索引標籤。  
     ![Microsoft 監視代理程式 Operations Manager 索引標籤](./media/log-analytics-windows-agents/om-mg01.png)
 3.  如果 Operations Manager 伺服器已與 Active Directory 整合，請按一下 [自動更新來自 AD DS 的管理群組指派] 。
 4.  按一下 [新增] 以開啟 [新增管理群組] 對話方塊。  
@@ -313,7 +313,7 @@ foreach ($Application in $InstalledApplications)
 6.  在 [主要管理伺服器]  方塊中，輸入主要管理伺服器的電腦名稱。
 7.  在 [管理伺服器連接埠]  方塊中，輸入 TCP 連接埠號碼。
 8.  在 [代理程式動作帳戶] 頁面下，選擇本機系統帳戶或本機網域帳戶。
-9.  按一下 確定 關閉 新增管理群組 對話方塊，然後按一下確定 關閉 Microsoft 監視代理程式內容 對話方塊。
+9.  按一下 [確定] 關閉 [新增管理群組] 對話方塊，然後按一下 [確定] 關閉 [Microsoft 監視代理程式內容] 對話方塊。
 
 
 ## <a name="next-steps"></a>後續步驟

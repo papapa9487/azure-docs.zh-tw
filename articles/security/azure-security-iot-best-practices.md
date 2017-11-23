@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 8efc0053458e338ac1afe98d9ce970c1d5cbfa81
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8937437652a78e05b94574cb9fe5df7962edb1ad
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="internet-of-things-security-best-practices"></a>物聯網安全性最佳作法
 保護物聯網 (IoT) 基礎結構是任何涉入 IoT 解決方案的人的重要任務。 由於涉及的裝置數目和這些裝置的分散式質性，危及數百萬個 IoT 裝置的相關安全性事件影響廣泛，不可等閒視之。

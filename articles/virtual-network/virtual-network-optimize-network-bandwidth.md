@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2017
+ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: d77440fe62bbd0e720e5ae60b15574dacc4180c0
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 2f7a65d32f662d7e265e58c5fe7d9dea81a4e63c
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>最佳化 Azure 虛擬機器的網路輸送量
 
@@ -33,7 +33,7 @@ Azure 虛擬機器 (VM) 有預設網路設定，可進一步針對網路輸送�
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled              : False
+    Enabled                 : False
     ```
 2. 輸入下列命令以啟用 RSS：
 
@@ -44,7 +44,7 @@ Azure 虛擬機器 (VM) 有預設網路設定，可進一步針對網路輸送�
 3. 再次輸入 `Get-NetAdapterRss` 命令以確認 VM 中已啟用 RSS。 如果成功，則會傳回下列範例輸出：
 
     ```powershell
-    Name                    :Ethernet
+    Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled              : True
     ```
@@ -55,26 +55,35 @@ Azure 虛擬機器 (VM) 有預設網路設定，可進一步針對網路輸送�
 
 ### <a name="ubuntu-for-new-deployments"></a>新部署的 Ubuntu
 
-若要進行最佳化，請先安裝最新支援版本的 16.04-LTS，如下所示：
+The Ubuntu Azure 核心可在 Azure 提供最佳網路效能，且自 2017 年 9 月 21 日起已成為預設核心。 若要使用此核心，請先安裝最新支援版本的 16.04-LTS，如下所示：
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
 "Sku": "16.04-LTS",
 "Version": "latest"
 ```
-更新完成之後，請輸入下列命令以取得最新的核心︰
+建立完成之後，請輸入下列命令以取得最新的更新。 這些步驟也適於目前執行 Ubuntu Azure 核心的 VM。
 
 ```bash
+#run as root or preface with sudo
+apt-get -y update
+apt-get -y upgrade
+apt-get -y dist-upgrade
+```
+
+下列可選命令集對於已具備 Azure 核心但因為發生錯誤而無法進行進一步更新的現有 Ubuntu 部署會十分有幫助。
+
+```bash
+#optional steps may be helpful in existing deployments with the Azure kernel
+#run as root or preface with sudo
 apt-get -f install
 apt-get --fix-missing install
 apt-get clean
 apt-get -y update
 apt-get -y upgrade
+apt-get -y dist-upgrade
 ```
 
-選擇性命令︰
-
-`apt-get -y dist-upgrade`
 #### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>現有 VM 的 Ubuntu Azure 核心升級
 
 藉由升級至 Azure Linux 核心，可獲得顯著的輸送量效能。 若要確認您是否擁有此核心，請檢查您的核心版本。
@@ -87,7 +96,7 @@ uname -r
 #4.11.0-1014-azure
 ```
 
-然後以 root 身分執行這些命令。
+若您的 VM 並未使用 Azure 核心，版本號碼通常為 “4.4” 開頭。 在這種情況下，請在根目錄執行下列命令。
 ```bash
 #run as root or preface with sudo
 apt-get update
@@ -99,14 +108,14 @@ reboot
 
 ### <a name="centos"></a>CentOS
 
-若要進行最新最佳化，請先更新至最新支援版本，如下所示：
+為了要使用最新的最佳化項目，最好是指定下列參數，以最新支援的版本建立 VM：
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
 "Sku": "7.4",
 "Version": "latest"
 ```
-更新完成之後，請安裝最新的 Linux Integration Services (LIS)。
+安裝最新的 Lunix 整合服務 (LIS) 可為全新及現有的 VM 帶來好處。
 輸送量最佳化選項從 LIS 4.2.2-2 版開始提供，雖然較新版本包含進一步的改善。 輸入下列命令以安裝最新的 LIS：
 
 ```bash
@@ -117,14 +126,14 @@ sudo yum install microsoft-hyper-v
 
 ### <a name="red-hat"></a>Red Hat
 
-若要進行最佳化，請先更新至最新支援版本，如下所示：
+為了要使用最佳化項目，最好是指定下列參數，以最新支援的版本建立 VM：
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
 "Sku": "7-RAW"
 "Version": "latest"
 ```
-更新完成之後，請安裝最新的 Linux Integration Services (LIS)。
+安裝最新的 Lunix 整合服務 (LIS) 可為全新及現有的 VM 帶來好處。
 輸送量最佳化選項從 LIS 4.2 版開始提供。 輸入下列命令以下載並安裝 LIS：
 
 ```bash

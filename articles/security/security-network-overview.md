@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
+ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 27243856d0c6b70c7515b6bde66b99ef6160eb36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cefc15e7df0dabd9229196d0175dcf6546a6ebce
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-network-security-overview"></a>Azure 網路安全性概觀
 Microsoft Azure 包括強大網路基礎結構以支援您的應用程式和服務連線需求。 在 Azure 的資源之間、內部部署與 Azure 託管資源之間，以及到網際網路和 Azure 與來自網際網路和 Azure，可能會有網路連線。
@@ -93,7 +93,7 @@ Azure 網路支援自訂您 Azure 虛擬網路上網路流量之路由行為的�
 * 應用程式存取控制
 * 額外 DDoS 保護 (高於提供 Azure 網狀架構本身的 DDoS 保護)
 
-您可以使用 Azure 合作夥伴方案，來存取這些增強的網路安全性功能。 您可以造訪 [Azure Marketplace](https://azure.microsoft.com/marketplace/) 並搜尋「安全性」和「網路安全性」，尋找最新的 Azure 合作夥伴網路安全性方案。
+您可以使用 Azure 合作夥伴方案，來存取這些增強的網路安全性功能。 您可以瀏覽 [Azure Marketplace](https://azure.microsoft.com/marketplace/) 並搜尋「安全性」和「網路安全性」，以尋找最新的 Azure 合作夥伴網路安全性解決方案。
 
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>安全遠端存取和跨單位連線
 需要從遠端完成 Azure 資源的安裝、設定和管理。 此外，建議您部署內部部署和 Azure 公用雲端中含有元件的 [混合式 IT](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) 方案。 這些案例都需要安全遠端存取。

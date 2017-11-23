@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: glenga
-ms.openlocfilehash: a3bc07623505371b4f3c230ebadeb577a70fdb5e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a856c3b04dc458c0f1e0017066c35edd743565fd
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>使用 .NET 類別庫搭配 Azure Functions
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/03/2017
 
 從 Visual Studio 中建立 Azure Functions 專案。 新的專案範本會建立 host.json 和 local.settings.json 檔案。 您可以[在 host.json 中自訂 Azure Functions 執行階段設定](functions-host-json.md)。 
 
-local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Functions Core Tools 的設定。 若要深入了解其結構，請參閱[在本機撰寫程式碼和測試 Azure Functions](functions-run-local.md#local-settings)。
+local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Functions Core Tools 的設定。 若要深入了解其結構，請參閱[在本機撰寫程式碼和測試 Azure Functions](functions-run-local.md#local-settings-file)。
 
 ### <a name="functionname-attribute"></a>FunctionName 屬性
 

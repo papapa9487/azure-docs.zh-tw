@@ -1,6 +1,6 @@
 ---
 title: "BizTalk 服務中的儀表板、監視、調整、設定和混合式連接 | Microsoft Docs"
-description: "深入了解控制項，以及監視 BizTalk 服務的傳統入口網站索引標籤的效能：儀表板、監視、級別、設定和混合式連接。 MABS，WABS"
+description: "深入了解 BizTalk 服務的控制項及監視效能"
 services: biztalk-services
 documentationcenter: 
 author: MandiOhlinger
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 62bef0ee0141f6a7a92146ef230f0766a85aee5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 351809cd5f165a863dc02bfadf78fa59cbaabfd7
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>檢閱儀表板、監視器、調整、設定和混合式連線索引標籤
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 在您建立 BizTalk 服務和部署應用程式之後，您可以變更某些 BizTalk 服務設定和監視應用程式效能。 
 
-當您開啟 Azure 傳統入口網站時，會自動進入 [ **所有項目** ] 索引標籤。若要檢視 BizTalk 服務，請在 [所有項目] 索引標籤中選取 BizTalk 服務，或選取 [BIZTALK 服務] 索引標籤，然後選取您的 BizTalk 服務名稱。
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 這樣會開啟新視窗並顯示下列索引標籤。 本主題說明這些索引標籤。
 
@@ -84,9 +84,9 @@ ms.lasthandoff: 10/11/2017
 <br/><br/>
 <ol>
 <li>選取 BizTalk 服務，再選取 [同步金鑰]<strong></strong>。 選取次要金鑰。 這時，BizTalk 服務就會開始使用次要金鑰。</li>
-<li>在 Azure 傳統入口網站中，選取您的儲存體帳戶並重新產生主要金鑰。 記住，BizTalk 服務現在使用次要金鑰。</li>
+<li>選取您的儲存體帳戶並重新產生主要金鑰。 記住，BizTalk 服務現在使用次要金鑰。</li>
 <li>選取 BizTalk 服務，再選取 [同步金鑰]<strong></strong>。 現在，選取主要金鑰。 這是您重新產生的新主要金鑰。</li>
-<li>在 Azure 傳統入口網站中，選取您的儲存體帳戶並重新產生次要金鑰。</li>
+<li>選取您的儲存體帳戶並重新產生次要金鑰。</li>
 </ol>
 <br/>
 此程序稱為「換用金鑰」。 目的是讓使用者在主要金鑰和次要金鑰之間切換，而不會中斷 BizTalk 服務。</td>
@@ -169,7 +169,7 @@ ms.lasthandoff: 10/11/2017
 </tr>
 <tr>
 <td><strong>訂用帳戶名稱</strong></td>
-<td>列出裝載 BizTalk 服務的訂用帳戶名稱。 訂用帳戶掌管對 Azure 傳統入口網站的存取權。</td>
+<td>列出裝載 BizTalk 服務的訂用帳戶名稱。 訂用帳戶會控管存取。</td>
 </tr>
 <tr>
 <td><strong>訂用帳戶識別碼</strong></td>
@@ -177,7 +177,7 @@ ms.lasthandoff: 10/11/2017
 </tr>
 </table>
 
-[BizTalk 服務：使用 Azure 傳統入口網站進行佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280) 列出建立 BizTalk 服務的步驟。
+[BizTalk 服務：佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)列出建立 BizTalk 服務的步驟。
 
 ##### <a name="manage-connection-information-sync-keys-and-delete-in-the-task-bar"></a>工作列中的管理、連線資訊、同步金鑰和刪除：
 <table border="1">
@@ -206,9 +206,9 @@ ms.lasthandoff: 10/11/2017
 <br/><br/>
 <ol>
 <li>選取 BizTalk 服務，再選取 [同步金鑰]<strong></strong>。 選取次要金鑰。 這時，BizTalk 服務就會開始使用次要金鑰。</li>
-<li>在 Azure 傳統入口網站中，選取您的儲存體帳戶並重新產生主要金鑰。 記住，BizTalk 服務現在使用次要金鑰。</li>
+<li>選取您的儲存體帳戶並重新產生主要金鑰。 記住，BizTalk 服務現在使用次要金鑰。</li>
 <li>選取 BizTalk 服務，再選取 [同步金鑰]<strong></strong>。 現在，選取主要金鑰。 這是您重新產生的新主要金鑰。</li>
-<li>在 Azure 傳統入口網站中，選取您的儲存體帳戶並重新產生次要金鑰。</li>
+<li>選取您的儲存體帳戶並重新產生次要金鑰。</li>
 </ol>
 <br/>
 此程序稱為「換用金鑰」。 目的是讓使用者在主要金鑰和次要金鑰之間切換，而不會中斷 BizTalk 服務。</td>
@@ -329,7 +329,7 @@ ms.lasthandoff: 10/11/2017
 [BizTalk 服務：備份與還原](biztalk-backup-restore.md) 提供詳細資料。 
 
 ## <a name="HybridConnections"></a>混合式連線
-混合式連線可將 Azure 應用程式 (例如 Azure App Service 中的 Web Apps 或 Mobile Apps) 連線到使用靜態 TCP 連接埠的內部部署資源，例如 SQL Server、MySQL、HTTP Web API 及大部分的自訂 Web 服務。 您可以在 Azure 傳統入口網站內的 BizTalk 服務中管理混合式連接。
+混合式連線可將 Azure 應用程式 (例如 Azure App Service 中的 Web Apps 或 Mobile Apps) 連線到使用靜態 TCP 連接埠的內部部署資源，例如 SQL Server、MySQL、HTTP Web API 及大部分的自訂 Web 服務。 在 BizTalk 服務中建立混合式連線。
 
 若要在 Azure BizTalk 服務內建立或管理混合式連線，請參閱 [混合式連線](integration-hybrid-connection-overview.md)。
 
@@ -343,7 +343,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="see-also"></a>另請參閱
 * [混合式連線](integration-hybrid-connection-overview.md)  
 * [BizTalk 服務：開發人員、基本、標準和高級版本圖表](biztalk-editions-feature-chart.md)  
-* [BizTalk 服務：使用 Azure 傳統入口網站進行佈建](biztalk-provision-services.md)  
+* [BizTalk 服務：佈建](biztalk-provision-services.md)  
 * [BizTalk 服務：BizTalk 服務狀態圖](biztalk-service-state-chart.md)  
 * [如何開始使用 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 

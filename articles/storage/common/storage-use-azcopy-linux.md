@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 28/9/2017
 ms.author: seguler
-ms.openlocfilehash: d77ac39b7fcf6a23ebc58a2bbf9dc7de664edbb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e73a2424d3eb633f6bec63189786a67161750d4f
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>使用 AzCopy on Linux 傳送資料
 AzCopy on Linux 是個命令列公用程式，專為使用簡單命令高效率地將資料複製到和複製出 Microsoft Azure Blob 和檔案儲存體所設計。 您可以從儲存體帳戶內或是在儲存體帳戶之間，從一個物件複製資料到另一個物件。
@@ -559,7 +559,7 @@ azcopy \
     --recursive
 ```
 
-請注意，AzCopy 目前僅支援[帳戶 SAS](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1) \(英文\)。
+請注意，AzCopy 目前僅支援[帳戶 SAS](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) \(英文\)。
 
 ### <a name="journal-file-folder"></a>日誌檔案資料夾
 每次發佈命令至 AzCopy 時，它會檢查預設資料夾或透過此選項指定的資料夾中是否有日誌檔案存在。 如果在這兩個地方都找不到日誌檔案，AzCopy 會將此作業視為新的作業，並產生新的日誌檔案。
@@ -673,7 +673,7 @@ AzCopy 設計為充分利用電腦資源來加速資料傳輸，建議您在一�
 ### <a name="azure-storage-documentation"></a>Azure 儲存體文件：
 * [Azure 儲存體簡介](../storage-introduction.md)
 * [建立儲存體帳戶](../storage-create-storage-account.md)
-* [使用儲存體總管來管理 Blob](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs) \(英文\)
+* [使用儲存體總管來管理 Blob](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs) \(英文\)
 * [使用 Azure CLI 2.0 搭配 Azure 儲存體](../storage-azure-cli.md)
 * [如何使用 C++ 的 Blob 儲存體](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [如何使用 Java 的 Blob 儲存體](../blobs/storage-java-how-to-use-blob-storage.md)

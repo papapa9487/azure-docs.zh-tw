@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: 52645f7d7934c9b9cf628fec1c0edc763ce98796
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: ba965b9bc23b96adb2b1b7c9306cb7f508f820bf
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="customize-a-preconfigured-solution"></a>自訂預先設定的方案
 
@@ -228,55 +228,6 @@ public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodR
 
 預設值是 10 分鐘。 您可以在 [TelmetryApiController.cs][lnk-telemetry-api-controller-02] 變更此值。
 
-## <a name="manually-set-up-application-roles"></a>手動設定應用程式角色
-
-以下程序描述如何將 **Admin** 和 **ReadOnly** 應用程式角色新增至預先設定的解決方案中。 請注意，從 azureiotsuite.com 網站佈建的預先設定解決方案已經包含 **Admin** 和 **ReadOnly** 角色。
-
-**ReadOnly** 角色的成員可以看到儀表板和裝置清單，但不能加入裝置、變更裝置屬性或傳送命令。  **Admin** 角色的成員具有解決方案中所有功能的完整存取權。
-
-1. 前往 [Azure 傳統入口網站][lnk-classic-portal]。
-2. 選取 **Active Directory**。
-3. 按一下您在佈建解決方案時所使用的 AAD 租用戶名稱。
-4. 按一下 [應用程式] 。
-5. 按一下符合預先設定之方案名稱的應用程式名稱。 如果清單中看不到您的應用程式，請選取 [顯示] 下拉式清單中的 [我公司所擁有的應用程式]，然後按一下核取記號。
-6. 在頁面底部，按一下 [管理資訊清單]，然後按一下 [下載資訊清單]。
-7. 這個程序會將 .json 檔案下載到本機電腦。 使用您選擇的文字編輯器開啟此檔案並加以編輯。
-8. 在 .json 檔案的第三行，您會看到︰
-
-   ```json
-   "appRoles" : [],
-   ```
-   使用以下程式碼來取代這一行：
-
-   ```json
-   "appRoles": [
-   {
-   "allowedMemberTypes": [
-   "User"
-   ],
-   "description": "Administrator access to the application",
-   "displayName": "Admin",
-   "id": "a400a00b-f67c-42b7-ba9a-f73d8c67e433",
-   "isEnabled": true,
-   "value": "Admin"
-   },
-   {
-   "allowedMemberTypes": [
-   "User"
-   ],
-   "description": "Read only access to device information",
-   "displayName": "Read Only",
-   "id": "e5bbd0f5-128e-4362-9dd1-8f253c6082d7",
-   "isEnabled": true,
-   "value": "ReadOnly"
-   } ],
-   ```
-
-9. 儲存更新後的.json 檔案 (可以覆寫現有的檔案)。
-10. 在 Azure 傳統入口網站中，選取頁面底部的 [管理資訊清單]，然後選取 [上傳資訊清單] 上傳您在上一個步驟儲存的 .json 檔案。
-11. 您現在已為您的應用程式新增 **Admin** 和 **ReadOnly** 角色。
-12. 若要將其中一個角色指派給您目錄中的使用者，請參閱 [azureiotsuite.com 網站的權限][lnk-permissions]。
-
 ## <a name="feedback"></a>意見反應
 
 本文件是否涵蓋您感興趣的自訂內容？ 請在 [User Voice (使用者心聲)](https://feedback.azure.com/forums/321918-azure-iot) 中加入功能建議，或在本文留言。 
@@ -300,6 +251,5 @@ public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodR
 [lnk-telemetry-api-controller-01]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L27
 [lnk-telemetry-api-controller-02]: https://github.com/Azure/azure-iot-remote-monitoring/blob/e7003339f73e21d3930f71ceba1e74fb5c0d9ea0/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L25 
 [lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
-[lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-cf-customize]: iot-suite-connected-factory-customize.md

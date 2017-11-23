@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c863dbdcb242bdea208f7e72f6c1f61b5ba04844
 ms.openlocfilehash: 4d48aff7d29def9fa54438a11885b4ff4fba54cc
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/17/2017
 ---
-
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>使用 Azure 入口網站在可用性區域中建立 Windows 虛擬機器
 
 本文逐步引導您使用 Azure 入口網站在 Azure 可用性區域中建立虛擬機器。 [可用性區域](../../availability-zones/az-overview.md)是指 Azure 區域內實際上分隔的區域。 萬一整個資料中心失敗或遺失，使用可用性區域可保護您的應用程式和資料免於受害。
@@ -58,7 +56,7 @@ ms.lasthandoff: 09/22/2017
 7. 系統會將 VM 釘選到 Azure 入口網站儀表板。 一旦完成部署後，VM 摘要就會自動開啟。
 
 
-## <a name="zone-for-ip-address-and-managed-disk"></a>IP 位址和受管理磁碟的區域
+## <a name="zone-for-ip-address-and-managed-disk"></a>IP 位址和受控磁碟的區域
 
 在可用性區域中部署虛擬機器時，會在相同的可用性區域中部署 IP 位址和受管理磁碟的資源。 您可以使用 Azure PowerShell 來確認區域設定。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
 
@@ -99,7 +97,7 @@ Zones                    : {2}
 Get-AzureRmDisk -ResourceGroupName myResourceGroup
 ```
 
-輸出會顯示與 VM 相同的可用性區域中的受管理磁碟：
+輸出會顯示與 VM 相同的可用性區域中的受控磁碟：
 
 ```powershell
 ResourceGroupName  : myResourceGroup
@@ -127,4 +125,3 @@ Tags               : {}
 ## <a name="next-steps"></a>後續步驟
 
 在本文中，您已學到如何在可用性區域中建立 VM。 深入了解 Azure VM 的[區域和可用性](regions-and-availability.md)。
-
