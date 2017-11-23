@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: c0872619a4897b0ac40629df00053f3e49768f64
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4fb443691e216169dd1322b96d77139ffde752d4
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Azure 中的 Web Apps 相關開放原始碼技術常見問題集
 
@@ -32,14 +32,6 @@ ms.lasthandoff: 11/04/2017
 如有資料庫相關的問題，請連絡 [ClearDB 支援](https://www.cleardb.com/developers/help/support) (英文)。 
 
 關於 ClearDB 常見問題的解答，請參閱 [ClearDB 常見問題集](https://docs.microsoft.com/azure/store-cleardb-faq/)。
-
-## <a name="why-isnt-my-cleardb-database-listed-in-the-portal"></a>為什麼我的 ClearDB 資料庫未在入口網站中列出？
-
-如果您在 [Azure 入口網站](http://portal.azure.com/)建立 ClearDB 資料庫，則該資料庫不會出現在 [Azure 傳統入口網站](http://manage.windowsazure.com/)。 若要解決此問題，可以將您的資料庫手動連結至 Web 應用程式。
-
-同樣地，如果您在 [Azure 傳統入口網站](http://manage.windowsazure.com/)建立 ClearDB 資料庫，則不會在 [Azure 入口網站](http://portal.azure.com/)看見該資料庫。 對於這種情況，目前沒有可行的因應措施。 
-
-如需詳細資訊，請參閱 [ClearDB MySQL 資料庫搭配 Azure App Service 的常見問題集](https://docs.microsoft.com/azure/store-cleardb-faq/)。
 
 ## <a name="why-wasnt-my-cleardb-database-migrated-during-my-subscription-migration"></a>為什麼我的 ClearDB 資料庫在我的訂用帳戶移轉期間未移轉？
 

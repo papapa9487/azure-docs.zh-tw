@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/06/2017
-ms.openlocfilehash: 2b2f35b3241bd1700bb1fb3319d38fdfda2545f9
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: a4945c77be5763ffeda328184149f712572937c0
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="sprint-1---november-2017"></a>Sprint 1 - 2017 年 11 月 
 
@@ -122,7 +122,7 @@ ms.lasthandoff: 11/10/2017
 
 ### <a name="operationalization"></a>運算化
 - 名稱中有 "score" 的 Web 服務不再失敗。
-- 使用者現在只要有 Azure 資源群組擁有者存取權，就可以建立部署環境。 不再需要整個訂用帳戶的擁有者存取權。
+- 使用者現在只要有 Azure 資源群組或參與者存取權或訂用帳戶，就可以建立部署環境。 不再需要整個訂用帳戶的擁有者存取權。
 - 作業 CLI 可在 Linux 上使用索引標籤自動完成。
 - 映像建構服務現在支援 Azure IoT 服務/裝置的組建映像。
 

@@ -50,22 +50,6 @@ IoT 中樞身分識別登錄可用來設定每一裝置的安全性認證和存�
 ## <a name="securing-the-connection"></a>保護連線安全
 IoT 裝置與 IoT 中樞之間的網際網路連線，是使用傳輸層安全性 (TLS) 標準進行保護。 Azure IoT 支援 [TLS 1.2][lnk-tls12]、TLS 1.1 和 TLS 1.0 (依此順序)。 針對 TLS 1.0 的支援僅為提供回溯相容性。 建議使用 TLS 1.2，因為它提供最高的安全性。
 
-Azure IoT 套件支援下列加密套件 (依此順序)。
-
-| 加密套件 | 長度 |
-| --- | --- |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA384 (0xc028) ECDH secp384r1 (相等於 7680 位元 RSA) FS |256 |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256 (0xc027) ECDH secp256r1 (相等於 3072 位元 RSA) FS |128 |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA (0xc014) ECDH secp384r1 (相等於 7680 位元 RSA) FS |256 |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA (0xc013) ECDH secp256r1 (相等於 3072 位元 RSA) FS |128 |
-| TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384 (0x9d) |256 |
-| TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256 (0x9c) |128 |
-| TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA256 (0x3d) |256 |
-| TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256 (0x3c) |128 |
-| TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA (0x35) |256 |
-| TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA (0x2f) |128 |
-| TLS\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA (0xa) |112 |
-
 ## <a name="securing-the-cloud"></a>保護雲端
 Azure IoT 中樞允許針對每個安全性金鑰定義[存取控制原則][lnk-protocols]。 它使用下列權限組，授與每個 IoT 中樞端點的存取權。 權限可根據功能限制 IoT 中樞的存取權。
 

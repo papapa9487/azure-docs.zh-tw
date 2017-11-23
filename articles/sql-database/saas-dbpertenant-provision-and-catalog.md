@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
-ms.openlocfilehash: 64e70013c267a472a57b2cf172fa50d12a170515
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 17eb9b3ff059912e4fe3fafda0b9c435e3983888
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>了解如何佈建新的租用戶並在目錄中註冊它們
 
@@ -70,7 +70,7 @@ Wingtip Tickets SaaS Database per Tenant 應用程式會佈建新的租用戶，
 
 ## <a name="get-the-wingtip-application-scripts"></a>取得 Wingtip 應用程式指令碼
 
-在 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 存放庫可取得 Wingtip Tickets 指令碼和應用程式原始程式碼。 [下載 Wingtip Tickets SaaS 指令碼的步驟](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts)。
+在 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 存放庫可取得 Wingtip Tickets 指令碼和應用程式原始程式碼。 [下載 Wingtip Tickets SaaS 指令碼的步驟](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts)。
 
 
 ## <a name="provision-and-catalog-detailed-walkthrough"></a>佈建及編目的詳細逐步解說

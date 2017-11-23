@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 97edbe67c25036dc1156f0f0ca5431a617d7a004
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9db7e276fbbc064abe16cab2d2df668d2b1c8f7d
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-to-azure-through-csp"></a>Azure Site Recovery 中的多租用戶支援，適用於透過 CSP 將 VMware 虛擬機器複寫到 Azure
 
@@ -50,7 +50,7 @@ Azure Site Recovery 支援租用戶訂用帳戶的多租用戶環境。 對於�
 資料隔離的需求會使得基礎結構機密資訊 (如存取認證) 對租用戶保持公開。 基於這個理由，建議所有管理伺服器的元件都維持在合作夥伴的獨佔控制之下。 管理伺服器元件包括：
 * 組態伺服器 (CS)
 * 處理序伺服器 (PS)
-* 主要目標伺服器 (MT) 
+* 主要目標伺服器 (MT)
 
 向外延展 PS 也是在合作夥伴的控制之下。
 
@@ -82,7 +82,7 @@ vCenter 帳戶存取程序如下：
 
     * **工作**：建立工作、更新工作
 
-    * **虛擬機器**： 
+    * **虛擬機器**：
         * 組態 > 全部
         * 互動 > 回答問題、裝置連線、設定 CD 媒體、設定磁碟片媒體、電源關閉、電源開啟、VMware 工具安裝
         * 清查 > 從現有建立、建立新的、註冊、取消註冊
@@ -138,8 +138,8 @@ vCenter 帳戶存取程序如下：
 
 ### <a name="step-1-create-a-tenant-account"></a>步驟 1︰建立租用戶帳戶
 
-1. 透過 [Microsoft 合作夥伴中心](https://partnercenter.microsoft.com/) 登入 CSP 帳戶。 
- 
+1. 透過 [Microsoft 合作夥伴中心](https://partnercenter.microsoft.com/) 登入 CSP 帳戶。
+
 2. 在 [儀表板] 功能表上，選取 [客戶]。
 
     ![Microsoft 夥伴中心客戶連結](./media/site-recovery-multi-tenant-support-vmware-using-csp/csp-dashboard-display.png)
@@ -148,7 +148,7 @@ vCenter 帳戶存取程序如下：
 
     ![[新增客戶] 按鈕](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-new-customer.png)
 
-4. 在 新客戶 頁面上，填入租用戶的所有帳戶資訊詳細資料，然後按一下下一步: 訂閱。
+4. 在 [新客戶] 頁面上，填入租用戶的所有帳戶資訊詳細資料，然後按一下 [下一步: 訂閱]。
 
     ![[帳戶資訊] 頁面](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-add-filled.png)
 
@@ -156,26 +156,26 @@ vCenter 帳戶存取程序如下：
 
     ![[Microsoft Azure 訂用帳戶] 核取方塊](./media/site-recovery-multi-tenant-support-vmware-using-csp/azure-subscription-selection.png)
 
-6. 在 檢閱 頁面上，確認租用戶詳細資料，然後按一下提交。
+6. 在 [檢閱] 頁面上，確認租用戶詳細資料，然後按一下 [提交]。
 
     ![[檢閱] 頁面](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-summary-page.png)  
 
-    您建立租用戶帳戶後，確認網頁隨即出現，顯示預設帳戶的詳細資料和該訂用帳戶的密碼。 
+    您建立租用戶帳戶後，確認網頁隨即出現，顯示預設帳戶的詳細資料和該訂用帳戶的密碼。
 
 7. 儲存資訊並在稍後視需要透過 Azure 入口網站登入網頁來變更密碼。  
- 
+
     您可以與租用戶共用這些既有的資訊，也可以視需要建立和共用不同的帳戶。
 
 ### <a name="step-2-access-the-tenant-account"></a>步驟 2︰存取租用戶帳戶
 
-如「步驟 1：建立租用戶帳戶」所述，您可以透過 Microsoft 夥伴中心儀表板存取租用戶的訂用帳戶。 
+如「步驟 1：建立租用戶帳戶」所述，您可以透過 Microsoft 夥伴中心儀表板存取租用戶的訂用帳戶。
 
 1. 移至 [客戶] 頁面，然後按一下租用戶帳戶的名稱。
 
 2. 在租用戶帳戶的 [訂用帳戶] 頁面上，您可以監視現有帳戶的訂用帳戶，並且視需要新增更多訂用帳戶。 若要管理租用戶的災復原作業，請選取 [所有資源 (Azure 入口網站)]。
 
     ![[所有資源] 連結](./media/site-recovery-multi-tenant-support-vmware-using-csp/all-resources-select.png)  
-    
+
     按一下 [所有資源] 將授與租用戶的 Azure 訂用帳戶存取權限。 您可以按一下 Azure 入口網站右上方的 [Azure Active Directory] 連結，以確認存取權限。
 
     ![[Azure Active Directory] 連結](./media/site-recovery-multi-tenant-support-vmware-using-csp/aad-admin-display.png)
@@ -183,8 +183,8 @@ vCenter 帳戶存取程序如下：
 您現在可以透過 Azure 入口網站為租用戶執行所有 Site Recovery 作業，以及管理災害復原作業。 若要透過 CSP 存取租用戶訂用帳戶來進行受管理的災害復原，請遵循先前所述的程序。
 
 ### <a name="step-3-deploy-resources-to-the-tenant-subscription"></a>步驟 3：將資源部署到租用戶訂用帳戶
-1. 在 Azure 入口網站上，建立「資源群組」，然後對於每個一般程序部署「復原服務」保存庫。 
- 
+1. 在 Azure 入口網站上，建立「資源群組」，然後對於每個一般程序部署「復原服務」保存庫。
+
 2. 下載保存庫註冊金鑰。
 
 3. 使用保存庫註冊金鑰為租用戶註冊 CS。
@@ -214,7 +214,7 @@ vCenter 帳戶存取程序如下：
 
 2. 建立新的使用者之後，返回 Azure 入口網站，並在 [訂用帳戶] 刀鋒視窗選取相關訂用帳戶。
 
-3. 在開啟的刀鋒視窗上選取 存取控制 (IAM)，然後按一下新增 以使用相關的存取層級新增使用者。      
+3. 在開啟的刀鋒視窗上選取 [存取控制 (IAM)]，然後按一下 [新增] 以使用相關的存取層級新增使用者。      
     在按一下存取層級之後開啟的刀鋒視窗上，會自動顯示透過 CSP 入口網站建立的使用者。
 
     ![新增使用者](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-user-subscription.png)

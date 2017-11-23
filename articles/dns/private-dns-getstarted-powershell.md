@@ -3,8 +3,8 @@ title: "利用 PowerShell 開始使用 Azure DNS 私人區域 | Microsoft Docs"
 description: "了解如何在 Azure DNS 中建立私人 DNS 區域和記錄。 這份逐步指南將引導您使用 PowerShell 建立和管理第一個私人 DNS 區域和記錄。"
 services: dns
 documentationcenter: na
-author: garbrad
-manager: 
+author: KumudD
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/04/2017
-ms.author: garbrad
-ms.openlocfilehash: c5d4b33682f9b5d33e74d45973d5fbd76cf16465
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/20/2017
+ms.author: kumud
+ms.openlocfilehash: d71e2391b6415b2403447479dea4fd0a3b818ed0
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="get-started-with-azure-dns-private-zones-using-powershell"></a>利用 PowerShell 開始使用 Azure DNS 私人區域
 

@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 11/16/2017
 ms.author: glenga
-ms.openlocfilehash: 81331142aa6110d4e29e6fb30a90ce6e3a853439
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d38482ebca736e4d7d0fe0b1b4b5dd0220de5b4
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="add-authentication-to-your-android-app"></a>將驗證加入 Android 應用程式中
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 
 安全的驗證會要求您為應用程式定義新的 URL 配置。 這讓驗證系統能夠在驗證程序完成之後，重新導向回到您的應用程式。 我們會在這整個教學課程中使用 URL 配置 appname。 不過，您可以使用任何您選擇的 URL 結構描述。 它對於您的行動應用程式而言應該是唯一的。 在伺服器端啟用重新導向：
 
-1. 在 [Azure 入口網站] 中，選取您的 App Service。
+1. 在 [Azure 入口網站]中，選取您的 App Service。
 
 2. 按一下 [驗證/授權] 功能表選項。
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/11/2017
 
      發生此例外狀況是因為應用程式嘗試以未驗證的使用者身分來存取後端，但 *TodoItem* 資料表現在需要驗證。
 
-接下來，您要將應用程式更新為在要求 Mobile Apps 後端的資源之前必須驗證使用者。 
+接下來，您要將應用程式更新為在要求 Mobile Apps 後端的資源之前必須驗證使用者。
 
 ## <a name="add-authentication-to-the-app"></a>將驗證新增至應用程式
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
@@ -79,3 +79,4 @@ ms.lasthandoff: 10/11/2017
 
 <!-- URLs. -->
 [開始使用 Mobile Apps]: app-service-mobile-android-get-started.md
+[Azure 入口網站]: https://portal.azure.com/

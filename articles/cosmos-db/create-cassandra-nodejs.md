@@ -15,11 +15,11 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 76850d6403fc4e87e95f5842b87b258d652c2c35
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: abf88cf96b32bc4168cb8c09a6e70ad0e395e88c
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>快速入門：使用 Node.js 和 Azure Cosmos DB 建置 Cassandra 應用程式
 
@@ -29,12 +29,13 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure Cosmos DB Cassandra API 預覽版程式的存取權。 如果您尚未申請存取權，請[立即註冊](https://aka.ms/cosmosdb-cassandra-signup)。
-* [Node.js](https://nodejs.org/en/) v0.10.29 版或更高版本
-* [Git](http://git-scm.com/)
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]或者，您可以[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)，無須 Azure 訂用帳戶，也無須任何費用和約定付款。
 
+Azure Cosmos DB Cassandra API 預覽版程式的存取權。 如果您尚未申請存取權，請[立即註冊](cassandra-introduction.md#sign-up-now)。
+
+此外：
+* [Node.js](https://nodejs.org/en/) v0.10.29 版或更高版本
+* [Git](http://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>建立資料庫帳戶
 
@@ -150,7 +151,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 現在，返回 Azure 入口網站以取得連接字串資訊，並將它複製到應用程式中。 這可讓您的應用程式與託管資料庫進行通訊。
 
-1. 在 [Azure 入口網站](http://portal.azure.com/)中按一下 [連接字串]。 
+1. 在 [Azure 入口網站](http://portal.azure.com/)中，按一下 [連接字串]。 
 
     使用 ![複製按鈕](./media/create-cassandra-nodejs/copy.png) 按鈕 (畫面右方) 來複製最高值 ([連絡點])。
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: c6289df50d17de1ef542abbf617eb1cdb2f32311
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19caa05f0de7b4ff4ed7f4eafe50839d04f4ab50
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>自訂 Service Fabric 叢集設定和網狀架構升級原則
 本文件將告訴您如何為 Service Fabric 叢集自訂各種網狀架構設定和網狀架構升級原則。 您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來進行自訂。
@@ -340,8 +340,8 @@ ms.lasthandoff: 11/03/2017
 ### <a name="section-name-faultanalysisservice"></a>區段名稱︰FaultAnalysisService
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-| TargetReplicaSetSize |整數，預設值為 0 |不允許|NOT_PLATFORM_UNIX_START。FaultAnalysisService 的 TargetReplicaSetSize。 |
-| MinReplicaSetSize |整數，預設值為 0 |不允許|FaultAnalysisService 的 MinReplicaSetSize。 |
+| TargetReplicaSetSize |整數，預設值為 0 |靜態|NOT_PLATFORM_UNIX_START。FaultAnalysisService 的 TargetReplicaSetSize。 |
+| MinReplicaSetSize |整數，預設值為 0 |靜態|FaultAnalysisService 的 MinReplicaSetSize。 |
 | ReplicaRestartWaitDuration |時間 (秒)，預設值為 60 分鐘|靜態|以秒為單位指定時間範圍。 FaultAnalysisService 的 ReplicaRestartWaitDuration。 |
 | QuorumLossWaitDuration | 時間 (秒)，預設值為 MaxValue |靜態|以秒為單位指定時間範圍。 FaultAnalysisService 的 QuorumLossWaitDuration。 |
 | StandByReplicaKeepDuration| 時間 (秒)，預設值為 (60*24*7) 分鐘 |靜態|以秒為單位指定時間範圍。 FaultAnalysisService 的 StandByReplicaKeepDuration。 |
@@ -390,8 +390,8 @@ ms.lasthandoff: 11/03/2017
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 | 已啟用 |布林值，預設值為 false |靜態|ImageStoreService 的「啟用」旗標。 預設值：false |
-| TargetReplicaSetSize | 整數，預設值為 7 |不允許|ImageStoreService 的 TargetReplicaSetSize。 |
-| MinReplicaSetSize | 整數，預設值為 3 |不允許|ImageStoreService 的 MinReplicaSetSize。 |
+| TargetReplicaSetSize | 整數，預設值為 7 |靜態|ImageStoreService 的 TargetReplicaSetSize。 |
+| MinReplicaSetSize | 整數，預設值為 3 |靜態|ImageStoreService 的 MinReplicaSetSize。 |
 | ReplicaRestartWaitDuration | 時間 (秒)，預設值為 60.0 * 30 |靜態|以秒為單位指定時間範圍。 ImageStoreService 的 ReplicaRestartWaitDuration。 |
 | QuorumLossWaitDuration | 時間 (秒)，預設值為 MaxValue |靜態| 以秒為單位指定時間範圍。 ImageStoreService 的 QuorumLossWaitDuration。 |
 | StandByReplicaKeepDuration | 時間 (秒)，預設值為 3600.0 * 2 |靜態| 以秒為單位指定時間範圍。 ImageStoreService 的 StandByReplicaKeepDuration。 |
@@ -414,8 +414,8 @@ ms.lasthandoff: 11/03/2017
 ### <a name="section-name-upgradeorchestrationservice"></a>區段名稱︰UpgradeOrchestrationService
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-| TargetReplicaSetSize |整數，預設值為 0 |不允許|UpgradeOrchestrationService 的 TargetReplicaSetSize。 |
-| MinReplicaSetSize |整數，預設值為 0 |不允許|UpgradeOrchestrationService 的 MinReplicaSetSize。
+| TargetReplicaSetSize |整數，預設值為 0 |靜態 |UpgradeOrchestrationService 的 TargetReplicaSetSize。 |
+| MinReplicaSetSize |整數，預設值為 0 |靜態 |UpgradeOrchestrationService 的 MinReplicaSetSize。
 | ReplicaRestartWaitDuration | 時間 (秒)，預設值為 60 分鐘|靜態| 以秒為單位指定時間範圍。 UpgradeOrchestrationService 的 ReplicaRestartWaitDuration。 |
 | QuorumLossWaitDuration | 時間 (秒)，預設值為 MaxValue |靜態| 以秒為單位指定時間範圍。 UpgradeOrchestrationService 的 QuorumLossWaitDuration。 |
 | StandByReplicaKeepDuration | 時間 (秒)，預設值為 60*24*7 分鐘 |靜態| 以秒為單位指定時間範圍。 UpgradeOrchestrationService 的 StandByReplicaKeepDuration。 |

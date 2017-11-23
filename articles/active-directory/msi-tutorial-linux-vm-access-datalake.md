@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2017
+ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: 6d1bd5959c540033cc913062cf64cc01ab54c3f9
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 5c738fd8399fb555bcc72aacd278b5966a624cc7
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>使用 Linux VM 受管理的服務識別 (MSI) 來存取 Azure Data Lake Store
 
@@ -30,7 +30,11 @@ ms.lasthandoff: 11/01/2017
 > * 將您的 VM 存取權授與 Azure Data Lake Store
 > * 使用 VM 身分識別取得存取權杖，並使用它存取 Azure Data Lake Store
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+## <a name="prerequisites"></a>必要條件
+
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 

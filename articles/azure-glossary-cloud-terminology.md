@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: b55eed31ddb5be23dc28a23b2f0588b8c8ff8833
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbc4b8cdb0ff9255d0be02b998e67686921921ea
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 詞彙︰Azure 平台上的雲端術語字典
 
@@ -87,7 +87,7 @@ Microsoft Azure 詞彙是 Azure 平台上簡短的雲端術語字典。 另請�
 請參閱 [Azure 優惠詳細資料頁面](https://azure.microsoft.com/support/legal/offer-details/)
 
 ## <a name="portal"></a>入口網站
-用來部署和管理 Azure 服務的安全 Web 入口網站。  有兩個入口網站：[Azure 入口網站](http://portal.azure.com/)和[傳統入口網站](http://manage.windowsazure.com/)。 某些服務可在這兩個入口網站中取得，而部分服務則只能在其中一個找到。 [Azure 入口網站可用性圖表](https://azure.microsoft.com/features/azure-portal/availability/) 列出哪些服務可在哪一個入口網站中取得。
+用來部署和管理 Azure 服務的安全 Web 入口網站。
 
 ## <a name="region"></a>region
 地理區域內不會跨越國界且包含一或多個資料中心的地區。 定價、區域性服務和優惠類型是在區域層級公開。 區域通常會與另一個區域配對，兩者可多達數百英哩遠。 區域配對可用來做為災害復原及高可用性案例的機制。 也稱為「位置」。  

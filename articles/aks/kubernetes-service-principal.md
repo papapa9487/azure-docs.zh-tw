@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6c61d99f1d023ac643455faae10ef284f1f5bb14
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: af27d01108cbfb3bd71023ffbce85f348abb0cfe
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>服務主體與 Azure Container Service (AKS)
 
@@ -82,7 +82,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$id"
 當使用預先建立的服務主體時，提供 `appId` 和 `password` 作為 `az aks create` 命令的引數值。
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8SCluster --service-princal <appId> ----client-secret <password>
+az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> ----client-secret <password>
 ```
 
 如果從 Azure 入口網站部署 AKS 叢集，請在 AKS 叢集設定表單中輸入這些值。

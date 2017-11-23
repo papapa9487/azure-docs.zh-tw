@@ -1,7 +1,7 @@
 
 ## <a name="about-vhds"></a>關於 VHD
 
-Azure 中使用的 VHD 是以分頁 Blob 儲存在 Azure 標準或進階儲存體帳戶中的 .vhd 檔案。 如需分頁 Blob 的詳細資訊，請參閱 [了解區塊 Blob 和分頁 Blob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/)。 如需進階儲存體的詳細資訊，請參閱[高效能的進階儲存體和 Azure VM](../articles/storage/common/storage-premium-storage.md)。
+Azure 中使用的 VHD 是以分頁 Blob 儲存在 Azure 標準或進階儲存體帳戶中的 .vhd 檔案。 如需分頁 Blob 的詳細資訊，請參閱 [了解區塊 Blob 和分頁 Blob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/)。 如需進階儲存體的詳細資訊，請參閱[高效能的進階儲存體和 Azure VM](../articles/virtual-machines/windows/premium-storage.md)。
 
 Azure 支援 VHD 格式的固定磁碟。 固定格式會線性地陳列檔案內部的邏輯磁碟，因此磁碟位移 X 會儲存於 Blob 位移 X。Blob 最後的頁尾將說明 VHD 屬性。 因為大多數的磁碟內部會有大型的未用範圍，因此固定格式通常會浪費空間。 不過，Azure 會以疏鬆格式來儲存 .vhd 檔案，因此您可同時享有固定和動態磁碟的好處。 如需詳細資訊，請參閱[開始使用虛擬硬碟](https://technet.microsoft.com/library/dd979539.aspx)。
 
@@ -26,11 +26,11 @@ Azure 磁碟設計成確保可用性達 99.999%。 Azure 磁碟一直提供企�
 
 標準儲存體是以 HDD 為後盾，既可提供符合成本效益的儲存體，又可保有效能。 標準儲存體可複寫到一個資料中心的本機位置，或是利用主要和次要資料中心提供異地備援。 如需儲存體複寫的詳細資訊，請參閱 [Azure 儲存體複寫](../articles/storage/common/storage-redundancy.md)。 
 
-如需搭配使用標準儲存體與 VM 磁碟的詳細資訊，請參閱[標準儲存體和磁碟](../articles/storage/common/storage-standard-storage.md)。
+如需搭配使用標準儲存體與 VM 磁碟的詳細資訊，請參閱[標準儲存體和磁碟](../articles/virtual-machines/windows/standard-storage.md)。
 
 ### <a name="premium-storage"></a>進階儲存體 
 
-進階儲存體是以 SSD 為後盾，可針對執行時需要大量 I/O 之工作負載的 VM 提供高效能、低延遲的磁碟支援。 進階儲存體可搭配 DS、DSv2、GS、Ls 或 FS 系列的 Azure VM 使用。 如需詳細資訊，請參閱[進階儲存體](../articles/storage/common/storage-premium-storage.md)。
+進階儲存體是以 SSD 為後盾，可針對執行時需要大量 I/O 之工作負載的 VM 提供高效能、低延遲的磁碟支援。 進階儲存體可搭配 DS、DSv2、GS、Ls 或 FS 系列的 Azure VM 使用。 如需詳細資訊，請參閱[進階儲存體](../articles/virtual-machines/windows/premium-storage.md)。
 
 ### <a name="unmanaged-disks"></a>非受控磁碟
 

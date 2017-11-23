@@ -11,11 +11,11 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: c7ee06a00488b3f958127f6d7f57324c7ed14ab4
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a157e612ca4fca06a57df478eaa20793c8b35d60
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>如何在 Azure VM 中啟用巢狀虛擬化
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/15/2017
 您可以手動設定這些設定，或者使用我們提供的 PowerShell 指令碼，將設定自動化。
 
 ### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>選項 1：使用 PowerShell 指令碼設定巢狀虛擬化
-要在 Windows Server 2016 主機上啟用巢狀虛擬化的 PowerShell 指令碼可在 [GitHub](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/hyperv-tools/Nested) \(英文\) 上取得。 此指令碼會檢查必要條件，然後在 Azure VM 上設定巢狀虛擬化。 若要完成設定，必須重新啟動 Azure VM。 此指令碼或許能夠在其他環境下運作，但並不能保證。 查看 Azure 部落格文章中有關在 Azure 上執行之巢狀虛擬化的即時影片示範！ https://aka.ms/AzureNVblog。
+要在 Windows Server 2016 主機上啟用巢狀虛擬化的 PowerShell 指令碼可在 [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested) \(英文\) 上取得。 此指令碼會檢查必要條件，然後在 Azure VM 上設定巢狀虛擬化。 若要完成設定，必須重新啟動 Azure VM。 此指令碼或許能夠在其他環境下運作，但並不能保證。 查看 Azure 部落格文章中有關在 Azure 上執行之巢狀虛擬化的即時影片示範！ https://aka.ms/AzureNVblog。
 
 ### <a name="option-2-configure-nested-virtualization-manually"></a>選項 2：手動設定巢狀虛擬化
 

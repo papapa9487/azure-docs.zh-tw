@@ -15,14 +15,12 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 1180001c9fe74aab6b51c5b5969b80a8c7e1302f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/17/2017
 ---
-
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>雲端運算和 Microsoft Azure 簡介
 
 本指南介紹與 Microsoft Azure 基礎結構部署和管理相關的核心概念。 如果您不熟悉雲端運算或 Azure 本身，本指南可協助您快速了解概念、部署及管理詳細資料。 本指南的許多小節討論部署虛擬機器等作業，並接著提供深入技術詳細資料的連結。
@@ -517,4 +515,3 @@ Azure 網路有不同的使用案例。
 
 - [建立 Windows VM](/virtual-machines/windows/quick-create-portal.md)
 - [建立 Linux VM](../../virtual-machines/linux/quick-create-portal.md)
-

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/17/2017
 ms.author: bryanla
-ms.openlocfilehash: 905e7b0d8a0c45c98a86882a8c8f387be0950f9f
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 168b2ab3676d3f3e2830966f850e14adbe579f85
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in-and-token-acquisition"></a>如何使用 Azure VM 受管理服務識別 (MSI) 來登入和取得權杖 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)] 在 Azure VM 上啟用 MSI 之後，您可以使用 MSI 來登入和要求存取權杖。 本文說明各種方法，讓您使用 MSI [服務主體](develop/active-directory-dev-glossary.md#service-principal-object)來登入，以及取得[僅限應用程式存取權杖](develop/active-directory-dev-glossary.md#access-token)來存取其他資源，包括：
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/17/2017
 
 ## <a name="prerequisites"></a>必要條件
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 如果您打算使用本文中的 PowerShell 範例，請務必安裝 [Azure PowerShell 4.3.1 版](https://www.powershellgallery.com/packages/AzureRM)或更新版本。 如果您打算使用本文中的 Azure CLI 範例，您有三個選項可用：
 - 從 Azure 入口網站使用 [Azure Cloud Shell](../cloud-shell/overview.md)。

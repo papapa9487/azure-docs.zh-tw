@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: jingwang
-ms.openlocfilehash: f7683bc203c93993c0eb5aaed6ca788458546019
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: be23cd6b500fd186fdcbe6f5c2371f84e075e3e8
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>使用 Azure Data Factory 大量複製多個資料表
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 11/04/2017
 
 **準備接收 Azure SQL 資料倉儲**：
 
-1. 如果您沒有 Azure SQL 資料倉儲，請參閱[建立 SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md#create-a-sql-data-warehouse)文章，以取得建立的步驟。
+1. 如果您沒有 Azure SQL 資料倉儲，請參閱[建立 SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md)文章，以取得建立的步驟。
 
 2. 在 SQL 資料倉儲中建立對應的資料表結構描述。 您可以使用[移轉公用程式](https://www.microsoft.com/download/details.aspx?id=49100)將**結構描述**從 Azure SQL Database 移轉到 Azure SQL 資料倉儲。 在稍後步驟中，您可以使用 Azure Data Factory 來移轉/複製資料。
 
