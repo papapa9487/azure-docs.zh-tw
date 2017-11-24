@@ -1,5 +1,5 @@
 ---
-title: "Azure Cosmos DB 的 20 天秘訣 | Microsoft Docs"
+title: "Azure Cosmos DB 每日秘訣 20 則 | Microsoft Docs"
 description: "在單一位置尋找 Simona Cotin「20 天的 Azure Cosmos DB」秘訣系列的所有秘訣。"
 services: cosmos-db
 author: mimig1
@@ -19,15 +19,15 @@ ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="20-days-of-azure-cosmos-db-tips"></a>Azure Cosmos DB 的 20 天秘訣
+# <a name="20-days-of-azure-cosmos-db-tips"></a>Azure Cosmos DB 每日秘訣 20 則
 
 ![每一天了解新的 Azure Cosmos DB 提示](./media/20-days-of-tips/20-days-of-azure-cosmos-db-tips-header.png)
 
-如果您已經在 [Twitter](https://twitter.com/simona_cotin) 和 [LinkedIn](https://www.linkedin.com/in/simona-cotin-2ba8747/detail/recent-activity/shares/) 上看過 Azure Cosmos DB 的 20 天秘訣 (作者 Simona Cotin)，可能會需要它們全都在單一位置上可供使用。 那麼，就在這裡！
+如果您已經在 [Twitter](https://twitter.com/simona_cotin) 和 [LinkedIn](https://www.linkedin.com/in/simona-cotin-2ba8747/detail/recent-activity/shares/) 上看過 Simona Cotin 的 Azure Cosmos DB 每日秘訣 20 則，可能會希望它們能集中在同一個地方。 那麼，就在這裡！
 
 每天造訪此頁面，以獲得從 9 月 5 日到 9 月 29 日的新秘訣！
 
-## <a name="tip-1-what-is-cosmos"></a>秘訣 1：為何 Cosmos？
+## <a name="tip-1-what-is-cosmos"></a>秘訣 1：Cosmos 是什麼？
 
 為何 #cosmosdb？ 您未使用的最佳 NoSQL 資料庫！ [https://aka.ms/ubw007](https://aka.ms/ubw007)
 
@@ -117,7 +117,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="tip-13-mean-app-from-scratch"></a>祕訣 13：從頭建立 MEAN 應用程式
 
-祕訣 13：使用 @John_Papa 和 Azure Cosmos DB 來從無到有。 了解如何從頭建置 MEAN 應用程式
+祕訣 13：與 @John_Papa 起用 Azure Cosmos DB 無中生有， 了解如何從頭建置 MEAN 應用程式
 
 文章：[使用 Angular 和 Azure Cosmos DB 建立 MongoDB 應用程式](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
 
