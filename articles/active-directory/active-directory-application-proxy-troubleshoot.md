@@ -34,7 +34,7 @@ ms.lasthandoff: 11/14/2017
 ## <a name="the-page-is-not-rendered-correctly"></a>無法正確轉譯頁面
 您可能會遇到應用程式轉譯有問題或運作不正確，但沒有收到特定錯誤訊息的情況。 如果您已發佈文章路徑，但應用程式需要存在於該路徑以外的內容，就可能發生此問題。
 
-例如，如果您發佈的路徑是 https://yourapp/app，但應用程式呼叫的是 https://yourapp/media 中的影像，系統便不會轉譯那些影像。 請確定您是使用包含所有相關內容所需的最高層級路徑來發佈應用程式。 在此範例中，它會是 http://yourapp/。
+例如，如果您發佈的路徑是 https://yourapp/app ， 但應用程式呼叫的是 https://yourapp/media 中的影像，系統便不會轉譯那些影像。 請確定您是使用包含所有相關內容所需的最高層級路徑來發佈應用程式。 在此範例中，它會是 http://yourapp/。
 
 如果您變更路徑以包含參考的內容，但仍需要使用者登入該路徑中更深層的連結，請參閱部落格文章 [在 Azure AD 存取面板和 Office 365 應用程式啟動程式中為應用程式 Proxy 應用程式設定正確的連結](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/)。
 
