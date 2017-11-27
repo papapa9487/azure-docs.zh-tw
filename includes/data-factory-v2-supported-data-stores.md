@@ -35,4 +35,5 @@
 | &nbsp; |[泛型 OData](../articles/data-factory/connector-odata.md) |✓ | |✓  |✓  |
 | &nbsp; |[一般 ODBC](../articles/data-factory/connector-odbc.md) |✓ |✓  | |✓  |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ |✓  |✓  |✓  |
+| &nbsp; |[Salesforce 服務雲端](../articles/data-factory/connector-salesforce.md) |✓ |✓  |✓  |✓  |
 | &nbsp; |[Web 資料表 (HTML 資料表)](../articles/data-factory/connector-web-table.md) |✓ | |✓  |✓  |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: ac335512606c9c072cb7f62acbda6a2f11b45e26
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: aa371372dd07b8a5c8bd988c84b830a18c560953
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health 代理程式安裝
 本文件會逐步引導您安裝和設定 Azure AD Connect Health 代理程式。 您可以從 [這裡](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent)下載代理程式。
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/18/2017
 | Azure AD Premium |Azure AD Connect Health 是 Azure AD Premium 的一個功能，而且需要 Azure AD Premium。 </br></br>如需詳細資訊，請參閱[開始使用 Azure AD Premium](../active-directory-get-started-premium.md) </br>若要開始使用 30 天免費試用版，請參閱[開始使用試用版](https://azure.microsoft.com/trial/get-started-active-directory/)。 |
 | 您必須是 Azure AD 的全域系統管理員，才能開始使用 Azure AD Connect Health |依預設，只有全域系統管理員可以安裝和設定 Health 代理程式，以便開始使用、存取入口網站，以及在 Azure AD Connect Health 內執行任何作業。 如需詳細資訊，請參閱[管理您的 Azure AD 目錄](../active-directory-administer.md)。 <br><br> 使用角色型存取控制，您可以允許貴組織中的其他使用者存取 Azure AD Connect Health。 如需詳細資訊，請參閱[適用於 Azure AD Connect Health 的角色型存取控制](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control)。 </br></br>**重要：**在安裝代理程式時使用的帳戶必須是工作或學校帳戶。 不能是 Microsoft 帳戶。 如需詳細資訊，請參閱[以組織身分註冊 Azure](../sign-up-organization.md) |
 | Azure AD Connect Health 代理程式安裝在每部目標伺服器上 | Azure AD Connect Health 要求在目標伺服器上安裝及設定 Health 代理程式，才能接收資料及提供監視和分析功能 </br></br>例如，若要從 AD FS 基礎結構取得資料，代理程式必須安裝於 AD FS 及 Web 應用程式 Proxy 伺服器上。 同樣地，若要取得內部部署 AD DS 基礎結構的相關資料，代理程式必須安裝在網域控制站上。 </br></br> |
-| Azure 服務端點的輸出連線 | 在安裝期間和執行階段，代理程式需要連線至 Azure AD Connect Health 服務端點。 如果使用防火牆封鎖輸出連線，請確定已將下列端點新增至允許清單： </br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.servicebus.windows.net - Port: 5671 </li><li>&#42;.adhybridhealth.azure.com/</li><li>https://management.azure.com </li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com </li><br><br> 針對 **Azure 德國**環境，請將替代端點新增至允許的清單：</br></br><li>&#42;.blob.core.cloudapi.de </li><li>&#42;.queue.core.cloudapi.de </li><li>&#42;.servicebus.cloudapi.de </li><li>&#42;.table.core.cloudapi.de </li><li>&#42;.aadconnecthealth.microsoftazure.de </li><li>https://management.microsoftazure.de </li><li>https://policykeyservice.aadcdi.microsoftazure.de </li><li>https://login.microsoftonline.de </li><li>https://login.microsoftonline.de </li><li>https://secure.aadcdn.microsoftonline-p.de </li> | 
+| Azure 服務端點的輸出連線 | 在安裝期間和執行階段，代理程式需要連線至 Azure AD Connect Health 服務端點。 如果使用防火牆封鎖輸出連線，請確定已將下列端點新增至允許清單： </br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.servicebus.windows.net - Port: 5671 </li><li>&#42;.adhybridhealth.azure.com/</li><li>https://management.azure.com </li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com </li><li>https://www.office.com *此端點在註冊期間僅用於探索目的。</li><br> 針對 **Azure 德國**環境，請將替代端點新增至允許的清單：</br><li>&#42;.blob.core.cloudapi.de </li><li>&#42;.queue.core.cloudapi.de </li><li>&#42;.servicebus.cloudapi.de </li><li>&#42;.table.core.cloudapi.de </li><li>&#42;.aadconnecthealth.microsoftazure.de </li><li>https://management.microsoftazure.de </li><li>https://policykeyservice.aadcdi.microsoftazure.de </li><li>https://login.microsoftonline.de </li><li>https://secure.aadcdn.microsoftonline-p.de </li><li>https://www.office.com *此端點在註冊期間僅用於探索目的。</li> | 
 |以 IP 位址為基礎的輸出連線 | 如需防火牆上以 IP 位址為基礎的篩選，請參閱 [Azure IP 範圍](https://www.microsoft.com/en-us/download/details.aspx?id=41653)。|
 | 已篩選或停用輸出流量的 SSL 檢查 | 如果網路層的輸出流量有 SSL 檢查或終止，代理程式註冊步驟或資料上傳作業可能會失敗。 |
 | 在執行代理程式的伺服器上的防火牆連接埠。 |為了讓代理程式能與 Azure AD Health 服務端點進行通訊，代理程式要求開啟下列防火牆連接埠。</br></br><li>TCP 通訊埠 443</li><li>TCP 通訊埠 5671</li> |

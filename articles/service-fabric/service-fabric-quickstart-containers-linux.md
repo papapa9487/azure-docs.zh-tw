@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 7623c5ac5cbc52e9fc77b1f944908b07ff43fbaf
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 0a0ab748dcf722358633c7be350c6addcd61352d
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>在 Azure 上部署 Azure Service Fabric Linux 容器應用程式
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理可調整和可信賴的微服務與容器。 
@@ -59,7 +59,7 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 
 合作對象叢集是 Azure 上裝載的免費、限時 Service Fabric 叢集。 這類叢集是由任何人皆可部署應用程式並了解平台的 Service Fabric 小組所維護。 若要存取合作對象叢集，請[遵循指示](http://aka.ms/tryservicefabric)。 
 
-如需建立您自己叢集的資訊，請參閱[在 Azure 上建立您的第一個 Service Fabric 叢集](service-fabric-get-started-azure-cluster.md)。
+如需建立您自己叢集的資訊，請參閱[在 Azure 上建立您的 Service Fabric 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)。
 
 > [!Note]
 > Web 前端服務設定為在連接埠 80 上接聽傳入流量。 請確定您的叢集中已開啟該連接埠。 如果您使用合作對象叢集，此連接埠已開啟。

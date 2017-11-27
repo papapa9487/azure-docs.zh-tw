@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: ff859bd9dbbf30c461cdba8409c77b04ff97b1f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c7653250f51429321b4da0384496aae37ad06da
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>使用 Azure CLI 設定 VNet 對 VNet 的 VPN 閘道連線
 
@@ -59,11 +59,17 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="which-set-of-steps-should-i-use"></a>我應該使用哪個步驟集？
 
-在本文中，您會看到兩組不同的步驟。 一組步驟適用於[位於相同訂用帳戶中的 VNet](#samesub)，而另一組步驟則適用於[位於不同訂用帳戶中的 VNet](#difsub)。
-
-## <a name="samesub"></a>與相同訂用帳戶中的 VNet 連線
+在本文中，您會看到兩組不同的步驟。 [位於相同的訂用帳戶之 Vnet](#samesub) 的一組步驟。 此組態的步驟是使用 TestVNet1 和 TestVNet4。
 
 ![v2v 圖表](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+
+[位於不同的訂用帳戶之 Vnet](#difsub) 有其他的文章。 該組態的步驟是使用 TestVNet1 和 TestVNet5。
+
+![v2v 圖表](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+
+您可以視需要合併組態，或只選擇您需要使用的一個。
+
+## <a name="samesub"></a>與相同訂用帳戶中的 VNet 連線
 
 ### <a name="before-you-begin"></a>開始之前
 
@@ -88,7 +94,7 @@ ms.lasthandoff: 10/11/2017
 * 公用 IP: VNet1GWIP
 * VPNType：RouteBased
 * Connection(1to4)：VNet1toVNet4
-* Connection(1to5)：VNet1toVNet5
+* Connection(1to5)：VNet1toVNet5 (適用於不同訂用帳戶中的 Vnet)
 * ConnectionType：VNet2VNet
 
 **TestVNet4 的值︰**
@@ -255,8 +261,6 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="difsub"></a>與位於不同訂用帳戶的 VNet 連線
 
-![v2v 圖表](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
-
 在此案例中，我們會連接 TestVNet1 和 TestVNet5。 VNet 位於不同的訂用帳戶。 訂用帳戶不需與相同的 Active Directory 租用戶相關聯。 此設定的步驟會加入其他的 VNet 對 VNet 連線，以便將 TestVNet1 連接到 TestVNet5。
 
 ### <a name="TestVNet1diff"></a>步驟 5 - 建立及設定 TestVNet1
@@ -362,7 +366,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="verify"></a>驗證連線
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-[!INCLUDE [verify connections v2v cli](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
+[!INCLUDE [verify connections](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 ## <a name="faq"></a>VNet 對 VNet 常見問題集
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]

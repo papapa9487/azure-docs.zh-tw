@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 18d5cd8f3904a0c6ea89df440d917785510409cb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0b05cc76f8d8b2d14ac87fa3c55479bf0cf2377b
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>選擇您的 Azure Multi-Factor Authentication 方案
 因為 Azure Multi-Factor Authentication (MFA) 的種類繁多，我們必須回答幾個問題，以找出最合適的版本。  這些問題如下：
@@ -60,7 +60,7 @@ ms.lasthandoff: 11/15/2017
 | 以行動應用程式驗證碼做為第二個因素 | ● | ● |
 | 以撥打電話做為第二個因素 | ● | ● |
 | 以單向 SMS 做為第二個因素 | ● | ● |
-| 以雙向 SMS 做為第二個因素 | | ● |
+| 以雙向 SMS 做為第二個因素 | | ●  (取代)| 
 | 以硬體權杖做為第二個因素 | | ● |
 | 不支援 MFA 之 Office 365 用戶端的應用程式密碼 | ● | |
 | 系統管理員控制驗證方法 | ● | ● |

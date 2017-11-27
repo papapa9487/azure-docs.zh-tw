@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 11/06/2017
-ms.openlocfilehash: 5bbfe63d159ba2d09a495908f69f707ed04a02f8
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: b723cc23ccbda6c5d39627682116cc314dcf2c0e
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>分類鳶尾花第 2 部分：建置模型
 Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家用來以雲端規模準備資料、開發測試以及部署模型。
@@ -291,7 +291,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
    當 `run.py` 完成時，您會在 Workbench 的執行歷程記錄清單檢視中看到圖表。
 
 ## <a name="execute-in-a-docker-container-on-a-remote-machine"></a>在遠端電腦上的 Docker 容器中執行
-若要在遠端 Linux 電腦上的 Docker 容器中執行指令碼，您需要具備該遠端電腦的 SSH 存取 (使用者名稱和密碼)。 此外，該遠端電腦必須安裝並執行 Docker 引擎。 取得這類 Linux 電腦最簡單的方式，是在 Azure 上建立[以 Ubuntu 為基礎的資料科學虛擬機器 (DSVM)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)。 
+若要在遠端 Linux 電腦上的 Docker 容器中執行指令碼，您需要具備該遠端電腦的 SSH 存取 (使用者名稱和密碼)。 此外，該遠端電腦必須安裝並執行 Docker 引擎。 取得這類 Linux 電腦最簡單的方式，是在 Azure 上建立以 Ubuntu 為基礎的資料科學虛擬機器 (DSVM)。 深入了解[如何建立要在 Azure ML Workbench 中使用的 Ubuntu DSVM](how-to-create-dsvm-hdi.md#create-an-ubuntu-dsvm-in-azure-portal)。
 
 >[!NOTE] 
 >不支援以 CentOS 為基礎的 DSVM。
@@ -343,7 +343,9 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
    ```
 
 ## <a name="execute-script-in-an-hdinsight-cluster"></a>在 HDInsight 叢集中執行指令碼
-您也可以在實際的 Spark 叢集中執行此指令碼。 
+您也可以在 HDInsight Spark 叢集中執行此指令碼。 了解[如何建立要在 Azure ML Workbench 中使用的 HDInsight Spark 叢集](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal)。
+
+>![注意] HDInsight 叢集必須使用 Azure Blob 作為主要儲存體。 尚未支援使用 Azure Data Lake 儲存體。
 
 1. 如果您有適用於 Azure HDInsight 的 Spark 叢集的存取權，請如下所示產生 HDInsight 回合組態命令。 提供 HDInsight 叢集名稱和您的 HDInsight 使用者名稱與密碼作為參數。 使用下列命令：
 

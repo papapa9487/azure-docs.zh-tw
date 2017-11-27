@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: be0c715e12f7df6208112eea40d6017d86f50cae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 767dc34471db7dc1d095929e67e85197711b52ce
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="virtual-network-service-endpoints-preview"></a>虛擬網路服務端點 (預覽)
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/03/2017
 這項功能會以預覽形式在下列 Azure 服務和區域中提供：
 
 - **Azure 儲存體**：Azure 公用雲端中的所有區域。
-- **Azure SQL Database**：WestCentralUS、WestUS2 和 EastUS。
+- **Azure SQL**：Azure 公用雲端中的所有區域。
 
 如需此預覽的最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network)頁面。
 
@@ -122,4 +122,5 @@ ms.lasthandoff: 11/03/2017
 - 了解如何[將 Azure 儲存體帳戶放到虛擬網路保護](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - 了解如何[將 Azure SQL Database 放到虛擬網路保護](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - 了解[虛擬網路中的 Azure 服務整合](virtual-network-for-azure-services.md)
+-  快速入門：[Azure Resource Manager 範本](https://azure.microsoft.com/en-us/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) 可設定 VNet 子網路上的服務端點，並保護該子網路的 Azure 儲存體帳戶。
 

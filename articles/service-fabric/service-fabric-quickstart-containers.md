@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: ryanwi
-ms.openlocfilehash: 725a7224872cfb820bfdfa26c35c26569cff5a10
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: bd1b36af82a01909b12404ef54de32beb2f31c0b
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>在 Azure 上部署 Service Fabric Windows 容器應用程式
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理可調整和可信賴的微服務與容器。 
@@ -82,7 +82,7 @@ Service Fabric SDK 和工具會提供一個服務範本，協助您將容器部�
 
 合作對象的叢集是免費的限時 Service Fabric 叢集，裝載於 Azure 上，並且由任何人都可以部署應用程式並了解平台的 Service Fabric 小組執行。 若要存取合作對象叢集，請[遵循指示](http://aka.ms/tryservicefabric)。  
 
-如需建立您自己叢集的資訊，請參閱[在 Azure 上建立您的第一個 Service Fabric 叢集](service-fabric-get-started-azure-cluster.md)。
+如需建立您自己叢集的資訊，請參閱[在 Azure 上建立您的 Service Fabric 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)。
 
 記下您在下面步驟中使用的連線端點。  
 

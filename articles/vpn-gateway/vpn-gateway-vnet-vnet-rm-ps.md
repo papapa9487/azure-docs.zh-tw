@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 46037efe0e2c30337d76790c46c16e300bfffd5f
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9bcad8ed57980b08e0290e0272a5ff9de46f11a0
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>使用 PowerShell 設定 VNet 對 VNet 的 VPN 閘道連線
 
@@ -59,13 +59,17 @@ ms.lasthandoff: 10/31/2017
 
 ## <a name="which-set-of-steps-should-i-use"></a>我應該使用哪個步驟集？
 
-在本文中，您會看到兩組不同的步驟。 一組步驟適用於[位於相同訂用帳戶中的 VNet](#samesub)，而另一組步驟則適用於[位於不同訂用帳戶中的 VNet](#difsub)。 兩組之間的主要差異在於您是否可以在相同的 PowerShell 工作階段內建立和設定所有的虛擬網路和閘道資源。
-
-本文中的步驟會使用在每個區段開頭宣告的變數。 如果您已經使用現有的 VNet，請修改變數，以在自己的環境中反映設定。 如果您想要了解虛擬網路的名稱解析，請參閱[名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
-
-## <a name="samesub"></a>如何連接相同訂用帳戶中的 VNet
+在本文中，您會看到兩組不同的步驟。 [位於相同訂用帳戶之 Vnet](#samesub) 的一組步驟。 此組態的步驟是使用 TestVNet1 和 TestVNet4。
 
 ![v2v 圖表](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+
+[位於不同訂用帳戶之 Vnet](#difsub) 有其他的文章。 該組態的步驟是使用 TestVNet1 和 TestVNet5。
+
+![v2v 圖表](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
+
+兩組之間的主要差異在於您是否可以在相同的 PowerShell 工作階段內建立和設定所有的虛擬網路和閘道資源。 在設定位於不同訂用帳戶之 Vnet 的連線時，您必須使用個別的 PowerShell 工作階段。 您可以視需要合併組態，或只選擇您需要使用的一個。
+
+## <a name="samesub"></a>如何連接相同訂用帳戶中的 VNet
 
 ### <a name="before-you-begin"></a>開始之前
 
@@ -90,7 +94,7 @@ ms.lasthandoff: 10/31/2017
 * 公用 IP: VNet1GWIP
 * VPNType：RouteBased
 * Connection(1to4)：VNet1toVNet4
-* Connection(1to5)：VNet1toVNet5
+* Connection(1to5)：VNet1toVNet5 (適用於不同訂用帳戶中的 Vnet)
 * ConnectionType：VNet2VNet
 
 **TestVNet4 的值︰**
@@ -279,8 +283,6 @@ ms.lasthandoff: 10/31/2017
 4. 確認您的連線。 請參閱 [如何驗證您的連線](#verify)一節。
 
 ## <a name="difsub"></a>如何連接不同訂用帳戶中的 VNet
-
-![v2v 圖表](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
 在此案例中，我們會連接 TestVNet1 和 TestVNet5。 TestVNet1 和 TestVNet5 位於不同的訂用帳戶中。 訂用帳戶不需與相同的 Active Directory 租用戶相關聯。 這些步驟與前一組步驟的差別在於，第二個訂用帳戶的內容中有些設定步驟需在不同的 PowerShell 工作階段中執行。 尤其是當兩個訂用帳戶分屬不同的組織時。
 

@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: dkshir
 ms.custom: na
-ms.openlocfilehash: eec9eb9d5b5ecc0b33ce03f33b9f1600600f6c4e
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 86fb3bdbae83b543eee7a5d96c0739aaea0aba5e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-python"></a>使用 Python 將您的模擬裝置連線至 IoT 中樞
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -291,7 +291,7 @@ ms.lasthandoff: 11/13/2017
 
 * [連接您的裝置][lnk-connect-device]
 * [開始使用裝置管理][lnk-device-management]
-* [開始使用 Azure IoT Edge][lnk-iot-edge]
+* [使用 Azure IoT Edge 將 AI 部署到 Edge 裝置][lnk-iot-edge]
 
 若要了解如何擴充您的 IoT 解決方案及大規模處理裝置到雲端訊息，請參閱[處理裝置到雲端訊息][lnk-process-d2c-tutorial]教學課程。
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
@@ -325,5 +325,5 @@ ms.lasthandoff: 11/13/2017
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
+[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
