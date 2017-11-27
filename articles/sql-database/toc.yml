@@ -337,13 +337,15 @@
           href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
     - name: 多租用戶 SaaS
       items:
-        - name: 歡迎使用 Wingtips
+        - name: Wingtip Tickets 範例
           href: saas-tenancy-welcome-wingtip-tickets-app.md
+        - name: 一般方針
+          href: saas-tenancy-wingtip-app-guidance-tips.md
         - name: 獨立應用程式
           items:
             - name: 部署範例應用程式
               href: saas-standaloneapp-get-started-deploy.md
-        - name: 每一租用戶的資料庫
+        - name: 每一租用戶一個資料庫
           href: saas-dbpertenant-wingtip-app-overview.md
           items:
             - name: 教學課程簡介

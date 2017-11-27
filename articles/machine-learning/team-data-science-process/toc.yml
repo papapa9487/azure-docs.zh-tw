@@ -68,9 +68,9 @@
       href: walkthroughs-sql-data-warehouse.md
 - name: 訓練
   items:
-    - name: 適用於資料科學家的 TDSP
+    - name: 適用於資料科學家
       href: team-data-science-process-for-data-scientists.md
-    - name: 適用於 DevOps 的 TDSP
+    - name: 適用於 DevOps
       href: team-data-science-process-for-devops.md
 - name: 作法
   items:

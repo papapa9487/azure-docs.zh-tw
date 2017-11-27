@@ -243,6 +243,7 @@
 ### [在 VS中對 .NET 服務進行偵錯](service-fabric-debugging-your-application.md)
 ### [常見錯誤及例外狀況](service-fabric-errors-and-exceptions.md)
 ### [在本機上監視及診斷](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+### [在 Windows 上設定 Linux 叢集](service-fabric-local-linux-cluster-windows.md)
 
 ## 在 Linux 開發環境中工作
 ### [開始使用 Eclipse 外掛程式進行 Java 部署](service-fabric-get-started-eclipse.md)
@@ -278,7 +279,9 @@
 ##### [使用測試案例](service-fabric-testability-scenarios.md)
 ##### [使用節點轉換 API](service-fabric-node-transition-apis.md)
 
-### [使用 Jenkins 部署您的 Linux Java 應用程式](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+### 設定連續整合
+#### [透過 VSTS 設定連續整合](service-fabric-set-up-continuous-integration.md)
+#### [使用 Jenkins 部署您的 Linux 應用程式](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 
 ## 建立和管理叢集
 ### Azure 上的叢集

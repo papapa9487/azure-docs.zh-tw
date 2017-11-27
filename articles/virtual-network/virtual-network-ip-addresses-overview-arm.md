@@ -13,10 +13,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2017
+ms.date: 11/16/2017
 ms.author: jdial
-ms.openlocfilehash: 95f2b57b2012df816c76a1b6ec55ca9f92e134a3
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 3840ed000d5a9fe5d3c8fd01c061bf13674c0ce5
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/16/2017
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/16/2017
 
 ## <a name="public-ip-addresses"></a>公用 IP 位址
 
-Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服務 (例如 [Azure Redis 快取](https://azure.microsoft.com/services/cache)、[Azure 事件中樞](https://azure.microsoft.com/services/event-hubs)、[SQL Database](../sql-database/sql-database-technical-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 和 [Azure 儲存體](../storage/common/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)) 進行通訊。
+公用 IP 位址可讓網際網路資源向 Azure 資源進行輸入通訊。 公用 IP 位址也可透過指派給資源的 IP 位址，讓 Azure 資源向網際網路和公眾對應的 Azure 服務進行輸出通訊。 位址是資源專用，直到您取消指派為止。 如果未將公用 IP 位址指派給資源，資源仍可向網際網路進行輸出通訊，但 Azure 會以動態方式指派非資源專用的可用 IP 位址。 如需 Azure 中的輸出連線詳細資訊，請參閱[了解輸出連線](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 在 Azure 資源管理員中， [公用 IP](virtual-network-public-ip-address.md) 位址是有自己的屬性的資源。 可供公用 IP 位址資源與之建立關聯的部分資源如下：
 
@@ -98,7 +98,7 @@ Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服
 >
 
 ### <a name="dns-hostname-resolution"></a>DNS 主機名稱解析
-您可以指定公用 IP 資源的 DNS 網域名稱標籤，以建立 domainnamelabel.location.cloudapp.azure.com 與 Azure 受管理 DNS 伺服器中的公用 IP 位址的對應。 比方說，如果您建立公用 IP 資源並以 **contoso** 作為**美國西部** Azure 位置中的domainnamelabel，則完整網域名稱 (FQDN) **contoso.westus.cloudapp.azure.com** 會解析為資源的公用 IP 位址。 您可以使用此 FQDN 來建立自訂網域 CNAME 記錄，其指向 Azure 中的公用 IP 位址。
+您可以指定公用 IP 資源的 DNS 網域名稱標籤，以建立 domainnamelabel.location.cloudapp.azure.com 與 Azure 受管理 DNS 伺服器中的公用 IP 位址的對應。 比方說，如果您建立公用 IP 資源並以 **contoso** 作為**美國西部** Azure 位置中的 domainnamelabel，則完整網域名稱 (FQDN) **contoso.westus.cloudapp.azure.com** 會解析為資源的公用 IP 位址。 您可以使用此 FQDN 來建立自訂網域 CNAME 記錄，其指向 Azure 中的公用 IP 位址。 可改為 (或同時) 使用具有預設尾碼的 DNS 名稱標籤，您可以使用 Azure DNS 服務來設定 DNS 名稱，其具有解析為公用 IP 位址的自訂尾碼。 如需詳細資訊，請參閱[使用具有 Azure 公用 IP 位址的 Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)。
 
 > [!IMPORTANT]
 > 所建立的每個網域名稱標籤必須是 Azure 位置中唯一的。  
@@ -128,7 +128,7 @@ Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服
 | 虛擬機器 |Linux |是 |是 |
 | 網際網路對應負載平衡器 |前端組態 |是 |是 |
 | VPN 閘道 |閘道 IP 組態 |是 |否 |
-| 前端 |前端組態 |是 |否 |
+| 應用程式閘道 |前端組態 |是 |否 |
 
 ## <a name="private-ip-addresses"></a>私人 IP 位址
 私人 IP 位址可讓 Azure 資源透過 VPN 閘道或 ExpressRoute 電路，與 [虛擬網路](virtual-networks-overview.md) 中或內部部署網路中的其他資源進行通訊，而不必使用可網際網路連線的 IP 位址。
@@ -145,10 +145,12 @@ Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服
 
 ### <a name="allocation-method"></a>配置方法
 
-私人 IP 位址是從資源所在虛擬網路子網路的位址範圍進行配置。 私人 IP 位址有兩種配置方法：
+私人 IP 位址是從資源所在虛擬網路子網路的位址範圍進行配置。 Azure 會保留每個子網路位址範圍內的前四個位址，讓位址無法指派給資源。 例如，如果子網路的位址範圍是 10.0.0.0/16，就無法將位址 10.0.0.0-10.0.0.3 指派給資源。 子網路位址範圍內的 IP 位址一次只能指派一個資源。 
 
-- **動態**：Azure 會保留每個子網路位址範圍內的前四個位址，並不會指派位址。 Azure 會將子網路位址範圍內的下一個可用位址指派給資源。 例如，如果子網路的位址範圍是 10.0.0.0/16，而且已指派位址 10.0.0.0.4-10.0.0.14 (已保留 0-.3)，Azure 會將 10.0.0.15 指派給資源。 動態是預設配置方法。 指派之後，只有在網路介面遭到刪除、指派給相同虛擬網路內的不同子網路，或配置方法變更為靜態，並指定不同的 IP 位址後，才會釋出動態 IP 位址。 根據預設，當您的配置方法從動態變更為靜態時，Azure 會將先前動態指派的位址指派為靜態位址。
-- **靜態**：您選取並指派子網路位址範圍內的位址。 您指派的位址可以是子網路位址範圍內的任何位址，但該位址不是子網路位址範圍內的前四個位址之一，而且目前並未指派給子網路中的任何其他資源。 只有在刪除網路介面後，才會釋出靜態位址。 如果您將配置方法變更為靜態，Azure 會以動態方式將先前指派的靜態 IP 位址指派為動態位址 (即使此位址不是子網路位址範圍內的下一個可用位址)。 如果網路介面已指派給相同虛擬網路內的不同子網路，位址也會跟著變更，但若要將網路介面指派給不同的子網路，您必須先將配置方法從靜態變更為動態。 一旦您將網路介面指派給不同的子網路，您即可將配置方法變回靜態，並從新的子網路位址範圍中指派 IP 位址。
+私人 IP 位址有兩種配置方法：
+
+- **動態**：Azure 會在子網路的位址範圍中，指派下一個可用的取消指派或取消保留的 IP 位址。 例如，如果位址 10.0.0.4-10.0.0.9 已指派給其他資源，Azure 會將 10.0.0.10 指派給新的資源。 動態是預設配置方法。 指派之後，只有在網路介面遭到刪除、指派給相同虛擬網路內的不同子網路，或配置方法變更為靜態，並指定不同的 IP 位址後，才會釋出動態 IP 位址。 根據預設，當您的配置方法從動態變更為靜態時，Azure 會將先前動態指派的位址指派為靜態位址。
+- **靜態**：您在子網路的位址範圍中選取並指派任何取消指派或取消保留的 IP 位址。 例如，如果子網路的位址範圍是 10.0.0.0/16，且位址 10.0.0.4-10.0.0.9 已指派給其他資源，您就可以指派 10.0.0.10-10.0.255.254 之間的任何位址。 只有在刪除網路介面後，才會釋出靜態位址。 如果您將配置方法變更為靜態，Azure 會以動態方式將先前指派的靜態 IP 位址指派為動態位址 (即使此位址不是子網路位址範圍內的下一個可用位址)。 如果網路介面已指派給相同虛擬網路內的不同子網路，位址也會跟著變更，但若要將網路介面指派給不同的子網路，您必須先將配置方法從靜態變更為動態。 一旦您將網路介面指派給不同的子網路，您即可將配置方法變回靜態，並從新的子網路位址範圍中指派 IP 位址。
 
 ### <a name="virtual-machines"></a>虛擬機器
 
@@ -173,7 +175,7 @@ Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服
 | --- | --- | --- | --- |
 | 虛擬機器 |Linux |是 |是 |
 | 負載平衡器 |前端組態 |是 |是 |
-| 前端 |前端組態 |是 |是 |
+| 應用程式閘道 |前端組態 |是 |是 |
 
 ## <a name="limits"></a>限制
 加諸於 IP 位址上的限制，如在 Azure 中的完整[網路限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)所示。 這些限制是針對每一區域和每一訂用帳戶。 您可以 [連絡支援人員](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ，以根據您的業務需求將預設上限調升到最高上限。

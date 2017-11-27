@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 41279502c16d0b23c91739dcb62e8f94f3b8bd67
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 4f5e249238020429b6c6e0d39c580c83bc43969e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>在 Azure 入口網站中建立站對站連線
 
@@ -50,15 +50,13 @@ ms.lasthandoff: 10/27/2017
 本文的範例使用下列值。 您可以使用這些值來建立測試環境，或參考這些值，進一步了解本文中的範例。 如需有關 VPN 閘道的一般設定詳細資訊，請參閱 [關於 VPN 閘道設定](vpn-gateway-about-vpn-gateway-settings.md)。
 
 * **VNet 名稱︰**TestVNet1
-* **位址空間：** 
-  * 10.11.0.0/16
-  * 10.12.0.0/16 (對此練習是選擇性的)
-* **子網路：**
-  * FrontEnd：10.11.0.0/24
-  * BackEnd：10.12.0.0/24 (對此練習是選擇性的)
-* **GatewaySubnet：**10.11.255.0/27
+* **位址空間：**10.11.0.0/16 和 10.12.0.0/16 (對此練習是選擇性的)
+* **訂用帳戶：**您需要使用的訂用帳戶
 * **資源群組︰**TestRG1
 * **位置：**美國東部
+* **子網路：**FrontEnd：10.11.0.0/24，BackEnd：10.12.0.0/24 (對此練習是選擇性的)
+* **閘道子網路名稱︰**GatewaySubnet (這會在入口網站中自動填入)
+* **閘道子網路位址範圍︰**10.11.255.0/27
 * **DNS 伺服器：**選擇性。 DNS 伺服器的 IP 位址。
 * **虛擬網路閘道名稱：**VNet1GW
 * **公用 IP：**VNet1GWIP
@@ -67,6 +65,7 @@ ms.lasthandoff: 10/27/2017
 * **閘道類型：**VPN
 * **區域網路閘道名稱：**Site2
 * **連線名稱︰**VNet1toSite2
+* **共用的金鑰：**此範例中，我們會使用 abc123。 但是，您可以使用任何與您 VPN 硬體相容的項目。 值務必符合連線的兩端。
 
 ## <a name="CreatVNet"></a>1.建立虛擬網路
 
@@ -125,10 +124,21 @@ ms.lasthandoff: 10/27/2017
 
 如需變更閘道 SKU 的步驟，請參閱[閘道 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
 
+## <a name="addconnect"></a>如何將其他連線新增至 VPN 閘道
+
+您可以新增其他的連線，前提是連線之間沒有任何位址空間重疊。
+
+1. 若要新增其他連線，請瀏覽至 VPN 閘道，然後按一下 [連線] 以開啟 [連線] 頁面。
+2. 按一下 [+新增] 來新增連線。 調整連線類型以反映 VNet 對 VNet (如果連線到另一個 VNet 閘道) 或站對站。
+3. 如果您要使用站對站進行連線，且您尚未建立所需連線之站台的區域網路閘道，您可以新建立一個。
+4. 指定您需要使用的共用金鑰，然後按一下 [確定] 來建立連線。
+
 ## <a name="next-steps"></a>後續步驟
 
 * 如需 BGP 的相關資訊，請參閱 [BGP 概觀](vpn-gateway-bgp-overview.md)和[如何設定 BGP](vpn-gateway-bgp-resource-manager-ps.md)。
 * 如需強制通道的相關資訊，請參閱[關於強制通道](vpn-gateway-forced-tunneling-rm.md)。
 * 如需高可用性主動-主動連線的相關資訊，請參閱[高可用性跨單位和 VNet 對 VNet 連線能力](vpn-gateway-highlyavailable.md)。
+* 如需如何在虛擬網路中限制資源之網路流量的資訊，請參閱[網路安全性](../virtual-network/security-overview.md)。
+* 如需 Azure 如何在 Azure、內部部署和網際網路資源間路由流量的資訊，請參閱[虛擬網路流量路由](../virtual-network/virtual-networks-udr-overview.md)。
 * 如需使用 Azure Resource Manager 範本建立站對站 VPN 連線的相關資訊，請參閱[建立站對站 VPN 連線](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/)。
-* 如需使用 Azure Resource Manager 範本建立 vnet 對 vnet VPN 連線的相關資訊，請參閱[部署 HB 異地複寫](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/)。
+* 如需使用 Azure Resource Manager 範本建立 Vnet 對 Vnet VPN 連線的相關資訊，請參閱[部署 HB 異地複寫](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/)。

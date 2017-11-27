@@ -15,11 +15,11 @@ ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 71038dd1957f5322acc3d54600481e663d855151
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: dc1664d382c6e59c125ef00d02a8848079d8bf8d
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="getting-started-with-an-azure-multi-factor-authentication-provider"></a>開始使用 Azure Multi-Factor Authentication Provider
 依預設，擁有 Azure Active Directory 和 Office 365 使用者的全域管理員可以使用雙步驟驗證。 不過，如果您想要充分利用[進階功能](multi-factor-authentication-whats-next.md)，則應該購買完整版的 Azure Multi-Factor Authentication (MFA)。
@@ -29,13 +29,15 @@ Azure Multi-Factor Auth Provider 可用來充分利用完整版 Azure MFA 所提
 下載 SDK 需要 Azure Multi-Factor Auth Provider。
 
 > [!IMPORTANT]
-> 若要下載 SDK，即使您有 Azure MFA、AAD Premium 或 EMS 授權，還是需要建立 Azure 多因素驗證提供者。  如果您針對此用途建立 Azure Multi-Factor Auth Provider，且已有授權，請務必使用**每個啟用的使用者**模型建立提供者。 然後，將提供者連結至包含 Azure MFA、Azure AD Premium 或 EMS 授權的目錄。 這個組態可確保您只會在執行雙步驟驗證的唯一使用者超過您所擁有的授權數目時收到帳單。
+> 已宣告取代 Azure Multi-Factor Authentication 軟體開發套件 (SDK)。 新客戶不再支援此功能。 目前的客戶可以繼續使用 SDK 直到 2018 年 11 月 14 日。 在這個時間之後，呼叫 SDK 將會失敗。
+> [!IMPORTANT]
+>若要下載 SDK，即使您有 Azure MFA、AAD Premium 或 EMS 授權，還是需要建立 Azure 多因素驗證提供者。  如果您針對此用途建立 Azure Multi-Factor Auth Provider，且已有授權，請務必使用**每個啟用的使用者**模型建立提供者。 然後，將提供者連結至包含 Azure MFA、Azure AD Premium 或 EMS 授權的目錄。 這個組態可確保您只會在執行雙步驟驗證的唯一使用者超過您所擁有的授權數目時收到帳單。 
 
 ## <a name="what-is-an-mfa-provider"></a>什麼是 MFA Provider？
 
-如果您沒有 Azure Multi-factor Authentication 的授權，可以建立驗證提供者，為您的使用者要求雙步驟驗證。 如果您要開發自訂應用程式，而且想要啟用 Azure MFA，請建立驗證提供者並[下載 SDK](multi-factor-authentication-sdk.md)。
+如果您沒有 Azure Multi-factor Authentication 的授權，可以建立驗證提供者，為您的使用者要求雙步驟驗證。
 
-驗證提供者的類型有兩種，差異在於您 Azure 訂用帳戶的收費方式。 每次驗證選項會計算一個月中對您的租用戶執行之驗證數目。 如果您有許多使用者偶爾才會進行驗證，像是如果您要求 MFA 進行自訂應用程式，最好使用此選項。 每位使用者選項會計算您的租用戶中一個月執行雙步驟驗證之個人數目。 如果您的某些使用者已擁有授權，但是需要將 MFA 擴充至您授權限制之外的更多使用者，最好使用此選項。
+驗證提供者的類型有兩種，差異在於您 Azure 訂用帳戶的收費方式。 每次驗證選項會計算一個月中對您的租用戶執行之驗證數目。 如果您有許多使用者偶爾才會進行驗證，最好使用此選項。 每位使用者選項會計算您的租用戶中一個月執行雙步驟驗證之個人數目。 如果您的某些使用者已擁有授權，但是需要將 MFA 擴充至您授權限制之外的更多使用者，最好使用此選項。
 
 ## <a name="create-an-mfa-provider---public-preview"></a>建立 MFA Provider - 公開預覽
 
@@ -51,8 +53,8 @@ Azure Multi-Factor Auth Provider 可用來充分利用完整版 Azure MFA 所提
       * 每次驗證 – 購買依每次驗證付費的模式。 通常用於在取用者導向應用程式中使用 Azure Multi-factor Authentication 的案例。
       * 每個啟用的使用者 – 購買依每個啟用使用者付費的模式。 通常用於員工存取 Office 365 之類的應用程式。 如果某些使用者已擁有 Azure MFA 的授權，請選擇這個選項。
    - **訂用帳戶** – 透過 Provider 針對雙步驟驗證活動計費的 Azure 訂用帳戶。 
-   - **目錄** – 與 Provider 相關聯的 Azure Active Directory 租用戶。 請注意以下事項：
-      * 您不需要 Azure AD 目錄即可建立 Provider。 如果您只打算下載 Azure Multi-Factor Authentication Server 或 SDK，請將方塊保留空白。
+   - **目錄** – 與 Provider 相關聯的 Azure Active Directory 租用戶。
+      * 您不需要 Azure AD 目錄即可建立 Provider。 如果您只打算下載 Azure Multi-Factor Authentication Server，請將方塊保留空白。
       * Provider 必須與 Azure AD 目錄產生關聯，才能利用進階功能。
       * 只有一個 Provider 可以與任何一個 Azure AD 目錄相關聯。
 
@@ -82,8 +84,8 @@ Azure Multi-Factor Auth Provider 可用來充分利用完整版 Azure MFA 所提
    2. **使用量模型** – 選擇兩個選項其中之一：
       * 每次驗證 – 購買依每次驗證付費的模式。 通常用於在取用者導向應用程式中使用 Azure Multi-factor Authentication 的案例。
       * 每個啟用的使用者 – 購買依每個啟用使用者付費的模式。 通常用於員工存取 Office 365 之類的應用程式。 如果某些使用者已擁有 Azure MFA 的授權，請選擇這個選項。
-   3. **目錄** – 與 Provider 相關聯的 Azure Active Directory 租用戶。 請注意以下事項：
-      * 您不需要 Azure AD 目錄即可建立 Provider。 如果您只打算下載 Azure Multi-Factor Authentication Server 或 SDK，請將方塊保留空白。
+   3. **目錄** – 與 Provider 相關聯的 Azure Active Directory 租用戶。
+      * 您不需要 Azure AD 目錄即可建立 Provider。 如果您只打算下載 Azure Multi-Factor Authentication Server，請將方塊保留空白。
       * Provider 必須與 Azure AD 目錄產生關聯，才能利用進階功能。
       * 只有一個 Provider 可以與任何一個 Azure AD 目錄相關聯。  
       ![建立 MFA Provider](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
@@ -101,7 +103,5 @@ Azure Multi-Factor Auth Provider 可用來充分利用完整版 Azure MFA 所提
 如果您的 MFA 提供者未連結至 Azure AD 租用戶，或是您將新的 MFA 提供者連結至不同 Azure AD 租用戶，則使用者設定和組態選項並不會進行轉移。 此外，現有 Azure MFA 伺服器也需要使用新 MFA 提供者產生的啟用認證重新啟動。 重新啟用 MFA 伺服器以將其連結至新的 MFA 提供者，並不會影響電話和簡訊驗證，但所有使用者的行動裝置應用程式通知將會停止運作，直到他們重新啟動行動裝置應用程式。
 
 ## <a name="next-steps"></a>後續步驟
-
-[下載 Multi-Factor Authentication SDK](multi-factor-authentication-sdk.md)
 
 [進行 Multi-Factor Authentication 設定](multi-factor-authentication-whats-next.md)

@@ -12,24 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/19/2017
+ms.date: 11/22/2017
 ms.author: renash
-ms.openlocfilehash: 51180530790fc0077cea4d8aea7088f1f871681b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 66a68a1ca048b50b8e2ba4ac1bb86d367b8a5bb9
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="develop-for-azure-files-with-net"></a>使用 .NET 開發 Azure 檔案服務 
-> [!NOTE]
-> 本文將說明如何使用 .NET 程式碼管理 Azure 檔案服務。 若要深入了解 Azure 檔案服務，請參閱 [Azure 檔案服務簡介](storage-files-introduction.md)。
->
+# <a name="develop-for-azure-files-with-net-and-windowsazurestorage"></a>使用 .NET 和 WindowsAzure.Storage 開發 Azure 檔案服務
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
-[!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
-
-本教學課程將示範基本概念，說明如何利用 .NET 開發使用 Azure 檔案服務來儲存檔案資料的應用程式或服務。 在本教學課程中，我們將建立簡單的主控台應用程式，並說明如何執行 .NET 和 Azure 檔案服務的基本動作：
+本教學課程將示範基本概念，說明如何利用 .NET 和 `WindowsAzure.Storage` API 開發使用 [Azure 檔案服務](storage-files-introduction.md)來儲存檔案資料的應用程式。 本教學課程會建立簡單的主控台應用程式，來執行 .NET 和 Azure 檔案服務的基本動作：
 
 * 取得檔案的內容
 * 設定檔案共用的配額 (大小上限)。
@@ -38,9 +33,21 @@ ms.lasthandoff: 10/19/2017
 * 將檔案複製到相同儲存體帳戶中的 Blob。
 * 使用 Azure 儲存體度量進行疑難排解
 
-> [!Note]  
-> 由於 Azure 檔案服務可透過 SMB 存取，因此便可使用檔案 I/O 的標準 System.IO 類別撰寫簡單的應用程式以存取 Azure 檔案共用。 本文將說明如何撰寫使用 Azure 儲存體 .NET SDK 的應用程式，它會使用 [File REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) 與 Azure 檔案服務通訊。 
+若要深入了解 Azure 檔案服務，請參閱 [Azure 檔案服務簡介](storage-files-introduction.md)。
 
+[!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
+
+## <a name="understanding-the-net-apis"></a>了解 .NET API
+
+Azure 檔案服務會提供兩種廣泛的方法給用戶端應用程式：伺服器訊息區 (SMB) 和 REST。 在 .NET 內，這些方法會由 `System.IO` 和 `WindowsAzure.Storage` API 摘要說明。
+
+API | 使用時機 | 注意事項
+----|-------------|------
+[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | 您的應用程式： <ul><li>需要經由 SMB 讀取/寫入檔案</li><li>正在可透過連接埠 445 存取您 Azure 檔案服務帳戶的裝置上執行</li><li>不需要管理檔案共用的任何系統管理設定</li></ul> | 使用 Azure 檔案服務透過 SMB 編碼檔案 I/O 通常是與使用任何網路檔案共用或本機存放裝置編碼 I/O 相同。 如需 .NET 中許多功能的簡介 (包括檔案 I/O)，請參閱[本教學課程](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter)。
+[WindowsAzure.Storage](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet#client-library) | 您的應用程式： <ul><li>由於防火牆或 ISP 限制，無法在連接埠 445 上透過 SMB 存取 Azure 檔案服務</li><li>需要系統管理功能，例如設定檔案共用的配額，或建立共用存取簽章的能力</li></ul> | 本文示範使用 REST 檔案的 I/O 之 `WindowsAzure.Storage` 用法 (而不是 SMB) 和管理檔案共用。
+
+> [!TIP]
+> 根據應用程式的需求，Azure Blob 可能是儲存體的更適當選擇。 如需有關選擇 Azure 檔案服務或 Azure Blob 的詳細資訊，請參閱[決定何時使用 Azure Blob、Azure 檔案服務或 Azure 磁碟](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks)。
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>建立主控台應用程式並取得組件
 在 Visual Studio 中，建立新的 Windows 主控台應用程式。 下列步驟示範如何在 Visual Studio 2017 中建立主控台應用程式，但步驟類似其他版本的 Visual Studio。

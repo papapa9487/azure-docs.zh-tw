@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2017
+ms.date: 11/20/2017
 ms.author: kaanan
-ms.openlocfilehash: 89ca57785819ee0ea54a0514bb7d293d9df6644c
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 5a457f843f2529b7279fe245bb47ff52cba76e66
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -85,19 +85,19 @@ ms.lasthandoff: 10/26/2017
 | **邁阿密** |C3ntro+、Megaport、Neutrona Networks |
 | **蒙特婁** |Bell Canada、Cologix |
 | **孟買** |Airtel+、Global CloudXchange (GCX)、Sify、Tata Communications |
-| **紐約** |Coresite、Equinix、Megaport、Zayo Group |
+| **紐約** |Coresite、Equinix、Level 3 Communications、Megaport、Zayo Group |
 | **Newport(Wales)** |新一代資料 |
 | **大阪** |Equinix、Internet Initiative Japan Inc. - IIJ、NTT Communications、NTT SmartConnect、Softbank |
 | **巴黎** |Colt、Intercloud、Interxion、Equinix、Orange |
 | **魁北克市** | Megaport |
-| **聖安東尼奧** |Megaport |
+| **聖安東尼奧** |Level 3 Communications、Megaport |
 | **聖保羅** |Ascenty Data Centers+、Equinix、Level 3 Communications、Neutrona Networks、Telefonica、UOLDIVEO |
 | **Seattle** |Equinix、Level 3 Communications、Megaport |
 | **首爾** |KINX、LG CNS、Sejong Telecom |
 | **矽谷** |Aryaka Networks、AT&T NetBond、British Telecom、CenturyLink+、Comcast、Console、Coresite、Equinix、Level 3 Communications、Megaport、Orange、Tata Communications、Verizon、Zayo Group |
 | **新加坡** |Aryaka Networks、AT&T NetBond、British Telecom、Epsilon Global Communications、Equinix、InterCloud、Level 3 Communications、Megaport、NTT Communications、Orange、SingTel、Tata Communications、Verizon |
 | **雪梨** |AARNet、AT&T NetBond、British Telecom、Equinix、Megaport、NEXTDC、Orange、Telstra Corporation、Verizon |
-| **東京** |Aryaka Networks、AT&T NetBond、British Telecom、Colt、Equinix、Internet Initiative Japan Inc. - IIJ、NTT Communications、Softbank、Verizon |
+| **東京** |Aryaka Networks、AT&T NetBond、British Telecom、Colt、Equinix、Internet Initiative Japan Inc. - IIJ、Level 3 Communications、NTT Communications、Softbank、Verizon |
 | **多倫多** |AT&T NetBond、Bell Canada、Cologix、Console、Equinix、Megaport、Telus、Zayo Group |
 | **華盛頓** |Aryaka Networks、AT&T NetBond、British Telecom、Comcast、Coresite、Equinix、InterCloud、Level 3 Communications、Megaport、NTT Communications、Orange、Tata Communications、Verizon、Zayo Group |
 
@@ -149,7 +149,7 @@ ms.lasthandoff: 10/26/2017
 ## <a name="c1partners"></a>透過額外服務提供者連線
 | **位置** | **Exchange** | **連線提供者** |
 | --- | --- | --- |
-| **阿姆斯特丹** | Equinix、Telecity | Eurofiber、Fastweb S.p.A、Nianet、Telia |
+| **阿姆斯特丹** | Equinix、Telecity | Eurofiber、Fastweb S.p.A、MainOne、Nianet、Telia |
 | **芝加哥** | Equinix | Lightower、Windstream |
 | **達拉斯** | Equinix、Megaport | C3ntro Telecom、Cox Business、Data Foundry、Transtelco |
 | **法蘭克福** | Telecity | Nianet、QSC AG |

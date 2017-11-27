@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 0c0029d2dea293e71c6e3daf74b85f0234bfdffd
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 42cbc442d03cdca04d380d05d9e904355476099e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>在 Azure 資訊安全中心整合安全性解決方案
 這份文件可協助您管理已連線到 Azure 資訊安全中心的安全性解決方案，並且新增新的項目。
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/31/2017
 | Windows Defender (Microsoft 反惡意程式碼軟體)                  | Windows Server 2016                   | 否，內建於 OS           | 是                       |
 | System Center Endpoint Protection (Microsoft 反惡意程式碼軟體) | Windows Server 2012 R2、2012、2008 R2 | 透過延伸模組                | 是                       |
 | Trend Micro – 所有版本         | Windows Server 系列                 | 透過延伸模組                | 是                       |
-| Symantec v12+                     | Windows Server 系列                 | 否                           | 是                        |
+| Symantec v12.1.1100+                     | Windows Server 系列                 | 否                           | 是                        |
 | MacAfee                           | Windows Server 系列                 | 否                           | 否                        |
 | Kaspersky                         | Windows Server 系列                 | 否                           | 否                        |
 | Sophos                            | Windows Server 系列                 | 否                           | 否                        |

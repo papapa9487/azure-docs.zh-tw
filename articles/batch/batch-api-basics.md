@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 10/12/2017
+ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e9f098bedf2c4dfb27a27d028b7bd87782516c7
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 3028e913937db304ac0a1df8e6a095072630505d
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 開發大規模的平行運算解決方案
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 10/31/2017
 您可以在單一 Batch 帳戶中執行多個 Batch 工作負載，或在相同訂用帳戶 (但不同 Azure 區域) 的 Batch 帳戶之間散佈工作負載。
 
 > [!NOTE]
-> 建立 Batch 帳戶時，您通常應該選擇預設的 **Batch 服務**模式，可指定在幕後將集區配置在 Azure 管理的訂用帳戶中。 在其他**使用者訂用帳戶**模式中 (不再建議使用)，建立集區時，Batch VM 和其他資源會直接建立在您的訂用帳戶中。 若要在使用者訂用帳戶模式中建立 Batch 帳戶，您也必須與 Azure Key Vault 中的帳戶建立關聯。
+> 建立 Batch 帳戶時，您通常應該選擇預設的 **Batch 服務**模式，可指定在幕後將集區配置在 Azure 管理的訂用帳戶中。 在其他**使用者訂用帳戶**模式中 (大部分情節中不再建議使用) 建立集區時，Batch VM 和其他資源會直接建立在您的訂用帳戶中。 若要在使用者訂用帳戶模式中建立 Batch 帳戶，您也必須向 Azure Batch 註冊訂用帳戶，並與 Azure Key Vault 中的帳戶建立關聯。
 >
 
 
@@ -150,7 +150,9 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台。 這些集區可
 
 #### <a name="container-support-in-virtual-machine-pools"></a>虛擬機器集區中的容器支援
 
-使用 Batch API 建立虛擬機器設定集區時，您可以設定集區執行設定集區執行 Docker 容器中的工作。 目前，您必須使用 Windows Server 2016 Datacenter 與 Azure Marketplace 中的容器映像來建立集區，或者提供自訂 VM 映像，其中包含 Docker Community Edition 和任何所需的驅動程式。 集區設定必須包含[容器設定](/rest/api/batchservice/pool/add#definitions_containerconfiguration)，該設定會在集區建立時將容器映像複製到 VM。 然後，在集區上執行的工作就可以參考容器映像和容器執行選項。
+使用 Batch API 建立虛擬機器設定集區時，您可以設定集區執行設定集區執行 Docker 容器中的工作。 目前，您必須使用支援 Docker 容器的映像來建立集區。 使用 Windows Server 2016 Datacenter 與 Azure Marketplace 中的容器映像，或者提供自訂 VM 映像，其中包含 Docker Community Edition 或 Enterprise Edition 和任何所需的驅動程式。 集區設定必須包含[容器設定](/rest/api/batchservice/pool/add#definitions_containerconfiguration)，該設定會在集區建立時將容器映像複製到 VM。 然後，在集區上執行的工作就可以參考容器映像和容器執行選項。
+
+如需詳細資訊，請參閱[在 Azure Batch 上執行 Docker 容器應用程式](batch-docker-container-workloads.md)。
 
 ## <a name="compute-node-type-and-target-number-of-nodes"></a>計算節點類型和目標節點數目
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 11/17/2017
 ms.author: billmath
-ms.openlocfilehash: b6318b419a0ea87fd1fb56656b1161909876f338
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf7b64bd956c236f5c70bb7dcd209ecdcd7176dd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Azure Active Directory 使用規定特性 (預覽)
 Azure AD 使用規定提供一種簡單的方法，組織可用來將資訊呈現給終端使用者。  這確保使用者看到合法或合規性需求的相關免責聲明。
@@ -43,7 +43,8 @@ Azure AD 使用規定可以用於下列案例：
 2. 確定該目錄具有 Azure AD Premium P1、P2、EMS E3 或 EMS E5 訂用帳戶。  如果未[取得 Azure AD Premium](active-directory-get-started-premium.md) 或[開始試用](https://azure.microsoft.com/trial/get-started-active-directory/)，
 3. 檢視 Azure AD 使用規定儀表板，網址為 [https://aka.ms/catou](https://aka.ms/catou)。
 
-
+>[!IMPORTANT]
+>條件式存取原則控制項 (包括使用條款) 不支援服務帳戶的強制執行。  建議您排除條件式存取原則中的所有服務帳戶。
 
 ## <a name="add-company-terms-of-use"></a>新增公司使用規定
 一旦完成了您的使用規定，請使用下列程序來新增它。
@@ -92,7 +93,6 @@ Azure AD 使用規定提供了易於使用的稽核，讓您能夠查看誰已�
 
 ## <a name="additional-information"></a>其他資訊
 下列是需要留意並可協助使用此使用條款的資訊。
-
 
 如果情況如下，範圍中的使用者必須登出並登入，才能符合新的原則：
  - 對使用規定啟用條件式存取原則
