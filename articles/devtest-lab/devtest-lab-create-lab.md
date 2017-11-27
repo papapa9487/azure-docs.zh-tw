@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
 ms.author: tarcher
-ms.openlocfilehash: 9657a4681f6bd9cc126de50883ce7a66357156e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c2c6cbff31f5d4992163d3fb46e4f1e13a58024
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>在 Azure 研測實驗室中建立實驗室
 Azure DevTest Labs 中的實驗室是包含一組資源 (例如虛擬機器 (VM)) 的基礎結構，可讓您藉由指定限制和配額更好地管理這些資源。 本文將逐步引導您完成使用 Azure 入口網站來建立實驗室的程序。
@@ -59,9 +59,9 @@ Azure DevTest Labs 中的實驗室是包含一組資源 (例如虛擬機器 (VM)
 ## <a name="next-steps"></a>後續步驟
 建立您的實驗室之後，以下是要考慮的一些後續步驟：
 
-* [安全存取實驗室](devtest-lab-add-devtest-user.md)。
-* [設定實驗室原則](devtest-lab-set-lab-policy.md)。
-* [建立實驗室範本](devtest-lab-create-template.md)。
-* [為您的 VM 建立自訂成品](devtest-lab-artifact-author.md)。
-* [將具有構件的 VM 新增至實驗室](https://azure.microsoft.com/resources/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab/)。
+* [安全存取實驗室](devtest-lab-add-devtest-user.md)
+* [設定實驗室原則](devtest-lab-set-lab-policy.md)
+* [建立實驗室範本](devtest-lab-create-template.md)
+* [為您的 VM 建立自訂成品](devtest-lab-artifact-author.md)
+* [將 VM 新增至實驗室](devtest-lab-add-vm.md)
 

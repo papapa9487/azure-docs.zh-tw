@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: d4a216b612274ff1de499bd4892ff7422c66b4d0
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 38101134beb59d9cae46e8ca00354e14d5c16c54
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="network-security"></a>網路安全性
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/16/2017
 |---------|---------|
 |名稱|網路安全性群組中的唯一名稱。|
 |優先順序 | 100 和 4096 之間的數字。 系統會依照優先權順序處理規則，較低的數字會在較高的數字之前處理，因為較低的數字具有較高的優先順序。 一旦流量符合規則，處理就會停止。 因此，如果存在較低優先順序 (較高數字) 的規則具有與較高優先順序之規則相同的屬性，則不會進行處理。|
-|來源或目的地| 任何或個別的 IP 位址、CIDR 區塊 (例如 10.0.0.0/24)、服務標籤或應用程式安全性群組。 深入了解[服務標籤](#service-tags)和[應用程式安全性群組](#application-security-groups)。 指定範圍、服務標籤或應用程式安全性群組，可讓您建立較少的安全性規則。 在規則中指定多個個別 IP 位址和範圍 (您無法指定多個服務標籤或應用程式群組) 的功能在預覽版本中，也稱為增強型安全性規則。 增強型安全性規則只可以在透過 Resource Manager 部署模型建立的網路安全性群組中建立。 您無法在透過傳統部署模型建立的網路安全性群組中指定多個 IP 位址與 IP 位址範圍。|
+|來源或目的地| 任何或個別的 IP 位址、CIDR 區塊 (例如 10.0.0.0/24)、服務標籤或應用程式安全性群組。 深入了解[服務標籤](#service-tags)和[應用程式安全性群組](#application-security-groups)。 指定範圍、服務標籤或應用程式安全性群組，可讓您建立較少的安全性規則。 在規則中指定多個個別 IP 位址和範圍 (您無法指定多個服務標籤或應用程式群組) 的功能也稱為增強型安全性規則。 深入了解[增強安全性規則](#augmented-security-rules)。 增強型安全性規則只可以在透過 Resource Manager 部署模型建立的網路安全性群組中建立。 您無法在透過傳統部署模型建立的網路安全性群組中指定多個 IP 位址與 IP 位址範圍。|
 |通訊協定     | TCP、UDP 或 [任何]，其中包括 TCP、 UDP 和 ICMP。 您無法單獨指定 ICMP，如果您需要 ICMP，您必須使用 [任何]。 |
 |方向| 規則是否套用至輸入或輸出流量。|
 |連接埠範圍     |您可以指定個別連接埠或連接埠範圍。 例如，您可以指定 80 或 10000-10005。 指定範圍可讓您建立較少的安全性規則。 在規則中指定多個個別連接埠和連接埠範圍的功能在預覽版本中，也稱為增強型安全性規則。 使用增強型安全性規則之前，請先閱讀[預覽功能](#preview-features)以取得重要資訊。 增強型安全性規則只可以在透過 Resource Manager 部署模型建立的網路安全性群組中建立。 您無法在透過傳統部署模型建立之網路安全性群組的相同安全性規則中指定多個連接埠與連接埠範圍。   |
@@ -62,7 +62,7 @@ ms.lasthandoff: 11/16/2017
 
 增強型規則可簡化虛擬網路的安全性定義，讓您定義更大且複雜的網路安全性原則 (但規則比較少)。 您可以將多個連接埠、多個明確 IP 位址、服務標籤和應用程式安全性群組，合併成易於了解的單一安全性規則。 在規則的來源、目的地和連接埠欄位中使用增強型規則。 建立規則時，您可以指定多個明確的 IP 位址、CIDR 範圍和連接埠。 若要簡化安全性規則定義的維護，請合併增強型安全性規則與服務標籤或應用程式安全性群組。 
 
-增強型安全性規則已在預覽版本中提供。 若要了解建立增強型安全性規則時的相關限制，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。 預覽狀態的功能並沒有與一般版本中的功能相同層級的可用性和可靠性。 這些功能只在下列地區提供：美國東部、美國西部、美國西部 2、美國西部、澳大利亞東部、澳大利亞東南部和英國南部。
+若要了解建立增強型安全性規則時的相關限制，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 
 ## <a name="default-security-rules"></a>預設安全性規則
 
@@ -119,15 +119,12 @@ ms.lasthandoff: 11/16/2017
 * **VirtualNetwork** (Resource Manager) (適用於傳統部署的 VIRTUAL_NETWORK*)：這個標籤包含虛擬網路位址空間 (針對虛擬網路定義的所有 CIDR 範圍)、所有已連線的內部部署位址空間，以及[對等互連](virtual-network-peering-overview.md)的虛擬網路或已連線至[虛擬網路閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)的虛擬網路。
 * **AzureLoadBalancer** (Resource Manager) (適用於傳統部署的 **AZURE_LOADBALANCER**)：這個標籤代表 Azure 基礎結構的負載平衡器。 此標籤會轉譯成作為 Azure 健康情況探查來源的 [Azure 資料中心 IP 位址](https://www.microsoft.com/download/details.aspx?id=41653)。 如果您未使用 Azure 負載平衡器，則可以覆寫此規則。
 * **Internet** (Resource Manager) (適用於傳統部署的 **INTERNET**)：這個標籤代表虛擬網路以外且可以透過公用網際網路進行存取的 IP 位址空間。 此位址範圍也包括 [Azure 擁有的公用 IP 位址空間](https://www.microsoft.com/download/details.aspx?id=41653)。
-* **AzureTrafficManager** (僅限 Resource Manager)：這個標籤代表 Azure 流量管理員服務的 IP 位址空間。
-* **Storage** (僅限 Resource Manager)：這個標籤代表 Azure 儲存體服務的 IP 位址空間。 如果您指定 *Storage* 值，則會允許或拒絕儲存體的流量。 如果您只想要允許存取特定[地區](https://azure.microsoft.com/regions)中的儲存體，您可以指定地區。 例如，如果您只想要允許存取美國東部地區的 Azure 儲存體，您可以指定 *Storage.EastUS* 作為服務標籤。 其他可用的地區性服務標籤：Storage.AustraliaEast、Storage.AustraliaSoutheast、Storage.EastUS、Storage.UKSouth、Storage.WestCentralUS、Storage.WestUS 和 Storage.WestUS2。 標籤代表服務，但不代表服務的特定執行個體。 例如，標籤代表 Azure 儲存體服務，但不代表特定的 Azure 儲存體帳戶。
-* **Sql** (僅限 Resource Manager)：這個標籤代表 Azure SQL Database 和 Azure SQL 資料倉儲服務的位址前置詞。 您只可以為此服務標籤指定特定地區。 例如，如果您只想要允許存取美國東部地區的 Azure SQL Database，您可以指定 *Sql.EastUS* 作為服務標籤。 您無法針對所有 Azure 地區指定 Sql，您必須個別指定地區。 有其他區域服務標籤可用：Sql.AustraliaEast、Sql.AustraliaSoutheast、Sql.EastUS、Sql.UKSouth、Sql.WestCentralUS、Sql.WestUS 和 Sql.WestUS2。 標籤代表服務，但不代表服務的特定執行個體。 例如，標籤代表 Azure SQL Database 服務，但不代表特定的 Azure SQL Database。
-
-> [!WARNING]
-> AzureTrafficManager、Storage 和 Sql 服務標籤已在預覽版本中提供。 預覽狀態的功能並沒有與一般版本中的功能相同層級的可用性和可靠性。 這些服務標籤只在下列地區提供：美國東部、美國西部、美國西部 2、美國西部、澳大利亞東部、澳大利亞東南部和英國南部。
+* **AzureTrafficManager** (僅限 Resource Manager)：這個標籤代表 Azure 流量管理員服務的 IP 位址空間。 此標記現在以預覽形式提供。 預覽狀態的功能並沒有與一般版本中的功能相同層級的可用性和可靠性。
+* **Storage** (僅限 Resource Manager)：這個標籤代表 Azure 儲存體服務的 IP 位址空間。 如果您指定 *Storage* 值，則會允許或拒絕儲存體的流量。 如果您只想要允許存取特定[地區](https://azure.microsoft.com/regions)中的儲存體，您可以指定地區。 例如，如果您只想要允許存取美國東部地區的 Azure 儲存體，您可以指定 *Storage.EastUS* 作為服務標籤。 標籤代表服務，但不代表服務的特定執行個體。 例如，標籤代表 Azure 儲存體服務，但不代表特定的 Azure 儲存體帳戶。 此標記現在以預覽形式提供。 預覽狀態的功能並沒有與一般版本中的功能相同層級的可用性和可靠性。
+* **Sql** (僅限 Resource Manager)：這個標籤代表 Azure SQL Database 和 Azure SQL 資料倉儲服務的位址前置詞。 如果您指定 Sql 作為值，就會允許或拒絕 Sql 的流量。 如果您只需要允許存取特定[地區](https://azure.microsoft.com/regions)中的 Sql，可以指定地區。 例如，如果您只想要允許存取美國東部地區的 Azure SQL Database，您可以指定 *Sql.EastUS* 作為服務標籤。 標籤代表服務，但不代表服務的特定執行個體。 例如，標籤代表 SQL Database 或伺服器服務，但不代表特定的 Azure SQL Database。 此標記現在以預覽形式提供。 預覽狀態的功能並沒有與一般版本中的功能相同層級的可用性和可靠性。
 
 > [!NOTE]
-> 如果您對服務 (例如 Azure 儲存體或 Azure SQL Database) 實作虛擬網路服務端點，Azure 會將路由新增至服務的虛擬網路子網路。 路由的位址前置詞為相同的位址前置詞，或 CIDR 範圍，以及對應的服務標籤。
+> 如果您對服務 (例如 Azure 儲存體或 Azure SQL Database) 實作[虛擬網路服務端點](virtual-network-service-endpoints-overview.md)，Azure 會將路由新增至服務的虛擬網路子網路。 路由中的位址前置詞為相同的位址前置詞，或 CIDR 範圍，以及對應的服務標籤。
 
 ## <a name="application-security-groups"></a>應用程式安全性群組
 
@@ -144,13 +141,11 @@ ms.lasthandoff: 11/16/2017
  
 若要了解建立應用程式安全性群組以及在安全性規則中指定它們時的相關限制，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 
-應用程式安全性群組已在預覽版本中提供。 使用應用程式安全性群組之前，您必須完成[建立具有應用程式安全性群組的網路安全性群組](create-network-security-group-preview.md#powershell)中的步驟 1-5 才註冊使用它們，並閱讀[預覽功能](#preview-features)中的重要資訊。 應用程式安全性群組具有下列條件約束：
+應用程式安全性群組已在預覽版本中提供。 預覽狀態的功能並沒有與一般版本中的功能相同層級的可用性和可靠性。 使用應用程式安全性群組之前，您必須先完成[建立具有應用程式安全性群組的網路安全性群組](create-network-security-group-preview.md)的 Azure 或 PowerShell 小節中的步驟 1-5 才註冊使用它們。 應用程式安全性群組具有下列條件約束：
 
 -   應用程式安全性群組內的所有網路介面都必須存在於相同的虛擬網路。 您無法將不同虛擬網路的網路介面新增至相同的應用程式安全性群組。 第一個網路介面指派至應用程式安全性群組的虛擬網路，是用來定義後續的所有虛擬網路 - 指派的網路介面必須存在其中。
 - 如果您指定安全性群組作為安全性規則中的來源和目的地，兩個應用程式安全性群組中的網路介面都必須在相同的虛擬網路中。 例如，如果 ASG1 包含來自 VNet1 的網路介面，而 ASG2 包含來自 VNet2 的網路介面，您無法在規則中將 ASG1 指派為來源，將 ASG2 指派為目的地，所有網路介面都必須存在於 VNet1 中。 
-
-預覽狀態的功能並沒有與一般版本中的功能相同層級的可用性和可靠性。 使用應用程式安全性群組之前，您必須先註冊要使用它們。 這些功能只在下列地區中提供：美國中西部。
-
+- 僅在美國中西部地區提供。
 
 ## <a name="azure-platform-considerations"></a>Azure 平台的考量
 

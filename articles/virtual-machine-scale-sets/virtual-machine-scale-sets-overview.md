@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 303ead6e1d98d464aeba2687c2a72a38bc1ce209
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 5a786e9baa275e029343571bdb9a6480334f5cf3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>什麼是 Azure 中的虛擬機器擴展集？
 虛擬機器擴展集是一個您可以用來部署和管理一組相同 VM 的 Azure 計算資源。 所有的 VM 設定相同，擴展集是設計來支援 true 的自動調整，而不需要預先佈建 VM。 您可以更輕鬆地針對大量計算、巨量資料和容器化工作負載，建置大規模服務。
@@ -124,7 +124,7 @@ Update-AzureRmVmss -ResourceGroupName resourcegroupname -Name scalesetname -Virt
 * 一個擴展集可支援多達 1,000 部 VM。 如果您建立並上傳自己的自訂 VM 映像，則限制為 300 個。 如需大型擴展集的使用考量，請參閱[使用大型的虛擬機器擴展集](virtual-machine-scale-sets-placement-groups.md)。
 * 您不必預先建立 Azure 儲存體帳戶就能使用擴展集。 擴展集支援 Azure 受控磁碟，能打消關於每個儲存體帳戶之磁碟數目的效能疑慮。 如需詳細資訊，請參閱 [Azure 虛擬機器擴展集和受控磁碟](virtual-machine-scale-sets-managed-disks.md)。
 * 請考慮使用 Azure 進階儲存體而非 Azure 儲存體，來提升 VM 佈建時間的速度和可預測性，並改善 IO 效能。
-* 您正在部署之區域的核心配額會限制您可以建立的 VM 數目。 您可能需要連絡客戶支援人員，以提高您的計算配額限制，即使您目前用於 Azure 雲端服務的核心已具有較高的上限亦然。 若要查詢您的配額，請執行此 Azure CLI 命令︰`azure vm list-usage`。 或者，執行此 PowerShell 命令︰`Get-AzureRmVMUsage`。
+* 您正在部署之區域的 vCPU 配額會限制您可以建立的 VM 數目。 您可能需要連絡客戶支援人員，以提高您的計算配額限制，即使您目前用於 Azure 雲端服務的 vCPU 已具有較高的上限亦然。 若要查詢您的配額，請執行此 Azure CLI 命令︰`azure vm list-usage`。 或者，執行此 PowerShell 命令︰`Get-AzureRmVMUsage`。
 
 ## <a name="frequently-asked-questions-for-scale-sets"></a>擴展集的常見問題集
 **問：** 擴展集內可以有多少部 VM？

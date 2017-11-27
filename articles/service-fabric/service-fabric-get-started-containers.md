@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 1b2daf04e060615569e8416d3ded344483518400
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 23e8b1023aebd5381fc89535ce265883d6a8fceb
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>在 Windows 建立第一個 Service Fabric 容器應用程式
 > [!div class="op_single_selector"]
@@ -294,8 +294,7 @@ Windows 支援兩種容器隔離模式：分別為處理序和 Hyper-V。 在處
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
 ```
    > [!NOTE]
-   > 可在 Ev3 和具有巢狀虛擬化支援的 Dv3 Azure SKU 上使用 hyperv 隔離模式。 
-   >
+   > 可在 Ev3 和具有巢狀虛擬化支援的 Dv3 Azure SKU 上使用 hyperv 隔離模式。 請確定已在主機上安裝 hyperv 角色。 連線到主機來加以驗證。
    >
 
 ## <a name="configure-resource-governance"></a>設定資源控管
@@ -325,7 +324,7 @@ Windows 支援兩種容器隔離模式：分別為處理序和 Hyper-V。 在處
 開啟瀏覽器並瀏覽至 http://containercluster.westus2.cloudapp.azure.com:8081 。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
 
 ## <a name="clean-up"></a>清除
-當叢集在執行時，您需要繼續支付費用，請考慮[刪除您的叢集](service-fabric-get-started-azure-cluster.md#remove-the-cluster)。  [合作對象叢集](https://try.servicefabric.azure.com/)會在幾個小時後自動刪除。
+當叢集在執行時，您需要繼續支付費用，請考慮[刪除您的叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md#clean-up-resources)。  [合作對象叢集](https://try.servicefabric.azure.com/)會在幾個小時後自動刪除。
 
 將映像推送至容器登錄之後，您可以從開發電腦刪除本機映像︰
 

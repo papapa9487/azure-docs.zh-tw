@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/22/2017
 ms.author: yurid
-ms.openlocfilehash: 274c50dad9b8a1d79a71a29b04cb8e44ad91893c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 829657664cf1e37b22d57c62614300a205b5e91c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>了解 Azure 資訊安全中心的安全性警示
 本文可協助您了解 Azure 資訊安全中心各種可用的安全性警示和相關深入資訊的類型。 如需如何管理警示和事件的詳細資訊，請參閱[管理及回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md)。
@@ -53,6 +53,45 @@ Azure 資訊安全中心可以使用行為分析，根據虛擬機器事件記�
 * DUMPFILE：損毀傾印檔案的名稱。
 * PROCESSNAME︰損毀處理序的名稱。
 * PROCESSVERSION︰損毀處理序的版本。
+
+### <a name="code-injection-discovered"></a>探索到的程式碼插入
+程式碼插入是將可執行的模組插入執行的程序或執行緒。  惡意程式碼會使用這項技術來存取資料、隱藏或防止其遭到移除 (例如持續性)。 此警示表示損毀傾印中有插入的模組。 合法軟體開發人員偶爾會就非惡意的原因執行程式碼插入，例如修改或延伸現有的應用程式或作業系統元件。  為了協助您區別惡意模組和非惡意插入的模組，資訊安全中心會檢查插入的模組是否符合可疑行為的設定檔。 這項檢查的結果會以警示的 “SIGNATURE” 欄位來表示，而且會反映在警示嚴重性、警示描述和警示補救步驟中。 
+
+該警示提供下列額外欄位︰
+
+- ADDRESS：插入模組在記憶體中的位置
+- IMAGENAME：插入模組的名稱。 請注意，如果映像內未提供映像名稱，這就可能是空白的。
+- SIGNATURE︰指出插入模組是否符合可疑行為設定檔。 
+
+下表顯示範例的結果及其描述：
+
+| 簽章的值                      | 說明                                                                                                       |
+|--------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| 可疑的反射載入器攻擊 | 可疑的行為通常會與獨立於作業系統載入器的載入插入程式碼相互關聯 |
+| 可疑的插入攻擊          | 表示通常與插入記憶體中的程式碼相互關聯之惡意程度                                       |
+| 可疑的插入攻擊         | 表示通常與使用記憶體中的插入程式碼相互關聯之惡意程度                                   |
+| 可疑的插入偵錯工具攻擊 | 表示通常與偵錯工具的偵測或欺詐相互關聯之惡意程度                         |
+| 可疑的插入遠端攻擊   | 表示通常與命令 n 控制項 (C2) 情節相互關聯之惡意程度                                 |
+
+以下是本類型之警示的範例：
+
+![程式碼插入警示](./media/security-center-alerts-type/security-center-alerts-type-fig21.png)
+
+### <a name="suspicious-code-segment"></a>可疑的程式碼區段
+可疑程式碼片段會指出已使用非標準的方法配置程式碼區段，例如使用反射的插入和處理程序空白。  此外，此警示會處理程式碼區段的其他特性，提供內容以至於報告的程式碼區段之功能和行為。
+
+該警示提供下列額外欄位︰
+
+- ADDRESS：插入模組在記憶體中的位置
+- SIZE：可疑程式碼區段的大小
+- STRINGSIGNATURES：此欄位會列出 API 的功能，其函式名稱會包含在程式碼區段中。 範例功能可能包括：
+    - 映像區段描述項、x64 的動態程式碼執行、記憶體配置和載入器功能、遠端程式碼插入功能、劫持控制功能、讀取環境變數、讀取任意程序記憶體、查詢或修改權杖權限、HTTP/HTTPS 網路通訊和網路通訊端通訊。
+- IMAGEDETECTED：此欄位會指出 PE 映像是否已插入偵測到可疑程式碼區段的程序中，以及插入模組開始的位址。
+- SHELLCODE：此欄位會指示有惡意承載常用的行為，取得額外安全性敏感作業系統函式的存取權。 
+
+以下是本類型之警示的範例：
+
+![可疑程式碼區段的警示](./media/security-center-alerts-type/security-center-alerts-type-fig22.png)
 
 ### <a name="shellcode-discovered"></a>探索到 Shellcode
 Shellcode 是惡意程式碼惡意探索軟體弱點後執行的承載。 此警示代表毀損傾印分析偵測到的可執行程式碼顯現經常由惡意承載執行的行為。 雖然非惡意軟體可能會執行這種行為，不過這不是一般軟體開發的實務做法。

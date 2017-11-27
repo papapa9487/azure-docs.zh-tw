@@ -13,24 +13,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2017
+ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 9f7fdb97fd121eecf9e7b2f4edc1b568c8114869
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0a3fca0c7d36122a09c825a3ed8edf11cc362b8b
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>從登入畫面重設 Azure AD 密碼
 
 您已經部署 Azure AD 自助式密碼重設 (SSPR)，但您的使用者仍會在忘記其密碼時打電話給技術服務人員。 他們因為無法取得網頁瀏覽器來存取 SSPR，所以才會打電話給技術服務人員。
 
-透過新的 Windows 10 Fall Creators Update，具有已加入 Azure AD 之裝置的使用者可以在其登入畫面上看到 [重設密碼] 連結。 當使用者按一下此連結時，他們就可以享受他們所熟悉的相同自助式密碼重設 (SSPR) 體驗 
+透過新的 Windows 10 Fall Creators Update，具有已加入 Azure AD 之裝置的使用者可以在其登入畫面上看到 [重設密碼] 連結。 當使用者按一下此連結時，他們就可以享受熟悉的相同自助式密碼重設 (SSPR) 體驗。
 
 若要讓使用者能夠從 Windows 10 登入畫面重設其 Azure AD 密碼，必須符合下列需求：
 
-* Windows 10 版本 1709，或已加入 Azure AD 網域的更新版用戶端。
+* Windows 10 版本 1709，或[已加入 Azure AD ](device-management-azure-portal.md) 的更新版用戶端。
 * 必須啟用 Azure AD 自助式密碼重設。
 * 設定及部署設定，以透過下列其中一種方法來啟用 [重設密碼] 連結：
    * [Intune 裝置組態設定檔](active-directory-passwords-login.md#configure-reset-password-link-using-intune)
@@ -56,8 +56,8 @@ ms.lasthandoff: 11/15/2017
       * **OMA URI** 設為 `./Vendor/MSFT/Policy/Config/Authentication/AllowAadPasswordReset`
       * **資料類型** 設為 **整數**
       * **值** 設為 **1**
-      * 按一下 [確定]
-   * 按一下 [確認]
+      * 按一下 [檔案] &gt; [新增] &gt; [專案] 
+   * 按一下 [檔案] &gt; [新增] &gt; [專案] 
 4. 按一下 [建立] 
 
 ### <a name="assign-a-device-configuration-policy-in-intune"></a>在 Intune 中指派裝置設定原則
@@ -90,7 +90,7 @@ ms.lasthandoff: 11/15/2017
 
 我們建議僅使用此方法來測試設定變更。
 
-1. 使用系統管理認證來登入已加入 Azure AD 網域的裝置
+1. 使用系統管理認證來登入已加入 Azure AD 的裝置
 2. 以系統管理員身分執行 **regedit**
 3. 設定下列登錄機碼
    * `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
@@ -104,7 +104,7 @@ ms.lasthandoff: 11/15/2017
 
 當使用者嘗試登入時，即可看到 [重設密碼] 連結，該連結可開啟登入畫面上的自助式密碼重設體驗。 這項功能可讓使用者重設其密碼，而不需使用另一個裝置來存取網頁瀏覽器。
 
-您的使用者將在[重設您的工作或學校密碼](active-directory-passwords-update-your-own-password.md#reset-password-at-login)中發現使用這項功能的指引
+您的使用者將在[重設您的工作或學校密碼](active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)中發現使用這項功能的指引
 
 ## <a name="common-issues"></a>常見問題
 
