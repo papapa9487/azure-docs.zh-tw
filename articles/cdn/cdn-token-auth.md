@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 11/03/2017
+ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 2f62c0c6783c3cdaf1ffda3299673071b8e4a6f2
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: f6d008a92677d28d0184e64637dcb2e093299519
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>使用權杖驗證來保護 Azure 內容傳遞網路資產
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="overview"></a>概觀
 
-權杖驗證是一種機制，可讓您防止「Azure 內容傳遞網路」(CDN) 將資產提供給未經授權的用戶端。 執行權杖驗證通常是為了防止內容「熱連結」(hotlinking)，在熱連結中，不同的網站 (通常是留言板) 會在未經許可的情況下使用您的資產。 熱連結會影響您的內容傳遞成本。 藉由在 CDN 上啟用權杖驗證，就會由 CDN 邊緣 POP 先驗證要求之後，再由 CDN 傳遞內容。 
+權杖驗證是一種機制，可讓您防止「Azure 內容傳遞網路」(CDN) 將資產提供給未經授權的用戶端。 執行權杖驗證通常是為了防止內容「熱連結」(hotlinking)，在熱連結中，不同的網站 (例如留言板) 會在未經許可的情況下使用您的資產。 熱連結會影響您的內容傳遞成本。 藉由在 CDN 上啟用權杖驗證，就會由 CDN 邊緣伺服器先驗證要求之後，再由 CDN 傳遞內容。 
 
 ## <a name="how-it-works"></a>運作方式
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="token-validation-logic-on-cdn-endpoint"></a>CDN 端點上的權杖驗證邏輯
     
-以下流程圖說明當 CDN 端點上已設定權杖驗證時， Azure CDN 如何驗證用戶端要求。
+以下流程圖說明當 CDN 端點上已設定權杖驗證時，Azure CDN 如何驗證用戶端要求。
 
 ![CDN 權杖驗證邏輯](./media/cdn-token-auth/cdn-token-auth-validation-logic.png)
 
@@ -58,15 +58,25 @@ ms.lasthandoff: 11/10/2017
 
 1. 從 [Azure 入口網站](https://portal.azure.com)，瀏覽至您的 CDN 設定檔，然後按一下 [管理] 來啟動補充入口網站。
 
-    ![CDN 設定檔 [管理] 按鈕](./media/cdn-rules-engine/cdn-manage-btn.png)
+    ![CDN 設定檔 [管理] 按鈕](./media/cdn-token-auth/cdn-manage-btn.png)
 
 2. 將滑鼠移至 [HTTP 大型] 上，然後按一下飛出視窗上的 [權杖驗證]。 接著，您便可以依下列方式設定加密金鑰和加密參數：
 
-    1. 建立一或多個加密金鑰。 加密金鑰會區分大小寫，可包含英數字元的任何組合。 不允許任何其他類型的字元，包括空格。 長度上限是 250 個字元。 為了確保加密金鑰為隨機的，建議使用 OpenSSL 工具建立金鑰。 OpenSSL 工具的語法為：`rand -hex <key length>`。 例如： `OpenSSL> rand -hex 32`。 若要避免產生停機時間，請建立主要和備份金鑰。 當主要金鑰正在更新時，可用備份金鑰存取您的內容，讓存取不致於中斷。
+    1. 建立一或多個加密金鑰。 加密金鑰會區分大小寫，可包含英數字元的任何組合。 不允許任何其他類型的字元，包括空格。 長度上限是 250 個字元。 為了確保加密金鑰為隨機的，建議使用 [OpenSSL 工具](https://www.openssl.org/)建立金鑰。 
+
+       OpenSSL 工具具有以下語法：
+
+       ```rand -hex <key length>```
+
+       例如：
+
+       ```OpenSSL> rand -hex 32``` 
+
+       若要避免產生停機時間，請建立主要和備份金鑰。 當主要金鑰正在更新時，可用備份金鑰存取您的內容，讓存取不致於中斷。
     
     2. 在 [Primary Key] \(主要金鑰\) 方塊中輸入唯一加密金鑰，並視需要在 [Backup Key] \(備份金鑰\) 方塊中輸入備份金鑰。
 
-    3. 從每個金鑰的 [最低加密版本] 下拉式清單中選取其最低加密版本，然後按一下 [更新]：
+    3. 從每個金鑰的 [最低加密版本] 清單中選取其最低加密版本，然後按一下 [更新]：
        - **V2**：指出金鑰可用來產生 2.0 和 3.0 版權杖。 只有當您會將舊的 2.0 版加密金鑰轉換成 3.0 版金鑰，才使用此選項。
        - **V3**：(建議選項) 指出金鑰僅可用來產生 3.0 版權杖。
 
@@ -76,70 +86,94 @@ ms.lasthandoff: 11/10/2017
 
        ![CDN 加密工具](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
-       請在 [加密工具] 區段中，為下列一或多個加密參數輸入值：  
+       請在 [加密工具] 區段中，為下列一或多個加密參數輸入值： 
 
-       - **ec_expire**：會為權杖指派一個到期時間，在此時間之後，權杖就會過期。 在到期時間之後提交的要求都會遭到拒絕。 這個參數使用 Unix 時間戳記，是以自標準 Epoch `1/1/1970 00:00:00 GMT` 算起的秒數為依據。 (您可以使用線上工具在標準時間與 Unix 時間之間轉換)。例如，如果您想要讓權杖在 `12/31/2016 12:00:00 GMT` 到期，請使用 Unix 時間戳記值 `1483185600`，如下所示。 
-    
-         ![CDN ec_expire 範例](./media/cdn-token-auth/cdn-token-auth-expire2.png)
-    
-       - **ec_url_allow**：可讓您為特定資產或路徑量身打造權杖。 若要求的 URL 是以特定的相對路徑開頭，它會限制對該要求的存取。 URL 會區分大小寫。 請利用以逗號分隔每個路徑的方式來輸入多個路徑。 您可以視需求而定，設定不同的值來提供不同層級的存取。 
-        
-         例如，就 URL `http://www.mydomain.com/pictures/city/strasbourg.png` 而言，會針對下列輸入值允許下列要求：
-
-         - 輸入值 `/`：允許所有要求。
-         - 輸入值 `/pictures`：允許下列要求：
-            - `http://www.mydomain.com/pictures.png`
-            - `http://www.mydomain.com/pictures/city/strasbourg.png`
-            - `http://www.mydomain.com/picturesnew/city/strasbourgh.png`
-         - 輸入值 `/pictures/`：只允許包含 `/pictures/` 路徑的要求。 例如： `http://www.mydomain.com/pictures/city/strasbourg.png`。
-         - 輸入值 `/pictures/city/strasbourg.png`：只允許此特定路徑和資產的要求。
-    
-       - **ec_country_allow**：只允許來自一或多個指定國家/地區的要求。 來自其他所有國家/地區的要求將會遭到拒絕。 請使用國碼/地區碼，並以逗號分隔每個國家/地區。 例如，如果您只想允許來自美國和法國的存取，請在方塊中輸入 US, FR，如下所示。  
-        
-           ![CDN ec_country_allow 範例](./media/cdn-token-auth/cdn-token-auth-country-allow.png)
-
-       - **ec_country_deny**：拒絕來自一或多個指定國家/地區的要求。 來自其他所有國家/地區的要求將會獲得允許。 請使用國碼/地區碼，並以逗號分隔每個國家/地區。 例如，如果您想要拒絕來自美國和法國的存取，請在方塊中輸入 US, FR。
-    
-       - **ec_ref_allow**︰只允許來自指定訪客來源的要求。 訪客來源會識別連結到所要求之資源的網頁 URL。 請勿在訪客來源參數值中包含通訊協定。 以下是允許作為參數值的輸入類型：
-           - 主機名稱或主機名稱和路徑。
-           - 多個訪客來源。 若要新增多個訪客來源，請以逗號分隔每個訪客來源。 如果您指定訪客來源值，但因瀏覽器設定而導致不會在要求中傳送訪客來源資訊，系統預設將會拒絕要求。 
-           - 遺漏訪客來源資訊的要求。 若要允許這些類型的要求，請輸入 "missing" 文字或輸入空白值。 
-           - 子網域。 若要允許子網域，請輸入星號 (\*)。 例如，若要允許 `consoto.com` 的所有子網域，請輸入 `*.consoto.com`。 
-           
-          以下範例說明可針對下列要求允許存取權的輸入：來自 `www.consoto.com` 的要求、來自 `consoto2.com` 底下所有子網域的要求，以及訪客來源為空白或遺漏的要求。
-        
-          ![CDN ec_ref_allow 範例](./media/cdn-token-auth/cdn-token-auth-referrer-allow2.png)
-    
-       - **ec_ref_deny**︰拒絕來自指定訪客來源的要求。 實作與 ec_ref_allow 參數相同。
-         
-       - **ec_proto_allow**︰只允許來自指定通訊協定的要求。 例如 HTTP 或 HTTPS。
-            
-       - **ec_proto_deny**︰拒絕來自指定通訊協定的要求。 例如 HTTP 或 HTTPS。
-    
-       - **ec_clientip**︰僅限指定要求者的 IP 位址才能存取。 支援 IPV4 和 IPV6。 您可以指定單一要求 IP 位址或 IP 子網路。
-            
-         ![CDN ec_clientip 範例](./media/cdn-token-auth/cdn-token-auth-clientip.png)
+       > [!div class="mx-tdCol2BreakAll"] 
+       > <table>
+       > <tr>
+       >   <th>參數名稱</th> 
+       >   <th>說明</th>
+       > </tr>
+       > <tr>
+       >    <td><b>ec_expire</b></td>
+       >    <td>會為權杖指派一個到期時間，在此時間之後，權杖就會過期。 在到期時間之後提交的要求都會遭到拒絕。 這個參數使用 Unix 時間戳記，是以自標準 Unix Epoch `1/1/1970 00:00:00 GMT` 算起的秒數為依據。 (您可以使用線上工具在標準時間與 Unix 時間之間轉換)。> 
+       >    例如，如果您想要讓權杖在 `12/31/2016 12:00:00 GMT` 到期，請輸入 Unix 時間戳記值 `1483185600`。 
+       > </tr>
+       > <tr>
+       >    <td><b>ec_url_allow</b></td> 
+       >    <td>可讓您為特定資產或路徑量身打造權杖。 若要求的 URL 是以特定的相對路徑開頭，它會限制對該要求的存取。 URL 會區分大小寫。 請利用以逗號分隔每個路徑的方式來輸入多個路徑；請勿加上空格。 您可以視需求而定，設定不同的值來提供不同層級的存取。> 
+       >    例如，就 URL `http://www.mydomain.com/pictures/city/strasbourg.png` 而言，會針對下列輸入值允許下列要求： 
+       >    <ul>
+       >       <li>輸入值 `/`：允許所有要求。</li>
+       >       <li>輸入值 `/pictures`：允許下列要求： <ul>
+       >          <li>`http://www.mydomain.com/pictures.png`</li>
+       >          <li>`http://www.mydomain.com/pictures/city/strasbourg.png`</li>
+       >          <li>`http://www.mydomain.com/picturesnew/city/strasbourgh.png`</li>
+       >       </ul></li>
+       >       <li>輸入值 `/pictures/`：只允許包含 `/pictures/` 路徑的要求。 例如： `http://www.mydomain.com/pictures/city/strasbourg.png`。</li>
+       >       <li>輸入值 `/pictures/city/strasbourg.png`：只允許此特定路徑和資產的要求。</li>
+       >    </ul>
+       > </tr>
+       > <tr>
+       >    <td><b>ec_country_allow</b></td> 
+       >    <td>只允許來自一或多個指定國家/地區的要求。 來自其他所有國家/地區的要求將會遭到拒絕。 對每個國家/地區使用兩個字母 [ISO 3166 國家/地區碼](https://msdn.microsoft.com/library/mt761717.aspx)，並將每個國家/地區以逗號分隔；請勿加上空格。 例如，如果您只想允許來自美國和法國的存取，請輸入 `US,FR`。</td>
+       > </tr>
+       > <tr>
+       >    <td><b>ec_country_deny</b></td> 
+       >    <td>拒絕來自一或多個指定國家/地區的要求。 來自其他所有國家/地區的要求將會獲得允許。 實作與 <b>ec_country_allow</b> 參數相同。 如果 <b>ec_country_allow</b> 和 <b>ec_country_deny</b> 參數中同時出現國家/地區碼，<b>ec_country_allow</b> 參數具有高優先順序。</td>
+       > </tr>
+       > <tr>
+       >    <td><b>ec_ref_allow</b></td>
+       >    <td>只允許來自指定訪客來源的要求。 訪客來源會識別連結到所要求之資源的網頁 URL。 請勿在參數值中包含通訊協定。>    
+       >    以下是允許的輸入類型：
+       >    <ul>
+       >       <li>主機名稱或主機名稱和路徑。</li>
+       >       <li>多個訪客來源。 若要新增多個訪客來源，請以逗號分隔每個訪客來源；請勿加上空格。 如果您指定訪客來源值，但因瀏覽器設定而導致不會在要求中傳送訪客來源資訊，系統預設將會拒絕要求。</li> 
+       >       <li>具有遺漏或空白訪客來源資訊的要求。 根據預設，<b>ec_ref_allow</b> 參數會封鎖這些類型的要求。 若要允許這些要求，請輸入文字 "missing"，或輸入空白值 (使用尾端逗號)。</li> 
+       >       <li>子網域。 若要允許子網域，請輸入星號 (\*)。 例如，若要允許 `contoso.com` 的所有子網域，請輸入 `*.contoso.com`。</li>
+       >    </ul>     
+       >    例如，若要允許下列存取要求：來自 `www.contoso.com` 的要求、來自 `contoso2.com` 底下所有子網域的要求，以及訪客來源為空白或遺漏的要求，請輸入 `www.contoso.com,*.contoso.com,missing`。</td>
+       > </tr>
+       > <tr> 
+       >    <td><b>ec_ref_deny</b></td>
+       >    <td>拒絕來自指定訪客來源的要求。 實作與 <b>ec_ref_allow</b> 參數相同。 如果 <b>ec_ref_allow</b> 和 <b>ec_ref_deny</b> 參數中同時出現訪客來源，<b>ec_ref_allow</b> 參數具有高優先順序。</td>
+       > </tr>
+       > <tr> 
+       >    <td><b>ec_proto_allow</b></td> 
+       >    <td>只允許來自指定通訊協定的要求。 有效值為 `http`、`https` 或 `http,https`。</td>
+       > </tr>
+       > <tr>
+       >    <td><b>ec_proto_deny</b></td>
+       >    <td>拒絕來自指定通訊協定的要求。 實作與 <b>ec_proto_allow</b> 參數相同。 如果 <b>ec_proto_allow</b> 和 <b>ec_proto_deny</b> 參數中同時出現通訊協定，<b>ec_proto_allow</b> 參數具有高優先順序。</td>
+       > </tr>
+       > <tr>
+       >    <td><b>ec_clientip</b></td>
+       >    <td>僅限指定要求者的 IP 位址才能存取。 支援 IPV4 和 IPV6。 您可以指定單一要求 IP 位址或與指定子網路關聯的 IP 子位址。 例如，`11.22.33.0/22` 可允許來自 IP 位址 11.22.32.1 到 11.22.35.254 的要求。</td>
+       > </tr>
+       > </table>
 
     5. 輸入完加密參數值之後，請從 [要加密的金鑰] 清單中選取要加密的金鑰 (如果您已建立主要金鑰和備份金鑰)。
     
-    6. 從 [加密版本] 清單中選取加密版本：版本 2 請選 [V2]，版本 3 請選 [V3] (建議選項)。 然後，按一下 [加密] 來產生權杖。
+    6. 從 [加密版本] 清單中選取加密版本：版本 2 請選 [V2]，版本 3 請選 [V3] (建議選項)。 
+
+    7. 按一下 [加密] 來產生權杖。
 
     權杖產生之後，會顯示在 [產生的權杖] 方塊中。 若要使用此權杖，將它以查詢字串的形式，附加在 URL 路徑中檔案的結尾。 例如： `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`。
         
-    7. 視需要使用解密工具來測試您的權杖。 將權杖值貼到 [Token to Decrypt] \(要解密的權杖\) 方塊中。 從 [要解密的金鑰] 下拉式清單中選取要使用的加密金鑰，然後按一下 [解密]。
+    8. 視需要使用解密工具來測試您的權杖，使您能夠檢視權杖的參數。 將權杖值貼到 [Token to Decrypt] \(要解密的權杖\) 方塊中。 從 [要解密的金鑰] 清單中選取要使用的加密金鑰，然後按一下 [解密]。
 
     權杖被解密之後，其參數會顯示在 [原始參數] 方塊中。
 
-    8. 視需要自訂要求遭拒時傳回的回應碼類型。 從 [Response Code] \(回應碼\) 下拉式清單中選取代碼，然後按一下 [Save] \(儲存\)。 預設選取的回應碼是 **403** (禁止)。 針對特定回應碼，您還可以在 [Header Value] \(標頭值\) 方塊中輸入您錯誤頁面的 URL。 
+    9. 視需要自訂要求遭拒時傳回的回應碼類型。 選取 [已啟用]，然後從 [回應碼] 清單中選取回應碼。 [標頭名稱] 會自動設為 [位置]。 按一下 [儲存] 來實作新的回應碼。 針對特定回應碼，您還必須在 [標頭值] 方塊中輸入您錯誤頁面的 URL。 預設選取的回應碼是 **403** (禁止)。 
 
 3. 在 [HTTP Large] \(HTTP 大型\) 底下，按一下 [Rules Engine] \(規則引擎\)。 您需使用此規則引擎來定義路徑，以套用功能、啟用權杖驗證功能，以及啟用其他與權杖驗證相關的功能。 如需詳細資訊，請參閱[規則引擎參考](cdn-rules-engine-reference.md)。
 
     1. 選取現有規則或建立新規則，以定義您想要套用權杖驗證的資產或路徑。 
-    2. 若要在規則啟用權杖驗證，請從 [Features] \(功能\) 下拉式清單中選取 [[Token Auth] \(權杖驗證\)](cdn-rules-engine-reference-features.md#token-auth)，然後選取 [Enabled] \(啟用\)。 如果您要更新規則，請按一下 [Update] \(更新\)，或如果您要建立規則，請按一下 [Add] \(新增\)。
+    2. 若要在規則啟用權杖驗證，請從 [功能] 清單中選取 ](cdn-rules-engine-reference-features.md#token-auth)權杖驗證** **[，然後選取 [已啟用]。 如果您要更新規則，請按一下 [Update] \(更新\)，或如果您要建立規則，請按一下 [Add] \(新增\)。
         
     ![CDN 規則引擎權杖驗證啟用範例](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
-4. 在規則引擎中，您還可以啟用其他權杖驗證相關功能。 若要啟用下列任何功能，請從 [Features] \(功能\) 下拉式清單中選取該功能，然後選取 [Enabled] \(啟用\)。
+4. 在規則引擎中，您還可以啟用其他權杖驗證相關功能。 若要啟用下列任何功能，請從 [功能] 清單中選取該功能，然後選取 [已啟用]。
     
     - **[Token Auth Denial Code](cdn-rules-engine-reference-features.md#token-auth-denial-code)** \(權杖驗證拒絕碼\)：決定當要求遭拒時傳回給使用者的回應類型。 這裡設定的規則會覆寫權杖型驗證頁面之 [Custom Denial Handling] \(自訂拒絕處理\) 區段中設定的回應碼。
     - **[Token Auth Ignore URL Case](cdn-rules-engine-reference-features.md#token-auth-ignore-url-case)** \(權杖驗證忽略 URL 大小寫\)︰決定用來驗證權杖的 URL 是否區分大小寫。
@@ -150,12 +184,12 @@ ms.lasthandoff: 11/10/2017
 5. 您可以存取 [GitHub](https://github.com/VerizonDigital/ectoken).中的原始程式碼來自訂權杖。
 可用的語言包括：
     
-- C
-- C#
-- PHP
-- Perl
-- Java
-- Python    
+   - C
+   - C#
+   - PHP
+   - Perl
+   - Java
+   - Python 
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Azure CDN 功能和提供者定價
 
