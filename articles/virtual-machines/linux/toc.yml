@@ -83,7 +83,7 @@
         - name: 高效能計算
           href: sizes-hpc.md
         - name: Azure 計算單位 (ACU)
-          href: sizes-general.md
+          href: acu.md
     - name: 背書發佈
       href: endorsed-distros.md
     - name: 維護和更新
