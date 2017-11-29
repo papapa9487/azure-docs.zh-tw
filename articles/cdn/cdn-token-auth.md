@@ -169,7 +169,7 @@ ms.lasthandoff: 11/21/2017
 3. 在 [HTTP Large] \(HTTP 大型\) 底下，按一下 [Rules Engine] \(規則引擎\)。 您需使用此規則引擎來定義路徑，以套用功能、啟用權杖驗證功能，以及啟用其他與權杖驗證相關的功能。 如需詳細資訊，請參閱[規則引擎參考](cdn-rules-engine-reference.md)。
 
     1. 選取現有規則或建立新規則，以定義您想要套用權杖驗證的資產或路徑。 
-    2. 若要在規則啟用權杖驗證，請從 [功能] 清單中選取 [Token Auth](cdn-rules-engine-reference-features.md#token-auth)權杖驗證****，然後選取 [已啟用]。 如果您要更新規則，請按一下 [Update] \(更新\)，或如果您要建立規則，請按一下 [Add] \(新增\)。
+    2. 若要在規則啟用權杖驗證，請從 **功能** 清單中選取 **[Token Auth](cdn-rules-engine-reference-features.md#token-auth)** 權杖驗證，然後選取 **已啟用**。 如果您要更新規則，請按一下 [Update] \(更新\)，或如果您要建立規則，請按一下 [Add] \(新增\)。
         
     ![CDN 規則引擎權杖驗證啟用範例](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
