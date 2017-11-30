@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-ms.openlocfilehash: ba390a5973ad33405f1d4217d60d7989f04db3b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db0f09433750a3af2d70039d780a25ad64bb4df1
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>從 Azure 儲存體來回移動資料
 如果您想要將內部部署資料移至 Azure 儲存體 (或相反)，有各種不同的方法可以辦到。 最適合的方法將取決於您的案例。 本文將提供不同案例的快速概觀和每個案例的適當供應項目。
@@ -76,4 +76,4 @@ Azure CLI 提供您一組開放原始碼的跨平台命令，供您使用 Azure 
 若要深入了解，請參閱 [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) 。
 ### <a name="moving-data-faq"></a>移動資料常見問題集︰
 ## <a name="can-i-migrate-vhds-from-one-region-to-another-without-copying"></a>我可以在兩個區域之間移轉 VHD 而不要複製嗎？
-區域之間複製 VHD 的唯一方法是在每個區域的儲存體帳戶之間複製資料。 您可以使用 AZCopy 這樣做。 若要深入了解，請參閱「使用 AzCopy 命令列公用程式傳輸資料」。 針對極大的資料量，您也可以使用 Azure 匯入/匯出。 若要深入了解，請參閱 [Azure 匯入/匯出](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service) 。
+區域之間複製 VHD 的唯一方法是在每個區域的儲存體帳戶之間複製資料。 您可以使用 AZCopy 這樣做。 若要深入了解，請參閱「使用 AzCopy 命令列公用程式傳輸資料」。 針對極大的資料量，您也可以使用 Azure 匯入/匯出。 若要深入了解，請參閱 [Azure 匯入/匯出](https://docs.microsoft.com/azure/storage/storage-import-export-service) 。

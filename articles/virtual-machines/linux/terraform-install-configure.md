@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2017
 ms.author: echuvyrov
-ms.openlocfilehash: a2810d13d40272269341751b19b3010a8b135139
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: c156776103a466af8923ba7249d96835ff339268
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>安裝和設定 Terraform 以在 Azure 中佈建 VM 和的其他基礎結構
  
 Terraform 使用[簡易範本化語言](https://www.terraform.io/docs/configuration/syntax.html)，提供簡單的方法來定義、預覽及部署雲端基礎結構。 本文說明在 Azure 中使用 Terraform 來佈建資源的必要步驟。 
 
 > [!TIP]
-若要深入了解如何搭配 Azure 使用 Terraform，請造訪 [Terraform 中樞](/azure/terraform)。 Terraform 預設會安裝在 [Cloud Shell](/terraform/terraform-cloud-shell) 中。 藉由使用 Cloud Shell，您可以略過此文件的安裝/設定部分。
+若要深入了解如何搭配 Azure 使用 Terraform，請造訪 [Terraform 中樞](/azure/terraform)。 Terraform 預設會安裝在 [Cloud Shell](/azure/terraform/terraform-cloud-shell) 中。 藉由使用 Cloud Shell，您可以略過此文件的安裝/設定部分。
 
 ## <a name="install-terraform"></a>安裝 Terraform
 

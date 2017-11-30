@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 2637ab6405f2d4ea1da84981295a144874dfa4f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1fad082a576bc994897c6b396e5edcfa02313487
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>如何委派使用者註冊和產品訂閱
 委派可讓您使用現有的網站來處理開發人員登入/註冊和產品訂閱，而非使用開發人員入口網站中的內建功能。 這樣可讓您的網站擁有使用者資料，並以自訂方式來執行這些步驟的驗證。
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 3. 委派端點再轉而重新導向至或呈現 UI，要求使用者登入或註冊
 4. 成功時，將使用者重新導向回到他們所來自的 API 管理開發人員入口網站頁面
 
-首先，請設定 API 管理透過委派端點來傳遞要求。 在 API 管理發佈者入口網站中，按一下 安全性，然後按一下委派 索引標籤。按一下核取方塊以啟用 Delegate sign-in & sign-up。
+首先，請設定 API 管理透過委派端點來傳遞要求。 在 API 管理發佈者入口網站中，按一下 [安全性]，然後按一下 [委派] 索引標籤。按一下核取方塊以啟用 [Delegate sign-in & sign-up]。
 
 ![Delegation page][api-management-delegation-signin-up]
 
@@ -172,7 +172,7 @@ var signature = digest.toString('base64');
 
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[要求單一登入 (SSO) 權杖]: http://go.microsoft.com/fwlink/?LinkId=507409
+[要求單一登入 (SSO) 權杖]: https://docs.microsoft.com/en-us/rest/api/apimanagement/User/GenerateSsoUrl
 [建立使用者]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
 [呼叫 REST API 來訂閱產品]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
 [Next steps]: #next-steps

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/29/2017
+ms.date: 11/23/2017
 ms.author: anoopkv
-ms.openlocfilehash: 49b9d2e21dbcb612828a25f21ed4382327d6f64c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d242954eb62a0d7325cc4222a54f2581967fdc19
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>設定來源環境 (實體伺服器至 Azure)
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 2. 在保存庫的 [資源] 功能表中，按一下 [開始使用] > [Site Recovery] > [步驟 1：準備基礎結構] > [保護目標]。
 
     ![選擇目標](./media/site-recovery-set-up-physical-to-azure/choose-goals.png)
-3. 在 保護目標 中選取 至 Azure 和 未虛擬化/其他，然後按一下確定。
+3. 在 [保護目標] 中選取 [至 Azure] 和 [未虛擬化/其他]，然後按一下 [確定]。
 
     ![選擇目標](./media/site-recovery-set-up-physical-to-azure/physical-protection-goal.PNG)
 

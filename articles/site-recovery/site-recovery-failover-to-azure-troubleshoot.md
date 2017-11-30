@@ -3,8 +3,8 @@ title: "針對容錯移轉至 Azure 失敗進行疑難排解 | Microsoft Docs"
 description: "本文說明如何針對容錯移轉至 Azure 的常見錯誤進行疑難排解"
 services: site-recovery
 documentationcenter: 
-author: prateek9us
-manager: gauravd
+author: ponatara
+manager: abhemraj
 editor: 
 ms.assetid: 
 ms.service: site-recovery
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/24/2017
+ms.date: 11/22/2017
 ms.author: pratshar
-ms.openlocfilehash: 0e50433e1ccdcbc0010070eec110914f0d33b5ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e1f9a0298c2abd542d7687778716f644a1d0a47
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>針對將虛擬機器容錯移轉至 Azure 時的錯誤進行疑難排解
 將虛擬機器容錯移轉至 Azure 時，您可能會收到下列錯誤。 若要進行疑難排解，請使用針對每種錯誤狀況所述的步驟。

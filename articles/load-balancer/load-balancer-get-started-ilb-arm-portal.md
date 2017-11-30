@@ -4,7 +4,7 @@ description: "了解如何使用 Azure 入口網站在資源管理員中建立�
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jennoc
 editor: 
 tags: azure-service-management
 ms.assetid: 1ac14fb9-8d14-4892-bfe6-8bc74c48ae2c
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3be595b03f667cf9700d2f17eb2080aa74f41dd9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b983ca9ff28aac7f0e0501f353c48deeb6adcd5
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>在 Azure 入口網站中建立內部負載平衡器
 
@@ -33,9 +33,6 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
-
-> [!NOTE]
-> Azure 建立和處理資源的部署模型有二種：[Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。  本文涵蓋之內容包括使用 Resource Manager 部署模型，Microsoft 建議大部分的新部署使用此模型，而不是[傳統部署模型](load-balancer-get-started-ilb-classic-ps.md)。
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -71,7 +68,7 @@ ms.lasthandoff: 10/11/2017
 1. 在 Azure 入口網站中，按一下 [瀏覽] > [負載平衡器]，然後按一下您稍早建立的負載平衡器。
 2. 在 [設定] 刀鋒視窗中，按一下 [後端集區]。
 3. 在 [後端位址集區] 刀鋒視窗中，按一下 [加入]。
-4. 在 加入後端集區 刀鋒視窗中，輸入後端集區的**名稱**，然後按一下確定。
+4. 在 [加入後端集區] 刀鋒視窗中，輸入後端集區的**名稱**，然後按一下 [確定]。
 
 ### <a name="step-2-configure-a-probe"></a>步驟 2：設定探查
 

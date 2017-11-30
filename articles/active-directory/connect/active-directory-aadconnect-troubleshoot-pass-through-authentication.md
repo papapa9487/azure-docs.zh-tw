@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: d57235671389e02c7d397b1244cdddb7a20067cc
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 730dfcb8925a1a7edf8796ddaf86d2038fd9df44
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>針對 Azure Active Directory 傳遞驗證進行疑難排解
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 10/14/2017
 
 ### <a name="registration-of-the-authentication-agent-failed-due-to-blocked-ports"></a>由於連接埠遭到封鎖，所以驗證代理程式註冊失敗。
 
-確認已安裝驗證代理程式的伺服器，能與我們列在[這裡](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites)的服務 URL 和連接埠通訊。
+確認已安裝驗證代理程式的伺服器，能與我們列在[這裡](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites)的服務 URL 和連接埠通訊。
 
 ### <a name="registration-of-the-authentication-agent-failed-due-to-token-or-account-authorization-errors"></a>因為權杖或帳戶授權錯誤，所以驗證代理程式註冊失敗。
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 10/14/2017
 
 ### <a name="enabling-the-feature-failed-due-to-blocked-ports"></a>因為連接埠遭到封鎖，所以啟用功能失敗。
 
-確認已安裝 Azure AD Connect 的伺服器能與我們的服務 URL 和連接埠通訊，如[這裡](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites)所列。
+確認已安裝 Azure AD Connect 的伺服器能與我們的服務 URL 和連接埠通訊，如[這裡](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites)所列。
 
 ### <a name="enabling-the-feature-failed-due-to-token-or-account-authorization-errors"></a>因為權杖或帳戶授權錯誤，所以啟用功能失敗。
 

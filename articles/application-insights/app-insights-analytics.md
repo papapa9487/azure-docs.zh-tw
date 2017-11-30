@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 11/27/2017
 ms.author: mbullwin
-ms.openlocfilehash: 80a9e248ca50c11ef61a5c50c4986c4f8f4ead9d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: adda6335b702470cd491f07d750236c368325a9e
+ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="analytics-in-application-insights"></a>Application Insights 中的分析
 Analytics 是 [Application Insights](app-insights-overview.md) 強大的搜尋和查詢工具。 Analytics 是 web 工具，不需要設定。 如果已經為您的其中一個應用程式設定 Application Insights，則您可以從應用程式的[概觀刀鋒視窗](app-insights-dashboards.md)開啟 Analytics 來分析應用程式的資料。
@@ -49,7 +49,7 @@ requests
 
 * [篩選](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) 未經處理的應用程式遙測，包括您的自訂屬性和計量。
 * [加入](https://docs.loganalytics.io/queryLanguage/query_language_joinoperator.html) 多個資料表 – 將要求與頁面檢視、相依性呼叫、例外狀況和記錄追蹤相互關聯。
-* 功能強大的統計 [彙總](https://docs.loganalytics.io/learn/tutorials/aggregations.html)。
+* 功能強大的統計 [彙總](https://docs.loganalytics.io/docs/Learn/Tutorials/Aggregation-functions)。
 * 立即且功能強大的視覺效果。
 * [REST API](https://dev.applicationinsights.io/)，可讓您以程式設計方式 (例如從 PowerShell) 執行查詢。
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 06/07/2017
 ms.author: rickbyh
 ms.workload: Inactive
-ms.openlocfilehash: c45f0ae655c544f51c8983c234591eef3da9dc6b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 16bd403fecbd24d7cea774bba8535f102501861f
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>使用 Azure SQL Database 和資料倉儲的條件式存取 (MFA)  
 
@@ -25,7 +25,7 @@ SQL Database 和 SQL 資料倉儲都支援 Microsoft 條件式存取。 下列�
 - 啟用多重要素驗證時，您必須在支援的工具進行連線，例如最新的 SSMS。 如需詳細資訊，請參閱[設定適用於 SQL Server Management Studio 的 Azure SQL Database 多重要素驗證](sql-database-ssms-mfa-authentication-configure.md)。  
 
 ## <a name="configure-ca-for-azure-sql-dbdw"></a>針對 Azure SQL DB/DW 設定 CA  
-1.  登入入口網站、選取 **Azure Active Directory**，然後選取**條件式存取**。 如需詳細資訊，請參閱 [Azure Active Directory 條件式存取的技術參考](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-technical-reference)。  
+1.  登入入口網站、選取 **Azure Active Directory**，然後選取**條件式存取**。 如需詳細資訊，請參閱 [Azure Active Directory 條件式存取的技術參考](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference)。  
   ![[條件式存取] 刀鋒視窗](./media/sql-database-conditional-access/conditional-access-blade.png) 
      
 2.  在 [條件式存取原則] 刀鋒視窗中，按一下 [新增原則]、提供名稱，然後按一下 [設定規則]。  

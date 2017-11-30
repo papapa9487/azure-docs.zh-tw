@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: denlee
-ms.openlocfilehash: ba824ed1bad49c71f8de9f2da8249945d9430222
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 1efdda867703613e4f85e6994004df32e70ccb3d
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>使用「Spark 至 Azure Cosmos DB」連接器來加速即時巨量資料分析
 
@@ -79,7 +79,7 @@ Spark 與 Azure Cosmos DB 之間的通訊，僅限在 Spark 主要節點和 Azur
 ### <a name="install-pydocumentdb"></a>安裝 pyDocumentDB
 您可以使用 **pip**，在驅動程式節點上安裝 pyDocumentDB，例如：
 
-```
+```bash
 pip install pyDocumentDB
 ```
 
@@ -89,7 +89,7 @@ pip install pyDocumentDB
 
 下列程式碼片段示範如何在 Spark 內容中使用 pyDocumentDB。
 
-```
+```python
 # Import Necessary Libraries
 import pydocumentdb
 from pydocumentdb import document_client
@@ -117,7 +117,7 @@ client = document_client.DocumentClient(host, {'masterKey': masterKey}, connecti
 ### <a name="execute-spark-queries-via-pydocumentdb"></a>透過 pyDocumentDB 執行 Spark 查詢
 下列範例會使用上一個程式碼片段中，利用指定的唯讀金鑰建立的 Azure Cosmos DB 執行個體。 下列程式碼片段會連線至 **airports.codes** 集合 (在先前指定的 DoctorWho 帳戶中)，並執行查詢以擷取華盛頓州的機場城市。
 
-```
+```python
 # Configure Database and Collections
 databaseId = 'airports'
 collectionId = 'codes'
@@ -141,7 +141,7 @@ elements = list(query)
 
 透過 **query** 執行查詢之後，會產生已轉換成 Python 清單的 **query_iterable.QueryIterable**。 使用下列程式碼，可以輕鬆地將 Python 清單轉換成 Spark DataFrame：
 
-```
+```python
 # Create `df` Spark DataFrame from `elements` Python list
 df = spark.createDataFrame(elements)
 ```
@@ -183,7 +183,7 @@ spark-shell --master $master --jars /$location/azure-cosmosdb-spark-0.0.3-jar-wi
 
 如果您想要執行不含相依性的 JAR，請使用下列程式碼：
 
-```
+```bash
 spark-shell --master $master --jars /$location/azure-cosmosdb-spark-0.0.3.jar,/$location/azure-documentdb-1.10.0.jar
 ```
 

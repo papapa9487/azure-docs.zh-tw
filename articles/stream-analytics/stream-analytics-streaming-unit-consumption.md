@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 14f73322701dffea283432bf2a25b5e6cd3e9de4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1fb9ee3147f94b173b0fd324943b8801b984d2b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="understand-and-adjust-streaming-units"></a>了解及調整串流單位
 
@@ -59,7 +59,6 @@ Azure 串流分析會將執行一個作業的效能「權重」彙總為串流�
 
 > [!Note]
 > 選擇特定工作所需的 SU 數量，取決於輸入的分割組態和針對作業所定義的查詢。 您為作業選取的 SU 以您的配額為上限。 根據預設，對於特定區域中的所有分析作業，每個 Azure 訂用帳戶的配額上限為 200 個 SU。 若要為您的訂用帳戶增加超出此配額的 SU，請連絡 [Microsoft 支援服務](http://support.microsoft.com)。 每個作業有效的 SU 值為 1、3、6 和更大 (以 6 為增量單位)。
-> 請注意，我們不建議分配 1 SU 給生產作業。 我們通常只會建議將 1 SU 作業用於原型設計和測試作業。
 
 
 

@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 11/27/2017
 ms.author: jgao
-ms.openlocfilehash: 6da89b7b63231fe5886c82e84e06abc2ee7b3e38
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f53234ddd8362e74c421c18c8d500308f5a232a7
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>搭配 HDInsight 使用互動式查詢
 互動式查詢 (又稱為 Hive LLAP 或 [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)) 是一種 Azure HDInsight [叢集類型](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types)。 互動式查詢支援記憶體內快取，可讓 Hive 查詢速度更快且更具互動性。 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/03/2017
 
 * 使用 Visual Studio
 
-    請參閱[使用 Data Lake Tools for Visual Studio 連線至 Azure HDInsight 及執行 Hive 查詢](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-a-hive-query)。
+    請參閱[使用 Data Lake Tools for Visual Studio 連線至 Azure HDInsight 及執行 Hive 查詢](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-hive-queries)。
 
 * 使用 Visual Studio Code
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 11/03/2017
 * 了解如何[在 HDInsight 中建立互動式查詢叢集](../hdinsight-hadoop-provision-linux-clusters.md)。
 * 了解如何[在 Azure HDInsight 中使用 Power BI 將巨量資料視覺化](../hadoop/apache-hadoop-connect-hive-power-bi.md)。
 * 了解如何[使用 Zeppelin 在 Azure HDInsight 中執行 Hive 查詢](../hdinsight-connect-hive-zeppelin.md)。
-* 了解如何[使用 Data Lake Tools for Visual Studio 執行 Hive 查詢](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-a-hive-query)。
+* 了解如何[使用 Data Lake Tools for Visual Studio 執行 Hive 查詢](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-hive-queries)。
 * 了解如何[使用 HDInsight Tools for Visual Studio Code](../hdinsight-for-vscode.md)。
 * 了解如何[在 HDInsight 中搭配 Hadoop 使用 Hive 檢視](../hadoop/apache-hadoop-use-hive-ambari-view.md)
 * 了解如何[使用 Beeline 在 HDInsight 中執行 Hive 查詢](../hadoop/apache-hadoop-use-hive-beeline.md)。

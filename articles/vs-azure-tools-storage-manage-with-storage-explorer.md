@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 58ab8a9c5864ce0cb505b78fd087df2973a7e0d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b263c69554c22978c854d2678ad7eeca91bc71f7
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>開始使用儲存體總管 (預覽)
 ## <a name="overview"></a>概觀
@@ -226,11 +226,11 @@ Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您在 Window
 ## <a name="connect-to-an-azure-cosmos-db-account-by-using-a-connection-string"></a>使用連接字串連線到 Azure Cosmos DB 帳戶
 除了透過 Azure 訂用帳戶管理 Azure Cosmos DB 帳戶，另一種連線到 Azure Cosmos DB 的方法是使用連接字串。 使用下列步驟來使用連接字串進行連線。
 
-1. 在左邊的樹狀目錄中尋找 [Local and Attached] (本機與已連結)，以滑鼠右鍵按一下 [Azure Cosmos DB 帳戶]，選擇 [連線到 Azure Cosmos DB...]
+1. 在左邊的樹狀目錄中尋找 [Local and Attached] \(本機與已連結)，以滑鼠右鍵按一下 [Azure Cosmos DB 帳戶]，選擇 [連線到 Azure Cosmos DB...]
 
     ![透過連接字串連線到 Azure Cosmos DB][33]
 
-2. 選擇 Azure Cosmos DB API，貼上您的 連接字串，然後按一下確定 以連接 Azure Cosmos DB 帳戶。 如需擷取連接字串的資訊，請參閱[取得連接字串](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string)。
+2. 選擇 Azure Cosmos DB API，貼上您的 [連接字串]，然後按一下 [確定] 以連接 Azure Cosmos DB 帳戶。 如需擷取連接字串的資訊，請參閱[取得連接字串](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string)。
 
     ![connection-string][32]
 

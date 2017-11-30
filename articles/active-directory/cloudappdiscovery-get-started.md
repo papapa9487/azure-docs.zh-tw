@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: c09410bc6ed8b4eac4316e206c75db84ef0b07fb
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 92cafe24fc3a038f2acd68ec21ec845316ef46de
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>在 Azure AD 中設定 Cloud App Discovery
 
@@ -37,7 +37,7 @@ Azure AD 中的 Cloud App Discovery 現在會以 Microsoft Cloud App Security �
 
 2. [設定連續報告](https://docs.microsoft.com/cloud-app-security/discovery-docker)會分析使用 Cloud App Security 記錄收集器從您的網路轉送的所有記錄。 您可以使用這類報告來識別新的應用程式和使用趨勢。
 
-3. 如果目前不支援記錄，請[設定自訂記錄剖析器](https://docs.microsoft.com/en-us/cloud-app-security/custom-log-parser)，讓 Cloud App Discovery 可以分析它們。
+3. 如果目前不支援記錄，請[設定自訂記錄剖析器](https://docs.microsoft.com/cloud-app-security/custom-log-parser)，讓 Cloud App Discovery 可以分析它們。
   
 ## <a name="log-processing-flow"></a>記錄處理流程
 

@@ -14,12 +14,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: annahar
-ms.openlocfilehash: 922c33f712e160835256ad9ad040e523dfbf76db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: kumud
+ms.openlocfilehash: 29c74c2cc58e7cab1364b2fc2c74951440dea0ab
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>使用 Azure 入口網站建立網際網路面向的負載平衡器
 
@@ -32,8 +32,6 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
-
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
 本文涵蓋之內容包括資源管理員部署模型。
 
@@ -63,7 +61,7 @@ ms.lasthandoff: 10/11/2017
 3. 在 [建立負載平衡器] 刀鋒視窗中，輸入負載平衡器的名稱。 在此我們將其稱為 **myLoadBalancer**。
 4. 在 [類型] 底下選取 [公用]。
 5. 在 [公用 IP 位址] 底下建立稱為 **myPublicIP** 的新公用 IP。
-6. 在 [資源群組] 底下選取 [myRG] 。 選取適當 位置，然後按一下確定。 負載平衡器接著會開始部署，並且需要幾分鐘的時間才能順利完成部署。
+6. 在 [資源群組] 底下選取 [myRG] 。 選取適當 [位置]，然後按一下 [確定]。 負載平衡器接著會開始部署，並且需要幾分鐘的時間才能順利完成部署。
 
     ![更新負載平衡器的資源群組](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 

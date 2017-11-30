@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: ce6edbdffe9704383676e990865cd4e2958f30fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/27/2017
+ms.openlocfilehash: e962fd65244ceebfc7544dc5a1d1956dad811fea
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>使用傾印和還原來將 MySQL 資料庫移轉至適用於 MySQL 的 Azure 資料庫
 本文將說明兩個常見方法，讓您可在適用於 MySQL 的 Azure 資料庫中用來備份和還原資料庫
@@ -80,7 +80,7 @@ $ mysqldump -u root -p testdb table1 table2 > testdb_tables_backup.sql
 $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql 
 ```
 若要一次備份伺服器中的所有資料庫，您應該使用 --all-databases 選項。
-```
+```bash
 $ mysqldump -u root -p --all-databases > alldb_backup.sql 
 ```
 
@@ -111,7 +111,7 @@ $ mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p te
 - 按一下 [匯出] 連結。 新的分頁隨即出現，以供檢視資料庫的傾印。
 - 在 [匯出] 區域中，按一下 [全選] 連結來選擇資料庫中的資料表。 
 - 在 [SQL 選項] 區域中，按一下適當的選項。 
-- 依序按一下 另存新檔 和對應的壓縮選項，然後按一下執行 按鈕。 接著應該會出現一個對話方塊，提示您在本機儲存檔案。
+- 依序按一下 [另存新檔] 和對應的壓縮選項，然後按一下 [執行] 按鈕。 接著應該會出現一個對話方塊，提示您在本機儲存檔案。
 
 ## <a name="import-using-phpmyadmin"></a>使用 PHPMyAdmin 匯入
 匯入資料庫的程序與匯出類似。 請執行下列動作：
