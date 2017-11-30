@@ -1,6 +1,6 @@
 ---
-title: "關於 Microsoft Azure Windows VM 的磁碟和 VHD | Microsoft Docs"
-description: "了解 Azure 中 Windows 虛擬機器的磁碟和 VHD 的基本知識。"
+title: "關於 Microsoft Azure Windows VM 的未受管理 (分頁 Blob) 和受控磁碟儲存體 | Microsoft Docs"
+description: "深入了解 Azure 中 Windows 虛擬機器的未受管理 (分頁 Blob) 和受控磁碟儲存體的基本概念。"
 services: storage
 documentationcenter: 
 author: robinsh
@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: b1beecf2e4268e358285c1101edcb13f6d592948
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1a8dc028e2e872820a209bcdde5cca57853dd419
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
-# <a name="about-disks-and-vhds-for-azure-windows-vms"></a>關於 Azure Windows VM 的磁碟和 VHD
+# <a name="about-disks-storage-for-azure-windows-vms"></a>關於 Azure Windows VM 的磁碟儲存體
 就像任何其他電腦，Azure 中的虛擬機器會使用磁碟做為儲存作業系統、應用程式和資料的位置。 所有 Azure 虛擬機器都至少有兩個磁碟 - 一個 Windows 作業系統磁碟和一個暫存磁碟。 作業系統磁碟是從映像建立，且作業系統磁碟與該映像都是儲存在 Azure 儲存體帳戶中的虛擬硬碟 (VHD)。 虛擬機器也可以有一或多個資料磁碟，而這些磁碟也會儲存成 VHD。 
 
 在本文中，我們將討論磁碟的不同用法，接著討論您可以建立和使用的不同磁碟類型。 本文也適用於 [Linux 虛擬機器](../linux/about-disks-and-vhds.md)。
@@ -79,6 +79,8 @@ fsutil behavior set DisableDeleteNotify 0
 
 <!-- Might want to match next-steps from overview of managed disks -->
 ## <a name="next-steps"></a>後續步驟
-* [連接磁碟](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 來為您的 VM 新增額外的儲存空間。
-* [變更 Windows 暫存磁碟的磁碟機代號](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) ，讓您的應用程式可以使用 D: 磁碟機來儲存資料。
+* [連接磁碟](attach-disk-portal.md) 來為您的 VM 新增額外的儲存空間。
+* [建立快照集](snapshot-copy-managed-disk.md)。
+* [轉換為受控磁碟](convert-unmanaged-to-managed-disks.md)。
+
 

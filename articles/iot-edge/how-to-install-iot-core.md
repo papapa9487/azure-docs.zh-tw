@@ -7,14 +7,14 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: veyalla
-ms.date: 11/15/2017
+ms.date: 11/17/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: be2a80645d23e709d6c5cfb3978498bbe85eca34
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b6c8e77b16d784373e392d0ac97094050677cb84
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>在 Windows IoT 核心版上安裝 IoT Edge 執行階段 - 預覽
 
@@ -25,8 +25,22 @@ Azure IoT Edge 執行階段即使在微型單板電腦 (SBC) 裝置上也能執�
 1. 在主機系統上安裝 [Windows 10 IoT 核心版儀表板][lnk-core]。
 1. 依照[設定裝置][lnk-board]中的步驟，使用 MinnowBoard Turbot/MAX 組建 16299 映像來設定您的開發板。 
 1. 開啟裝置電源，然後[使用 PowerShell 從遠端登入][lnk-powershell]。
-1. 在 PowerShell 主控台中，[安裝 Docker 二進位檔][lnk-docker-install]。
-1. 在 PowerShell 主控台中，執行下列命令來安裝 IoT Edge 執行階段，並確認您的組態：
+1. 在 PowerShell 主控台中，安裝容器執行階段： 
+
+   ```powershell
+   Invoke-WebRequest https://master.dockerproject.org/windows/x86_64/docker-17.06.0-dev.zip -o temp.zip
+   Expand-Archive .\temp.zip $env:ProgramFiles -f
+   Remove-Item .\temp.zip
+   $env:Path += ";$env:programfiles\docker"
+   SETX /M PATH "$env:Path"
+   dockerd --register-service
+   start-service docker
+   ```
+
+   >[!NOTE]
+   >此容器執行階段來自於「白鯨」專案建置伺服器，且僅供評估之用。 Docker 並未加以測試、背書或支援。
+
+1. 安裝 IoT Edge 執行階段，並確認您的組態：
 
    ```powershell
    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)

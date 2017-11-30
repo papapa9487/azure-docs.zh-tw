@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: maheshu
-ms.openlocfilehash: 03f0b07e9f4994c616a39692f7a5ba52a154aa0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20cecf0b3e38e8f2241f3589b9548c93730c7783
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>將 Red Hat Enterprise Linux 7 虛擬機器加入受管理的網域
 本文說明如何將 Red Hat Enterprise Linux (RHEL) 7 虛擬機器加入 Azure AD 網域服務受管理網域。
@@ -82,12 +82,12 @@ sudo vi /etc/hosts
     sudo realm discover CONTOSO100.COM
     ```
 
-      > [!NOTE] 
-      > **疑難排解：**如果 [領域探索] 找不到受管理網域：
-        * Ensure that the domain is reachable from the virtual machine (try ping).
-        * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-        * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
-      >
+     > [!NOTE] 
+     > **疑難排解：**如果 [領域探索] 找不到受管理網域：
+     * 確定可從虛擬機器觸達網域 (請嘗試 ping)。
+     * 檢查虛擬機器已確實部署到有提供受管理網域的相同虛擬網路上。
+     * 查看您是否已更新虛擬網路的 DNS 伺服器設定，以指向受管理網域的網域控制站。
+     >
 
 2. 初始化 Kerberos。 在 SSH 終端機中輸入下列命令： 
 

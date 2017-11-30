@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: iainfou
-ms.openlocfilehash: 07cb786e3053cb933fb87b2991cebb979a91ace0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee499b57733cd19dfe411e0e463dd3c65e82a52d
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-a-basic-virtual-machine-in-azure-with-ansible"></a>使用 Ansible 在 Azure 中建立基本虛擬機器
 Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使用 Ansible 在 Azure 中管理虛擬機器 (VM)，就像是任何其他資源一樣。 本文示範如何使用 Ansible 建立基本 VM。 您也可以了解如何[使用 Ansible 建立完整的 VM 環境](ansible-create-complete-vm.md)。
@@ -29,7 +29,7 @@ Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使�
 若要使用 Ansible 管理 Azure 資源，您需要下列各項：
 
 - 在您的主機系統上安裝 Ansible 和 Azure Python SDK 模組。
-    - 在 [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts)、[CentOS 7.3](ansible-install-configure.md#centos-73) 和 [SLES 12.2 SP2](ansible-install-configure.md#sles-122-sp2) 上安裝 Ansible
+    - 在 [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts)、[CentOS 7.3](ansible-install-configure.md#centos-73) 和 [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2) 上安裝 Ansible
 - Azure 認證，並設定 Ansible 使用這些認證。
     - [建立 Azure 認證和設定 Ansible](ansible-install-configure.md#create-azure-credentials)
 - Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 

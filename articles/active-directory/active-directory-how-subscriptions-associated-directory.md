@@ -16,11 +16,11 @@ ms.date: 10/17/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: abf207a3ceec708a828170936f7dc7948ccf34a9
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 67df6d893c0770b9210fc73e96865d5c6396796c
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-add-an-azure-subscription-to-azure-active-directory"></a>如何將 Azure 訂用帳戶新增至 Azure Active Directory
 本文涵蓋有關 Azure 訂用帳戶與 Azure Active Directory (Azure AD) 之間關係，以及如何將現有訂用帳戶新增至 Azure AD 目錄的資訊。 Azure 訂用帳戶具有 Azure AD 目錄的信任關係，這表示它信任此目錄來驗證使用者、服務和裝置。 多個訂用帳戶可以信任相同的目錄，但是每個訂用帳戶只能信任一個目錄。 
@@ -39,7 +39,6 @@ ms.lasthandoff: 10/18/2017
 5. 接受者按一下連結並遵循指示進行，包括輸入他們的付款資訊。 當接受者成功時，訂用帳戶就轉移完成。 
 6. 訂用帳戶的預設目錄會變更為使用者所在的目錄。
 
-如需詳細資訊，請參閱[將 Azure 訂用帳戶擁有權轉移給另一個帳戶](../billing/billing-subscription-transfer.md)。
 
 ## <a name="next-steps"></a>後續步驟
 * 若要深入了解如何變更 Azure 訂用帳戶的系統管理員，請參閱[將 Azure 訂用帳戶的擁有權轉移至另一個帳戶](../billing/billing-subscription-transfer.md)

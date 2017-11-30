@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: c158c67a82e12501386179e19bc75fd852d7e308
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 157a10277f89643245746223f2cd1d73680ac700
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>在 Azure AD 網域服務受管理網域上部署 Azure AD 應用程式
 Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網路存取的內部部署應用程式，協助您支援遠端背景工作角色。 使用 Azure AD 網域服務，您現在可以提升執行內部部署的舊版應用程式並隨即轉移至 Azure 基礎結構服務。 然後，您可以使用 Azure AD 應用程式 Proxy 發佈這些應用程式，為您組織中的使用者提供安全遠端存取。
@@ -56,7 +56,7 @@ Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網
 
 
 ## <a name="task-2---provision-domain-joined-windows-servers-to-deploy-the-azure-ad-application-proxy-connector"></a>工作 2 - 佈建已加入網域的 Windows 伺服器來部署 Azure AD 應用程式 Proxy 連接器
-您需要可安裝 Azure AD 應用程式 Proxy 連接器的已加入網域 Windows Server 虛擬機器。 根據發佈的應用程式，您可以選擇佈建已安裝連接器的多部伺服器。 這個部署選項為您提供更高的可用性，並協助處理更大量的驗證負載。
+您需要可安裝 Azure AD 應用程式 Proxy 連接器的已加入網域 Windows Server 虛擬機器。 對於某些應用程式，您可以選擇佈建已安裝連接器的多部伺服器。 這個部署選項為您提供更高的可用性，並協助處理更大量的驗證負載。
 
 在相同的虛擬網路 (或連線/對等互連的虛擬網路) 上佈建連接器伺服器，其中已您啟用 Azure AD 網域服務受管理的網域。 同樣地，裝載您透過應用程式 Proxy 發佈之應用程式的伺服器需要安裝在相同的 Azure 虛擬網路上。
 
@@ -64,7 +64,7 @@ Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網
 
 
 ## <a name="task-3---install-and-register-the-azure-ad-application-proxy-connector"></a>工作 3 - 安裝與註冊 Azure AD 應用程式 Proxy 連接器
-在過去，您會佈建 Windows Server 虛擬機器，並將它加入受管理的網域。 在這個工作中，您將在此虛擬機器上安裝 Azure AD 應用程式 Proxy 連接器。
+在過去，您會佈建 Windows Server 虛擬機器，並將它加入受管理的網域。 在這個工作中，您會在此虛擬機器上安裝 Azure AD 應用程式 Proxy 連接器。
 
 1. 將連接器安裝套件複製到安裝 Azure AD Web 應用程式 Proxy 連接器的 VM。
 
@@ -103,7 +103,7 @@ Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網
 
 
 ### <a name="enable-resource-based-kerberos-constrained-delegation-for-the-azure-ad-application-proxy-connector"></a>針對 Azure AD 應用程式 Proxy 連接器啟用資源型 Kerberos 限制委派
-應設定 Kerberos 限制委派 (KCD) 的 Azure 應用程式 Proxy 連接器，以便它可以在受管理的網域上模擬使用者。 在 Azure AD 網域服務受管理的網域上，您沒有網域系統管理員權限。 因此，**無法在受管理的網域上設定傳統帳戶層級 KCD**。
+應設定 Kerberos 限制委派 (KCD) 的 Azure 應用程式 Proxy 連接器，以便它可以在受管理的網域上模擬使用者。 在 Azure AD Domain Services 受管理的網域上，您沒有網域系統管理員權限。 因此，**無法在受管理的網域上設定傳統帳戶層級 KCD**。
 
 使用本[文章](active-directory-ds-enable-kcd.md)中所述的資源型 KCD。
 
@@ -113,12 +113,12 @@ Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網
 >
 
 使用 Get-adcomputer PowerShell cmdlet 來擷取已安裝 Azure AD 應用程式 Proxy 連接器之電腦的設定。
-```
+```powershell
 $ConnectorComputerAccount = Get-ADComputer -Identity contoso100-proxy.contoso100.com
 ```
 
 之後，使用組 Set-ADComputer cmdlet 來設定資源伺服器的資源型 KCD。
-```
+```powershell
 Set-ADComputer contoso100-resource.contoso100.com -PrincipalsAllowedToDelegateToAccount $ConnectorComputerAccount
 ```
 

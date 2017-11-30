@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: f4457b44c97fadc58406430fc0f31b3e0bac6682
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 4a1db86f4b715533dfea545365eaf66de0574c5e
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>教學課程：將邏輯應用程式連接至 Azure IoT 套件遠端監視預先設定解決方案
 [Microsoft Azure IoT 套件][lnk-internetofthings]遠端監視預先設定解決方案以一套端對端功能集來示範 IoT 解決方案，是快速入門的好工具。 本教學課程逐步引導您將邏輯應用程式連接至 Microsoft Azure IoT 套件遠端監視預先設定解決方案。 這些步驟示範如何將 IoT 解決方案連接至商務程序，以進一步發展此 IoT 解決方案。
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/06/2017
 
 若要完成本教學課程，您需要 Visual Studio 2015 或 Visual Studio 2017，才能在預先設定的解決方案後端中修改動作。
 
-假設您已佈建遠端監視預先設定解決方案，請在 [Azure 入口網站][lnk-azureportal]中瀏覽至該解決方案的資源群組。 資源群組的名稱與您在佈建遠端監視解決方案時所選擇的解決方案名稱相同。 在資源群組中，您可以看到解決方案已佈建的所有 Azure 資源，但在 Azure 傳統入口網站中可找到的 Azure Active Directory 應用程式除外。 下列螢幕擷取畫面顯示遠端監視預先設定解決方案的 [資源群組]  刀鋒視窗範例︰
+假設您已佈建遠端監視預先設定解決方案，請在 [Azure 入口網站][lnk-azureportal]中瀏覽至該解決方案的資源群組。 資源群組的名稱與您在佈建遠端監視解決方案時所選擇的解決方案名稱相同。 在資源群組中，您可以檢視所有為解決方案佈建的 Azure 資源。 下列螢幕擷取畫面顯示遠端監視預先設定解決方案的 [資源群組]  刀鋒視窗範例︰
 
 ![](media/iot-suite-v1-logic-apps-tutorial/resourcegroup.png)
 

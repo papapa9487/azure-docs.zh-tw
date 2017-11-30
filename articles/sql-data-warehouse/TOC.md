@@ -1,52 +1,56 @@
 # 概觀
 
-## [什麼是 SQL 資料倉儲？](sql-data-warehouse-overview-what-is.md)
-## [資料倉儲工作負載](sql-data-warehouse-overview-workload.md)
+## [關於 Azure SQL 資料倉儲](sql-data-warehouse-overview-what-is.md)
 
-# 開始使用
+# 快速入門
 
-## [載入資料教學課程](load-data-from-azure-blob-storage-using-polybase.md)
-## [彈性查詢教學課程](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
-## [最佳作法](sql-data-warehouse-best-practices.md)
-## [管理](sql-data-warehouse-overview-manage.md)
+## [建立與連線 - 入口網站](create-data-warehouse-portal.md)
 
-# 作法
+# 教學課程
+## [1 - 從 Blob 載入資料](load-data-from-azure-blob-storage-using-polybase.md)
 
+# 概念
 ## 服務功能
 ### [MPP 架構](massively-parallel-processing-mpp-architecture.md)
 ### [效能層級](performance-tiers.md)
 ### [資料倉儲單位](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [資料倉儲備份](sql-data-warehouse-backups.md)
+### [稽核](sql-data-warehouse-auditing-overview.md)
 ### [容量限制](sql-data-warehouse-service-capacity-limits.md)
 ### [常見問題集](sql-data-warehouse-overview-faq.md)
 
-## 備份與還原
+## 安全性
+### [概觀](sql-data-warehouse-overview-manage-security.md)
+### [驗證](sql-data-warehouse-authentication.md)
 
-### [備份概觀](sql-data-warehouse-backups.md)
-### [還原概觀](sql-data-warehouse-restore-database-overview.md)
-#### [Azure 入口網站](sql-data-warehouse-restore-database-portal.md)
-#### [Azure PowerShell](sql-data-warehouse-restore-database-powershell.md)
-#### [REST](sql-data-warehouse-restore-database-rest-api.md)
 
-## 連線
+## 移轉至 SQL 資料倉儲
+### [概觀](sql-data-warehouse-overview-migrate.md)
+### [移轉公用程式](sql-data-warehouse-migrate-migration-utility.md)
+### [移轉結構描述](sql-data-warehouse-migrate-schema.md)
+### [移轉程式碼](sql-data-warehouse-migrate-code.md)
+### [移轉資料](sql-data-warehouse-migrate-data.md)
 
-### [概觀](sql-data-warehouse-connect-overview.md)
-### [SSMS](sql-data-warehouse-query-ssms.md)
-### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-### [安裝 Visual Studio](sql-data-warehouse-install-visual-studio.md)
-### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
-### [連接字串](sql-data-warehouse-connection-strings.md)
+## 載入與移動資料
+### [概觀](sql-data-warehouse-overview-load.md)
+### [PolyBase](sql-data-warehouse-load-polybase-guide.md)
 
-## 建立
-### [Azure 入口網站](sql-data-warehouse-get-started-provision.md)
-### [Azure PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
-## 開發
+## 整合
+### [概觀](sql-data-warehouse-overview-integrate.md)
 
+
+## 監視與微調
+### [指導方針](resource-classes-for-workload-management.md)
+### [資料行存放區壓縮](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
+### [監視](sql-data-warehouse-manage-monitor.md)
+### [疑難排解](sql-data-warehouse-troubleshoot.md)
+
+## 開發資料倉儲
 ### [概觀](sql-data-warehouse-overview-develop.md)
+### [資料倉儲元件](sql-data-warehouse-overview-workload.md)
 
 ### 資料表
-
 #### [概觀](sql-data-warehouse-tables-overview.md)
 #### [CTAS](sql-data-warehouse-develop-ctas.md)
 #### [資料類型](sql-data-warehouse-tables-data-types.md)
@@ -59,13 +63,11 @@
 #### [暫存](sql-data-warehouse-tables-temporary.md)
 
 ### 查詢
-
 #### [動態 SQL](sql-data-warehouse-develop-dynamic-sql.md)
 #### [依據選項分組](sql-data-warehouse-develop-group-by-options.md)
 #### [標籤](sql-data-warehouse-develop-label.md)
 
 ### T-SQL 語言元素
-
 #### [迴圈](sql-data-warehouse-develop-loops.md)
 #### [預存程序](sql-data-warehouse-develop-stored-procedures.md)
 #### [交易](sql-data-warehouse-develop-transactions.md)
@@ -74,77 +76,45 @@
 #### [變數指派](sql-data-warehouse-develop-variable-assignment.md)
 #### [檢視](sql-data-warehouse-develop-views.md)
 
-## 整合
-
-### [概觀](sql-data-warehouse-overview-integrate.md)
-### [Data Factory](sql-data-warehouse-integrate-azure-data-factory.md)
-### [機器學習服務](sql-data-warehouse-integrate-azure-machine-learning.md)
-### [機器學習服務教學課程](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
-### [Power BI](sql-data-warehouse-integrate-power-bi.md)
-### [Power BI 視覺效果](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-### [串流分析](sql-data-warehouse-integrate-azure-stream-analytics.md)
-
-### [使用 SQL Database 和 SQL 資料倉儲進行彈性查詢](how-to-use-elastic-query-with-sql-data-warehouse.md)
-
-## 載入
-
-### 概念
-#### [概觀](sql-data-warehouse-overview-load.md)
-#### [PolyBase 指導](sql-data-warehouse-load-polybase-guide.md)
-
-### 教學課程
-#### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
-
-### 使用說明指南
-#### [範例資料](sql-data-warehouse-load-sample-databases.md)
-#### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
-#### [BCP](sql-data-warehouse-load-with-bcp.md)
-#### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
-#### [來自 Blob 儲存體的 PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-#### [從 SQL Server 載入 PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
-#### [RedGate](sql-data-warehouse-load-with-redgate.md)
-#### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
-
-## 移轉
-
-### [概觀](sql-data-warehouse-overview-migrate.md)
-### [移轉公用程式](sql-data-warehouse-migrate-migration-utility.md)
-### [移轉結構描述](sql-data-warehouse-migrate-schema.md)
-### [移轉程式碼](sql-data-warehouse-migrate-code.md)
-### [移轉資料](sql-data-warehouse-migrate-data.md)
-### [移轉至進階儲存體](sql-data-warehouse-migrate-to-premium-storage.md)
-
-## 管理計算
-
-### [概觀](sql-data-warehouse-manage-compute-overview.md)
-### [Azure 入口網站](sql-data-warehouse-manage-compute-portal.md)
-### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-### [REST API](sql-data-warehouse-manage-compute-rest-api.md)
-### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
-### [自動化計算層級](manage-compute-with-azure-functions.md)
-
-### 資源類別
-#### [指導方針](resource-classes-for-workload-management.md)
-#### [分析工作負載](analyze-your-workload.md)
-
-## 效能
-
-### [概觀](sql-data-warehouse-overview-manage-user-queries.md)
-### [資料行存放區壓縮](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [監視](sql-data-warehouse-manage-monitor.md)
+# 使用說明指南
+## 服務功能
+### [還原資料倉儲 - 入口網站](sql-data-warehouse-restore-database-portal.md)
+### [還原資料倉儲 - PowerShell](sql-data-warehouse-restore-database-powershell.md)
+### [還原資料倉儲 - REST API](sql-data-warehouse-restore-database-rest-api.md)
 
 ## 安全性
-
-### [概觀](sql-data-warehouse-overview-manage-security.md)
-### [稽核](sql-data-warehouse-auditing-overview.md)
-### [稽核下層用戶端](sql-data-warehouse-auditing-downlevel-clients.md)
-### [驗證](sql-data-warehouse-authentication.md)
-### [加密](sql-data-warehouse-encryption-tde.md)
-### [使用 T-SQL 加密](sql-data-warehouse-encryption-tde-tsql.md)
+### [啟用加密 (入口網站)](sql-data-warehouse-encryption-tde.md)
+### [啟用加密 - T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
 ### [威脅偵測](sql-data-warehouse-security-threat-detection.md)
 
-## 疑難排解
-### [疑難排解](sql-data-warehouse-troubleshoot.md)
+
+## 載入與移動資料
+### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
+### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
+### [BCP](sql-data-warehouse-load-with-bcp.md)
+### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
+### [來自 Blob 儲存體的 PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+### [從 SQL Server 載入 PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+### [RedGate](sql-data-warehouse-load-with-redgate.md)
+### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+
+
+## 整合
+###  [設定 SQL Database 的彈性查詢](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
+### [新增 Azure 串流分析作業](sql-data-warehouse-integrate-azure-stream-analytics.md)
+### [設定彈性查詢](how-to-use-elastic-query-with-sql-data-warehouse.md)
+### [使用機器學習服務](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+### [使用 Power BI 視覺化資料](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+
+## 監視與微調
+### [分析工作負載](analyze-your-workload.md)
+
+## 相應放大
+### [管理計算 - 入口網站](sql-data-warehouse-manage-compute-portal.md)
+### [管理計算 - PowerShell](sql-data-warehouse-manage-compute-powershell.md)
+### [管理計算 - REST API](sql-data-warehouse-manage-compute-rest-api.md)
+### [自動化計算層級](manage-compute-with-azure-functions.md)
+
 
 # 參考
 

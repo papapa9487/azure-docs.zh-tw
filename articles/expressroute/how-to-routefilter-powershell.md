@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
-ms.openlocfilehash: 76077be4f443f8e0dd6341d1a87539277f23e1c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c940d2eab4d8e977b67b3553ab2e3d9110710956
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>針對 Microsoft 對等互連設定路由篩選：PowerShell
 > [!div class="op_single_selector"]
@@ -147,7 +147,7 @@ $routefilter.Rules.Add($rule)
 Set-AzureRmRouteFilter -RouteFilter $routefilter
 ```
 
-## <a name="attach"></a>步驟 3：將路由篩選連結至 ExpressRoute 線路
+## <a name="attach"></a>步驟 3：將路由篩選連接到 ExpressRoute 線路
 
 若您只有 Microsoft 對等互連，請執行下列命令，將路由器篩選附加在 ExpressRoute 線路上：
 
@@ -176,7 +176,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 ### <a name="updateproperties"></a>若要更新路由篩選的屬性
 
-如果路由篩選已經連結至線路，更新 BGP 社群清單時，會自動透過已建立的 BGP 工作階段，傳播適當的前置詞公告變更。 您可以使用下列命令來更新路由篩選的 BGP 社群清單：
+如果路由篩選已連接到線路，更新 BGP 社群清單會自動透過已建立的 BGP 工作階段傳播適當前置詞公告變更。 您可以使用下列命令來更新路由篩選的 BGP 社群清單：
 
 ```powershell
 $routefilter = Get-AzureRmRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"

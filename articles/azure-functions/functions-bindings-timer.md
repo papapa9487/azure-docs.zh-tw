@@ -1,5 +1,5 @@
 ---
-title: "Azure Functions 計時器觸發程序 | Microsoft Docs"
+title: "Azure Functions 計時器觸發程序"
 description: "了解如何在 Azure Functions 中使用計時器觸發程序。"
 services: functions
 documentationcenter: na
@@ -17,42 +17,159 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 12beb090a95a31c7e83ae03a920016bdfbf474e3
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 2a62d70b22081e45bc318dd9fb624b37cf7069e3
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-functions-timer-trigger"></a>Azure Functions 計時器觸發程序
 
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
-
-這篇文章說明如何在 Azure Functions 中設定及撰寫計時器觸發程序。 Azure Functions 具有計時器觸發程序繫結，可讓您根據所定義的排程執行函式程式碼。 
-
-計時器觸發程序支援多個執行個體向外延展。特定計時器函式的單一執行個體會對所有執行個體執行。
+本文說明如何在 Azure Functions 中使用計時器觸發程序。 計時器觸發程序可讓您依照排程執行函式。 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-<a id="trigger"></a>
+## <a name="example"></a>範例
 
-## <a name="timer-trigger"></a>計時器觸發程序
-函式的計時器觸發程序會使用 function.json `bindings` 陣列中的下列 JSON 物件︰
+請參閱特定語言的範例：
+
+* [先行編譯 C#](#trigger---c-example)
+* [C# 指令碼](#trigger---c-script-example)
+* [F#](#trigger---f-example)
+* [JavaScript](#trigger---javascript-example)
+
+### <a name="c-example"></a>C# 範例
+
+下列範例示範每五分鐘執行一次的[先行編譯 C# 函式](functions-dotnet-class-library.md)：
+
+```cs
+[FunctionName("TimerTriggerCSharp")]
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+{
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+}
+```
+
+### <a name="c-script-example"></a>C# 指令碼範例
+
+下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。
+
+以下是 *function.json* 檔案中的繫結資料：
 
 ```json
 {
-    "schedule": "<CRON expression - see below>",
-    "name": "<Name of trigger parameter in function signature>",
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
     "type": "timerTrigger",
     "direction": "in"
 }
 ```
 
-`schedule` 的值是包含以下 6 個欄位的 [CRON 運算式](http://en.wikipedia.org/wiki/Cron#CRON_expression)︰ 
+以下是 C# 指令碼程式碼：
 
-    {second} {minute} {hour} {day} {month} {day-of-week}
-&nbsp;
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    if(myTimer.IsPastDue)
+    {
+        log.Info("Timer is running late!");
+    }
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
+}
+```
+
+### <a name="f-example"></a>F# 範例
+
+下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [F# 指令碼函式](functions-reference-fsharp.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。
+
+以下是 *function.json* 檔案中的繫結資料：
+
+```json
+{
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
+    "type": "timerTrigger",
+    "direction": "in"
+}
+```
+
+以下是 F# 指令碼程式碼：
+
+```fsharp
+let Run(myTimer: TimerInfo, log: TraceWriter ) =
+    if (myTimer.IsPastDue) then
+        log.Info("F# function is running late.")
+    let now = DateTime.Now.ToLongTimeString()
+    log.Info(sprintf "F# function executed at %s!" now)
+```
+
+### <a name="javascript-example"></a>JavaScript 範例
+
+下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。
+
+以下是 *function.json* 檔案中的繫結資料：
+
+```json
+{
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
+    "type": "timerTrigger",
+    "direction": "in"
+}
+```
+
+以下是 F# 指令碼程式碼：
+
+```JavaScript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+
+    if(myTimer.isPastDue)
+    {
+        context.log('Node.js is running late!');
+    }
+    context.log('Node.js timer trigger function ran!', timeStamp);   
+
+    context.done();
+};
+```
+
+## <a name="attributes-for-precompiled-c"></a>先行編譯 C# 的屬性
+
+對於[先行編譯 C#](functions-dotnet-class-library.md) 函式，使用 [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs)，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions)。
+
+該屬性的建構函式會採用 CRON 運算式，如下列範例所示：
+
+```csharp
+[FunctionName("TimerTriggerCSharp")]
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+ ```
+
+如果您的函式應用程式在 App Service 方案 (非取用量方案) 上執行，您可以指定 `TimeSpan` 而不是 CRON 運算式。
+
+## <a name="configuration"></a>組態
+
+下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `TimerTrigger` 屬性。
+
+|function.json 屬性 | 屬性內容 |說明|
+|---------|---------|----------------------|
+|**type** | n/a | 必須設定為 "timerTrigger"。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
+|**direction** | n/a | 必須設定為 "in"。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
+|**name** | n/a | 代表函式程式碼中計時器物件的變數名稱。 | 
+|**schedule**|**ScheduleExpression**|在取用量方案中，您可以使用 CRON 運算式來定義排程。 如果您使用 App Service 方案，也可以使用 `TimeSpan` 字串。 下列各節說明 CRON 運算式。 您可以將排程運算式放在應用程式設定中，並將此屬性設定為以 **%** 符號包裝的值，如此範例所示："%NameOfAppSettingWithCRONExpression%"。 當您要在本機開發時，應用程式設定會進入 [local.settings.json 檔案](functions-run-local.md#local-settings-file)的值。|
+
+### <a name="cron-format"></a>CRON 格式 
+
+Azure Functions 計時器觸發程序的 [CRON 運算式](http://en.wikipedia.org/wiki/Cron#CRON_expression)包含下列六個欄位： 
+
+```
+{second} {minute} {hour} {day} {month} {day-of-week}
+```
+
 >[!NOTE]   
->您會在線上找到的許多 cron 運算式會省略 `{second}` 欄位。 如果您從中複製一個，您需要對 `{second}` 欄位進行額外調整。 如需特定範例，請參閱以下的[排程範例](#examples)。
+>您在線上找到的許多 CRON 運算式會省略 `{second}` 欄位。 如果您複製其中一個運算式，請新增遺漏的 `{second}` 欄位。
+
+### <a name="cron-time-zones"></a>CRON 時區
 
 CRON 運算式使用的預設時區是國際標準時間 (UTC)。 若要讓 CRON 運算式以另一個時區為基礎，請為名為 `WEBSITE_TIME_ZONE` 的函式應用程式建立新的應用程式設定。 將值設定為所需的時區名稱，如 [Microsoft 時區索引](https://technet.microsoft.com/library/cc749073(v=ws.10).aspx)中所示。 
 
@@ -67,12 +184,9 @@ CRON 運算式使用的預設時區是國際標準時間 (UTC)。 若要讓 CRON
 ```json
 "schedule": "0 0 10 * * *",
 ``` 
+### <a name="cron-examples"></a>CRON 範例
 
-
-<a name="examples"></a>
-
-## <a name="schedule-examples"></a>排程範例
-以下是您可以用於 `schedule` 屬性的 CRON 運算式的一些範例。 
+以下是您可以在 Azure Functions 中使用於計時器觸發程序的一些 CRON 運算式範例。 
 
 若要每隔 5 分鐘觸發一次︰
 
@@ -110,9 +224,8 @@ CRON 運算式使用的預設時區是國際標準時間 (UTC)。 若要讓 CRON
 "schedule": "0 30 9 * * 1-5",
 ```
 
-<a name="usage"></a>
+## <a name="usage"></a>使用量
 
-## <a name="trigger-usage"></a>觸發程序使用方式
 叫用計時器觸發程序函式時，[計時器物件](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)會傳遞至函式。 下列 JSON 是計時器物件的範例表示法。 
 
 ```json
@@ -127,68 +240,14 @@ CRON 運算式使用的預設時區是國際標準時間 (UTC)。 若要讓 CRON
 }
 ```
 
-<a name="sample"></a>
+## <a name="scale-out"></a>向外延展
 
-## <a name="trigger-sample"></a>觸發程序範例
-假設您的 function.json `bindings` 陣列中有下列計時器觸發程序︰
-
-```json
-{
-    "schedule": "0 */5 * * * *",
-    "name": "myTimer",
-    "type": "timerTrigger",
-    "direction": "in"
-}
-```
-
-請參閱可讀取計時器物件，以查看是否晚執行的特定語言範例。
-
-* [C#](#triggercsharp)
-* [F#](#triggerfsharp)
-* [Node.js](#triggernodejs)
-
-<a name="triggercsharp"></a>
-
-### <a name="trigger-sample-in-c"></a>C# 中的觸發程序範例 #
-```csharp
-public static void Run(TimerInfo myTimer, TraceWriter log)
-{
-    if(myTimer.IsPastDue)
-    {
-        log.Info("Timer is running late!");
-    }
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
-}
-```
-
-<a name="triggerfsharp"></a>
-
-### <a name="trigger-sample-in-f"></a>F# 中的觸發程序範例 #
-```fsharp
-let Run(myTimer: TimerInfo, log: TraceWriter ) =
-    if (myTimer.IsPastDue) then
-        log.Info("F# function is running late.")
-    let now = DateTime.Now.ToLongTimeString()
-    log.Info(sprintf "F# function executed at %s!" now)
-```
-
-<a name="triggernodejs"></a>
-
-### <a name="trigger-sample-in-nodejs"></a>Node.js 中的觸發程序範例
-```JavaScript
-module.exports = function (context, myTimer) {
-    var timeStamp = new Date().toISOString();
-
-    if(myTimer.isPastDue)
-    {
-        context.log('Node.js is running late!');
-    }
-    context.log('Node.js timer trigger function ran!', timeStamp);   
-
-    context.done();
-};
-```
+計時器觸發程序支援多個執行個體向外延展。特定計時器函式的單一執行個體會對所有執行個體執行。
 
 ## <a name="next-steps"></a>後續步驟
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
+> [!div class="nextstepaction"]
+> [移至使用計時器觸發程序的快速入門](functions-create-scheduled-function.md)
+
+> [!div class="nextstepaction"]
+> [深入了解 Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)

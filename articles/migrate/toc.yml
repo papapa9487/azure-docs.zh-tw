@@ -1,0 +1,40 @@
+- name: Azure Migrate 文件
+  href: index.yml
+- name: 概觀
+  items:
+    - name: 關於 Azure Migrate
+      href: migrate-overview.md
+- name: 教學課程
+  items:
+    - name: 探索和評定 VMware VM
+      href: tutorial-assessment-vmware.md
+- name: 概念
+  items:
+    - name: 評量計算
+      href: concepts-assessment-calculation.md
+    - name: 相依性視覺效果
+      href: concepts-dependency-visualization.md
+- name: 使用說明指南
+  items:
+    - name: 探索及評定大型環境
+      href: how-to-scale-assessment.md
+    - name: 群組機器
+      href: how-to-create-a-group.md
+    - name: 使用機器相依性的群組機器
+      href: how-to-create-group-machine-dependencies.md
+    - name: 使用 VMware 標記的群組機器
+      href: how-to-tag-v-center.md
+    - name: 使用群組相依性調整群組
+      href: how-to-create-group-dependencies.md
+    - name: 自訂評量
+      href: how-to-modify-assessment.md
+    - name: 評量之後移轉機器
+      href: how-to-get-migration-tool.md
+    - name: 針對 Azure Migrate 進行疑難排解
+      href: troubleshooting-general.md
+- name: 資源
+  items:
+    - name: Azure Migrate
+      href: 'https://azure.microsoft.com/migrate'
+    - name: Azure 藍圖
+      href: 'https://azure.microsoft.com/roadmap/'

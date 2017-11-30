@@ -39,10 +39,12 @@
           href: how-to-use-tdsp-in-azure-ml.md
         - name: 漫遊和共同作業
           href: roaming-and-collaboration.md
-    - name: 使用適用於 AI 的 Visual Studio Code 工具
-      href: quickstart-visual-studio-tools.md
-    - name: 使用 Azure IoT Edge AI 工具組
-      href: use-azure-iot-edge-ai-toolkit.md
+    - name: IDE 延伸模組
+      items:
+        - name: 使用 Visual Studio Tools for AI
+          href: quickstart-visual-studio-tools.md
+        - name: 使用適用於 AI 的 Visual Studio Code 工具
+          href: quickstart-visual-studio-code-tools.md
     - name: 設定計算環境
       items:
         - name: 設定實驗
@@ -90,8 +92,6 @@
           href: how-to-scale-clusters.md
         - name: 部署 Web 服務
           href: model-management-service-deploy.md
-        - name: 部署到 IoT Edge 裝置
-          href: deploy-to-iot-edge-device.md
         - name: 取用 Web 服務
           href: model-management-consumption.md
         - name: 收集模型資料
@@ -156,6 +156,8 @@
           href: experimentation-service-configuration-reference.md
         - name: 記錄 API
           href: reference-logging-api.md
+        - name: 測試服務範本
+          href: experimentation-service-template.md
     - name: 模型管理
       items:
         - name: 模型管理 API

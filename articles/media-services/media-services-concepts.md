@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: 5322b5f3231b067937b685c69b916ed74dfe9a6e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da2dc87543fd8a0aa99e1de3018a310abe93fa3a
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-media-services-concepts"></a>Azure 媒體服務概念
 本主題提供媒體服務概念的最重要概觀。
@@ -83,7 +83,7 @@ Blob 容器提供一組 blob。 Blob 容器在媒體服務中是做為存取控�
 所有對 Azure 儲存體的存取都是透過儲存體帳戶進行。 媒體服務帳戶可以與一個或多個儲存體帳戶產生關聯。 帳戶可以包含不限數目的容器，只要它們的大小總計低於每個儲存體帳戶 500TB 即可。  媒體服務提供 SDK 層級工具，可讓您管理多個儲存體帳戶，以及在上傳至這些帳戶期間根據計量或隨機分佈，負載平衡資產的分佈。 如需詳細資訊，請參閱「使用 [Azure 儲存體](https://msdn.microsoft.com/library/azure/dn767951.aspx)」。 
 
 ## <a name="jobs-and-tasks"></a>工作 (Job) 和工作 (Task)
-[工作](https://https://docs.microsoft.com/rest/api/media/operations/job) 通常用來處理 (例如索引或編碼) 一個音訊/視訊簡報。 如果您要處理多個視訊，請為每個要編碼的視訊各建立一個工作。
+[工作](https://docs.microsoft.com/en-us/rest/api/media/operations/job) 通常用來處理 (例如索引或編碼) 一個音訊/視訊簡報。 如果您要處理多個視訊，請為每個要編碼的視訊各建立一個工作。
 
 工作包含要進行之處理的相關中繼資料。 每個工作 (Job) 包含一或多個 [工作 (Task)](https://docs.microsoft.com/rest/api/media/operations/task)，該工作 (Task) 指定不可部分完成的處理工作、該處理工作的輸入資產、輸出資產、媒體處理器和其相關設定。 工作 (Job) 中的工作 (Task) 可以鏈結在一起，其中一項工作 (Task) 的輸出資產指定為下一個工作 (Task) 的輸入資產。 透過這種方式，一項工作 (Job) 可以包含一個媒體簡報所需的所有處理。
 

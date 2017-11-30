@@ -13,140 +13,84 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
-ms.author: billgib;genemi
-ms.openlocfilehash: 96e031835905057a9ab2b3ee4023b08de092dd8e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/17/2017
+ms.author: billgib
+ms.openlocfilehash: 094189e08002ce8d4a2f4f92a8c112eaf18ebe13
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
-# <a name="welcome-to-the-wingtip-tickets-sample-saas-azure-sql-database-tenancy-app"></a>歡迎使用 Wingtip Tickets 範例 SaaS Azure SQL Database 租用應用程式
+# <a name="the-wingtip-tickets-saas-application"></a>Wingtip Tickets SaaS 應用程式
 
-歡迎使用 Wingtip Tickets 範例 SaaS Azure SQL Database 租用應用程式與其教學課程。 資料庫租用是指您的應用程式會提供給付費客戶以裝載於該應用程式中的資料隔離模式。 暫時以最簡化的方式來說，就是每個用戶端本身都有一整個資料庫，或是和其他用戶端共用資料庫。
+相同的 *Wingtip Tickets* 應用程式會分別在三個範例中實作。 此應用程式是以小型場地 (戲院、俱樂部等) 為目標的簡易活動列表與售票 SaaS 應用程式。每個場地都是應用程式的租用戶，且都有其本身的資料：場地詳細資料、活動清單、客戶、訂票資料等。此應用程式可搭配使用管理指令碼和教學課程，示範端對端的 SaaS 案例。 其中包括佈建租用戶、監視及管理效能、結構描述管理，以及跨租用戶報告和分析。
 
-## <a name="wingtip-tickets-app"></a>Wingtip Tickets 應用程式
+## <a name="three-saas-application-patterns"></a>三個 SaaS 應用程式模式
 
-Wingtip Tickets 範例應用程式會示範不同的資料庫租用模型在設計和管理多租用戶 SaaS 應用程式的效果。 隨附的教學課程直接描述這些相同效果。 Wingtip Tickets 建置在 Azure SQL Database 上。
+應用程式有三個可用的版本；每個版本分別會在 Azure SQL Database 上探索不同的資料庫租用模式。  第一個模式會使用具有隔離的單一租用戶資料庫的單一租用戶應用程式。 第二個模式會使用每個租用戶各有一個資料庫的多租用戶應用程式。 第三個範例會使用具有分區化多租用戶資料庫的多租用戶應用程式。
 
-Wingtip Tickets 的設計旨在處理實際 SaaS 用戶端使用的各種不同設計和管理案例。 Wingtip Tickets 中考量到所會出現的使用模式。
+![三種租用模式][image-three-tenancy-patterns]
 
-您可以在五分鐘內於自己的 Azure 訂用帳戶中安裝 Wingtip Tickets 應用程式。 安裝包括插入數個租用戶的範例資料。 因為安裝之間不會彼此互動或干擾，所以您可以安全地安裝應用程式和所有模式的管理指令碼。
+ 每個範例都包含管理指令碼，以及會探索特定範圍的設計和您可在自己的應用程式中使用之管理模式的教學課程。  每個範例都可在五分鐘內完成部署。  這三個範例可用並存的方式部署，以便您比較設計和管理上的差異。
 
-#### <a name="code-in-github"></a>GitHub 中程式碼
+## <a name="standalone-application-pattern"></a>獨立應用程式模式
 
-應用程式程式碼和管理指令碼全都可在 GitHub 上取得：
+獨立應用程式模式會使用每個租用戶分別有一個租用戶資料庫的單一租用戶應用程式。 每個租用戶的應用程式會部署在個別的 Azure 資源群組中。 它可以設置在服務提供者的訂用帳戶或租用戶的訂用帳戶中，並且由提供者代表租用戶加以管理。 此模式會提供最大的租用戶隔離性，但通常最耗費資源，因為無法在多個租用戶間共用資源。
 
-- **獨立應用程式**模式：[WingtipTicketsSaaS-StandaloneApp 儲存機制](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
-- **每一租用戶一個資料庫**模型：[WingtipTicketsSaaS-DbPerTenant 儲存機制](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)。
-- **標準多租用戶**模型：[WingtipTicketsSaaS-MultiTenantDB 儲存機制](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB)。
+請參閱[教學課程][docs-tutorials-for-wingtip-sa]和 GitHub [.../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa] 上的程式碼。
 
-Wingtip Tickets 應用程式的同一個程式碼基底可以重複用於上述列出的所有模型。 您可以使用 Github 中的程式碼來開始自己的 SaaS 專案。
+## <a name="database-per-tenant-pattern"></a>每一租用戶一個資料庫的模式
 
+對於注重租用戶隔離性，並且想要執行集中式服務以有效運用共用資源而發揮成本效益的服務提供者，使用「每一租用戶一個資料庫的模式」將有其效用。 針對每個場所或租用戶分別會建立一個資料庫，且所有資料庫會集中受到管理。 資料庫可裝載於彈性集區中，以提供符合成本效益且便利的管理程序，而妥善因應租用戶無法預期的工作負載模式。 目錄資料庫會包含租用戶和其資料庫之間的對應。 此對應可使用能夠對應用程式進行有效連線管理的[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)的分區對應管理功能來管理。
 
+請參閱[教學課程][docs-tutorials-for-wingtip-dpt]和 GitHub [.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt] 上的程式碼。
 
-## <a name="major-database-tenancy-models"></a>主要資料庫租用模型
+## <a name="sharded-multi-tenant-database-pattern"></a>分區化多租用戶資料庫模式
 
-Wingtip Tickets 是一個場地活動列表與售票 SaaS 應用程式。 Wingtip 可提供場地所需的服務。 每個場地都適用下列所有項目：
+對於想要降低每一租用戶的成本，並且可承受較低租用戶隔離性的服務提供者，多租用戶資料庫將有其效用。 此模式可將大量租用戶封裝到單一資料庫中，而降低每一租用戶的成本。 藉由將多個租用戶分區化到多個資料庫間，將可達到近乎無限大的規模。  目錄資料庫會再次將租用戶對應到資料庫。  
 
-- 付費以裝載於您的應用程式。
-- 是 Wingtip 的租用戶。
-- 裝載事件。 包括下列事件：
-    - 票證價格。
-    - 票證銷售額。
-    - 購買票證的客戶。
+此模式也可支援混合模型，讓您可透過在一個資料庫中包含多個租用戶的方式進行成本最佳化，或透過每一租用戶各有其資料庫的方式進行隔離性最佳化。 您可以在租用戶佈建時或是稍後，就個別的租用戶進行這項選擇，而不會對應用程式造成影響。
 
-該應用程式搭配使用管理指令碼和教學課程示範一個完整的 SaaS 案例。 該案例包含下列活動：
-
-- 佈建租用戶。
-- 監視和管理效能。
-- 結構描述管理。
-- 跨租用戶報告和分析。
-
-不論所需的規格為何，都能提供所有活動。
-
-
-
-## <a name="code-samples-for-each-tenancy-model"></a>每個租用模型的程式碼範例
-
-強調說明一組應用程式模型。 然而，其他實作可混合兩個或更多模型的元素。
-
-#### <a name="standalone-app-model"></a>獨立應用程式模型
-
-![獨立應用程式模型][standalone-app-model-62s]
-
-此模型使用單一租用戶應用程式。 因此，此模型只需要一個資料庫，而且只儲存單一租用戶的資料。 租用戶會和資料庫中的其他租用戶完全隔離。
-
-當您針對許多不同用戶端銷售自己的應用程式執行個體時，可以使用此模型，讓每個用戶端自行執行。 該用戶端就是唯一的租用戶。 資料庫不只會儲存唯一用戶端的資料，該資料庫還會儲存該用戶端的許多客戶資料。
-
-#### <a name="database-per-tenant"></a>每一租用戶一個資料庫
-
-![每一租用戶一個資料庫模型][database-per-tenant-model-35d]
-
-此模型在應用程式的執行個體中會有多個租用戶。 但對於每個新租用戶，都會配置另一個資料庫專供新的租用戶使用。
-
-此模型可完全隔離每個租用戶的資料庫。 Azure SQL Database 服務精密複雜，讓此模型變得可行。
-
-- [SQL Database 多租用戶 SaaS 應用程式範例的簡介][saas-dbpertenant-wingtip-app-overview-15d]：包含此模型的詳細資訊。
-
-#### <a name="sharded-multi-tenant-databases-the-hybrid"></a>標準的多租用戶資料庫 (混合式)
-
-![標準的多租用戶資料庫模型 (混合式)][sharded-multitenantdb-model-hybrid-79m]
-
-此模型在應用程式的執行個體中會有多個租用戶。 這個模型在部分或所有其資料庫中也有多個租用戶。 此模型很適合用來提供不同服務層級，讓重視完全隔離資料庫的用戶端支付更多費用。
-
-每個資料庫的結構描述都包含一個租用戶識別碼。 即使只儲存唯一租用戶的那些資料庫都有租用戶識別碼。
-
-- [SQL Database 多租用戶 SaaS 應用程式範例的簡介][saas-multitenantdb-get-started-deploy-89i]
-
-
-
-## <a name="tutorials-for-each-tenancy-model"></a>每個租用模型的教學課程
-
-每個租用模型均記載下列各項：
-
-- 一套教學課程文章。
-- 儲存在該模式專用 Github 存放庫中的原始程式碼：
-    - Wingtip Tickets 應用程式的程式碼。
-    - 管理案例的指令碼。
-
-#### <a name="tutorials-for-management-scenarios"></a>管理案例的教學課程
-
-每個模型的教學課程文章都涵蓋下列管理案例：
-
-- 佈建租用戶。
-- 監視和管理效能。
-- 結構描述管理。
-- 跨租用戶報告和分析。
-- 將一個租用戶還原到較早的時間點。
-- 災害復原。
-
-
+請參閱[教學課程][docs-tutorials-for-wingtip-mt]和 GitHub [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt] 上的程式碼。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [SQL Database 多租用戶 SaaS 應用程式範例的簡介][saas-dbpertenant-wingtip-app-overview-15d]：包含此模型的詳細資訊。
+#### <a name="conceptual-descriptions"></a>概念說明
 
-- [多租用戶 SaaS 資料庫租用模式][multi-tenant-saas-database-tenancy-patterns-60p]
+- 如需應用程式租用模式的詳細說明，請參閱[多租用戶 SaaS 資料庫租用模式][saas-tenancy-app-design-patterns-md]
+
+#### <a name="tutorials-and-code"></a>教學課程和程式碼
+
+- 獨立應用程式：
+    - [獨立應用程式的教學課程][docs-tutorials-for-wingtip-sa]。
+    - [獨立應用程式的程式碼，位於 Github][github-code-for-wingtip-sa]。
+
+- 每一租用戶一個資料庫：
+    - [每一租用戶一個資料庫的教學課程][docs-tutorials-for-wingtip-dpt]。
+    - [每一租用戶一個資料庫的程式碼，位於 Github][github-code-for-wingtip-dpt]。
+
+- 分區化多租用戶：
+    - [分區化多租用戶的教學課程][docs-tutorials-for-wingtip-mt]。
+    - [分區化多租用戶的程式碼，位於 Github][github-code-for-wingtip-mt]。
 
 
 
 <!-- Image references. -->
 
-[standalone-app-model-62s]: media/saas-tenancy-welcome-wingtip-tickets-app/model-standalone-app.png "獨立應用程式模型"
+[image-three-tenancy-patterns]: media/saas-tenancy-welcome-wingtip-tickets-app/three-tenancy-patterns.png "三種租用模式"。
 
-[database-per-tenant-model-35d]: media/saas-tenancy-welcome-wingtip-tickets-app/model-database-per-tenant.png "每一租用戶一個資料庫模型"
+<!-- Docs.ms.com references. -->
 
-[sharded-multitenantdb-model-hybrid-79m]: media/saas-tenancy-welcome-wingtip-tickets-app/model-sharded-multitenantdb-hybrid.png "標準的多租用戶資料庫模型 (混合式)"
+[saas-tenancy-app-design-patterns-md]: saas-tenancy-app-design-patterns.md
 
+<!-- WWWeb http references. -->
 
+[docs-tutorials-for-wingtip-sa]: https://aka.ms/wingtipticketssaas-sa
+[github-code-for-wingtip-sa]: https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp
 
-<!-- Article references. -->
+[docs-tutorials-for-wingtip-dpt]: https://aka.ms/wingtipticketssaas-dpt
+[github-code-for-wingtip-dpt]: https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant
 
-[saas-dbpertenant-wingtip-app-overview-15d]: saas-dbpertenant-wingtip-app-overview.md
-
-[multi-tenant-saas-database-tenancy-patterns-60p]: saas-tenancy-app-design-patterns.md
-
-[saas-multitenantdb-get-started-deploy-89i]: saas-multitenantdb-get-started-deploy.md
-
+[docs-tutorials-for-wingtip-mt]: https://aka.ms/wingtipticketssaas-mt
+[github-code-for-wingtip-mt]: https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb
 

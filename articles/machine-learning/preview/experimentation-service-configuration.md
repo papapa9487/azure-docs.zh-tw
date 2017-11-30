@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 5635ef890537a2f37d9d6e9066d0258fc0cb346e
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 470bba665dcf8b3517b86ee633a9570ec0f3cd33
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>設定 Azure Machine Learning 測試服務
 
@@ -220,6 +220,8 @@ _**Python 指令碼的遠端 VM 執行概觀：**_
 
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>在 HDInsight 叢集上執行指令碼
 HDInsight 是支援 Apache Spark 的巨量資料分析常用平台。 Workbench 可讓您使用 HDInsight Spark 叢集測試巨量資料。 
+
+>![注意] HDInsight 叢集必須使用 Azure Blob 作為主要儲存體。 尚未支援使用 Azure Data Lake 儲存體。
 
 您可以使用下列命令來建立計算目標，以及 HDInsight Spark 叢集的回合組態：
 

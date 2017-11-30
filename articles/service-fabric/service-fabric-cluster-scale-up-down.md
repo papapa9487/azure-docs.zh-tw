@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
-ms.openlocfilehash: d26a97ee0e5416fb1fe38ef0fb18fa4eb0e2963d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 249fb4903c7b2de3ce290850a7759a4793f10aa7
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>使用自動調整規模規則相應縮小或放大 Service Fabric 叢集
 虛擬機器擴展集是一個 Azure 計算資源，可以用來將一組虛擬機器當做一個集合加以部署和管理。 在 Service Fabric 叢集中定義的每個節點類型都會安裝為不同的虛擬機器擴展集。 然後每個節點類型可以獨立相應縮小或放大，可以開啟不同組的連接埠，並可以有不同的容量度量。 若要深入了解，請參閱 [Service Fabric 節點類型](service-fabric-cluster-nodetypes.md) 文件。 因為叢集中的 Service Fabric 節點類型是由後端的虛擬機器擴展集建立，所以您必須為每個節點類型/虛擬機器擴展集設定自動調整規模規則。
@@ -72,8 +72,8 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 
 您必須一次一個 VM 執行個體執行下列步驟。 這可讓系統服務 (以及您的具狀態服務) 在您要移除的 VM 執行個體上正常關閉，並且在其他節點上建立新複本。
 
-1. 執行 [Disable-ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) 加上 'RemoveNode' 可停用您要移除的節點 (該節點類型的最高執行個體)。
-2. 執行 [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) 可確保節點已確實轉換為停用。 如果沒有，請等到節點停用。 您無法加快此步驟的速度。
+1. 執行 [Disable-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) 加上 'RemoveNode' 可停用您要移除的節點 (該節點類型的最高執行個體)。
+2. 執行 [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) 可確保節點已確實轉換為停用。 如果沒有，請等到節點停用。 您無法加快此步驟的速度。
 3. 請依照 [快速啟動範本庫](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) 的範例/指示變更該 Nodetype 的一個 VM。 移除的執行個體是最高的 VM 執行個體。 
 4. 視需要重複步驟 1 到 3，但是請永遠不要將主要節點類型的執行個體數目相應減少到少於可靠性層級所需的數目。 請參閱 [可靠性層級的詳細資料](service-fabric-cluster-capacity.md)。 
 
@@ -85,8 +85,8 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 
 您必須一次一個 VM 執行個體執行下列步驟。 這可讓系統服務 (以及您的具狀態服務) 在您要移除的 VM 執行個體上正常關閉，並且在其他位置建立新複本。
 
-1. 執行 [Disable-ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) 加上 'RemoveNode' 可停用您要移除的節點 (該節點類型的最高執行個體)。
-2. 執行 [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) 可確保節點已確實轉換為停用。 如果沒有，請等到節點停用。 您無法加快此步驟的速度。
+1. 執行 [Disable-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) 加上 'RemoveNode' 可停用您要移除的節點 (該節點類型的最高執行個體)。
+2. 執行 [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) 可確保節點已確實轉換為停用。 如果沒有，請等到節點停用。 您無法加快此步驟的速度。
 3. 請依照 [快速啟動範本庫](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) 的範例/指示變更該 Nodetype 的一個 VM。 現在會移除最高的 VM 執行個體。 
 4. 視需要重複步驟 1 到 3，但是請永遠不要將主要節點類型的執行個體數目相應減少到少於可靠性層級所需的數目。 請參閱 [可靠性層級的詳細資料](service-fabric-cluster-capacity.md)。
 

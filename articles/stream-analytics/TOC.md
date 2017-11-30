@@ -20,7 +20,7 @@
 
 ## 建立作業
 ### [建立輸入](stream-analytics-define-inputs.md)
-### [範例輸入資料](stream-analytics-sample-data-input.md)
+### [測試查詢及範例輸入資料](stream-analytics-sample-data-input.md)
 ### [常見查詢模式](stream-analytics-stream-analytics-query-patterns.md)
 ### [視窗函式](stream-analytics-window-functions.md)
 

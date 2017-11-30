@@ -6,16 +6,16 @@
       href: how-iot-edge-works.md
 - name: 快速入門
   items:
-    - name: 部署到 Edge - Windows
-      href: quickstart.md
     - name: 部署到 Edge - Linux
       href: quickstart-linux.md
+    - name: 部署到 Edge - Windows
+      href: quickstart.md
 - name: 教學課程
   items:
-    - name: 模擬 Edge 裝置 - Windows
-      href: tutorial-simulate-device-windows.md
     - name: 模擬 Edge 裝置 - Linux
       href: tutorial-simulate-device-linux.md
+    - name: 模擬 Edge 裝置 - Windows
+      href: tutorial-simulate-device-windows.md
     - name: '開發 C# 模組'
       href: tutorial-csharp-module.md
     - name: 部署 Azure 串流分析
@@ -26,8 +26,8 @@
       href: tutorial-deploy-function.md
 - name: 使用說明指南
   items:
-    - name: 建立閘道裝置
-      href: how-to-create-gateway-device.md
+    - name: 建立透明閘道
+      href: how-to-create-transparent-gateway.md
     - name: 大範圍部署及監視
       href: how-to-deploy-monitor.md
     - name: 佈建 IoT Core 裝置
@@ -45,6 +45,8 @@
       href: iot-edge-runtime.md
     - name: 部署
       href: module-deployment-monitoring.md
+    - name: 將 IoT Edge 裝置設定為閘道
+      href: iot-edge-as-gateway.md
     - name: 安全性
       href: security.md
 - name: 資源

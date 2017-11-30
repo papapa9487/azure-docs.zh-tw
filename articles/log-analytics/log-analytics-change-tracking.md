@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 57af000e47188786a77cdb84ebb6ffb5c50eafaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 528b569ff9ffb3659e9210ea70e3aa06921cfe0d
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>使用變更追蹤解決方案來追蹤環境中的軟體變更
 
@@ -39,8 +39,8 @@ ms.lasthandoff: 10/11/2017
 使用下列步驟，設定要在 Linux 電腦上追蹤的檔案。
 
 1. 在 OMS 入口網站中，按一下 **[設定]** \(齒輪符號)。
-2. 在 設定 頁面上，按一下 資料，然後按一下Linux 檔案追蹤。
-3. 在 Linux 檔案變更追蹤 下，輸入整個路徑 (包含您要追蹤之檔案的檔案名稱)，然後按一下新增 符號。 例如："/etc/*.conf"
+2. 在 [設定] 頁面上，按一下 [資料]，然後按一下 [Linux 檔案追蹤]。
+3. 在 [Linux 檔案變更追蹤] 下，輸入整個路徑 (包含您要追蹤之檔案的檔案名稱)，然後按一下 [新增] 符號。 例如："/etc/*.conf"
 4. 按一下 [儲存] 。  
 
 > [!NOTE]
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 在 OMS 入口網站中，按一下 **[設定]** \(齒輪符號)。
 2. 在 **[設定]** 頁面上，按一下 **[資料]**，然後按一下 **[Windows 檔案追蹤]**。
-3. 在 Windows 檔案變更追蹤 下，輸入整個路徑 (包含您要追蹤之檔案的檔案名稱)，然後按一下新增 符號。 例如：C:\Program Files (x86)\Internet Explorer\iexplore.exe 或 C:\Windows\System32\drivers\etc\hosts。
+3. 在 [Windows 檔案變更追蹤] 下，輸入整個路徑 (包含您要追蹤之檔案的檔案名稱)，然後按一下 [新增] 符號。 例如：C:\Program Files (x86)\Internet Explorer\iexplore.exe 或 C:\Windows\System32\drivers\etc\hosts。
 4. 按一下 [儲存] 。  
    ![Windows 檔案變更追蹤](./media/log-analytics-change-tracking/windows-file-change-tracking.png)
 
@@ -59,8 +59,8 @@ ms.lasthandoff: 10/11/2017
 使用下列步驟，設定要在 Windows 電腦上追蹤的登錄機碼。
 
 1. 在 OMS 入口網站中，按一下 **[設定]** \(齒輪符號)。
-2. 在 設定 頁面上，按一下 資料，然後按一下Windows 登錄追蹤。
-3. 在 Windows 登錄變更追蹤 下方，輸入您要追蹤的整個金鑰，然後按一下新增 符號。
+2. 在 [設定] 頁面上，按一下 [資料]，然後按一下 [Windows 登錄追蹤]。
+3. 在 [Windows 登錄變更追蹤] 下方，輸入您要追蹤的整個金鑰，然後按一下 [新增] 符號。
 4. 按一下 [儲存] 。  
    ![Windows 登錄變更追蹤](./media/log-analytics-change-tracking/windows-registry-change-tracking.png)
 
@@ -96,6 +96,10 @@ ms.lasthandoff: 10/11/2017
 * 網路流量高時，變更記錄最多可能需要六個小時來顯示。
 * 如果您在關閉電腦時修改組態，電腦可能提出隸屬先前組態的檔案變更。
 
+### <a name="known-issues"></a>已知問題
+「變更追蹤」解決方案目前有下列問題︰
+* Windows 10 Creators Update 和 Windows Server 2016 Core RS3 機器不會收集 Hotfix 更新。
+
 ## <a name="change-tracking-data-collection-details"></a>「變更追蹤」資料收集詳細資訊
 變更追蹤會使用您已啟用的代理程式，來收集軟體清查和 Windows 服務中繼資料。
 
@@ -103,7 +107,7 @@ ms.lasthandoff: 10/11/2017
 
 | 平台 | 直接代理程式 | Operations Manager 代理程式 | Linux 代理程式 | Azure 儲存體 | 是否需要 Operations Manager？ | 透過管理群組傳送的 Operations Manager 代理程式資料 | 收集頻率 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows 和 Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | 視變更類型而定，5 分鐘到 50 分鐘。 如需詳細資訊，請參閱下列表格。 |
+| Windows 和 Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | 視變更類型而定，5 分鐘到 50 分鐘。 如需詳細資訊，請檢視下列表格。 |
 
 
 下表顯示各變更類型的資料收集頻率。

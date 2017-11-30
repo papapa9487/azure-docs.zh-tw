@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: arramac
-ms.openlocfilehash: 99f3ddb165fa548ca1d65676bb1f945632c72dd3
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 8cf8820ceea19fe8c4926c65d107d4f770f40926
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>快速入門：使用 Node.js 與 Azure Cosmos DB 建置資料表 API 應用程式
 
@@ -38,6 +38,10 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 * [Git](http://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>建立資料庫帳戶
+
+> [!IMPORTANT] 
+> 您需要建立新的資料表 API 帳戶，以使用正式推出的資料表 API SDK。 正式推出的 SDK 不支援在預覽期間建立的資料表 API 帳戶。
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -74,8 +78,6 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     git clone https://github.com/Azure-Samples/storage-table-node-getting-started.git
     ```
 
-3. 然後在 Visual Studio 中開啟方案檔案。 
-
 ## <a name="update-your-connection-string"></a>更新您的連接字串
 
 現在，返回 Azure 入口網站以取得連接字串資訊，並將它複製到應用程式中。 這可讓您的應用程式與託管資料庫進行通訊。 
@@ -84,7 +86,13 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
     ![在 [連接字串] 窗格中檢視及複製所需的連接字串資訊](./media/create-table-nodejs/connection-string.png)
 
-2. 開啟 app.config 檔案，並將所需的連接字串屬性複製到組態檔。
+2. 使用右側的複製按鈕複製 PRIMARY CONNECTION STRING。
+
+3. 開啟 app.config 檔案，然後將值貼到第三行上的 connectionString 中。 
+
+    > [!IMPORTANT]
+    > 如果端點使用 documents.azure.com，這表示您擁有預覽帳戶，因此您需要建立一個[新的資料表 API 帳戶](#create-a-database-account)與正式推出的資料表 API SDK 搭配使用。
+    >
 
 3. 儲存 app.config 檔案。
 
@@ -94,14 +102,19 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 1. 在 git 終端機視窗中，`cd` 至 storage-table-java-getting-started 資料夾。
 
-    ```git
-    cd "C:\git-samples\
-storage-table-node-getting-started"
+    ```
+    cd "C:\git-samples\storage-table-node-getting-started"
     ```
 
-2. 在 git 終端機視窗中，執行下列命令以執行啟動 JAVA 應用程式。
+2. 執行下列命令在本機安裝 [azure]、[node-uuid]、[nconf] 及 [async] 模組，並將其項目儲存至 package.json 檔案
 
-    ```git
+   ```
+   npm install azure-storage node-uuid async nconf --save
+   ```
+
+2. 在 git 終端機視窗中，執行下列命令以執行啟動節點應用程式。
+
+    ```
     node ./tableSample.js 
     ```
 

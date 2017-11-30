@@ -17,17 +17,17 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 8d021538b34c96c1d486c9508df9d4ee91404337
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 524193835bd5d350d6ac312fcc997f6c135abea1
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>使用 PowerShell 設定「資料同步」在內部部署的 SQL Database 和 SQL Server 之間進行同步處理
 
 此 PowerShell 範例會設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理。 
 
-此範例需要 Azure PowerShell 模組 4.2 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps)。
+此範例需要 Azure PowerShell 模組 4.2 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
  
 執行 `Login-AzureRmAccount` 來建立與 Azure 的連線。
 

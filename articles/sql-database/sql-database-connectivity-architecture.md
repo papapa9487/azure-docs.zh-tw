@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/05/2017
 ms.author: carlrab
-ms.openlocfilehash: 469bd74c0f144ff641fafe8c8f830b1fdbfa7690
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: eda6e19d27afbf07df853dd4cef5ece1a745034d
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database 連線架構 
 
-本文說明 Azure SQL Database 連線架構並說明不同的元件函數如何將流量導向至您的 Azure SQL Database 執行個體。 這些 Azure SQL Database 連線元件函數可使用從 Azure 內部連線的用戶端和從 Azure 外部連線的用戶端，將網路流量導向至 Azure 資料庫。 本文也提供可變更連線方式的指令碼範例，以及和變更預設連線設定相關的考量。 如果閱讀本文之後有任何問題，請透過 dmalik@microsoft.com 來連絡 Dhruv。 
+本文說明 Azure SQL Database 連線架構並說明不同的元件函數如何將流量導向至您的 Azure SQL Database 執行個體。 這些 Azure SQL Database 連線元件函數可使用從 Azure 內部連線的用戶端和從 Azure 外部連線的用戶端，將網路流量導向至 Azure 資料庫。 本文也提供可變更連線方式的指令碼範例，以及和變更預設連線設定相關的考量。 
 
 ## <a name="connectivity-architecture"></a>連線架構
 
-下圖提供 Azure SQL Database 連線架構的高階概觀。 
+下圖提供 Azure SQL Database 連線架構的高階概觀。
 
 ![架構概觀](./media/sql-database-connectivity-architecture/architecture-overview.png)
 
@@ -65,14 +65,14 @@ ms.lasthandoff: 10/31/2017
 | --- | --- |--- |
 | 澳洲東部 | 191.238.66.109 | 13.75.149.87 |
 | 澳大利亞東南部 | 191.239.192.109 | 13.73.109.251 |
-| 巴西南部 | 104.41.11.5 | |    
-| 加拿大中部 | 40.85.224.249 | |    
+| 巴西南部 | 104.41.11.5 | |
+| 加拿大中部 | 40.85.224.249 | |
 | 加拿大東部 | 40.86.226.166 | |
 | 美國中部 | 23.99.160.139 | 13.67.215.62 |
 | 東亞 | 191.234.2.139 | 52.175.33.150 |
 | 美國東部 1 | 191.238.6.43 | 40.121.158.30 |
 | 美國東部 2 | 191.239.224.107 | 40.79.84.180 |
-| 印度中部 | 104.211.96.159  | |   
+| 印度中部 | 104.211.96.159  | |
 | 印度南部 | 104.211.224.146  | |
 | 印度西部 | 104.211.160.80 | |
 | 日本東部 | 191.237.240.43 | 13.78.61.196 |
@@ -84,7 +84,7 @@ ms.lasthandoff: 10/31/2017
 | 美國中南部 | 23.98.162.75 | 13.66.62.124 |
 | 東南亞 | 23.100.117.95 | 104.43.15.0 |
 | 英國北部 | 13.87.97.210 | |
-| 英國南部 1 | 51.140.184.11 | |    
+| 英國南部 1 | 51.140.184.11 | |
 | 英國南部 2 | 13.87.34.7 | |
 | 英國西部 | 51.141.8.11  | |
 | 美國中西部 | 13.78.145.25 | |
@@ -95,12 +95,12 @@ ms.lasthandoff: 10/31/2017
 
 ## <a name="change-azure-sql-database-connection-policy"></a>變更 Azure SQL Database 連線原則
 
-若要變更 Azure SQL Database 伺服器的 Azure SQL Database 連線原則，請使用 [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx) \(英文\)。 
+若要變更 Azure SQL Database 伺服器的 Azure SQL Database 連線原則，請使用 [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx) \(英文\)。
 
-- 如果您的連線原則設定為 [Proxy]，所有網路封包都會流經 Azure SQL Database 閘道。 對於此設定，您必須只允許輸出至 Azure SQL Database 閘道 IP。 和 [重新導向] 設定相比，使用 [Proxy] 設定會較為延遲。 
-- 如果您的連線原則設定為 [重新導向]，所有網路封包都會直接流到中介軟體 Proxy。 對於此設定，您需要允許輸出至多個 IP。 
+- 如果您的連線原則設定為 [Proxy]，所有網路封包都會流經 Azure SQL Database 閘道。 對於此設定，您必須只允許輸出至 Azure SQL Database 閘道 IP。 和 [重新導向] 設定相比，使用 [Proxy] 設定會較為延遲。
+- 如果您的連線原則設定為 [重新導向]，所有網路封包都會直接流到中介軟體 Proxy。 對於此設定，您需要允許輸出至多個 IP。
 
-## <a name="script-to-change-connection-settings-via-powershell"></a>透過 PowerShell 變更連線設定的指令碼 
+## <a name="script-to-change-connection-settings-via-powershell"></a>透過 PowerShell 變更連線設定的指令碼
 
 > [!IMPORTANT]
 > 此指令碼需要 [Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
@@ -140,7 +140,7 @@ $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationCo
 $result = $AuthContext.AcquireToken(
 "https://management.core.windows.net/",
 $clientId,
-[Uri]$uri, 
+[Uri]$uri,
 [Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Auto
 )
 
@@ -160,7 +160,7 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
-## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>透過 Azure CLI 2.0 變更連線設定的指令碼 
+## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>透過 Azure CLI 2.0 變更連線設定的指令碼
 
 > [!IMPORTANT]
 > 此指令碼需要 [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)。
@@ -169,20 +169,17 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 下列 CLI 指令碼會示範如何變更連線原則。
 
 <pre>
- # Get SQL Server ID
- sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
+# Get SQL Server ID
+sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
 
 # Set URI
-uri="https://management.azure.com/$sqlserverid/connectionPolicies/Default?api-version=2014-04-01-preview"
-
-# Get Access Token 
-accessToken=$(az account get-access-token --query 'accessToken' -o tsv)
+id="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy 
-curl -H "authorization: Bearer $accessToken" -X GET $uri
+az resource show --ids $id
 
-#Update connection policy 
-curl -H "authorization: Bearer $accessToken" -H "Content-Type: application/json" -d '{"properties":{"connectionType":"Proxy"}}' -X PUT $uri
+# Update connection policy 
+az resource update --ids $id --set properties.connectionType=Proxy
 
 </pre>
 

@@ -1,4 +1,4 @@
-在 Cloud Shell 中，使用 [az group create](/cli/azure/group#create) 命令來建立資源群組。
+在 Cloud Shell 中，使用 [az group create](/cli/azure/group#az_group_create) 命令來建立資源群組。
 
 [!INCLUDE [resource group intro text](resource-group.md)]
 

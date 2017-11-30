@@ -1,6 +1,6 @@
 ---
-title: "使用 SAP (A)SCS 執行個體的 Windows 容錯移轉叢集和檔案共用，為 SAP HA 進行 Azure 基礎結構準備 | Microsoft Docs"
-description: "使用 SAP (A)SCS 執行個體的 Windows 容錯移轉叢集和檔案共用，為 SAP HA 進行 Azure 基礎結構準備"
+title: "使用 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和檔案共用，為 SAP 高可用性準備 Azure 基礎結構 | Microsoft Docs"
+description: "使用 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和檔案共用，為 SAP 高可用性準備 Azure 基礎結構"
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,13 +17,13 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2468b5d0996fee5e0106d0d314c16654558e9f4
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 3f9e2108a7714dcbfd4f2db583cb6ee4b803f65a
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="azure-infrastructure-preparation-for-sap-ha-using-windows-failover-cluster-and-file-share-for-sap-ascs-instance"></a>使用 SAP (A)SCS 執行個體的 Windows 容錯移轉叢集和檔案共用，為 SAP HA 進行 Azure 基礎結構準備
+# <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>使用 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和檔案共用，為 SAP 高可用性準備 Azure 基礎結構
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -206,86 +206,89 @@ ms.lasthandoff: 10/25/2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-本文件將描述在 **Windows 容錯移轉叢集 (WSFC)** 上，使用 [向外延展檔案共用] 作為叢集 SAP (A)SCS 執行個體的選項，以安裝並設定高可用的 SAP 系統所需的 Azure 基礎結構準備步驟。
+本文說明使用向外延展檔案共用作為叢集 SAP ASCS/SCS 執行個體的選項，以在 Windows Server 容錯移轉叢集 (WSFC) 上安裝和設定高可用性 SAP 系統所需的 Azure 基礎結構準備步驟。
 
 ## <a name="prerequisite"></a>必要條件
 
-請務必先檢閱這些文件，再開始安裝：
+在開始安裝之前，請檢閱下列文章：
 
-* [架構指南 - 使用 [檔案共用]，於 **Windows 容錯移轉叢集**上叢集 SAP (A)SCS 執行個體][sap-high-availability-guide-wsfc-shared-disk]
+* [架構指南：使用檔案共用在 Windows 容錯移轉叢集上進行 SAP ASCS/SCS 執行個體叢集處理][sap-high-availability-guide-wsfc-shared-disk]
 
 
 ## <a name="host-names-and-ip-addresses"></a>主機名稱和 IP 位址
 
-| 虛擬主機名稱角色 | 虛擬主機名稱 | 靜態 IP 位址 | 可用性設定組 |
+| 虛擬主機名稱角色 | 虛擬主機名稱 | 靜態 IP 位址 | 可用性集合 |
 | --- | --- | --- | --- |
-| 第一個叢集節點 (A)SCS 叢集 | ascs-1 | 10.0.6.4 | ascs-as |
-| 第二個叢集節點 (A)SCS 叢集 | ascs-2 | 10.0.6.5 | ascs-as |
-| 叢集網路名稱 |ascs-cl | 10.0.6.6 | n.a |
-| SAP PR1 ASCS 叢集網路名稱 |pr1-ascs | 10.0.6.7 | n.a |
+| 第一個叢集節點 ASCS/SCS 叢集 | ascs-1 | 10.0.6.4 | ascs-as |
+| 第二個叢集節點 ASCS/SCS 叢集 | ascs-2 | 10.0.6.5 | ascs-as |
+| 叢集網路名稱 |ascs-cl | 10.0.6.6 | n/a |
+| SAP PR1 ASCS 叢集網路名稱 |pr1-ascs | 10.0.6.7 | n/a |
 
 
-**表 1：**(A)SCS 叢集
+**表 1**：ASCS/SCS 叢集
 
-| SAP &lt;SID&gt; | SAP (A)SCS 執行個體號碼 |
+| SAP \<SID> | SAP ASCS/SCS 執行個體號碼 |
 | --- | --- |
 | PR1 | 00 |
 
-**表 2：**SAP (A)SCS 執行個體詳細資料
+**表 2**：SAP ASCS/SCS 執行個體詳細資料
 
 
-| 虛擬主機名稱角色 | 虛擬主機名稱 | 靜態 IP 位址 | 可用性設定組 |
+| 虛擬主機名稱角色 | 虛擬主機名稱 | 靜態 IP 位址 | 可用性集合 |
 | --- | --- | --- | --- |
 | 第一個叢集節點 | sofs-1 | 10.0.6.10 | sofs-as |
 | 第二個叢集節點 | sofs-2 | 10.0.6.11 | sofs-as |
 | 第三個叢集節點 | sofs-3 | 10.0.6.12 | sofs-as |
-| 叢集網路名稱 | sofs-cl | 10.0.6.13 | n.a |
-| SAP 全域主機名稱 | sapglobal | 使用所有叢集節點的 IP | n.a |
+| 叢集網路名稱 | sofs-cl | 10.0.6.13 | n/a |
+| SAP 全域主機名稱 | sapglobal | 使用所有叢集節點的 IP | n/a |
 
-**表 3：**SOFS 叢集
-
-
-## <a name="deploy-vms-for-sap-ascs-cluster-dbms-cluster-and-sap-application-servers"></a>針對 SAP (A)SCS 叢集、DBMS 叢集和 SAP 應用程式伺服器，部署 VM
-
-若要準備 Azure 基礎結構，您可以依照下列步驟進行：
-* [準備架構範本 1、2 和 3 的基礎結構][sap-high-availability-infrastructure-wsfc-shared-disk]
-
-* [Azure 虛擬網路][sap-high-availability-infrastructure-wsfc-shared-disk-azure-network]
-
-* [DNS IP 位址][sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip]
-
-* [設定 SAP 虛擬機器的靜態 IP 位址][sap-ascs-high-availability-multi-sid-wsfc-set-static-ip]
-
-* [為 Azure 內部負載平衡器設定靜態 IP 位址][sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb]
-
-* [Azure 內部負載平衡器的預設 ASCS/SCS 負載平衡規則][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules]
-
-* [變更 Azure 內部負載平衡器的 ASCS/SCS 預設負載平衡規則][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules]
-
-*  [將 Windows 虛擬機器新增網域 在 SAP ASCS/SCS 執行個體兩個叢集節點上新增登錄項目][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain]
-
-* 使用 Windows Server 2016 時，建議您設定 [Azure 雲端見證][deploy-cloud-witness]
+**表 3**：向外延展檔案伺服器叢集
 
 
-## <a name="deploy-scale-out-file-server-manually"></a>手動部署向外延展檔案伺服器 
+## <a name="deploy-vms-for-an-sap-ascsscs-cluster-a-database-management-system-dbms-cluster-and-sap-application-server-instances"></a>部署適用於 SAP ASCS/SCS 叢集、資料庫管理系統 (DBMS) 叢集和 SAP Application Server 執行個體的 VM
 
-您可以手動部署 SOFS 叢集，如[Azure 中的儲存空間直接存取][ms-blog-s2d-in-azure]部落格中所述：  
+若要準備 Azure 基礎架構，請完成下列步驟：
+
+* [準備架構範本 1、2 和 3 的基礎結構][sap-high-availability-infrastructure-wsfc-shared-disk]。
+
+* [建立 Azure 虛擬網路][sap-high-availability-infrastructure-wsfc-shared-disk-azure-network]。
+
+* [設定必要的 DNS IP 位址][sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip]。
+
+* [設定 SAP 虛擬機器的靜態 IP 位址][sap-ascs-high-availability-multi-sid-wsfc-set-static-ip]。
+
+* [為 Azure 內部負載平衡器設定靜態 IP 位址][sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb]。
+
+* [設定 Azure 內部負載平衡器的預設 ASCS/SCS 負載平衡規則][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules]。
+
+* [ 變更 Azure 內部負載平衡器的 ASCS/SCS 預設負載平衡規則][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules]。
+
+* [將 Windows 虛擬機器新增至網域][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain]。
+
+* [在 SAP ASCS/SCS 執行個體的兩個叢集節點上新增登錄項目][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain]。
+
+* 使用 Windows Server 2016 時，建議您設定 [Azure 雲端見證][deploy-cloud-witness]。
+
+
+## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>手動部署向外延展檔案伺服器叢集 
+
+您可藉由執行下列程式碼，以手動方式部署 Microsoft 向外延展檔案伺服器叢集，如 [Azure 中的儲存空間直接存取][ms-blog-s2d-in-azure]部落格所述：  
 
 
 ```PowerShell
-# Set on Execution Policy  ALL cluster nodes!
+# Set an execution policy - all cluster nodes
 Set-ExecutionPolicy Unrestricted
 
-# Defines SOFS cluster nodes
+# Define Scale-Out File Server cluster nodes
 $nodes = ("sofs-1", "sofs-2", "sofs-3")
 
-# Add cluster and SOFS features
+# Add cluster and Scale-Out File Server features
 Invoke-Command $nodes {Install-WindowsFeature Failover-Clustering, FS-FileServer -IncludeAllSubFeature -IncludeManagementTools -Verbose}
 
 # Test cluster
 Test-Cluster -node $nodes -Verbose
 
-#Install cluster
+# Install cluster
 $ClusterNetworkName = "sofs-cl"
 $ClusterIP = "10.0.6.13"
 New-Cluster -Name $ClusterNetworkName -Node $nodes –NoStorage –StaticAddress $ClusterIP -Verbose
@@ -293,10 +296,10 @@ New-Cluster -Name $ClusterNetworkName -Node $nodes –NoStorage –StaticAddress
 # Set Azure Quorum
 Set-ClusterQuorum –CloudWitness –AccountName gorcloudwitness -AccessKey <YourAzureStorageAccessKey>
 
-# Enable Storage Spaces Direct S2D
+# Enable Storage Spaces Direct
 Enable-ClusterS2D
 
-# Create SOFS with SAP Global Host Name
+# Create Scale-Out File Server with an SAP global host name
 # SAPGlobalHostName
 $SAPGlobalHostName = "sapglobal"
 Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
@@ -304,36 +307,40 @@ Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 
 ## <a name="deploy-scale-out-file-server-automatically"></a>自動部署向外延展檔案伺服器
 
-此外，您可以在現有的 VNET 和 Active Directory 環境中使用 Azure Resource Manager 範本，將 SOFS 的部署**自動化**：
+您也可以在現有的虛擬網路和 Active Directory 環境中使用 Azure Resource Manager 範本，自動部署向外延展檔案伺服器。
 
 > [!IMPORTANT]
->建議針對含 3 向鏡像之 SOFS 的 3 個 (或多個叢集) 節點使用它。
+> 建議您有三個或更多叢集節點，以便具有三向鏡像的向外延展檔案伺服器使用。
 >
->因此，在 SOFS 資源管理員範本 UI 中，您必須以 VM 計數指定。
+> 在向外延展檔案伺服器 Resource Manager 範本 UI 中，您必須指定 VM 計數。
 >
 
-### <a name="using-managed-disks"></a>使用受控磁碟
+### <a name="use-managed-disks"></a>使用受控磁碟
 
-在 [Github][arm-sofs-s2d-managed-disks] 上提供使用儲存空間直接存取 (S2D) 和 Azure 受控磁碟部署向外延展檔案伺服器 (SOFS) 的 Azure Resource Manager 範本。
+在 [GitHub][arm-sofs-s2d-managed-disks] 上可取得使用儲存空間直接存取 (S2D) 和 Azure 受控磁碟部署向外延展檔案伺服器的 Azure Resource Manager 範本。
 
-建議使用受控磁碟。
+建議您使用受控磁碟。
 
-![圖 1：含受控磁碟之 SOFS 資源管理員範本的 UI 畫面][sap-ha-guide-figure-8010]
+![圖 1：含受控磁碟之向外延展檔案伺服器 Resource Manager 範本的 UI 畫面][sap-ha-guide-figure-8010]
 
-_**圖 1：**含受控磁碟之 SOFS 資源管理員範本的 UI 畫面_
+_**圖 1**：含受控磁碟之向外延展檔案伺服器 Resource Manager 範本的 UI 畫面_
 
-VM 計數最小值為 2，磁碟計數最小值為 2 + 1 個備援磁碟 = 3，SAP 全域主機網路名稱為 **sapglobalhost**，且檔案共用為 **sapmnt**。
+在此範本中，執行下列作業︰
+1. 在 [VM 計數] 方塊中，輸入最小計數 **2**。
+2. 在 [VM 磁碟計數] 方塊中，輸入最小磁碟計數 **3** (2 個磁碟 + 1 個備用磁碟 = 3 個磁碟)。
+3. 在 [Sofs 名稱] 方塊中，輸入 SAP 全域主機網路名稱 **sapglobalhost**。
+4. 在 [共用名稱] 方塊中，輸入檔案共用名稱 **sapmnt**。
 
-### <a name="using-non-managed-disks"></a>使用非受控磁碟
+### <a name="use-unmanaged-disks"></a>使用非受控磁碟
 
-在 [Github][arm-sofs-s2d-non-managed-disks] 上提供使用儲存空間直接存取 (S2D) 和 Azure 非受控磁碟部署向外延展檔案伺服器 (SOFS) 的 Azure Resource Manager 範本。
+在 [GitHub][arm-sofs-s2d-non-managed-disks] 上可取得使用儲存空間直接存取 (S2D) 和 Azure 非受控磁碟部署向外延展檔案伺服器的 Azure Resource Manager 範本。
 
-![圖 2：不含受控磁碟之 SOFS Azure Resource Manager 範本的 UI 畫面][sap-ha-guide-figure-8011]
+![圖 2：不含受控磁碟之向外延展檔案伺服器 Azure Resource Manager 範本的 UI 畫面][sap-ha-guide-figure-8011]
 
-_**圖 2：**不含受控磁碟之 SOFS Azure Resource Manager 範本的 UI 畫面_
+_**圖 2**：不含受控磁碟之向外延展檔案伺服器 Azure Resource Manager 範本的 UI 畫面_
 
-請務必選擇 [進階儲存體] 作為儲存體帳戶類型。 其他設定與含受控磁碟的設定相同。
+在 [儲存體帳戶類型] 方塊中，選取 [進階儲存體]。 所有其他設定與受控磁碟的設定相同。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [SAP (A)SCS 執行個體的 Windows 容錯移轉叢集和檔案共用上的 SAP NetWeaver HA 安裝][sap-high-availability-installation-wsfc-file-share]
+* [在 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和檔案共用上安裝 SAP NetWeaver 高可用性][sap-high-availability-installation-wsfc-file-share]

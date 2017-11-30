@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.openlocfilehash: e6aa6913bdb2cf8e581b76b7680d0a96c9858bd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b226aa4ec71535aa0222389aacd74764a80021a
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-external-table-binding-preview"></a>Azure Functions 外部資料表繫結 (預覽)
 本文說明如何使用內建繫結，在您的函數內操作 SaaS 提供者 (例如 SharePoint, Dynamics) 上的表格式資料。 Azure Functions 支援外部資料表的輸入和輸出繫結。
@@ -198,4 +198,6 @@ GO
 dataSetName 為 "default"。
 
 ## <a name="next-steps"></a>後續步驟
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+
+> [!div class="nextstepaction"]
+> [深入了解 Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)

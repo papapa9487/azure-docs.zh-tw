@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: 525d706bd709ae72f2dca1c21e06db533ccf32b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebb963236a069f272499fce59945d0cf0d3d647f
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 診斷擴充功能監視計量與記錄
 
@@ -319,7 +319,7 @@ displayName | 在 Azure 計量中要附加至此資料的標籤 (採用相關聯
 
 counterSpecifier 是任意的識別碼。 如 Azure 入口網站的圖表與警示功能等計量的使用者，會使用 counterSpecifier 作為識別計量或計量執行個體的「鑰匙」。 對於 `builtin` 計量，建議您使用開頭為 `/builtin/` 的 counterSpecifier 值。 如果您正在收集計量的特定執行個體，建議您將執行個體的識別碼附加至 counterSpecifier 值。 部分範例如下：
 
-* `/builtin/Processor/PercentIdleTime` - 所有核心的平均閒置時間
+* `/builtin/Processor/PercentIdleTime` - 所有 vCPU 的平均閒置時間
 * `/builtin/Disk/FreeSpace(/mnt)` - /mnt 檔案系統的可用空間
 * `/builtin/Disk/FreeSpace` - 所有已掛接檔案系統的平均可用空間
 
@@ -424,7 +424,7 @@ sinks | (選擇性) 將記錄行傳送至的額外接收名稱清單，以逗號
 
 ### <a name="builtin-metrics-for-the-processor-class"></a>處理器類別的內建計量
 
-計量的處理器類別會提供 VM 中處理器使用量的相關資訊。 彙總百分比時，結果為所有 CPU 的平均。 在一個雙核心 VM 中，如果某個核心 100% 忙碌，另一個則 100% 閒置，則回報的 PercentIdleTime 會是 50。 如果每個核心在同一期間皆為 50% 忙碌，則回報的結果也會是 50。 在一個四核心 VM 中，如果某個核心 100% 忙碌，另外三個閒置，則回報的 PercentIdleTime 會是 75。
+計量的處理器類別會提供 VM 中處理器使用量的相關資訊。 彙總百分比時，結果為所有 CPU 的平均。 在一個雙 vCPU VM 中，如果某個 vCPU 100% 忙碌，而另一個 100% 閒置，則回報的 PercentIdleTime 會是 50。 如果每個 vCPU 在同一期間皆為 50% 忙碌，則回報的結果也會是 50。 在一個四 vCPU VM 中，如果某個 vCPU 100% 忙碌，而其他皆閒置，則回報的 PercentIdleTime 會是 75。
 
 counter | 意義
 ------- | -------
@@ -438,7 +438,7 @@ PercentPrivilegedTime | 在非閒置時間中，在具特殊權限 (核心) 模�
 
 前四個計數器的總和應為 100%。 最後三個計數器的總和也是 100%，再細分 PercentProcessorTime、PercentIOWaitTime 與 PercentInterruptTime 的總和。
 
-若要取得彙總所有處理器而得的單一計量，請設定 `"condition": "IsAggregate=TRUE"`。 若要取得特定處理器的計量，例如四核心 VM 的第二個邏輯處理器，請設定 `"condition": "Name=\\"1\\""`。 邏輯處理器數目在範圍 `[0..n-1]` 內。
+若要取得彙總所有處理器而得的單一計量，請設定 `"condition": "IsAggregate=TRUE"`。 若要取得特定處理器的計量 (例如四 vCPU VM 的第二個邏輯處理器)，請設定 `"condition": "Name=\\"1\\""`。 邏輯處理器數目在範圍 `[0..n-1]` 內。
 
 ### <a name="builtin-metrics-for-the-memory-class"></a>記處理器類別的內建計量
 

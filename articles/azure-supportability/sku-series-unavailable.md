@@ -3,41 +3,76 @@ title: "無法使用的 SKU 系列 |Microsoft Docs"
 description: "對於選取的訂用帳戶，此區域中某些 SKU 系列無法使用。"
 services: Azure Supportability
 documentationcenter: 
-author: ganganarayanan
-manager: scotthit
+author: stevendotwang
+manager: rajatk
 editor: 
-ms.assetid: 5496728b-8da4-4c99-8557-a196be14c42d
 ms.service: azure-supportability
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2016
-ms.author: gangan
-ms.openlocfilehash: 3dc32bfb88e43e82cc4b3f43e31ce20d4302b688
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/09/2017
+ms.author: xingwan
+ms.openlocfilehash: 62964d0c5d75168226a35b25e5c256a1b57f3f81
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="sku-series-unavailable"></a>無法使用的 SKU 系列
-在某些區域，在新的訂用帳戶上無法取得特定的 SKU。  這可能是因為當 [功能更強大的 SKU 引進某區域](https://azure.microsoft.com/updates/announcing-new-dv2-series-virtual-machine-size/) ，而使得舊版 SKU 的熱門程度逐漸下降。
-建立支援要求，以增加計算核心配額時，即會顯示訊息「*對於所選的訂用帳戶，此區域中的部分 SKU 系列無法使用*」。
+# <a name="region-or-sku-unavailable"></a>無法使用區域或 SKU
+本文說明如何解決無法存取區域或 VM SKU 的 Azure 訂用帳戶問題。
 
-您可以在 [Azure 依區域提供的服務](https://azure.microsoft.com/regions/#services) 頁面上檢閱 SKU 可用性。 
+## <a name="symptoms"></a>徵兆
 
-若要求存取您的訂用帳戶已遭禁止存取的 SKU，請建立「訂用帳戶管理」支援要求。
+### <a name="when-deploying-a-virtual-machine-you-receive-one-of-the-following-error-messages"></a>在部署虛擬機器時，您可能會收到下列其中一個錯誤碼︰
+```
+Code: SkuNotAvailable
+Message: The requested size for resource '<resource>' is currently not available in location 
+'<location>' zones '<zone>' for subscription '<subscriptionID>'. Please try another size or 
+deploy to a different location or zones. See https://aka.ms/azureskunotavailable for details.
+```
 
-* 在 [基本] 頁面上，選取問題類型為訂用帳戶管理，並按 [下一步]。
+```
+Message: Your subscription doesn’t support virtual machine creation in <location>. Choose a 
+different location. Supported locations are <list of locations>
+```
+
+```
+Code: NotAvailableForSubscription
+Message: This size is currently unavailable in this location for this subscription
+```
+
+### <a name="when-purchasing-reserved-virtual-machine-instances-you-receive-one-of-the-following-error-messages"></a>在購買保留的虛擬機器執行個體時，您可能會收到下列其中一則錯誤訊息：
+
+```
+Message: Your subscription doesn’t support virtual machine reservation in <location>. Choose a 
+different location. Supported locations are: <list of locations>  
+```
+
+```
+Message: This size is currently unavailable in this location for this subscription
+```
+
+### <a name="when-creating-a-support-request-to-increase-compute-core-quota-a-region-or-a-sku-family-is-not-available-for-selection"></a>在建立支援要求以增加計算核心配額時，無法選取區域或 SKU 系列。
+
+## <a name="solution"></a>方案
+我們先建議您考慮符合您的業務需求的替代地區或 SKU。 如果您找不到適合的區域或 SKU，請遵循下列步驟來建立「訂用帳戶管理」[支援要求](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)：
+
+
+- 在 [基本] 頁面上，選取 [訂用帳戶管理] 作為 [問題類型]、選取 [訂用帳戶]，然後按 [下一步]。
 
 ![基本概念刀鋒視窗](./media/SKU-series-unavailable/BasicsSubMgmt.png)
 
-* 在 [問題] 頁面上，選取問題類型為「其他一般問題」，並輸入正確的區域與找不到的 SKU。
-  這有助於加速支援程序。
+
+-   在 [問題] 頁面上，選取 [其他一般問題] 作為 [問題類型]。
+- 在 [詳細資料] 區段中：
+  - 請指出您期望部署虛擬機器，或購買保留的虛擬機器執行個體
+  - 請指定區域、SKU 和您計劃要部署或購買的虛擬機器執行個體數目
+
 
 ![問題](./media/SKU-series-unavailable/ProblemSubMgmt.png)
 
-* 在 [連絡資訊] 頁面中，輸入聯絡人詳細資訊，然後按 [建立]。
+-   輸入聯絡人詳細資訊，然後按一下 [建立]。
 
 ![連絡人資訊](./media/SKU-series-unavailable/ContactInformation.png)
 

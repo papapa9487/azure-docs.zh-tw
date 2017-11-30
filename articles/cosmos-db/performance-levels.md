@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0567df53dff15d7fbacf4850f6eae07c8985598
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 62767163213383c577e74e0aa8fbd07f891cb694
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>淘汰 S1、S2 和 S3 效能層級
 
@@ -93,7 +93,7 @@ S1、S2 和 S3 效能層級不提供 DocumentDB API 集合所提供的彈性。 
 
 ## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>如果我需要超過 10 GB 的儲存空間怎麼辦？
 
-無論您擁有具有 S1、S2 或 S3 效能層級的集合，或是擁有單一資料分割集合，全部都有 10 GB 的可用儲存空間，您可以利用幾乎不受限制的儲存空間使用 Cosmos DB 資料移轉工具將您的資料移轉至資料分割的集合。 如需資料分割集合優點的相關詳細資訊，請參閱 [Azure Cosmos DB 中的資料分割與規模調整](documentdb-partition-data.md)。 如需將 S1、S2、S3 或單一資料分割集合移轉到資料分割集合的詳細資訊，請參閱[從單一資料分割移轉至資料分割集合](documentdb-partition-data.md#migrating-from-single-partition)。 
+無論您擁有具有 S1、S2 或 S3 效能層級的集合，或是擁有單一資料分割集合，全部都有 10 GB 的可用儲存空間，您可以利用幾乎不受限制的儲存空間使用 Cosmos DB 資料移轉工具將您的資料移轉至資料分割的集合。 如需資料分割集合優點的相關詳細資訊，請參閱 [Azure Cosmos DB 中的資料分割與規模調整](documentdb-partition-data.md)。 
 
 <a name="change-before"></a>
 

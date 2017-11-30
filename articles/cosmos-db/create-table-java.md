@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: arramac
-ms.openlocfilehash: 8af7064ad9873128b7d744b815e888c50953f377
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 90ba10990049cd1fb788d63a143eb1169191cf24
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>快速入門：使用 Java 與 Azure Cosmos DB 建置資料表 API 應用程式
 
@@ -43,6 +43,10 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     * 在 Ubuntu 上，您可以執行 `sudo apt-get install git` 來安裝 Git。
 
 ## <a name="create-a-database-account"></a>建立資料庫帳戶
+
+> [!IMPORTANT] 
+> 您需要建立新的資料表 API 帳戶，以使用正式推出的資料表 API SDK。 正式推出的 SDK 不支援在預覽期間建立的資料表 API 帳戶。
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -83,13 +87,28 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 現在，返回 Azure 入口網站以取得連接字串資訊，並將它複製到應用程式中。 這可讓您的應用程式與託管資料庫進行通訊。 
 
-1. 在 [Azure 入口網站](http://portal.azure.com/)中按一下 [連接字串]。 
+1. 在 [Azure 入口網站](http://portal.azure.com/)中，按一下 [連接字串]。 
 
    ![在 [連接字串] 窗格中檢視及複製所需的連接字串資訊](./media/create-table-java/connection-string.png)
 
-2. 開啟 config.properties 檔案，並將所需的連接字串屬性複製到組態檔。
+2. 使用右側的複製按鈕複製 PRIMARY CONNECTION STRING。
 
-3. 儲存 config.properties 檔案。
+3. 從 C:\git-samples\storage-table-java-getting-started\src\main\resources 資料夾中開啟 config.properties。 
+
+5. 註解化第一行，並取消註解第二行。 前兩行現在應顯示如下。
+
+    ```
+    #StorageConnectionString = UseDevelopmentStorage=true
+    StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=[ACCOUNTNAME];AccountKey=[ACCOUNTKEY]
+    ```
+
+6. 將 PRIMARY CONNECTION STRING 從入口網站貼到第 2 行上的 StorageConnectionString 值中。 
+
+    > [!IMPORTANT]
+    > 如果端點使用 documents.azure.com，這表示您擁有預覽帳戶，因此您需要建立一個[新的資料表 API 帳戶](#create-a-database-account)與正式推出的資料表 API SDK 搭配使用。
+    >
+
+7. 儲存 config.properties 檔案。
 
 您現已更新應用程式，使其具有與 Azure Cosmos DB 通訊所需的所有資訊。 
 
@@ -98,11 +117,10 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 1. 在 git 終端機視窗中，`cd` 至 storage-table-java-getting-started 資料夾。
 
     ```git
-    cd "C:\git-samples\
-storage-table-java-getting-started"
+    cd "C:\git-samples\storage-table-java-getting-started"
     ```
 
-2. 在 git 終端機視窗中，執行下列命令以執行啟動 Java 應用程式。
+2. 在 git 終端機視窗中，執行下列命令以執行啟動 JAVA 應用程式。
 
     ```git
     mvn compile exec:java 

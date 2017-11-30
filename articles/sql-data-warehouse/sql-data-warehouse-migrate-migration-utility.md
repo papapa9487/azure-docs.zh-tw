@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 10/31/2016
 ms.author: joeyong;barbkess
-ms.openlocfilehash: 2466e823c448ada4dc7bc5769b1b7f10bbb5dc7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e8a8a84153a950f2d1bc002b34c83dc5ed8a5eb8
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="data-warehouse-migration-utility-preview"></a>資料倉儲移轉公用程式 (預覽)
 > [!div class="op_single_selector"]
@@ -37,9 +37,9 @@ ms.lasthandoff: 10/11/2017
 此外，若要執行移轉公用程式，您在想要移轉的資料庫上需要有下列其中一個權限：CREATE DATABASE、ALTER ANY DATABASE 或 VIEW ANY DEFINITION。
 
 ### <a name="launching-the-tool-and-connecting"></a>啟動工具並進行連接
-透過按一下於安裝後出現的桌面圖示來啟動工具。 開啟此工具時，畫面會顯示初始連接頁面，提示您選擇移轉工具的來源和目的地。 目前，此工具支援 SQL Server 和 Azure SQL Database 做為來源，SQL 資料倉儲做為目的地。 選取這些項目之後，工具會要求您填寫伺服器名稱並執行驗證程序，然後按一下連接，以連接至您的來源伺服器。
+透過按一下於安裝後出現的桌面圖示來啟動工具。 開啟此工具時，畫面會顯示初始連接頁面，提示您選擇移轉工具的來源和目的地。 目前，此工具支援 SQL Server 和 Azure SQL Database 做為來源，SQL 資料倉儲做為目的地。 選取這些項目之後，工具會要求您填寫伺服器名稱並執行驗證程序，然後按一下 [連接]，以連接至您的來源伺服器。
 
-完成驗證後，工具會顯示已連接伺服器中現有的資料庫清單。 您可以選取想要移轉的資料庫，然後按一下移轉選取項目，開始移轉程序。
+完成驗證後，工具會顯示已連接伺服器中現有的資料庫清單。 您可以選取想要移轉的資料庫，然後按一下 [移轉選取項目]，開始移轉程序。
 
 ## <a name="migration-report"></a>移轉報告
 在工具中選取 [檢查資料庫相容性] 會產生一份報告，針對您已要求移轉的資料庫，摘要說明所有的物件不相容問題。 未列在 SQL 資料倉儲中的部分 SQL Server 功能清單，可以在我們的[移轉文件][migration documentation]中找到。 報告產生後，您可以在 Excel 中儲存並開啟該報告。
@@ -66,4 +66,4 @@ ms.lasthandoff: 10/11/2017
 [develop]: sql-data-warehouse-overview-develop.md
 
 <!--Other Web references--> 
-[Download Migration Utility]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
+[Download Migration Utility]: https://www.microsoft.com/en-us/download/details.aspx?id=49100

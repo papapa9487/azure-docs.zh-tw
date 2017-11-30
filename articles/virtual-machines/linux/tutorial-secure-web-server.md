@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/17/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4e3ad8a5c08b739d8b2c6e224db0c8f88c1893ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2d6a0b00704e1d97be9a4c5bd00ba37374419e5
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="secure-a-web-server-with-ssl-certificates-on-a-linux-virtual-machine-in-azure"></a>在 Azure 中的 Linux 虛擬機器上使用 SSL 憑證來保護網頁伺服器
 若要保護網頁伺服器，您可以使用安全通訊端層 (SSL) 憑證來將網路流量加密。 這些 SSL 憑證可儲存在 Azure Key Vault，並且能夠讓您將憑證安全地部署到 Azure 中的 Linux 虛擬機器 (VM)。 在本教學課程中，您了解如何：
@@ -60,7 +60,7 @@ az keyvault create \
 ```
 
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>產生憑證並儲存於 Key Vault
-若要在生產環境中使用，您應該使用 [az keyvault certificate import](/cli/azure/certificate#import) 來匯入由受信任的提供者所簽署的有效憑證。 在本教學課程中，下列範例示範如何透過使用預設憑證原則的 [az keyvault certificate create](/cli/azure/certificate#create) 來產生自我簽署憑證：
+若要在生產環境中使用，您應該使用 [az keyvault certificate import](/cli/azure/keyvault/certificate#az_keyvault_certificate_import) 來匯入由受信任的提供者所簽署的有效憑證。 在本教學課程中，下列範例示範如何透過使用預設憑證原則的 [az keyvault certificate create](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) 來產生自我簽署憑證：
 
 ```azurecli-interactive 
 az keyvault certificate create \

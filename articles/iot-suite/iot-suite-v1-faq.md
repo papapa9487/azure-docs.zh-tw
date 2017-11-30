@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: 5d795a8aaaa8db5b4b5705b0c6ffd303ea1985c0
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: db928795cc38dea4ca9fc441e6053e3bb44da23e
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>IoT 套件的常見問題集
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/06/2017
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-preconfigured-solution-in-azureiotsuitecom"></a>在 Azure 入口網站中刪除資源群組，與在 azureiotsuite.com 中對預先設定解決方案按一下 [刪除] 之間的差異為何？
 
 * 如果您在 [azureiotsuite.com][lnk-azureiotsuite] 中刪除預先設定的解決方案，將會刪除您在建立該預先設定解決方案時所佈建的一切資源。 將額外資源新增到資源群組時，也會一併刪除這些資源。 
-* 如果您在 [Azure 入口網站][lnk-azure-portal]中刪除資源群組，則只會刪除該資源群組中的資源。 您還必須在 [Azure 傳統入口網站][lnk-classic-portal]中刪除與預先設定的解決方案關聯的 Azure Active Directory 應用程式。
+* 如果您在 [Azure 入口網站][lnk-azure-portal]中刪除資源群組，則只會刪除該資源群組中的資源。 您還必須在 [Azure 入口網站][lnk-azure-portal]中刪除與預先設定的解決方案關聯的 Azure Active Directory 應用程式。
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>我可以在一個訂用帳戶中佈建多少個 IoT 中樞執行個體？
 
@@ -111,7 +111,6 @@ ms.lasthandoff: 11/06/2017
 [link-azuresublimits]: https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#iot-hub-limits
 [lnk-azure-portal]: https://portal.azure.com
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
-[lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-remote-monitoring-github]: https://github.com/Azure/azure-iot-remote-monitoring 
 [lnk-dreamspark]: https://www.dreamspark.com/Product/Product.aspx?productid=99 
 [lnk-30daytrial]: https://azure.microsoft.com/free/

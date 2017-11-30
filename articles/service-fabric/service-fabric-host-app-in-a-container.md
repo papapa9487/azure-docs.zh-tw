@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: mikhegn
-ms.openlocfilehash: 021c695a91ff46274b2a5174918711d04bcff239
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31c1cee5ddc4c8893da729af884ae7b7b8a58093
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>將 Windows 容器中的 .NET 應用程式部署到 Azure Service Fabric
 
@@ -39,11 +39,14 @@ ms.lasthandoff: 10/11/2017
 4. 安裝 [Azure PowerShell][link-azure-powershell-install]
 5. 安裝 [Visual Studio 2017 的持續傳遞工具延伸模組][link-visualstudio-cd-extension]
 6. 建立 [Azure 訂用帳戶][link-azure-subscription]和 [Visual Studio Team Services 帳戶][link-vsts-account]。 
-7. [在 Azure 上建立叢集](service-fabric-tutorial-create-cluster-azure-ps.md)
+7. [在 Azure 上建立叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+
+## <a name="create-a-cluster-on-azure"></a>在 Azure 上建立叢集
+Service Fabric 應用程式執行於叢集，也就是一組連接網路的虛擬或實體機器。 在建立及部署應用程式之前，請先[設定在 Azure 中執行的 Service Fabric 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)。 在建立叢集時，請選擇支援執行容器的 SKU (例如 Windows Server 2016 Datacenter with Containers)。
 
 ## <a name="containerize-the-application"></a>將應用程式容器化
 
-您現在有 [Service Fabric 叢集正在 Azure 中執行](service-fabric-tutorial-create-cluster-azure-ps.md)，即準備好要建立及部署容器化應用程式。 為了開始執行我們在容器中的應用程式，我們必須在 Visual Studio 的專案中新增「Docker 支援」。 當您在應用程式中新增「Docker 支援」時，會發生兩件事。 首先，會在專案中新增一個 _Dockerfile_。 這個新檔案說明容器映像的建置方式。 其次，會在方案中加入一個新的 _docker-compose_ 專案。 這個新專案包含幾個 docker-compose 檔案， 可用來說明容器的執行方式。
+現在，您已有在 Azure 中執行的 Service Fabric 叢集，因此可以建立及部署容器化應用程式。 為了開始執行我們在容器中的應用程式，我們必須在 Visual Studio 的專案中新增「Docker 支援」。 當您在應用程式中新增「Docker 支援」時，會發生兩件事。 首先，會在專案中新增一個 _Dockerfile_。 這個新檔案說明容器映像的建置方式。 其次，會在方案中加入一個新的 _docker-compose_ 專案。 這個新專案包含幾個 docker-compose 檔案， 可用來說明容器的執行方式。
 
 深入了解如何使用 [Visual Studio 容器工具][link-visualstudio-container-tools]。
 
@@ -165,7 +168,7 @@ Edge 會使用容器在內部 NAT 網路上的 IP 位址 (通常是 172.x.x.x) �
 若要開始進行，您的程式碼必須裝載在原始檔控制中。 本節的其餘部分會假設使用 **git**。
 
 ### <a name="set-up-a-vsts-repo"></a>設定 VSTS 存放庫
-在 Visual Studio 右下角，按一下 [加入至原始檔控制] > [Git] \(或您慣用的任何一個選項)。
+在 Visual Studio 右下角，按一下 [加入至原始檔控制] > [Git] (或您慣用的任何一個選項)。
 
 ![按原始檔控制按鈕][image-source-control]
 

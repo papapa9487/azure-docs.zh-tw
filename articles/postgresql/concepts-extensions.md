@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/26/2017
-ms.openlocfilehash: a80b27dc8f1a15bf2e62c9992be8bfa02cacb2f6
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/28/2017
+ms.openlocfilehash: f02588495e7107b34dac7e076cf3612de12b51d4
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫中的 PostgreSQL 擴充功能
 PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能。 擴充功能可在單一封裝中一併統合多個相關的 SQL 物件，其可使用單一命令從您的資料庫加以載入或移除。 載入資料庫之後，擴充功能就可如內建功能般運作。 如需 PostgreSQL 擴充功能的詳細資訊，請參閱[將相關物件封裝成擴充功能 (英文)](https://www.postgresql.org/docs/9.6/static/extend-extensions.html)。
@@ -94,7 +94,7 @@ PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能
 |---|---|
 | [PostGIS](http://www.postgis.net/)、postgis\_topology、postgis\_tiger\_geocoder、postgis\_sfcgal | 適用於 PostgreSQL 的空間與地理物件。 |
 | address\_standardizer、address\_standardizer\_data\_us | 用來將位址剖析為組成項目。 用來支援對位址進行地理編碼的正規化步驟。 |
-| [grouting](http://pgrouting.org/) | 擴充 PostGIS / PostgreSQL 地理空間資料庫，以提供地理空間路由功能。 |
+| [pgrouting](http://pgrouting.org/) | 擴充 PostGIS / PostgreSQL 地理空間資料庫，以提供地理空間路由功能。 |
 
 ## <a name="next-steps"></a>後續步驟
 如果您未看見想要使用的擴充功能，請讓我們知道。 在我們的[客戶意見反應論壇](https://feedback.azure.com/forums/597976-azure-database-for-postgresql) \(英文\) 中投票給現有要求，或建立新的意見反應和要求。

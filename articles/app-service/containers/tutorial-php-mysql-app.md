@@ -5,21 +5,18 @@ services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
-ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.service: app-service-web
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 07/21/2017
+ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 11e8708987f4e085fc8bf1db10144283a9a17d2e
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 3496b00960ad1fe1213f2005d2173543988b4ff9
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>在 Azure 中建置 PHP 和 MySQL Web 應用程式
 
@@ -106,7 +103,7 @@ composer install
 
 在存放庫的根目錄中，建立名為 *.env* 的檔案。 將下列變數複製到 *.env* 檔案。 將 _&lt;root_password>_ 預留位置取代為 MySQL 根使用者的密碼。
 
-```
+```txt
 APP_ENV=local
 APP_DEBUG=true
 APP_KEY=SomeRandomString
@@ -158,7 +155,7 @@ php artisan serve
 
 ### <a name="create-a-mysql-server"></a>建立 MySQL 伺服器
 
-使用 [az mysql server create](/cli/azure/mysql/server#create) 命令，在適用於 MySQL 的 Azure 資料庫 (預覽) 中建立伺服器。
+使用 [az mysql server create](/cli/azure/mysql/server#az_mysql_server_create) 命令，在適用於 MySQL 的 Azure 資料庫 (預覽) 中建立伺服器。
 
 在下列命令中，在您看見 _&lt;mysql_server_name>_ 預留位置的地方，取代成您自己的 MySQL 伺服器名稱 (有效字元有 `a-z`、`0-9`、`-`)。 這個名稱是 MySQL 伺服器主機名稱 (`<mysql_server_name>.database.windows.net`) 的一部分，必須是全域唯一的。
 
@@ -183,7 +180,7 @@ az mysql server create --name <mysql_server_name> --resource-group myResourceGro
 
 ### <a name="configure-server-firewall"></a>設定伺服器防火牆
 
-使用 [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#create) 命令，建立 MySQL 伺服器的防火牆規則來允許用戶端連線。
+使用 [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) 命令，建立 MySQL 伺服器的防火牆規則來允許用戶端連線。
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -236,7 +233,7 @@ quit
 
 在存放庫根目錄中，建立 _.env.production_ 檔案，並將下列變數複製到檔案中。 取代預留位置 _&lt;mysql_server_name>_。
 
-```
+```txt
 APP_ENV=production
 APP_DEBUG=true
 APP_KEY=SomeRandomString
@@ -334,7 +331,7 @@ git commit -m "database.php updates"
 
 ### <a name="configure-database-settings"></a>設定資料庫設定
 
-在 App Service 中，您可以使用 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set) 命令將環境變數設定為「應用程式設定」。
+在 App Service 中，您可以使用 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) 命令將環境變數設定為「應用程式設定」。
 
 下列命令會設定 `DB_HOST`、`DB_DATABASE`、`DB_USERNAME`、`DB_PASSWORD` 應用程式設定。 取代預留位置 _&lt;appname>_ 和 _&lt;mysql_server_name>_。
 
@@ -366,7 +363,7 @@ Laravel 在 App Service 中需要應用程式金鑰。 您可以使用應用程�
 php artisan key:generate --show
 ```
 
-使用 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set) 命令來設定 App Service Web 應用程式中的應用程式金鑰。 取代 _&lt;appname>_ 和 _&lt;outputofphpartisankey:generate>_ 預留位置。
+使用 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) 命令來設定 App Service Web 應用程式中的應用程式金鑰。 取代 _&lt;appname>_ 和 _&lt;outputofphpartisankey:generate>_ 預留位置。
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -378,7 +375,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 設定 Web 應用程式的虛擬應用程式路徑。 需要執行此步驟，是因為 [Laravel 應用程式生命週期](https://laravel.com/docs/5.4/lifecycle)是在「公用」目錄中啟動，而不是在應用程式的根目錄。 在根目錄中啟動生命週期的其他 PHP 架構，不需要手動設定虛擬應用程式路徑即可運作。
 
-使用 [az resource update](/cli/azure/resource#update) 命令設定虛擬應用程式的路徑。 取代 _&lt;appname>_ 預留位置。
+使用 [az resource update](/cli/azure/resource#az_resource_update) 命令設定虛擬應用程式的路徑。 取代 _&lt;appname>_ 預留位置。
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01

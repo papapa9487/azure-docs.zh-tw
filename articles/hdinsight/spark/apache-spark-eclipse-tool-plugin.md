@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: c609f3af1b97b16fca3aabc5d7ce568ff8c660f2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: ede1a974b32227edf44464ed56ae85a1ea7ee97b
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>使用適用於 Eclipse 的 Azure 工具組建立適用於 HDInsight 叢集的 Spark 應用程式
 
@@ -86,10 +86,7 @@ ms.lasthandoff: 11/03/2017
    * 在 [Spark 程式庫] 區域中，您可以選擇 [使用 Maven 設定 Spark SDK ] 選項。  我們的工具為 Spark SDK 和 Scala SDK 整合正確的版本。 您也可以選擇 [手動新增 Spark SDK] 選項，手動下載並新增 Spark SDK。
 
    ![[新增 HDInsight Scala 專案] 對話方塊](./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-3.png)
-5. 由於已知的問題，按 [下一步] 之後需要再次確認 Scala 版本。 請確定 Scala 版本接近步驟 4 的選擇。
-
-   ![確認 Scala 程式庫](./media/apache-spark-eclipse-tool-plugin/comfirm-scala-library-container.png)
-6. 在下一個對話方塊中，選取 完成。 
+5. 在下一個對話方塊中，選取 完成。 
    
   
 ## <a name="create-a-scala-application-for-an-hdinsight-spark-cluster"></a>建立 HDInsight Spark 叢集的 Scala 應用程式

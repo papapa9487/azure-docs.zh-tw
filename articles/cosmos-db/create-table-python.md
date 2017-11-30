@@ -12,13 +12,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: mimig
-ms.openlocfilehash: 0900ec1931cc622339133393b72b558076a42710
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 1c64401a7d0ccfa12232b04cfd57e6beaa1dbca8
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>快速入門：使用 Python 與 Azure Cosmos DB 建置資料表 API 應用程式
 
@@ -38,6 +38,10 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 * 來自 [python.org](https://www.python.org/downloads/release/python-2712/) 的 Python 2.7
 
 ## <a name="create-a-database-account"></a>建立資料庫帳戶
+
+> [!IMPORTANT] 
+> 您需要建立新的資料表 API 帳戶，以使用正式推出的資料表 API SDK。 正式推出的 SDK 不支援在預覽期間建立的資料表 API 帳戶。
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -80,11 +84,17 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 現在，返回 Azure 入口網站以取得連接字串資訊，並將它複製到應用程式中。 這可讓您的應用程式與託管資料庫進行通訊。 
 
-1. 在 [Azure 入口網站](http://portal.azure.com/)中按一下 [連接字串]。 
+1. 在 [Azure 入口網站](http://portal.azure.com/)中，按一下 [連接字串]。 
 
-    ![在 [連接字串] 窗格中檢視及複製「連接字串」](./media/create-table-python/connection-string.png)
+    ![在 [連接字串] 窗格中檢視及複製「連接字串」。](./media/create-table-python/connection-string.png)
 
-2. 開啟 config.py 檔案，並將所需的連接字串屬性複製到組態檔。
+2. 使用右側的按鈕複製 ACCOUNT NAME。
+
+3. 開啟 config.py 檔案，然後將 ACCOUNT NAME 從入口網站貼到第 19 行上的 STORAGE_ACCOUNT_NAME 值中。
+
+4. 返回入口網站，並複製 PRIMARY KEY。
+
+5. 將 PRIMARY KEY 從入口網站貼到第 20 行上的 STORAGE_ACCOUNT_KEY 值中。
 
 3. 儲存 config.py 檔案。
 

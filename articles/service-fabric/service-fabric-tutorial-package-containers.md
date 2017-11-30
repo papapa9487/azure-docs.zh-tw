@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 9b1498d76680185b45edf9ac7e1747bfa6794eec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0631b621c01eb880393d07323cdeb815e564a2e3
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>建立和部署容器作為 Service Fabric 應用程式
 
@@ -218,7 +218,7 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 
 合作對象叢集是 Azure 上裝載的免費、限時 Service Fabric 叢集。 這類叢集是由 Service Fabric 小組所維護，任何人皆可在其中部署應用程式並了解平台。 若要存取合作對象叢集，請[遵循指示](http://aka.ms/tryservicefabric)。 
 
-如需建立您自己叢集的資訊，請參閱[在 Azure 上建立您的第一個 Service Fabric 叢集](service-fabric-get-started-azure-cluster.md)。
+如需建立您自己叢集的資訊，請參閱[在 Azure 上建立您的 Service Fabric 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)。
 
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>建置應用程式並部署到叢集
 您可以使用 Service Fabric CLI，將應用程式部署到 Azure 叢集。 如果您的電腦上並未安裝 Service Fabric CLI，請依照[這裡](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli)的指示來安裝它。 

@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 11/09/2017
 ms.author: tdykstra
-ms.openlocfilehash: b3e5976a84e0ec91a41d683a426b58635fd5abd6
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 63e63f69cb6463adcca480eccf1cc485574d9eff
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Azure Functions 的 host.json 參考
 
@@ -139,21 +139,7 @@ ms.lasthandoff: 10/18/2017
 
 [事件中樞觸發程序和繫結](functions-bindings-event-hubs.md)的組態設定。
 
-```json
-{
-    "eventHub": {
-      "maxBatchSize": 64,
-      "prefetchCount": 256,
-      "batchCheckpointFrequency": 1
-    }
-}
-```
-
-|屬性  |預設值 | 說明 |
-|---------|---------|---------| 
-|maxBatchSize|64|每個接收迴圈接收到的事件計數上限。|
-|prefetchCount|n/a|基礎 EventProcessorHost 將使用的預設 PrefetchCount。| 
-|batchCheckpointFrequency|1|要在建立 EventHub 資料指標檢查點之前處理的事件批次數目。| 
+[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
 ## <a name="functions"></a>functions
 
@@ -184,7 +170,7 @@ ms.lasthandoff: 10/18/2017
     "http": {
         "routePrefix": "api",
         "maxOutstandingRequests": 20,
-        "maxConcurrentRequests": 10,
+        "maxConcurrentRequests": 
         "dynamicThrottlesEnabled": false
     }
 }
@@ -260,21 +246,7 @@ ms.lasthandoff: 10/18/2017
 
 [服務匯流排觸發程序和繫結](functions-bindings-service-bus.md)的組態設定。
 
-```json
-{
-    "serviceBus": {
-      "maxConcurrentCalls": 16,
-      "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
-    }
-}
-```
-
-|屬性  |預設值 | 說明 |
-|---------|---------|---------| 
-|maxConcurrentCalls|16|訊息幫浦應該起始之回呼的並行呼叫數上限。 | 
-|prefetchCount|n/a|基礎 MessageReceiver 將使用的預設 PrefetchCount。| 
-|autoRenewTimeout|00:05:00|將自動更新訊息鎖定的最大持續時間。| 
+[!INCLUDE [functions-host-json-service-bus](../../includes/functions-host-json-service-bus.md)]
 
 ## <a name="singleton"></a>singleton
 

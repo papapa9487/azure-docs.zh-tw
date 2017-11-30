@@ -5,7 +5,7 @@
 每次進行變更時，您都必須指定完整的首碼清單，而不只是指定您想要變更的首碼。 僅指定我們想要保留的首碼。 在此案例中為 10.0.0.0/24 和 20.0.0.0/24
 
 ```azurecli
-az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 --connection-name TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
+az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 -g TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
 ```
 
 ### <a name="withconnection"></a>修改區域網路閘道 IP 位址首碼 - 現有閘道連線
@@ -15,5 +15,5 @@ az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 
 每次進行變更時，您都必須指定完整的首碼清單，而不只是指定您想要變更的首碼。 在此範例中，10.0.0.0/24 和 20.0.0.0/24 已存在。 我們會新增首碼 30.0.0.0/24 和 40.0.0.0/24，並且在更新時指定全部 4 個首碼。
 
 ```azurecli
-az network local-gateway update --local-address-prefixes 10.0.0.0/24 20.0.0.0/24 30.0.0.0/24 40.0.0.0/24 --name VNet1toSite2 --connection-name TestRG1
+az network local-gateway update --local-address-prefixes 10.0.0.0/24 20.0.0.0/24 30.0.0.0/24 40.0.0.0/24 --name VNet1toSite2 -g TestRG1
 ```

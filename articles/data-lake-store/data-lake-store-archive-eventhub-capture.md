@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: a9e69576958ae96d22a4eb03d0df429f0b307298
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 221ee6990fe0b5bfc9e745fc85543c4e04e41bd3
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>使用 Azure Data Lake Store 從事件中樞擷取資料
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 3. 在 Data Lake Store 根目錄指派權限。 
 
-    a. 按一下**資料總管**，選取 Data Lake Store 帳戶的根目錄，然後按一下存取。
+    a. 按一下**資料總管**，選取 Data Lake Store 帳戶的根目錄，然後按一下 [存取]。
 
     ![為 Data Lake Store 根目錄指派權限](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-root.png "為 Data Lake Store 根目錄指派權限")
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 
 4. 為 Data Lake Store 帳戶下要擷取資料的目的地資料夾指派權限。
 
-    a. 按一下**資料總管**，選取 Data Lake Store 帳戶中的資料夾，然後按一下存取。
+    a. 按一下**資料總管**，選取 Data Lake Store 帳戶中的資料夾，然後按一下 [存取]。
 
     ![為 Data Lake Store 資料夾指派權限](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-folder.png "為 Data Lake Store 資料夾指派權限")
 

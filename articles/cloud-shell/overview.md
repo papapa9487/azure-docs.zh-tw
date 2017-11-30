@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 11/16/2017
 ms.author: juluk
-ms.openlocfilehash: ebf6f1256a280fdff18c0c9060614acf0d4a642b
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 08ab3b38e4c1fbeb1fac67c5d1b6f6749f7a0a3e
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 的概觀
 Azure Cloud Shell 是可經由瀏覽器存取的互動式殼層，應用在 Azure 資源管理上。
@@ -82,12 +82,12 @@ Cloud Shell 機器是暫存的，因此需要將「Azure 檔案」共用掛接�
 [了解 Cloud Shell 儲存體、更新檔案共用，以及上傳/下載檔案。](persisting-shell-storage.md)
 
 ## <a name="concepts"></a>概念
-* Cloud Shell 會在以每一工作階段、每位使用者為基礎所提供的暫存機器上執行
+* Cloud Shell 會在以每一工作階段、每位使用者為基礎所提供的暫存主機上執行
 * Cloud Shell 會在無互動活動的 20 分鐘後逾時
-* 只有在已連接檔案共用時才能存取 Cloud Shell
+* Cloud Shell 需要掛接檔案共用
 * Cloud Shell 會將相同的檔案共用同時用於 Bash 和 PowerShell
 * Cloud Shell 會以一台機器、一個使用者帳戶的方式指派
-* 權限設定為一般 Linux 使用者 (Bash)
+* 權限設定為一般 Linux 使用者 (採用 Bash)
 
 深入了解 [Cloud Shell 中的 Bash](features.md) 和 [Cloud Shell (預覽) 中的 PowerShell](features-powershell.md) 中的功能。
 
@@ -102,5 +102,5 @@ Cloud Shell 機器是暫存的，因此需要將「Azure 檔案」共用掛接�
 裝載 Cloud Shell 的機器是免費提供的，但前提是必須掛接「Azure 檔案」共用。 所需成本和一般儲存體相同。
 
 ## <a name="next-steps"></a>後續步驟
-[Cloud Shell 中 Bash 的快速入門](quickstart.md)
-[Cloud Shell (預覽) 中 PowerShell 的快速入門](quickstart-powershell.md)
+[Cloud Shell 中 Bash 的快速入門](quickstart.md) <br>
+[Cloud Shell (預覽) 中的 PowerShell 快速入門](quickstart-powershell.md)

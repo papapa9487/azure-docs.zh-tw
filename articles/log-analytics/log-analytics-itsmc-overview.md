@@ -1,6 +1,6 @@
 ---
 title: "Azure Log Analytics 中的 IT 服務管理連接器 | Microsoft Docs"
-description: "使用 IT 服務管理連接器，在 Azure Log Analytics 中將 ITSM 工作項目集中監視及管理，並快速解決所有問題。"
+description: "本文提供 IT 服務管理控制器 (ITSMC) 的概觀，以及說明如何在 OMS Log Analytics 中使用此解決方案集中監視及管理 ITSM 工作項目，並快速解決所有問題。"
 services: log-analytics
 documentationcenter: 
 author: JYOTHIRMAISURI
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: ba8542640fcec6e4bc63d8f0a41bf85b221d4c5e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bd384255b3c46b3ae88b1269ab26e0ddaa6f6e77
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>使用 IT 服務管理連接器 (預覽) 將 ITSM 工作項目集中管理
 
 ![IT 服務管理連接器符號](./media/log-analytics-itsmc/itsmc-symbol.png)
 
-IT Service Management Connector (ITSMC) 在支援的 IT 服務管理 (ITSM) 產品/服務和 Log Analytics 之間提供雙向整合。  透過此連線，您可以根據 Log Analytics 的警示或記錄檔記錄，在 ITSM 產品中建立事件、警示或活動。 連接器也會從 ITSM 產品將諸如事件和變更要求等資料匯入 OMS Log Analytics。
+IT Service Management Connector (ITSMC) 在支援的 IT 服務管理 (ITSM) 產品/服務和 Log Analytics 之間提供雙向整合。  透過此連線，您可以根據 Log Analytics 的警示、記錄檔記錄或 Azure 警示，在 ITSM 產品中建立事件、警示或活動。 連接器也會從 ITSM 產品將諸如事件和變更要求等資料匯入 OMS Log Analytics。
 
 使用 ITSMC，您可以：
 
@@ -56,7 +56,7 @@ IT Service Management Connector (ITSMC) 在支援的 IT 服務管理 (ITSM) 產�
  ![ITSMC 重新整理](./media/log-analytics-itsmc/itsmc-connection-refresh.png)
 
 
-## <a name="configuring-the-connection-with-your-itsm-software"></a>設定與 ITSM 軟體的連線
+## <a name="configuring-the-itsmc-connection-with-your-itsm-productsservices"></a>設定與 ITSM 產品/服務的 ITSMC 連線
 
 ITSMC 支援連線至 **System Center Service Manager**、**ServiceNow**、**Provance** 及 **Cherwell**。
 
@@ -258,6 +258,7 @@ ITSM 連接器目前支援與服務對應解決方案整合。
 4. 在 [連絡人類型]、[影響]、[急迫性]、[類別] 和 [子類別] 文字方塊中提供適當的值，然後按一下 [建立]。
 
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>從 Azure 警示建立 ITSM 工作項目
+
 ITSMC 會與動作群組整合。
 
 [動作群組](../monitoring-and-diagnostics/monitoring-action-groups.md)提供以模組化和可重複使用的方式來針對 Azure 警示觸發動作。 藉由使用動作群組中的 ITSM 動作，您可以在目前已與 ITSM 連接器解決方案連線的 ITSM 產品中建立工作項目。
@@ -286,7 +287,7 @@ ITSMC 會與動作群組整合。
 
 >[!NOTE]
 
-> 目前只有活動記錄警示支援 ITSM 動作。 其他 Azure 警示都不支援 ITSM 動作。
+> 目前只有活動記錄警示支援 ITSM 動作，其他 Azure 警示不支援此動作。
 
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>針對 OMS 中的 ITSM 連線進行疑難排解

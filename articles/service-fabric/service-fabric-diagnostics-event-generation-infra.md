@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/24/2017
+ms.date: 11/20/2017
 ms.author: dekapur
-ms.openlocfilehash: c5857515ae8357b003f0999c4b11bd666c32bbf9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1277969d820c6348392d07e2dc5f35b52377fd7e
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="platform-level-event-and-log-generation"></a>平台層級事件和記錄產生
 
@@ -26,12 +26,13 @@ ms.lasthandoff: 10/11/2017
 
 請務必在平台層級進行監視，以判斷硬體和叢集是否如預期運作。 雖然 Service Fabric 可在硬體故障時讓應用程式繼續執行，但是您仍需要診斷錯誤是發生在應用程式中，還是發生在基礎結構中。 您也應該監視叢集，更妥善地規劃容量，以協助決定如何新增或移除硬體。
 
-Service Fabric 提供五個產生下列事件的不同現成記錄通道：
-
-* 操作通道：由 Service Fabric 與叢集執行的高階作業，包括即將進行的節點事件、正在部署的新應用程式，或 SF 升級復原等等。
+Service Fabric 提供下列現成的記錄通道：
+* 作業通道：由 Service Fabric 與叢集執行的高階作業，包括即將進行的節點、正在部署的新應用程式，或升級復原等事件。
 * 作業通道 - 詳細：健康情況報告與負載平衡決策
-* 資料和傳訊通道：在我們的傳訊 (目前僅限 ReverseProxy) 和資料路徑 (可靠的服務模型) 中產生的重要記錄和事件
+* 資料和傳訊通道：在傳訊 (目前僅限 ReverseProxy) 和資料路徑 (可靠的服務模型) 中產生的重要記錄和事件
 * 資料和傳訊通道 - 詳細：詳細資訊通道，其中包含叢集中資料和傳訊的所有非重要記錄 (此通道有非常大量的事件)   
+
+除此以外，還提供了兩個結構化 EventSource 通道，以及我們為了支援而收集的記錄。
 * [Reliable Services 事件](service-fabric-reliable-services-diagnostics.md)：程式設計模型特定的事件
 * [Reliable Actors 事件](service-fabric-reliable-actors-diagnostics.md)︰程式設計模型特定的事件和效能計數器
 * 支援的記錄：由 Service Fabric 產生的系統記錄僅供我們在提供支援時使用
