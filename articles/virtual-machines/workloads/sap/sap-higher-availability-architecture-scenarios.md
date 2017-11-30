@@ -17,14 +17,15 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3ebdc79d240a1250150d8ec2ef1d41b9a65ea0ee
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: be0792affba1eba32c2643344b7e284858adb9d6
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="utilizing-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-sap-system"></a>使用 Azure 基礎結構 VM 重新啟動達到 SAP 系統的「更高可用性」
+# <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>使用 Azure 基礎結構 VM 重新啟動達到 SAP 系統的「更高可用性」
 
+[1909114]:https://launchpad.support.sap.com/#/notes/1909114
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
@@ -207,70 +208,79 @@ ms.lasthandoff: 10/16/2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-> 本章節適用於下列兩者：
+> 本節適用於：
 >
 > ![Windows][Logo_Windows] Windows 和 ![Linux][Logo_Linux] Linux
 >
 
-如果您決定不使用 Windows Server 容錯移轉叢集 (WSFC) 或 Linux 上的 Pacemaker (目前僅支援 SLES 12 及更新版本)，則會使用 Azure VM 重新啟動來保護 SAP 系統，以防止 Azure 實體伺服器基礎結構和整體基礎 Azure 平台發生規劃和未規劃的停機。
+如果您決定不在 Linux 上使用如 Windows Server 容錯移轉叢集 (WSFC) 或 Pacemaker 等功能 (目前僅支援 SUSE Linux Enterprise Server [SLES] 12 和更新版本)，則會使用 Azure VM 重新啟動。 它會針對規劃與未規劃的 Azure 實體伺服器基礎結構停機時間，以及整體基礎 Azure 平台，來保護 SAP 系統。
 
 > [!NOTE]
-> 請注意，Azure VM 重新啟動主要是保護 VM，而不是應用程式。 VM 重新啟動並未提供 SAP 應用程式的高可用性，而是提供特定基礎結構層級的可用性，因而間接達到 SAP 系統的「更高可用性」。 此外，在規劃或未規劃的主機中斷之後重新啟動 VM 所需的時間，也沒有 SLA。 因此，此「高可用性」方法不適用於 SAP 系統的重要元件，例如 (A)SCS 或 DBMS。
+> Azure VM 重新啟動主要是保護 VM，而「不」是應用程式。 雖然 VM 重新啟動並未提供 SAP 應用程式的高可用性，而是提供特定層級的基礎結構可用性。 它也會間接達到 SAP 系統的「更高可用性」。 此外，在計劃性或非計劃性主機中斷之後重新啟動 VM 所需的時間也沒有任何 SLA，這會使此種方法的高可用性不適合於 SAP 系統的重要元件。 重要元件的範例包含 ASCS/SCS 執行個體或資料庫管理系統 (DBMS)。
 >
 >
 
-高可用性的另一個重要基礎結構項目是儲存體。 例如，Azure 儲存體 SLA 可用性為 99.9%。 如果使用者將所有 VM 及其磁碟部署到單一 Azure 儲存體帳戶，當 Azure 儲存體可能無法使用時，將會導致 Azure 儲存體帳戶中的所有 VM，以及這些 VM 內執行的所有 SAP 元件都無法使用。  
+高可用性的另一個重要基礎結構項目是儲存體。 例如，Azure 儲存體 SLA 可用性為 99.9%。 如果您在單一 Azure 儲存體帳戶中部署所有 VM 及其磁碟，當 Azure 儲存體可能無法使用時，將會導致儲存體帳戶中的所有 VM，以及 VM 內執行的所有 SAP 元件都無法使用。  
 
-您也可以針對每個 VM 使用專用儲存體帳戶，而不是將所有 VM 放入單一 Azure 儲存體帳戶；如此一來，您就可以藉由使用多個獨立的 Azure 儲存體帳戶，來增加整體 VM 和 SAP 應用程式可用性。
+您可以讓每個 VM 使用專用的儲存體帳戶，不需將所有 VM 放入單一 Azure 儲存體帳戶。 藉由使用多個獨立 Azure 儲存體帳戶，可增加整體的 VM 與 SAP 應用程式可用性。
 
-Azure 受控磁碟會自動放在其所連接虛擬機器的容錯網域。 如果您將兩部虛擬機器放在可用性設定組中並使用受控磁碟，平台也會負責將受控磁碟散發到不同容錯網域。 如果您打算使用進階儲存體，強烈建議也要使用受控磁碟。
+Azure 受控磁碟會自動放在其所連接虛擬機器的容錯網域。 如果您將兩部虛擬機器放在可用性設定組中並使用受控磁碟，平台也會負責將受控磁碟散發到不同容錯網域。 如果您打算使用進階儲存體帳戶，強烈建議使用受控磁碟。
 
-使用 Azure 基礎結構 HA 和儲存體帳戶之 SAP NetWeaver 系統的範例架構如下所示︰
+使用 Azure 基礎結構高可用性和儲存體帳戶之 SAP NetWeaver 系統的範例架構如下所示︰
 
-![使用 Azure 基礎結構 HA 達到 SAP 應用程式的「更高」可用性][planning-guide-figure-2900]
+![使用 Azure 基礎結構高可用性達到 SAP 應用程式「更高可用性」][planning-guide-figure-2900]
 
-使用 Azure 基礎結構 HA 和受控磁碟之 SAP NetWeaver 系統的範例架構如下所示︰
+使用 Azure 基礎結構高可用性和受控磁碟之 SAP NetWeaver 系統的範例架構如下所示︰
 
-![使用 Azure 基礎結構 HA 達到 SAP 應用程式的「更高」可用性][planning-guide-figure-2901]
+![使用 Azure 基礎結構高可用性達到 SAP 應用程式「更高可用性」][planning-guide-figure-2901]
 
-針對重要的 SAP 元件，我們目前為止已達到︰
+針對重要的 SAP 元件，您目前為止已達到︰
 
-* SAP 應用程式伺服器 (AS) 的高可用性
+* SAP 應用程式伺服器的高可用性
 
-  SAP 應用程式伺服器執行個體是備援元件。 每個 SAP AS 執行個體都是部署在自己的 VM 上，而此 VM 是在不同的 Azure「容錯網域」及「升級網域」中執行 (請參閱[容錯網域][planning-guide-3.2.1]和[升級網域][planning-guide-3.2.2]章節)。 這是藉由使用「Azure 可用性設定組」來加以確保 (請參閱 [Azure 可用性設定組][planning-guide-3.2.3]一章)。 當 Azure 容錯或升級網域可能因規劃或未規劃而無法使用時，將會導致有限數目的 VM 及其 SAP AS 執行個體無法使用。
+    SAP 應用程式伺服器執行個體是備援元件。 每個 SAP 伺服器執行個體都已部署在自己的 VM 上，而此 VM 是在不同的 Azure 容錯網域及升級網域中執行。 如需詳細資訊，請參閱[容錯網域][planning-guide-3.2.1]和[升級網域][planning-guide-3.2.2]一節。 
 
-  每個 SAP 執行個體都會在自己的 Azure 儲存體帳戶中 - 當一個 Azure 儲存體可能無法使用時，只會導致一個 VM 及其 SAP AS 執行個體無法使用。 不過請注意，一個 Azure 訂用帳戶中的「Azure 儲存體帳戶」數目有限。 為了確保在 VM 重新啟動後會自動啟動 (A)SCS 執行個體，請務必在[對 SAP 執行個體使用自動啟動][planning-guide-11.5]一章所述的 (A)SCS 執行個體啟動設定檔中，設定 Autostart 參數。
-  如需更多詳細資料，另請參閱 [SAP 應用程式伺服器的高可用性][planning-guide-11.4.1]一章。
+    您可以使用 Azure 可用性設定組來確保此組態。 如需詳細資訊，請參閱 [Azure 可用性設定組][planning-guide-3.2.3]一節。 
 
-  即使您使用受控磁碟，這些磁碟也會儲存在 Azure 儲存體帳戶，而且在儲存體發生中斷時會無法使用。
+    當 Azure 容錯或升級網域可能因規劃或未規劃而無法使用時，將會導致有限數目的 VM 及其 SAP 應用程式伺服器執行個體無法使用。
 
-*  SAP (A)SCS 執行個體可用性
+    每個 SAP 應用程式伺服器執行個體都會放在自己的 Azure 儲存體帳戶中。 當一個 Azure 儲存體可能無法使用時，只會導致一部 VM 及其 SAP 應用程式伺服器執行個體無法使用。 不過請注意，一個 Azure 訂用帳戶中的 Azure 儲存體帳戶數目有限。 為了確保在 VM 重新啟動後會自動啟動 ASCS/SCS 執行個體，請在 ASCS/SCS 執行個體啟動設定檔中設定 Autostart 參數，如[對 SAP 執行個體使用 Autostart][planning-guide-11.5] 一節所述。
+  
+    如需詳細資訊，請參閱 [SAP 應用程式伺服器的高可用性][planning-guide-11.4.1]。
 
-  我們在此處使用 Azure VM 重新啟動，來保護已安裝 SAP (A)SCS 執行個體的 VM。 如果 Azure 伺服器發生規劃或未規劃的停機，則會在另一個可用的伺服器上重新啟動 VM。 如前所述，在此 (A)SCS 執行個體案例中，Azure VM 重新啟動主要是保護 VM，而不是應用程式。 透過 VM 重新啟動，我們可間接達到 SAP (A)SCS 執行個體的「更高可用性」。 為了確保在 VM 重新啟動後會自動啟動 (A)SCS 執行個體，請務必在[對 SAP 執行個體使用自動啟動][planning-guide-11.5]一章所述的 (A)SCS 執行個體啟動設定檔中，設定 Autostart 參數。 這表示 (A)SCS 執行個體會當做單一 VM 上執行的單一失敗點 (SPOF)，以決定整個 SAP 環境是否可用。
+    即使您使用受控磁碟，這些磁碟會儲存在 Azure 儲存體帳戶中，而且在儲存體發生中斷時可能無法使用。
 
-*  DBMS 伺服器可用性
+* SAP ASCS/SCS 執行個體的「更高可用性」
 
-  類似於 SAP (A) SCS 執行個體使用案例，我們在此使用 Azure VM 重新啟動，來保護已安裝 DBMS 軟體的 VM，並透過 VM 重新啟動達到 DBMS 軟體的「高可用性」。
-  在單一 VM 中執行的 DBMS 也是 SPOF，它會決定整個 SAP 環境是否可用。
+    在此案例中，利用 Azure VM 重新啟動來保護已安裝 SAP ASCS/SCS 執行個體的 VM。 如果 Azure 伺服器發生規劃或未規劃的停機，則會在另一個可用的伺服器上重新啟動 VM。 如前所述，在此 ASCS/SCS 執行個體案例中，Azure VM 重新啟動主要是保護 VM，而「不是」應用程式。 透過 VM 重新啟動，您可間接達到 SAP ASCS/SCS 執行個體的「更高可用性」。 
 
-## <a name="using-autostart-for-sap-instances"></a>對 SAP 執行個體使用自動啟動
-  SAP 提供可在啟動 VM 內的 OS 之後立即啟動 SAP 執行個體的功能。 確切步驟記載於 SAP 知識庫文章 [1909114]。 不過，不再建議 SAP 使用此設定，因為無法控制執行個體重新啟動的順序，並假設多個 VM 已受到影響，或每個 VM 已執行多個執行個體。 假設這是一個 VM 中有一個 SAP 應用程式伺服器執行個體的典型 Azure 案例，而且這是最終會重新啟動單一 VM 的案例，因此 Autostart 不是真的很重要，而且可以藉由新增此參數來啟用︰
+    為了確保在 VM 重新啟動後會自動啟動 ASCS/SCS 執行個體，請在 ASCS/SCS 執行個體啟動設定檔中設定 Autostart 參數，如[對 SAP 執行個體使用 Autostart][planning-guide-11.5] 一節所述。 此設定表示 ASCS/SCS 執行個體可當作單一 VM 中執行的單一失敗點 (SPOF)，將會決定整個 SAP 環境是否可用。
+
+* DBMS 伺服器的「更高可用性」
+
+    如同先前的 SAP ASCS/SCS 執行個體使用案例，您可利用 Azure VM 重新啟動來保護已安裝 DBMS 軟體的 VM，並透過 VM 重新啟動達到 DBMS 軟體的「更高可用性」。
+  
+    在單一 VM 中執行的 DBMS 也是 SPOF，它會決定整個 SAP 環境是否可用。
+
+## <a name="using-autostart-for-sap-instances"></a>對 SAP 執行個體使用 Autostart
+SAP 提供一項設定，讓您在 VM 內的 OS 啟動後立即啟動 SAP 執行個體。 相關指示記載於 SAP 知識庫文章 [1909114]。 不過，SAP 不再建議使用此設定，因為如果一部以上的 VM 受影響，或如果每部 VM 有多個執行個體正在執行，則不得控制執行個體重新啟動的順序。 
+
+假設在一部 VM 有一個 SAP 應用程式伺服器執行個體，且最終會重新啟動單一 VM 的典型 Azure 案例中，Autostart 並不重要。 但是，您可以在 SAP Advanced Business Application Programming (ABAP) 或 Java 執行個體的啟動設定檔中新增下列參數來啟用：
 
       Autostart = 1
 
-  執行 SAP ABAP 及 (或) Java 執行個體的啟動設定檔。
 
   > [!NOTE]
-  > Autostart 參數可能還有一些缺點。 詳細來說，此參數會在啟動執行個體的相關 Windows/Linux 服務時，觸發 SAP ABAP 或 Java 執行個體的啟動。 當作業系統啟動時，便是這種情況。 不過，SAP 軟體生命週期管理功能 (例如加總或其他更新或升級) 也經常需要重新啟動 SAP 服務。 這些功能完全不會要求必須自動重新啟動執行個體。 因此，執行這類工作之前，應該停用 Autostart 參數。 叢集化的 SAP 執行個體 (例如 ASCS/SCS/CI) 也不應該使用 Autostart 參數。
+  > Autostart 參數也有一些缺點。 具體來說，此參數會在啟動執行個體的相關 Windows 或 Linux 服務時，觸發 SAP ABAP 或 Java 執行個體的啟動。 當作業系統啟動時，就會出現該結果。 不過，SAP Software Lifecycle Management 功能 (例如 Software Update Manger (SUM) 或其他更新或升級) 也經常會重新啟動 SAP 服務。 這些功能不會要求自動重新啟動執行個體。 因此，執行這類工作之前，應該停用 Autostart 參數。 叢集化的 SAP 執行個體 (例如 ASCS/SCS/CI) 也不應該使用 Autostart 參數。
   >
   >
 
-  如需自動啟動 SAP 執行個體的其他資訊，請參閱︰
+  如需適用於 SAP 執行個體的 Autostart 詳細資訊，請參閱下列文章：
 
-  * [Start/Stop SAP along with your Unix Server Start/Stop (隨著 Unix 伺服器啟動/停止一起啟動/停止 SAP)](http://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
-  * [Starting and Stopping SAP NetWeaver Management Agents (啟動及停止 SAP NetWeaver 管理代理程式)](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
-  * [How to enable auto Start of HANA Database (如何啟用 HANA 資料庫的自動啟動)](http://www.freehanatutorials.com/2012/10/how-to-enable-auto-start-of-hana.html)
+  * [Start or Stop SAP along with your Unix Server Start/Stop (隨著 Unix 伺服器啟動/停止一起啟動或停止 SAP)](http://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
+  * [Starting and stopping SAP NetWeaver management agents (啟動及停止 SAP NetWeaver 管理代理程式)](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
+  * [How to enable auto start of the HANA database (如何啟用 HANA 資料庫的 autostart)](http://www.freehanatutorials.com/2012/10/how-to-enable-auto-start-of-hana.html)
 
 ## <a name="next-steps"></a>後續步驟
 
-至於完整的 SAP NetWeaver 應用程式感知高可用性，請參閱[Azure IaaS 上的 SAP 應用程式高可用性][sap-high-availability-architecture-scenarios-sap-app-ha]。
+如需完整 SAP NetWeaver 應用程式感知高可用性的資訊，請參閱 [Azure IaaS 上的 SAP 應用程式高可用性][sap-high-availability-architecture-scenarios-sap-app-ha]。
