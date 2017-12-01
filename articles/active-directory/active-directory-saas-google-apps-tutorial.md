@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 1d92e673a948dd139ff2d4a24f2e602180be43c5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: bdcf2f8a06c782270683e34e9a4cbc2ab2c7f443
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-google-apps"></a>教學課程：Azure Active Directory 與 Google Apps 整合
 
@@ -136,11 +136,11 @@ Google Apps 與 Azure AD 整合提供下列優點：
 
     | |
     |--|
-    | `http://google.com/a/<yourdomain.com>`|
-    | `http://google.com`|    
-    | `google.com/<yourdomain.com>`|
     | `google.com`|
-
+    | `http://google.com`|
+    | `google.com/<yourdomain.com>`|
+    | `http://google.com/a/<yourdomain.com>`|
+       
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Google Apps 用戶端支援小組](https://www.google.com/contact/)以取得這些值。 
 

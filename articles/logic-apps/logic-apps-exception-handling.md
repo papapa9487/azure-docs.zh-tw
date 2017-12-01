@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 9af2f71b3d288cc6f4e271d0915545d43a1249bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4eb6f743479886374692eadcf218b77b4bfcc933
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>處理 Azure Logic Apps 中的錯誤和例外狀況
 
@@ -26,38 +26,74 @@ Azure Logic Apps 提供了豐富的工具和模式，以協助確保您的整合
 
 ## <a name="retry-policies"></a>重試原則
 
-重試原則是最基本的例外狀況和錯誤處理類型。 如果初始要求逾時或失敗 (任何造成 429 或 5xx 回應的要求)，此原則會定義是否應該重試動作。 根據預設，所有動作會在 20 秒的間隔內另外再試 4 次。 因此，如果第一個要求收到 `500 Internal Server Error` 回應，工作流程引擎就會暫停 20 秒，然後再一次嘗試要求。 如果在經過所有重試後回應仍是例外狀況或失敗，工作流程會繼續，並將動作狀態標示為 `Failed`。
+重試原則是最基本的例外狀況和錯誤處理類型。 如果初始要求逾時或失敗 (任何造成 429 或 5xx 回應的要求)，此原則會定義是否及如何重試動作。 有三種類型的重試原則，`exponential`、`fixed` 和 `none`。 如果工作流程定義中未提供重試原則，就會使用預設原則。 您可以在特定動作或觸發程序 (如果可重試) 的**輸入**中設定重試原則。 同樣地，在邏輯應用程式設計工具中，可以設定給定區塊之 [設定] 之下的重試原則 (如果適用)。
 
-您可以在特定動作的**輸入**中設定重試原則。 例如，您可以設定重試原則，以在 1 小時的間隔內嘗試多達 4 次。 如需輸入屬性的完整詳細資料，請參閱[工作流程動作與觸發程序][retryPolicyMSDN]。
+如需重試原則限制的詳細資訊，請參閱 [Logic Apps 限制與設定](../logic-apps/logic-apps-limits-and-config.md)，如需有關支援語法的詳細資訊，請參閱[「工作流程動作與觸發程序」中的重試原則小節][retryPolicyMSDN]。
+
+### <a name="exponential-interval"></a>指數間隔
+在以指數方式成長範圍內的隨機時間間隔之後，`exponential` 原則類型會重試失敗的要求。 每次重試都保證在大於 **minimumInterval** 和小於 **maximumInterval** 的隨機間隔中傳送。 每次重試都會產生下方範圍中的統一隨機變數，最多且含**計數**：
+<table>
+<tr><th> 隨機變數範圍 </th></tr>
+<tr><td>
+
+| 重試數目 | 最小間隔 | 最大間隔 |
+| ------------ |  ------------ |  ------------ |
+| 1 | 最大值 (0，**minimumInterval**) | 最小值 (時間間隔，**maximumInterval**) |
+| 2 | 最大值 (時間間隔，**minimumInterval**) | 最小值 (2 * 間隔，**maximumInterval**) |
+| 3 | 最大值 (2 * 間隔，**minimumInterval**) | 最小值 (4 * 間隔，**maximumInterval**) |
+| 4 | 最大 (4 * 間隔，**minimumInterval**) | Min (8 * 間隔，**maximumInterval**) |
+| ... |
+
+</td></tr></table>
+
+針對 `exponential` 輸入原則，需要**計數**和**間隔**，而 **minimumInterval** 和 **maximumInterval** 則可以選擇性地提供，以分別覆寫 PT5S 和 PT1D 的預設值。
+
+| 元素名稱 | 必要 | 類型 | 說明 |
+| ------------ | -------- | ---- | ----------- |
+| 類型 | 是 | String | `exponential` |
+| 計數 | 是 | Integer | 重試次數必須介於 1 到 90 之間  |
+| interval | 是 | String | 重試間隔為 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，必須在 PT5S 與 PT1D 之間 |
+| minimumInterval | 否| String | 重試最小間隔為 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，必須介於 PT5S 與**間隔**之間 |
+| maximumInterval | 否| String | 重試最小間隔為 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，必須介於**間隔**與 PT1D 之間 |
+
+### <a name="fixed-interval"></a>固定間隔
+
+`fixed` 原則類型在傳送下一個要求之前，會等候所提供的時間間隔，以重試失敗的要求。
+
+| 元素名稱 | 必要 | 類型 | 說明 |
+| ------------ | -------- | ---- | ----------- |
+| 類型 | 是 | String | `fixed`|
+| 計數 | 是 | Integer | 重試次數必須介於 1 到 90 之間 |
+| interval | 是 | String | 重試間隔為 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，必須在 PT5S 與 PT1D 之間 |
+
+### <a name="none"></a>None
+`none` 原則類型將不會重試失敗的要求。
+
+| 元素名稱 | 必要 | 類型 | 說明 |
+| ------------ | -------- | ---- | ----------- |
+| 類型 | 是 | String | `none`|
+
+### <a name="default"></a>預設值
+如果未指定任何重試原則，則會使用預設原則。 預設原則是指數的間隔原則，會傳送最多 4 次重試，以指數方式依 7.5 秒調整增加間隔，且上限為 5 到 45 秒之間。 這項預設原則 (未定義 **retryPolicy** 時使用) 就相當於此範例 HTTP 工作流程定義中的原則：
 
 ```json
-"retryPolicy" : {
-      "type": "<type-of-retry-policy>",
-      "interval": <retry-interval>,
-      "count": <number-of-retry-attempts>
-    }
-```
-
-如果您想要 HTTP 動作重試 4 次，並在每次嘗試之間等候 10 分鐘，您會使用下列定義︰
-
-```json
-"HTTP": 
+"HTTP":
 {
     "inputs": {
         "method": "GET",
         "uri": "http://myAPIendpoint/api/action",
         "retryPolicy" : {
-            "type": "fixed",
-            "interval": "PT10M",
-            "count": 4
+            "type": "exponential",
+            "count": 4,
+            "interval": "PT7.5S",
+            "minimumInterval": "PT5S",
+            "maximumInterval": "PT45S"
         }
     },
     "runAfter": {},
     "type": "Http"
 }
 ```
-
-如需受支援語法的詳細資訊，請參閱[工作流程動作和觸發程序中的 retry-policy 區段][retryPolicyMSDN]。
 
 ## <a name="catch-failures-with-the-runafter-property"></a>使用 RunAfter 屬性來擷取失敗
 
