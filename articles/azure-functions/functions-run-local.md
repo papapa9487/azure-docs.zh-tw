@@ -14,17 +14,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 35fd47025ca0dba1edbe1d7dd3ee0172fc45d6f5
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: b6bc12c407a32388b7155a815b099b3b285fef18
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="code-and-test-azure-functions-locally"></a>撰寫 Azure Functions 並在本機進行測試
 
 雖然 [Azure 入口網站] 有提供開發及測試 Azure Functions 的完整工具集，有許多開發人員仍偏好本機開發體驗。 Azure Functions 可讓您輕鬆使用最喜愛的程式碼編輯器及本機開發工具，在本機電腦上開發並測試您的函式。 您的函式可以透過 Azure 中的事件觸發，您也可以在本機電腦上對 C# 和 JavaScript 函式進行偵錯。 
 
 如果您是 Visual Studio C# 開發人員，Azure Functions 也能[與 Visual Studio 2017 整合](functions-develop-vs.md)。
+
+>[!IMPORTANT]  
+> 請勿在相同函式應用程式中混用本機開發與入口網站開發。 當您從本機專案建立及發佈函式時，不應嘗試在入口網站中維護或修改專案程式碼。
 
 ## <a name="install-the-azure-functions-core-tools"></a>安裝 Azure Functions Core Tools
 
@@ -83,7 +86,7 @@ func init MyFunctionProj
 
 ## <a name="create-a-local-functions-project"></a>建立本機的 Functions 專案
 
-在本機執行時，Functions 專案是具有 [host.json](functions-host-json.md) 和 [local.settings.json](#local-settings) 檔案的目錄。 此目錄相當於 Azure 中的函式應用程式。 若要深入了解 Azure Functions 的資料夾結構，請參閱 [Azure Functions 的開發人員指南](functions-reference.md#folder-structure)。
+在本機執行時，Functions 專案是具有 [host.json](functions-host-json.md) 和 [local.settings.json](#local-settings-file) 檔案的目錄。 此目錄相當於 Azure 中的函式應用程式。 若要深入了解 Azure Functions 的資料夾結構，請參閱 [Azure Functions 的開發人員指南](functions-reference.md#folder-structure)。
 
 在終端機視窗或命令提示字元中，執行下列命令來建立專案和本機 Git 存放庫：
 
@@ -102,8 +105,6 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
 
 若要建立不含本機 Git 存放庫的專案，請使用 `--no-source-control [-n]` 選項。
-
-<a name="local-settings"></a>
 
 ## <a name="local-settings-file"></a>本機設定檔
 
@@ -125,7 +126,7 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
   }
 }
 ```
-| 設定      | 說明                            |
+| 設定      | 描述                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | 設定為 **true** 時，所有的值都會使用本機電腦金鑰加密。 需搭配 `func settings` 命令使用。 預設值為 **false**。 |
 | **值** | 於本機執行時使用的應用程式設定集合。 **AzureWebJobsStorage** 和 **AzureWebJobsDashboard** 是範例；如需完整清單，請參閱[應用程式設定參考](functions-app-settings.md)。  |

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2017
-ms.author: nitinme
-ms.openlocfilehash: 82683349f3e562be5ac89ade4143588283abd71c
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 11/25/2017
+ms.author: maxluk,jejiang
+ms.openlocfilehash: 4eecaf76773927f96f0e4d79d795f0ffe8033a66
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>使用適用於 IntelliJ 的 Azure 工具組建立適用於 HDInsight 叢集的 Spark 應用程式
 
@@ -168,8 +168,8 @@ ms.lasthandoff: 11/09/2017
       
       若要了解如何存取作業輸出，請參閱本文稍後的＜使用適用於 IntelliJ 的 Azure 工具組來存取和管理 HDInsight Spark 叢集＞一節。
 
-## <a name="run-or-debug-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>在 HDInsight Spark 叢集上執行或偵錯 Spark Scala 應用程式
-我們也建議另一種將 Spark 應用程式提交至叢集的方式。 做法是在 [執行/偵錯設定] IDE 中設定參數。 如需詳細資訊，請參閱[使用適用於 IntelliJ 的 Azure 工具組透過 SSH 對 HDInsight 叢集上的 Spark 應用程式進行遠端偵錯](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh)。
+## <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>對 HDInsight 叢集上的 Spark 應用程式進行本機或遠端偵錯 
+我們也建議另一種將 Spark 應用程式提交至叢集的方式。 您也可以藉由在 [執行/偵錯設定] IDE 中設定參數來執行這項操作。 如需詳細資訊，請參閱[使用適用於 IntelliJ 的 Azure 工具組透過 SSH 對 HDInsight 叢集上的 Spark 應用程式進行本機或遠端偵錯](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh)。
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>使用適用於 IntelliJ 的 Azure 工具組來存取和管理 HDInsight Spark 叢集
 您可以使用適用於 IntelliJ 的 Azure 工具組來執行各種作業。
@@ -211,50 +211,6 @@ ms.lasthandoff: 11/09/2017
 1. 在 [Azure Explorer] 中，以滑鼠右鍵按一下 [Azure] 根節點，然後選取 [管理訂用帳戶]。 
 
 2. 在對話方塊中，清除您不想要存取之訂用帳戶旁的核取方塊，然後選取 [關閉]。 如果您想要登出 Azure 訂用帳戶，也可以選取 [登出]。
-
-## <a name="run-a-spark-scala-application-locally"></a>在本機執行 Spark Scala 應用程式
-您可以使用適用於 IntelliJ 的 Azure 工具組，在工作站上本機執行 Spark Scala 應用程式。 這些應用程式通常不需要存取叢集資源 (例如儲存體容器)，而且您可在本機上執行並測試。
-
-### <a name="prerequisite"></a>必要條件
-在 Windows 電腦上執行本機 Spark Scala 應用程式時，可能會發生如 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356) 中所述的例外狀況。 發生這個例外狀況是因為 Windows 上遺失 WinUtils.exe。 
-
-若要解決這個錯誤，請[下載可執行檔](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe)，並將其放在 **C:\WinUtils\bin** 之類的位置。 然後，新增環境變數 **HADOOP_HOME**，並將變數的值設為 **C\WinUtils**。
-
-### <a name="run-a-local-spark-scala-application"></a>執行本機 Spark Scala 應用程式
-1. 啟動 IntelliJ IDEA 並建立專案。 
-
-2. 在 [新增專案]  對話方塊中，執行下列操作：
-   
-    a. 選取 [HDInsight] > [HDInsight 上的 Spark 本機執行範例 (Scala)]。
-
-    b. 在 [建置工具] 清單中，根據您的需求選取下列任一項目：
-
-      * **Maven**，以支援 Scala 專案建立精靈
-      * **SBT**，以管理相依性並建置 Scala 專案
-
-    ![[新增專案] 對話方塊](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-local-run.png)
-
-3. 選取 [下一步] 。
- 
-4. 在下一個視窗中，執行下列動作：
-   
-    a. 輸入專案名稱和位置。
-
-    b. 在 [專案 SDK] 下拉式清單中，選取 1.7 版以後的 Java 版本。
-
-    c. 在 [Spark 版本] 下拉式清單中，選取您想要使用的 Scala 版本：Scala 2.11.x (適用於 Spark 2.0) 或 Scala 2.10.x (適用於 Spark 1.6)。
-
-    ![[新增專案] 對話方塊](./media/apache-spark-intellij-tool-plugin/Create-local-project.PNG)
-
-5. 選取 [完成]。
-
-6. 範本會在 **src** 資料夾下方新增可在電腦本機執行的程式碼範例 (**LogQuery**)。
-   
-    ![LogQuery 的位置](./media/apache-spark-intellij-tool-plugin/local-app.png)
-
-7. 以滑鼠右鍵按一下 [LogQuery] 應用程式，然後選取 [執行 'LogQuery']。 您會在底部的 [執行] 索引標籤上看到如下的輸出：
-   
-   ![Spark 應用程式本機執行結果](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-local-run-result.png)
 
 ## <a name="convert-existing-intellij-idea-applications-to-use-azure-toolkit-for-intellij"></a>轉換現有的 IntelliJ IDEA 應用程式，來使用適用於 IntelliJ 的 Azure 工具組
 您可以將 IntelliJ IDEA 中建立的現有 Spark Scala 應用程式轉換成與適用於 IntelliJ 的 Azure 工具組相容。 然後您可以使用外掛程式，將應用程式提交給 HDInsight Spark 叢集。

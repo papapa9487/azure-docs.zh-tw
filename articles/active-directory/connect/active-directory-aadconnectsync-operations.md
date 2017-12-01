@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: af32c3f2d96ca51f59e29f8d9635caa290d580aa
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 89bfedd282d04569bcf873fd7a9082791a94376b
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect 同步處理：作業工作和考量
 本主題的目標在於描述 Azure AD Connect 同步處理的操作工作。
@@ -33,6 +33,11 @@ ms.lasthandoff: 11/08/2017
 利用預備模式中的伺服器，您可以在啟用伺服器之前變更組態並預覽變更。 它也可以讓您執行完整的匯入和完整的同步處理，以在生產環境中進行這些變更之前，確認所有變更皆如預期。
 
 您可以在安裝期間選取狀態為 **預備模式**的伺服器。 此動作會讓伺服器進行匯入和同步處理，但它不會執行任何匯出。 預備模式的伺服器不會執行密碼同步處理或密碼回寫，即使您在安裝期間選取這些功能也一樣。 當您停用預備模式時，伺服器會開始匯出、啟用密碼同步處理及啟用密碼回寫。
+
+> [!NOTE]
+> 假設您有已啟用密碼雜湊同步處理功能的 Azure AD Connect。 當您啟用暫存模式時，伺服器會停止從內部部署 AD 同步處理密碼變更。 當您停用暫存模式時，伺服器會從最後停止的位置繼續同步處理密碼變更。 如果伺服器在暫存模式中停止一段較長時間，伺服器可能需要一些時間才能將期間內發生的所有密碼變更進行同步處理。
+>
+>
 
 您仍然可以使用 Synchronization Service Manager 來強制執行匯出。
 

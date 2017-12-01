@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 08/17/2017
+ms.date: 11/16/2017
 ms.author: sethm
-ms.openlocfilehash: 405ec2b27b488b570c4a5c86e4950ff98233360e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69c07cb31b1dc3ec3685448d8187ef3a57bd3821
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="event-hubs-programming-guide"></a>事件中樞程式設計指南
 
@@ -57,7 +57,7 @@ var description = manager.CreateEventHubIfNotExists("MyEventHub");
 [EventHubDescription](/dotnet/api/microsoft.servicebus.messaging.eventhubdescription) 類別含有事件中樞的相關詳細資料，包括授權規則、訊息保留間隔、資料分割識別碼、狀態及路徑。 您可以使用這個類別來更新事件中樞上的中繼資料。
 
 ## <a name="create-an-event-hubs-client"></a>建立事件中樞用戶端
-與事件中樞互動的主要類別是 [Microsoft.ServiceBus.Messaging.EventHubClient][EventHubClient]。 這個類別提供傳送者和接收者功能。 您可以使用 [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create) 方法來具現化這個類別，如以下範例所示。
+與事件中樞互動的主要類別是 [Microsoft.ServiceBus.Messaging.EventHubClient][EventHubClient]。 這個類別提供傳送者和接收者功能。 您可以使用 [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create) 方法來具現化這個類別，如以下範例所示：
 
 ```csharp
 var client = EventHubClient.Create(description.Path);
@@ -77,7 +77,7 @@ EventHubClient.CreateFromConnectionString("your_connection_string");
 Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[key]
 ```
 
-最後，它也可以建立從 [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) 執行個體建立 [EventHubClient][] 物件，如以下範例所示。
+最後，它也可以建立從 [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) 執行個體建立 [EventHubClient][] 物件，如以下範例所示：
 
 ```csharp
 var factory = MessagingFactory.CreateFromConnectionString("your_connection_string");
@@ -111,7 +111,7 @@ var client = factory.CreateEventHubClient("MyEventHub");
 如需可用性和一致性之間利弊得失的詳細資訊與討論，請參閱[事件中樞的可用性和一致性](event-hubs-availability-and-consistency.md)。 
 
 ## <a name="batch-event-send-operations"></a>批次事件傳送作業
-分批傳送事件能大幅增加輸送量。 [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) 方法會採用 [EventData][] 類型的 **IEnumerable** 參數，並將整個批次以不可部分完成的作業形式傳送到事件中樞。
+分批傳送事件可以協助增加輸送量。 [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) 方法會採用 [EventData][] 類型的 **IEnumerable** 參數，並將整個批次以不可部分完成的作業形式傳送到事件中樞。
 
 ```csharp
 public void SendBatch(IEnumerable<EventData> eventDataList);
@@ -132,10 +132,10 @@ var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[
 [CreatePartitionedSender](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_CreatePartitionedSender_System_String_) 會傳回 [EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender) 物件，可供您用來將事件發佈到特定的事件中樞資料分割。
 
 ## <a name="event-consumers"></a>事件取用者
-事件中樞有兩個主要的事件取用模型：直接接收者和較高層級的抽象 (如 [EventProcessorHost][])。 直接接收者負責自行協調消費者群組內之資料分割的存取。
+事件中樞有兩個主要的事件取用模型：直接接收者和較高層級的抽象 (如 [EventProcessorHost][])。 直接接收者負責自行協調取用者群組內之資料分割的存取。 取用者群組是檢視分割事件中樞 (狀態、位置或位移) 的窗口。
 
 ### <a name="direct-consumer"></a>直接消費者
-要讀取消費者群組內的資料分割，最直接的方式是使用 [EventHubReceiver](/dotnet/apie/microsoft.servicebus.messaging.eventhubreceiver) 類別。 若要建立這個類別的執行個體，您必須使用 [EventHubConsumerGroup](/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup) 類別的執行個體。 在以下範例中，您必須在建立消費者群組的接收者時指定資料分割識別碼。
+從資料分割讀取最直接的方式是使用 [EventHubReceiver](/dotnet/apie/microsoft.servicebus.messaging.eventhubreceiver) 類別。 若要建立這個類別的執行個體，您必須使用 [EventHubConsumerGroup](/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup) 類別的執行個體。 在以下範例中，您必須在建立取用者群組的接收者時指定資料分割識別碼：
 
 ```csharp
 EventHubConsumerGroup group = client.GetDefaultConsumerGroup();
@@ -158,7 +158,7 @@ while(receive)
 
 對特定資料分割來說，訊息的接收順序與傳送到事件中樞時的順序相同。 位移是一種字串權杖，它能用來識別資料分割中的訊息。
 
-請注意，消費者群組內的單一資料分割一律不能擁有超過 5 個已連接的並行讀取器。 當讀取器連接或中斷連線時，其工作階段可能會維持作用中狀態達數分鐘之久，服務才能辨識出它們已經中斷連線。 在這段時間內，讀取器可能會無法重新連接資料分割。 如需撰寫事件中樞之直接接收者的完整範例，請參閱[事件中樞直接接收者](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6)範例。
+請注意，單一資料分割一律不能擁有超過 5 個已連接的並行讀取器。 當讀取器連接或中斷連線時，其工作階段可能會維持作用中狀態達數分鐘之久，服務才能辨識出它們已經中斷連線。 在這段時間內，讀取器可能會無法重新連接資料分割。 如需撰寫事件中樞之直接接收者的完整範例，請參閱[事件中樞直接接收者](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6)範例。
 
 ### <a name="event-processor-host"></a>事件處理器主機
 [EventProcessorHost][] 類別能處理來自事件中樞的資料。 在 .NET 平台上建置事件讀取器時，您應該使用這項實作。 [EventProcessorHost][] 能為事件處理器實作提供安全執行緒、多處理序、安全的執行階段環境，進而提供檢查點和資料分割租用管理。
@@ -169,7 +169,7 @@ while(receive)
 * [CloseAsync](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor#Microsoft_ServiceBus_Messaging_IEventProcessor_CloseAsync_Microsoft_ServiceBus_Messaging_PartitionContext_Microsoft_ServiceBus_Messaging_CloseReason_)
 * [ProcessEventsAsync](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor#Microsoft_ServiceBus_Messaging_IEventProcessor_ProcessEventsAsync_Microsoft_ServiceBus_Messaging_PartitionContext_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__)
 
-若要啟動事件處理，請將 [EventProcessorHost][] 具現化，其中需為事件中樞提供適當的參數。 接著，呼叫 [RegisterEventProcessorAsync](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost#Microsoft_ServiceBus_Messaging_EventProcessorHost_RegisterEventProcessorAsync__1) 以向執行階段註冊 [IEventProcessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) 實作。 此時，主機會嘗試使用「窮盡」演算法來取得事件中樞內每個磁碟分割的租用。 這些租用將延續一段指定時間，然後必須更新。 本案例中，當新節點上線時，背景工作執行個體會保留租用，而每當取得更多租用的嘗試發生時，負載會隨著在節點之間轉移。
+若要啟動事件處理，請將 [EventProcessorHost][] 具現化，其中需為事件中樞提供適當的參數。 接著，呼叫 [RegisterEventProcessorAsync](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost#Microsoft_ServiceBus_Messaging_EventProcessorHost_RegisterEventProcessorAsync__1) 以向執行階段註冊 [IEventProcessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) 實作。 此時，主機會嘗試使用「窮盡」演算法來取得事件中樞內每個資料分割的租用。 這些租用會延續一段指定時間，然後必須更新。 本案例中，當新節點上線時，背景工作執行個體會保留租用，而每當取得更多租用的嘗試發生時，負載會隨著在節點之間轉移。
 
 ![事件處理器主機](./media/event-hubs-programming-guide/IC759863.png)
 
@@ -178,7 +178,7 @@ while(receive)
 [EventProcessorHost][] 類別還能實作以 Azure 儲存體為基礎的檢查點機制。 這項機制能儲存每個磁碟分割的位移，方便各個消費者判斷前一個消費者的最後一個檢查點。 由於資料分割會透過租用在節點之間轉換，因此這是能促進負載移位的同步處理機制。
 
 ## <a name="publisher-revocation"></a>發佈者撤銷
-除了 [EventProcessorHost][]的進階執行階段功能之外，「事件中樞」還能讓您撤銷發佈者，以防止特定發佈者將事件傳送到到事件中樞。 當發佈者權杖遭到洩露，或軟體更新造成發佈者出現不當行為時，這些功能特別有用。 在這些情況下，您可以封鎖發佈者 SAS 權杖中的發佈者身分識別，避免它們發佈事件。
+除了 [EventProcessorHost][]的進階執行階段功能之外，「事件中樞」還能讓您撤銷發佈者，以防止特定發佈者將事件傳送到到事件中樞。 當發行者權杖遭到洩露，或軟體更新造成發佈者出現不當行為時，這些功能很有用。 在這些情況下，您可以封鎖發佈者 SAS 權杖中的發佈者身分識別，避免它們發佈事件。
 
 如需有關發佈者撤銷，以及如何以發佈者身分傳送到事件中樞的詳細資訊，請參閱[事件中樞大規模安全發佈](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab)範例。
 

@@ -3,17 +3,17 @@ title: "使用 Azure 原則來建立和管理原則以強制執行組織相容�
 description: "使用 Azure 原則來強制執行標準、符合法規合規性與稽核需求、控制成本、維護安全性與效能一致性，並且強制整個企業的設計原則。"
 services: azure-policy
 keywords: 
-author: Jim-Parker
-ms.author: jimpark
-ms.date: 11/01/2017
+author: bandersmsft
+ms.author: banders
+ms.date: 11/17/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 63e8e4d3dbbc2e50b55f7e293d324ceed0484bb7
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 517f85307e97c1e98a84da95cb51660d6d4fe679
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>建立和管理原則來強制執行相容性
 
@@ -386,7 +386,7 @@ az policy definition list
 
 ## <a name="resolve-a-non-compliant-or-denied-resource"></a>解決不相容或拒絕的資源
 
-遵循上述的範例，在指派原則定義需要 SQL Server 12.0 版之後，使用不同版本建立的 SQL Server 就會遭到拒絕。 在本節中，我們會逐步解決建立不同版本 SQL Server 的被拒絕嘗試。
+遵循上述的範例，在指派原則定義需要 SQL Server 12.0 版之後，使用不同版本建立的 SQL Server 就會遭到拒絕。 在本節中，我們會藉由要求排除，逐步解決建立不同版本 SQL Server 的被拒絕嘗試。
 
 1. 選取左窗格中的 [指派]。
 2. 瀏覽所有原則指派，並啟動 [需要 SQL Server 12.0 版] 指派。

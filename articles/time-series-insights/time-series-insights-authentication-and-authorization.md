@@ -1,5 +1,5 @@
 ---
-title: "如何為呼叫 Azure Time Series Insights API 的自訂應用程式設定驗證和授權 | Microsoft Docs"
+title: "如何在 Azure Time Series Insights 中設定 API 的驗證和授權"
 description: "本文說明如何為呼叫 Azure Time Series Insights API 的自訂應用程式設定驗證和授權。"
 services: time-series-insights
 ms.service: time-series-insights
@@ -11,12 +11,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 7772f6be0c60c1c2e59499d46e3c56975053e551
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/21/2017
+ms.openlocfilehash: cab37f65541ecf8bfa58edcd40df0aed39b37680
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API 的驗證和授權
 
@@ -26,13 +26,13 @@ ms.lasthandoff: 11/15/2017
 
 本節說明如何設定應用程式，以代表應用程式存取時 Time Series Insights API。 此應用程式可接著在 Time Series Insights 環境中，使用應用程式認證 (而非使用者認證) 來查詢資料或發佈參考資料。
 
-如果您擁有需要存取 Time Series Insights 的應用程式，您必須在 Time Series Insights 環境中設定一個 Active Directory 應用程式並指派資料存取原則。 以您自己的認證執行 App 是比較好的作法，因為︰
+如果您擁有需要存取 Time Series Insights 的應用程式，就必須在 Time Series Insights 環境中設定一個 Active Directory 應用程式並指派資料存取原則。 以您自己的認證執行 App 是比較好的作法，因為︰
 
-* 您可以對 App 身分識別指派不同於自有權限的權限。 一般而言，這些權限只會限制為 App 必須執行的確切權限。 例如，您可允許應用程式僅讀取特定 Time Series Insights 環境中的資料。
+* 您可以對 App 身分識別指派不同於自有權限的權限。 一般而言，這些權限只會限制為 App 所需的權限。 例如，您可允許應用程式僅讀取特定 Time Series Insights 環境中的資料。
 * 如果您的職責變更，就不需要變更應用程式的認證。
 * 您可以在執行自動指令碼時，使用憑證或應用程式金鑰自動進行驗證。
 
-本文說明如何透過 Azure 入口網站執行這些步驟。 其中著重在說明單一租用戶應用程式，此應用程式的目的是只在一個組織內執行。 您通常會將單一租用戶應用程式用在組織內執行的企業營運系統應用程式。
+本主題說明如何透過 Azure 入口網站執行這些步驟。 其中著重在說明單一租用戶應用程式，此應用程式的目的是只在一個組織內執行。 您通常會將單一租用戶應用程式用在組織內執行的企業營運系統應用程式。
 
 設定流程是由三個高階步驟所組成：
 
@@ -103,5 +103,7 @@ ms.lasthandoff: 11/15/2017
 
 ## <a name="next-steps"></a>後續步驟
 - 如需呼叫 Time Series Insights API 的範例程式碼，請參閱[使用 C# 查詢資料](time-series-insights-query-data-csharp.md)。
-- 如需 API 參考資訊，請參閱[查詢 API 參考](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
-- [在 Azure 入口網站中建立服務主體](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+- 如需 API 參考資訊，請參閱[查詢 API 參考](/rest/api/time-series-insights/time-series-insights-reference-queryapi)。
+
+> [!div class="nextstepaction"]
+> [建立服務主體](../azure-resource-manager/resource-group-create-service-principal-portal.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: 2d2cc04887d90b9f005bfe5310a9ce2fb2f7e217
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69b8ec86f764077a0e6d029f7c540fa25d022a31
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Microsoft Azure 簡介
 Microsoft Azure 是 Microsoft 的公用雲端應用程式平台。  即使您對雲端運算一無所知，本文旨在提供了解 Azure 基本概念的通用基礎。
@@ -77,7 +77,7 @@ Azure 有個稱為 [管理入口網站](http://manage.windowsazure.com) 的 Web 
 
 這正是 Web Apps 所提供的功能。 此計算模型會使用 Azure 管理入口網站和 API，提供一個受管理的 Web 環境。 您可以將現有的網站應用程式原封不動地移到 Web Apps 中，也可以直接在雲端建立新的網站應用程式。 一旦網站開始執行，您就可以可動態新增或移除執行個體，並依賴 Azure Web Apps 來平衡各項要求的負載。 Azure Apps 提供了共用選項和標準選項，前者可讓您的網站與其他網站一起在虛擬機器中執行，而後者則允許網站在自己的 VM 中執行。 標準選項還可讓您視需要增加執行個體的大小 (運算能力)。
 
-對於開發目的而言，Web Apps 支援 .NET、PHP、Node.js、Java 和 Python 以及可用於關聯式儲存的 SQL Database 和 MySQL (來自 Microsoft 的合作夥伴 ClearDB)。 此外，它還提供了好幾個熱門應用程式 (包括 WordPress、Joomla 和 Drupal) 的內建支援。 目標是要提供一個低成本、可擴充且用途廣泛的平台，以供在公用雲端中建立網站和 Web 應用程式使用。
+對於開發目的而言，Web Apps 支援 .NET、PHP、Node.js、Java 和 Python 以及可用於關聯式儲存的 SQL Database 和適用於 MySQL 的 Azure 資料庫。 此外，它還提供了好幾個熱門應用程式 (包括 WordPress、Joomla 和 Drupal) 的內建支援。 目標是要提供一個低成本、可擴充且用途廣泛的平台，以供在公用雲端中建立網站和 Web 應用程式使用。
 
 **Web Apps 案例**
 

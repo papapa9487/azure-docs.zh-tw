@@ -7,11 +7,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: bed026e8f75618403efa3eed475371d1d2746bc5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a0b014fe57f3e9d2ceeac94f3570353a9a07b27
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="data-source-wizard"></a>資料來源精靈 #
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 ![步驟 1](media/data-source-wizard/step1.png)
 
 ## <a name="step-3-select-data-file"></a>步驟 3：選取資料檔案 ##
-針對檔案/目錄，指定檔案路徑。 從下拉式清單中選擇資料的位置，它可能是本機檔案路徑、Azure Blob 儲存體或 Azure Data Lake。 
+針對檔案/目錄，指定檔案路徑。 從下拉式清單中選擇資料的位置，它可能是本機檔案路徑或 Azure Blob 儲存體。 
 
 使用下列方法指定路徑：輸入路徑或按一下 [瀏覽...] 按鈕來瀏覽該路徑。 您可以瀏覽目錄或是一或多個檔案。
 

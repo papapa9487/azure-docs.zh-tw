@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 11/17/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 25fd7ca3a7a6f2bd9b361bd459a707bad49449e4
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: ee6d649ac1ab0813098b13750ccc1f6ebf82f684
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Azure Cosmos DB .NET SDK：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -51,10 +51,15 @@ ms.lasthandoff: 11/13/2017
 </table></br>
 
 ## <a name="release-notes"></a>版本資訊
+### <a name="a-name11911191"></a><a name="1.19.1"/>1.19.1
+
+* 新增能力以使用 DocumentCollection 上的 UniqueKeyPolicy 屬性，指定文件的唯一索引。
+* 修正自訂 JsonSerializer 設定針對一些查詢和預存程序執行不被接受的錯誤。
+
 ### <a name="a-name11901190"></a><a name="1.19.0"/>1.19.0
 
 * 在 API 參考文件、組件中的中繼資料資訊，以及 NuGet 封裝中，將商標從 Azure DocumentDB 變更為 Azure Cosmos DB。 
-* 公開以直接連線模式傳送之請求的回應的診斷資訊和延遲。 屬性名稱是 ResourceResponse 類別上的 RequestDiagnosticsString 和 RequestLatency。
+* 將以直接連線模式傳送之請求的回應之診斷資訊和延遲加以公開。 屬性名稱是 ResourceResponse 類別上的 RequestDiagnosticsString 與 RequestLatency。
 * 此 SDK 版本需要從 https://aka.ms/cosmosdb-emulator 下載之最新版本的 Azure Cosmos DB 模擬器。 
 
 ### <a name="a-name11811181"></a><a name="1.18.1"/>1.18.1 
@@ -270,6 +275,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [1.19.1](#1.19.1) |2017 年 11 月 16 日 |--- |
 | [1.19.0](#1.19.0) |2017 年 11 月 10 日 |--- |
 | [1.18.1](#1.18.1) |2017 年 11 月 7 日 |--- |
 | [1.18.0](#1.18.0) |2017 年 10 月 17 日 |--- |

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c8e598159d2139397952a5c11eac54dc38939f47
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c4966f3ddc95a7e7c97d09cd45abdb8443601b74
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="create-a-java-application"></a>建立 Java 應用程式
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理微服務與容器。 
@@ -83,7 +83,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 合作對象叢集是 Azure 上裝載的免費、限時 Service Fabric 叢集。 這類叢集是由任何人皆可部署應用程式並了解平台的 Service Fabric 小組所執行。 若要存取合作對象叢集，請[遵循指示](http://aka.ms/tryservicefabric)。 
 
-如需建立您自己叢集的資訊，請參閱[在 Azure 上建立您的第一個 Service Fabric 叢集](service-fabric-get-started-azure-cluster.md)。
+如需建立您自己叢集的資訊，請參閱[在 Azure 上建立您的 Service Fabric 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)。
 
 > [!Note]
 > Web 前端服務設定為在連接埠 8080 上接聽傳入流量。 請確定您的叢集中已開啟該連接埠。 如果您使用合作對象叢集，此連接埠已開啟。
@@ -147,5 +147,5 @@ Service Fabric Explorer 會在所有 Service Fabric 叢集中執行，並可從�
 > * 跨多個節點相應放大應用程式
 
 * 深入了解[使用 Eclipse 偵錯 Java 上的服務](service-fabric-debugging-your-application-java.md)
-* 深入了解[使用 Jenkins 設定連續整合及部署](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+* 深入了解[使用 Jenkins 設定連續整合及部署](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 * 簽出其他 [Java 範例](https://github.com/Azure-Samples/service-fabric-java-getting-started)

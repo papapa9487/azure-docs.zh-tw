@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: juliako
-ms.openlocfilehash: 33507d76839567c830c9e8152eeac70d5c0f2b7b
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 5b8f2d750c3330fb05f5529c3e3549d8e06e5e4e
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>動態加密：設定內容金鑰授權原則
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -184,9 +184,6 @@ Open 限制表示系統將會傳送金鑰給提出金鑰要求的任何人。 �
 本節描述如何建立內容金鑰授權原則，然後建立它與內容金鑰的關聯。 授權原則描述必須符合哪些授權需求，以判斷使用者是否有權接收金鑰 (例如，「驗證金鑰」清單是否包含簽署權杖用的金鑰)。
 
 若要設定 token 限制選項，您需要使用 XML 來描述權杖的授權需求。 token 限制組態 XML 必須符合下列 XML 結構描述。
-
-> [!NOTE]
-> 內容金鑰授權原則的權杖限制尚無法在服務中使用。
 
 
 #### <a id="schema"></a>Token 限制結構描述
@@ -428,9 +425,14 @@ Open 限制表示系統將會傳送金鑰給提出金鑰要求的任何人。 �
     public enum ContentKeyRestrictionType
     {
         Open = 0,
-        TokenRestricted = 1, // Not supported, reserved for future
-        IPRestricted = 2,
+        TokenRestricted = 1, 
+        IPRestricted = 2, // IP restriction on content key is not currently supported, reserved for future.
     }
+
+
+> [!NOTE]
+> 內容金鑰授權原則的 IP 限制尚無法在服務中使用。
+
 
 ### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
     public enum ContentKeyDeliveryType

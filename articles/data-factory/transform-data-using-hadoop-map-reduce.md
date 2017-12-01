@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: shengc
-ms.openlocfilehash: b473ba03b8b700b3123f82343e59a1ed897c4189
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c022d1c091fdd1b1e4d16270467c7191fc24ae3
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Hadoop MapReduce 活動轉換資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,7 +53,6 @@ Data Factory [管線](concepts-pipelines-activities.md) 中的 HDInsight MapRedu
             "type": "LinkedServiceReference"
         },
         "jarFilePath": "MyAzureStorage/jars/sample.jar",
-        "jarlibs": "MyAzureStorage/jars/jar1",
         "getDebugInfo": "Failure",
         "arguments": [
           "-SampleHadoopJobArgument1"
@@ -76,7 +75,7 @@ Data Factory [管線](concepts-pipelines-activities.md) 中的 HDInsight MapRedu
 | className         | 要執行的類別名稱         | 是      |
 | jarLinkedService  | Azure 儲存體連結服務用來儲存 Jar 檔案的參考。 如果您未指定這項連結服務，則會使用 HDInsight 已連結的服務中定義的 Azure 儲存體已連結的服務。 | 否       |
 | jarFilePath       | 提供儲存在 jarLinkedService 引用之 Azure 儲存體中 Jar 檔案的路徑。 檔案名稱有區分大小寫。 | 是      |
-| jarlibs           | 提供儲存在 jarLinkedService 引用之 Azure 儲存體中作業所參考的 Jar 程式庫檔路徑。 檔案名稱有區分大小寫。 | 否       |
+| jarlibs           | 儲存在 jarLinkedService 引用之 Azure 儲存體中作業所參考的 Jar 程式庫檔路徑字串陣列。 檔案名稱有區分大小寫。 | 否       |
 | getDebugInfo      | 指定何時將記錄檔複製到 HDInsight 叢集所使用 (或) jarLinkedService 所指定的 Azure 儲存體。 允許的值︰None、Always 或 Failure。 預設值：None。 | 否       |
 | arguments         | 指定 Hadoop 作業的引數陣列。 引數會以命令列引數的方式傳遞給每項工作。 | 否       |
 | 定義           | 指定參數作為機碼/值組，以供在 Hive 指令碼內參考。 | 否       |

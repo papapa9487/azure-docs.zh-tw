@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 28ceb7345c0d74e2a7d7911d5b4bf24a0ceb214a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: fdb4180ce11b29577299e329869144e99ead0f05
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>在 Microsoft Azure Stack 上使用 MySQL 資料庫
 
@@ -40,9 +40,10 @@ ms.lasthandoff: 11/11/2017
 - 為您建立 MySQL 伺服器
 - 從 Marketplace 下載和部署 MySQL Server。
 
-![NOTE] 安裝在多節點 Azure Stack 上的任何主控伺服器，必須透過租用戶訂用帳戶建立。 無法從預設提供者訂用帳戶加以建立。 也就是說，必須透過租用戶入口網站或透過具有適當登入的 PowerShell 工作階段來加以建立。 所有主控伺服器都是可計費的 VM，而且必須具有適當的授權。 服務管理員可以是該訂用帳戶的擁有者。
+> [!NOTE]
+> 安裝在多節點 Azure Stack 上的任何主控伺服器，必須透過租用戶訂用帳戶建立。 無法從預設提供者訂用帳戶加以建立。 也就是說，必須透過租用戶入口網站或透過具有適當登入的 PowerShell 工作階段來加以建立。 所有主控伺服器都是可計費的 VM，而且必須具有適當的授權。 服務管理員可以是該訂用帳戶的擁有者。
 
-### <a name="required-privileges"></a>需要的權限
+### <a name="required-privileges"></a>必要的權限
 系統帳戶必須具有下列權限：
 
 1.  資料庫：建立、卸除
@@ -60,6 +61,9 @@ ms.lasthandoff: 11/11/2017
     b. 在多節點系統上，主機必須是可存取特殊權限端點的系統。
 
 3. [下載 MySQL 資源提供者二進位檔案](https://aka.ms/azurestackmysqlrp)，並執行自我解壓縮程式將內容解壓縮至暫存目錄。
+
+    > [!NOTE]
+    > 如果您是在 Azure Stack 組建 20170928.3 或更早版本上執行，請[下載這個版本](https://aka.ms/azurestackmysqlrp1709)。
 
 4.  Azure Stack 根憑證是從特殊權限端點擷取。 對於 ASDK，系統會在此程序的執行過程中建立自我簽署憑證。 對於多節點，您必須提供適當的憑證。
 
@@ -98,8 +102,12 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
-$domain = 'AzureStack'
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
 # Point to the directory where the RP installation files were extracted
 $tempDir = 'C:\TEMP\MYSQLRP'
 
@@ -122,17 +130,18 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 # Run the installation script from the folder where you extracted the installation files
 # Find the ERCS01 IP address first and make sure the certificate
 # file is in the specified directory
-.$tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
+. $tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
   -VMLocalCredential $vmLocalAdminCreds `
   -CloudAdminCredential $cloudAdminCreds `
-  -PrivilegedEndpoint '10.10.10.10' `
-  -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert `
   -AcceptLicense
 
  ```
 
-### <a name="deploymysqlproviderps1-parameters"></a>DeployMySqlProvider.ps1 參數
 
+### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 參數
 您可以在命令列中指定這些參數。 如果未這麼做，或任何參數驗證失敗，系統會提示您提供必要參數。
 
 | 參數名稱 | 說明 | 註解或預設值 |
@@ -153,7 +162,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 根據系統效能和下載速度，安裝可能需要少至 20 分鐘或長達幾小時的時間。 如果無法使用 MySQLAdapter 刀鋒視窗，請重新整理管理員入口網站。
 
 > [!NOTE]
-> 如果安裝需要超過 90 分鐘，它可能會失敗，並在畫面和記錄檔中看到失敗訊息。 部署會從失敗的步驟開始重試。 記憶體及 vCPU 規格不符合建議的系統可能無法部署 MySQL RP。
+> 如果安裝需要超過 90 分鐘，它可能會失敗，並在畫面和記錄檔中看到失敗訊息。 部署會從失敗的步驟開始重試。 不符合建議的記憶體及核心規格的系統可能無法部署 MySQL RP。
 
 
 
@@ -189,14 +198,15 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
     - 資料庫容量
     - 自動備份
     - 為個別部門保留高效能伺服器
-    - 依此類推。
-    SKU 名稱應反映屬性，讓租用戶可適當地安置其資料庫。 且 SKU 中的所有主控伺服器都應具有相同的功能。
+ 
 
-    ![建立 MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
+SKU 名稱應反映屬性，讓租用戶可適當地安置其資料庫。 且 SKU 中的所有主控伺服器都應具有相同的功能。
+
+![建立 MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
 
 >[!NOTE]
-最多需要一小時才能在入口網站中看到 SKU。 在建立 SKU 前，您無法建立資料庫。
+> 最多需要一小時才能在入口網站中看到 SKU。 在建立 SKU 前，您無法建立資料庫。
 
 
 ## <a name="to-test-your-deployment-create-your-first-mysql-database"></a>若要測試您的部署，請建立第一個 MySQL 資料庫
@@ -231,17 +241,17 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 在 Azure Stack 入口網站中新增額外的 MySQL 伺服器來新增容量。 可以將其他伺服器新增至新的或現有的 SKU。 確定伺服器特性都相同。
 
 
-## <a name="making-mysql-databases-available-to-tenants"></a>將 MySQL 資料庫提供給租用戶使用
+## <a name="make-mysql-databases-available-to-tenants"></a>將 MySQL 資料庫提供給租用戶使用
 建立方案和產品，讓租用戶使用 MySQL 資料庫。 新增 Microsoft.MySqlAdapter 服務、新增配額等等。
 
 ![建立方案和產品來加入資料庫](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png)
 
-## <a name="updating-the-administrative-password"></a>更新系統管理密碼
+## <a name="update-the-administrative-password"></a>更新系統管理密碼
 您可以先在 MySQL 伺服器執行個體上變更它來修改密碼。 瀏覽至 [管理資源] &gt; [MySQL 主控伺服器] &gt; 然後按一下主控伺服器。 在 [設定] 面板中，按一下 [密碼]。
 
 ![更新管理員密碼](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 
-## <a name="removing-the-mysql-adapter-resource-provider"></a>移除 MySQL 介面卡資源提供者
+## <a name="remove-the-mysql-resource-provider-adapter"></a>移除 MySQL 資源提供者配接器
 
 若要移除資源提供者，必須先移除任何相依性。
 
@@ -263,6 +273,5 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 
 ## <a name="next-steps"></a>後續步驟
-
 
 嘗試其他 [PaaS 服務](azure-stack-tools-paas-services.md)，如 [SQL Server 資源提供者](azure-stack-sql-resource-provider-deploy.md)和[應用程式服務資源提供者](azure-stack-app-service-overview.md)。

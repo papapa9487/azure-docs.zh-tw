@@ -1,6 +1,6 @@
 ---
 title: "Azure 中的高可用性連接埠概觀 | Microsoft Docs"
-description: "深入了解內部負載平衡器上的高可用性連接埠負載平衡"
+description: "深入了解內部負載平衡器上的高可用性連接埠負載平衡。"
 services: load-balancer
 documentationcenter: na
 author: rdhillon
@@ -15,76 +15,75 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: e72fc0d4323f7a2d203fee66311c3fea10ad7a09
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 7a77e6ecbf59944c62aa4ae014bf5b8a5a7f7f1f
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="high-availability-ports-overview-preview"></a>高可用性連接埠概觀 (預覽)
+# <a name="high-availability-ports-overview"></a>高可用性連接埠概觀
 
-Azure Load Balancer Standard 導入了新的功能，可在使用內部負載平衡器時，同時對所有連接埠上的 TCP 和 UDP 流量進行負載平衡。 
+Azure Load Balancer Standard 可協助您在使用內部負載平衡器時，同時對所有連接埠上的 TCP 和 UDP 流量進行負載平衡。 
 
 >[!NOTE]
-> Load Balancer Standard 有提供「高可用性連接埠」功能，且目前為預覽版。 在預覽階段，功能可能沒有與正式發行版本功能相同層級的可用性和可靠性。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 必須註冊 Load Balancer Standard 預覽版，才能將「HA 連接埠」與 Load Balancer Standard 資源搭配使用。 除了 Load Balancer [Standard 預覽版](https://aka.ms/lbpreview#preview-sign-up)之外，請也依照指示進行註冊。
+> Load Balancer Standard 有提供高可用性 (HA) 連接埠功能，目前為預覽版。 在預覽階段，功能可能沒有與正式運作版功能相同層級的可用性和可靠性。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 註冊 Load Balancer Standard 預覽版，將 HA 連接埠與 Load Balancer Standard 資源搭配使用。 遵循指示以註冊 Load Balancer [Standard 預覽版](https://aka.ms/lbpreview#preview-sign-up)。
 
-HA 連接埠規則是內部 Load Balancer Standard 上所設定之負載平衡規則的變化。  案例則會簡化，以提供單一 LB 規則來將抵達內部 Load Balancer Standard 前端所有連接埠的所有 TCP 和 UDP 流量進行負載平衡。 系統會根據來源 IP 位址、來源連接埠、目的地 IP 位址、目的地連接埠和通訊協定所構成的五 Tuple，來決定每個流量的負載平衡。
+HA 連接埠規則是內部 Load Balancer Standard 上所設定之負載平衡規則的變化。 您可以藉由提供單一規則來將抵達內部 Load Balancer Standard 所有連接埠的所有 TCP 和 UDP 流量進行負載平衡，以簡化對於 Load Balancer 的使用。 每次流量都會進行負載平衡決策。 決策是根據下列五個 Tuple 連線：來源 IP 位址、來源連接埠、目的地 IP 位址、目的地連接埠和通訊協定。
 
-HA 連接埠可實現虛擬網路內網路虛擬設備 (NVA) 之高可用性和縮放之類的重要案例，以及必須負載平衡大量連接埠的其他案例。 
+HA 連接埠功能可協助您進行重要案例，例如虛擬網路內網路虛擬設備 (NVA) 的高可用性和調整。 它也可以在必須負載平衡大量連接埠時提供協助。 
 
-若要設定 HA 連接埠，您可以將前端和後端連接埠設定為 **0**，並將通訊協定設定為**全部**。  內部負載平衡器資源現在會平衡所有 TCP 和 UDP 流量，而不會理會連接埠號碼。
+當您將前端和後端設定為 [0]，以及將通訊協定設定為 [全部] 時，會設定 HA 連接埠功能。 然後內部負載平衡器資源會平衡所有 TCP 和 UDP 流量，而不會理會連接埠號碼。
 
-## <a name="why-use-ha-ports"></a>為何要使用 HA 連接埠
+## <a name="why-use-ha-ports"></a>為何要使用 HA 連接埠？
 
 ### <a name="nva"></a>網路虛擬設備
 
-您可以使用網路虛擬設備 (NVA) 來保護您的 Azure 工作負載，使其不會遭受多個類型的安全性威脅。 當您在這些案例中使用 NVA 時，它們必須具有可靠性、高可用性，並可依需要相應放大。
+您可以使用 NVA 來保護您的 Azure 工作負載，使其不會遭受多個類型的安全性威脅。 當您在這些案例中使用 NVA 時，它們必須具有可靠性、高可用性，並可依需要相應放大。
 
-要在您的案例中達成這些目標，您只需要將 NVA 執行個體新增至 Azure 內部負載平衡器的後端集區，並設定 HA 連接埠負載平衡器規則即可。
+若要達成這些目標，您只需要將 NVA 執行個體新增至 Azure 內部負載平衡器的後端集區，並設定 HA 連接埠負載平衡器規則即可。
 
 HA 連接埠可為 NVA HA 案例提供幾個好處：
 - 透過執行個體健康情況探查快速容錯移轉至狀況良好的執行個體
 - 透過相應放大為 n-active 執行個體而提升效能
-- n-active 和主動-被動案例
-- 不需要使用複雜的解決方案 (例如，Zookeeper 節點) 來監視設備
+- N-active 和主動-被動案例
+- 不需要使用複雜的解決方案 (例如，Apache ZooKeeper 節點) 來監視設備
 
-下列範例顯示中樞和輪輻虛擬網路部署，在此部署中，輪輻會強制讓其流量先經由通道透過 NVA 流往中樞虛擬網路，然後才離開受信任的空間。 在 HA 連接埠組態中，NVA 位於內部 Load Balancer Standard 後面。  所有流量皆可據以處理並轉送。 
+下圖顯示中樞和支點虛擬網路部署。 支點會強制將其通道導向中樞虛擬網路並且透過 NVA，然後再退出信任的空間。 在 HA 連接埠設定中，NVA 位於內部 Load Balancer Standard 後面。 所有流量皆可據以處理並轉送。
 
-![HA 連接埠範例](./media/load-balancer-ha-ports-overview/nvaha.png)
+![中樞和支點虛擬網路 (具有以 HA 模式部署的 NVA)](./media/load-balancer-ha-ports-overview/nvaha.png)
 
-圖 1 - 中樞和輪輻虛擬網路 (具有以 HA 模式部署的 NVA)
-
-如果您使用網路虛擬設備，請與個別提供者確認如何以最佳方式使用 HA 連接埠，以及所支援的案例有哪些。
+>[!NOTE]
+> 如果您使用 NVA，請與個別提供者確認如何以最佳方式使用 HA 連接埠，以及所支援的案例有哪些。
 
 ### <a name="load-balancing-large-numbers-of-ports"></a>負載平衡大量連接埠
 
-您也可以對需要負載平衡大量連接埠的應用程式案例使用 HA 連接埠。 這些案例可以使用內部 [Load Balancer Standard](https://aka.ms/lbpreview) 與 HA 連接埠來簡化，利用單一負載平衡規則取代多個個別的負載平衡規則，並讓每個連接埠有一個這樣的規則。
+您也可以對需要負載平衡大量連接埠的應用程式使用 HA 連接埠。 您可以藉由使用具有 HA 連接埠的內部 [Load Balancer Standard](https://aka.ms/lbpreview)，來簡化這些案例。 單一負載平衡規則會取代多個個別的負載平衡規則，每個連接埠一個規則。
 
 ## <a name="region-availability"></a>區域可用性
 
-HA 連接埠可在[和 Load Balancer Standard 相同的區域](https://aka.ms/lbpreview#region-availability)中取得。  
+HA 連接埠功能可在[和 Load Balancer Standard 相同的區域](https://aka.ms/lbpreview#region-availability)中取得。  
 
 ## <a name="preview-sign-up"></a>註冊預覽
 
-若要參加 Load Balancer Standard 中 HA 連接埠功能的預覽，請使用 Azure CLI 2.0 或 PowerShell 來註冊您的訂用帳戶以獲得存取。  遵循下列三個步驟：
+若要參加 Load Balancer Standard 中 HA 連接埠功能的預覽，請註冊您的訂用帳戶以獲得存取。 您可以使用 Azure CLI 2.0 或 PowerShell。
 
 >[!NOTE]
->若要使用此功能，除了「HA 連接埠」之外，您必須也註冊 Load Balancer [Standard 預覽版](https://aka.ms/lbpreview#preview-sign-up)。 註冊「HA 連接埠」或 Load Balancer Standard 預覽版最多可能需要一小時的時間。
+>若要使用此功能，除了 HA 連接埠功能之外，您也必須註冊 Load Balancer [Standard 預覽版](https://aka.ms/lbpreview#preview-sign-up)。 註冊最多需要 1 小時。
 
-### <a name="sign-up-using-azure-cli-20"></a>使用 Azure CLI 2.0 註冊
+### <a name="sign-up-by-using-azure-cli-20"></a>使用 Azure CLI 2.0 來進行註冊
 
-1. 向提供者註冊功能
+1. 向提供者註冊功能：
     ```cli
     az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network
     ```
     
-2. 上述作業最多可能需要 10 分鐘的時間才能完成。  您可以使用下列命令來檢查作業狀態：
+2. 上述作業最多可能需要 10 分鐘的時間才能完成。 您可以使用下列命令來檢查作業狀態：
 
     ```cli
     az feature show --name AllowILBAllPortsRule --namespace Microsoft.Network
     ```
     
-    當功能註冊狀態傳回 'Registered' 時 (如下所示)，請繼續進行步驟 3：
+    當功能註冊狀態傳回 [已註冊] 時，作業即成功，如下所示：
    
     ```json
     {
@@ -97,25 +96,25 @@ HA 連接埠可在[和 Load Balancer Standard 相同的區域](https://aka.ms/lb
     }
     ```
     
-3. 請向資源提供者重新註冊您的訂用帳戶，以完成預覽版註冊：
+3. 向資源提供者重新註冊您的訂用帳戶，以完成預覽版註冊：
 
     ```cli
     az provider register --namespace Microsoft.Network
     ```
     
-### <a name="sign-up-using-powershell"></a>使用 PowerShell 註冊
+### <a name="sign-up-by-using-powershell"></a>使用 PowerShell 來進行註冊
 
-1. 向提供者註冊功能
+1. 向提供者註冊功能：
     ```powershell
     Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
     ```
     
-2. 上述作業最多可能需要 10 分鐘的時間才能完成。  您可以使用下列命令來檢查作業狀態：
+2. 上述作業最多可能需要 10 分鐘的時間才能完成。 您可以使用下列命令來檢查作業狀態：
 
     ```powershell
     Get-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
     ```
-    當功能註冊狀態傳回 'Registered' 時 (如下所示)，請繼續進行步驟 3：
+    當功能註冊狀態傳回 [已註冊] 時，作業即成功，如下所示：
    
     ```
     FeatureName          ProviderName      RegistrationState
@@ -123,7 +122,7 @@ HA 連接埠可在[和 Load Balancer Standard 相同的區域](https://aka.ms/lb
     AllowILBAllPortsRule Microsoft.Network Registered
     ```
     
-3. 請向資源提供者重新註冊您的訂用帳戶，以完成預覽版註冊：
+3. 向資源提供者重新註冊您的訂用帳戶，以完成預覽版註冊：
 
     ```powershell
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
@@ -132,13 +131,13 @@ HA 連接埠可在[和 Load Balancer Standard 相同的區域](https://aka.ms/lb
 
 ## <a name="limitations"></a>限制
 
-以下是 HA 連接埠的支援組態或例外狀況：
+以下是 HA 連接埠功能的支援設定或例外狀況：
 
-- 單一前端 IP 組態可以有一個與 HA 連接埠搭配的單一 DSR 負載平衡器規則，或是一個與 HA 連接埠搭配的單一非 DSR 負載平衡器規則。 但兩者不能同時存在。
-- 單一網路介面的 IP 組態只能在 HA 連接埠建立一個非 DSR 負載平衡器規則。 此 ipconfig 不能設定任何其他規則。
-- 單一網路介面的 IP 組態可以在 HA 連接埠建立一或多個 DSR 負載平衡器規則，但前提是其各自的前端 IP 組態都是唯一的。
-- 如果所有負載平衡規則都是 HA 連接埠 (只有 DSR)，或是所有規則都是非 HA 連接埠 (DSR 與非 DSR)，則兩個 (或以上) 指向相同後端集區的負載平衡器規則可以同時存在。 如果同時使用 HA 連接埠和非 HA 連接埠規則，則兩個這類負載平衡規則不能同時存在。
-- HA 連接埠不適用於 IPv6。
+- 單一前端 IP 設定可以有一個與 HA 連接埠搭配的單一 DSR 負載平衡器規則，或是一個與 HA 連接埠搭配的單一非 DSR 負載平衡器規則。 但兩者不能同時存在。
+- 單一網路介面的 IP 設定只能在 HA 連接埠建立一個非 DSR 負載平衡器規則。 您無法針對此 ipconfig 設定任何其他規則。
+- 單一網路介面的 IP 設定可以在 HA 連接埠建立一或多個 DSR 負載平衡器規則，但前提是其各自的前端 IP 設定都是唯一的。
+- 如果所有負載平衡規則都是 HA 連接埠 (只有 DSR)，兩個 (或以上) 指向相同後端集區的負載平衡器規則可以同時存在。 如果所有規則都是非 HA 連接埠 (DSR 和非 DSR) 也成立。 但是，如果有 HA 連接埠和非 HA 連接埠規則的組合，則兩個此類負載平衡規則無法同時存在。
+- HA 連接埠功能不適用於 IPv6。
 - 只有單一 NIC 支援 NVA 案例的流程對稱。 請參閱[網路虛擬設備](#nva)的描述和圖表。 
 
 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2017
+ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 457857f44ad3081087b5843f156860c901562468
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ee100fa86d78840a3b6a6bbf9453954c054931c2
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>如何以系統管理員身分接管 Azure Active Directory 中未受管理的目錄
 本文說明接管 Azure Active Directory (Azure AD) 之未受管理目錄中 DNS 網域名稱的兩種方式。 當自助使用者註冊使用 Azure AD 的雲端服務時，系統會根據其電子郵件網域將其新增至未受管理的 Azure AD 目錄。 如需有關自助式或「病毒式」服務註冊的詳細資訊，請參閱[什麼是自助式 Azure Active Directory 註冊？]()
@@ -67,7 +67,7 @@ ms.lasthandoff: 11/04/2017
   
 6. 使用具備 Azure AD 租用戶全域管理員身分的帳戶來登入 [Azure AD 系統管理中心](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)。
   
-7. 選取 [網域名稱]，然後新增網域名稱。 您將必須輸入 DNS TXT 記錄來驗證網域名稱擁有權。 
+7. 選取 [自訂網域名稱]，然後新增網域名稱。 您將必須輸入 DNS TXT 記錄來驗證網域名稱擁有權。 
   
   ![新增至 Azure AD 的網域](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
@@ -110,7 +110,7 @@ ms.lasthandoff: 11/04/2017
 您可以在 [PowerShell 範例](#powershell-example)中看到使用這些 Cmdlet。
 
 
-Cmdlet | 使用方式 
+Cmdlet | 使用量 
 ------- | -------
 `connect-msolservice` | 出現提示時，登入您的受管理租用戶。
 `get-msoldomain` | 顯示與目前租用戶關聯的網域名稱。

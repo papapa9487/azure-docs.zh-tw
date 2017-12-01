@@ -12,35 +12,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5d55207784390a68a3b4d87f7a3d4773491d08b8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 0396c59d9d95ab71f0af04029d87afbb6e47dc35
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="discover-how-customers-are-using-your-application-with-the-application-insights-funnels"></a>使用 Application Insights 漏斗圖來探索客戶如何使用您的應用程式
 
 了解客戶體驗對於您的企業非常重要。 如果您的應用程式牽涉到多個階段，您必須了解大部分客戶是否進行了整個流程，或是在某個時間點結束流程。 在 Web 應用程式中通過一系列步驟的過程便稱為「漏斗圖」。 您可以使用 Application Insights 漏斗圖來深入了解使用者，並監視各步驟的轉換率。 
 
-## <a name="get-started-with-the-funnels-blade"></a>開始使用 [漏斗圖] 刀鋒視窗
-了解漏斗圖最簡單的方法是透過範例逐步執行。 下圖示範電子商務企業的擁有者會採取的步驟，以了解其客戶如何與 Web 應用程式互動。  
-
-### <a name="create-your-funnel"></a>建立您的漏斗圖
-建立您的漏斗圖之前，您需要決定要獲得回答的問題。 例如，您可能想知道有多少檢視首頁的客戶在廣告上按一下。 在此範例中，Fabrikam Fiber 公司的擁有者想知道上個月中，客戶將項目加入購物車後進行購買的百分比為何。
+## <a name="create-your-funnel"></a>建立您的漏斗圖
+建立您的漏斗圖之前，您需要決定要獲得回答的問題。 例如，您可能想要知道有多少使用者檢視首頁、檢視客戶設定檔和建立票證。 在此範例中，Fabrikam Fiber 公司的擁有者想要知道已成功建立客戶票證的客戶百分比。
 
 以下是他們用來建立漏斗圖所採取的步驟。
 
-1. 按一下 [漏斗圖] 刀鋒視窗上的 [新增] 按鈕。
-1. 在 [時間範圍] 下拉式清單中，選取 [上個月] 作為時間範圍。 
-1. 從 [步驟 1] 下拉式清單選取 [產品頁面] 活動。 
-1. 從 [步驟 2] 下拉式清單選取 [加入至購物車] 活動。
-1. 從 [步驟 3] 下拉式清單選取 [按一下購買] 活動。
+1. 按一下 [漏斗圖] 工具上的 [新增] 按鈕。
+1. 在 [時間範圍] 下拉式清單中，選取 [過去 90 天] 作為時間範圍。 選取 [我的漏斗圖] 或 [共用的漏斗圖]
+1. 從 [步驟 1] 下拉式清單選取 [索引] 事件。 
+1. 從 [步驟 2] 下拉式清單選取 [客戶] 事件。
+1. 從 [步驟 3] 下拉式清單選取 [建立] 事件。
 1. 新增漏斗圖的名稱，然後按一下 [儲存]。
 
-下圖示範 [漏斗圖] 刀鋒視窗產生的資料。 在這裡，Fabrikam 的擁有者可看到上星期中，將項目加入購物車的客戶有 22.7% 完成了購買。 他們也會看到有 1% 的客戶在瀏覽產品頁面之前按了一下廣告，而 20% 的客戶在完成購買之後就登出。
+下圖示範 [漏斗圖] 工具產生的資料。 Fabrikam 擁有者可以從這裡看到在過去 90 天期間，54.3% 的客戶已造訪首頁、建立客戶票證。 他們也會看到 2700 個客戶從首頁來到索引，這可能表示重新整理問題。
 
 
-![含有資料的 [漏斗圖] 刀鋒視窗](./media/app-insights-understand-usage-patterns/funnel1.png)
+![具有資料的漏斗圖工具](./media/app-insights-understand-usage-patterns/funnel1.png)
+
+### <a name="funnel-features"></a>漏斗圖功能
+1. 如果您的應用程式進行取樣，您會看到取樣橫幅。 按一下橫幅會開啟內容窗格，指示要如何關閉取樣。 
+2. 您可以將漏斗圖匯出至 [Power BI](app-insights-export-power-bi.md)。
+3. 按一下右邊的步驟以深入了解。 
+4. 歷程記錄轉換會顯示過去 90 天的轉換。 
+5. 從漏斗圖移至使用者工具，以更加了解您的使用者。 每個步驟都會給予您已策劃的使用者篩選。 
 
 ## <a name="next-steps"></a>後續步驟
   * [使用量概觀](app-insights-usage-overview.md)

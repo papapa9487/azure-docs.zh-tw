@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 042035c89d466083659176ac49fc1b470244ef61
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d43274875ca7ed3b2fe8a7d71481db27451a6080
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>與 Azure Multi-Factor Authentication 相關的常見問題
 此常見問題集回答關於 Azure Multi-Factor Authentication 和使用 Multi-Factor Authentication 服務的常見問題。 並將問題細分為一般服務問題、計費模式、使用者體驗和疑難排解。
@@ -95,7 +95,7 @@ MFA 提供者建立時，可與 Azure Active Directory (或稱為「Azure AD 租
 
 **問：我的組織是否必須使用和同步處理身分識別才能使用 Azure Multi-Factor Authentication？**
 
-如果貴組織使用根據使用量計費的模型，則 Azure Active Directory 為選擇性項目，並非必要。 如果您的 MFA 提供者未連結至 Azure AD 租用戶，您可以只將 Multi-Factor Authentication Server 或 Multi-Factor Authentication SDK 部署在內部。
+如果貴組織使用根據使用量計費的模型，則 Azure Active Directory 為選擇性項目，並非必要。 如果您的 MFA 提供者未連結至 Azure AD 租用戶，您可以只將 Multi-Factor Authentication Server 部署在內部。
 
 授權模式需要 Azure Active Directory，因為當您購買授權並指派給目錄中的使用者時，會將授權加入 Azure AD 租用戶。
 

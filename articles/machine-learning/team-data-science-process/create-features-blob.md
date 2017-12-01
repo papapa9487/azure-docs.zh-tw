@@ -4,7 +4,7 @@ description: "如何使用 Panda Python 封裝對儲存在 Azure blob 容器的�
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 676b5fb0-4c89-4516-b3a8-e78ae3ca078d
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: bradsev;garye
-ms.openlocfilehash: ea6712fcedcc61c9f88e9daa8d576ac3d202da51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a2e64927f4afca87642fb4829166c5ec60dbc09
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="create-features-for-azure-blob-storage-data-using-panda"></a>使用 Panda 建立 Azure blob 儲存體資料功能
 本文件說明如何使用 [Pandas](http://pandas.pydata.org/) Python 封裝，對儲存在 Azure blob 容器的資料建立特徵。 概述如何將資料載入 Panda 資料框架後，接著會示範如何使用 Python 指令碼，搭配指標值和分類收納特徵，以產生分類特徵。
@@ -27,11 +27,11 @@ ms.lasthandoff: 10/11/2017
 
 這個 **功能表** 所連結的主題會說明如何在各種環境中建立資料的特徵。 此工作是 [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)中的一個步驟。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本文假設您已建立 Azure Blob 儲存體帳戶，並將您的資料儲存在該處。 如需設定帳戶的指示，請參閱[建立 Azure 儲存體帳戶](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>將資料載入至 Pandas 資料框架
-若要進行探索和操作資料集，必須從 Blob 來源將資料集下載至本機檔案，然後將其載入 Pandas 資料框架中。 以下是此程序的遵循步驟：
+若要探索及操作資料集，請從 Blob 來源將資料集下載到本機檔案。 然後將它載入至 Pandas 資料框架。 以下是此程序的遵循步驟：
 
 1. 使用 Blob 服務，透過下列 Python 程式碼範例，從 Azure Blob 下載資料。 使用您的特定值來取代下列程式碼中的變數：
    
@@ -60,7 +60,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="blob-featuregen"></a>功能產生
 接下兩節會說明如何使用 Python 指令碼，產生帶有指標值和分類收納功能的分類功能。
 
-### <a name="blob-countfeature"></a>以指標值為基礎的功能產生
+### <a name="blob-countfeature"></a>以指標值為基礎的特徵產生
 類別功能可使用如下的方式來建立：
 
 1. 檢查類別資料行的分佈：
@@ -80,7 +80,7 @@ ms.lasthandoff: 10/11/2017
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
 ### <a name="blob-binningfeature"></a>分類收納功能產生
-若要產生分類收納功能，我們可使用如下的方式繼續進行：
+若要產生量化的特徵，請使用以下方式繼續進行：
 
 1. 新增一系列的資料行，以分類收納數值資料行
    
@@ -93,8 +93,8 @@ ms.lasthandoff: 10/11/2017
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)
 
-## <a name="sql-featuregen"></a>將資料寫回 Azure Blob 並在 AzureMachine Learning 中取用
-在您探索資料和建立必要功能後，可以上傳資料 (取樣性或功能性) 至 Azure Blob，並在 Azure Machine Learning 中透過下列步驟取用資料：請注意，您也可以在 Azure Machine Learning Studio 中建立其他功能。
+## <a name="sql-featuregen"></a>將資料寫回 Azure Blob 以在 Azure Machine Learning 中取用
+若要取用 Azure Machine Learning 中您已經進行探索、取樣或特徵化的資料，請將該資料上傳到 Azure Blob。 您也可以在 Azure Machine Learning Studio 中建立其他特徵。 下列步驟顯示如何上傳資料：
 
 1. 將資料框架寫入本機檔案中
    
@@ -120,7 +120,7 @@ ms.lasthandoff: 10/11/2017
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. 現在您可以使用 Azure Machine Learning [匯入資料](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) 模組從 Blob 讀取資料，如以下畫面所示：
+3. 現在您可以使用 Azure Machine Learning [匯入資料](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/)模組從 Blob 讀取資料，如以下螢幕擷取畫面所示：
 
 ![讀取器 Blob](./media/data-blob/reader_blob.png)
 

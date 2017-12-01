@@ -1,5 +1,5 @@
 ---
-title: "使用 C# 來管理 Azure Time Series Insights 環境的參考資料 | Microsoft Docs"
+title: "使用 C# 來管理 Azure Time Series Insights 環境中的參考資料 | Microsoft Docs"
 description: "本文說明如何建立使用 C# (c-sharp) .NET 語言撰寫的自訂應用程式來管理 Azure 時間序列深入解析環境的參考資料。"
 services: time-series-insights
 ms.service: time-series-insights
@@ -11,21 +11,23 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: cd4d37ae2a68be3c061706f80055efb7e5387d98
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/21/2017
+ms.openlocfilehash: fa4a115cc1199a99c7acf64281082dca5dfb8579
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>使用 C# 來管理 Azure Time Series Insights 環境的參考資料
 
-本文說明您可以編譯的 C# 範例程式碼來管理 Azure 時間序列深入解析環境的參考資料。
+本主題說明您可以編譯的 C# 範例程式碼來管理 Azure 時間序列深入解析環境的參考資料。
 
-編譯並執行範例程式碼之前，請確定已完成下列步驟：
-1. 已使用[這篇文章](time-series-insights-add-reference-data-set.md)來建立參考資料集。
+編譯及執行範例程式碼之前，您必須先完成下列步驟：
+1. [建立參考資料集](time-series-insights-add-reference-data-set.md)。
 
-2. 設定要用於授權應用程式的存取權杖。 請務必透過 Azure Active Directory API 取得該權杖。 應該在每個「查詢」API 要求的 `Authorization` 標頭中傳送此權杖。 如需了解如何設定非互動式應用程式，請參閱[驗證與授權](time-series-insights-authentication-and-authorization.md)一文。
+2. 設定應用程式的授權存取權杖。 請務必透過 Azure Active Directory API 取得該權杖。 您應該在每個查詢 API 要求的 `Authorization` 標頭中傳遞此權杖。 
+ 
+   如需如何設定非互動式應用程式的相關資訊，請參閱[驗證與授權](time-series-insights-authentication-and-authorization.md)。
 
 3. 編輯範例程式碼以取代在接近程式碼開頭之 **#DUMMY#** 所指定的範例常數。 
 
@@ -232,4 +234,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 ```
 
 ## <a name="next-steps"></a>後續步驟
-如需完整的 REST API 參考，請參閱[參考資料 API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)。
+[參考資料 API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)

@@ -4,7 +4,7 @@ description: "處理 SQL Azure 的資料"
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: bf1f4a6c-7711-4456-beb7-35fdccd46a44
 ms.service: machine-learning
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: bradsev;fashah;garye
-ms.openlocfilehash: 06c165d25361694cf660f391b3d221ad1d63e95d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd919e7f87080b8c4ad1f8d3de26d6f71470a264
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>使用 SQL 和 Python 對 SQL Server 中的資料建立功能
-本文件說明如何針對儲存在 Azure 上的 SQL Server VM 中資料產生特徵，以協助演算法更有效率地從資料學習。 使用 SQL 或使用類似 Python 的程式設計語言都可以達到此目的，以下示範這兩者。
+本文件說明如何針對儲存在 Azure 上的 SQL Server VM 中資料產生特徵，以協助演算法更有效率地從資料學習。 若要完成這項工作，您可以使用 SQL 或程式設計語言 (例如 Python)。 以下示範這兩種方法。
 
 [!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-### <a name="sql-countfeature"></a>以計數為基礎的功能產生
+### <a name="sql-countfeature">以計數作為基礎的功能產生</a>
 本文件示範兩種產生計數功能的方法。 第一種方法會使用條件式加總，而第二種方法會使用 'where' 子句。 這些接著可與原始資料表聯結 (使用主索引鍵資料行)，以具備計數功能及原始資料。
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
@@ -67,12 +67,12 @@ ms.lasthandoff: 10/11/2017
 ### <a name="sql-featurerollout"></a>從單一資料行衍生功能
 本節示範如何在資料表中衍生單一資料行來產生額外功能。 此範例假設您正嘗試從中產生功能的資料表中具有緯度或經度資料行。
 
-以下是有關經緯度位置資料的簡短入門指南 (源自 stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`)。 這有助於您在將功能化位置欄位之前先行了解：
+以下是有關經緯度位置資料的簡短入門指南 (源自 stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`)。 從欄位建立功能之前，請先了解以下一些關於位置資料的實用事項：
 
-* 正負號告訴我們是否位於地球的北方或南方、東方或西方。
-* 非零的數百個位數告訴我們使用的是經度，而不是緯度！
-* 數十個位數可提供大約 1,000 公里的位置。 它會為我們提供身處哪個大陸或海洋的實用資訊。
-* 單位數 (一個十進位度數) 提供一個最多可達 111 公里 (60 海浬，大約 69 英哩) 的位置。 它會告知我們大致上位於哪一個大的州或國家/地區中。
+* 正負號表示是位於地球的北方或南方、東方或西方。
+* 非零的數百個數字表示經度，而非使用緯度。
+* 數十個位數可提供大約 1,000 公里的位置。 它會提供身處哪個大陸或海洋的實用資訊。
+* 單位數 (一個十進位度數) 提供一個最多可達 111 公里 (60 海浬，大約 69 英哩) 的位置。 它表示大致上位於哪一個大的州或國家/地區中。
 * 第一個小數點最多可達 11.1 km：它能夠分辨某一個大型縣 (市) 的位置與鄰近的大型縣 (市)。
 * 第二個小數位數最多可達 1.1 km：它可以將某一個村莊與下一個村莊分隔開來。
 * 第三個小數位數最多可達 110 m：它可以識別大型農場或學術機構校區。
@@ -80,7 +80,7 @@ ms.lasthandoff: 10/11/2017
 * 第五個小數位數最多可達 1.1 m：它會分辨彼此的樹狀結構。 您只能使用微分校正來達到此層級利用商業 GPS 單位所達到的精確度。
 * 第六個小數位數最多可達 0.11 m：您可以使用此項目來詳細配置結構，其適用於設計環境和建置道路。 比起足以追蹤冰河和河流的移動，這應該是更好的方式。 您可以採用含有 GPS 的精心度量 (例如，微分校正的 GPS) 來達成此項目。
 
-您可以使用下列方式來將位置資訊功能化，以分隔出區域、位置及縣 (市) 資訊。 請注意，一次也可以呼叫 REST 端點，例如，可在 `https://msdn.microsoft.com/library/ff701710.aspx` 上取得的 Bing Maps API，以取得區域或學區資訊。
+您可以使用將位置資訊功能化，以分隔出區域、位置及縣 (市) 資訊。 請注意，一次也可以呼叫 REST 端點，例如，可在 `https://msdn.microsoft.com/library/ff701710.aspx` 上取得的 Bing Maps API，以取得區域或學區資訊。
 
     select
         <location_columnname>
@@ -93,10 +93,10 @@ ms.lasthandoff: 10/11/2017
         ,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end     
     from <tablename>
 
-上述以位置為基礎的功能可進一步用來產生其他計數功能，如先前所述。
+這些以位置為基礎的功能可進一步用來產生其他計數功能，如先前所述。
 
 > [!TIP]
-> 您可以使用所選擇的語言，利用程式設計方式插入記錄。 您可能需要插入區塊中的資料以改善寫入效率 [在此處看看如何使用 pyodbc 來執行此動作的範例](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)。
+> 您可以使用所選擇的語言，利用程式設計方式插入記錄。 您可能需要將資料插入區塊來改善寫入效率。 [以下是如何使用 pyodbc 來執行此作業的範例](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
 > 另一個替代方式是使用 [BCP 公用程式](https://msdn.microsoft.com/library/ms162802.aspx)
 > 
 > 
@@ -104,12 +104,12 @@ ms.lasthandoff: 10/11/2017
 ### <a name="sql-aml"></a>連接到 Azure Machine Learning
 新產生的功能可當成資料行新增至現有資料表或儲存於新的資料表中，並與原始資料表加以聯結以進行機器學習服務。 如果已經建立功能，就可以使用 Azure ML 中的 [匯入資料](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) 模組來產生或存取功能，如以下所示：
 
-![azureml 讀取器](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
+![Azure ML 讀取器](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
 
 ## <a name="python"></a>使用類似 Python 的程式設計語言
-當資料位於 SQL Server 時，使用 Python 來產生功能，類似於使用 Python 來處理 Azure blob 中的資料，如 [在資料科學環境中處理 Azure Blob 資料](data-blob.md)文件所述。 資料必須從資料庫載入 Pandas 資料框架，然後就能進一步處理。 我們將在本節中說明連接到資料庫以及將資料載入資料框架的程序。
+當資料位於 SQL Server 時，使用 Python 來產生功能，類似於使用 Python 來處理 Azure blob 中的資料。 如需比較，請參閱[資料科學環境中的處理 Azure Blob 資料](data-blob.md)。 將資料從資料庫載入 pandas 資料框架來進一步加以處理。 在本節中會說明連線到資料庫以及將資料載入資料框架的程序。
 
-下列連接字串格式可用來使用 pyodbc (使用您的特定值來取代伺服器名稱、dbname、使用者名稱和密碼)，從 Python 連接到 SQL Server 資料庫：
+下列連接字串格式可用來使用 pyodbc (使用您的特定值來取代 servername、dbname、username 和 password)，從 Python 連接到 SQL Server 資料庫：
 
     #Set up the SQL Azure connection
     import pyodbc

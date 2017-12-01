@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 6e65af68dcd2306aabda65efdf8fe056c0d9b4a4
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 31ffd31b5d540617c4a7a1224e6cf0ee656c9678
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>在 Microsoft Azure Stack 上使用 SQL 資料庫
 
@@ -25,12 +25,12 @@ ms.lasthandoff: 11/11/2017
 
 使用 SQL Server 資源提供者配接器，將 SQL 資料庫公開為 [Azure Stack](azure-stack-poc.md) 的服務。 安裝資源提供者並將它連接至一或多個 SQL Server 執行個體之後，您和您的使用者可以建立：
 - 雲端原生應用程式的資料庫
-- 以 SQL 為基礎的網站
-- 基於 SQL 的工作負載。您不需要佈建每次主控 SQL Server 的虛擬機器 (VM)。
+- 以 SQL 作為基礎的網站
+- 以 SQL 作為基礎的工作負載。您不需要佈建每次主控 SQL Server 的虛擬機器 (VM)。
 
 資源提供者並未支援 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 的所有資料庫管理功能。 例如，不提供彈性資料庫集區和自動提高及降低資料庫效能的功能。 但是，資源提供者支援類似的建立、讀取、更新及刪除 (CRUD) 作業。 API 與 SQL DB 不相容。
 
-## <a name="sql-server-resource-provider-adapter-architecture"></a>SQL Server 資源提供者配接器架構
+## <a name="sql-resource-provider-adapter-architecture"></a>SQL 資源提供者配接器架構
 資源提供者由三個元件組成：
 
 - **SQL 資源提供者配接器 VM**，這是執行提供者服務的 Windows 虛擬機器。
@@ -50,6 +50,9 @@ ms.lasthandoff: 11/11/2017
     b. 在多節點系統上，主機必須是可存取特殊權限端點的系統。
 
 3. [下載 SQL 資源提供者二進位檔案](https://aka.ms/azurestacksqlrp)，並執行自我解壓縮程式將內容解壓縮至暫存目錄。
+
+    > [!NOTE]
+    > 如果您是在 Azure Stack 組建 20170928.3 或更早版本上執行，請[下載這個版本](https://aka.ms/azurestacksqlrp1709)。
 
 4. Azure Stack 根憑證是從特殊權限端點擷取。 對於 ASDK，系統會在此程序的執行過程中建立自我簽署憑證。 對於多節點，您必須提供適當的憑證。
 
@@ -85,8 +88,12 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
 $domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
 # Point to the directory where the RP installation files were extracted
 $tempDir = 'C:\TEMP\SQLRP'
 
@@ -108,7 +115,12 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Change directory to the folder where you extracted the installation files
 # and adjust the endpoints
-.$tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -CloudAdminCredential $cloudAdminCreds -PrivilegedEndpoint '10.10.10.10' -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert
+. $tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert
  ```
 
 ### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 參數
@@ -141,27 +153,25 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
       ![確認 SQL RP 的部署是否成功](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
 
 
-
-
-
-## <a name="removing-the-sql-adapter-resource-provider"></a>移除 SQL 配接器資源提供者
+## <a name="remove-the-sql-resource-provider-adapter"></a>移除 SQL 資源提供者配接器
 
 若要移除資源提供者，必須先移除任何相依性。
 
-1. 確認您有為此資源提供者版本下載的原始部署套件。
+1. 確認您有為此 SQL 資源提供者配接器版本下載的原始部署套件。
 
 2. 必須從資源提供者刪除所有使用者資料庫 (這不會刪除資料)。 必須由使用者本身執行此作業。
 
-3. 系統管理員必須從 SQL 配接器刪除主控伺服器
+3. 系統管理員必須從 SQL 資源提供者配接器刪除主控伺服器
 
-4. 系統管理員必須刪除參照 SQL 配接器的任何方案。
+4. 系統管理員必須從 SQL 資源提供者配接器刪除任何參考的方案。
 
-5. 系統管理員必須刪除與 SQL 配接器關聯的任何 SKU 和配額。
+5. 系統管理員必須刪除與 SQL 資源提供者配接器關聯的任何 SKU 和配額。
 
 6. 使用 -Uninstall 參數、Azure Resource Manager 端點、DirectoryTenantID 和服務管理員帳戶的認證，重新執行部署指令碼。
 
 
 ## <a name="next-steps"></a>後續步驟
 
+[新增主控伺服器](azure-stack-sql-resource-provider-hosting-servers.md)和[建立資料庫](azure-stack-sql-resource-provider-databases.md)。
 
 嘗試其他 [PaaS 服務](azure-stack-tools-paas-services.md)，如 [MySQL Server 資源提供者](azure-stack-mysql-resource-provider-deploy.md)和[應用程式服務資源提供者](azure-stack-app-service-overview.md)。

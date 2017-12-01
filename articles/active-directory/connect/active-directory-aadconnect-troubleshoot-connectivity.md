@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: f9631e8a383b88421c55d9c42c8059df9e732800
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa98672551a2089f1a306c838295dd1980da0bca
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>對 Azure AD Connect 的連線問題進行疑難排解
 這篇文章說明 Azure AD Connect 與 Azure AD 之間的連線的運作方式，以及如何疑難排解連線問題。 這些問題最有可能出現在具有 Proxy 伺服器的環境中。
@@ -94,6 +94,9 @@ PowerShell 會使用 machine.config 中的組態來連絡 Proxy。 winhttp/netsh
 | --- | --- | --- |
 | 403 |禁止 |Proxy 尚未對要求的 URL 開放。 重新瀏覽 Proxy 組態，並確定 [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) 已經開啟。 |
 | 407 |需要 Proxy 驗證 |Proxy 伺服器要求提供登入資訊，但並未提供任何登入資訊。 如果您的 Proxy 伺服器需要驗證，請務必在 machine.config 中進行這項設定。此外，也請確定您將網域帳戶用於執行精靈的使用者，以及用於服務帳戶。 |
+
+### <a name="proxy-idle-timeout-setting"></a>Proxy 閒置逾時設定
+當 Azure AD Connect 將匯出要求傳送至 Azure AD 時，Azure AD 在產生回應之前，可能需要 5 分鐘的時間來處理要求。 特別是當相同的匯出要求中包含多個具有大型群組成員資格的群組時，可能就會發生這個情況。 請確認 Proxy 閒置逾時設定為 5 分鐘以上。 否則，可能會在 Azure AD Connect 伺服器上觀察到 Azure AD 的間歇性連線問題。
 
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Azure AD Connect 與 Azure AD 之間的通訊模式
 如果您已依照上述這些步驟操作卻仍然無法連接，這時可以開始查看網路記錄檔。 本節說明正常和成功的連線模式。 它也會列出常見的假象，當您閱讀網路記錄檔時可以略過。

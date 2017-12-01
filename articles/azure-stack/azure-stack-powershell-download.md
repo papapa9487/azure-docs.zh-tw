@@ -14,32 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.openlocfilehash: c0a4f337c055f4b62d986e2a3c3ce7b962aceae9
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 661f24e1271b3f16fddc6426c94464dd8b388f18
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="download-azure-stack-tools-from-github"></a>從 GitHub 下載 Azure Stack 工具
 
 適用於：Azure Stack 整合系統和 Azure Stack 開發套件
 
-**AzureStack-Tools** 是裝載 PowerShell 模組的 GitHub 存放庫，可用來管理資源並部署至 Azure Stack。 如果您打算建立 VPN 連線能力，您可以將這些 PowerShell 模組下載到 Azure Stack 開發套件或以 Windows 為基礎的外部用戶端。 若要取得這些工具，請複製 GitHub 存放庫或下載 **AzureStack-Tools** 資料夾。 
-
-若要複製存放庫，請下載 [Git for Windows](https://git-scm.com/download/win)，開啟命令提示字元，然後執行下列指令碼：
-
-```PowerShell
-# Change directory to the root directory. 
-cd \
-
-# Clone the repository.
-git clone https://github.com/Azure/AzureStack-Tools.git --recursive
-
-# Change to the tools directory.
-cd AzureStack-Tools
-```
-
-若要下載工具資料夾，請執行下列指令碼：
+**AzureStack-Tools** 是裝載 PowerShell 模組的 GitHub 存放庫，可用來管理資源並部署至 Azure Stack。 如果您打算建立 VPN 連線能力，您可以將這些 PowerShell 模組下載到 Azure Stack 開發套件或以 Windows 為基礎的外部用戶端。 若要取得這些工具，請複製 GitHub 存放庫或下載 **AzureStack-Tools** 資料夾，方法是執行下列指令碼：
 
 ```PowerShell
 # Change directory to the root directory. 

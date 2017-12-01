@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 209631536d8c611b46a2ad3ff6c685062b17c649
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 0823cc54731ac1cd7f39de256a899696683375a8
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>設定 Operations Management Suite 中的服務對應
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以使用服務對應，將伺服器視為提供重要服務的互連系統，藉此來檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序和連接埠之間的連線。
@@ -28,14 +28,14 @@ ms.lasthandoff: 11/09/2017
 ## <a name="dependency-agent-downloads"></a>相依性代理程式下載
 | 檔案 | 作業系統 | 版本 | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.2.1 | CBF050BFEA78B56A138CB1313DE0E75ABC30187C1B96EF9B4CBDEDD9EDFF6A17 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.2.1 | F4560E951F6C57A7466C82052BAFBF9515DC80DDA794ED8FB4DB02CEBA743277 |
 
 
 ## <a name="connected-sources"></a>連接的來源
 服務對應會從 Microsoft 相依性代理程式取得它的資料。 「相依性代理程式」有賴於 OMS 代理程式，以連線至 Operations Management Suite。 這表示，伺服器必須先安裝並設定 OMS 代理程式，然後才能安裝相依性代理程式。 下表描述服務對應解決方案支援的連線來源。
 
-| 連線的來源 | 支援 | 說明 |
+| 連線的來源 | 支援 | 描述 |
 |:--|:--|:--|
 | Windows 代理程式 | 是 | 服務對應會分析並收集來自 Windows 代理程式電腦的資料。 <br><br>除了 [OMS 代理程式](../log-analytics/log-analytics-windows-agents.md)外，Windows 代理程式還需要 Microsoft 相依性代理程式。 如需作業系統版本的完整清單，請參閱[支援的作業系統](#supported-operating-systems)。 |
 | Linux 代理程式 | 是 | 服務對應會分析並收集來自 Linux 代理程式電腦的資料。 <br><br>除了 [OMS 代理程式](../log-analytics/log-analytics-linux-agents.md)外，Linux 代理程式還需要 Microsoft 相依性代理程式。 如需作業系統版本的完整清單，請參閱[支援的作業系統](#supported-operating-systems)。 |
@@ -84,7 +84,7 @@ ms.lasthandoff: 11/09/2017
 
     InstallDependencyAgent-Windows.exe /?
 
-| 旗標 | 說明 |
+| 旗標 | 描述 |
 |:--|:--|
 | /? | 取得命令列選項的清單。 |
 | /S | 執行無訊息安裝，不會出現任何使用者提示。 |
@@ -106,7 +106,7 @@ Windows 相依性代理程式的檔案預設位於 C:\Program Files\Microsoft De
 
     InstallDependencyAgent-Linux64.bin -help
 
-| 旗標 | 說明 |
+| 旗標 | 描述 |
 |:--|:--|
 | -help | 取得命令列選項的清單。 |
 | -s | 執行無訊息安裝，不會出現任何使用者提示。 |
@@ -228,14 +228,14 @@ Node localhost
 系統管理員也可以執行 %Programfiles%\Microsoft Dependency Agent\Uninstall.exe，以解除安裝相依性代理程式。
 
 ### <a name="uninstall-the-dependency-agent-on-linux"></a>在 Linux 上解除安裝相依性代理程式
-若要將「相依性代理程式」從 Linux 中完全解除安裝，您必須將代理程式本身及隨代理程式自動安裝的連接器移除。 您可以使用下列單一命令同時解除安裝這兩者。
+您可以使用下列命令來將「相依性代理程式」從 Linux 解除安裝。
 <br>RHEL、CentOs 或 Oracle：
 ```
-sudo rpm -e dependency-agent dependency-agent-connector
+sudo rpm -e dependency-agent
 ```
 Ubuntu：
 ```
-sudo dpkg --purge dependency-agent dependency-agent-connector
+sudo dpkg --purge dependency-agent
 ```
 ## <a name="troubleshooting"></a>疑難排解
 如果您在安裝或執行服務對應時遇到任何問題，本節內容可以提供協助。 如果您仍然無法解決問題，請連絡 Microsoft 支援服務。
@@ -254,7 +254,7 @@ Microsoft 相依性代理程式建置於 Microsoft Visual Studio 執行階段程
 
 下表列出代碼和建議的解決方式。
 
-| 代碼 | 說明 | 解決方案 |
+| 代碼 | 描述 | 解決方案 |
 |:--|:--|:--|
 | 0x17 | 程式庫安裝程式會要求尚未安裝的 Windows 更新。 | 查看最新的程式庫安裝程式記錄。<br><br>如果提到 "Windows8.1-KB2999226-x64.msu"，隨後一行是 "Error 0x80240017: Failed to execute MSU package"，則表示您尚未具備安裝 KB2999226 所需的必要條件。 請依照 [Windows 中的通用 C 執行階段](https://support.microsoft.com/kb/2999226) \(機器翻譯\) 中必要條件一節的指示進行。 您可能需要執行 Windows Update 並重新開機多次，才能安裝必要條件。<br><br>再次執行 Microsoft 相依性代理程式安裝程式。 |
 

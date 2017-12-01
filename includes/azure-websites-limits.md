@@ -18,7 +18,7 @@
 | 自訂網域 [SSL 支援](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |無限制的 SNI SSL 連線 |包含無限制的 SNI SSL 和 1 個 IP SSL 連線 |包含無限制的 SNI SSL 和 1 個 IP SSL 連線 |
 | 整合式負載平衡器 | |X |X |X |X |
 | [永遠開啟](../articles/app-service/web-sites-configure.md) | | |X |X |X |
-| [排定的備份](../articles/app-service/web-sites-backup.md) | | | |一天一次 |每 5 分鐘一次<sup>8</sup> |
+| [排定的備份](../articles/app-service/web-sites-backup.md) | | | |每天 12 個 |每 5 分鐘一次<sup>8</sup> |
 | [自動調整](../articles/app-service/web-sites-scale.md) | | | |X |X |
 | [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
 | [Azure 排程器](https://azure.microsoft.com/services/scheduler/) 支援 | |X |X |X |X |

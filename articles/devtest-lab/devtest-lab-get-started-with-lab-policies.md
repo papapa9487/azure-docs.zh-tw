@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: tarcher
-ms.openlocfilehash: ed35d081b191ec41ed9e5970515057a4715c0d59
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e87a37b7aafd774fb0176b74968ad0bba0f5cf3b
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中管理實驗室的基本原則
 
-Azure DevTest Labs 可讓您管理每個實驗室的原則 (設定)，以控制實驗室的成本並儘可能避免浪費。 在本文中，您將從學習如何設定兩個最重要的原則來開始使用原則：限制單一使用者可建立或宣告的虛擬機器 (VM) 數目，以及設定自動關機。 若要了解如何設定每個實驗室原則，請參閱[在 Azure DevTest Labs 中定義實驗室原則](devtest-lab-set-lab-policy.md)一文。  
+Azure DevTest Labs 可讓您管理每個實驗室的原則 (設定)，以控制實驗室的成本並儘可能避免浪費。 在本文中，您將從學習如何設定兩個最重要的原則來開始使用原則：限制單一使用者可建立或宣告的虛擬機器 (VM) 數目，以及設定自動關機。 若要了解如何設定每個實驗室原則，請參閱[在 Azure DevTest Labs 中定義實驗室原則](devtest-lab-set-lab-policy.md)。  
 
 ## <a name="accessing-a-labs-policies-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中存取實驗室的原則
 下列步驟將引導您完成在 Azure DevTest Labs 中設定實驗室原則的步驟︰
@@ -37,9 +37,9 @@ Azure DevTest Labs 可讓您管理每個實驗室的原則 (設定)，以控制�
 
 1. 選取 [組態和原則]。
 
-    ![[原則設定] 刀鋒視窗](./media/devtest-lab-set-lab-policy/policies-menu.png)
+    ![原則設定窗格](./media/devtest-lab-set-lab-policy/policies-menu.png)
 
-1. [組態和原則] 刀鋒視窗包含一個功能表，內含您可以指定的設定。 本文章只涵蓋 [每位使用者的虛擬機器數目] 和 [自動關機] 的設定。 若要深入了解其餘設定，請參閱[在 Azure DevTest Labs 中管理實驗室的所有原則](./devtest-lab-set-lab-policy.md)。 
+1. [設定和原則] 窗格包含一個功能表，內含您可以指定的設定。 本文章只涵蓋 [每位使用者的虛擬機器數目]、[自動關機] 和 [自動啟動] 的設定。 若要深入了解其餘設定，請參閱[在 Azure DevTest Labs 中管理實驗室的所有原則](./devtest-lab-set-lab-policy.md)。 
    
 ## <a name="set-virtual-machines-per-user"></a>設定每位使用者的虛擬機器數目
 [每位使用者的虛擬機器數目]  原則可讓您指定個別使用者可以建立的 VM 數目上限。 當達到使用者限制時，如果使用者嘗試建立或宣告 VM，就會顯示錯誤訊息，指出無法建立/宣告 VM。 
@@ -57,7 +57,7 @@ Azure DevTest Labs 可讓您管理每個實驗室的原則 (設定)，以控制�
 ## <a name="set-auto-shutdown"></a>設定自動關機
 自動關機原則有助於將實驗室的成本浪費降至最低，方式是讓您指定這個實驗室中 VM 的關機時間。
 
-1. 在實驗室的 [組態和原則] 刀鋒視窗上，選取 [自動關機]。
+1. 在實驗室的 [設定與原則] 窗格上，選取 [自動關機]。
    
     ![自動關機](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 
@@ -65,16 +65,18 @@ Azure DevTest Labs 可讓您管理每個實驗室的原則 (設定)，以控制�
 
 1. 如果您啟用這個原則，請指定時間 (和時區) 以關閉目前實驗室中的所有 VM。
 
-1. 對於在指定的自動關機時間之前 15 分鐘傳送通知的選項中，指定 [是] 或 [否]。 如果您指定 [是]，請輸入要接收通知的 webhook URL 端點。 如需 webhook 的詳細資訊，請參閱[建立 webhook 或 API Azure 函式](../azure-functions/functions-create-a-web-hook-or-api-function.md)。 
+1. 對於在指定的自動關機時間之前 15 分鐘傳送通知的選項中，指定 [是] 或 [否]。 如果您選擇 [是]，請輸入 Webhook URL 端點或電子郵件地址，指定您要在哪裡張貼或傳送通知。 使用者會收到通知，並且給予延遲關機的選項。
+
+   如需 webhook 的詳細資訊，請參閱[建立 webhook 或 API Azure 函式](../azure-functions/functions-create-a-web-hook-or-api-function.md)。 
 
 1. 選取 [ **儲存**]。
 
-    根據預設，這個原則一經啟用，就會套用到目前實驗室的所有 VM。 若要移除特定 VM 的這項設定，請開啟 VM 的刀鋒視窗並變更其 [自動關機]  設定。 
+根據預設，這個原則一經啟用，就會套用到目前實驗室的所有 VM。 若要從特定的 VM 移除這項設定，請開啟 VM 的管理窗格並變更其 [自動關機] 設定。
 
 ## <a name="set-auto-start"></a>設定自動啟動
 自動啟動原則可讓您指定目前實驗室 VM 應該啟動的時間。  
 
-1. 在實驗室的 [組態和原則] 刀鋒視窗上，選取 [自動啟動]。
+1. 在實驗室的 [設定與原則] 窗格上，選取 [自動啟動]。
    
     ![自動啟動](./media/devtest-lab-set-lab-policy/auto-start.png)
 
@@ -84,8 +86,8 @@ Azure DevTest Labs 可讓您管理每個實驗室的原則 (設定)，以控制�
 
 4. 選取 [ **儲存**]。
 
-    這個原則一經啟用，就不會自動套用到目前實驗室中的任何 VM。 若要將這項設定套用至特定的 VM，請開啟 VM 的刀鋒視窗並變更其 [自動啟動]  設定。 
+這個原則一經啟用，就不會自動套用到目前實驗室中的任何 VM。 若要將這項設定套用至現有的 VM，請開啟 VM 的管理窗格並變更其 [自動啟動] 設定。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [在 Azure DevTest Labs 中定義實驗室原則](devtest-lab-set-lab-policy.md) - 了解如何修改其他實驗室原則 
+- [在 Azure DevTest Labs 中定義實驗室原則](devtest-lab-set-lab-policy.md) - 了解如何修改其他實驗室原則。

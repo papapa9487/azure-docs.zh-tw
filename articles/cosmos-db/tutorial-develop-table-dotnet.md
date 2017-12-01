@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 0e77ecc591173ae29311c2a1508e5a8a907816ac
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 29e6187c59f34122e98819b5775af261494995ca
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB：使用 .NET 搭配資料表 API 進行開發
 
@@ -72,6 +72,10 @@ Azure Cosmos DB 針對需要無結構描述設計之索引鍵-值存放區的應
 ## <a name="create-a-database-account"></a>建立資料庫帳戶
 
 我們將從在 Azure 入口網站中建立 Azure Cosmos DB 帳戶開始著手。  
+ 
+> [!IMPORTANT]  
+> 您需要建立新的資料表 API 帳戶，以與正式推出的資料表 API SDK 搭配使用。 正式推出的 SDK 不支援在預覽期間建立的資料表 API 帳戶。 
+>
 
 [!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
 
@@ -88,7 +92,7 @@ Azure Cosmos DB 針對需要無結構描述設計之索引鍵-值存放區的應
 2. 執行下列命令來複製範例存放庫。 此命令會在您的電腦上建立範例應用程式副本。 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
+    git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
 
 3. 然後在 Visual Studio 中開啟方案檔案。 
@@ -97,26 +101,34 @@ Azure Cosmos DB 針對需要無結構描述設計之索引鍵-值存放區的應
 
 現在，返回 Azure 入口網站以取得連接字串資訊，並將它複製到應用程式中。 這可讓您的應用程式與託管資料庫進行通訊。 
 
-1. 在 [Azure 入口網站](http://portal.azure.com/)中按一下 [連接字串]。 
+1. 在 [Azure 入口網站](http://portal.azure.com/)中，按一下 [連接字串]。 
 
-    使用畫面右方的複製按鈕來複製連接字串。
+    使用畫面右方的複製按鈕來複製主要連接字串。
 
     ![在 [連接字串] 窗格中檢視及複製「連接字串」。](./media/create-table-dotnet/connection-string.png)
 
 2. 在 Visual Studio 中，開啟 app.config 檔案。 
 
-3. 將連接字串值貼到 app.config 檔案作為 CosmosDBStorageConnectionString 的值。 
+3. 本教學課程不會使用儲存體模擬器，因此請取消註解第 8 行的 StorageConnectionString，並將第 7 行的 StorageConnectionString 註解化。 第 7 行和第 8 行現在看起來應該像這樣：
 
-    `<add key="CosmosDBStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
+    ```
+    <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
+    ```
 
-    > [!NOTE]
-    > 若要將此應用程式與「Azure 資料表」儲存體搭配使用，您必須變更 `app.config file` 中的連接字串。 使用帳戶名稱作為資料表帳戶名稱，使用金鑰作為「Azure 儲存體」主要金鑰。 <br>
-    >`<add key="StandardStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
-    > 
+4. 將主要連接字串從入口網站貼到第 8 行上的 StorageConnectionString 值中。 在引號內貼上字串。
+   
+    > [!IMPORTANT]
+    > 如果端點使用 documents.azure.com，這表示您擁有預覽帳戶，因此您需要建立一個[新的資料表 API 帳戶](#create-a-database-account)與正式推出的資料表 API SDK 搭配使用。 
     >
 
-4. 儲存 app.config 檔案。
+    行 8 現在看起來應該會類似：
+
+    ```
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
+    ```
+
+5. 儲存 app.config 檔案。
 
 您現已更新應用程式，使其具有與 Azure Cosmos DB 通訊所需的所有資訊。 
 
@@ -316,12 +328,9 @@ CloudTable table = tableClient.GetTableReference("people");
 table.DeleteIfExists();
 ```
 
-## <a name="clean-up-resources"></a>清除資源 
+## <a name="clean-up-resources"></a>清除資源
 
-如果您將不繼續使用此應用程式，請使用下列步驟，在 Azure 入口網站中刪除本教學課程所建立的所有資源。   
-
-1. 從 Azure 入口網站的左側功能表中，按一下 [資源群組]，然後按一下您所建立資源的名稱。  
-2. 在資源群組頁面上，按一下 [刪除]，在文字方塊中輸入要刪除之資源的名稱，然後按一下 [刪除]。 
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

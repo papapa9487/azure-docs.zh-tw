@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2017
 ms.author: dobett
-ms.openlocfilehash: 2b015b98b5d5587c9de1f11250386cee86b1f8c4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 348547168a6c8f00626e94cd6710b82928cd9d4f
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-iot-hub-get-started-with-simulated-devices-tutorials"></a>Azure IoT 中樞開始使用模擬裝置教學課程
 
@@ -31,12 +31,12 @@ ms.lasthandoff: 10/11/2017
 | [Node.js][Sim_Nd]    |
 | [Python][Sim_Pyth]   |
 
-此外，您可以使用 IoT Edge 閘道來讓模擬的裝置連線到您的 IoT 中樞。
+此外，您可以使用 IoT Edge 以將 AI 部署到裝置：
 
-| 程式設計語言 | 平台           |
-|----------------------|------------------- |
-| C                    | [Linux][Sim_Lnx]   |
-| C                    | [Windows][Sim_Win] |
+| 平台           |
+|------------------- |
+| [Linux][Sim_Lnx]   |
+| [Windows][Sim_Win] |
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
 
@@ -44,5 +44,5 @@ ms.lasthandoff: 10/11/2017
 [Sim_Jav]: iot-hub-java-java-getstarted.md
 [Sim_Nd]: iot-hub-node-node-getstarted.md
 [Sim_Pyth]: iot-hub-python-getstarted.md
-[Sim_Lnx]: iot-hub-linux-iot-edge-get-started.md
-[Sim_Win]: iot-hub-windows-iot-edge-get-started.md
+[Sim_Lnx]: ../iot-edge/tutorial-simulate-device-linux.md
+[Sim_Win]: ../iot-edge/tutorial-simulate-device-windows.md

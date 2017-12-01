@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e10b5dba6f91c97a5c6b71aee76eef062a8be82c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 17675f870a015e86f98bf286a9b1c2bbc05c16cd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>快速入門：從 Azure 入口網站將您的第一個 IoT Edge 模組部署至 Windows 裝置 - 預覽
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/15/2017
 
 本教學課程假設您使用執行 Windows 的電腦或虛擬機器，來模擬物聯網裝置。 如果您在虛擬機器中執行 Windows，請啟用[巢狀虛擬化][lnk-nested]並配置至少 2GB 的記憶體。 
 
-1. 請確定您使用的是支援的 Windows 版本：
+1. 請確定您使用的是受支援的 Windows 版本：
    * Windows 10 
    * Windows Server
 2. 安裝[適用於 Windows 的 Docker][lnk-docker] 並確定它正在執行。
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/15/2017
 >    * Windows Server 1709 (組建 16299)，或
 >    * x64 型裝置上的 Windows IoT 核心版 (組建 16299)
 >
-> 針對 Windows IoT 核心版，請遵循 [在 Windows IoT 核心版上安裝 IoT Edge 執行階段][lnk-install-iotcore] 中的指示。 或是，直接[設定可使用 Windows 容器的 Docker][lnk-docker-containers]，並選擇性地使用下列 powershell 命令來驗證您的必要條件：
+> 針對 Windows IoT 核心版，請遵循[在 Windows IoT 核心版上安裝 IoT Edge 執行階段][lnk-install-iotcore]中的指示。 或是，直接[設定可使用 Windows 容器的 Docker][lnk-docker-containers]，並選擇性地使用下列 powershell 命令來驗證您的必要條件：
 >    ```
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
@@ -94,6 +94,8 @@ iotedgectl start
 docker ps
 ```
 
+![請參閱 Docker 中的 edgeAgent](./media/tutorial-simulate-device-windows/docker-ps.png)
+
 ## <a name="deploy-a-module"></a>部署模組
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
@@ -102,11 +104,21 @@ docker ps
 
 在此快速入門中，您可以建立新的 IoT Edge 裝置，並在其中安裝 IoT Edge 執行階段。 然後，您會使用 Azure 入口網站來推送 IoT Edge 模組，讓其無須變更裝置本身就能在裝置上執行。 在此案例中，您推送的模組會建立可在教學課程中使用的環境資料。 
 
-檢視從 tempSensor 模組送出的訊息：
+在執行模擬裝置的電腦上再次開啟命令提示字元。 確認從雲端部署的模組是在 IoT Edge 裝置上執行。 
 
-```cmd/sh
+```cmd
+docker ps
+```
+
+![在您的裝置上檢視三個模組](./media/tutorial-simulate-device-windows/docker-ps2.png)
+
+檢視從 tempSensor 模組傳送至雲端的訊息。 
+
+```cmd
 docker logs -f tempSensor
 ```
+
+![從您的模組中檢視資料](./media/tutorial-simulate-device-windows/docker-logs.png)
 
 您也可以使用 [IoT 中樞總管工具][lnk-iothub-explorer]，檢視裝置正在傳送的遙測資料。 
 ## <a name="clean-up-resources"></a>清除資源
@@ -138,6 +150,7 @@ az iot hub delete --name {your iot hub name} --resource-group {your resource gro
 [lnk-portal]: https://portal.azure.com
 [lnk-nested]: https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization
 [lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az_iot_hub_delete
+[lnk-install-iotcore]: how-to-install-iot-core.md
 
 <!-- Anchor links -->
 [anchor-register]: #register-an-iot-edge-device

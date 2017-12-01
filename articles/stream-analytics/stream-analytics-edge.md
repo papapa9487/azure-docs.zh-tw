@@ -12,26 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: 6e94758581bd510e58a709a53e30c11a5c1f1b62
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f1df2f52d00444ba0a27644a6e65cee789788f58
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>IoT Edge 上的 Azure 串流分析 (預覽)
 
 > [!IMPORTANT]
 > 這項功能為預覽狀態。 我們不建議用於生產環境。
  
-IoT Edge 上的 Azure 串流分析 (ASA) 讓開發人員能夠在更接近 IoT 裝置的地方部署近乎即時的分析智慧，從而使裝置產生的資料充分發揮價值。 針對需要低延遲、復原、有效使用頻寬和相容性的客戶所設計，企業現在可以部署接近產業作業的控制邏輯，並補充在雲端中完成的巨量資料分析。  
-IoT Edge 上的 Azure 串流分析會在 [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) 架構內執行，並且在 ASA 中建立作業之後，可以使用 IoT 中樞完成部署及管理 ASA 作業。
+IoT Edge 上的 Azure 串流分析 (ASA) 讓開發人員能夠在更接近 IoT 裝置的地方部署近乎即時的分析智慧，從而使裝置產生的資料充分發揮價值。 針對低延遲、復原、有效使用頻寬和相容性所設計，企業現在可以部署接近產業作業的控制邏輯，並補充在雲端中完成的巨量資料分析。  
+IoT Edge 上的 Azure 串流分析是在 [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) 架構內執行。 一旦在 ASA 中建立作業，使用 IoT 中樞來部署及管理 ASA 作業。
 這項功能處於預覽狀態，如果您有任何問題或意見反應，可以使用[本調查](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u)連絡產品小組。 
 
 ## <a name="scenarios"></a>案例
-![高階圖表](media/stream-analytics-edge/ASAedge_highlevel.png) 以下是在 Edge 上執行 ASA 特別有趣的幾個典型情節：
-* **低延遲命令和控制**：例如，需要製造安全系統才能回應包含超低延遲的作業資料。 透過 IoT Edge 上的 ASA，您可以近乎即時地分析感應器資料，並在偵測到異常時發出命令來停止電腦或觸發程序的警示。
+![高階圖表](media/stream-analytics-edge/ASAedge_highlevel.png)
+
+* **低延遲命令和控制**：例如，製造安全系統必須回應包含超低延遲的作業資料。 透過 IoT Edge 上的 ASA，您可以近乎即時地分析感應器資料，並在偵測到異常時發出命令來停止電腦或觸發程序的警示。
 *   **有限的雲端連線能力**：諸如遠端採礦設備、已連線的容器或海外深入探索等任務關鍵系統都必須分析和回應資料，即使是當雲端連線斷斷續續時也一樣。 利用 ASA，您的串流邏輯就會獨立執行網路連線，從而能夠選擇傳送至雲端進行進一步處理或儲存體的項目。
 * **受限頻寬**：噴射引擎或連線的車輛所產生的資料量可能會很大，在將資料傳送到雲端之前，必須先篩選或預先處理。 您可以使用 ASA 來篩選或彙總必須傳送至雲端的資料。
 * **合規性**：法規合規性可能會要求某些資料在傳送至雲端之前，先在本機進行匿名或彙總。 透過 ASA，您 

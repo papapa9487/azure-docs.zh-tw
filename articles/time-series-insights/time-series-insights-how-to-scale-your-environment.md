@@ -12,8 +12,8 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: d3c8b2b1ba220bf07a2bcdbd7fb26b94f897981f
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: edcd9561778998c4df09cc5014f8b8ba81c0e369
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/16/2017
@@ -46,7 +46,7 @@ ms.lasthandoff: 11/16/2017
 ## <a name="change-the-capacity-of-your-environment"></a>變更您的環境容量
 1. 在 Azure 入口網站中，找到並選取您的時間序列深入解析環境。 
 
-2. 在 [設定] 標題之下，選取 [設定]。
+2. 在時間序列深入解析環境的功能表中，選取 [設定]。
 
    ![configure.png](media/scale-your-environment/configure.png)
 

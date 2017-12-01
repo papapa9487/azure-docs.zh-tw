@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/03/2017
 ms.author: tarcher
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03cd09e37ff7dd0b7731eee19810ada7aed1a875
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 7f42baa1ac37f425f915b6949e018f6e7397d3ae
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中管理實驗室的所有原則
 
@@ -79,7 +79,9 @@ Azure DevTest Labs 讓您管理每個實驗室的原則 (設定)，以控制實�
 
 1. 如果您啟用這個原則，請指定時間 (和時區) 以關閉目前實驗室中的所有 VM。
 
-1. 對於在指定的自動關機時間之前 15 分鐘傳送通知的選項中，指定 [是] 或 [否]。 如果您指定 [是]，請輸入要張貼或傳送通知的 Webhook URL 端點或電子郵件地址。 如需 webhook 的詳細資訊，請參閱[建立 webhook 或 API Azure 函式](../azure-functions/functions-create-a-web-hook-or-api-function.md)。 
+1. 對於在指定的自動關機時間之前 15 分鐘傳送通知的選項中，指定 [是] 或 [否]。 如果您選擇 [是]，請輸入 Webhook URL 端點或電子郵件地址，指定您要在哪裡張貼或傳送通知。 使用者會收到通知，並且給予延遲關機的選項。
+
+   如需 webhook 的詳細資訊，請參閱[建立 webhook 或 API Azure 函式](../azure-functions/functions-create-a-web-hook-or-api-function.md)。 
 
 1. 選取 [ **儲存**]。
 

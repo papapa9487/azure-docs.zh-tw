@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fb93efcf00cb7b165c497d7ef38685f80bce84c0
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: bfa6652eac34f88baf09f55353cf58227a20e4cf
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-linux-device---preview"></a>快速入門：從 Azure 入口網站將您的第一個 IoT Edge 模組部署至 Linux 裝置 - 預覽
 
@@ -66,24 +66,26 @@ Azure IoT Edge 會將雲端的強大功能移至您的物聯網裝置。 在本�
 IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其包含兩個模組。 首先，IoT Edge 代理程式可協助進行部署及監視 IoT Edge 裝置上的模組。 第二，IoT Edge 中樞會管理 IoT Edge 裝置上的模組通訊，以及裝置與 IoT 中樞之間的通訊。 
 
 在您要執行 IoT Edge 裝置的電腦上，下載 IoT Edge 控制指令碼：
-```python
+```cmd
 sudo pip install -U azure-iot-edge-runtime-ctl
 ```
 
 使用上一節中的 IoT Edge 裝置連接字串來設定執行階段：
-```python
+```cmd
 sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 啟動執行階段：
-```python
+```cmd
 sudo iotedgectl start
 ```
 
 檢查 Docker 以確認 IoT Edge 代理程式是否正作為模組執行中：
-```python
+```cmd
 sudo docker ps
 ```
+
+![請參閱 Docker 中的 edgeAgent](./media/tutorial-simulate-device-linux/docker-ps.png)
 
 ## <a name="deploy-a-module"></a>部署模組
 
@@ -93,11 +95,21 @@ sudo docker ps
 
 在此快速入門中，您可以建立新的 IoT Edge 裝置，並在其中安裝 IoT Edge 執行階段。 然後，您會使用 Azure 入口網站來推送 IoT Edge 模組，讓其無須變更裝置本身就能在裝置上執行。 在此案例中，您推送的模組會建立可在教學課程中使用的環境資料。 
 
-檢視從 tempSensor 模組送出的訊息：
+在執行模擬裝置的電腦上再次開啟命令提示字元。 確認從雲端部署的模組正在 IoT Edge 裝置上執行：
 
-```cmd/sh
+```cmd
+sudo docker ps
+```
+
+![在您的裝置上檢視三個模組](./media/tutorial-simulate-device-linux/docker-ps2.png)
+
+檢視從 tempSensor 模組傳送至雲端的訊息：
+
+```cmd
 sudo docker logs -f tempSensor
 ```
+
+![從您的模組中檢視資料](./media/tutorial-simulate-device-linux/docker-logs.png)
 
 您也可以使用 [IoT 中樞總管工具][lnk-iothub-explorer]，檢視裝置正在傳送的遙測資料。 
 

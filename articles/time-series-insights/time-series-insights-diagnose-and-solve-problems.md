@@ -1,6 +1,8 @@
 ---
 title: "在 Azure 時間序列深入解析中診斷與解決問題 | Microsoft Docs"
 description: "本文說明如何在 Azure 時間序列深入解析環境中診斷、疑難排解與解決可能會遇到的常見問題。"
+services: time-series-insights
+ms.service: time-series-insights
 author: venkatgct
 ms.author: venkatja
 manager: jhubbard
@@ -9,11 +11,11 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/15/2017
-ms.openlocfilehash: 4216b245fd480003cfa4a34452f87efade964f8d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 757d37183ad334aca462af59bad261cfa686299e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>在 Time Series Insights 環境中診斷與解決問題
 
@@ -24,7 +26,7 @@ ms.lasthandoff: 11/15/2017
 Azure 時間序列深入解析現在只支援 JSON 資料。 如需 JSON 範例，請參閱[支援的 JSON 樣貌](time-series-insights-send-events.md#supported-json-shapes)。
 
 ### <a name="possible-cause-b-event-source-key-is-missing-a-required-permission"></a>可能原因 B：事件來源索引鍵遺漏必要的權限
-* 針對 IoT 中樞，您必須提供具有「服務連接」權限的索引鍵。
+* 針對 IoT 中樞，您必須提供具有「服務連線」權限的金鑰。
 
    ![IoT 中樞服務連線權限](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
 
@@ -37,13 +39,13 @@ Azure 時間序列深入解析現在只支援 JSON 資料。 如需 JSON 範例�
    如上圖所示，read 與 manage 原則皆可運作，因為兩者皆有「接聽」權限。
 
 ### <a name="possible-cause-c-the-consumer-group-provided-is-not-exclusive-to-time-series-insights"></a>可能原因 C：提供的取用者群組並非時間序列深入解析專用
-在註冊 IoT 中樞或事件中樞期間，您指定應用於讀取資料的取用者群組。 **不可**共用此取用者群組。 如果共用取用者群組，基礎事件中樞會自動且隨機地與其中一個讀取器中斷連線。 提供唯一的取用者群組讓時間序列深入解析讀取。
+在註冊 IoT 中樞或事件中樞期間，您要指定應用於讀取資料的取用者群組。 **不可**共用此取用者群組。 如果共用取用者群組，基礎事件中樞會自動且隨機地與其中一個讀取器中斷連線。 提供唯一的取用者群組讓時間序列深入解析讀取。
 
 ## <a name="problem-2-some-data-is-shown-but-some-is-missing"></a>問題 2：顯示部分資料，但遺漏部分資料
 當您可以看到部分資料，但是資料延遲時，有幾個要考慮的可能性：
 
 ### <a name="possible-cause-a-your-environment-is-getting-throttled"></a>可能原因 A：您的環境正在進行節流
-節流限制會根據環境 SKU 類型和容量來強制執行。 環境中所有的事件來源皆共用此容量。 如果IoT 中樞或事件中樞的事件來源正在推送超過強制限制的資料，您會看到節流和延遲情形。
+節流限制會根據環境 SKU 類型和容量來強制執行。 環境中所有的事件來源皆共用此容量。 如果IoT 中樞或事件中樞的事件來源正在推送超過強制限制的資料，您就會看到節流和延遲情形。
 
 下圖顯示有 SKU 的 S1 且容量為 3 的 Time Series Insights 環境。 該環境可以每日輸入 3 百萬個事件。
 
@@ -76,5 +78,5 @@ Azure 時間序列深入解析現在只支援 JSON 資料。 如需 JSON 範例�
 * 來自事件來源的時間戳記屬性值 (JSON 字串) 格式應是「yyyy-MM-ddTHH:mm:ss.FFFFFFFK」。 字串的範例如 “2008-04-12T12:53Z”。
 
 ## <a name="next-steps"></a>後續步驟
-- 如需其他協助，請在 [MSDN 論壇](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights)或[堆疊溢位](https://stackoverflow.com/questions/tagged/azure-timeseries-insights)上啟動交談。 
+- 如需其他協助，請在 [MSDN 論壇](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights)或 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights) 上啟動交談。 
 - 您也可以使用 [Azure 支援](https://azure.microsoft.com/support/options/)以取得協助的支援選項。

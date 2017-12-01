@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 1d79b775e97765a48be48a96cf10bc9435b4539b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eaee4e1ed213d0834d959d862feffd4bca57cd9f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>使用網路監看員和 Graylog 在 Azure 中管理和分析網路安全性群組流量記錄
 
@@ -148,9 +148,9 @@ ms.lasthandoff: 10/11/2017
     ```
 所提供的 Logstash 設定檔是由三個部分組成的：輸入、篩選和輸出。 「輸入」區段會指定 Logstash 將要處理之記錄的輸入來源，在此案例中，我們會使用 Azure 部落格輸入外掛程式 (會於後續步驟中安裝)，它能讓我們存取 Blob 儲存體中所儲存的網路安全性群組流量記錄 JSON 檔案。
 
-    The filter section then flattens each flow log file so that each individual flow tuple and its associated properties becomes a separate Logstash event.
+「篩選」區段接著會將每個流量記錄壓平合併，讓每個個別的流量 Tuple 和其相關聯的屬性變成個別的 Logstash 事件。
 
-    Finally, the output section forwards each Logstash event to the Graylog server. To suit your specific needs, modify the Logstash config file, as required.
+最後，輸出區段會將每個 Logstash 事件轉送到 Graylog 伺服器。 若要符合您的特定需求，請視需要修改 Logstash 設定檔。
 
     > [!NOTE]
     > The previous config file assumes that the Graylog server has been configured on the local host loopback IP address 127.0.0.1. If not, be sure to change the host parameter in the output section to the correct IP address.
@@ -174,7 +174,7 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
 1.  使用您為 Graylog 伺服器 Web 介面所設定的 URL 來瀏覽至該介面。 您可以將瀏覽器導向至 `http://<graylog-server-ip>:9000/` 來存取該介面
 
-2.  若要瀏覽至設定頁面，請選取頂端導覽列右邊的 系統 下拉式功能表，然後按一下輸入。
+2.  若要瀏覽至設定頁面，請選取頂端導覽列右邊的 [系統] 下拉式功能表，然後按一下 [輸入]。
     或者，您也可以瀏覽至 `http://<graylog-server-ip>:9000/system/inputs`
 
     ![開始使用](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)

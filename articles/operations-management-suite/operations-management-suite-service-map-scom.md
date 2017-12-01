@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: fb58a01828e13f9605e4788ee7e064162a7a31d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af1f683f08ff6b70b23ff265f39b9a76f92f4be2
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>服務對應與 System Center Operations Manager 的整合
   > [!NOTE]
@@ -30,7 +30,7 @@ Operations Management Suite 服務對應可自動探索 Windows 和 Linux 系統
 透過這項服務對應與 System Center Operations Manager 之間的整合，您便可以在根據服務對應中動態相依性對應的 Operations Manager 中，自動建立分散式應用程式圖表。
 
 ## <a name="prerequisites"></a>必要條件
-* 管理一組伺服器的 Operations Manager 管理群組。
+* 管理一組伺服器的 Operations Manager 管理群組 (2012 R2 或更新版)。
 * 已啟用服務對應解決方案的 Operations Management Suite 工作區。
 * 由 Operations Manager 管理並傳送資料至服務對應的一組伺服器 (至少一部)。 支援 Windows 和 Linux 伺服器。
 * 可存取與 Operations Management Suite 工作區相關聯之 Azure 訂用帳戶的服務主體。 如需詳細資訊，請移至[建立服務主體](#creating-a-service-principal)。
@@ -51,11 +51,11 @@ Operations Management Suite 服務對應可自動探索 Windows 和 Linux 系統
 
     ![[服務對應概觀] 窗格](media/oms-service-map/scom-configuration.png)
 
-2. 在 連線設定 視窗中，輸入租用戶名稱或識別碼、應用程式識別碼 (也稱為使用者名稱或用戶端識別碼) 以及服務主體的密碼，然後按一下下一步。 如需詳細資訊，請移至[建立服務主體](#creating-a-service-principal)。
+2. 在 [連線設定] 視窗中，輸入租用戶名稱或識別碼、應用程式識別碼 (也稱為使用者名稱或用戶端識別碼) 以及服務主體的密碼，然後按一下 [下一步]。 如需詳細資訊，請移至[建立服務主體](#creating-a-service-principal)。
 
     ![[連線設定] 視窗](media/oms-service-map/scom-config-spn.png)
 
-3. 在 訂用帳戶選取 視窗中，選取 Azure 訂用帳戶、Azure 資源群組 (即包含 Operations Management Suite 工作區的資源群組) 以及 Operations Management Suite 工作區，然後按一下下一步。
+3. 在 [訂用帳戶選取] 視窗中，選取 Azure 訂用帳戶、Azure 資源群組 (即包含 Operations Management Suite 工作區的資源群組) 以及 Operations Management Suite 工作區，然後按一下 [下一步]。
 
     ![Operations Manager 設定工作區](media/oms-service-map/scom-config-workspace.png)
 
@@ -73,7 +73,7 @@ Operations Management Suite 服務對應可自動探索 Windows 和 Linux 系統
 
     ![Operations Manager 設定群組](media/oms-service-map/scom-config-group.png)
 
-6. 選擇性︰選取管理伺服器資源集區以和 Operations Management Suite 通訊，然後按一下新增工作區。
+6. 選擇性︰選取管理伺服器資源集區以和 Operations Management Suite 通訊，然後按一下 [新增工作區]。
 
     ![Operations Manager 設定資源集區](media/oms-service-map/scom-config-pool.png)
 

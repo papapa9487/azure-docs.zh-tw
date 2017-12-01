@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 34ed5083b952c42d4ed119b6986db965eb9eb67a
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: bfb37ae51400210ef80a0f267b294d1e2e465b76
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>將 Azure Function 部署為 IoT Edge 模組 - 預覽
 您可以使用 Azure Functions 來部署程式碼，將您的商務邏輯直接實作到您的 IoT Edge 裝置。 本教學課程會逐步引導您建立及部署 Azure Function，以篩選模擬 IoT Edge 裝置上的感應器資料 (模擬裝置是在＜在 [Windows][lnk-tutorial1-win] 或 [Linux][lnk-tutorial1-lin] 上的模擬裝置中部署 Azure IoT Edge＞教學課程中所建立)。 在本教學課程中，您將了解如何：     
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/15/2017
 
 您可以此教學課程中使用任何與 Docker 相容的登錄。 可在雲端中使用的兩個常用 Docker 登錄服務為 **Azure Container Registry** 和 **Docker Hub**：
 
-- [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/) 適用於[付費的訂用帳戶](https://azure.microsoft.com/en-us/pricing/details/container-registry/)。 在本教學課程中，使用**基本**訂用帳戶已足夠。 
+- [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/) 適用於[付費的訂用帳戶](https://azure.microsoft.com/en-us/pricing/details/container-registry/)。 在本教學課程中，使用**基本**訂用帳戶即可。 
 
 - 如果您註冊 Docker 識別碼 (免費)，[Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) 即可提供一個私人存放庫。 
     1. 若要註冊 Docker 識別碼，請在 Docker 網站上遵循[註冊 Docker 識別碼](https://docs.docker.com/docker-id/#register-for-a-docker-id)中的指示。 
@@ -129,7 +129,7 @@ ms.lasthandoff: 11/15/2017
             filteredMessage.Properties.Add("MessageType", "Alert");
             // Send the message        
             await output.AddAsync(filteredMessage);
-            log.Info("Received and transfered a message with temperature above the threshold");
+            log.Info("Received and transferred a message with temperature above the threshold");
         }
     }
     ```
@@ -141,7 +141,7 @@ ms.lasthandoff: 11/15/2017
 1. 建置 Docker 映像。
     1. 在 VS Code 檔案總管中，按一下 [Docker] 資料夾來將其開啟。 然後為您的容器平台選取資料夾，**linux-x64** 或 **windows-nano**。 
     2. 以滑鼠右鍵按一下 [Dockerfile] 檔案，然後按一下 [建置 IoT Edge 模組的 Docker 映像]。 
-    3. 在 [選取資料夾] 方塊中，瀏覽至 **Docker/linux x64** 資料夾，然後按一下 [選取資料夾作為 EXE_DIR]。 
+    3. 在 [選取資料夾] 方塊中，瀏覽至專案資料夾 [FilterFunction]，然後按一下 [選取資料夾作為 EXE_DIR]。 
     4. 在 VS Code 視窗頂端的快顯文字方塊中，輸入映像名稱。 例如，`<docker registry address>/filterfunction:latest`；其中「Docker 登錄位址」 是 Docker 識別碼 (如果您使用 Docker Hub)，或類似於 `<your registry name>.azurecr.io` (如果您使用 Azure Container Registry)。
  
 4. 登入 Docker。 在整合式終端機中，輸入下列命令： 

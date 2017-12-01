@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 3bf9e4673ffb756a8d159ed5733d3ddca70010c7
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 92cbc36ac2a566cf5dfbb2f7b3347973bab5ee8c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure 中 Web 應用程式的設定和管理常見問題集
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 11/04/2017
 2. 在 [應用程式設定] 底下，新增以下設定：
     * 索引鍵 = WEBSITE_TIME_ZONE
     * 值 = 您想要的時區
-3. 選取 [ **儲存**]。
+3. 選取 [儲存]。
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>為什麼我的持續 WebJobs 有時候會失敗？
 
@@ -147,7 +147,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 ### <a name="resolution"></a>解決方案
 
-我們正在更新混合式連線管理員，以修正此問題。 如需因應措施，請參閱[SQL Server 的混合式連線錯誤：System.OverflowException：數學運算導致溢位](https://blogs.msdn.microsoft.com/waws/2016/05/17/hybrid-connection-error-with-sql-server-system-overflowexception-arithmetic-operation-resulted-in-an-overflow/)。
+例外狀況是「混合式連線管理員」問題所造成的，該問題在那之後已修正。 請務必[更新混合式連線管理員](https://go.microsoft.com/fwlink/?LinkID=841308)以解決此問題。
 
 ## <a name="how-do-i-add-or-edit-a-url-rewrite-rule"></a>如何新增或編輯 URL 重寫規則？
 
@@ -185,7 +185,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 3. 確認 [網路] 索引標籤已選取，然後選取綠色 [播放] 按鈕。
 4. 執行重現問題的步驟。
 5. 選取紅色 [停止] 按鈕。
-6. 選取 [儲存]按鈕 (磁片圖示)，並儲存 HAR 檔案 (在 Internet Explorer 和 Edge 中) 或者以滑鼠右鍵按一下 HAR 檔案，然後選取 [內容另存為 HAR] \(在 Chrome 中)。
+6. 選取 [儲存] 按鈕 (磁片圖示)，並儲存 HAR 檔案 (在 Internet Explorer 和 Edge 中) 或者以滑鼠右鍵按一下 HAR 檔案，然後選取 [內容另存為 HAR] \(在 Chrome 中\)。
 
 ### <a name="f12-console-output"></a>F12 主控台輸出
 
@@ -319,4 +319,4 @@ Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resour
 
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>如何從內部部署環境移轉至 App Service？
 
-若要將網站從 Windows 和 Linux 網頁伺服器移轉至 App Service，您可以使用 Azure App Service 移轉小幫手。 移轉工具會視需要在 Azure 中建立 Web 應用程式和資料庫，然後發佈內容。 如需詳細資訊，請參閱 [Azure App Service 移轉小幫手](https://www.movemetothecloud.net/)。
+若要將網站從 Windows 和 Linux 網頁伺服器移轉至 App Service，您可以使用 Azure App Service 移轉小幫手。 移轉工具會視需要在 Azure 中建立 Web 應用程式和資料庫，然後發佈內容。 如需詳細資訊，請參閱 [Azure App Service 移轉小幫手](https://www.migratetoazure.net/)。

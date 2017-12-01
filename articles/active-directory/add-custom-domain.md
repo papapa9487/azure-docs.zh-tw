@@ -3,26 +3,26 @@ title: "將自訂網域新增到 Azure AD | Microsoft Docs"
 description: "說明如何在 Azure Active Directory 中新增自訂網域。"
 services: active-directory
 author: curtand
-manager: femila
+manager: michael.tillman
 ms.assetid: 0a90c3c5-4e0e-43bd-a606-6ee00f163038
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/14/2017
 ms.author: curtand
-ms.reviewer: jsnow
+ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: d2f0287202e1b39f395354b1124078b7b0dc95a7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 27e7449f039da8f7661d113999e1c4e5d76c3cf6
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>快速入門：將自訂網域名稱新增到 Azure Active Directory
 
-每個 Azure AD 目錄皆隨附形式為 domainname.onmicrosoft.com 的初始網域名稱。初始網域名稱無法變更或刪除，但是您也可以將您的公司網域名稱新增至 Azure AD。 例如，貴組織可能有營運所用的其他網域名稱，以及使用貴公司網域名稱登入的使用者。 將自訂網域名稱新增到 Azure AD 可讓您在目錄中指派您使用者熟悉的使用者名稱，例如 ‘alice@contoso.com’。 而不是 'alice@*<domain name>*.onmicrosoft.com'。 程序佷簡單：
+每個 Azure AD 目錄皆隨附形式為 domainname.onmicrosoft.com 的初始網域名稱。初始網域名稱無法變更或刪除，但是您也可以將您的公司網域名稱新增至 Azure AD。 例如，貴組織可能有營運所用的其他網域名稱，以及使用貴公司網域名稱登入的使用者。 將自訂網域名稱新增到 Azure AD 可讓您在目錄中指派您使用者熟悉的使用者名稱，例如 ‘alice@contoso.com’。 而不是 'alice@*domain name*.onmicrosoft.com'。 程序佷簡單：
 
 1. 在目錄中新增自訂網域名稱
 2. 在網域名稱註冊機構中新增網域名稱的 DNS 項目
@@ -30,11 +30,11 @@ ms.lasthandoff: 11/14/2017
 
 ## <a name="add-the-custom-domain-name-to-your-directory"></a>在目錄中新增自訂網域名稱
 1. 使用具備目錄全域管理員身分的帳戶來登入 [Azure 入口網站](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) 。
-2. 在左側選取 [網域名稱]。
-3. 在 [directory-name - 網域名稱] 中，選取 [新增]。
+2. 在左側選取 [自訂網域名稱]。
+3. 選取 [新增自訂網域]。
    
-   ![選取 [新增] 命令](./media/active-directory-domains-add-azure-portal/add-command.png)
-5. 在 [網域名稱] 上，於方塊中輸入您的自訂網域名稱 (例如「contoso.com」)，然後選取 [新增網域]。 請務必包含 .com、.net 或其他最上層的擴充。
+   ![選取 [新增] 命令](./media/add-custom-domain/add-custom-domain.png)
+5. 在 [自訂網域名稱] 上，於方塊中輸入您的自訂網域名稱 (例如「contoso.com」)，然後選取 [新增網域]。 請務必包含 .com、.net 或其他最上層的擴充。
 6. 在 [domainname] 上 (也就是新網域名稱為標題之處)，收集稍後用於驗證 Azure AD 中自訂網域名稱的 DNS 項目資訊。
    
    ![取得 DNS 項目資訊](./media/active-directory-domains-add-azure-portal/get-dns-info.png)
@@ -51,17 +51,15 @@ ms.lasthandoff: 11/14/2017
 ## <a name="verify-the-custom-domain-name-in-azure-ad"></a>驗證 Azure AD 中的自訂網域名稱
 一旦新增了 DNS 項目，您就可以使用 Azure AD 確認網域名稱。 只有在 DNS 記錄傳播完成之後，才能驗證網域名稱。 通常此傳播只需要幾秒鐘，但有時可能需要一個小時以上。 如果驗證第一次不成功，請稍後再試。
 
-1. 使用具備目錄全域管理員身分的帳戶來登入 [Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)。
-2. 在左側選取 [網域名稱]。
-3. 在 [directory-name - 網域名稱]上，選取 [新增網域名稱] 命令。 
-  ![選取 [新增] 命令](./media/active-directory-domains-add-azure-portal/add-command.png)
-3. 在 [directory-name - 網域名稱] 上，選取您想要驗證的未驗證網域名稱。
-4. 在 [domainname] \(選取的網域名稱為標題) 上，選取 [驗證] 來完成驗證。
+1. 使用具備租用戶全域管理員身分的帳戶來登入 [Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)。
+2. 選取 [自訂網域名稱]。
+3. 選取您想要驗證的未驗證網域名稱。
+4. 請檢查您的項目，然後選取 [確認] 以完成驗證。
 
 現在您可以[指派包含自訂網域名稱的使用者名稱](active-directory-users-create-azure-portal.md)。 您可以建立雲端式使用者帳戶，也可以使用您的自訂網域名稱，更新先前已同步處理的內部部署使用者帳戶資訊。 您也可以使用 [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) 或[圖形 API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)，變更同步處理的使用者帳戶網域尾碼資訊。
 
 > [!TIP]
-> 您最多可以新增 900 個受管理的網域名稱。 如果您想要使用內部部署 Active Directory 設定同盟的所有網域，您最多可以在每個目錄中新增 450 個網域名稱。 如需詳細資訊，請參閱[同盟和受管理的網域名稱](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names)。
+> 您最多可以新增 900 個受管理的網域名稱。 如果您使用內部部署 Active Directory 設定同盟的所有網域，您最多可以在每個目錄中新增 450 個網域名稱。 如需詳細資訊，請參閱[同盟和受管理的網域名稱](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names)。
 
 ## <a name="troubleshooting"></a>疑難排解
 如果無法確認自訂網域名稱，請嘗試下列疑難排解步驟：
@@ -74,10 +72,9 @@ ms.lasthandoff: 11/14/2017
   如果您無法在網域名稱註冊機構上存取以更新網域的 DNS 記錄，請與組織內具有此存取權的個人或團隊共用 DNS 項目，並請他們新增 DNS 項目。
 3. **從 Azure AD 中的另一個目錄刪除網域名稱**。 網域名稱只能在單一目錄中確認。 如果目前是在不同的目錄中驗證網域名稱，則在刪除另一個目錄上的網域名稱之前，無法驗證新目錄中的網域名稱。 若要了解如何刪除網域名稱，請參閱 [管理自訂網域名稱](active-directory-domains-manage-azure-portal.md)。    
 
-## <a name="add-more-custom-domain-names"></a>新增更多的自訂網域名稱
-如果您的組織使用多個自訂網域名稱，例如 ‘contoso.com’ 和 ‘contosobank.com’，您最多可以新增 900 個網域名稱。 本文中的步驟可幫助您新增每個網域名稱。
+重複本文中的步驟來新增每個網域名稱。
 
-### <a name="learn-more"></a>詳細資訊
+## <a name="learn-more"></a>詳細資訊
 [Azure AD 中自訂網域名稱的概念式概觀](active-directory-domains-manage-azure-portal.md)
 
 [管理自訂網域名稱](active-directory-domains-manage-azure-portal.md)

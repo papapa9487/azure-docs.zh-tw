@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: a1214d8327075ee081124d42aeb78846e09ff588
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 957b8b9aca0ae27362923c87c7a0161cf2c052b7
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>使用 Azure SQL Database (預覽) 監視 Log Analytics 中的 Azure SQL Database
 
@@ -29,6 +29,11 @@ Azure Log Analytics 中的 Azure SQL 分析解決方案會收集並以視覺化�
 目前，此預覽解決方案針對每個工作區支援高達 150,000 個 Azure SQL Database 和 5,000 個 SQL 彈性集區。
 
 Azure SQL 分析解決方案，如同其他可用的 Log Analytics，可協助您監視並接收您 Azure 資源健康情況的相關通知，在此情況下為 Azure SQL Database。 Microsoft Azure SQL Database 是可調整的關聯式資料庫服務，可對 Azure 雲端中執行的應用程式提供熟悉的 SQL Server 類似功能。 Log Analytics 可協助您收集、相互關聯，並以視覺化方式檢視結構化和非結構化資料。
+
+如需使用 Azure SQL Analytics 解決方案，以及一般使用案例的實際操作概觀，請觀看內嵌影片：
+          
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
+>
 
 ## <a name="connected-sources"></a>連接的來源
 
@@ -115,7 +120,7 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ### <a name="intelligent-insights-report"></a>Intelligent Insights 報表
 
-收集的所有 Intelligent Insights 都可以透過 Insights 檢視方塊視覺化及存取。 
+Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intelligent-insights.md) 可讓您了解資料庫效能發生什麼問題。 收集的所有 Intelligent Insights 都可以透過 Insights 檢視方塊視覺化及存取。
 
 ![Azure SQL 分析見解](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/13/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0050b620d1cdbe95f6cf53a8e6f65271865c9e0b
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 00043293eb57768f0117e912bb67f02d088934f3
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="scale-your-iot-hub-solution"></a>調整您的 IoT 中樞解決方案
 Azure IoT 中樞最多可支援百萬個同時連線的裝置。 如需詳細資訊，請參閱 [IoT 中樞價格][lnk-pricing]。 每個 IoT 中樞單位允許一定數量的每日訊息。
@@ -55,10 +55,10 @@ Azure IoT 中樞最多可支援百萬個同時連線的裝置。 如需詳細資
 若要進一步探索 IoT 中樞的功能，請參閱︰
 
 * [IoT 中樞開發人員指南][lnk-devguide]
-* [使用 Azure IoT Edge 來模擬裝置][lnk-iotedge]
+* [使用 Azure IoT Edge 將 AI 部署到 Edge 裝置][lnk-iotedge]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [IoT Hub quotas and throttles]: iot-hub-devguide-quotas-throttling.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md

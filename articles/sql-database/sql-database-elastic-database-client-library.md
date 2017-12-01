@@ -15,22 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: ddove
-ms.openlocfilehash: 6a73f8d0b85198f0d4e10fbc31cbd21f93bdb8a8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 721b87c67aa5e8002f21faca5a10fe41b8958e1e
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>建置可調整的雲端資料庫
 使用 Azure SQL Database 的可調整工具和功能，可以輕鬆地相應放大資料庫。 特別是，您可以使用 **彈性資料庫用戶端程式庫** 來建立和管理相應放大的資料庫。 這項功能可讓您使用成百上千個 Azure SQL 資料庫，輕鬆地開發分區化應用程式。 [彈性工作](sql-database-elastic-jobs-powershell.md) 則可用來協助簡化管理這些資料庫。
 
-若要安裝程式庫，請移至 [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) 的 NuGet。 
+若要下載：
+* .NET 版本的程式庫，請參閱 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)。
+* Java 版本的程式庫，請參閱 [Maven 中央存放庫](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools)。
 
 ## <a name="documentation"></a>文件
 1. [開始使用彈性資料庫工具](sql-database-elastic-scale-get-started.md)
 2. [彈性資料庫功能](sql-database-elastic-scale-introduction.md)
 3. [分區對應管理](sql-database-elastic-scale-shard-map-management.md)
-4. [轉換現有的資料庫以使用彈性資料庫工具](sql-database-elastic-convert-to-use-elastic-tools.md)
+4. [將現有的資料庫移轉到相應放大的資料庫](sql-database-elastic-convert-to-use-elastic-tools.md)
 5. [資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)
 6. [多分區查詢](sql-database-elastic-scale-multishard-querying.md)
 7. [使用彈性資料庫工具加入分區](sql-database-elastic-scale-add-a-shard.md)
@@ -58,15 +60,11 @@ ms.lasthandoff: 11/14/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-- [彈性資料庫用戶端程式庫](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) - 使用 NuGet **安裝**程式庫。
+- 彈性資料庫用戶端程式庫 ([.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)、[Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)) - 以**下載**程式庫。
 
 - [開始使用彈性資料庫工具](sql-database-elastic-scale-get-started.md)- 嘗試使用示範用戶端功能的**範例應用程式**。
 
-- [Github、Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools) - 程式庫是開放原始碼軟體。
-    - 彈性資料庫工具用戶端程式庫允許 ADO.NET 開發人員建立應用程式，在 Azure SQL Database 中實作和使用稱為資料庫共用的模式。
-
-- [彈性資料庫用戶端程式庫現在已開放原始碼！](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/) - 關於彈性資料庫用戶端程式庫的**部落格文章**，日期為 2015/09/09。
-
+- GitHub ([.NET](https://github.com/Azure/elastic-db-tools)、[Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md)) - 以參與程式碼。
 - [Azure SQL Database 彈性查詢概觀](sql-database-elastic-query-overview.md) - 使用彈性查詢。
 
 - [在相應放大的雲端資料庫之間移動資料](sql-database-elastic-scale-overview-split-and-merge.md) - 取得使用**分割合併工具**的指示。

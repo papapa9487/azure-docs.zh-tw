@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 655bc3dd3735a35fbe7437e8dda92b2adf15f7bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 438eeee7353cbd1d534f27471c9c9054aecc12e8
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>使用 Reliable Services 的服務遠端處理
 對於未繫結至特定通訊協定或堆疊 (例如 WebAPI、Windows Communication Foundation (WCF) 或其他項目) 的服務，Reliable Services 架構會提供遠端機制，以便快速且輕鬆設定服務遠端程序呼叫。
@@ -82,12 +82,12 @@ string message = await helloWorldClient.HelloWorldAsync();
 遠端架構會將在服務擲回的例外狀況傳播給用戶端。 因此在用戶端使用 `ServiceProxy` 的例外狀況處理邏輯，可以直接處理服務擲回的例外狀況。
 
 ## <a name="service-proxy-lifetime"></a>服務 Proxy 存留期
-建立 ServiceProxy 是輕量型作業，因此沒有限制使用者可建立的數量。 只要有需要，使用者可以重複使用服務 Proxy。 如果遠端 Api 擲回例外狀況，使用者仍然可以重複使用相同的 Proxy。 每個 ServiceProxy 皆包含用來透過網路傳送訊息的通訊用戶端。 叫用 API 時，我們會透過內部檢查來查看用戶端是否使用有效的通訊。 根據結果，我們會重新建立通訊用戶端。 因此如果發生例外狀況，使用者不需要重新建立 serviceproxy。
+建立 ServiceProxy 是輕量型作業，因此使用者可以建立的數目沒有限制。 只要有需要，使用者可以重複使用服務 Proxy 執行個體。 如果遠端程序呼叫擲回例外狀況，則使用者仍然可以重複使用相同的 Proxy 執行個體。 每個 ServiceProxy 都包含用來透過網路傳送訊息的通訊用戶端。 叫用遠端呼叫時，我們會在內部檢查通訊用戶端是否有效。 根據結果，我們會重新建立通訊用戶端 (如有需要的話)。 因此如果發生例外狀況，使用者不需要重新建立 serviceproxy，此程序會自動在背景完成。
 
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory 存留期
-[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) 是建立不同遠端介面 Proxy 的處理站。 如果您使用 API ServiceProxy.Create 建立 Proxy，則架構會建立單一 ServiceProxyFactory。
+[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) 是建立不同遠端介面 Proxy 執行個體的處理站。 如果您使用 api `ServiceProxy.Create` 建立 Proxy，那麼架構將建立單一 ServiceProxy。
 當您需要覆寫 [IServiceRemotingClientFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) 屬性時，最實用的方式是手動建立一個。
-處理站是一項昂貴的作業。 ServiceProxyFactory 會保留通訊用戶端的快取。
+處理站建立是一個成本高昂的作業。 ServiceProxyFactory 會維護通訊用戶端的內部快取。
 最佳做法是快取 ServiceProxyFactory 的時間愈長愈好。
 
 ## <a name="remoting-exception-handling"></a>遠端例外狀況處理

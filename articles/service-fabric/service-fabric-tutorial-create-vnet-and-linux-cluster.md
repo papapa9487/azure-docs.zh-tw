@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: 84b219d31635af6fbdb6bd618e3a9bb4e4848809
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 47e023e7240cfae3553b220ebc44c95ec96d62a7
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>將 Service Fabric Linux 叢集部署到 Azure 虛擬網路
 本教學課程是一個系列的第一部分。 您將會了解如何使用 Azure CLI 將 Linux Service Fabric 叢集部署到現有的 Azure 虛擬網路 (VNET) 和子網路。 完成時，您會有在您可以部署應用程式的雲端中執行的叢集。 若要使用 PowerShell 建立 Windows 叢集，請參閱[在 Azure 上建立安全的 Windows 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)。
@@ -45,6 +45,22 @@ ms.lasthandoff: 11/15/2017
 - 安裝 [Azure CLI 2.0](/cli/azure/install-azure-cli)
 
 下列程序會建立五個節點的 Service Fabric 叢集。 若要計算在 Azure 中執行 Service Fabric 叢集產生的成本，請使用 [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator/)。
+
+## <a name="introduction"></a>簡介
+本教學課程會將一個由五個單一節點類型的節點組成的叢集部署到 Azure 中的虛擬網路。
+
+[Service Fabric 叢集](service-fabric-deploy-anywhere.md)是一組由網路連接的虛擬或實體機器，可用來將您的微服務部署到其中並進行管理。 叢集可擴充至數千部機器。 隸屬於叢集的機器或 VM 即稱為節點。 需為每個節點指派節點名稱 (字串)。 節點具有各種特性，如 placement 屬性。
+
+節點類型定義叢集中一組虛擬機器的大小、數目和屬性。 每個已定義的節點類型會設定為[虛擬機器擴展集](/azure/virtual-machine-scale-sets/)，這是一個 Azure 計算資源，可以用來將一組虛擬機器當做一個集合來部署及管理。 然後每個節點類型可以獨立相應增加或相應減少，可以開啟不同組的連接埠，並可以有不同的容量度量。 節點類型是用來定義一組叢集節點的角色，例如「前端」或「後端」。  您的叢集可以有多個節點類型，但主要節點類型必須至少有五個 VM 供生產環境叢集使用 (或至少有三個 VM 供測試叢集使用)。  [Service Fabric 系統服務](service-fabric-technical-overview.md#system-services)是放置在主要節點類型的節點上。
+
+## <a name="cluster-capacity-planning"></a>叢集容量規劃
+本教學課程將部署由單一節點類型的五個節點組成的叢集。  針對任何生產環境叢集部署，容量規劃都是一個很重要的步驟。 以下是一些您在該程序中必須考量的事情。
+
+- 您的叢集所需的節點類型的數目 
+- 每個節點類型的屬性 (例如大小、主要、網際網路面向、VM 數目等)
+- 叢集的可靠性和持久性的特性
+
+如需詳細資訊，請參閱[叢集容量規劃考量](service-fabric-cluster-capacity.md)。
 
 ## <a name="sign-in-to-azure-and-select-your-subscription"></a>登入 Azure 並選取您的訂用帳戶
 本指南使用 Azure CLI。 開始新的工作階段時，請先登入您的 Azure 帳戶並選取您的訂用帳戶，再執行 Azure 命令。

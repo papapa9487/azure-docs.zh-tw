@@ -3,7 +3,7 @@ title: "快速入門：資料表 API 與 .NET - Azure Cosmos DB | Microsoft Docs
 description: "本快速入門示範如何使用 Azure Cosmos DB 資料表 API，以使用 Azure 入口網站與 .NET 建立應用程式"
 services: cosmos-db
 documentationcenter: 
-author: arramac
+author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/15/2017
-ms.author: arramac
-ms.openlocfilehash: 5d22b23d687dba2382e009e73f20014a5d528d78
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.date: 11/20/2017
+ms.author: mimig
+ms.openlocfilehash: e0f0a95ea086e83ef0c46145b33b348071407aa5
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>快速入門：使用 .NET 與 Azure Cosmos DB 建置資料表 API 應用程式 
 
@@ -34,6 +34,10 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-a-database-account"></a>建立資料庫帳戶
+
+> [!IMPORTANT] 
+> 您需要建立新資料表 API 帳戶，和正式推出的資料表 API SDK 搭配使用。 正式推出的 SDK 不支援在預覽期間建立的資料表 API 帳戶。
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -76,7 +80,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 現在，返回 Azure 入口網站以取得連接字串資訊，並將它複製到應用程式中。 這可讓您的應用程式與託管資料庫進行通訊。 
 
-1. 在 [Azure 入口網站](http://portal.azure.com/)中按一下 [連接字串]。 
+1. 在 [Azure 入口網站](http://portal.azure.com/)中，按一下 [連接字串]。 
 
     使用畫面右方的複製按鈕來複製主要連接字串。
 
@@ -84,21 +88,26 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 2. 在 Visual Studio 中，開啟 App.config 檔案。 
 
-3. 本教學課程不會使用儲存體模擬器，因此請取消註解第 8 行的 StorageConnectionString，並將第 7 行的 StorageConnectionString 註解化。 
-
-3. 將主要連接字串值貼到第 8 行上的 StorageConnectionString 值。 
+3. 本教學課程不會使用儲存體模擬器，因此請取消註解第 8 行的 StorageConnectionString，並將第 7 行的 StorageConnectionString 註解化。 第 7 行和第 8 行現在看起來應該像這樣：
 
     ```
-    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />`
+    <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-    行 8 現在看起來應該會類似
+4. 將來自入口網站的主要連接字串貼到第 8 行上的 StorageConnectionString 值中。 將字串貼到引號內。 
+
+    > [!IMPORTANT]
+    > 如果端點使用 documents.azure.com，這表示您擁有預覽帳戶，因此您需要建立一個[新資料表 API 帳戶](#create-a-database-account)與正式推出的資料表 API SDK 搭配使用。 
+    > 
+
+    第 8 行現在看起來應該類似：
 
     ```
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
     ```
 
-4. 儲存 App.config 檔案。
+5. 儲存 App.config 檔案。
 
 您現已更新應用程式，使其具有與 Azure Cosmos DB 通訊所需的所有資訊。 
 
@@ -110,11 +119,25 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 3. 從結果中，安裝 **Microsoft.Azure.CosmosDB.Table** 程式庫。 這會安裝 Azure Cosmos DB 資料表 API 套件以及所有相依性。
 
-4. 按 CTRL + F5 來執行應用程式。
+4. 開啟 BasicSamples.cs 並新增一個中斷點至第 30 行和第 52 行。
 
-    主控台視窗會顯示要新增至 Azure Cosmos DB 中的新資料表資料庫的資料表資料。
+5. 按 CTRL + F5 來執行應用程式。
 
-    您現在可以返回 [資料總管]，以查看、查詢、修改及使用這項新資料。
+    主控台視窗會顯示要新增至 Azure Cosmos DB 中的新資料表資料庫的資料表資料。 
+    
+    如果發生和相依性有關的錯誤，請參閱[疑難排解](table-sdk-dotnet.md#troubleshooting)。
+
+    到達第一個中斷點時，請回到 Azure 入口網站中的 [資料總管]，並展開示範* 資料表，然後按一下 [實體]。 右側的 [實體] 索引標籤就會顯示新增的新實體。請注意，使用者的電話號碼為 425-555-0101。
+    
+6. 關閉 [資料總管] 中的 [實體] 索引標籤。
+    
+7. 繼續執行應用程式到下一個中斷點。
+
+    到達中斷點時，請切換回入口網站，再按一下實體以開啟 [實體] 索引標籤，並請注意，電話號碼已經更新為 425-555-0105。
+
+8. 回到主控台視窗，按下 CTRL + C 結束執行應用程式。 
+
+    您現在可以回到 [資料總管] 並新增或修改實體，然後查詢資料。
 
 ## <a name="review-slas-in-the-azure-portal"></a>在 Azure 入口網站中檢閱 SLA
 

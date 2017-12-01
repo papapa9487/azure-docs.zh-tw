@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: 7e0266cdc477715a5d2f9067c6dcea73da9ba763
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f95c0c486401e0d709829ce8d560f030932eea7
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>適用於邏輯應用程式工作流程的觸發程序和動作
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 
 每一種觸發程序類型都有不同的介面和定義其行為的不同「輸入」。 
 
-| 觸發程序類型 | 說明 | 
+| 觸發程序類型 | 描述 | 
 | ------------ | ----------- | 
 | **週期性** | 根據已定義的排程來引發。 您可以設定一個未來的日期和時間來引發此觸發程序。 您也可以根據頻率來指定工作流程的執行時間和日子。 | 
 | **要求**  | 讓邏輯應用程式進入一個您可以呼叫的端點，也稱為「手動」觸發程序。 | 
@@ -111,10 +111,10 @@ ms.lasthandoff: 10/11/2017
 }
 ```
 
-| 元素名稱 | 必要 | 類型 | 說明 | 
+| 元素名稱 | 必要 | 類型 | 描述 | 
 | ------------ | -------- | ---- | ----------- | 
 | frequency | 是 | String | 觸發程序引發頻率的時間單位。 只能使用下列其中一個值︰"second"、"minute"、"hour"、"day"、"week" 或 "month" | 
-| interval | 是 | Integer | 一個正整數，此正整數描述工作流程的執行頻率 (根據 frequency)。 <p>以下是最小和最大間隔： <p>- 月：1-16 個月 </br>- 天：1-500 天 </br>- 小時：1-12,000 個小時 </br>- 分鐘：1-72,000 分鐘 </br>- 秒：1-9,999,999 秒<p>例如，如果 interval 是 6，而 frequency 是 "month"，則週期為每隔 6 個月。 | 
+| interval | 是 | Integer | 描述工作流程根據 frequency 多久執行一次的正整數。 <p>以下是最小和最大間隔： <p>- 月：1-16 個月 </br>- 天：1-500 天 </br>- 小時：1-12,000 個小時 </br>- 分鐘：1-72,000 分鐘 </br>- 秒：1-9,999,999 秒<p>例如，如果 interval 是 6，而 frequency 是 "month"，則週期為每隔 6 個月。 | 
 | timeZone | 否 | String | 只有當您有指定開始時間時才適用，因為此觸發程序並不接受 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 指定您要套用的時區。 | 
 | startTime | 否 | String | 請使用以下格式來指定開始日期和時間： <p>YYYY-MM-DDThh:mm:ss (如果您指定時區) <p>-或- <p>YYYY-MM-DDThh:mm:ssZ (如果您未指定時區) <p>因此，舉例來說，如果您想要的是 2017 年 9 月 18 日下午 2:00，則請指定 "2017-09-18T14:00:00"，然後指定一個時區，例如 "Pacific Standard Time"。 或是指定 "2017-09-18T14:00:00Z"，但不指定時區。 <p>**注意：**這個開始時間必須依照 [UTC 日期時間格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)中的 [ISO 8601 日期時間規格](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，但不含 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 如果您不指定時區，就必須在結尾加上字母 "Z"，其中不含任何空格。 這個 "Z" 係指對等的[航海時間](https://en.wikipedia.org/wiki/Nautical_time)。 <p>就簡單排程來說，開始時間係指第一次發生的時間，而就複雜排程來說，觸發程序會在開始時間一到就立即引發。 如需有關開始日期和時間的詳細資訊，請參閱[建立及排定定期執行的工作](../connectors/connectors-native-recurrence.md)。 | 
 | weekDays | 否 | 字串或字串陣列 | 當您想要執行工作流程時，如果針對 `frequency` 指定 "Week"，便可指定一或多天 (以逗號分隔)："Monday"、"Tuesday"、"Wednesday"、"Thursday"、"Friday"、"Saturday" 及 "Sunday" | 
@@ -178,7 +178,7 @@ ms.lasthandoff: 10/11/2017
 
 此觸發程序有一個稱為 *schema* 的選擇性屬性：
   
-| 元素名稱 | 必要 | 類型 | 說明 |
+| 元素名稱 | 必要 | 類型 | 描述 |
 | ------------ | -------- | ---- | ----------- |
 | 結構描述 | 否 | Object | 會驗證連入要求的 JSON 結構描述。 適用於協助後續工作流程步驟了解要參考哪些屬性。 | 
 ||||| 
@@ -189,32 +189,22 @@ ms.lasthandoff: 10/11/2017
 
 HTTP 觸發程序會輪詢指定的端點並檢查回應，以決定是否應該執行工作流程。 這裡的 `inputs` 物件會採用下列建構 HTTP 呼叫時所需的參數︰  
 
-| 元素名稱 | 必要 | 類型 | 說明 | 
+| 元素名稱 | 必要 | 類型 | 描述 | 
 | ------------ | -------- | ---- | ----------- | 
 | method | 是 | String | 使用下列其中一種 HTTP 方法︰"GET"、"POST"、"PUT"、"DELETE"、"PATCH" 或 "HEAD" | 
 | uri | 是| String | 觸發程序所檢查的 HTTP 或 HTTPS 端點。 字串大小上限：2 KB | 
 | 查詢 | 否 | Object | 代表您想要包含在 URL 中的任何查詢參數。 <p>例如，`"queries": { "api-version": "2015-02-01" }` 會將 `?api-version=2015-02-01` 新增至 URL。 | 
 | headers | 否 | Object | 代表要求中所傳送的每個標頭。 <p>例如，若要對要求設定語言和類型︰ <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | 否 | Object | 代表傳送至端點的承載。 | 
-| RetryPolicy | 否 | Object | 請使用此物件來自訂 4xx 或 5xx 錯誤的重試行為。 | 
+| RetryPolicy | 否 | Object | 請使用此物件來自訂 4xx 或 5xx 錯誤的重試行為。 如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md)。 | 
 | 驗證 | 否 | Object | 代表要求應用來進行驗證的方法。 如需詳細資訊，請參閱[排程器輸出驗證](../scheduler/scheduler-outbound-authentication.md)。 <p>除了排程器之外，還有一個支援的屬性︰`authority`。 根據預設，若未指定，此值會是 `https://login.windows.net`，但您可以使用不同的值，例如 `https://login.windows\-ppe.net`。 | 
 ||||| 
-
-「重試原則」適用於間歇性失敗，其特徵為 HTTP 狀態碼 408、429 和 5xx，還有任何連線例外狀況。 您可以使用 `retryPolicy` 物件來定義此原則，如以下所示：
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
  
 為了與邏輯應用程式良好搭配運作，HTTP 觸發程序會要求 HTTP API 必須符合特定模式。 此觸發程序可辨識下列屬性：  
   
-| Response | 必要 | 說明 | 
+| 回應 | 必要 | 描述 | 
 | -------- | -------- | ----------- |  
-| 狀態碼 | 是 | 狀態碼 200 (代表「正常」) 會促使執行。 其他任何狀態碼則不會促使執行。 | 
+| 狀態碼 | 是 | 狀態碼 200 (代表「正常」) 會促使執行。 其他任何狀態碼則不會導致執行。 | 
 | Retry-after 標頭 | 否 | 邏輯應用程式再次輪詢端點前所需經過的秒數。 | 
 | 位置標頭 | 否 | 在下一個輪詢間隔時所要呼叫的 URL。 如果未指定，則會使用原本的 URL。 | 
 |||| 
@@ -232,7 +222,7 @@ HTTP 觸發程序會輪詢指定的端點並檢查回應，以決定是否應該
 
 以下是 HTTP 觸發程序輸出： 
   
-| 元素名稱 | 類型 | 說明 |
+| 元素名稱 | 類型 | 描述 |
 | ------------ | ---- | ----------- |
 | headers | Object | HTTP 回應的標頭 | 
 | body | Object | HTTP 回應的主體 | 
@@ -262,38 +252,28 @@ API 連線觸發程序和 HTTP 觸發程序的相似之處在於其基本功能�
 }
 ```
 
-| 元素名稱 | 必要 | 類型 | 說明 | 
+| 元素名稱 | 必要 | 類型 | 描述 | 
 | ------------ | -------- | ---- | ----------- | 
 | 主機 | 是 | Object | API App 的所裝載閘道和識別碼 | 
 | method | 是 | String | 使用下列其中一種 HTTP 方法︰"GET"、"POST"、"PUT"、"DELETE"、"PATCH" 或 "HEAD" | 
 | 查詢 | 否 | Object | 代表您想要包含在 URL 中的任何查詢參數。 <p>例如，`"queries": { "api-version": "2015-02-01" }` 會將 `?api-version=2015-02-01` 新增至 URL。 | 
 | headers | 否 | Object | 代表要求中所傳送的每個標頭。 <p>例如，若要對要求設定語言和類型︰ <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | 否 | Object | 代表傳送至端點的承載。 | 
-| RetryPolicy | 否 | Object | 請使用此物件來自訂 4xx 或 5xx 錯誤的重試行為。 | 
+| RetryPolicy | 否 | Object | 請使用此物件來自訂 4xx 或 5xx 錯誤的重試行為。 如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md)。 | 
 | 驗證 | 否 | Object | 代表要求應用來進行驗證的方法。 如需詳細資訊，請參閱[排程器輸出驗證](../scheduler/scheduler-outbound-authentication.md)。 | 
 ||||| 
 
 以下是 `host` 物件的屬性：  
   
-| 元素名稱 | 必要 | 說明 | 
+| 元素名稱 | 必要 | 描述 | 
 | ------------ | -------- | ----------- | 
 | api runtimeUrl | 是 | Managed API 的端點 | 
 | 連線名稱 |  | 工作流程所使用之 Managed API 連線的名稱。 必須參考名為 `$connection` 的參數。 |
 |||| 
 
-「重試原則」適用於間歇性失敗，其特徵為 HTTP 狀態碼 408、429 和 5xx，還有任何連線例外狀況。 您可以使用 `retryPolicy` 物件來定義此原則，如以下所示：
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
-
 以下是 API 連線觸發程序的輸出︰
   
-| 元素名稱 | 類型 | 說明 |
+| 元素名稱 | 類型 | 描述 |
 | ------------ | ---- | ----------- |
 | headers | Object | HTTP 回應的標頭 | 
 | body | Object | HTTP 回應的主體 | 
@@ -336,7 +316,7 @@ HTTPWebhook 觸發程序與 Request (要求) 觸發程序類似，會提供一�
 
 這些區段之中有許多是選擇性的，而 HTTPWebhook 觸發程序的行為會取決於您所提供或省略的區段。 以下是 HTTPWebhook 觸發程序的屬性：
   
-| 元素名稱 | 必要 | 說明 | 
+| 元素名稱 | 必要 | 描述 | 
 | ------------ | -------- | ----------- |  
 | 訂閱 | 否 | 指定建立觸發程序時要呼叫的連出要求，並執行初始註冊。 | 
 | 取消訂閱 | 否 | 指定刪除觸發程序時要呼叫的連出要求。 | 
@@ -358,7 +338,7 @@ HTTPWebhook 觸發程序與 Request (要求) 觸發程序類似，會提供一�
 
 以下是 HTTPWebhook 觸發程序的輸出，並且是連入要求的內容︰
   
-| 元素名稱 | 類型 | 說明 |
+| 元素名稱 | 類型 | 描述 |
 | ------------ | ---- | ----------- |
 | headers | Object | HTTP 回應的標頭 | 
 | body | Object | HTTP 回應的主體 | 
@@ -480,7 +460,7 @@ HTTPWebhook 觸發程序與 Request (要求) 觸發程序類似，會提供一�
 
 ### <a name="standard-actions"></a>標準動作  
 
-| 動作類型 | 說明 | 
+| 動作類型 | 描述 | 
 | ----------- | ----------- | 
 | **HTTP** | 呼叫 HTTP Web 端點。 | 
 | **ApiConnection**  | 運作方式與 HTTP 動作類似，但使用 [Microsoft Managed API](https://docs.microsoft.com/azure/connectors/apis-list)。 | 
@@ -498,7 +478,7 @@ HTTPWebhook 觸發程序與 Request (要求) 觸發程序類似，會提供一�
 
 ### <a name="collection-actions"></a>集合動作
 
-| 動作類型 | 說明 | 
+| 動作類型 | 描述 | 
 | ----------- | ----------- | 
 | **Condition** | 評估運算式，然後根據結果來執行對應的分支。 | 
 | **範圍** | 用於將其他動作以邏輯方式分組。 | 
@@ -522,27 +502,18 @@ HTTP 動作會呼叫指定端點，然後檢查回應以判斷是否應執行工
 
 這裡的 `inputs` 物件會採用下列建構 HTTP 呼叫時所需的參數︰ 
 
-| 元素名稱 | 必要 | 類型 | 說明 | 
+| 元素名稱 | 必要 | 類型 | 描述 | 
 | ------------ | -------- | ---- | ----------- | 
 | method | 是 | String | 使用下列其中一種 HTTP 方法︰"GET"、"POST"、"PUT"、"DELETE"、"PATCH" 或 "HEAD" | 
 | uri | 是| String | 觸發程序所檢查的 HTTP 或 HTTPS 端點。 字串大小上限：2 KB | 
 | 查詢 | 否 | Object | 代表您想要包含在 URL 中的任何查詢參數。 <p>例如，`"queries": { "api-version": "2015-02-01" }` 會將 `?api-version=2015-02-01` 新增至 URL。 | 
 | headers | 否 | Object | 代表要求中所傳送的每個標頭。 <p>例如，若要對要求設定語言和類型︰ <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | 否 | Object | 代表傳送至端點的承載。 | 
-| RetryPolicy | 否 | Object | 請使用此物件來自訂 4xx 或 5xx 錯誤的重試行為。 | 
+| RetryPolicy | 否 | Object | 請使用此物件來自訂 4xx 或 5xx 錯誤的重試行為。 如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md)。 | 
 | operationsOptions | 否 | String | 定義一組要覆寫的特殊行為。 | 
 | 驗證 | 否 | Object | 代表要求應用來進行驗證的方法。 如需詳細資訊，請參閱[排程器輸出驗證](../scheduler/scheduler-outbound-authentication.md)。 <p>除了排程器之外，還有一個支援的屬性︰`authority`。 根據預設，若未指定，此值會是 `https://login.windows.net`，但您可以使用不同的值，例如 `https://login.windows\-ppe.net`。 | 
 ||||| 
 
-HTTP 動作和 APIConnection 動作支援「重試原則」。 重試原則適用於間歇性失敗，其典型是 HTTP 狀態碼 408、429 與 5xx，以及任何連線例外狀況。 您可以使用 `retryPolicy` 物件來定義此原則，如以下所示：
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
 這個範例 HTTP 動作會在有間歇性失敗時重新嘗試擷取最新的消息兩次，總共的執行次數為三次，每次嘗試之間會延遲 30 秒︰
   
 ```json
@@ -623,7 +594,7 @@ APIConnection 動作會參考 Microsoft Managed 連接器。 這個動作需要�
 }
 ```
 
-| 元素名稱 | 必要 | 類型 | 說明 | 
+| 元素名稱 | 必要 | 類型 | 描述 | 
 | ------------ | -------- | ---- | ----------- | 
 | 主機 | 是 | Object | 代表連接器資訊，例如 `runtimeUrl` 和對連線物件的參考。 | 
 | method | 是 | String | 使用下列其中一種 HTTP 方法︰"GET"、"POST"、"PUT"、"DELETE"、"PATCH" 或 "HEAD" | 
@@ -631,20 +602,10 @@ APIConnection 動作會參考 Microsoft Managed 連接器。 這個動作需要�
 | 查詢 | 否 | Object | 代表您想要包含在 URL 中的任何查詢參數。 <p>例如，`"queries": { "api-version": "2015-02-01" }` 會將 `?api-version=2015-02-01` 新增至 URL。 | 
 | headers | 否 | Object | 代表要求中所傳送的每個標頭。 <p>例如，若要對要求設定語言和類型︰ <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | 否 | Object | 代表傳送至端點的承載。 | 
-| RetryPolicy | 否 | Object | 請使用此物件來自訂 4xx 或 5xx 錯誤的重試行為。 | 
+| RetryPolicy | 否 | Object | 請使用此物件來自訂 4xx 或 5xx 錯誤的重試行為。 如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md)。 | 
 | operationsOptions | 否 | String | 定義一組要覆寫的特殊行為。 | 
 | 驗證 | 否 | Object | 代表要求應用來進行驗證的方法。 如需詳細資訊，請參閱[排程器輸出驗證](../scheduler/scheduler-outbound-authentication.md)。 |
 ||||| 
-
-重試原則適用於間歇性失敗，其典型是 HTTP 狀態碼 408、429 與 5xx，以及任何連線例外狀況。 您可以使用 `retryPolicy` 物件來定義此原則，如以下所示：
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
 
 ## <a name="apiconnection-webhook-action"></a>APIConnectionWebhook 動作
 
@@ -677,14 +638,14 @@ APIConnectionWebhook 動作會參考 Microsoft Managed 連接器。 這個動作
 }
 ```
 
-| 元素名稱 | 必要 | 類型 | 說明 | 
+| 元素名稱 | 必要 | 類型 | 描述 | 
 | ------------ | -------- | ---- | ----------- | 
 | 主機 | 是 | Object | 代表連接器資訊，例如 `runtimeUrl` 和對連線物件的參考。 | 
 | 路徑 | 是 | String | API 作業的路徑 | 
 | 查詢 | 否 | Object | 代表您想要包含在 URL 中的任何查詢參數。 <p>例如，`"queries": { "api-version": "2015-02-01" }` 會將 `?api-version=2015-02-01` 新增至 URL。 | 
 | headers | 否 | Object | 代表要求中所傳送的每個標頭。 <p>例如，若要對要求設定語言和類型︰ <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | 否 | Object | 代表傳送至端點的承載。 | 
-| RetryPolicy | 否 | Object | 請使用此物件來自訂 4xx 或 5xx 錯誤的重試行為。 | 
+| RetryPolicy | 否 | Object | 請使用此物件來自訂 4xx 或 5xx 錯誤的重試行為。 如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md)。 | 
 | operationsOptions | 否 | String | 定義一組要覆寫的特殊行為。 | 
 | 驗證 | 否 | Object | 代表要求應用來進行驗證的方法。 如需詳細資訊，請參閱[排程器輸出驗證](../scheduler/scheduler-outbound-authentication.md)。 |
 ||||| 
@@ -745,7 +706,7 @@ APIConnectionWebhook 動作會參考 Microsoft Managed 連接器。 這個動作
     "runAfter": {}
 }
 ```
-| 元素名稱 | 必要 | 類型 | 說明 | 
+| 元素名稱 | 必要 | 類型 | 描述 | 
 | ------------ | -------- | ---- | ----------- |  
 | 函式識別碼 | 是 | String | 您想要呼叫之 Azure 函式的資源識別碼。 | 
 | method | 否 | String | 用來呼叫函式的 HTTP 方法。 若未指定，則預設方法為 "POST"。 | 
@@ -795,7 +756,7 @@ APIConnectionWebhook 動作會參考 Microsoft Managed 連接器。 這個動作
 > [!NOTE]  
 > 您可以使用 `until` 物件或 `interval` 物件 (但不可同時使用兩者) 來指定等候持續時間。
   
-| 元素名稱 | 必要 | 類型 | 說明 | 
+| 元素名稱 | 必要 | 類型 | 描述 | 
 | ------------ | -------- | ---- | ----------- | 
 | 直到 | 否 | Object | 以時間點為基礎的等候持續時間 | 
 | 直到時間戳記 | 是 | String | 等候時間到期時的時間點 (以 [UTC 日期時間格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)指定) | 
@@ -834,7 +795,7 @@ APIConnectionWebhook 動作會參考 Microsoft Managed 連接器。 這個動作
 }
 ```
 
-| 元素名稱 | 必要 | 類型 | 說明 | 
+| 元素名稱 | 必要 | 類型 | 描述 | 
 | ------------ | -------- | ---- | ----------- |  
 | 主機識別碼 | 是 | String| 您想要呼叫之工作流程的資源識別碼 | 
 | 主機 triggerName | 是 | String | 您想要叫用之觸發程序的名稱 | 
@@ -878,7 +839,7 @@ APIConnectionWebhook 動作會參考 Microsoft Managed 連接器。 這個動作
 }
 ```
 
-| 名稱 | 必要 | 類型 | 說明 | 
+| 名稱 | 必要 | 類型 | 描述 | 
 | ---- | -------- | ---- | ----------- | 
 | from | 是 | 陣列 | 來源陣列 |
 | 選取 | 是 | 任意 | 套用至來源陣列中每個元素的投射 |
@@ -905,7 +866,7 @@ APIConnectionWebhook 動作會參考 Microsoft Managed 連接器。 這個動作
 > [!NOTE]
 > 如果沒有任何值符合 `where` 條件，則結果為空白陣列。
 
-| 名稱 | 必要 | 類型 | 說明 | 
+| 名稱 | 必要 | 類型 | 描述 | 
 | ---- | -------- | ---- | ----------- | 
 | from | 是 | 陣列 | 來源陣列 |
 | 其中 | 是 | String | 套用至來源陣列中各個元素的條件 |
@@ -968,9 +929,9 @@ APIConnectionWebhook 動作會參考 Microsoft Managed 連接器。 這個動作
 
 此範例的結果會看起來像這個 HTML 資料表： 
 
-<table><thead><tr><th>產生識別碼</th><th>說明</th></tr></thead><tbody><tr><td>0</td><td>fresh apples</td></tr><tr><td>1</td><td>fresh oranges</td></tr></tbody></table>
+<table><thead><tr><th>產生識別碼</th><th>描述</th></tr></thead><tbody><tr><td>0</td><td>fresh apples</td></tr><tr><td>1</td><td>fresh oranges</td></tr></tbody></table>
 
-| 名稱 | 必要 | 類型 | 說明 | 
+| 名稱 | 必要 | 類型 | 描述 | 
 | ---- | -------- | ---- | ----------- | 
 | from | 是 | 陣列 | 來源陣列。 如果 `from` 屬性值為空的陣列，則輸出為空的資料表。 | 
 | format | 是 | String | 您想要的資料表格式 (**CSV** 或 **HTML**) | 
@@ -998,7 +959,7 @@ APIConnectionWebhook 動作會參考 Microsoft Managed 連接器。 這個動作
 }
 ```
 
-| 名稱 | 必要 | 類型 | 說明 | 
+| 名稱 | 必要 | 類型 | 描述 | 
 | ---- | -------- | ---- | ----------- | 
 | runStatus | 是 | String | 目標執行的狀態 (`Failed` 或 `Cancelled`) |
 | runError | 否 | Object | 錯誤詳細資料。 只有當 `runStatus` 已設定為 `Failed`時才支援。 |
@@ -1044,7 +1005,7 @@ APIConnectionWebhook 動作會參考 Microsoft Managed 連接器。 這個動作
 }
 ``` 
 
-| 名稱 | 必要 | 類型 | 說明 | 
+| 名稱 | 必要 | 類型 | 描述 | 
 | ---- | -------- | ---- | ----------- | 
 | 動作 | 是 | Object | `expression` 評估為 `true` 時要執行的內部動作 | 
 | expression | 是 | String | 要評估的運算式 |
@@ -1086,7 +1047,7 @@ APIConnectionWebhook 動作會參考 Microsoft Managed 連接器。 這個動作
 }
 ```
 
-| 名稱 | 必要 | 類型 | 說明 | 
+| 名稱 | 必要 | 類型 | 描述 | 
 | ---- | -------- | ---- | ----------- |  
 | 動作 | 是 | Object | 要在範圍內執行的內部動作 |
 ||||| 
@@ -1122,7 +1083,7 @@ APIConnectionWebhook 動作會參考 Microsoft Managed 連接器。 這個動作
 }
 ```
 
-| 名稱 | 必要 | 類型 | 說明 | 
+| 名稱 | 必要 | 類型 | 描述 | 
 | ---- | -------- | ---- | ----------- | 
 | 動作 | 是 | Object | 要在迴圈內執行的內部動作 | 
 | foreach | 是 | String | 要逐一查看的陣列 | 
@@ -1155,7 +1116,7 @@ APIConnectionWebhook 動作會參考 Microsoft Managed 連接器。 這個動作
 }
 ```
 
-| 名稱 | 必要 | 類型 | 說明 | 
+| 名稱 | 必要 | 類型 | 描述 | 
 | ---- | -------- | ---- | ----------- | 
 | 動作 | 是 | Object | 要在迴圈內執行的內部動作 | 
 | expression | 是 | String | 要在每次反覆運算之後評估的運算式 | 

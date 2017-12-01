@@ -10,19 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 050758240c9670a6f120f069d736cf6d6475b534
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a03fb4f202bddb6454f703c998e95abf13d14fff
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - 已知問題和疑難排解指南 
 本文可協助您尋找和修正使用 Azure Machine Learning Workbench 應用程式過程中遇到的錯誤與失敗。 
 
-> [!IMPORTANT]
-> 與技術支援小組通訊時，務必先備妥組建編號。 您可以按一下 [說明] 功能表來找出應用程式的組建編號。 按一下組建編號，將它複製到剪貼簿。 您可以將它貼到電子郵件或支援論壇，有助於報告問題。
-
-![檢查版本號碼](media/known-issues-and-troubleshooting-guide/buildno.png)
+## <a name="find-the-workbench-build-number"></a>尋找 Workbench 組建編號
+與技術支援小組通訊時，務必提供 Workbench 應用程式的組建編號。 在 Windows 上按一下 [說明] 功能表並選擇 [關於 Azure ML Workbench]，就可以找到組建編號。 在 macOS 上則可以按一下 [Azure ML Workbench] 功能表，然後選擇 [關於 Azure ML Workbench]。
 
 ## <a name="machine-learning-msdn-forum"></a>機器學習服務 MSDN 論壇
 您可以在我們的 MSDN 論壇張貼問題。 產品小組會主動監視論壇。 論壇 URL 是 [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum)。 
@@ -75,10 +73,13 @@ $ az ml experiment diagnostics -r <run_id> -t <target_name>
     >這項限制不適用於 `.git`、`docs` 和 `outputs` 資料夾。 這些資料夾名稱會區分大小寫。 如果您使用大型檔案，請參閱[保存變更和處理大型檔案](how-to-read-write-files.md)。
 
 - 允許的實驗執行時間上限：7 天
+
 - 執行之後 `outputs` 資料夾中追蹤檔案的大小上限：512 MB
   - 這表示如果指令碼在 outputs 資料夾中產生大於 512 MB 的檔案，就不會在那裡收集該檔案。 如果您使用大型檔案，請參閱[保存變更和處理大型檔案](how-to-read-write-files.md)。
 
 - 透過 SSH 連線至遠端電腦或 Spark 叢集時，不支援 SSH 金鑰。 目前只支援使用者名稱/密碼模式。
+
+- 使用 HDInsight 叢集作為計算目標時，必須使用 Azure Blob 作為主要儲存體。 不支援使用 Azure Data Lake 儲存體。
 
 - Mac 不支援文字叢集轉換。
 

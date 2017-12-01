@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: bbbd31313db44d32a829e9e4c6c9b5fd9c0e533e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 7013e7ff3cb14dcad8e3e9a926bcee771180259d
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>如何從 Windows 虛擬機器卸離資料磁碟
 當不再需要某個連接至虛擬機器的資料磁碟時，卸離此資料磁碟很簡單。 這會將磁碟從虛擬機器中卸離，但這不會將它從儲存體中移除。
@@ -32,29 +32,30 @@ ms.lasthandoff: 11/02/2017
 如果您想要再次使用磁碟上現有的資料，您可以將磁碟重新連接至相同或其他虛擬機器。
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>使用入口網站來中斷資料磁碟連結
-1. 在入口網站中樞中，選取 [虛擬機器] 。
+
+1. 在左窗格中，選取 [虛擬機器]。
 2. 選取含有您想要中斷連結之資料磁碟的虛擬機器，然後按一下 [停止] 以解除配置該 VM。
-3. 在 [虛擬機器] 刀鋒視窗中，選取 [磁碟]。
-4. 在 [磁碟] 刀鋒視窗頂端，選取 [編輯]。
-5. 在 [磁碟] 刀鋒視窗中，在您想要中斷連結的資料磁碟最右側，按一下 ![中斷連結按鈕影像](./media/detach-disk/detach.png) 中斷連結按鈕。
-5. 移除磁碟之後，按一下刀鋒視窗頂端的 [儲存]。
-6. 在 [虛擬機器] 刀鋒視窗中，按一下 [概觀]，然後按一下刀鋒視窗頂端的 [啟動] 按鈕以重新啟動 VM。
+3. 在 [虛擬機器] 窗格中，選取 [磁碟]。
+4. 在 [磁碟] 窗格頂端，選取 [編輯]。
+5. 在 [磁碟] 窗格中，在您想要中斷連結的資料磁碟最右側，按一下 [中斷連結按鈕影像]![](./media/detach-disk/detach.png) 中斷連結按鈕。
+5. 移除磁碟之後，按一下窗格頂端的 [儲存]。
+6. 在 [虛擬機器] 窗格中，按一下 [概觀]，然後按一下窗格頂端的 [啟動] 按鈕以重新啟動 VM。
 
 
 
 磁碟仍留在儲存體中，但不再連接至虛擬機器。
 
 ## <a name="detach-a-data-disk-using-powershell"></a>使用 PowerShell 來中斷資料磁碟連結
-在此範例中，第一個命令會使用 Get-AzureRmVM Cmdlet 來取得 **RG11** 資源群組中名為 **MyVM07** 的虛擬機器。 此命令會將虛擬機器儲存在 **$VirtualMachine** 變數中。
+在此範例中，第一個命令會使用 [Get-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) Cmdlet 來取得 **RG11** 資源群組中名為 **MyVM07** 的虛擬機器，並且將它儲存在 **$VirtualMachine** 變數中。
 
-第二個命令會將名為 DataDisk3 的資料磁碟從虛擬機器中移除。
+第二行會使用 [Remove-AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk) Cmdlet，從虛擬機器移除名為 DataDisk3 的資料磁碟。
 
-最後一個命令會更新虛擬機器的狀態，以完成移除資料磁碟的程序。
+第三行會使用 [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) Cmdlet 來更新虛擬機器的狀態，以完成移除資料磁碟的程序。
 
 ```azurepowershell-interactive
 $VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07"
 Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
-Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
+Update-AzureRmVM -ResourceGroupName "RG11" -VM $VirtualMachine
 ```
 
 如需詳細資訊，請參閱 [Remove-AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk)。

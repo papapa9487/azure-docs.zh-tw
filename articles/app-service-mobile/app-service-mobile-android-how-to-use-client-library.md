@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 11/16/2017
 ms.author: glenga
-ms.openlocfilehash: c1b868c07522a8df8b574b3bf3d31de512a547fe
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: ac5cbb51a5ed340a6cbf2eeefa41feb337d28fb9
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>如何使用 Android 版 Azure Mobile Apps SDK
 
@@ -65,10 +65,10 @@ Android 版 Azure Mobile Apps SDK 支援 API 層級 19 至 24 (KitKat 至 Nougat
 2. 將此程式碼新增至 *dependencies* 標籤內的*模組應用程式*層級 **build.gradle** 檔案：
 
     ```text
-    compile 'com.microsoft.azure:azure-mobile-android:3.3.0'
+    compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
-    目前最新版為 3.3.0。 支援的版本列在 [Bintray 上][14]。
+    目前最新版為 3.4.0。 支援的版本列在 [Bintray 上][14]。
 
 ### <a name="enable-internet"></a>啟用網際網路權限
 
@@ -982,7 +982,7 @@ dependencies {
     compile 'com.google.guava:guava:18.0'
     compile 'com.android.support:customtabs:23.0.1'
     compile 'com.squareup.okhttp:okhttp:2.5.0'
-    compile 'com.microsoft.azure:azure-mobile-android:3.2.0@aar'
+    compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@jar'
 }
 ```

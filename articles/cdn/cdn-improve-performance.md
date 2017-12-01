@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 86f1f8f0aaa9a699d2f816781cef65cda868ee55
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4e27ec57543daed35811fff347f457b0dd2cd5c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>在 Azure CDN 中壓縮檔案以改善效能
 壓縮是簡單且有效的方法，可提升檔案傳輸速度，並且在檔案從伺服器傳送出去之前先減少其大小，以增加頁面載入效能。 它會降低頻寬成本，並提供回應速度更快的體驗給使用者。
@@ -100,7 +100,7 @@ ms.lasthandoff: 10/11/2017
 > * 超過 128 個位元組。
 > * 小於 1 MB。
 > 
-> 這些設定檔支援 **gzip** (GNU zip)、**deflate****bzip2** 或 **br** (Brotli) 編碼。 對於 Brotli 編碼，壓縮只能在邊緣完成。 用戶端/瀏覽器必須傳送 Brotli 編碼要求，而且壓縮的資產必須已事先在來源端經過壓縮。 
+> 這些設定檔支援 **gzip** (GNU zip)、**deflate****bzip2** 或 **br** (Brotli) 編碼。 對於 Brotli 編碼，壓縮必須在原始位置完成。 用戶端/瀏覽器必須傳送 Brotli 編碼要求，而且壓縮的資產必須已事先在來源端經過壓縮。 
 
 > [!IMPORTANT]
 > 若為**來自 Akamai 的 Azure CDN** 設定檔，所有檔案都符合壓縮資格。 然而，檔案必須為已[設定壓縮](#enabling-compression)的 MIME 類型。

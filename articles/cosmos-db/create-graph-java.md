@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/20/2017
+ms.date: 11/20/2017
 ms.author: denlee
-ms.openlocfilehash: 4470b5adb52debce1492b084ce71100da77da046
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 84a9ae4a48e7e71d70214550dd203a0468a31de6
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB︰使用 Java 和 Azure 入口網站建立圖形資料庫
 
@@ -72,13 +72,19 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 現在讓我們切換為使用程式碼。 我們將從 GitHub 複製圖形 API 應用程式、設定連接字串，然後加以執行。 您會看到，以程式設計方式來處理資料有多麼的容易。  
 
-1. 開啟 git 終端機視窗 (例如 git bash)，並使用 `cd` 命令變更至要安裝範例應用程式的資料夾。  
+1. 開啟命令提示字元，建立名為 git-samples 的新資料夾，然後關閉命令提示字元。
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. 開啟 git 終端機視窗 (例如 git bash)，並使用 `cd` 命令變更至要安裝範例應用程式的資料夾。  
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. 執行下列命令來複製範例存放庫。 此命令會在您的電腦上建立範例應用程式副本。 
+3. 執行下列命令來複製範例存放庫。 此命令會在您的電腦上建立範例應用程式副本。 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-java-getting-started.git
@@ -86,7 +92,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="review-the-code"></a>檢閱程式碼
 
-此為選用步驟。 若您想要瞭解如何在程式碼中建立資料庫資源，則可檢閱下列程式碼片段。 這些程式碼片段皆是取自以下資料夾中的 `Program.java` 檔案：C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted。 或者也可以直接跳至[更新您的連接字串](#update-your-connection-string)。 
+此為選用步驟。 若您想要瞭解如何在程式碼中建立資料庫資源，則可檢閱下列程式碼片段。 這些程式碼片段皆是取自以下資料夾中的 `Program.java` 檔案：C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted。 或者也可以直接跳至[更新您的連接字串](#update-your-connection-information)。 
 
 * 已從 `src/remote.yaml` 中的組態初始化 Gremlin `Client`。
 
@@ -148,11 +154,23 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     cd "C:\git-samples\azure-cosmos-db-graph-java-getting-started"
     ```
 
-2. 在 git 終端機視窗中，輸入 `mvn package` 以安裝必要的 Java 套件。
+2. 在 git 終端機視窗中，使用下列命令來安裝必要的 Java 套件。
 
-3. 在 git 終端機視窗中，執行 `mvn exec:java -D exec.mainClass=GetStarted.Program` 以啟動您的 Java 應用程式。
+   ```
+   mvn package
+   ```
 
-    終端機視窗會顯示要新增至圖形的頂點。 程式停止後，請以網際網路瀏覽器切換回 Azure 入口網站。 
+3. 在 git 終端機視窗中，使用下列命令以啟動 JAVA 應用程式。
+    
+    ```
+    mvn exec:java -D exec.mainClass=GetStarted.Program
+    ```
+
+    終端機視窗會顯示要新增至圖形的頂點。 
+    
+    如果遇到逾時錯誤，請檢查您已在[更新您的連線資訊](#update-your-connection-information)中正確更新連線資訊，也請嘗試重新執行最後一個命令。 
+    
+    程式停止後，按 Enter，然後在網際網路瀏覽器中切換回 Azure 入口網站。 
 
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>檢閱並新增範例資料
@@ -200,7 +218,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 10. 按一下 [確定] 。 
 
-11. 按一下 [套用篩選條件]，預設的 `g.V()` 篩選條件會顯示圖形中的所有值。 所有使用者現在會顯示在 [結果] 清單中。 
+11. 按一下 [套用篩選條件] 按鈕，預設的 `g.V()` 篩選條件會顯示圖形中的所有值。 所有使用者現在會顯示在 [結果] 清單中。 
 
     隨著您新增更多的資料，您可以使用篩選條件來限制您的結果。 依預設，[資料總管] 會使用 `g.V()` 擷取圖形中的所有頂點。 您可將其變更為不同的[圖形查詢](tutorial-query-graph.md) (例如 `g.V().count()`)，以使用 JSON 格式傳回圖形中所有頂點的計數。 若您變更篩選條件，請將篩選條件變更回 `g.V()`，然後按一下 [套用篩選條件]，即可再次顯示所有的結果。
 

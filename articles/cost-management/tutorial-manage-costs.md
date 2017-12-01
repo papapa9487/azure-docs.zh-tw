@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/06/2017
+ms.date: 11/21/2017
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 83ddc0cb4227235069b0027a24a52f4d8e818126
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: bfbcded98814500a03b2b79b0248c84f8f043dc0
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="manage-costs-by-using-azure-cost-management"></a>使用 Azure 成本管理來管理成本
 
@@ -80,6 +80,23 @@ ms.lasthandoff: 11/07/2017
 
 ![範例類別](./media/tutorial-manage-costs/category01.png)
 
+### <a name="tag-sources-and-reports"></a>標記來源和報表
+
+您在 Cloudyn 報表中所看到的標記資料，是源自於三個位置：
+
+- 雲端提供者資源 API
+- 雲端提供者計費 API
+- 從下列來源手動建立的標記：
+    - Cloudyn 實體標記：套用至 Cloudyn 實體的使用者定義中繼資料
+    - 類別管理員：會根據套用至現有標記之規則建立新標記的資料清理工具
+
+若要在 Cloudyn 成本報表中檢視雲端提供者標記，您必須使用 [Cost Allocation 360] \(成本配置 360\) 來建立自訂成本配置模型。 若要這麼做，請移至 [Cost] \(成本\) > [Cost Management] \(成本管理\) > [Cost Allocation 360] \(成本配置 360\)，選取所需的標記，然後定義規則以處理未標記的成本。 接著，建立新的成本模型。 之後，您可以在 [Cost Allocation Analysis] \(成本配置分析\) 中檢視報表，以針對您的 Azure 資源標記進行檢視、篩選及排序。
+
+Azure 資源標記只會出現在 [Cost Allocation Analysis] \(成本配置分析\) 報表中。
+
+雲端提供者計費標記會出現在所有成本報表中。
+
+Cloudyn 實體標記和您手動建立的標記會出現在所有成本報表中。
 
 
 ## <a name="create-showback-and-chargeback-reports"></a>建立回報和退款報表

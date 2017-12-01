@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 8bcecdff2bb9ac037e2cd71a431619883dfb5084
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 5cf74140969fb354e426c41552d4d73a06c76890
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>使用 SQL 資料同步 (預覽) 跨多個雲端和內部部署資料庫同步資料
 
@@ -80,16 +80,6 @@ ms.lasthandoff: 11/14/2017
 
 ## <a name="sync-req-lim"></a> 需求和限制
 
-### <a name="general-requirements"></a>一般需求
-
--   每個資料表都必須有主索引鍵。 請勿變更任何資料列的主索引鍵值。 如果您必須變更主索引鍵值，請刪除資料列，再利用新的主索引鍵值重新建立。 
-
--   資料表不能有非主索引鍵的識別欄位。
-
--   物件 (資料庫、資料表和資料行) 的名稱不能包含可列印的字元句點 (.)、左括弧 (\[\)，或右括弧 (\]\)。
-
--   必須啟用快照集隔離。 如需詳細資訊，請參閱 [SQL Server 中的快照集隔離](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)。
-
 ### <a name="general-considerations"></a>一般考量
 
 #### <a name="eventual-consistency"></a>最終一致性
@@ -98,7 +88,19 @@ ms.lasthandoff: 11/14/2017
 #### <a name="performance-impact"></a>效能影響
 資料同步使用 insert、update 和 delete 觸發程序追蹤變更。 其會在使用者資料庫中建立側邊資料表，以便進行變更追蹤。 這些變更追蹤活動會影響您的資料庫工作負載。 請評估您的服務層，如有必要則請升級。
 
+### <a name="general-requirements"></a>一般需求
+
+-   每個資料表都必須有主索引鍵。 請勿變更任何資料列的主索引鍵值。 如果您必須變更主索引鍵值，請刪除資料列，再利用新的主索引鍵值重新建立。 
+
+-   必須啟用快照集隔離。 如需詳細資訊，請參閱 [SQL Server 中的快照集隔離](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)。
+
 ### <a name="general-limitations"></a>一般限制
+
+-   資料表不能有非主索引鍵的識別欄位。
+
+-   物件 (資料庫、資料表和資料行) 的名稱不能包含可列印的字元句點 (.)、左括弧 (\[\)，或右括弧 (\]\)。
+
+-   不支援 Azure Active Directory 驗證。
 
 #### <a name="unsupported-data-types"></a>不支援的資料類型
 

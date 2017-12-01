@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: c1b832895476e2f64bbae638db76f89890e5c804
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 5369946b1e8a4851ee940cf6fe91a1bdb94db5f3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>在 Azure 建立管理 App Service 方案
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 11/14/2017
 
 [變更 App Service 方案] 會開啟 [App Service 方案] 選取器。 選取現有的方案以移動此應用程式。 
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > [選取 App Service 方案] 頁面會依下列準則進行篩選： 
 > - 存在相同的資源群組內 
 > - 存在相同的地理區域內 

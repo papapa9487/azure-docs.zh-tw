@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 1d2a5e5d639e2aa0023e99b73f87a68e19afc239
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 2f46fc37b9050b19b83685c97198c29a5ce46289
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常見問題集
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB 基本概念
@@ -431,7 +431,7 @@ Azure Cosmos DB 會根據您是透過入口網站還是 CQL 建立資料表，�
 輸送量概念的說明請參閱 [Azure Cosmos DB 中的要求單位](request-units.md)一文。 資料表的輸送量會平均分散到基礎的實體分割區。  
 
 ### <a name="what-is-the-default-rus-of-table-when-created-through-cql-what-if-i-need-to-change-it"></a>透過 CQL 建立的資料表，其預設「RU/秒」為何？ 如果我需要變更此輸送量，該怎麼做？
-Azure Cosmos DB 會使用每秒的要求單位數 (RU/秒) 做為用來提供輸送量的貨幣。 透過 CQL 所建立的資料表有 400 RU。 您可以從入口網站將 RU 變更為 10,000 RU。 在私人預覽版中，如果您需要超過 10,000 RU，則可以先從入口網站來建立。 或者，如果您想要在 CQL 使用這項功能，請透過 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) 與我們連絡。 
+Azure Cosmos DB 會使用每秒的要求單位數 (RU/秒) 做為用來提供輸送量的貨幣。 透過 CQL 所建立的資料表有 400 RU。 您可以從入口網站變更 RU。 
 
 CQL
 ```

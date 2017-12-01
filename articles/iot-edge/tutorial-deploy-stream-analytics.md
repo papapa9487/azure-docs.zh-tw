@@ -9,11 +9,11 @@ ms.author: v-masebo
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: ebda79442b8feb9f052c3ae455fa43aafb7b5a6a
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 0d19d1142cf15221f84692f7e613edd6b46b4083
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>將 Azure 串流分析部署為 IoT Edge 模組 - 預覽
 
@@ -62,13 +62,16 @@ IoT Edge 會利用預先建置的 Azure 服務 IoT Edge 模組，以便快速進
     ![新儲存體帳戶][1]
 
 3. 在 Azure 入口網站中，瀏覽至您剛建立的儲存體帳戶。 按一下 [Blob 服務] 下方的 [瀏覽 Blob]。 
-1. 建立新的 ASA 模組容器來儲存資料。 將存取層級設為_容器_。 按一下 [確定] 。
+4. 建立新的 ASA 模組容器來儲存資料。 將存取層級設為_容器_。 按一下 [確定] 。
 
     ![儲存體設定][10]
 
-1. 在 Azure 入口網站中，瀏覽至 [建立資源] > [物聯網]，然後選取 [串流分析作業]。
+5. 在 Azure 入口網站中，瀏覽至 [建立資源] > [物聯網]，然後選取 [串流分析作業]。
 
-1. 輸入名稱，**選擇 "Edge" 作為主控環境**並使用其餘預設值。  按一下 [建立] 。
+2. 輸入名稱，選擇 [Edge] 作為主控環境，並使用其餘的預設值。  按一下 [建立] 。
+
+    >[!NOTE]
+    >目前，「美國西部 2」區域並不支援 IoT Edge 上的 ASA 作業。 請選取其他位置。
 
     ![ASA 建立][5]
 

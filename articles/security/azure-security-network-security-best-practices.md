@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 659304937eebb1b2fe6faf019dfef63e1e29bcd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dee3411dadbca5e88951dec2ed1836d440423c4
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-network-security-best-practices"></a>Azure 網路安全性最佳作法
-Microsoft Azure 可讓您將虛擬機器和應用裝置放在 Azure 虛擬網路上，進而將它們連接到其他網路裝置。 Azure 虛擬網路是一種虛擬網路建構，可讓您將虛擬網路介面卡連接至虛擬網路，允許有網路功能的裝置之間進行以 TCP/IP 為基礎的通訊。 連接到 Azure 虛擬網路的 Azure 虛擬機器能夠連接到相同 Azure 虛擬網路、不同 Azure 虛擬網路、網際網路或甚至您自己的內部部署網路上的裝置。
+Microsoft Azure 可讓您將虛擬機器和應用裝置放在 Azure 虛擬網路上，進而將它們連接到其他網路裝置。 Azure 虛擬網路是一種建構，可讓您將虛擬網路介面卡連線到虛擬網路，允許有網路功能的裝置之間進行以 TCP/IP 為基礎的通訊。 連接到 Azure 虛擬網路的 Azure 虛擬機器能夠連接到相同 Azure 虛擬網路、不同 Azure 虛擬網路、網際網路或甚至您自己的內部部署網路上的裝置。
 
 本文將討論 Azure 網路安全性最佳作法的集合。 這些最佳作法衍生自我們的 Azure 網路經驗和客戶的經驗。
 
@@ -52,7 +52,7 @@ Microsoft Azure 可讓您將虛擬機器和應用裝置放在 Azure 虛擬網路
 ## <a name="logically-segment-subnets"></a>以邏輯方式分割子網路
 [Azure 虛擬網路](https://azure.microsoft.com/documentation/services/virtual-network/)類似於內部部署網路上的 LAN。 Azure 虛擬網路背後的構想是您建立單一私人 IP 位址空間型網路，以將所有 [Azure 虛擬機器](https://azure.microsoft.com/services/virtual-machines/)置於其上。 可用的私人 IP 位址空間位於類別 A (10.0.0.0/8)、類別 B (172.16.0.0/12) 和類別 C (192.168.0.0/16) 範圍中。
 
-類似於您在內部部署執行的作業，您會想要將較大的位址空間分成子網路。 您可以使用 [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 型子網路原則來建立子網路。
+類似於您在內部部署執行的作業，您應該將較大的位址空間分成子網路。 您可以使用 [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 型子網路原則來建立子網路。
 
 子網路之間的路由傳送會自動發生，您不需要手動設定路由表。 不過，預設設定是您在 Azure 虛擬網路上建立的子網路之間沒有任何網路存取控制。 若要建立子網路之間的網路存取控制，您必須在子網路之間放置一些項目。
 
@@ -74,7 +74,7 @@ Microsoft Azure 可讓您將虛擬機器和應用裝置放在 Azure 虛擬網路
 建議您在部署虛擬網路安全性應用裝置時設定「使用者定義的路由」，我們將在更新版的最佳作法中進行討論。
 
 > [!NOTE]
-> 不需要使用者定義的路由，而預設系統路由將適用於大部分的情況。
+> 不需要使用者定義的路由，而預設系統路由適用於大部分的情況。
 >
 >
 
@@ -82,7 +82,7 @@ Microsoft Azure 可讓您將虛擬機器和應用裝置放在 Azure 虛擬網路
 
 ## <a name="enable-forced-tunneling"></a>啟用強制通道
 若要進一步了解強制通道，最好能了解「分割通道」是什麼。
-最常見的分割通道範例出現於 VPN 連線。 想像一下您從旅館房間建立對公司網路的 VPN 連線。 此連線可讓您連接到公司網路上的資源，而公司網路上的資源的所有通訊都會經過 VPN 通道。
+最常見的分割通道範例出現於 VPN 連線。 想像一下您從旅館房間建立對公司網路的 VPN 連線。 這個連線可讓您存取公司資源，以及通過 VPN 通道的所有公司網路通訊。
 
 當您要連接到網際網路上的資源時，會發生什麼事？ 啟用分割通道時，這些連線會直接連接到網際網路，而不會經過 VPN 通道。 某些安全性專家將此視為潛在的風險，因此建議停用分割通道，而以網際網路為目標和以公司資源為目標的所有連線都經過 VPN 通道。 這麼做的好處是對網際網路的連線會被迫通過公司網路安全性裝置，而如果 VPN 用戶端連接到 VPN 通道之外的網際網路，將不會發生這種情況。
 
@@ -146,8 +146,7 @@ DMZ 非常實用，因為您可以將網路存取控制管理、監視、記錄�
 
 此流量分散會提高可用性，因為如果其中一部 Web 伺服器無法使用，負載平衡器將會停止將流量傳送到該伺服器，並將流量重新導向至仍在運作的伺服器。 負載平衡也有助於效能，因為服務要求的處理器、網路和記憶體額外負荷會分散於所有負載平衡的伺服器。
 
-建議您儘可能為您的服務採用適當的負載平衡。 我們將在下列各節中探討適當性。
-在 Azure 虛擬網路層級，Azure 會提供三個主要的負載平衡選項︰
+建議您儘可能為您的服務採用適當的負載平衡。 我們將在下列各節中說明適當性：在 Azure 虛擬網路層級中，Azure 提供三個主要的負載平衡選項：
 
 * 以 HTTP 為基礎的負載平衡
 * 外部負載平衡
@@ -176,7 +175,7 @@ DMZ 非常實用，因為您可以將網路存取控制管理、監視、記錄�
 ## <a name="internal-load-balancing"></a>內部負載平衡
 內部負載平衡類似於外部負載平衡，使用相同的機制對其背後伺服器的連線進行負載平衡。 唯一的差別在於，在此情況下的負載平衡器會接受來自不在網際網路上的虛擬機器的連線。 在大部分情況下，Azure 虛擬網路上的裝置會起始負載平衡可接受的連線。
 
-建議您將內部負載平衡用於將受益於這項功能的案例，例如當您需要對 SQL 伺服器或內部 Web 伺服器的連線進行負載平衡時。
+建議您將內部負載平衡用於將受益於此功能的案例，例如當您需要對 SQL 伺服器或內部 Web 伺服器的連線進行負載平衡時。
 
 若要深入了解 Azure 內部負載平衡的運作方式和部署方式，請閱讀[開始使用 PowerShell 在 Resource Manager 中建立網際網路面向的負載平衡器](../load-balancer/load-balancer-get-started-internet-arm-ps.md#update-an-existing-load-balancer)。
 

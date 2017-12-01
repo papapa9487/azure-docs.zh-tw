@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 3d508877928e033f24dae62c1042745ea7250033
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0748e0ffa405fc02f6da7e2c412beec12510fde5
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>完成在 Azure 虛擬機器上建立 Always On 可用性群組的必要條件
 
@@ -76,7 +76,7 @@ Azure 會建立資源群組，並在入口網站中釘選資源群組的捷徑�
 
      ![搜尋虛擬網路](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/04-findvirtualnetwork.png)
 3. 按一下 [虛擬網路] 。
-4. 在 虛擬網路 刀鋒視窗上，按一下 Resource Manager 部署模型，然後按一下建立。
+4. 在 [虛擬網路] 刀鋒視窗上，按一下 [Resource Manager] 部署模型，然後按一下 [建立]。
 
     下表顯示虛擬網路的設定：
 
@@ -138,7 +138,7 @@ Azure 會讓您回到入口網站儀表板，並在建立完新網路時通知�
 
 您需要兩個可用性設定組。 一個用於網域控制站。 第二個用於 SQL Server VM。
 
-若要建立可用性設定組，請移至資源群組，然後按一下 [新增]。 輸入**可用性設定組**以篩選結果。 按一下結果中的 可用性設定組，然後按一下建立。
+若要建立可用性設定組，請移至資源群組，然後按一下 [新增]。 輸入**可用性設定組**以篩選結果。 按一下結果中的 [可用性設定組]，然後按一下 [建立]。
 
 根據下表中的參數設定兩個可用性設定組：
 
@@ -159,7 +159,7 @@ Azure 會讓您回到入口網站儀表板，並在建立完新網路時通知�
 
 1. 按一下 [新增] 。 [所有項目]  刀鋒視窗隨即開啟。
 2. 輸入 **Windows Server 2016 資料中心**。
-3. 按一下 **Windows Server 2016 資料中心**。 在 Windows Server 2016 資料中心 刀鋒視窗中，確認部署模型為 Resource Manager，然後按一下建立。 Azure 會開啟 [建立虛擬機器]  刀鋒視窗。
+3. 按一下 **Windows Server 2016 資料中心**。 在 [Windows Server 2016 資料中心] 刀鋒視窗中，確認部署模型為 [Resource Manager]，然後按一下 [建立]。 Azure 會開啟 [建立虛擬機器]  刀鋒視窗。
 
 重複上述步驟以建立兩部虛擬機器。 為兩部虛擬機器命名︰
 
@@ -294,7 +294,7 @@ Azure 會建立虛擬機器。
    ![部署組態](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
 18. 按一下 [選取] 。
 19. 使用系統管理員帳戶 (**CORP.CONTOSO.COM\domainadmin**) 和密碼 (**Contoso!0000**) 來進行連線。
-20. 在 從樹系中選取一個網域 中，按一下您的網域，然後按一下確定。
+20. 在 [從樹系中選取一個網域] 中，按一下您的網域，然後按一下 [確定]。
 21. 在 [網域控制站選項] 中，使用預設值並設定 DSRM 密碼。
 
    >[!NOTE]
@@ -319,9 +319,9 @@ Azure 會建立虛擬機器。
 使用下列步驟建立每個帳戶。
 
 1. 登入 **ad-primary-dc** 電腦。
-2. 在 伺服器管理員 中，選取 工具，然後按一下Active Directory 管理中心。   
+2. 在 [伺服器管理員] 中，選取 [工具]，然後按一下 [Active Directory 管理中心]。   
 3. 從左窗格中選取 [corp (本機)]。
-4. 在右側的 工作 窗格中，選取 新增，然後按一下使用者。
+4. 在右側的 [工作] 窗格中，選取 [新增]，然後按一下 [使用者]。
    ![Active Directory 管理中心](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/29-addcnewuser.png)
 
    >[!TIP]
@@ -334,9 +334,9 @@ Azure 會建立虛擬機器。
 1. 在 [Active Directory 管理中心] 中，選取左窗格中的 [企業 (本機)]。 然後在右側的 [工作] 窗格中，按一下 [內容]。
 
     ![公司使用者內容](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/31-addcproperties.png)
-2. 選取 延伸模組，然後按一下安全性 索引標籤上的 進階 按鈕 。
+2. 選取 [延伸模組]，然後按一下 [安全性] 索引標籤上的 [進階] 按鈕 。
 3. 在 [公司的進階安全性設定]  對話方塊中，按一下 [新增]。
-4. 按一下 選取主體、搜尋 **CORP\Install**，然後按一下確定。
+4. 按一下 [選取主體]、搜尋 **CORP\Install**，然後按一下 [確定]。
 5. 選取 [讀取全部內容] 核取方塊。
 
 6. 選取 [建立電腦物件] 核取方塊。
@@ -361,14 +361,14 @@ Azure 會建立虛擬機器。
    本教學課程針對虛擬機器使用公用 IP 位址。 這允許透過網際網路直接遠端連線至虛擬機器 - 讓設定步驟更為容易。 在生產環境中，Microsoft 僅建議使用私人 IP 位址，以降低 SQL Server 執行個體 VM 資源出現弱點的機率。
 
 ### <a name="create-and-configure-the-sql-server-vms"></a>建立及設定 SQL Server VM
-接下來，建立三個 VM，亦即兩個 SQL Server VM 和一個適用於其他叢集節點的 VM。 若要建立每個 VM，請回到 **SQL-HA-RG** 資源群組，按一下 新增，搜尋適當的資源庫項目，按一下 虛擬機器，然後按一下從資源庫。 使用下表中的資訊可協助您建立 VM：
+接下來，建立三個 VM，亦即兩個 SQL Server VM 和一個適用於其他叢集節點的 VM。 若要建立每個 VM，請回到 **SQL-HA-RG** 資源群組，按一下 [新增]，搜尋適當的資源庫項目，按一下 [虛擬機器]，然後按一下 [從資源庫]。 使用下表中的資訊可協助您建立 VM：
 
 
 | Page | VM1 | VM2 | VM3 |
 | --- | --- | --- | --- |
 | 選取適當的資源庫項目 |**Windows Server 2016 Datacenter** |**SQL Server 2016 SP1 Enterprise on Windows Server 2016** |**SQL Server 2016 SP1 Enterprise on Windows Server 2016** |
 | 虛擬機器組態 **基本** |**名稱** = cluster-fsw<br/>**使用者名稱** = DomainAdmin<br/>**密碼** = Contoso!0000<br/>**訂用帳戶** = 您的訂用帳戶<br/>**資源群組** = SQL-HA-RG<br/>**位置** = 您的 Azure 位置 |**名稱** = sqlserver-0<br/>**使用者名稱** = DomainAdmin<br/>**密碼** = Contoso!0000<br/>**訂用帳戶** = 您的訂用帳戶<br/>**資源群組** = SQL-HA-RG<br/>**位置** = 您的 Azure 位置 |**名稱** = sqlserver-1<br/>**使用者名稱** = DomainAdmin<br/>**密碼** = Contoso!0000<br/>**訂用帳戶** = 您的訂用帳戶<br/>**資源群組** = SQL-HA-RG<br/>**位置** = 您的 Azure 位置 |
-| 虛擬機器組態 **大小** |**大小** = DS1\_V2 (1 個核心，3.5 GB) |**大小** = DS2\_V2 (2 個核心，7 GB)</br>大小必須支援 SSD 儲存體 (高階磁磁支援。 )) |**大小** = DS2\_V2 (2 個核心，7 GB) |
+| 虛擬機器組態 **大小** |**大小** = DS1\_V2 (1 vCPU，3.5 GB) |**大小** = DS2\_V2 (2 vCPU，7 GB)</br>大小必須支援 SSD 儲存體 (高階磁磁支援。 )) |**大小** = DS2\_V2 (2 vCPU，7 GB) |
 | 虛擬機器組態 **設定** |**儲存體**：使用受控磁碟。<br/>**虛擬網路** = autoHAVNET<br/>**子網路** = sqlsubnet(10.1.1.0/24)<br/>**公用 IP 位址**自動產生。<br/>**網路安全性群組** = 無<br/>**監視診斷** = 啟用<br/>**診斷儲存體帳戶** = 使用自動產生的儲存體帳戶<br/>**可用性設定組** = sqlAvailabilitySet<br/> |**儲存體**：使用受控磁碟。<br/>**虛擬網路** = autoHAVNET<br/>**子網路** = sqlsubnet(10.1.1.0/24)<br/>**公用 IP 位址**自動產生。<br/>**網路安全性群組** = 無<br/>**監視診斷** = 啟用<br/>**診斷儲存體帳戶** = 使用自動產生的儲存體帳戶<br/>**可用性設定組** = sqlAvailabilitySet<br/> |**儲存體**：使用受控磁碟。<br/>**虛擬網路** = autoHAVNET<br/>**子網路** = sqlsubnet(10.1.1.0/24)<br/>**公用 IP 位址**自動產生。<br/>**網路安全性群組** = 無<br/>**監視診斷** = 啟用<br/>**診斷儲存體帳戶** = 使用自動產生的儲存體帳戶<br/>**可用性設定組** = sqlAvailabilitySet<br/> |
 | 虛擬機器組態 **SQL Server 設定** |不適用 |**SQL 連線** = 私用 (在虛擬網路內)<br/>**連接埠** = 1433<br/>**SQL 驗證** = 停用<br/>**儲存體組態** = 一般<br/>**自動修補** = 星期日 2:00<br/>**自動備份** = 停用</br>**Azure 金鑰保存庫整合** = 已停用 |**SQL 連線** = 私用 (在虛擬網路內)<br/>**連接埠** = 1433<br/>**SQL 驗證** = 停用<br/>**儲存體組態** = 一般<br/>**自動修補** = 星期日 2:00<br/>**自動備份** = 停用</br>**Azure 金鑰保存庫整合** = 已停用 |
 
@@ -402,11 +402,11 @@ Azure 會建立虛擬機器。
    >[!TIP]
    >請確定您是使用網域系統管理員帳戶來登入。 在先前步驟中，您使用的是內建的系統管理員帳戶。 現在伺服器在網域中，使用網域帳戶。 在您的 RDP 工作階段中，指定 *DOMAIN*\\*username*。
 
-2. 在 伺服器管理員 中選取 工具，然後按一下電腦管理。
+2. 在 [伺服器管理員] 中選取 [工具]，然後按一下 [電腦管理]。
 3. 在 [電腦管理 ] 視窗中，展開 [本機使用者和群組]，然後選取 [群組]。
 4. 按兩下 [系統管理員]  群組。
 5. 在 [系統管理員內容] 對話方塊中，按一下 [新增] 按鈕。
-6. 輸入 **CORP\Install** 使用者，然後按一下確定。
+6. 輸入 **CORP\Install** 使用者，然後按一下 [確定]。
 7. 按一下 [確定]，以關閉 [系統管理員內容] 對話方塊。
 8. 在 **sqlserver-1** 和 **cluster-fsw** 上重複上述步驟。
 
@@ -415,7 +415,7 @@ Azure 會建立虛擬機器。
 在每個 SQL Server VM 上，設定 SQL Server 服務帳戶。 使用您[設定網域帳戶](#DomainAccounts)時所建立的帳戶。
 
 1. 啟動 **SQL Server 組態管理員**。
-2. 在 SQL Server 服務上按一下滑鼠右鍵，然後按一下屬性。
+2. 在 SQL Server 服務上按一下滑鼠右鍵，然後按一下 [屬性]。
 3. 設定帳戶和密碼。
 4. 在其他 SQL Server VM 上重複上述步驟。  
 
@@ -489,7 +489,7 @@ Azure 會建立虛擬機器。
 5. 按一下 [下一步] 。
 6. 在 [動作] 頁面上，保持選取 [允許連線]，然後按 [下一步]。
 7. 在 [設定檔] 頁面上，接受預設設定，然後按 [下一步]。
-8. 在 名稱 頁面上的 名稱 文字方塊中指定規則名稱 (例如 **Azure LB Probe**)，然後按一下完成。
+8. 在 [名稱] 頁面上的 [名稱] 文字方塊中指定規則名稱 (例如 **Azure LB Probe**)，然後按一下 [完成]。
 
 在第二個 SQL Server VM 上重複上述步驟。
 

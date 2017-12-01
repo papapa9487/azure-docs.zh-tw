@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: c2c95373912131445b584fa8518785b26caa9c02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a780461bb934b4766f8050fba825e1d7503f4fd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中樞術語詞彙
 本文會列出 IoT 中樞文章中使用的一些常見術語。
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 適用於多種語言的_裝置 SDK_ 可讓您建立[裝置應用程式](#device-app)來與 IoT 中樞互動。 IoT 中樞教學課程示範如何使用這些裝置 SDK。 您可以在此 GitHub [儲存機制](https://github.com/Azure/azure-iot-sdks)中找到原始程式碼和進一步的裝置 SDK 資訊。
 
 ## <a name="azure-iot-edge"></a>Azure IoT Edge
-IoT Edge 可讓您撰寫應用程式，讓閘道連線的裝置能與 [IoT 中樞](#iot-hub)通訊。 IoT Edge 教學課程示範如何使用此服務。 您可以在此 GitHub [存放庫](https://github.com/Azure/iot-edge)中找到原始程式碼和進一步的 Azure IoT Edge 資訊。
+Azure IoT Edge 會將雲端分析和自訂商務邏輯移至裝置，讓您的組織可以專注於商業深入解析，而不是資料管理。 設定 IoT 軟體、透過標準容器將它部署到裝置，並從雲端進行全面監視，讓您實現真正的解決方案。 開始使用教學課程，該教學課程會示範如何在 [Linux](../iot-edge/tutorial-simulate-device-linux.md) 或 [Windows](../iot-edge/tutorial-simulate-device-windows.md) 裝置上安裝及使用 Azure IoT Edge。
 
 ## <a name="azure-iot-service-sdks"></a>Azure IoT 服務 SDK
 適用於多種語言的_服務 SDK_ 可讓您建立[後端應用程式](#back-end-app) 來與 IoT 中樞互動。 IoT 中樞教學課程示範如何使用這些服務 SDK。 您可以在此 GitHub [儲存機制](https://github.com/Azure/azure-iot-sdks)中找到原始程式碼和進一步的服務 SDK 資訊。
@@ -189,7 +189,7 @@ Azure IoT 套件會使用預先設定的解決方案將多項 Azure 服務封裝
 [作業 REST API](https://docs.microsoft.com/rest/api/iothub/jobapi) 可讓您管理在 IoT 中樞執行的[作業](#job)。
 
 ## <a name="module"></a>模組
-在 [Azure IoT Edge](iot-hub-linux-iot-edge-get-started.md) 中，[模組](iot-hub-linux-iot-edge-get-started.md)是可執行特定工作的元件。 工作可能包括從裝置擷取訊息、轉換訊息或將訊息傳送至 IoT 中樞。 訊息代理程式會負責在模組之間轉送訊息。 Azure IoT Edge 包含一組範例模組。 您也可以建立自己的自訂模組。
+在 [Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md) 中，[模組](../iot-edge/iot-edge-modules.md)是可執行特定工作的元件。 工作可能包括從裝置擷取訊息、轉換訊息或將訊息傳送至 IoT 中樞。 訊息代理程式會負責在模組之間轉送訊息。 Azure IoT Edge 包含一組範例模組。 您也可以建立自己的自訂模組。
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) 是 [IoT 中樞](#iot-hub)支援用來與裝置通訊的其中一種傳訊通訊協定。 如需 IoT 中樞支援的傳訊通訊協定詳細資訊，請參閱[使用 IoT 中樞傳送及接收訊息](iot-hub-devguide-messaging.md)。

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
 ms.author: billmath
-ms.openlocfilehash: f1314b05d7471b6251de2173dc590bdebdafb476
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d11795aa8b768a8574c3f8bc375b74402825ba3
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Azure Active Directory Connect 的常見問題集
 
@@ -43,8 +43,14 @@ ms.lasthandoff: 10/11/2017
 **問：是否支援 SLD (單一標籤網域)？**  
 否，Azure AD Connect 不支援使用 SLD 的內部部署樹系/網域。
 
+**問：是否支援使用斷續 AD 網域的樹系？**  
+否，Azure AD Connect 不支援包含斷續命名空間的內部部署樹系。
+
 **問：是否支援有句點的 NetBios 名稱？**  
 否，Azure AD Connect 不支援 NetBios 名稱包含句點的內部部署樹系/網域。
+
+**問：是否支援純 IPv6 環境？**  
+否，Azure AD Connect 不支援純 IPv6 環境。
 
 ## <a name="federation"></a>同盟
 **問：如果我收到一封電子郵件，要求我更新我的 Office 365 憑證，該怎麼辦？**  

@@ -1,23 +1,23 @@
 ---
 title: "HPC Pack 叢集與 Azure Active Directory |Microsoft Docs"
-description: "了解如何整合 Azure 中的 HPC Pack 2016 叢集與 Azure Active Directory"
+description: "了解如何整合 Azure 中的 Microsoft HPC Pack 2016 叢集與 Azure Active Directory"
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.assetid: 9edf9559-db02-438b-8268-a6cba7b5c8b7
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 11/14/2016
+ms.date: 11/16/2017
 ms.author: danlep
-ms.openlocfilehash: c5a06a9c810349b1bcce01c7f73563941a5af0ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb0e878c4e987d111a535603cede25c639087ca7
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="manage-an-hpc-pack-cluster-in-azure-using-azure-active-directory"></a>使用 Azure Active Directory 管理 Azure 中的 HPC Pack 叢集
 [Microsoft HPC Pack 2016](https://technet.microsoft.com/library/cc514029) 支援與 [Azure Active Directory](../../active-directory/index.md) (Azure AD) 整合，以便系統管理員在 Azure 中部署 HPC Pack 叢集。
@@ -59,69 +59,66 @@ HPC Pack 叢集與 Azure AD 的整合可協助您達成下列目標︰
 
 
 ## <a name="step-1-register-the-hpc-cluster-server-with-your-azure-ad-tenant"></a>步驟 1︰向 Azure AD 租用戶註冊 HPC 叢集伺服器
-1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
-2. 按一下左側功能表中的 **Active Directory**，然後按一下您訂用帳戶想要的目錄。 您必須具備存取目錄中資源的權限。
-3. 按一下 [使用者]，並確定已經建立或設定使用者帳戶。
-4. 按一下 應用程式 > 新增，然後按一下新增我的組織正在開發的應用程式。 在精靈中輸入下列資訊︰
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 如果您的帳戶可讓您存取多個 Azure AD 帳戶，請在右上角按一下您的帳戶。 然後將您的入口網站工作階段設定為所需的租用戶。 您必須具備存取目錄中資源的權限。 
+3. 按一下左側服務瀏覽窗格中的 [Azure Active Directory]，按一下 [使用者和群組]，並確定已經建立或設定使用者帳戶。
+4. 在 **Azure Active Directory** 中，按一下 [應用程式註冊] > [新增應用程式註冊]。 輸入以下資訊：
     * **名稱** - HPCPackClusterServer
-    * **類型** - 選取 [Web 應用程式和/或 Web API]
+    * **應用程式類型** - 選取 [Web 應用程式/API]
     * **單入 URL**- 範例的基礎 URL，預設為 `https://hpcserver`
-    * **應用程式識別碼 URI** - `https://<Directory_name>/<application_name>`。 以 Azure AD 租用戶的完整名稱 (例如 `hpclocal.onmicrosoft.com`) 取代 `<Directory_name`> ，並以您先前選擇的名稱取代 `<application_name>`。
+    * 按一下 [建立] 。
+5. 新增應用程式之後，請在 [應用程式註冊] 清單中選取它。 然後按一下 [設定] > [內容]。 輸入以下資訊：
+    * 針對 [多重租用戶] 選取 [是]。
+    * 將 [應用程式識別碼 URI] 變更為 `https://<Directory_name>/<application_name>`。 以 Azure AD 租用戶的完整名稱 (例如 `hpclocal.onmicrosoft.com`) 取代 `<Directory_name`> ，並以您先前選擇的名稱取代 `<application_name>`。
+6. 按一下 [儲存] 。 儲存完成時，在應用程式頁面上，按一下 [資訊清單]。 找出 `appRoles` 設定並新增下列應用程式角色，以編輯資訊清單，然後按一下 [儲存]：
 
-5. 新增應用程式之後，請按一下 [設定]。 設定下列屬性：
-    * 針對 [應用程式為多租用戶]，選取 [是]
-    * 針對 [存取應用程式需要使用者指派]，選取 [是]。
-
-6. 按一下 [儲存] 。 儲存完成後，按一下 [管理資訊清單]。 此動作會下載您應用程式的資訊清單 JavaScript 物件標記法 (JSON) 檔案。 找出 `appRoles` 設定並新增下列應用程式角色，以編輯下載的資訊清單︰
-    ```json
-    "appRoles": [
-        {
-        "allowedMemberTypes": [
-            "User",
-            "Application"
-        ],
-        "displayName": "HpcAdminMirror",
-        "id": "61e10148-16a8-432a-b86d-ef620c3e48ef",
-        "isEnabled": true,
-        "description": "HpcAdminMirror",
-        "value": "HpcAdminMirror"
-        },
-        {
-        "allowedMemberTypes": [
-            "User",
-            "Application"
-        ],
-        "description": "HpcUsers",
-        "displayName": "HpcUsers",
-        "id": "91e10148-16a8-432a-b86d-ef620c3e48ef",
-        "isEnabled": true,
-        "value": "HpcUsers"
-        }
-    ],
-    ```
-7. 儲存檔案。 然後在入口網站中，按一下 [管理資訊清單]  >  [上傳資訊清單]。 然後，您可以上傳編輯後的資訊清單。
-8. 按一下 使用者、選取使用者，然後按一下指派。 將其中一個可用的角色 (HpcUsers 或 HpcAdminMirror) 指派給使用者。 對目錄中的其他使用者重複此步驟。 如需叢集使用者的背景資訊，請參閱[管理叢集使用者](https://technet.microsoft.com/library/ff919335(v=ws.11).aspx)。
-
-   > [!NOTE] 
-   > 若要管理使用者，我們建議使用 [Azure 入口網站](https://portal.azure.com)中的 Azure Active Directory 預覽刀鋒視窗。
-   >
+  ```json
+  "appRoles": [
+     {
+     "allowedMemberTypes": [
+         "User",
+         "Application"
+     ],
+     "displayName": "HpcAdminMirror",
+     "id": "61e10148-16a8-432a-b86d-ef620c3e48ef",
+     "isEnabled": true,
+     "description": "HpcAdminMirror",
+     "value": "HpcAdminMirror"
+     },
+     {
+     "allowedMemberTypes": [
+         "User",
+         "Application"
+     ],
+     "description": "HpcUsers",
+     "displayName": "HpcUsers",
+     "id": "91e10148-16a8-432a-b86d-ef620c3e48ef",
+     "isEnabled": true,
+     "value": "HpcUsers"
+     }
+  ],
+  ```
+7. 在 [Azure Active Directory] 中，按一下 [企業應用程式] > [所有應用程式]。 從清單中選取 **HPCPackClusterServer**。
+8. 按一下 [內容]，並將 [需要使用者指派] 變更為 [是]。 按一下 [儲存] 。
+9. 按一下 [使用者和群組] > [新增使用者]。 選取使用者並選取角色，然後按一下 [指派]。 將其中一個可用的角色 (HpcUsers 或 HpcAdminMirror) 指派給使用者。 對目錄中的其他使用者重複此步驟。 如需叢集使用者的背景資訊，請參閱[管理叢集使用者](https://technet.microsoft.com/library/ff919335(v=ws.11).aspx)。
 
 
 ## <a name="step-2-register-the-hpc-cluster-client-with-your-azure-ad-tenant"></a>步驟 2︰向 Azure AD 租用戶註冊 HPC 叢集用戶端
 
-1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
-2. 按一下左側功能表中的 **Active Directory**，然後按一下您訂用帳戶想要的目錄。 您必須具備存取目錄中資源的權限。
-3. 按一下 應用程式 > 新增，然後按一下新增我的組織正在開發的應用程式。 在精靈中輸入下列資訊︰
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 如果您的帳戶可讓您存取多個 Azure AD 帳戶，請在右上角按一下您的帳戶。 然後將您的入口網站工作階段設定為所需的租用戶。 您必須具備存取目錄中資源的權限。 
+3. 在 **Azure Active Directory** 中，按一下 [應用程式註冊] > [新增應用程式註冊]。 輸入以下資訊：
 
-    * **名稱** - HPCPackClusterClient
-    * **類型** - 選取 [原生用戶端應用程式]
+    * **名稱** - HPCPackClusterClient    
+    * **應用程式類型** - 選取 [原生]
     * **重新導向 URI** - `http://hpcclient`
+    * 按一下 [建立] 
 
-4. 新增應用程式之後，請按一下 [設定]。 複製 [用戶端識別碼]  值並加以儲存。 您稍後在設定應用程式時需要此資訊。
+4. 新增應用程式之後，請在 [應用程式註冊] 清單中選取它。 複製**應用程式識別碼**值，並將其儲存。 您稍後在設定應用程式時需要此資訊。
 
-5. 在 [其他應用程式的權限] 中，按一下 [新增應用程式]。 搜尋並將新增 HpcPackClusterServer 應用程式 (在步驟 1 中建立)。
+5. 按一下 [設定] > [必要權限] > [新增] > [選取 API]。 搜尋並選取 HpcPackClusterServer 應用程式 (在步驟 1 中建立)。
 
-6. 在 [委派的權限] 下拉式清單中，選取 [存取 HpcClusterServer]。 然後按一下 [儲存] 。
+6. 在 [啟用存取] 頁面上，選取 [存取 HpcClusterServer]。 然後按一下 [完成]。
 
 
 ## <a name="step-3-configure-the-hpc-cluster"></a>步驟 3︰設定 HPC 叢集
@@ -134,21 +131,23 @@ HPC Pack 叢集與 Azure AD 的整合可協助您達成下列目標︰
 
     ```powershell
 
-    Set-HpcClusterRegistry -SupportAAD true -AADInstance https://login.microsoftonline.com/ -AADAppName HpcClusterServer -AADTenant <your AAD tenant name> -AADClientAppId <client ID> -AADClientAppRedirectUri http://hpcclient
+    Set-HpcClusterRegistry -SupportAAD true -AADInstance https://login.microsoftonline.com/ -AADAppName HpcPackClusterServer -AADTenant <your AAD tenant name> -AADClientAppId <client ID> -AADClientAppRedirectUri http://hpcclient
     ```
     其中
 
     * `AADTenant` 指定 Azure AD 租用戶名稱，例如 `hpclocal.onmicrosoft.com`
-    * `AADClientAppId` 為在步驟 2 中建立的應用程式指定用戶端識別碼。
+    * `AADClientAppId` 為在步驟 2 中建立的應用程式指定應用程式識別碼。
 
-4. 重新啟動 HpcSchedulerStateful 服務。
+4. 視前端節點組態而定，執行下列其中一項：
 
-    在具有多個前端節點的叢集中，您可以在前端節點上執行下列 PowerShell 命令，以切換 HpcSchedulerStateful 服務的主要複本︰
+    * 在單一前端節點 HPC Pack 叢集中，重新啟動 HpcScheduler 服務。
+
+    * 在具有多個前端節點的 HPC Pack 叢集中，在前端節點上執行下列 PowerShell 命令，以重新啟動 HpcSchedulerStateful 服務：
 
     ```powershell
     Connect-ServiceFabricCluster
 
-    Move-ServiceFabricPrimaryReplica –ServiceName “fabric:/HpcApplication/SchedulerStatefulService”
+    Move-ServiceFabricPrimaryReplica –ServiceName "fabric:/HpcApplication/SchedulerStatefulService"
 
     ```
 
@@ -174,7 +173,7 @@ Get-HpcJob –State All –Scheduler https://<Azure load balancer DNS name> -Own
 
 ### <a name="manage-the-local-token-cache"></a>管理本機權杖快取
 
-HPC Pack 2016 提供兩個新的 HPC PowerShell Cmdlet 來管理本機權杖快取。 這些 Cmdlet 可用於非互動方式提交作業。 請參閱下列範例：
+HPC Pack 2016 提供下列 HPC PowerShell Cmdlet 來管理本機權杖快取。 這些 Cmdlet 可用於非互動方式提交作業。 請參閱下列範例：
 
 ```powershell
 Remove-HpcTokenCache
@@ -191,9 +190,9 @@ Set-HpcTokenCache -UserName <AADUsername> -Password $SecurePassword -scheduler h
 1. 使用下列命令來設定認證︰
 
     ```powershell
-    $localUser = “<username>”
+    $localUser = "<username>"
 
-    $localUserPassword=”<password>”
+    $localUserPassword="<password>"
 
     $secpasswd = ConvertTo-SecureString $localUserPassword -AsPlainText -Force
 

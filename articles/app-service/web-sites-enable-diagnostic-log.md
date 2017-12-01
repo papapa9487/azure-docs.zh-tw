@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: a9c5743c92ac48202c19c2f6f024238c147d8444
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 1d8d0caa1aa9e21bf724d60127dc6f2ac9a49ecf
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>在 Azure App Service 中針對 Web 應用程式啟用診斷記錄功能。
 ## <a name="overview"></a>Overview
@@ -34,16 +34,16 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 ### <a name="web-server-diagnostics"></a>Web 伺服器診斷
 您可以啟用或停用下列各種記錄：
 
-* **詳細的錯誤記錄** - 對於表示失敗的 HTTP 狀態碼 (狀態碼 400 或更大) 的詳細錯誤資訊。 這當中包含的資訊可協助您判斷為何伺服器傳回錯誤碼。
-* **失敗的要求追蹤** - 關於失敗要求的詳細資訊，包括用於處理要求的 IIS 元件追蹤，以及每個元件所花費的時間。 如果您嘗試提升網站效能或是想要從傳回的特定 HTTP 錯誤中找到發生原因，這個方法非常實用。
-* **Web 伺服器記錄** - 使用 [W3C 擴充記錄檔格式](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)的 HTTP 交易相關資訊。 當您需要判斷整體網站指標 (例如，處理的要求數量，或者有多少要求來自特定的 IP 位址) 時，這非常實用。
+* **詳細的錯誤記錄** - 對於表示失敗的 HTTP 狀態碼 (狀態碼 400 或更大) 的詳細錯誤資訊。 它包含的資訊可協助您判斷為何伺服器傳回錯誤碼。
+* **失敗的要求追蹤** - 關於失敗要求的詳細資訊，包括用於處理要求的 IIS 元件追蹤，以及每個元件所花費的時間。 如果您嘗試提升網站效能或是想要從傳回的特定 HTTP 錯誤中找到發生原因，這非常實用。
+* **Web 伺服器記錄** - 使用 [W3C 擴充記錄檔格式](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)的 HTTP 交易相關資訊。 當您需要判斷整體網站指標 (例如，處理的要求數目，或者有多少要求來自特定的 IP 位址) 時，這非常實用。
 
 ### <a name="application-diagnostics"></a>應用程式診斷
 應用程式診斷功能可讓您擷取 Web 應用程式所產生的資訊。 ASP.NET 應用程式會使用 [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) 類別將資訊記錄到應用程式診斷記錄。 例如：
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
-您可以在執行階段擷取這些記錄檔，以協助疑難排解。 如需詳細資訊，請參閱 [在 Visual Studio 中疑難排解 Azure Web 應用程式](web-sites-dotnet-troubleshoot-visual-studio.md)。
+您可以在執行階段擷取這些記錄檔，以協助疑難排解。 如需詳細資訊，請參閱[在 Visual Studio 中疑難排解 Azure Web 應用程式](web-sites-dotnet-troubleshoot-visual-studio.md)。
 
 當您將內容發行至 Web 應用程式時，App Service Web 應用程式也會記錄部署資訊。 此動作會自動發生，因此無須任何組態設定即會記錄部署動作。 部署記錄功能可讓您判斷部署失敗的原因。 例如，如果您是使用自訂的部署指令碼，則您可以使用部署記錄功能來判斷指令碼失敗的原因。
 
@@ -53,24 +53,23 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![記錄部分](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-啟用 [應用程式診斷] 時，也會選擇 [層級]。 此設定可讓您篩選擷取至**資訊**、**警告**或**錯誤**資訊中的資訊。 將此功能設為**詳細資訊**會記錄所有由該應用程式所產生的資訊。
+啟用 [應用程式診斷] 時，也會選擇 [層級]。 此設定可讓您篩選擷取至**資訊**、**警告**或**錯誤**資訊中的資訊。 將此選項設定為 [詳細資訊] 會記錄由該應用程式產生的所有資訊。
 
 > [!NOTE]
-> 與變更 web.config 檔案不同，啟用應用程式診斷或是變更診斷記錄層級並不會回收用來執行應用程式的應用程式網域。
+> 與變更 web.config 檔案不同，啟用應用程式診斷或是變更診斷記錄層級並不會回收用來執行應用程式的應用程式定義域。
 >
 >
 
-在[傳統入口網站](https://manage.windowsazure.com) Web 應用程式的 [設定] 索引標籤中，您可以針對 [Web 伺服器記錄] 選取 [儲存體] 或 [檔案系統]。 選取 [儲存體] 可讓您選取儲存體帳戶，並接著選取可供寫入記錄的 Blob 容器。 [網站診斷] 的其他所有記錄  都只會寫入檔案系統。
+針對 [應用程式記錄]，您可以暫時開啟檔案系統選項以供偵錯之用。 這個選項會在 12 小時後自動關閉。 您也可以開啟 Blob 儲存體選項，來選取要寫入記錄的目標部落格容器。
 
-[傳統入口網站](https://manage.windowsazure.com) Web 應用程式的 [設定] 索引標籤也有其他應用程式診斷的設定：
+針對 [Web 伺服器記錄]，您可以選取 [儲存體] 或 [檔案系統]。 選取 [儲存體] 可讓您選取儲存體帳戶，並接著選取可供寫入記錄的 Blob 容器。 
 
-* **檔案系統** - 將應用程式診斷資訊儲存至 Web 應用程式檔案系統。 這些檔案可透過 FTP 存取，或是使用 Azure PowerShell 或 Azure 命令列介面 (Azure CLI) 下載為 Zip 封存。
-* **資料表儲存體** - 會將應用程式診斷資訊儲存至指定的 Azure 儲存體帳戶與資料表名稱。
-* **Blob 儲存體** - 會將應用程式診斷資訊儲存至指定的 Azure 儲存體帳戶與 Blob 容器中。
-* **保留週期** - 依預設，所有記錄不會自動從 [Blob 儲存體] 中刪除。 如果您想要讓系統自動刪除記錄的話，請選取 [set retention]  並輸入記錄保留天數。
+如果您在檔案系統上儲存記錄，這些檔案可透過 FTP 存取，或是使用 Azure PowerShell 或 Azure 命令列介面 (Azure CLI) 下載為 Zip 封存。
+
+根據預設，不會自動刪除記錄 (除了 [應用程式記錄 (檔案系統)] 之外)。 若要自動刪除記錄，請設定 [保留期限 (天)] 欄位。
 
 > [!NOTE]
-> 如果您 [重新產生儲存體帳戶的存取金鑰](../storage/common/storage-create-storage-account.md)，您必須重設個別的記錄組態，才能使用更新的金鑰。 作法：
+> 如果您[重新產生儲存體帳戶的存取金鑰](../storage/common/storage-create-storage-account.md)，您必須重設個別的記錄組態，才能使用更新的金鑰。 作法：
 >
 > 1. 在 [設定] 索引標籤上，將個別的記錄功能設定為 [關閉]。 儲存您的設定。
 > 2. 重新啟用記錄至儲存體帳戶 Blob 或資料表。 儲存您的設定。
@@ -85,7 +84,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 > 儲存在 [資料表儲存體] 或 [Blob 儲存體] 內的資訊只能透過儲存用戶端，或是能夠直接使用這些儲存系統的應用程式來存取。 例如，Visual Studio 2013 內含的 [儲存體總管] 可用來探索資料表或 Blob 儲存體，而 HDInsight 則可存取儲存在 Blob 儲存體內的資料。 您也可以使用任何一項 [Azure SDK](/downloads/#)，撰寫可存取 Azure 儲存體的應用程式。
 >
 > [!NOTE]
-> 您也可以在 Azure PowerShell 中使用 **Set-AzureWebsite** Cmdlet 來啟用診斷功能。 如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱 [如何使用 Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/)(英文)。
+> 您也可以在 Azure PowerShell 中使用 **Set-AzureWebsite** Cmdlet 來啟用診斷功能。 如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱[如何使用 Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/)(英文)。
 >
 >
 
@@ -101,12 +100,10 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 * **部署記錄** - /LogFiles/Git。 此資料夾包含由內部部署處理序所產生，且可供 Azure Web 應用程式運用的記錄，以及適用於 Git 部署的記錄。
 
 ### <a name="ftp"></a>FTP
-若要使用 FTP 存取診斷資訊，請在[傳統入口網站](https://manage.windowsazure.com)中造訪您 Web 應用程式的 [儀表板]。 在 [Quick Glance] 區段中，使用 **FTP Diagnostic Logs** 連結以便透過 FTP 存取記錄檔案。 [Deployment/FTP User] 項目會列出應該用來存取 FTP 網站的使用者名稱。
 
-> [!NOTE]
-> 如果未設定的 [部署/FTP 使用者] 項目，或是您忘記此使用者的密碼，您可以使用 [儀表板] 的 [快速概覽] 區段中**重設部署認證**連結來建立新的使用者名稱和密碼。
->
->
+若要開啟連線到您應用程式 FTP 伺服器的 FTP 連線，請參閱[使用 FTP/S 將您的應用程式部署至 Azure App Service](app-service-deploy-ftp.md)。
+
+一旦連線到您的 Web 應用程式 FTP/S 伺服器後，開啟儲存記錄檔所在的 [LogFiles] 資料夾。
 
 ### <a name="download-with-azure-powershell"></a>使用 Azure PowerShell 來下載
 若要下載記錄檔，請啟動新的 Azure PowerShell 執行個體並使用下列命令：
@@ -145,7 +142,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 [深入了解使用 Application Insights 的效能追蹤](../application-insights/app-insights-azure-web-apps.md)
 
 ## <a name="streamlogs"></a> 作法：串流記錄
-開發應用程式時，如果能夠幾近即時地檢視記錄資訊，通常會很實用。 您可以使用 Azure PowerShell 或 Azure 命令列介面，將記錄資訊串流至開發環境來達到這個目的。
+開發應用程式時，如果能夠幾近即時地檢視記錄資訊，通常會很實用。 您可以使用 Azure PowerShell 或 Azure 命令列介面，將記錄資訊串流至開發環境。
 
 > [!NOTE]
 > 某些記錄緩衝區類型會寫入記錄檔中，進而造成串流中的事件順序錯亂。 例如，使用者造訪某個網頁所產生的應用程式記錄項目，可能會比頁面要求的對應 HTTP 記錄項目優先顯示在串流中。
@@ -173,7 +170,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 若要檢視可用的路徑清單，請使用 -ListPath 參數。
 
 > [!NOTE]
-> 如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱 [如何使用 Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/)(英文)。
+> 如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱[如何使用 Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/)(英文)。
 >
 >
 
@@ -193,7 +190,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
     az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
 > [!NOTE]
-> 如果您尚未安裝 Azure 命令列介面，或是尚未將其設定為使用您的 Azure 訂用帳戶，請參閱 [如何使用 Azure 命令列介面](../cli-install-nodejs.md)。
+> 如果您尚未安裝 Azure 命令列介面，或是尚未將其設定為使用您的 Azure 訂用帳戶，請參閱[如何使用 Azure 命令列介面](../cli-install-nodejs.md)。
 >
 >
 
@@ -207,7 +204,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 
     {Date}  PID[{process ID}] {event type/level} {message}
 
-例如，錯誤事件可能會類似下列訊息：
+例如，錯誤事件可能會類似下列範例：
 
     2014-01-30T16:36:59  PID[3096] Error       Fatal error on the page!
 
@@ -224,7 +221,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 | Timestamp |事件發生的日期與時間 |
 | EventTickCount |事件發生的日期與時間 (刻度格式，精準度更高) |
 | ApplicationName |Web 應用程式名稱 |
-| 等級 |事件層級 (例如，錯誤、警告、資訊) |
+| Level |事件層級 (例如錯誤、警告、資訊) |
 | EventId |如果沒有指定<p><p>這個事件的事件識別碼，則預設為 0 |
 | InstanceId |發生事件的 Web 應用程式執行個體 |
 | Pid |處理序識別碼 |
@@ -238,7 +235,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 | 屬性名稱 | 值/格式 |
 | --- | --- |
 | 日期 |事件發生的日期與時間 |
-| 等級 |事件層級 (例如，錯誤、警告、資訊) |
+| Level |事件層級 (例如錯誤、警告、資訊) |
 | ApplicationName |Web 應用程式名稱 |
 | InstanceId |發生事件的 Web 應用程式執行個體 |
 | EventTickCount |事件發生的日期與時間 (刻度格式，精準度更高) |
@@ -247,7 +244,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 | Tid |產生事件的執行緒之執行緒識別碼 |
 | 訊息 |事件詳細資訊訊息 |
 
-儲存在 Blob 中的資料類似以下內容：
+儲存在 Blob 中的資料類似下列範例：
 
     date,level,applicationName,instanceId,eventTickCount,eventId,pid,tid,message
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
@@ -258,7 +255,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 >
 
 ### <a name="failed-request-traces"></a>失敗要求追蹤
-失敗要求追蹤會儲存在名為 **fr######.xml**的 XML 檔案中。 為了讓您輕鬆地檢視記錄資訊，系統會在 XML 檔案所屬的相同目錄中，提供名為 **freb.xsl** 的 XSL 樣式表。 如果您在 Internet Explorer 中開啟其中一個 XML 檔案，Internet Explorer 會使用 XSL 樣式表提供格式化的追蹤資訊顯示。 您會看到類似下列的內容：
+失敗要求追蹤會儲存在名為 **fr######.xml**的 XML 檔案中。 為了讓您輕鬆地檢視記錄資訊，系統會在 XML 檔案所屬的相同目錄中，提供名為 **freb.xsl** 的 XSL 樣式表。 如果您在 Internet Explorer 中開啟其中一個 XML 檔案，Internet Explorer 會使用 XSL 樣式表提供格式化的追蹤資訊顯示，類似下列範例：
 
 ![在瀏覽器中檢視的失敗要求](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
@@ -266,7 +263,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 詳細的錯誤記錄指的是可針對發生的 HTTP 錯誤提供更詳盡資訊的 HTML 文件。 由於它們都是單純的 HTML 文件，因此可以使用網頁瀏覽器來檢視。
 
 ### <a name="web-server-logs"></a>Web 伺服器記錄
-Web 伺服器記錄使用 [W3C 擴充記錄檔案格式](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)來格式化。 此項資訊可透過文字編輯器來讀取，或是運用 [記錄檔剖析器](http://go.microsoft.com/fwlink/?LinkId=246619)(英文) 之類的公用程式來剖析。
+Web 伺服器記錄使用 [W3C 擴充記錄檔案格式](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)來格式化。 此項資訊可透過文字編輯器來讀取，或是運用[記錄檔剖析器](http://go.microsoft.com/fwlink/?LinkId=246619) (英文) 之類的公用程式來剖析。
 
 > [!NOTE]
 > Azure Web 應用程式所產生的記錄並不支援 **s-computername**、**s-ip** 或 **cs-version** 欄位。

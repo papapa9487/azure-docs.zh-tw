@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
-ms.openlocfilehash: fa7c1e4435106d0fc25cb7f77f195eb48705772d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 155debf5fea4439c8273d2518856952fbf0f871a
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>將特定實驗室原則的權限授與使用者
 ## <a name="overview"></a>Overview
@@ -87,9 +87,9 @@ ms.lasthandoff: 10/11/2017
 ## <a name="next-steps"></a>後續步驟
 將特定實驗室原則的權限授與使用者之後，以下是一些需要考量的後續步驟：
 
-* [安全存取實驗室](devtest-lab-add-devtest-user.md)。
-* [設定實驗室原則](devtest-lab-set-lab-policy.md)。
-* [建立實驗室範本](devtest-lab-create-template.md)。
-* [為您的 VM 建立自訂成品](devtest-lab-artifact-author.md)。
-* [將具有構件的 VM 新增至實驗室](devtest-lab-add-vm-with-artifacts.md)。
+* [安全存取實驗室](devtest-lab-add-devtest-user.md)
+* [設定實驗室原則](devtest-lab-set-lab-policy.md)
+* [建立實驗室範本](devtest-lab-create-template.md)
+* [為您的 VM 建立自訂成品](devtest-lab-artifact-author.md)
+* [將 VM 新增至實驗室](devtest-lab-add-vm.md)
 

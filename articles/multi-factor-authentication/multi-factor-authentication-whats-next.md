@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 4900707baa875ae4527d82e8189d5bc4d319ae0c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 585e0ab016dcf489ab99f30a9db43b879a8d3070
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>設定 Azure Multi-Factor Authentication 設定 - 公開預覽
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 11/15/2017
 | [可選取的驗證方法](#selectable-verification-methods) |可讓您選擇可供使用者使用的驗證方法。 |
 
 ## <a name="block-and-unblock"></a>封鎖及解除封鎖
-使用封鎖/解除封鎖使用者，可以防止使用者接收驗證要求。 系統會自動拒絕已封鎖使用者的任何驗證嘗試。 封鎖的使用者自封鎖時間開始，將持續封鎖 90 天。
+使用封鎖/解除封鎖使用者，可以防止使用者接收驗證要求。 系統會自動拒絕已封鎖使用者的任何驗證嘗試。 封鎖的使用者自封鎖的時刻起，將持續封鎖 90 天。
 
 ### <a name="block-a-user"></a>封鎖使用者
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
@@ -85,7 +85,7 @@ ms.lasthandoff: 11/15/2017
 6. 在 [服務設定] 分頁底部，選取 [移至入口網站]。
 7. 在 Azure Multi-Factor Authentication 管理入口網站的 [檢視報告] 下方，按一下 [詐騙警示]。
 8. 在報告中指定要檢視的日期範圍。 您也可以指定使用者名稱、電話號碼和使用者狀態。
-9. 按一下 **[執行]**。 這樣會產生詐騙警示報告。 如果您想要匯出報告，請按一下 [匯出至 CSV]。
+9. 按一下 [執行] 以顯示詐騙警示報告。 如果您想要匯出報告，請按一下 [匯出至 CSV]。
 
 ## <a name="one-time-bypass"></a>一次性略過
 「單次許可」可讓使用者只驗證一次，不需要執行雙步驟驗證。 許可只是暫時性，經過指定的秒數之後就會到期。 在行動裝置應用程式或電話沒有收到通知或來電的情況下，您可以啟用單次許可，讓使用者能夠存取所需的資源。
@@ -96,10 +96,10 @@ ms.lasthandoff: 11/15/2017
 2. 瀏覽至 **Azure Active Directory** > **MFA Server** > **單次許可**。
 
    ![一次性略過](./media/multi-factor-authentication-whats-next/onetimebypass.png)
-3. 選取 [新增] 。
+3. 選取 [新增]。
 4. 如有必要，請選取此許可的複寫群組。
 5. 輸入使用者名稱 (使用 username@domain.com 格式)、許可的持續秒數及許可的理由。 
-6. 選取 [新增] 。 時間限制立即生效，因此，使用者必須在單次許可到期之前登入。 
+6. 選取 [新增]。 時間限制立即生效，因此，使用者必須在單次許可到期之前登入。 
 
 ### <a name="view-the-one-time-bypass-report"></a>檢視單次許可報告
 1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
@@ -110,16 +110,16 @@ ms.lasthandoff: 11/15/2017
 6. 在 [服務設定] 分頁底部，選取 [移至入口網站]。
 7. 在 Azure Multi-Factor Authentication 管理入口網站的 [檢視報告] 下方，按一下 [單次許可]。
 8. 在報告中指定要檢視的日期範圍。 您也可以指定使用者名稱、電話號碼和使用者狀態。
-9. 按一下 **[執行]**。 這樣會產生許可報告。 如果您想要匯出報告，請按一下 [匯出至 CSV]。
+9. 按一下 [執行] 以顯示許可報告。 如果您想要匯出報告，請按一下 [匯出至 CSV]。
 
 ## <a name="custom-voice-messages"></a>自訂語音訊息
 自訂語音訊息可讓您將自己的錄音或問候語用於雙步驟驗證。 您可以在 Microsoft 錄音之外額外使用自訂語音訊息，也可以取代 Microsoft 的錄音。
 
-在開始之前，請注意下列項目：
+開始之前，請留意下列限制：
 
 * 支援的檔案格式為 .wav 和 .mp3。
 * 檔案大小限制為 5 MB。
-* 驗證訊息應該少於 20 秒。 超過這個秒數的任何訊息會導致驗證失敗，因為使用者在訊息結束之前可能沒有回應，造成驗證逾時。
+* 驗證訊息應該少於 20 秒。 超過 20 秒的任何訊息都會導致驗證失敗，因為使用者可能不會在訊息結束之前回應，而造成驗證逾時。
 
 ### <a name="set-up-a-custom-message"></a>設定自訂訊息
 
@@ -134,7 +134,7 @@ ms.lasthandoff: 11/15/2017
 6. 選取 [新增] 。
 
 ## <a name="caching-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 中的快取
-您可以利用快取來設定一段特定的時間，讓後續不超過這段時間的驗證嘗試自動成功。 這主要是在內部部署系統 (例如 VPN) 於第一個要求仍在進行中的同時傳送多個驗證要求時使用。 如此，在使用者成功完成進行中的第一次驗證後，後續要求會自動成功。 
+您可以利用快取來設定一段特定的時間，讓後續不超過這段時間的驗證嘗試自動成功。 這主要是在內部部署系統 (例如 VPN) 於第一個要求仍在進行中的同時傳送多個驗證要求時使用。 快取可讓使用者在成功完成進行中的第一次驗證之後，後續要求會自動成功。 
 
 快取並非用於登入 Azure AD。
 
@@ -178,7 +178,7 @@ ms.lasthandoff: 11/15/2017
 5. 在 [多重要素驗證] 底下選取 [管理服務設定]。
 6. 在 [服務設定] 頁面之 [信任的 IP] 下方，您有兩個選擇：
    
-   * **適用於從我的內部網路產生的同盟使用者提出的要求** – 勾選此方塊。 所有從公司網路登入的同盟使用者，將會使用 AD FS 所發行的宣告來略過雙步驟驗證。 請確定 AD FS 有規則可用於將內部網路宣告新增至適當的流量。 如果 AD FS 中還沒有下列規則，請加以建立："c:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
+   * **適用於從我的內部網路產生的同盟使用者提出的要求** – 勾選此方塊。 所有從公司網路登入的同盟使用者，將會使用 AD FS 所發行的宣告來略過雙步驟驗證。 請確定 AD FS 有規則可用於將內部網路宣告新增至適當的流量。 如果規則不存在，請在 AD FS 中建立以下規則："c:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
 
 
 
@@ -199,11 +199,11 @@ ms.lasthandoff: 11/15/2017
 ### <a name="important-things-to-know-about-app-passwords"></a>應用程式密碼重要須知
 以下清單是應用程式密碼的重要須知。
 
-* 每個應用程式應該只需要輸入一次應用程式密碼。 使用者不需要追蹤應用程式密碼，也不需要每次輸入。
+* 每個應用程式都只需要輸入一次應用程式密碼。 使用者不需要追蹤應用程式密碼，也不需要每次輸入。
 * 實際的密碼會自動產生，而不是由使用者提供。 這是因為攻擊者比較難以猜中自動產生的密碼，所以比較安全。
 * 每位使用者的密碼以 40 組為限。 
 * 在內部部署案例中會快取密碼並予以使用的應用程式可能會開始失敗，因為應用程式密碼無法在組織識別碼之外辨識。將 Exchange 電子郵件存放在內部部署設施，但是將封存郵件存放在雲端即是一例。 同樣的密碼無法適用於兩者。
-* 一旦使用者的帳戶啟用 Multi-Factor Authentication，應用程式密碼即可用於大部分的非瀏覽器用戶端 (例如 Outlook 和 Lync)，但是透過非瀏覽器應用程式 (例如 Windows PowerShell) 無法使用應用程式密碼執行系統管理動作，即使具備系統管理員帳戶也一樣。  請確保您建立的服務帳戶是使用強式密碼來執行 PowerShell 指令碼，並且請勿將帳戶用於雙步驟驗證。
+* 一旦在使用者的帳戶上啟用多重要素驗證，應用程式密碼就能用於大部分的非瀏覽器用戶端 (例如 Outlook 和 Lync)。 透過非瀏覽器的應用程式 (例如 Windows PowerShell) 使用應用程式密碼無法執行系統管理動作，即使該使用者具有系統管理帳戶亦然。  使用強式密碼建立用以執行 PowerShell 指令碼的服務帳戶，並且請勿為該帳戶啟用雙步驟驗證。
 
 > [!WARNING]
 > 應用程式密碼無法在用戶端會同時與內部部署及雲端自動探索端點通訊的混合環境作用。 這是因為需要網域密碼才能在內部部署進行驗證，而且需要應用程式密碼才能向雲端進行驗證。
@@ -217,7 +217,7 @@ Microsoft 建議為每個裝置建立一個應用程式密碼，而不是為每�
 Azure AD 支援與內部部署 Windows Server Active Directory Domain Services (AD DS) 同盟 (單一登入)。 如果您的組織與 Azure AD 同盟，而且您想要使用 Azure Multi-Factor Authentication，則以下有關應用程式密碼的資訊就很重要。 本節僅適用於同盟 (SSO) 客戶。
 
 * 應用程式密碼由 Azure AD 驗證，因此會略過同盟。 唯有在設定應用程式密碼時才會主動使用同盟。
-* 對於同盟 (SSO) 使用者，我們不會像被動流程一樣尋求識別提供者 (IdP)。 密碼會儲存在組織識別碼中。如果使用者離開公司，這些資訊必須使用 DirSync 即時流向組織識別碼。 帳戶停用/刪除最長可能需要三個小時才能完成同步處理，導致 Azure AD 中的應用程式密碼停用/刪除延遲。
+* 對於同盟 (SSO) 使用者，不會像被動流程一樣連絡識別提供者 (IdP)。 密碼會儲存在組織識別碼中。如果使用者離開公司，這些資訊必須使用 DirSync 即時流向組織識別碼。 帳戶停用/刪除最長可能需要三個小時才能完成同步處理，導致 Azure AD 中的應用程式密碼停用/刪除延遲。
 * 應用程式密碼不會遵守內部部署用戶端存取控制設定。
 * 應用程式密碼不適用內部部署驗證記錄/稽核功能。
 * 某些進階架構設計在使用雙步驟驗證時，可能需要有組織使用者名稱和密碼及應用程式密碼的組合，需視驗證的位置而定。 對於根據內部部署基礎結構進行驗證的用戶端，您可以使用組織使用者名稱和密碼。 對於根據 Azure AD 進行驗證的用戶端，您需要使用應用程式密碼。
@@ -254,7 +254,7 @@ Azure AD 支援與內部部署 Windows Server Active Directory Domain Services (
 在註冊之後，使用者也可以在 Azure 入口網站或 Office 365 入口網站中變更設定，以建立應用程式密碼。 如需使用者的詳細資訊和詳細步驟，請參閱[什麼是 Azure Multi-Factor Authentication 中的應用程式密碼](./end-user/multi-factor-authentication-end-user-app-passwords.md)。
 
 ## <a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>針對使用者信任的裝置，記住 Multi-Factor Authentication
-記住裝置和瀏覽器的 Multi-Factor Authentication，使用者信任是供給所有 MFA 使用者的免費功能。 它可讓您在使用者使用 MFA 成功登入後的設定天數內有略過 MFA 的選項。 這會減少使用者在相同裝置上執行雙步驟驗證的次數，可提高可用性。
+記住裝置和瀏覽器的 Multi-Factor Authentication，使用者信任是供給所有 MFA 使用者的免費功能。 此設定讓使用者在使用 MFA 成功登入後的設定天數內有略過 MFA 的選項。 這會減少使用者在相同裝置上執行雙步驟驗證的次數，可提高可用性。
 
 不過，若帳戶或裝置遭到入侵，則記住受信任裝置的 MFA 可能會影響安全性。 如果公司帳戶遭入侵或信任的裝置遺失或遭竊，您應該[在所有裝置上還原 Multi-Factor Authentication](multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-remembered-devices-for-a-user)。 此動作會從所有裝置撤銷受信任的狀態，使用者需要再次執行雙步驟驗證。 您也可以使用[管理雙步驟驗證的設定](./end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted)中的指示，指示使用者在自己的裝置上還原 MFA
 
@@ -292,10 +292,10 @@ Azure AD 支援與內部部署 Windows Server Active Directory Domain Services (
 
 使用者將其帳戶註冊進行 MFA 時，會在您已啟用的選項中選擇慣用驗證方法。 [對我的帳戶進行雙步驟驗證設定](multi-factor-authentication-end-user-first-time.md)涵蓋其註冊程序的指引。
 
-| 方法 | 說明 |
+| 方法 | 描述 |
 |:--- |:--- |
 | 電話通話 |撥打自動語音電話。 使用者可接聽電話並按電話鍵盤上的 # 進行驗證。 此電話號碼將不會同步到內部部署 Active Directory。 |
-| 電話簡訊 |傳送包含驗證碼的簡訊。 系統會提示使用者使用驗證碼來回覆簡訊，或在登入介面中輸入驗證碼。 |
+| 電話簡訊 |傳送包含驗證碼的簡訊。 系統會提示使用者在登入介面中輸入這個驗證碼。 此程序稱為「單向 SMS」。 雙向 SMS 表示使用者必須以簡訊回傳特定驗證碼。 雙向 SMS 已過時，且自 2018 年 11 月 14 日起將不再支援。 屆時，已設定雙向 SMS 的使用者將自動切換成「電話通話」驗證。|
 | 行動應用程式的通知 |將推播通知傳送至您的電話或已註冊的裝置。 使用者會看到通知，然後選取 [驗證] 來完成驗證。 <br>Microsoft 驗證器應用程式適用於 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)、[Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073)。 |
 | 行動應用程式傳回的驗證碼 |Microsoft Authenticator 應用程式每隔 30 秒會產生新的 OATH 驗證碼。 使用者會在登入介面中輸入這個驗證碼。<br>Microsoft 驗證器應用程式適用於 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)、[Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073)。 |
 

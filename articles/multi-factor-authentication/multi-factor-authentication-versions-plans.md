@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: 23fa083ef8dc67767db68fd6e783203419b2becd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c5c93c8e8d108a9a5a29477a532d682659c9d512
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>如何取得 Azure Multi-Factor Authentication
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 11/15/2017
 | 自訂的通話來電者 ID | | |● |
 | 信任的 IP | | |● |
 | 記住受信任裝置的 MFA |● |● |● |
-| MFA SDK | | |● (需要 Multi-Factor Auth Provider 和完整的 Azure 訂用帳戶) |
+| MFA SDK | | |● (已過時) | 
 | 內部部署應用程式的 MFA | | |● |
 
 ## <a name="how-to-get-azure-multi-factor-authentication"></a>如何取得 Azure Multi-Factor Authentication

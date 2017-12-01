@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 2d4d009dfc4d43ccc3c69bb3da15ca2c478b9efe
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0323b0f7ee03dce209d5a71c6711988a34ba7633
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-and-register-soap-connectors-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立與註冊 SOAP 連接器
 
@@ -149,6 +149,12 @@ ms.lasthandoff: 10/31/2017
 若要將您的連接器與這些界線以外的外部使用者共用，例如與所有 Logic Apps 使用者共用，請[提交您的連接器以進行 Microsoft 認證](../logic-apps/custom-connector-submit-certification.md)。
 
 ## <a name="faq"></a>常見問題集
+
+**問：**SOAP 連接器是否已正式運作 (GA)？ </br>
+**答：**SOAP 連接器目前是**預覽**狀態，尚未成為 GA 服務。
+
+**問：**SOAP 連接器是否有任何限制和已知問題？ </br>
+**答：**是，請參閱 [SOAP 連接器的限制和已知問題](../api-management/api-management-api-import-restrictions.md#wsdl)。
 
 **問：**自訂連接器是否有任何限制？ </br>
 **答：**是，請參閱[這裡的自訂連接器限制](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits)。

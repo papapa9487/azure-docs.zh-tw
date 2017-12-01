@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: 
 ms.date: 09/05/2017
 ms.author: shlo
+ms.openlocfilehash: a13e19c7e1a22581b14d1a96e20b8a649c303fc3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f03c91b7b27a4fb39b996599efd11242a785b2b2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/17/2017
 ---
-
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Azure Data Factory 中的資料集和已連結的服務 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版 - 正式推出](v1/data-factory-create-datasets.md)
@@ -185,7 +183,7 @@ format | 當類型為 .NET 類型 (`Datetime` 或 `Datetimeoffset`) 時，所要
 從[結構描述和類型對應]( copy-activity-schema-and-type-mapping.md)深入了解資料處理站如何將來源資料對應至接收，以及何時該指定結構資訊。
 
 ## <a name="create-datasets"></a>建立資料集
-您可以使用下列其中一個工具或 SDK 來建立資料集：[.NET API](quickstart-create-data-factory-dot-net.md)[PowerShell]((quickstart-create-data-factory-powershell.md)、[REST API](quickstart-create-data-factory-rest-api.md)Azure Resource Manager 範本及 Azure 入口網站
+您可以使用下列其中一個工具或 SDK 來建立資料集：[.NET API](quickstart-create-data-factory-dot-net.md)、[PowerShell](quickstart-create-data-factory-powershell.md)、[REST API](quickstart-create-data-factory-rest-api.md)、Azure Resource Manager 範本及 Azure 入口網站
 
 ## <a name="v1-vs-v2-datasets"></a>V1 與V2 資料集之比較
 
@@ -202,4 +200,3 @@ format | 當類型為 .NET 類型 (`Datetime` 或 `Datetimeoffset`) 時，所要
 - [快速入門：使用 PowerShell 來建立資料處理站](quickstart-create-data-factory-powershell.md)
 - [快速入門：使用 REST API 來建立資料處理站](quickstart-create-data-factory-rest-api.md)
 - 快速入門：使用 Azure 入口網站來建立資料處理站
-

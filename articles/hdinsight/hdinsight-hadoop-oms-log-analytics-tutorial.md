@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/17/2017
 ms.author: nitinme
-ms.openlocfilehash: 73c472140861a0d0d270021ab268e8c1113c23b5
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6677b0b3ed047ce011bfbb72c25e45195859830a
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>使用 Azure Log Analytics 監視 HDInsight 叢集
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/15/2017
 
 * **Azure 訂用帳戶**。 開始進行本教學課程之前，您必須擁有 Azure 訂用帳戶。 請參閱[立即建立免費的 Azure 帳戶](https://azure.microsoft.com/free)。
 
-* **Azure HDInsight 叢集**。 目前，您可以使用具有以下 HDInsight 叢集類型的 Azure OMS：
+* **Azure HDInsight 叢集**。 目前，您可以使用具有以下 HDInsight 叢集類型的 Azure Operations Management Suite：
 
     * Hadoop
     * HBase
@@ -56,7 +56,7 @@ ms.lasthandoff: 11/15/2017
 
     需要一些時間來儲存設定。  完成後，您可以在頂端看到 [開啟 OMS 儀表板] 按鈕。 
 
-    ![開啟 OMS 儀表板](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-open-workspace.png "開啟 OMS 儀表板")
+    ![開啟 Operations Management Suite 儀表板](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-open-workspace.png "開啟 OMS 儀表板")
 
 5. 按一下 [開啟 OMS 儀表板]。
 6. 出現提示時，請輸入您的 Azure 認證。

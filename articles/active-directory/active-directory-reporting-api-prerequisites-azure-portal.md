@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 58ebf74e166cdcae2c54b134cb99552333fafa24
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 9fbcac4bd6240aed607c3da6c6535d207a782448
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>存取 Azure AD 報告 API 的必要條件
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 11/01/2017
 
 **若要註冊 Azure Active Directory 應用程式：**
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下左方瀏覽窗格的 [Active Directory]。
+1. 在 [Azure 入口網站](https://portal.azure.com)的左方瀏覽窗格中，按一下 [Azure Active Directory]。
    
     ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -129,11 +129,11 @@ ms.lasthandoff: 11/01/2017
 
 **若要取得網域名稱：**
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下左方瀏覽窗格的 [Active Directory]。
+1. 在 [Azure 入口網站](https://portal.azure.com)的左方瀏覽窗格中，按一下 [Azure Active Directory]。
    
     ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. 在 [Azure Active Directory] 刀鋒視窗中，按一下 [網域名稱]。
+2. 在 [Azure Active Directory] 刀鋒視窗中，按一下 [自訂網域名稱]。
 
     ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/09.png) 
 
@@ -144,7 +144,7 @@ ms.lasthandoff: 11/01/2017
 
 **若要取得應用程式的用戶端識別碼：**
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下左方瀏覽窗格的 [Active Directory]。
+1. 在 [Azure 入口網站](https://portal.azure.com)的左方瀏覽窗格中，按一下 [Azure Active Directory]。
    
     ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/01/2017
 
 **若要取得應用程式的用戶端祕密：**
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下左方瀏覽窗格的 [Active Directory]。
+1. 在 [Azure 入口網站](https://portal.azure.com)的左方瀏覽窗格中，按一下 [Azure Active Directory]。
    
     ![註冊應用程式](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 

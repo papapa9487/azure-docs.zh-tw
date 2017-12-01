@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 3ab8029d035c3ba88ddb8a112e27f9054f7c203c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 9e459a42a9fd7caedfa255a7baf51273eef2265a
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>設定 ExpressRoute 線路的網路效能監視器 (預覽)
 
@@ -96,7 +96,7 @@ ms.lasthandoff: 11/15/2017
 1. 在您資源的 [網路效能監視器設定 - TCP 設定] 頁面上的 [安裝 OMS 代理程式] 區段中，按一下與您伺服器的處理器對應的代理程式，然後下載安裝檔案。
 
   >[!NOTE]
-  >目前不支援使用 Linux 代理程式來進行 ExpressRoute 監視。
+  >代理程式必須安裝於 Windows Server (2008 SP1 或更新版本) 上。 不支援使用 Windows 桌面版 OS 和 Linux OS 監視 ExpressRoute 線路。 
   >
   >
 2. 接著，將 [工作區識別碼] 和 [主要金鑰] 複製到 [記事本]。
@@ -105,6 +105,8 @@ ms.lasthandoff: 11/15/2017
   ![PowerShell 指令碼](.\media\how-to-npm\7.png)
 
 ### <a name="installagent"></a>2.2：在每部監視伺服器上安裝監視代理程式
+
+基於備援的因素，建議您在 ExpressRoute 連線的每一端 (亦即內部部署、Azure VNET) 安裝至少兩個代理程式。 使用下列步驟來安裝代理程式：
 
 1. 執行**安裝程式**，以在您想要用於監視 ExpressRoute 的每部伺服器上安裝代理程式。 您用來進行監視的伺服器可以是 VM 或內部部署伺服器，而且必須能夠存取網際網路。 您必須至少在內部部署環境安裝一個代理程式，以及在 Azure 中您需要監視的每個網路區段安裝一個代理程式。
 2. 在 [歡迎] 頁面中按 [下一步]。

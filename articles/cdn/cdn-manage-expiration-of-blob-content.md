@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: c2b49058ec7dd52b5063e815447697fa17ddb53a
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 8c15d198e92b1478b84b2140df416df3909ba141
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>管理 Azure 內容傳遞網路中 Azure Blob 儲存體的期限
 > [!div class="op_single_selector"]
@@ -30,14 +30,14 @@ ms.lasthandoff: 11/16/2017
 Azure 儲存體中的 [Blob 儲存體服務](../storage/common/storage-introduction.md#blob-storage)是數個已與 Azure 內容傳遞網路 (CDN) 整合之 Azure 型來源的其中一個。 任何可公開存取的 Blob 內容均可在 Azure CDN 中加以快取，直到其存留時間 (TTL) 結束。 TTL 是由來自原始伺服器之 HTTP 回應中的 `Cache-Control` 標頭所決定。 本文章會說明幾種可設定位於 Azure 儲存體中，Blob 上的 `Cache-Control` 標頭的方法。
 
 > [!TIP]
-> 您可以選擇不替 blob 設定 TTL。 在此情況下，Azure CDN 會自動套用預設為期 7 天的 TTL。
+> 您可以選擇不替 blob 設定 TTL。 在此情況下，Azure CDN 會自動套用預設為期 7 天的 TTL。 此預設 TTL 僅會套用至一般 Web 傳遞最佳化。 針對大型檔案的最佳化，預設 TTL 為一天；針對媒體串流最佳化，預設 TTL 則為一年。
 > 
 > 針對 Azure CDN 如何加快對 blob 和其他檔案的存取速度，如需詳細資訊請參閱 [Azure 內容傳遞網路概觀](cdn-overview.md)。
 > 
 > 若要深入了解 Azure Blob 儲存體，請參閱 [Blob 儲存體簡介](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)。
  
 
-## <a name="azure-powershell"></a>Azure PowerShell
+## <a name="setting-cache-control-headers-by-using-azure-powershell"></a>使用 Azure PowerShell 設定 Cache-Control 標頭
 [Azure PowerShell](/powershell/azure/overview) 是其中一種最快速、最強大的 Azure 服務管理方式。 請使用 `Get-AzureStorageBlob` Cmdlet 來取得 Blob 的參考，然後設定 `.ICloudBlob.Properties.CacheControl` 屬性。 
 
 例如：
@@ -61,8 +61,8 @@ $blob.ICloudBlob.SetProperties()
 > 
 >
 
-## <a name="azure-storage-client-library-for-net"></a>適用於 .NET 的 Azure 儲存體用戶端程式庫
-若要使用 .NET 設定 Blob 的 `Cache-Control`，請使用[適用於 .NET 的 Azure 儲存體用戶端程式庫](../storage/blobs/storage-dotnet-how-to-use-blobs.md)，來設定 [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) 屬性。
+## <a name="setting-cache-control-headers-by-using-net"></a>使用 .NET 設定 Cache-Control 標頭
+若要使用 .NET 程式碼設定 Blob 的 `Cache-Control` 標頭，請使用[適用於 .NET 的 Azure 儲存體用戶端程式庫](../storage/blobs/storage-dotnet-how-to-use-blobs.md)，來設定 [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) \(英文\) 屬性。
 
 例如：
 
@@ -96,26 +96,28 @@ class Program
 > [!TIP]
 > [適用於 .NET 的 Azure Blob 儲存體範例](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)中另外還提供了更多 .NET 程式碼範例。
 > 
-> 
 
-## <a name="other-methods"></a>其他方法
-* [Azure 命令列介面](../cli-install-nodejs.md)
-  
-    上傳 Blob 時，您可以使用 Azure 命令列介面中的 `-p` 開關來設定 *cacheControl*。 以下範例將 TTL 設定為一小時 (3600 秒)：
+## <a name="setting-cache-control-headers-by-using-other-methods"></a>使用其他方法設定 Cache-Control 標頭
+
+### <a name="azure-storage-explorer"></a>Azure 儲存體總管
+透過 [Azure 儲存體總管](https://azure.microsoft.com/en-us/features/storage-explorer/)，您可以檢視和編輯您的 Blob 儲存體資源，包括如 *CacheControl* 屬性的屬性。 
+
+### <a name="azure-command-line-interface"></a>Azure 命令列介面
+上傳 Blob 時，您可以使用 [Azure 命令列介面](../cli-install-nodejs.md)中的 `-p` 參數來設定 *cacheControl* 屬性。 下列範例顯示如何將 TTL 設定為一小時 (3600 秒)：
   
     ```text
     azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
     ```
-* [Azure 儲存體服務 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-  
-    在[放置 Blob](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx)、[放置區塊清單](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx)或[設定 Blob 屬性](https://msdn.microsoft.com/library/azure/ee691966.aspx)要求中，明確設定 *x-ms-blob-cache-control* 屬性。
 
-* 協力廠商儲存體管理工具
+### <a name="azure-storage-services-rest-api"></a>Azure 儲存體服務 REST API
+您可以使用 [Azure 儲存體服務 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) \(英文\)，在要求上使用下列作業來明確設定 *x-ms-blob-cache-control* 屬性：
   
-    某些協力廠商 Azure 儲存體管理工具可讓您對 Blob 設定 **CacheControl** 屬性。 
+   - [Put Blob](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx) \(英文\)
+   - [Put Block List](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx) \(英文\)
+   - [Set Blob Properties](https://msdn.microsoft.com/library/azure/ee691966.aspx) \(英文\)
 
 ## <a name="testing-the-cache-control-header"></a>測試 Cache-Control 標頭
-您可以輕鬆地驗證 Blob 的 TTL 設定。 使用瀏覽器的[開發人員工具](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)，測試 blob 是否包含 `Cache-Control` 的回應標頭。 您也可以使用 **wget**、[Postman](https://www.getpostman.com/) 或 [Fiddler](http://www.telerik.com/fiddler) 之類的工具來檢查回應標頭。
+您可以輕鬆地驗證 Blob 的 TTL 設定。 使用瀏覽器的[開發人員工具](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)，測試 blob 是否包含 `Cache-Control` 的回應標頭。 您也可以使用 [Wget](https://www.gnu.org/software/wget/) \(英文\)、[Postman](https://www.getpostman.com/) \(英文\) 或 [Fiddler](http://www.telerik.com/fiddler) \(英文\) 之類的工具來檢查回應標頭。
 
 ## <a name="next-steps"></a>後續步驟
 * [了解如何在 Azure CDN 中管理雲端服務內容的到期](cdn-manage-expiration-of-cloud-service-content.md)

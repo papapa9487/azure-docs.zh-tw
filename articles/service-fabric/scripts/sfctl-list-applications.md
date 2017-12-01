@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: adegeo
 ms.custom: 
-ms.openlocfilehash: b99c54e85f22c5745a852e10bb66368da3b5d8f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e8a3e4b1f63cf220e360c1351c7bccc3dab96ee
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>將應用程式憑證新增到 Service Fabric 叢集
+# <a name="list-applications-running-in-a-service-fabric-cluster"></a>列出 Service Fabric 叢集中執行的應用程式
 
 此範例指令碼會連線到 Service Fabric 叢集，並列出所有佈建的應用程式。
 

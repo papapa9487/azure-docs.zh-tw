@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: 38e771b8d7211e8f4f408a43b1ab2e293370ab9c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 265538a7e31d58a7d58c9e30870510eb66954f44
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux 上的 Azure App Service 常見問題集
 
@@ -66,6 +66,15 @@ ms.lasthandoff: 10/25/2017
 是，您需要將稱為 `WEBSITE_WEBDEPLOY_USE_SCM` 的應用程式設定設定為 *false*。
 
 ## <a name="language-support"></a>語言支援
+
+**我想要在我的 Node.js 應用程式中使用 websocket，是否需要設定任何特殊設定或組態？**
+
+是，在您的伺服器端 Node.js 程式碼中停用 `perMessageDeflate`。 例如，如果您使用 socket.io，請執行下列作業：
+```
+var io = require('socket.io')(server,{
+  perMessageDeflate :false
+});
+```
 
 **是否支援未編譯的 .NET Core 應用程式？**
 
@@ -136,4 +145,4 @@ SCM 網站是在個別的容器中執行。 您無法檢查應用程式容器的
 
 * [何謂 Linux 上的 Azure App Service？](app-service-linux-intro.md)
 * [在 Azure App Service 中設定預備環境](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [使用用於容器的 Web 應用程式進行持 續部署](./app-service-linux-ci-cd.md)
+* [使用用於容器的 Web 應用程式進行持續部署](./app-service-linux-ci-cd.md)

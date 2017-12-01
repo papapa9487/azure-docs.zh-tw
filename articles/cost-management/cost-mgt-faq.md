@@ -5,19 +5,18 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/23/2017
+ms.date: 11/21/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: a01d8d1ed0f5234f4950d448b54087767353c8ef
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 043aea81258d96fc6598903f9b523f29a5bf2c15
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Azure 成本管理的常見問題集
-
 
 本文說明 Azure 成本管理 (也稱為 Cloudyn) 的一些常見問題。 如果您有關於「成本管理」的問題，可以在 [Cloudyn 的 Azure 成本管理常見問題集](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn) \(英文\) 詢問。
 
@@ -125,3 +124,15 @@ Cloudyn 有下列資料重新整理時間軸：
 ## <a name="how-can-a-direct-csp-configure-cloudyn-access-for-indirect-csp-customers-or-partners"></a>直接雲端解決方案提供者如何設定間接雲端解決方案提供者客戶或合作夥伴的 Cloudyn 存取？
 
 如需指示，請參閱[設定 Cloudyn 中的間接 CSP 存取](quick-register-csp.md#configure-indirect-csp-access-in-cloudyn)。
+
+## <a name="what-causes-the-optimizer-menu-item-to-appear"></a>造成最佳化工具功能表項目出現的原因為何？
+
+在您新增 Azure Resource Manager 存取，且系統已收集資料之後，您應該會看見 [最佳化工具] 選項。 若要啟動 Azure Resource Manager 存取，請參閱[如何使用 Azure 認證啟用尚未啟用的帳戶？](#how-do-i-activate-unactivated-accounts-with-azure-credentials)
+
+## <a name="is-cost-managementcloudyn-agent-based"></a>是否會使用成本管理/Cloudyn 代理程式？
+
+否。 不會使用代理程式。 VM 的 Azure 虛擬機器計量資料，是從 Microsoft Insights API 收集而來。 如果您想要收集來自 Azure VM 的計量資料，便必須啟用它們的診斷設定。
+
+## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>每份 Cloudyn 報告是否能顯示超過一個 AD 租用戶的資料？
+
+是。 您可以針對您所擁有的每個 AD 租用戶[建立相對應的雲端帳戶實體](tutorial-user-access.md#create-entities)。 如此一來，您便可以檢視所有的 Azure AD 租用戶資料，以及其他雲端平台提供者 (包括 Amazon Web Services 和 Google Cloud Platform)。

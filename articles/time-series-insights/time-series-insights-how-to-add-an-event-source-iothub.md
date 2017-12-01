@@ -1,5 +1,5 @@
 ---
-title: "如何將 IoT 中樞的事件來源新增至 Azure Time Series Insights 環境 | Microsoft Docs"
+title: "如何將 IoT 中樞的事件來源新增至 Azure Time Series Insights | Microsoft Docs"
 description: "本文說明如何將與 IoT 中樞連線的事件來源新增至時間序列深入解析環境"
 services: time-series-insights
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: ed31a0e725d1e0863e9c4695d4eccb324f60678a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/21/2017
+ms.openlocfilehash: 0469c35056d1d02457c162b8540af472b84f1e92
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>如何將 IoT 中樞事件來源新增至時間序列深入解析環境
 本文說明如何使用 Azure 入口網站，將從 IoT 中樞讀取資料的事件來源新增至時間序列深入解析環境。
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/15/2017
 - IoT 中樞必須要有傳入的作用中訊息事件。
 - 在 IoT 中樞建立專用取用者群組，讓時間序列深入解析環境從中取用。 每個時間序列深入解析事件必須有自身專屬的取用者群組，且不可與任何其他取用者共用。 如果多個讀取器從同一個取用者群組取用事件，則所有讀取器都可能會看到錯誤。 如需詳細資料，請參閱 [IoT 中樞開發人員指南](../iot-hub/iot-hub-devguide.md)。
 
-## <a name="add-a-new-event-source"></a>新增新的事件來源
+## <a name="add-a-new-event-source"></a>新增事件來源
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
 2. 找出您的現有時間序列深入解析環境。 按一下 Azure 入口網站左側功能表中的 [所有資源]。 選取 Time Series Insights 環境。
@@ -97,5 +97,5 @@ ms.lasthandoff: 11/15/2017
 
 ## <a name="next-steps"></a>後續步驟
 - [定義資料存取原則](time-series-insights-data-access.md)來保護資料。
-- [傳送事件](time-series-insights-send-events.md)到事件來源。
+- [將事件傳送](time-series-insights-send-events.md)到事件來源。
 - 在[時間序列深入解析總管](https://insights.timeseries.azure.com)中存取您的環境。

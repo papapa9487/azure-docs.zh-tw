@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: yaronyg
 ms.custom: 
-ms.openlocfilehash: 23dce1b3f6f40f8e4d5606d237700f31281d66c7
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 06ce541b42de2ad20014199a7e87fe3d8c2dfe01
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>適用於 JAVA 的 Azure Cosmos DB 資料表 API︰版本資訊與資源
 > [!div class="op_single_selector"]
@@ -34,6 +34,10 @@ ms.lasthandoff: 11/15/2017
 |**SDK 下載**|[下載選項](https://github.com/azure/azure-storage-java#download) \(英文\)|
 |**API 文件**|[Java API 參考文件](http://azure.github.io/azure-storage-java/)|
 |**參與 SDK**|[GitHub](https://github.com/Azure/azure-storage-java#contribute-code-or-provide-feedback)|
+
+> [!IMPORTANT]
+> 如果您在預覽期間建立了資料表 API 帳戶，請建立[新表格 API 帳戶](create-table-dotnet.md#create-a-database-account)以使用正式推出的資料表 API SDK。
+>
 
 ## <a name="release-notes"></a>版本資訊
 

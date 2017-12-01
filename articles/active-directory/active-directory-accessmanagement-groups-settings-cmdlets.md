@@ -4,7 +4,7 @@ description: "如何使用 Azure Active Directory Cmdlet 管理群組的設定"
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: michael.tillman
 editor: 
 ms.assetid: 9f2090e6-3af4-4f07-bbb2-1d18dae89b73
 ms.service: active-directory
@@ -12,20 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 11/16/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
-ms.openlocfilehash: 06384d1a1fb7fcc36e9ab97e38c6524a7e260140
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec22a9898350b07662266707b2fd086a7a5daa93
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>設定群組設定的 Azure Active Directory Cmdlet
+本文包含使用 Azure Active Directory (Azure AD) PowerShell Cmdlet 以建立和更新群組的指示。 本內容僅適用於 Office 365 群組。 
 
 > [!IMPORTANT]
-> 本內容僅適用於 Office 365 群組。 如需有關如何允許使用者建立安全性群組的詳細資訊，請依照 [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) 所述來設定 `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True`。 
+> 某些設定需要 Azure Active Directory Premium P1 授權。 如需詳細資訊，請參閱[範本設定](#template-settings)資料表。
+
+如需有關如何允許使用者建立安全性群組的詳細資訊，請依照 [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) 所述來設定 `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True`。 
 
 Office 365 群組設定是使用 Settings 物件和 SettingsTemplate 物件所設定。 一開始，您在目錄中不會看到任何設定物件，因為已使用預設設定來設定您的目錄。 若要變更預設設定，您必須使用設定範本來建立新的設定物件。 設定範本是由 Microsoft 所定義。 有數個不同的設定範本。 若要設定目錄的 Office 365 群組設定，您要使用名為 "Group.Unified" 的範本。 若要在單一群組上設定 Office 365 群組設定，請使用名為 "Group.Unified.Guest" 的範本。 此範本是用來管理 Office 365 群組的來賓存取權。 
 
@@ -85,11 +88,12 @@ Cmdlet 是 Azure Active Directory PowerShell V2 模組的一部分。 如需有�
   --                                   ----------- ----------                           ------
   c391b57d-5783-4c53-9236-cefb5c6ef323             62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
   ```
-以下是 Group.Unified SettingsTemplate 中定義的設定。
+## <a name="template-settings"></a>範本設定
+以下是 Group.Unified SettingsTemplate 中定義的設定。 除非另行指定，否則這些功能都需要 Azure Active Directory Premium P1 授權。 
 
 | **設定** | **說明** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>類型：布林值<li>預設值︰True |此旗標指出是否允許非管理使用者在目錄中建立整合的群組。 |
+|  <ul><li>EnableGroupCreation<li>類型：布林值<li>預設值︰True |此旗標指出是否允許非管理使用者在目錄中建立整合的群組。 此設定不需要 Azure Active Directory Premium P1 授權。|
 |  <ul><li>GroupCreationAllowedGroupId<li>類型：字串<li>預設值：“” |安全性群組的 GUID，即使 EnableGroupCreation == false，還是允許成員建立整合群組。 |
 |  <ul><li>UsageGuidelinesUrl<li>類型：字串<li>預設值：“” |群組使用方針的連結。 |
 |  <ul><li>ClassificationDescriptions<li>類型：字串<li>預設值：“” | 分類說明的以逗號分隔清單。 |
@@ -98,7 +102,7 @@ Cmdlet 是 Azure Active Directory PowerShell V2 模組的一部分。 如需有�
 | <ul><li>CustomBlockedWordsList<li>類型：字串<li>預設值：“” | 請勿使用。 未實作。 |
 | <ul><li>EnableMSStandardBlockedWords<li>類型：布林值<li>預設值：“False” | 請勿使用
 |  <ul><li>AllowGuestsToBeGroupOwner<li>類型︰布林值<li>預設值︰False | 布林值，表示來賓使用者是否可以是群組的擁有者。 |
-|  <ul><li>AllowGuestsToAccessGroups<li>類型︰布林值<li>預設值︰True | 布林值，表示來賓使用者是否可以具有整合群組內容的存取權。 |
+|  <ul><li>AllowGuestsToAccessGroups<li>類型︰布林值<li>預設值︰True | 布林值，表示來賓使用者是否可以具有整合群組內容的存取權。  此設定不需要 Azure Active Directory Premium P1 授權。|
 |  <ul><li>GuestUsageGuidelinesUrl<li>類型：字串<li>預設值：“” | 來賓使用指導方針的連結 url。 |
 |  <ul><li>AllowToAddGuests<li>類型︰布林值<li>預設值︰True | 布林值表示是否允許將來賓新增至此目錄。|
 |  <ul><li>ClassificationList<li>類型：字串<li>預設值：“” |以逗號分隔的有效分類值清單，這些值可以套用到整合的群組。 |

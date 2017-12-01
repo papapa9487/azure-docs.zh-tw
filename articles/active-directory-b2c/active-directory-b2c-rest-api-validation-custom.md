@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/24/2017
 ms.author: joroja
-ms.openlocfilehash: eb44a0d2234c9ee3801d8b3a1655d877aa2f4fef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2572c618f6ad27f57603d8e8a2ff04de6846c6ca
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>逐步解說︰將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為使用者輸入的驗證
 
@@ -119,7 +119,7 @@ IEF 預期 Azure 函式會傳回 `userMessage` 宣告。 如果驗證失敗，�
 
 1. 開啟 TrustFrameworkBase.xml 檔案，並搜尋 `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`。
 2. 檢閱此技術設定檔的設定。 觀察與使用者所進行的交換如何定義為向使用者要求的宣告 (輸入宣告)，以及如何定義為應該從自我判斷提供者傳回的宣告 (輸出宣告)。
-3. 搜尋 `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`，並注意系統會叫用此設定檔來作為 `<UserJourney Id="ProfileEdit">` 的協調流程步驟 6。
+3. 搜尋 `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`，並注意系統會叫用此設定檔來作為 `<UserJourney Id="ProfileEdit">` 的協調流程步驟 4。
 
 ## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>步驟 4：上傳和測試設定檔編輯 RP 原則檔案
 
