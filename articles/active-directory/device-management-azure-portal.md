@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: cd13ecf50cf03c362f8da2da83ab698c4e8ba0cc
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 83a1ba0b97c0617884b1645ad54e259f04052f49
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>使用 Azure 入口網站管理裝置
 
@@ -32,7 +32,30 @@ ms.lasthandoff: 11/14/2017
 
 - 為您提供關於使用 Azure 入口網站管理裝置的資訊
 
+## <a name="manage-devices"></a>管理裝置 
 
+Azure 入口網站可提供您一個集中管理裝置的位置。 您可以使用[直接連結](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices)或依照下列手動步驟，來前往該位置：
+
+1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
+
+2. 在左側導覽列上，按一下 [Active Directory]。
+
+    ![設定裝置設定](./media/device-management-azure-portal/01.png)
+
+3. 在 [管理] 區段中，按一下 [裝置]。
+
+    ![設定裝置設定](./media/device-management-azure-portal/11.png)
+ 
+[裝置] 頁面可讓您：
+
+- 設定裝置管理設定
+
+- 尋找裝置
+
+- 執行裝置管理工作
+
+- 檢閱裝置管理相關的稽核記錄  
+  
 
 ## <a name="configure-device-settings"></a>設定裝置設定
 

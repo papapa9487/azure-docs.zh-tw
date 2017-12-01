@@ -4,7 +4,7 @@ description: "Azure Active Directory 中管理網域的管理概念和做法"
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: michael.tillman
 editor: 
 ms.assetid: 5063cd0a-dba2-4ba9-aa65-b8117490d73a
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: 1e58af1f8d26b03c07b27d69f13868bccaaa33aa
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: e77ea5c3b04a6717e6434f03ca61084af883c31c
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>管理 Azure Active Directory 中的自訂網域名稱
 網域名稱是許多目錄資源識別項的重要部分：它可能是使用者的使用者名稱或電子郵件地址的一部分、群組位址的一部分，也可能是應用程式的應用程式識別碼 URI 的一部分。 Azure Active Directory (Azure AD) 中的資源可包含已驗證為目錄 (其中含有資源) 所擁有的網域名稱。 只有全域管理員可以在 Azure AD 中執行網域管理工作。
@@ -29,18 +29,18 @@ ms.lasthandoff: 10/11/2017
 
 1. 使用具備目錄全域管理員身分的帳戶來登入 [Azure 入口網站](https://portal.azure.com) 。
 2. 選取 **Azure Active Directory**。
-   
-   ![開啟使用者管理](./media/active-directory-domains-add-azure-portal/user-management.png)
-3. 選取 [網域名稱]。
+3. 選取 [自訂網域名稱]。
+     
+   ![開啟使用者管理](./media/active-directory-domains-manage-azure-portal/add-custom-domain.png)
 4. 選取您想要設為主要網域的網域名稱。
 5. 選取 [設為主要] 命令。 出現提示時，請確認您的選擇。
    
-   ![將網域名稱設為主要網域名稱](./media/active-directory-domains-manage-azure-portal/make-primary.png)
+   ![將網域名稱設為主要網域名稱](./media/active-directory-domains-manage-azure-portal/make-primary-domain.png)
 
 您可以將目錄的主要網域名稱變更為任何已驗證的非同盟自訂網域。 變更目錄的主要網域時，並不會變更任何現有使用者的使用者名稱。
 
-## <a name="add-custom-domain-names-to-your-azure-ad"></a>新增 Azure AD 的自訂網域名稱
-> 您最多可以新增 900 個受管理的網域名稱。 如果您想要使用內部部署 Active Directory 設定同盟的所有網域，您最多可以在每個目錄中新增 450 個網域名稱。 如需詳細資訊，請參閱[同盟和受管理的網域名稱](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names)。
+## <a name="add-custom-domain-names-to-your-azure-ad-tenant"></a>為 Azure AD 租用戶新增自訂網域名稱
+您最多可以新增 900 個受管理的網域名稱。 如果您要設定所有網域與內部部署 Active Directory 建立同盟，則最多可以在每個目錄中新增 450 個網域名稱。 如需詳細資訊，請參閱[同盟和受管理的網域名稱](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names)。
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>新增自訂網域的子網域
 如果您想要將第三層網域名稱新增至您的目錄，例如 'europe.contoso.com'，則應先新增並驗證第二層網域，例如 contoso.com。Azure AD 會自動驗證子網域。 若要查看您剛才新增的子網域是否已通過驗證，請重新整理列出網域的瀏覽器頁面。

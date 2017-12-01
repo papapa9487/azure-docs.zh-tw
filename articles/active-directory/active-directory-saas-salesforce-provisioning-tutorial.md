@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: a573a7ef79e28c50ae0923849a88f88af40f21be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ba33399c9ea0f093de6c85328d6ec2b280da4a0
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
-# <a name="tutorial-configuring-salesforce-for-automatic-user-provisioning"></a>教學課程︰設定自動使用者佈建的 Salesforce
+# <a name="tutorial-configuring-salesforce-for-automatic-user-provisioning"></a>教學課程︰設定 Salesforce 來進行自動使用者佈建
 
 本教學課程旨在說明您需要在 Salesforce 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 Salesforce。
 
@@ -35,9 +35,7 @@ ms.lasthandoff: 10/11/2017
 
 Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使用者應接收對指定應用程式的存取權。 在自動使用者帳戶佈建的內容中，只有「已指派」至 Azure AD 中的應用程式之使用者和群組會進行同步處理。
 
-在設定並啟用佈建服務之前，您必須決定 Azure AD 中的哪些使用者及/或群組代表需要 Salesforce 應用程式存取權的使用者。 一旦決定後，您可以依照此處的指示，將這些使用者指派給 Salesforce 應用程式︰
-
-[將使用者或群組指派給企業應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+在設定並啟用佈建服務之前，您必須決定 Azure AD 中的哪些使用者或群組需要存取 Salesforce 應用程式。 做好決定之後，即可依照[將使用者或群組指派給企業應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)中的指示，將這些使用者指派給 Salesforce 應用程式。
 
 ### <a name="important-tips-for-assigning-users-to-salesforce"></a>將使用者指派給 Salesforce 的重要秘訣
 
@@ -48,14 +46,14 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
     > [!NOTE]
     > 此應用程式在佈建流程中，會從 Salesforce 匯入自訂角色，客戶在指派使用者時也可以選取該角色
 
-## <a name="enable-automated-user-provisioning"></a>啟用自動的使用者佈建
+## <a name="enable-automated-user-provisioning"></a>啟用自動使用者佈建
 
 本節會引導您將 Azure AD 連接至 Salesforce 的使用者帳戶佈建 API，以及根據 Azure AD 中的使用者和群組指派，設定佈建服務以在 Salesforce 中建立、更新和停用指派的使用者帳戶。
 
 >[!Tip]
 >您也可以選擇啟用 Salesforce 的 SAML 型單一登入，請遵循 [Azure 入口網站](https://portal.azure.com)中提供的指示。 可以獨立設定自動佈建的單一登入，雖然這兩個功能彼此補充。
 
-### <a name="to-configure-automatic-user-account-provisioning"></a>若要設定自動使用者帳戶佈建：
+### <a name="configure-automatic-user-account-provisioning"></a>設定使用者帳戶自動佈建
 
 本節的目的是要說明如何對 Salesforce 啟用 Active Directory 使用者帳戶的使用者佈建。
 
@@ -65,26 +63,31 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 3. 選取您的 Salesforce 執行個體，然後選取 [佈建] 索引標籤。
 
-4. 將 [佈建模式] 設定為 [自動]。 
-![佈建](./media/active-directory-saas-salesforce-provisioning-tutorial/provisioning.png)
+4. 將 [佈建模式] 設定為 [自動]。
+
+    ![佈建](./media/active-directory-saas-salesforce-provisioning-tutorial/provisioning.png)
 
 5. 在 [管理員認證] 區段下，提供下列組態設定：
    
-    a. 在 [管理員使用者名稱] 文字方塊中，輸入已在 Salesforce.com 中指派**系統管理員**設定檔的 Salesforce 帳戶名稱。
+    a. 在 [管理員使用者名稱] 文字方塊中，輸入已獲指派 Salesforce.com 中 [系統管理員] 設定檔的 Salesforce 帳戶名稱。
    
-    b.這是另一個 C# 主控台應用程式。 在 [管理員密碼] 文字方塊中，輸入這個帳戶的密碼。
+    b. 在 [管理員密碼] 文字方塊中，輸入這個帳戶的密碼。
 
-6. 若要取得您的 Salesforce 安全性權杖，請開啟新索引標籤並登入相同的 Salesforce 系統管理員帳戶。 在頁面右上角，按一下您的名稱，然後按一下我的設定。
+6. 若要取得您的 Salesforce 安全性權杖，請開啟新索引標籤並登入相同的 Salesforce 系統管理員帳戶。 在頁面右上角，按一下您的名稱，然後按一下 [設定]。
 
      ![啟用自動使用者佈建](./media/active-directory-saas-salesforce-provisioning-tutorial/sf-my-settings.png "啟用自動使用者佈建")
-7. 在左方導覽窗格上，按一下 個人 展開相關的區段，然後按一下重設我的安全性權杖。
+
+7. 在左方導覽窗格上，按一下 [我的個人資訊] 以展開相關的區段，然後按一下 [重設我的安全性權杖]。
   
     ![啟用自動使用者佈建](./media/active-directory-saas-salesforce-provisioning-tutorial/sf-personal-reset.png "啟用自動使用者佈建")
-8. 在 [重設我的安全性權杖] 頁面上，按一下 [重設安全性權杖] 按鈕。
+
+8. 在 [重設安全性權杖] 頁面上，按一下 [重設安全性權杖] 按鈕。
 
     ![啟用自動使用者佈建](./media/active-directory-saas-salesforce-provisioning-tutorial/sf-reset-token.png "啟用自動使用者佈建")
+
 9. 檢查與此系統管理員帳戶相關聯的電子郵件收件匣。 尋找來自 Salesforce.com，包含新安全性權杖的電子郵件。
-10. 複製權杖，移至您的 Azure AD 視窗，然後將它貼到 [通訊端權杖] 欄位。
+
+10. 複製該權杖，移至您的 Azure AD 視窗，然後將它貼到 [祕密權杖] 欄位。
 
 11. 在 Azure 入口網站中，按一下 [測試連接]，以確保 Azure AD 可以連接到您的 Salesforce 應用程式。
 
@@ -108,4 +111,4 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 * [管理企業應用程式的使用者帳戶佈建](active-directory-saas-tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
-* [設定單一登入](active-directory-saas-salesforce-tutorial.md)
+* [設定單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-tutorial)

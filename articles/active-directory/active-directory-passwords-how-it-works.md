@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 56ddd5742b63851b9477bae0705ebd24e30ff185
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bb2e1aebc60eee5f94ed486e0efb43265728df6f
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Azure AD 中的自助式密碼重設深入探討
 
@@ -183,7 +183,7 @@ ms.lasthandoff: 11/15/2017
 當要求註冊功能已停用時，使用者仍然可以手動註冊連絡資訊。 使用者可以造訪 [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) 或選取存取面板中 [設定檔] 索引標籤下方的 [註冊密碼重設] 連結。
 
 > [!NOTE]
-> 選取 [取消] 或關閉視窗，即可關閉密碼重設註冊入口網站。 但是每次登錄時，系統都會提示註冊，直到使用者完成註冊為止。
+> 選取 [取消] 或關閉視窗，即可關閉密碼重設註冊入口網站。 但是當使用者每次登錄時，系統都會提示註冊，直到他們完成註冊為止。
 >
 > 如果使用者已經登入，這並不會中斷其連線。
 
@@ -207,7 +207,18 @@ ms.lasthandoff: 11/15/2017
 
 ## <a name="on-premises-integration"></a>內部部署整合
 
-如果您已安裝、設定及啟用 Azure AD Connect，就會有下列其他的內部部署整合選項。 如果這些選項呈現灰色，即未正確設定回寫。 如需詳細資訊，請參閱[設定密碼回寫](active-directory-passwords-writeback.md#configuring-password-writeback)。
+如果您已安裝、設定及啟用 Azure AD Connect，就會有下列其他的內部部署整合選項。 如果這些選項呈現灰色，即未正確設定回寫。 如需詳細資訊，請參閱[設定密碼回寫](active-directory-passwords-writeback.md#configure-password-writeback)。
+
+![回寫][Writeback]
+
+此頁面提供內部部署回寫用戶端的快速狀態，系統會根據目前的設定顯示下列其中一個訊息：
+
+* 您的內部部署回寫用戶端已啟動並執行。
+* Azure AD 已上線，並已連線至您的內部部署回寫用戶端。 不過，Azure AD Connect 的已安裝版本似乎已過期。 請考慮[升級 Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md)，以確保您具有最新的連線功能及重要錯誤修正。
+* 抱歉，因為安裝的 Azure AD Connect 版本已過期，所以我們無法檢查您的內部部署回寫用戶端狀態。 請[升級 Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) 以檢查您的連線狀態。
+* 抱歉，我們目前似乎無法連線至您的內部部署回寫用戶端。 請[對 Azure AD Connect 進行疑難排解](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity)以還原連線。
+* 抱歉，因為密碼回寫未正確設定，所以我們無法連線至您的內部部署回寫用戶端。 請[設定密碼回寫](active-directory-passwords-writeback.md#configure-password-writeback)以還原連線。
+* 抱歉，我們目前似乎無法連線至您的內部部署回寫用戶端。 這可能是我們這端的暫時性問題所造成。 如果問題持續發生，請[對 Azure AD Connect 進行疑難排解](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity)以還原連線。
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>將密碼寫回至內部部署目錄
 
@@ -233,7 +244,7 @@ ms.lasthandoff: 11/15/2017
 若要測試此情節，只要隨著其中一個合作夥伴使用者移至 http://passwordreset.microsoftonline.com 即可。 如果他們有定義備用電子郵件或驗證電子郵件，密碼重設就會如預期般運作。
 
 > [!NOTE]
-> 若 Microsoft 帳戶已獲得存取您的 Azure AD 租用戶的權限 (例如來自 Hotmail.com、Outlook.com 或其他個人電子郵件地址的帳戶)，則無法使用 Azure AD SSPR。 需要使用[當您無法登入您的 Microsoft 帳戶時](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)文章所述的資訊來重設其密碼。
+> 若 Microsoft 帳戶已獲得存取您的 Azure AD 租用戶的權限 (例如來自 Hotmail.com、Outlook.com 或其他個人電子郵件地址的帳戶)，則無法使用 Azure AD SSPR。 他們需要使用[當您無法登入您的 Microsoft 帳戶時](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)文章所述的資訊來重設其密碼。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -253,3 +264,4 @@ ms.lasthandoff: 11/15/2017
 * [在其他某處並未涵蓋我的問題](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/active-directory-passwords-how-it-works/sspr-authentication-methods.png "可供使用的 Azure AD 驗證方法和所需的數量"
+[Writeback]: ./media/active-directory-passwords-how-it-works/troubleshoot-writeback-running.png "內部部署整合密碼回寫設定和疑難排解資訊"
