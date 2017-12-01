@@ -73,7 +73,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 展開您的函式，然後按一下 [整合]。 您可以在這裡定義函式的輸入和輸出繫結，以及設定排程。 
 
-2. 輸入 `0 0 */1 * * *` 作為新的 排程 值，然後按一下儲存。  
+2. 輸入 `0 0 */1 * * *` 作為新的 [排程] 值，然後按一下 [儲存]。  
 
 ![函式便會在 Azure 入口網站中更新計時器排程。](./media/functions-create-scheduled-function/functions-timer-trigger-change-schedule.png)
 

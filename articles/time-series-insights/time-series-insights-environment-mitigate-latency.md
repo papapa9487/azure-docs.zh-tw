@@ -1,5 +1,5 @@
 ---
-title: "如何在 Azure 時間序列深入解析中監視效能、降低節流，並避免延遲 | Microsoft Docs"
+title: "如何監視及降低節流，以避免 Azure 時間序列深入解析中的延遲 | Microsoft Docs"
 description: "本文描述如何監視、診斷和減少會在 Azure 時間序列深入解析中造成延遲和節流的效能問題。"
 services: time-series-insights
 ms.service: time-series-insights
@@ -12,13 +12,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/15/2017
-ms.openlocfilehash: 5af5589922ded802703b9ba8f3b0aa8c5524bbad
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9d53cd0ee8e15d47ac1daa122331b3145f936adb
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
-# <a name="improve-performance-reduce-latency-and-mitigate-throttling-in-azure-time-series-insights"></a>在 Azure 時間序列深入解析中改善效能、降低延遲及減少節流
+# <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>監視與降低節流，以減少 Azure 時間序列深入解析中的延遲
 當內送資料的數量超過您的環境設定時，可能會在 Azure 時間序列深入解析中發生延遲或節流。
 
 您可以避免延遲和節流，方法為適當地設定您環境需要分析的資料量。

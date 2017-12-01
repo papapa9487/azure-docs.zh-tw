@@ -1,11 +1,11 @@
 ---
-title: "建立網路安全性群組 - Azure CLI 2.0 | Microsoft Docs"
-description: "了解如何使用 Azure CLI 2.0 建立和部署網路安全性群組。"
+title: "建立網路安全性群組 - Azure CLI | Microsoft Docs"
+description: "了解如何使用 Azure CLI 建立和部署網路安全性群組。"
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: tysonn
+manager: jeconnoc
+editor: 
 tags: azure-resource-manager
 ms.assetid: 9ea82c09-f4a6-4268-88bc-fc439db40c48
 ms.service: virtual-network
@@ -16,28 +16,21 @@ ms.workload: infrastructure-services
 ms.date: 02/17/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8efb3ab66d07875b51f723fed5594bcb477ed025
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecc50a54feca6c3e9304821e0a5bdbb50708bd11
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-network-security-groups-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 建立網路安全性群組
+# <a name="create-network-security-groups-using-the-azure-cli"></a>使用 Azure CLI 建立網路安全性群組
 
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
-
-## <a name="cli-versions-to-complete-the-task"></a>用以完成工作的 CLI 版本 
-
-您可以使用下列其中一個 CLI 版本來完成工作︰ 
-
-- [Azure CLI 1.0](virtual-networks-create-nsg-cli-nodejs.md) – 適用於傳統和資源管理部署模型的 CLI 
-- [Azure CLI 2.0](#Create-the-nsg-for-the-front-end-subnet) - 適用於資源管理部署模型的新一代 CLI (本文章)
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-以下的 Azure CLI 2.0 命令範例是假設您已根據上述案例建立簡單的環境。 
+下列範例 Azure CLI 命令預期以前述案例為基礎的現有簡單環境。 
 
 ## <a name="create-the-nsg-for-the-frontend-subnet"></a>建立 `FrontEnd` 子網路的 NSG
 

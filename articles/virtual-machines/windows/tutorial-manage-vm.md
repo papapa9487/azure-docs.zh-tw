@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2237f2e5cb67df019d0975e764602babe7f4c8f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c612a251105197ab2b46bf448ae39253e5a65f36
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>使用 Azure PowerShell 模組建立和管理 Windows VM
 
@@ -36,7 +36,7 @@ Azure 虛擬機器提供完全可設定且彈性的計算環境。 本教學課�
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，本教學課程將會需要 Azure PowerShell 模組 3.6 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。 
+如果您選擇在本機安裝和使用 PowerShell，本教學課程會要求使用 Azure PowerShell 模組版本 3.6 或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。 
 
 ## <a name="create-resource-group"></a>建立資源群組
 
@@ -293,7 +293,7 @@ $vm = Set-AzureRmVMSourceImage `
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | 一般用途         |DSv2、Dv2、DS、D、Av2、A0-7| 平衡的 CPU 對記憶體。 適合用於開發 / 測試及小型到中型應用程式和資料解決方案。  |
 | 計算最佳化      | Fs、F             | CPU 與記憶體的比例高。 適用於中流量應用程式、網路設備及批次處理。        |
-| 記憶體最佳化       | GS、G、DSv2、DS、Dv2、D   | 記憶體與核心的比例高。 很適合用於關聯式資料庫、中型至大型快取，以及記憶體內部分析。                 |
+| 記憶體最佳化       | GS、G、DSv2、DS、Dv2、D   | 高記憶體對 CPU。 適用於關聯式資料庫、中型到大型快取，以及記憶體內分析。                 |
 | 儲存體最佳化       | Ls                | 高磁碟輸送量及 IO。 適用於巨量資料、SQL 及 NoSQL 資料庫。                                                         |
 | GPU           | NV、NC            | 以大量圖形轉譯和影片編輯為目標的特製化 VM。       |
 | 高效能 | H、A8-11          | 我們的最強大 CPU VM，可搭配選用的高輸送量網路介面 (RDMA)。 

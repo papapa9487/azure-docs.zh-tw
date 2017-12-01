@@ -84,7 +84,7 @@ ms.lasthandoff: 10/11/2017
    ![連接虛擬機器](media/azure-stack-quick-linux-portal/linux-03.PNG)
 
 2. 開啟 PuTTY。
-3. 在 PuTTY Configuration \(PuTTY 組態\) 畫面的 Category \(類別\) 底下，展開 SSH，然後按一下Auth \(驗證\)。按一下 Browse \(瀏覽\)，然後選取您先前儲存的私密金鑰檔案。
+3. 在 [PuTTY Configuration] \(PuTTY 組態\) 畫面的 [Category] \(類別\) 底下，展開 [SSH]，然後按一下 [Auth] \(驗證\)。按一下 [Browse] \(瀏覽\)，然後選取您先前儲存的私密金鑰檔案。
 
    ![PuTTY 私密金鑰](media/azure-stack-quick-linux-portal/Putty03.PNG)
 4. 在 [Category] \(類別\) 底下向上捲動，然後按一下 [Session] \(工作階段\)。

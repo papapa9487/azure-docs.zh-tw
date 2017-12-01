@@ -8,11 +8,11 @@ ms.author: cbrooks
 ms.date: 08/18/2017
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: f364d7b25a75012f33a282111c9624d51b65b42f
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 67f262913333fb69f5b862fa3d862c0d773e4172
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>將 Blob 儲存體事件路由至自訂的 Web 端點 (預覽)
 
@@ -32,6 +32,8 @@ Azure Event Grid 是一項雲端事件服務。 在本文中，您可使用 Azur
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 如果您選擇在本機安裝和使用 CLI，本文會要求您執行最新版的 Azure CLI (2.0.14 或更新版本)。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
+
+如果您未使用 Cloud Shell，您必須先使用 `az login` 登入。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 

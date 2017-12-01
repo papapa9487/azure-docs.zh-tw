@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 4788fa14a6c49d39b5a3096a69b6738f4a5d8cca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 342bd20466cdeb0b9df1cdacd4664fa4e3e0c604
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>在 Azure 上部署 SAP S/4HANA 或 BW/4HANA
 本文說明如何使用 SAP Cloud Appliance Library (SAP CAL) 3.0 在 Azure 上部署 S/4HANA。 若要部署其他 SAP HANA 型解決方案 (例如 BW/4HANA)，請遵循相同的步驟。
@@ -95,7 +95,7 @@ ms.lasthandoff: 10/11/2017
 現在您可以開始將 S/4HANA 部署到您在 Azure 中的使用者訂用帳戶。
 
 > [!NOTE]
-在繼續之前，請先確定您是否有適用於 Azure H 系列 VM 的 Azure 核心配額。 目前，SAP CAL 會使用 Azure 的 H 系列 VM 來部署某些 SAP HANA 型解決方案。 您的 Azure 訂用帳戶可能沒有 H 系列的核心配額。 如果是這樣，您可能需要連絡 Azure 支援人員以取得至少 16 個 H 系列核心的配額。
+在繼續之前，請先確定您是否有適用於 Azure H 系列 VM 的 Azure vCPU 配額。 目前，SAP CAL 會使用 Azure 的 H 系列 VM 來部署某些 SAP HANA 型解決方案。 您的 Azure 訂用帳戶可能沒有 H 系列的任何 H 系列 vCPU 配額。 如果是這樣，您可能需要連絡 Azure 支援人員以取得至少 16 個 H 系列 vCPU 的配額。
 
 > [!NOTE]
 當您在 SAP CAL 中於 Azure 部署解決方案時，您可能會發現您只能選擇一個 Azure 區域。 若要部署到非 SAP CAL 所建議的 Azure 區域，您需要從 SAP 購買 CAL 訂用帳戶。 您也可能需要與 SAP 連絡，請他們讓您的 CAL 帳戶能夠傳遞到非一開始所建議的 Azure 區域。
@@ -113,7 +113,7 @@ ms.lasthandoff: 10/11/2017
 
     a. 選取 SAP CAL 帳戶  (使用與以 Resource Manager 部署模型來進行部署相關聯的帳戶)。
 
-    b.這是另一個 C# 主控台應用程式。 輸入執行個體**名稱**。
+    b. 輸入執行個體**名稱**。
 
     c. 選取 Azure **區域**。 SAP CAL 會建議一個區域。 如果您需要其他 Azure 區域，而且您沒有 SAP CAL 訂用帳戶，您必須向 SAP 訂購 CAL 訂用帳戶。
 

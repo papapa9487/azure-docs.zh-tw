@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 86011610885ff913bfd70aa46389e4e39989d0a3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 823855d88396a14ff7e5428a12d71384cdfe95a1
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="intelligent-insights"></a>Intelligent Insights
 
@@ -49,8 +49,6 @@ Intelligent Insights 會藉由將最後一小時的資料庫工作負載與過�
 
 用來測量和偵測資料庫效能問題的計量，是以查詢持續時間、逾時要求、過長的等候時間及發生錯誤的要求作為基礎。 如需計量的詳細資訊，請參閱本文件的[偵測計量](sql-database-intelligent-insights.md#detection-metrics)一節。
 
-## <a name="degradations-detected"></a>偵測到的效能降低
-
 已識別的 SQL Database 效能降低會記錄在診斷記錄中，其中會包含由下列屬性組成的智慧項目：
 
 | 屬性             | 詳細資料              |
@@ -64,36 +62,49 @@ Intelligent Insights 會藉由將最後一小時的資料庫工作負載與過�
 | 根本原因分析 | 所識別之問題的根原因分析，此分析會以人類看得懂的格式顯示。 有些深入解析可能會在可能的情況下包含效能改進建議。 |
 |||
 
-## <a name="issues-state-lifecycle-active-verifying-and-complete"></a>問題狀態生命週期：「作用中」、「正在驗證」及「已完成」
-
 在診斷記錄中記錄的效能問題，會以問題生命週期的三種狀態之一標示：「作用中」、「正在驗證」及「已完成」。 偵測到效能問題之後，只要 SQL Database 內建的智慧功能將其視為現存問題，該問題就會被標示為「作用中」。 當系統將問題視為已緩和時，就會對其進行驗證並將問題狀態變更為「正在驗證」。 當 SQL Database 內建的智慧功能將問題視為已解決時，就會將問題狀態標示為「已完成」。
 
 ## <a name="use-intelligent-insights"></a>使用 Intelligent Insights
 
-您可以將 Intelligent Insights 診斷記錄傳送至 Azure Log Analytics、Azure 事件中樞，以及 Azure 儲存體。 如需詳細資訊，請參閱 [Azure SQL Database 計量和診斷記錄](sql-database-metrics-diag-logging.md)。 將記錄傳送給上述其中一個目標之後，即可使用 Microsoft 或協力廠商工具，將該記錄用於自訂警示和監視的開發上。 
+Intelligent Insights 是一個智慧效能診斷記錄檔。 它可以與其他取用產品以及特定應用程式 (例如 Azure Log Analytics、Azure 事件中樞和 Azure 儲存體) 或協力廠商產品整合。 
 
-如需使用 Intelligent Insights 進行 SQL Database 效能疑難排解的詳細資訊，請參閱[使用 Intelligent Insights 針對 Azure SQL Database 效能問題進行疑難排解](sql-database-intelligent-insights-troubleshoot-performance.md)。
+Intelligent Insights 與 Azure Log Analytics 通常用於透過網頁瀏覽器檢視深入資訊，也許是使用該產品其中一個最簡單的方法。 Intelligent Insights 和 Azure 事件中樞通常用於設定自訂監視以與警示案例。 Intelligent insights 和 Azure 儲存體通常用於自訂應用程式開發，例如自訂報表，或可能是資料封存和擷取。
 
-## <a name="built-in-intelligent-insights-analytics-with-log-analytics"></a>搭配 Log Analytics 使用內建 Intelligent Insights 分析 
+Intelligent Insights 與其他產品 (Azure Log Analytics、Azure 事件中樞、Azure 儲存體或供取用的協力廠商產品) 的整合，首先是透過啟用 Intelligent Insights 記錄 (SQLInsights 記錄)，然後將 Intelligent Insights 記錄資料設定為串流處理到其中一個產品來執行。 如需如何啟用 Intelligent Insights 記錄，以及將記錄資料設定為串流處理到取用產品的相關詳細資訊，請參閱 [Azure SQL Database 計量和診斷記錄](sql-database-metrics-diag-logging.md)。 
 
-Log Analytics 解決方案除了 Intelligent Insights 診斷記錄資料之外，還提供報告和警示功能。 下列範例顯示 Azure SQL 分析中的 Intelligent Insights 報告範例：
+如需使用 Intelligent Insights 搭配 Azure Log Analytics，以及一般使用案例的實際操作概觀，請觀看內嵌影片：
+
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
+>
+
+Intelligent Insights 在發現和針對 SQL Database 效能問題進行疑難排解方面表現出色。 若要使用 Intelligent Insights 來針對 SQL Database 效能進行疑難排解，請參閱[使用 Intelligent Insights 針對 Azure SQL Database 效能問題進行疑難排解](sql-database-intelligent-insights-troubleshoot-performance.md)。
+
+## <a name="set-up-intelligent-insights-with-log-analytics"></a>搭配 Log Analytics 設定 Intelligent Insights 
+
+Log Analytics 解決方案除了 Intelligent Insights 診斷記錄資料之外，還提供報告和警示功能。
+
+若要使用 Intelligent Insights 搭配 Log Analytics，請將 Intelligent Insights 記錄資料設定為串流處理到 Log Analytics，請參閱 [Azure SQL Database 計量和診斷記錄](sql-database-metrics-diag-logging.md)。 
+
+下列範例顯示 Azure SQL 分析中的 Intelligent Insights 報告範例：
 
 ![Intelligent Insights 報表](./media/sql-database-intelligent-insights/intelligent-insights-azure-sql-analytics.png)
 
 設定讓 Intelligent Insights 診斷記錄將資料串流至 SQL 分析之後，您便可以[使用 SQL 分析來監視 SQL 資料庫](../log-analytics/log-analytics-azure-sql.md)。
 
-## <a name="custom-integrations-of-intelligent-insights-log"></a>自訂的 Intelligent Insights 記錄整合
-
-如需使用 Microsoft 或協力廠商工具來開發自訂警示和監視的詳細資訊，請參閱[使用 Intelligent Insights 資料庫效能診斷記錄](sql-database-intelligent-insights-use-diagnostics-log.md)。
-
 ## <a name="set-up-intelligent-insights-with-event-hubs"></a>搭配事件中樞設定 Intelligent Insights
 
-- 若要設定 Intelligent Insights 以將記錄事件串流至事件中樞，請參閱[將 Azure 診斷記錄串流至事件中樞](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)。
-- 若要將事件中樞用於自訂的監視和警示，請參閱[如何在事件中樞處理計量和診斷記錄](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs)。 
+若要使用 Intelligent Insights 搭配事件中樞，請將 Intelligent Insights 記錄資料設定為串流處理到事件中樞，請參閱[將 Azure 診斷記錄串流處理至事件中樞](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)。
+
+若要使用事件中樞設定自訂監視和警示，請參閱[如何在事件中樞處理計量和診斷記錄](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs)。 
 
 ## <a name="set-up-intelligent-insights-with-storage"></a>搭配儲存體設定 Intelligent Insights
 
-- 若要設定使用儲存體來儲存 Intelligent Insights，請參閱[串流到 Azure 儲存體中](sql-database-metrics-diag-logging.md#stream-into-storage)。
+若要使用 Intelligent Insights 搭配儲存體，請將 Intelligent Insights 記錄資料設定為串流處理到儲存體，請參閱[串流處理到 Azure 儲存體](sql-database-metrics-diag-logging.md#stream-into-storage)。
+
+## <a name="custom-integrations-of-intelligent-insights-log"></a>自訂的 Intelligent Insights 記錄整合
+
+若要使用 Intelligent Insights 搭配協力廠商工具，或自訂警示與監視開發，請參閱[使用 Intelligent Insights 資料庫效能診斷記錄](sql-database-intelligent-insights-use-diagnostics-log.md)。
 
 ## <a name="detection-metrics"></a>偵測計量
 

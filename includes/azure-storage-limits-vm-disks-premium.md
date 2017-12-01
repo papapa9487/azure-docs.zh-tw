@@ -21,8 +21,6 @@
 
 | 資源 | 預設限制 |
 | --- | --- |
-| 每個 VM 的最大 IOPS |80,000 IOPS (使用 GS5 VM<sup>1</sup>) |
-| 每一 VM 輸送量上限 |2,000 MB/秒 (使用 GS5 VM<sup>1</sup>) |
-
-<sup>1</sup>如需其他 VM 大小的限制，請參考 [VM 大小](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 
+| 每個 VM 的最大 IOPS |80,000 IOPS (使用 GS5 VM) |
+| 每一 VM 輸送量上限 |2,000 MB/秒 (使用 GS5 VM) |
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.openlocfilehash: b157e2f90fa2daf00cf71472eb799ee98797b4dc
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 7dae1d903b6cbb6a74f89443ec9601c6b4b9d078
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>用於從 Azure 複寫至 Azure 的 Azure Site Recovery 支援矩陣
 
@@ -164,9 +164,10 @@ GRS | 支援 |
 RA-GRS | 支援 |
 ZRS | 不支援 |  
 非經常性和經常性儲存體 | 不支援 | 非經常性和經常性儲存體不支援虛擬機器磁碟
+虛擬網路服務端點 (Azure 儲存體防火牆與虛擬網路)  | 否 | 不支援在用來儲存複寫資料之快取儲存體帳戶上存取特定的 Azure 虛擬網路。 
 
 >[!IMPORTANT]
-> 請確定您遵循來源 Azure 虛擬機器的[儲存體指引](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)，以避免任何效能問題。 如果您遵循預設設定，Site Recovery 會根據來源組態建立所需的儲存體帳戶。 如果您自訂並選取您自己的設定，請確定您維持 (../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) 作為來源 VM。
+> 請您務必遵守 [Linux](../virtual-machines/linux/disk-scalability-targets.md) 或 [Windows](../virtual-machines/windows/disk-scalability-targets.md) 虛擬機器的 VM 磁碟延展性和效能目標，以避免任何效能問題。 如果您遵循預設設定，Site Recovery 會根據來源設定建立所需的磁碟和儲存體帳戶。 如果您自訂並選取您自己的設定，請務必遵循您的來源 VM 磁碟延展性和效能目標。
 
 ## <a name="support-for-network-configuration"></a>網路組態的支援
 **組態** | **支援/不支援** | **備註**

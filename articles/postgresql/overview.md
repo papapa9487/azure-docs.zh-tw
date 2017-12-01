@@ -48,7 +48,7 @@ Azure Database for PostgreSQL 是 Microsoft 雲端中以開放原始碼 [Postgre
 Azure 領先業界的 99.99% 可用性 (不是預覽狀態) 服務等級協定 (SLA) (由 Microsoft 管理之資料中心的全球網路提供支援)，可協助讓您的應用程式 24 小時全年無休地運作。 使用每一 Azure Database for PostgreSQL 伺服器，您可以利用內建的安全性、容錯功能，以及可能需要另外設計、購買、建置和管理的資料保護功能。 使用 Azure Database for PostgreSQL 時，每個服務層都會提供一組完整的業務持續性功能和選項，讓您能夠用來啟動和執行，並持續維持該狀態。 您可以使用[時間點還原](howto-restore-server-portal.md)將資料庫回復成先前的狀態，最久可至 35 天前。 此外，如果裝載資料庫的資料中心發生中斷情形，您可以從最新備份的異地備援複本還原資料庫。
 
 ## <a name="secure-your-data"></a>保護您的資料
-Azure 資料庫服務一向重視資料安全性，Azure Database for PostgreSQL 以限制存取、保護靜止和移動中資料及協助監視活動等功能承襲了這項傳統。 如需 Azure 平台安全性的相關資訊，請造訪 [Azure 信任中心](https://www.microsoft.com/TrustCenter/Security/default.aspx) \(英文\)。
+Azure 資料庫服務一向重視資料安全性，Azure Database for PostgreSQL 以限制存取、保護靜止和移動中資料及協助監視活動等功能承襲了這項傳統。 如需 Azure 平台安全性的相關資訊，請造訪 [Azure 信任中心 (英文)](https://www.microsoft.com/TrustCenter/Security/default.aspx)。
 
 適用於 PostgreSQL 的 Azure 資料庫服務針對靜止資料使用儲存體加密。 包含備份在內的資料會在磁碟上加密 (不包括執行查詢時由引擎所建立的暫存檔案)。 該服務使用包含在 Azure 儲存體加密中的 AES 256 位元加密，且金鑰是由系統進行管理。 儲存體加密會一律啟用，且無法停用。
 

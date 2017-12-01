@@ -7,6 +7,9 @@ Azure IoT Edge 的主要功能之一，是能夠從雲端將模組部署到您�
 1. 在 [名稱] 欄位中，輸入 `tempSensor`。 
 1. 在 [映像 URI] 欄位中，輸入 `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`。 
 1. 其他設定保留不變，然後選取 [儲存]。
+
+   ![在輸入名稱和影像 URI 之後儲存 IoT Edge 模組](./media/iot-edge-deploy-module/name-image.png)
+
 1. 回到 [新增模組] 步驟中，選取 [下一步]。
 1. 在 [指定路由] 步驟中，選取 [下一步]。
 1. 在 [檢閱範本] 步驟中，選取 [提交]。

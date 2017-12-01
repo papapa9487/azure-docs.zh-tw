@@ -3,8 +3,8 @@ title: "開始使用彈性資料庫工具 | Microsoft Docs"
 description: "Azure SQL Database 彈性資料庫工具功能的基本解說，包括易於執行的範例應用程式。"
 services: sql-database
 documentationcenter: 
-manager: jhubbard
-author: ddove
+manager: jstrauss
+author: anumjs
 editor: CarlRabeler
 ms.assetid: b6911f8d-2bae-4d04-9fa8-f79a3db7129d
 ms.service: sql-database
@@ -13,25 +13,65 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
-ms.author: ddove
-ms.openlocfilehash: 600334c58ce62a1e53e8a57dd1566bd211249164
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.date: 11/16/2017
+ms.author: anjangsh
+ms.openlocfilehash: e7e072e310cabc2c4520df7e9f4f9e45b8218998
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="get-started-with-elastic-database-tools"></a>開始使用彈性資料庫工具
-本文件將藉由協助您執行範例應用程式來介紹開發人員體驗。 範例會建立簡易的分區化應用程式，並探討彈性資料庫工具的主要功能。 此範例會示範[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)。
+本文將協助您執行範例應用程式，以介紹[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)的開發人員體驗。 範例應用程式會建立簡易的分區化應用程式，並探討彈性資料庫工具的主要功能。 它著重在[分區對應管理](sql-database-elastic-scale-shard-map-management.md)、[資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)和[多分區查詢](sql-database-elastic-scale-multishard-querying.md)的使用案例。 用戶端程式庫可供 .Net 和 Java 取得。 
 
-若要安裝程式庫，請移至 [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)。 程式庫是使用範例應用程式所安裝，如下一節所述。
+## <a name="elastic-database-tools-for-java"></a>適用於 Java 的彈性資料庫工具
+### <a name="prerequisites"></a>先決條件
+* Java Developer Kit (JDK) 1.8 版或更新版本
+* [Maven](http://maven.apache.org/download.cgi)
+* 在 Azure 或本機 SQL Server 中的邏輯伺服器
 
-## <a name="prerequisites"></a>必要條件
+### <a name="download-and-run-the-sample-app"></a>下載並執行範例應用程式
+依照下列步驟來建置 JAR 檔案並開始使用範例專案： 
+1. 複製包含用戶端程式庫和範例應用程式的 [GitHub 存放庫](https://github.com/Microsoft/elastic-db-tools-for-java) \(英文\)。 
+2. 編輯 _./sample/src/main/resources/resource.properties_ 檔案，以設定下列項目。
+    * TEST_CONN_USER
+    * TEST_CONN_PASSWORD
+    * TEST_CONN_SERVER_NAME
+3. 從 _./sample_ 目錄執行下列命令以建置範例專案。<br>
+
+    ```
+    mvn install
+    ```
+    
+4. 從 _./sample_ 目錄執行下列命令以啟動範例專案。 
+    
+    ```
+    mvn -q exec:java "-Dexec.mainClass=com.microsoft.azure.elasticdb.samples.elasticscalestarterkit.Program"
+    ```
+    
+5. 利用不同的選項進行實驗，以深入了解用戶端程式庫功能。 請隨意探索程式碼，以了解範例應用程式的實作。
+
+    ![進度 - Java][5]
+    
+恭喜！ 您已使用彈性資料庫工具，在 SQL Database 上成功建置並執行您的第一個分區化應用程式。 請使用 Visual Studio 或 SQL Server Management Studio 連接到您的 SQL 資料庫，以快速瀏覽範例所建立的分區。 您會看見範例所建立的新範例分區資料庫和分區對應管理員資料庫。 若要將用戶端程式庫加入您自己的 Maven 專案中，請在您的 POM 檔案中加入下列相依性。<br>
+
+```xml
+<dependency> 
+    <groupId>com.microsoft.azure</groupId> 
+    <artifactId>elastic-db-tools</artifactId> 
+    <version>1.0.0</version> 
+</dependency> 
+```
+
+## <a name="elastic-database-tools-for-net"></a>適用於 .Net 的彈性資料庫工具 
+### <a name="prerequisites"></a>先決條件
 * 含 C# 的 Visual Studio 2012 或更新版本。 請在 [Visual Studio 下載](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)上下載免費版本。
 * NuGet 2.7 或更新版本。 若要取得最新版本，請參閱[安裝 NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)。
 
-## <a name="download-and-run-the-sample-app"></a>下載及執行範例應用程式
-**適用於 Azure SQL 的彈性 DB 工具 - 開始使用**範例應用程式會解說使用彈性資料庫工具開發分區化應用程式時最重要的開發體驗層面。 此範例應用程式著重在[分區對應管理](sql-database-elastic-scale-shard-map-management.md)、[資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)和[多分區查詢](sql-database-elastic-scale-multishard-querying.md)的主要使用案例。 若要下載及執行範例，請遵循下列步驟： 
+### <a name="download-and-run-the-sample-app"></a>下載並執行範例應用程式
+若要安裝程式庫，請移至 [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)。 程式庫是使用範例應用程式所安裝，如下一節所述。
+
+若要下載及執行範例，請遵循下列步驟： 
 
 1. 從 MSDN 下載 [Azure SQL 的彈性 DB 工具：開始使用範例](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-a80d8dc6)。 將範例解壓縮至您選擇的位置。
 
@@ -52,7 +92,7 @@ ms.lasthandoff: 10/31/2017
 > 
 > 
 
-### <a name="key-pieces-of-the-code-sample"></a>程式碼範例的主要部分
+## <a name="key-pieces-of-the-code-sample"></a>程式碼範例的主要部分
 * **管理分區和分區對應**：此程式碼會解說如何使用 **ShardManagementUtils.cs** 檔案中的分區、範圍和對應。 如需詳細資訊，請參閱[使用分區對應管理員相應放大資料庫](http://go.microsoft.com/?linkid=9862595)。  
 
 * **資料相依路由**：**DataDependentRoutingSample.cs** 中示範如何將交易路由傳送至正確的分區。 如需詳細資訊，請參閱[資料相依路由](http://go.microsoft.com/?linkid=9862596)。 
@@ -61,7 +101,7 @@ ms.lasthandoff: 10/31/2017
 
 * **新增空的分區**：反覆新增空分區的作業，是由 **CreateShardSample.cs** 檔案中的程式碼所執行。 如需詳細資訊，請參閱[使用分區對應管理員相應放大資料庫](http://go.microsoft.com/?linkid=9862595)。
 
-### <a name="other-elastic-scale-operations"></a>其他 Elastic Scale 作業
+## <a name="other-elastic-scale-operations"></a>其他 Elastic Scale 作業
 * **分割現有的分區**：分割分區的功能是透過**分割合併工具**來提供。 如需詳細資訊，請參閱[在向外延展的雲端資料庫之間移動資料](sql-database-elastic-scale-overview-split-and-merge.md)。
 
 * **合併現有的分區**：分區合併也可使用**分割合併工具**來執行。 如需詳細資訊，請參閱[在向外延展的雲端資料庫之間移動資料](sql-database-elastic-scale-overview-split-and-merge.md)。   
@@ -77,7 +117,7 @@ ms.lasthandoff: 10/31/2017
 如需有關彈性資料庫工具的詳細資訊，請參閱下列頁面：
 
 * 程式碼範例： 
-  * [適用於 Azure SQL 的彈性 DB 工具 - 開始使用 (英文)](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
+  * 彈性資料庫工具 ([.NET](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)、[Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
   * [適用於 Azure SQL 的彈性 DB 工具 - Entity Framework 整合 (英文)](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [指令碼中心的分區彈性](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * 部落格：[Elastic Scale 公告 (英文)](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
@@ -97,4 +137,5 @@ ms.lasthandoff: 10/31/2017
 [2]: ./media/sql-database-elastic-scale-get-started/click-online.png
 [3]: ./media/sql-database-elastic-scale-get-started/click-CSharp.png
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
+[5]: ./media/sql-database-elastic-scale-get-started/java-client-library.PNG
 

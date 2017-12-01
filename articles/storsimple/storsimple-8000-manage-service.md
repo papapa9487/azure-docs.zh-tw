@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 2d6c1737edbc4e69dd7de4c8ce3d7b0899bfae51
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 5f31e32bb7cbd747af2e03699cfb2c6418828f8d
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>為 StorSimple 8000 系列裝置部署 StorSimple 裝置管理員服務
 
@@ -113,6 +113,7 @@ Azure 入口網站目前可管理 StorSimple 8000 系列。 如果您已經擁�
 
 當轉換完成之後，您可以在 Azure 入口網站透過 StorSimple 裝置管理員服務來管理您的裝置。 如果您看不到移轉至 Azure 入口網站的選項，但您想要移動，可以[提交要求](https://aka.ms/ss8000-cx-signup)。
 
+## <a name="supported-operations-on-devices-running-versions-prior-to-update-30"></a>執行 Update 3.0 之前版本的裝置上支援的作業
 Azure 入口網站僅支援執行 Update 3.0 和更新版本的 StorSimple 裝置。 對執行舊版本的裝置的支援有限。 移轉至 Azure 入口網站之後，請使用下表了解執行 Update 3.0 之前版本的裝置可支援哪些作業。
 
 | 作業                                                                                                                       | 支援      |
@@ -152,11 +153,11 @@ Azure 入口網站僅支援執行 Update 3.0 和更新版本的 StorSimple 裝�
 
     ![搜尋要刪除的服務](./media/storsimple-8000-manage-service/deletessdevman1.png)
 
-2. 這會帶您前往 StorSimple 裝置管理員服務刀鋒視窗。 按一下 [刪除] 。
+2. 這會帶您前往 StorSimple 裝置管理員服務刀鋒視窗。 按一下 [刪除]。
 
     ![刪除服務](./media/storsimple-8000-manage-service/deletessdevman2.png)
 
-3. 在確認通知處按一下 [ **是** ]。 刪除服務可能需要數分鐘的時間。
+3. 在確認通知處按一下 [是]。 刪除服務可能需要數分鐘的時間。
 
     ![確認刪除](./media/storsimple-8000-manage-service/deletessdevman3.png)
 

@@ -1,10 +1,10 @@
 ---
-title: "建立虛擬網路 - Azure CLI 2.0 | Microsoft Docs"
-description: "了解如何使用 Azure CLI 2.0 建立虛擬網路。"
+title: "建立虛擬網路 - Azure CLI | Microsoft Docs"
+description: "了解如何使用 Azure CLI 建立虛擬網路。"
 services: virtual-network
 documentationcenter: 
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 75966bcc-0056-4667-8482-6f08ca38e77a
@@ -16,25 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c7d7b3543f488aedff1ea2c68a2b497e0ca744af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 659a791124eab002290ac0b7f0898cf1c06c2951
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-a-virtual-network-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 建立虛擬網路
+# <a name="create-a-virtual-network-using-the-azure-cli"></a>使用 Azure CLI 建立虛擬網路
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
 Azure 有兩個部署模型：Azure Resource Manager 和傳統。 Microsoft 建議透過 Resource Manager 部署模型建立資源。 若要深入了解兩個模型的差異，請閱讀[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。
 
-## <a name="cli-versions-to-complete-the-task"></a>用以完成工作的 CLI 版本
-您可以使用下列其中一個 CLI 版本來完成工作︰
-
-- [Azure CLI 1.0](virtual-networks-create-vnet-cli-nodejs.md) – 適用於傳統和資源管理部署模型的 CLI
-- [Azure CLI 2.0](#create-a-virtual-network) - 適用於資源管理部署模型的新一代 CLI (本文章)
- 
-    您也可以使用其他工具透過 Resource Manager 建立 VNet，或從下列清單中選取不同選項以透過傳統部署模型建立 VNet︰
+您也可以使用其他工具透過 Resource Manager 建立虛擬網路，或從下列清單中選取不同選項以透過傳統部署模型建立虛擬網路︰
 
 > [!div class="op_single_selector"]
 > * [入口網站](virtual-networks-create-vnet-arm-pportal.md)
@@ -47,10 +41,9 @@ Azure 有兩個部署模型：Azure Resource Manager 和傳統。 Microsoft 建�
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
-
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
 
-若要使用 Azure CLI 2.0 來建立虛擬網路，請完成下列步驟︰
+若要使用 Azure CLI 建立虛擬網路，請完成下列步驟︰
 
 1. 安裝及設定最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2)，並使用 [az login](/cli/azure/#login) 來登入 Azure 帳戶。
 

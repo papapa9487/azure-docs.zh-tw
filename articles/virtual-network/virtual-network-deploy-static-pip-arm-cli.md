@@ -1,10 +1,10 @@
 ---
-title: "建立具有靜態公用 IP 位址的 VM - Azure CLI 2.0 | Microsoft Docs"
-description: "了解如何使用 Azure 命令列介面 (CLI) 2.0 建立具有靜態公用 IP 位址的 VM。"
+title: "建立具有靜態公用 IP 位址的 VM - Azure CLI | Microsoft Docs"
+description: "了解如何使用 Azure 命令列介面 (CLI) 建立具有靜態公用 IP 位址的 VM。"
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 55bc21b0-2a45-4943-a5e7-8d785d0d015c
@@ -16,19 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4c32694949880037f01bb2b6b9779d2cbb9809c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c50f685745a645b5fbe383a5fe4726faa0e36345
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 建立具有靜態公用 IP 位址的 VM
+# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>使用 Azure CLI 建立具有靜態公用 IP 位址的 VM
 
 > [!div class="op_single_selector"]
 > * [Azure 入口網站](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-> * [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
+> * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 > * [範本](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (傳統)](virtual-networks-reserved-public-ip.md)
 
@@ -40,7 +39,7 @@ Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統
 
 ## <a name = "create"></a>建立 VM
 
-您可以使用 Azure CLI 2.0 (本文) 或 [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md) 完成這項工作。 後續步驟所含變數之 "" 中的值，會使用案例中的設定建立資源。 請針對您的環境適當地變更值。
+後續步驟所含變數之 "" 中的值，會使用案例中的設定建立資源。 請針對您的環境適當地變更值。
 
 1. 如果尚未安裝 [Azure CLI 2.0](/cli/azure/install-az-cli2)，請先安裝此軟體。
 2. 完成[建立 Linux VM 的 SSH 公用和私用金鑰組](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json)中的步驟，為 Linux VM 建立 SSH 公用和私用金鑰組。

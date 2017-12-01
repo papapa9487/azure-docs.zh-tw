@@ -1,11 +1,11 @@
 ---
-title: "設定 VM 的私人 IP 位址 - Azure CLI 2.0 | Microsoft Docs"
-description: "了解如何使用 Azure 命令列介面 (CLI) 2.0 設定虛擬機器的私人 IP 位址。"
+title: "設定 VM 的私人 IP 位址 - Azure CLI | Microsoft Docs"
+description: "了解如何使用 Azure 命令列介面 (CLI) 設定虛擬機器的私人 IP 位址。"
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: tysonn
+manager: jeconnoc
+editor: 
 tags: azure-resource-manager
 ms.assetid: 40b03a1a-ea00-454c-b716-7574cea49ac0
 ms.service: virtual-network
@@ -16,38 +16,30 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 071156367c1f819a00d31f1d0335e301391fda81
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d9925b29a60fc46e9ecc775ca132bd2365f64b15
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 設定虛擬機器的私人 IP 位址
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>使用 Azure CLI 設定虛擬機器的私人 IP 位址
 
 [!INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
-
-
-## <a name="cli-versions-to-complete-the-task"></a>用以完成工作的 CLI 版本 
-
-您可以使用下列其中一個 CLI 版本來完成工作︰ 
-
-- [Azure CLI 1.0](virtual-networks-static-private-ip-cli-nodejs.md) – 適用於傳統和資源管理部署模型的 CLI 
-- [Azure CLI 2.0](#specify-a-static-private-ip-address-when-creating-a-vm) - 適用於資源管理部署模型的新一代 CLI (本文章)
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-本文涵蓋之內容包括資源管理員部署模型。 您也可以 [管理傳統部署模型中的靜態私人 IP 位址](virtual-networks-static-private-ip-classic-cli.md)。
+本文涵蓋之內容包括資源管理員部署模型。 您也可以[管理傳統部署模型中的靜態私人 IP 位址](virtual-networks-static-private-ip-classic-cli.md)。
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 > [!NOTE]
-> 下列範例 Azure CLI 2.0 命令會預期已經建立簡單的環境。 如果您想要執行如本文件中所顯示的命令，請先建置 [建立 vnet](virtual-networks-create-vnet-arm-cli.md)中所說明的測試環境。
+> 下列範例 Azure CLI 命令預期現有的簡單環境。 如果您想要執行如本文件中所顯示的命令，請先建置[建立 vnet](virtual-networks-create-vnet-arm-cli.md) 中所述的測試環境。
 
 ## <a name="specify-a-static-private-ip-address-when-creating-a-vm"></a>建立 VM 時指定靜態私人 IP 位址
 
-若要在名為 TestVNet 之 VNet 的FrontEnd子網路中建立名為 DNS01 且其靜態私人 IP 為 192.168.1.101 的 VM，請遵循下列步驟：
+若要在名為 *TestVNet* 之 VNet 的 *FrontEnd* 子網路中建立名為 *DNS01* 的 VM，且其靜態私人 IP 為 *192.168.1.101*，請完成下列步驟：
 
 1. 安裝及設定最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) (若您尚未這麼做)，並使用 [az login](/cli/azure/#login) 來登入 Azure 帳戶。 
 
@@ -134,7 +126,7 @@ ms.lasthandoff: 10/11/2017
     * `--vnet-name`：要在其中建立 NIC 之 VNet 的名稱。
     * `--subnet`：要在其中建立 NIC 之子網路的名稱。
 
-4. 執行 [azure vm create](/cli/azure/vm/nic#create) 命令來使用上面建立的公用 IP 和 NIC 來建立 VM。 輸出後顯示的清單可說明所使用的參數。
+4. 執行 [azure vm create](/cli/azure/vm/nic#create) 命令以使用之前建立的公用 IP 和 NIC 來建立 VM。 輸出後顯示的清單可說明所使用的參數。
    
     ```azurecli
     az vm create \
@@ -169,7 +161,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="retrieve-static-private-ip-address-information-for-a-vm"></a>擷取 VM 的靜態私人 IP 位址資訊
 
-若要檢視所建立的靜態私人 IP 位址，請執行下列 Azure CLI 命令並觀察 Private IP alloc-method 和 Private IP address 的值：
+執行下列 Azure CLI 命令，以觀察私人 IP 配置方法和私人 IP 位址的值：
 
 ```azurecli
 az vm show -g TestRG -n DNS01 --show-details --query 'privateIps'
@@ -204,13 +196,13 @@ rivateIpAllocationMethod,PublicAddress:publicIpAddress}'
 
 ## <a name="remove-a-static-private-ip-address-from-a-vm"></a>移除 VM 的靜態私人 IP 位址
 
-您無法從 Azure CLI 的 NIC 移除資源管理員部署的靜態私人 IP 位址。 您必須：
+您無法從 Azure CLI 的 NIC 移除 Azure Resource Manager 部署的靜態私人 IP 位址。 您必須：
 - 建立使用動態 IP 的新 NIC
 - 在新建立 NIC 的 VM 上設定 NIC。 
 
-若要變更上述命令中使用之 VM 的 NIC，請遵循下列步驟。
+若要變更先前命令中使用之 VM 的 NIC，請完成下列步驟：
 
-1. 執行 **azure network nic create** 命令來建立使用新 IP 位址動態配置 IP 的新 NIC。 請注意，因為未指定任何 IP 位址，配置方法為**動態**。
+1. 執行 **azure network nic create** 命令來建立使用新 IP 位址動態配置 IP 的新 NIC。 因為未指定任何 IP 位址，配置方法為**動態**。
 
     ```azurecli
     az network nic create     \

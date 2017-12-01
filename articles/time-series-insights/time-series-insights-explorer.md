@@ -3,7 +3,7 @@ title: "使用 Azure 時間序列深入解析總管來探索資料 | Microsoft D
 description: "本文說明如何在網頁瀏覽器中使用 Azure 時間序列深入解析總管，快速查看您巨量資料的全域檢視，並驗證您的 IoT 環境。"
 services: time-series-insights
 ms.service: time-series-insights
-author: kfile
+author: MarkMcGeeAtAquent
 ms.author: kfile
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 112c1a86e302c2549018fc3a8c6dbc22a689c8a6
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 35f7bf0504075e8bb0b99f8492b850df2b7ceae1
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure 時間序列深入解析總管
 本文探討時間序列深入解析總管 Web 應用程式中的各種功能和可用的選項。 在網頁瀏覽器中使用時間序列深入解析總管來建立資料的視覺效果。
@@ -50,10 +50,10 @@ Azure Time Series Insights 是完整受管理的分析、儲存體及視覺效�
       - **分割依據**：這個下拉式清單會顯示類別資料行 (字串)
       - 您可以啟用步驟插補、顯示最小和最大值，並從量值旁的控制台調整 y 軸。  此外，您可以調整所顯示的資料為計數、平均值還是資料的總和。
       - 您可以新增最多五個要在相同 x 軸上檢視的字詞。  使用 [copy-down] 按鈕以新增其他字詞，或按一下 [新增] 按鈕來新增新的字詞。
+     
+        ![字詞編輯器面板](media/time-series-insights-explorer/explorer2.png)
 
-      ![字詞編輯器面板](media/time-series-insights-explorer/explorer2.png)
-
-      - **述詞**：述詞可讓您使用下面所列的運算元集合來快速篩選事件。 如果您選取/按一下以進行搜尋，述詞會以該搜尋作為基礎自動更新。  支援的運算元類型包括：
+      - **述詞**：述詞可讓您使用下面所列的運算元集合來快速篩選事件。 如果您選取/按一下以進行搜尋，述詞會以該搜尋作為基礎自動更新。      支援的運算元類型包括：
 
          |作業  |支援的類型  |注意事項  |
          |---------|---------|---------|
@@ -74,7 +74,7 @@ Azure Time Series Insights 是完整受管理的分析、儲存體及視覺效�
 
    ![查詢](media/time-series-insights-explorer/explorer3.png)
 
-9. **透視圖**工具能提供同時檢視最多四個唯一的查詢。 您可以在圖表右上角中找到 [透視圖] 按鈕。  
+9. **透視圖**工具能提供同時檢視最多四個唯一的查詢。 您可以在圖表右上角找到 [透視圖] 按鈕。  
 
    ![透視圖](media/time-series-insights-explorer/explorer4.png)
 
@@ -107,4 +107,5 @@ Azure Time Series Insights 是完整受管理的分析、儲存體及視覺效�
 現在您已經了解時間序列深入解析總管 Web 應用程式中的各種功能和可用的選項。 
 
 ## <a name="next-steps"></a>後續步驟
-[在 Time Series Insights 環境中診斷與解決問題](time-series-insights-diagnose-and-solve-problems.md)
+> [!div class="nextstepaction"]
+>[在 Time Series Insights 環境中診斷與解決問題](time-series-insights-diagnose-and-solve-problems.md)

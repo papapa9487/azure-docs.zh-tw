@@ -1,10 +1,10 @@
 ---
-title: "使用 Azure CLI 2.0 建立具有多個 IP 位址的 VM | Microsoft Docs"
-description: "了解如何使用 Azure CLI 2.0 對虛擬機器指派多個 IP 位址 | Resource Manager。"
+title: "使用 Azure CLI 建立具有多個 IP 位址的 VM | Microsoft Docs"
+description: "了解如何使用 Azure 命令列介面 (CLI) 將多個 IP 位址指派給虛擬機器。"
 services: virtual-network
 documentationcenter: na
-author: anavinahar
-manager: narayan
+author: jimdial
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,24 +14,24 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
-ms.author: annahar
-ms.openlocfilehash: 0e9b2ef89ca39a7988a7b2573496a605dfc604b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jimdial
+ms.openlocfilehash: aa0f84299dcb4800cd332d8276785f6b08152060
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 對虛擬機器指派多個 IP 位址
+# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>使用 Azure CLI 對虛擬機器指派多個 IP 位址
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-本文說明如何使用 Azure CLI 2.0 透過 Azure Resource Manager 部署模型建立虛擬機器 (VM)。 無法將多個 IP 位址指派給透過傳統部署模型建立的資源。 若要深入了解 Azure 部署模型，請參閱[了解部署模型](../resource-manager-deployment-model.md)文章。
+本文說明如何使用 Azure CLI 透過 Azure Resource Manager 部署模型建立虛擬機器 (VM)。 無法將多個 IP 位址指派給透過傳統部署模型建立的資源。 若要深入了解 Azure 部署模型，請參閱[了解部署模型](../resource-manager-deployment-model.md)文章。
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>建立有多個 IP 位址的 VM
 
-您可以使用 Azure CLI 2.0 (本文) 或 [Azure CLI 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md) 完成這項工作。 請針對您的環境適當地變更值。 後續步驟說明如何使用多個 IP 位址建立範例 VM，如案例中所述。 視您的實作而定，變更 "" 中的變數值和 IP 位址類型。 
+後續步驟說明如何建立具有多個 IP 位址的範例虛擬機器，如案例中所述。 視您的實作而定，變更 "" 中的變數值和 IP 位址類型。 
 
 1. 如果尚未安裝 [Azure CLI 2.0](/cli/azure/install-az-cli2)，請先安裝此軟體。
 2. 完成[建立 Linux VM 的 SSH 公用和私用金鑰組](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json)中的步驟，為 Linux VM 建立 SSH 公用和私用金鑰組。

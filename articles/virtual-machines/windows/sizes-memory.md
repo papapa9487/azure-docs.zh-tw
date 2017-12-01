@@ -1,6 +1,6 @@
 ---
 title: "Windows Azure VM 大小 - 記憶體 | Microsoft Docs"
-description: "列出 Azure 中可用的不同 Windows 虛擬機器記憶體最佳化大小。"
+description: "列出 Azure 中可用的不同 Windows 虛擬機器記憶體最佳化大小。 列出 vCPU 數目、資料磁碟和 NIC 的相關資訊，以及此服務中各種大小之儲存體輸送量和網路頻寬的相關資訊。"
 services: virtual-machines-windows
 documentationcenter: 
 author: jonbeck7
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: cd23da603c37e74893de484121e4fd16a24921dc
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: c17b4ff35a69cd27c397d7f012d4093176c66fed
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>記憶體最佳化的虛擬機器大小
 

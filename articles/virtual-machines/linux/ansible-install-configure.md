@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: iainfou
-ms.openlocfilehash: 3fabfee169c3ebedc7bca81a6a6d9a44171daf20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5257ef5c635080f5eaca371e1882b13cc37e0fd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>安裝及設定 Ansible 來管理 Azure 中的虛擬機器
 本文詳細說明如何針對某些最常見的 Linux 發行版，安裝 Ansible 和必要的 Azure Python SDK 模組。 您可以配合特定的平台調整安裝的套件，來將 Ansible 安裝在其他發行版上。 為了以安全的方式建立 Azure 資源，您也將了解如何建立及定義 Ansible 所要使用的認證。 
@@ -38,7 +38,7 @@ az group create --name myResourceGroupAnsible --location eastus
 
 - [Ubuntu 16.04 LTS](#ubuntu1604-lts)
 - [CentOS 7.3](#centos-73)
-- [SLES 12.2 SP2](#sles-122-sp2)
+- [SLES 12 SP2](#sles-12-sp2)
 
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 使用 [az vm create](/cli/azure/vm#create) 建立 VM。 下列範例會建立名為 *myVMAnsible* 的 VM：
@@ -103,8 +103,8 @@ sudo pip install ansible[azure]
 現在繼續前往[建立 Azure 認證](#create-azure-credentials)。
 
 
-### <a name="sles-122-sp2"></a>SLES 12.2 SP2
-使用 [az vm create](/cli/azure/vm#create) 建立 VM。 下列範例會建立名為 *myVMAnsible* 的 VM：
+### <a name="sles-12-sp2"></a>SLES 12 SP2
+使用 [az vm create](/cli/azure/vm#create) 來建立 VM。 下列範例會建立名為 *myVMAnsible* 的 VM：
 
 ```bash
 az vm create \

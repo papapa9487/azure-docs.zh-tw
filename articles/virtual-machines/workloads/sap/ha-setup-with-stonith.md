@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9122cbb66c6089009dccccea9b985e3521d45179
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: d710fe24673c6ddc581d36e4f0cacdb750ff74f9
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>使用 STONITH 在 SUSE 中進行高可用性設定
 本文件提供使用 STONITH 裝置在 SUSE 作業系統上進行高可用性設定的詳細逐步指示。
@@ -538,3 +538,5 @@ cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
 
 - [SAP HANA SR 效能最佳化案例](https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf ) \(英文\)
 - [以儲存體為基礎的隔離](https://www.suse.com/documentation/sle-ha-2/book_sleha/data/sec_ha_storage_protect_fencing.html) \(英文\)
+- [部落格 - 針對 SAP HANA 使用 Pacemaker 叢集 - 第 1 部分](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-1-basics/) \(英文\)
+- [部落格 - 針對 SAP HANA 使用 Pacemaker 叢集 - 第 2 部分](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-2-failure-of-both-nodes/) \(英文\)

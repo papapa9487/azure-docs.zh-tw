@@ -1,6 +1,6 @@
 ---
 title: "Azure Linux VM 大小 - GPU | Microsoft Docs"
-description: "列出 Azure 中可用的不同 Linux 虛擬機器 GPU 最佳化大小。"
+description: "列出 Azure 中可用的不同 Linux 虛擬機器 GPU 最佳化大小。 列出 vCPU 數目、資料磁碟和 NIC 的相關資訊，以及此服務中各種大小之儲存體輸送量和網路頻寬的相關資訊。"
 services: virtual-machines-linux
 documentationcenter: 
 author: jonbeck7
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 645f69e71c5a13bb70edabfd22f51ed5df619693
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 6650bb2620f43053836a49f39337852d94d8dbc5
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU 最佳化的虛擬機器大小
 

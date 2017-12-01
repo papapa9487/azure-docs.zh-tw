@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
+ms.date: 11/22/2017
 ms.author: kmouss
-ms.openlocfilehash: 11b491b52fe359427c5e395d5d8c3be3cddcdc89
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c2b406530aec60299ea2db38ad9e34895fe36dcd
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>適用於 Windows Server 的 Azure Hybrid Benefit
 對於擁有軟體保證的客戶，適用於 Windows Server 的 Azure Hybrid Benefit 讓您能夠以較低的成本來使用內部部署 Windows Server 授權，以及在 Azure 上執行 Windows 虛擬機器。 您可以使用適用於 Windows Server 的 Azure Hybrid Benefit，從任何 Azure 支援的平台 Windows Server 映像或 Windows 自訂映像來部署新的虛擬機器。 本文章會詳述使用適用於 Windows Server 的 Azure Hybrid Benefit 來部署新 VM 的步驟，以及您如何更新現有的執行中 VM。 如需有關適用於 Windows Server 之 Azure Hybrid Benefit 的授權和節省成本詳細資訊，請參閱[適用於 Windows Server 的 Azure Hybrid Benefit 授權頁面](https://azure.microsoft.com/pricing/hybrid-use-benefit/)。
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/15/2017
 >
 
 > [!NOTE]
-> 搭配需支付如 SQL Server 或任何協力廠商市集映像等其他軟體費用的 VM ，來使用適用於 Windows Server 的 Azure Hybrid Benefit 已推出。如果您收到 409 錯誤，例如：不允許變更屬性 'LicenseType'，則您是嘗試轉換或部署有其他軟體成本的新 Windows Server VM，在該區域中可能不受支援。
+> 搭配需支付如 SQL Server 或任何協力廠商市集映像等其他軟體費用的 VM ，來使用適用於 Windows Server 的 Azure Hybrid Benefit 已推出。如果您收到 409 錯誤，例如：不允許變更屬性 'LicenseType'，則您是嘗試轉換或部署有其他軟體成本的新 Windows Server VM，在該區域中可能不受支援。 如果您嘗試尋找入口網站設定選項以執行轉換，而無法看到該 VM 的入口網站設定選項，則情況也是如此。
 >
 
 
@@ -82,6 +82,10 @@ Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
 
 ### <a name="portal"></a>入口網站
 您可以從入口網站 VM 刀鋒視窗中，藉由選取 [設定] 選項並且切換 [Azure Hybrid Benefit] 選項，將 VM 更新為使用 Azure Hybrid Benefit
+
+> [!NOTE]
+> 如果在 [設定] 下看不到切換 [Azure Hybrid Benefit] 的選項，這是因為所選取的 VM 類型 (例如，從自訂映像或從具有如 SQL Sever 或 Azure Marketplace 協力廠商軟體等額外付費軟體之映像建立的 VM) 尚未支援轉換。
+>
 
 ## <a name="upload-a-windows-server-vhd"></a>上傳 Windows Server VHD
 若要在 Azure 中部署 Windows Server VM，您必須先建立包含基底 Windows 組建的 VHD。 您必須先透過 Sysprep 妥善準備這個 VHD，再將其上傳至 Azure。 您可以深入了解 [VHD 需求和 Sysprep 處理序](upload-generalized-managed.md)及 [伺服器角色的 Sysprep 支援](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)。 執行 Sysprep 前，請先備份 VM。 
@@ -180,12 +184,14 @@ foreach ($vm in $vms) {"VM Name: " + $vm.Name, "   Azure Hybrid Benefit for Wind
 您也可以[建立和部署虛擬機器擴展集](#https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create)，並設定 LicenseType 屬性
 
 ## <a name="next-steps"></a>後續步驟
-深入了解[如何使用 Azure Hybrid Benefit 來節省成本](https://azure.microsoft.com/pricing/hybrid-use-benefit/)。
+深入了解[如何使用 Azure Hybrid Benefit 來節省成本](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
-深入了解[適用於 Windows Server 的 Azure Hybrid Benefit 授權詳細指導方針](http://go.microsoft.com/fwlink/?LinkId=859786)
+深入了解[適用於 Windows Server 的 Azure Hybrid Benefit 授權詳細指導方針](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)
 
-深入了解如何[使用 Resource Manager 範本](../../azure-resource-manager/resource-group-overview.md)。
+深入了解[如何使用 Resource Manager 範本](../../azure-resource-manager/resource-group-overview.md)
 
-深入了解[適用於 Windows Server 的 Azure Hybrid Benefit 和 Azure Site Recovery 能使將應用程式移轉至 Azure 更符合成本效益](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/) \(英文\)。
+深入了解[適用於 Windows Server 的 Azure Hybrid Benefit 和 Azure Site Recovery 能使將應用程式移轉至 Azure 更符合成本效益](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/) \(英文\)
+
+深入了解[在 Azure上使用多租用戶裝載權限的 Windows 10](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) \(英文\)
 
 深入了解[常見問題集](#https://azure.microsoft.com/en-us/pricing/hybrid-use-benefit/faq/)

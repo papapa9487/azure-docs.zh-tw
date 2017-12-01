@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: c38a69176f5f9e6a8f8dbcc411b85bef47362880
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 0302b4f8f4171d288a7e7c62de036c6f1cec8212
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>用於從內部部署複寫至 Azure 的 Azure Site Recovery 支援矩陣
 
@@ -145,6 +145,7 @@ ELB | 是 | 是
 保留的 IP | 是 | 是
 IPv4 | 是 | 是
 保留來源 IP | 是 | 是
+虛擬網路服務端點 (Azure 儲存體防火牆與虛擬網路) | 否 | 否
 
 
 ## <a name="support-for-storage"></a>儲存體的支援
@@ -188,9 +189,11 @@ GRS | 是 | 是
 RA-GRS | 是 | 是
 非經常性儲存體 | 否 | 否
 經常性存取儲存體| 否 | 否
+區塊 Blob | 否 | 否
 待用加密 (SSE)| 是 | 是
 進階儲存體 | 是 | 是
 匯入/匯出服務 | 否 | 否
+用來儲存複寫資料之目標儲存體帳戶或快取儲存體帳戶上設定的虛擬網路服務端點 (Azure 儲存體防火牆與虛擬網路) | 否 | 否
 
 
 ## <a name="support-for-azure-compute-configuration"></a>支援 Azure 計算設定
