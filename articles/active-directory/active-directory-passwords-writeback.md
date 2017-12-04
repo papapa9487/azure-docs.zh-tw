@@ -6,21 +6,21 @@ keywords: "Active directory 密碼管理, 密碼管理, Azure AD 自助式密碼
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 11/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: ea2d910611f1935cadd8eaaf5760460f480f0c6c
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 8ca760c3f144cda15920dd401c6a8726d3d53da0
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="password-writeback-overview"></a>密碼回寫概觀
 
@@ -108,8 +108,8 @@ ms.lasthandoff: 11/20/2017
 
 如果您設定這些權限，每個樹系的 MA 服務帳戶便可代表該樹系內的使用者帳戶管理密碼。 
 
->[!IMPORTANT]
->如果您忘了指派這些權限，則即使回寫看似設定正確，但當使用者嘗試從雲端管理其內部部署密碼時，還是會遇到錯誤。
+> [!IMPORTANT]
+> 如果您忘了指派這些權限，則即使回寫看似設定正確，但當使用者嘗試從雲端管理其內部部署密碼時，還是會遇到錯誤。
 >
 
 > [!NOTE]
@@ -125,7 +125,6 @@ ms.lasthandoff: 11/20/2017
 5. 挑選要套用權限的帳戶 (從 Azure AD Connect 安裝程式)。
 6. 在 [套用至] 下拉式清單中，選取 [下階使用者] 物件。
 7. 在 [權限] 底下，核取下列方塊：
-    * **未過期密碼**
     * **重設密碼**
     * **變更密碼**
     * **寫入 lockoutTime**
@@ -161,8 +160,8 @@ ms.lasthandoff: 11/20/2017
   * 任何系統管理員自助式自願變更密碼作業
   * 任何系統管理員自助式強制變更密碼作業 (例如密碼到期)
   * 任何源自[密碼重設入口網站](https://passwordreset.microsoftonline.com)的系統管理員自助式密碼重設
-  * 任何由系統管理員從 [Azure 傳統入口網站](https://manage.windowsazure.com)起始的使用者密碼重設
-  * 任何由系統管理員從 [Azure 入口網站](https://portal.azure.com)起始的使用者密碼重設
+  * 系統管理員從 [Azure 傳統入口網站](https://manage.windowsazure.com)起始的任何使用者密碼重設
+  * 系統管理員從 [Azure 入口網站](https://portal.azure.com)起始的任何使用者密碼重設
 
 ### <a name="user-and-admin-operations-that-are-not-supported-for-password-writeback"></a>密碼回寫不支援的使用者和管理員作業
 
@@ -171,7 +170,7 @@ ms.lasthandoff: 11/20/2017
 * **不支援的使用者作業**
   * 任何由使用者使用 PowerShell 第 1 版、第 2 版或 Azure AD Graph API 來進行的自有密碼重設
 * **不支援的系統管理員作業**
-  * 任何由系統管理員從 [Office 管理入口網站](https://portal.office.com)起始的使用者密碼重設
+  * 系統管理員從 [Office 管理入口網站](https://portal.office.com)起始的任何使用者密碼重設
   * 任何由系統管理員從 PowerShell 第 1 版、第 2 版或 Azure AD Graph API 起始的使用者密碼重設
 
 我們正努力移除這些限制，但目前還無法提出具體的時間表。
