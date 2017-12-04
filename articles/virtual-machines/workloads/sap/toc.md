@@ -11,8 +11,9 @@
 ### [使用 STONITH 進行 HA 設定](ha-setup-with-stonith.md)
 ### [類型 II SKU 的 OS 備份](os-backup-type-ii-skus.md)
 # Azure 虛擬機器上的 SAP HANA
-## [單一執行個體 SAP HANA](hana-get-started.md)
+## [單一執行個體 SAP HANA 安裝](hana-get-started.md)
 ## [S/4 HANA or BW/4 HANA SAP CAL 部署指南](cal-s4h.md)
+## [Azure 上的 SAP HANA 作業指南](hana-vm-operations.md)
 ## [Azure VM 中的 SAP HANA 高可用性](sap-hana-high-availability.md)
 ## [SAP HANA 備份概觀](sap-hana-backup-guide.md)
 ## [SAP HANA 檔案層級備份](sap-hana-backup-file-level.md)

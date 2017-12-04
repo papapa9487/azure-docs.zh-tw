@@ -127,6 +127,8 @@
               href: app-service-mobile-how-to-configure-twitter-authentication.md
         - name: 使用受管理的服務識別
           href: app-service-managed-service-identity.md
+        - name: 在應用程式程式碼中使用 SSL 憑證
+          href: app-service-web-ssl-cert-load.md
         - name: 設定 TLS 相互驗證
           href: app-service-web-configure-tls-mutual-auth.md
     - name: 調整應用程式

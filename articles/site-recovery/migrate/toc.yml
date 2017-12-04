@@ -1,0 +1,165 @@
+- name: Site Recovery 文件
+  href: index.yml
+- name: 概觀
+  items:
+    - name: 什麼是 Site Recovery？
+      href: ../site-recovery-overview.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+- name: 教學課程
+  items:
+    - name: 設定 Azure
+      href: ../tutorial-prepare-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: 準備 VMware VM 以進行移轉
+      href: ../tutorial-prepare-on-premises-vmware.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: 將內部部署機器移轉至 Azure
+      href: tutorial-migrate-on-premises-to-azure.md
+    - name: 將 AWS 執行個體移轉至 Azure
+      href: tutorial-migrate-aws-to-azure.md
+- name: 概念
+  items:
+    - name: 移轉至 Azure
+      href: ../site-recovery-migrate-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: 內部部署至 Azure 支援矩陣
+      href: ../site-recovery-support-matrix-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: Azure 至 Azure 支援矩陣
+      href: ../site-recovery-support-matrix-azure-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: Azure 至 Azure 架構
+      href: ../concepts-azure-to-azure-architecture.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: VMware 至 Azure 架構
+      href: ../concepts-vmware-to-azure-architecture.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: Hyper-V 至 Azure 架構
+      href: ../concepts-hyper-v-to-azure-architecture.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: 實體至 Azure 架構
+      href: ../concepts-hyper-v-to-azure-architecture.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: 內部部署至 Azure 支援矩陣
+      href: ../site-recovery-support-matrix-azure-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: 角色型存取權限
+      href: ../site-recovery-role-based-linked-access-control.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: 常見問題集
+      href: ../site-recovery-faq.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+- name: 使用說明指南
+  items:
+    - name: 移轉
+      items:
+        - name: 將 Azure VM 移轉到另一個區域
+          href: site-recovery-migrate-azure-to-azure.md
+        - name: 移轉之後複寫機器
+          href: site-recovery-azure-to-azure-after-migration.md
+    - name: 災害復原
+      items:
+        - name: Hyper-V VM 至 Azure
+          href: ../tutorial-hyper-v-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: 實體伺服器至 Azure
+          href: ../tutorial-physical-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: 容錯移轉和容錯回復
+      items:
+        - name: 執行測試容錯移轉至 Azure
+          href: ../tutorial-dr-drill-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: 設定復原計畫
+          href: ../site-recovery-create-recovery-plans.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: 將 Runbook 新增至復原方案
+          href: ../site-recovery-runbook-automation.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: 執行容錯移轉
+          href: ../site-recovery-failover.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: 設定
+      items:
+        - name: 設定來源環境
+          items:
+            - name: 設定適用於 VMware VM 的來源環境
+              href: ../site-recovery-set-up-vmware-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+            - name: 設定適用於實體伺服器的來源環境
+              href: ../site-recovery-set-up-physical-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: 設定目標環境
+          items:
+            - name: 設定 VMware 目標環境
+              href: ../site-recovery-prepare-target-vmware-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+            - name: 設定實體伺服器的目標環境
+              href: ../site-recovery-prepare-target-physical-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+            - name: 設定適用於 VMware 的複寫設定
+              href: ../site-recovery-setup-replication-settings-vmware.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: 部署 VMware 複寫的行動服務
+          href: ../site-recovery-vmware-to-azure-install-mob-svc.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+          items:
+            - name: 使用 System Center Configuration Manager 部署行動服務
+              href: ../site-recovery-install-mobility-service-using-sccm.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+            - name: 使用 Azure 自動化 DSC 部署行動服務
+              href: ../site-recovery-automate-mobility-service-install.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: 啟用複寫
+          items:
+            - name: 啟用 Azure 至 Azure 複寫
+              href: ../site-recovery-replicate-azure-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+            - name: 啟用 VMware 至 Azure 複寫
+              href: ../site-recovery-replicate-vmware-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: 工作負載
+      items:
+        - name: Active Directory 和 DNS
+          href: ../site-recovery-active-directory.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: 複寫 SQL Server
+          href: ../site-recovery-sql.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: SharePoint
+          href: ../site-recovery-sharepoint.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: Dynamics AX
+          href: ../site-recovery-dynamicsax.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: RDS
+          href: '../site-recovery-workload.md#protect-rds?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json'
+        - name: Exchange
+          href: '../site-recovery-workload.md#protect-exchange?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json'
+        - name: SAP
+          href: ../site-recovery-sap.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: 檔案伺服器
+          href: ../file-server-disaster-recovery.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: IIS 型 Web 應用程式
+          href: ../site-recovery-iis.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Citrix XenApp 和 XenDesktop
+          href: ../site-recovery-citrix-xenapp-and-xendesktop.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: 其他工作負載
+          href: '../site-recovery-workload.md#workload-summary?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json'
+    - name: 管理
+      items:
+        - name: 升級至復原服務 Microsoft Azure 復原服務保存庫
+          href: ../upgrade-site-recovery-vaults.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: 管理 Azure 中的處理序伺服器
+          href: ../site-recovery-vmware-setup-azure-ps-resource-manager.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: 管理組態伺服器
+          href: ../site-recovery-vmware-to-azure-manage-configuration-server.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: 管理 vCenter 伺服器
+          href: ../site-recovery-vmware-to-azure-manage-vCenter.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: 移除伺服器並停用保護
+          href: ../site-recovery-manage-registration-and-protection.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: 刪除保存庫
+          href: ../delete-vault.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: 疑難排解
+      items:
+        - name: Azure 至 Azure 複寫問題
+          href: ../site-recovery-azure-to-azure-troubleshoot-errors.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: 內部部署至 Azure 複寫問題
+          href: ../site-recovery-vmware-to-azure-protection-troubleshoot.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: 行動服務問題
+          href: ../site-recovery-vmware-to-azure-push-install-error-codes.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: 容錯移轉至 Azure 問題
+          href: ../site-recovery-failover-to-azure-troubleshoot.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: 收集記錄並針對內部部署問題進行疑難排解
+          href: ../site-recovery-monitoring-and-troubleshooting.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+- name: 參考
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.siterecovery
+    - name: Azure PowerShell (傳統)
+      href: /powershell/module/azure/?view=azuresmps-3.7.0
+    - name: REST
+      href: 'https://msdn.microsoft.com/en-us/library/mt750497'
+- name: 資源
+  items:
+    - name: Azure 藍圖
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 部落格
+      href: 'http://azure.microsoft.com/blog/tag/azure-site-recovery/'
+    - name: 論壇
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr'
+    - name: 學習路徑
+      href: 'https://azure.microsoft.com/documentation/learning-paths/site-recovery/'
+    - name: 價格
+      href: 'https://azure.microsoft.com/pricing/details/site-recovery/'
+    - name: 定價計算機
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 服務更新
+      href: 'https://azure.microsoft.com/updates/?product=site-recovery'

@@ -43,6 +43,10 @@ sections:
               src: /azure/data-factory/media/index/portal.svg
             text: Azure 入口網站
             href: /azure/data-factory/quickstart-create-data-factory-portal
+          - image:
+              src: /azure/data-factory/media/index/logo_azure_resource_manager.svg
+            text: Resource Manager 範本
+            href: /azure/data-factory/quickstart-create-data-factory-resource-manager-template
   - title: 逐步教學課程
     items:
       - type: paragraph

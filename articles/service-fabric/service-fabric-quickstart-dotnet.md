@@ -171,7 +171,7 @@ Service Fabric Explorer 會在所有 Service Fabric 叢集中執行，並可從�
 若要升級應用程式，請執行下列動作：
 
 1. 在 Visual Studio 中開啟 **/VotingWeb/Views/Home/Index.cshtml** 檔案。
-2. 新增或更新文字以變更頁面上的 <h2> 標題。 例如，將標題變更為「Service Fabric 投票範例第 2 版」。
+2. 新增或更新文字 <h2> 以變更頁面上的標題。 例如，將標題變更為「Service Fabric 投票範例第 2 版」。
 3. 儲存檔案。
 4. 以滑鼠右鍵按一下方案總管中的 [投票]，並選擇 [發行]。 [發行] 對話方塊隨即出現。
 5. 按一下 [資訊清單版本] 按鈕以變更服務和應用程式的版本。

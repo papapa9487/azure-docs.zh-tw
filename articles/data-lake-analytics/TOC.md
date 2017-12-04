@@ -31,6 +31,8 @@
 ### [U-SQL 辨識擴充功能](data-lake-analytics-u-sql-cognitive.md)
 ### [分析網站記錄](data-lake-analytics-analyze-weblogs.md)
 ### [適用於 Visual Studio Code 的 U-SQL 自訂程式碼](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
+### [適用於 Visual Studio Code 的 U-SQL](data-lake-analytics-data-lake-tools-for-vscode.md)
+### [匯出 U-SQL 資料庫](data-lake-analytics-data-lake-tools-export-database.md)
 
 ## 偵錯 U-SQL 程式
 ### [工作的監視和疑難排解](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

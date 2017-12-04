@@ -1,0 +1,38 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Site Recovery 文件
+metadata:
+  title: Azure Site Recovery 文件 - 教學課程和 API 參考 | Microsoft Docs
+  meta.description: Learn how to migrate to Azure with Azure Site Recovery
+  services: site-recovery
+  author: rayne-wiselman
+  manager: carmonm
+  ms.service: site-recovery
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/26/2017
+  ms.author: raynew
+abstract:
+  description: Azure Site Recovery 除了可以協調 Azure VM 及內部部署機器的災害復原以外，也能協調並管理將內部部署機器移轉至 Azure，並在 Azure 區域之間移轉 Azure VM。 了解如何以我們的教學課程設定移轉。
+sections:
+  - title: 逐步教學課程
+    items:
+      - type: paragraph
+        text: 了解如何移轉內部部署 VM。
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-azure">準備 Azure</a>
+          - html: <a href="tutorial-migrate-on-premises-to-azure">將內部部署機器移轉至 Azure</a>
+          - html: <a href="tutorial-migrate-aws-to-azure">將 AWS 執行個體移轉至 Azure</a>
+  - title: 參考
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 命令列
+            html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/site-recovery/">REST API 參考</a></p>

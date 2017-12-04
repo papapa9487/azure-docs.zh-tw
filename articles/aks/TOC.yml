@@ -7,8 +7,10 @@
 - name: 快速入門
   expanded: true
   items:
-    - name: 建立 AKS 叢集
+    - name: 建立 AKS 叢集 - CLI
       href: kubernetes-walkthrough.md
+    - name: 建立 AKS 叢集 - 入口網站
+      href: kubernetes-walkthrough-portal.md
 - name: 教學課程
   items:
     - name: 1 - 準備應用程式供 AKS 使用

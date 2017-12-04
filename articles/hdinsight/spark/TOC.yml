@@ -104,6 +104,8 @@
           href: apache-spark-streaming-overview.md
         - name: 處理串流事件
           href: apache-spark-eventhub-streaming.md
+        - name: 使用事件中樞進行結構化串流
+          href: apache-spark-eventhub-structured-streaming.md
         - name: 搭配 Kafka 使用結構化串流
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
           maintainContext: true

@@ -13,6 +13,8 @@
   items:
     - name: 常見問題
       href: frequently-asked-questions-databricks.md
+    - name: 版本資訊
+      href: 'https://docs.azuredatabricks.net/release-notes/index.html'
     - name: Databricks 文件
       href: 'https://docs.azuredatabricks.net/user-guide/index.html'
     - name: Azure 藍圖

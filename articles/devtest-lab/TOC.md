@@ -31,6 +31,7 @@
 ### [設定 Marketplace 映像](devtest-lab-configure-marketplace-images.md)
 ### [啟用授權的映像](devtest-lab-enable-licensed-images.md)
 ### [將標籤加入至實驗室](devtest-lab-add-tag.md)
+### [在實驗室中張貼公告](devtest-lab-announcements.md)
 
 ## [選取自訂映像或公式](devtest-lab-comparing-vm-base-image-types.md)
 

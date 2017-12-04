@@ -29,6 +29,8 @@
       href: how-to-manage-account-keys.md
     - name: 如何使用地圖控制項
       href: how-to-use-map-control.md
+    - name: 如何搜尋位址
+      href: how-to-search-for-address.md
 - name: 參考
   items:
     - name: Azure IoT 開發人員中心

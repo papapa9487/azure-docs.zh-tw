@@ -57,7 +57,6 @@
 ### [資源健康狀態刀鋒視窗](stream-analytics-resource-health.md)
 ### [工作圖表和計量](stream-analytics-job-diagram-with-metrics.md)
 ### [SELECT INTO 偵錯](stream-analytics-select-into.md)
-### [事件順序處理](stream-analytics-out-of-order-and-late-events.md)
 ### [事件順序的考量](stream-analytics-out-of-order-and-late-events.md)
 ### [事件中樞讀取器限制](stream-analytics-event-hub-consumer-groups.md)
 ### [診斷記錄](stream-analytics-job-diagnostic-logs.md)

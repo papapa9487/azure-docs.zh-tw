@@ -59,6 +59,8 @@
       href: /powershell/module/azurerm.containerregistry
     - name: Resource Manager 範本
       href: /azure/templates/microsoft.containerregistry/registries
+    - name: Webhook 結構描述
+      href: container-registry-webhook-reference.md
 - name: 資源
   items:
     - name: 區域可用性

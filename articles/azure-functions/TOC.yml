@@ -63,7 +63,7 @@
       href: functions-cli-samples.md
 - name: 概念
   items:
-    - name: 主機方案比較
+    - name: 調整和託管
       href: functions-scale.md
     - name: 觸發和繫結
       href: functions-triggers-bindings.md

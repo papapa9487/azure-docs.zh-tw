@@ -247,6 +247,8 @@
       items:
         - name: 沒有 .NET 的資料
           href: app-insights-asp-net-troubleshoot-no-data.md
+        - name: 快照集偵錯工具
+          href: app-insights-troubleshoot-snapshot-debugger.md
         - name: Analytics
           href: app-insights-analytics-troubleshooting.md
         - name: Java

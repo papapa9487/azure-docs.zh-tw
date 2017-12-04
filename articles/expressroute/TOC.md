@@ -58,6 +58,7 @@
 
 ## 疑難排解
 ### [驗證 ExpressRoute 連線能力](expressroute-troubleshooting-expressroute-overview.md)
+### [重設失敗的電路](reset-circuit.md)
 ### [取得 ARP 表格](expressroute-troubleshooting-arp-resource-manager.md)
 ### [取得 ARP 表格 (傳統)](expressroute-troubleshooting-arp-classic.md)
 

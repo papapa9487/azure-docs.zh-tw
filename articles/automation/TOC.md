@@ -70,6 +70,7 @@
 ### [從 Log Analytics 警示呼叫 Azure 自動化 Runbook](automation-invoke-runbook-from-omsla-alert.md)
 ### [在 Azure 自動化 PowerShell Runbook 中部署 Azure Resource Manager 範本](automation-deploy-template-runbook.md)
 ## 解決方案
+### [上架更新和變更追蹤](automation-onboard-solutions.md)
 ### [更新管理](../operations-management-suite/oms-solution-update-management.md)
 #### [管理多個 VM 的更新](manage-update-multi.md)
 #### [整合 SCCM 與 OMS 更新管理](oms-solution-updatemgmt-sccmintegration.md)

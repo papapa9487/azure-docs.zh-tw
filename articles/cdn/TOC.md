@@ -21,8 +21,8 @@
 ## 管理
 ### [使用 Azure PowerShell 管理](cdn-manage-powershell.md)
 ### 設定存留時間
-#### [Web Apps/雲端服務、ASP.NET 或 IIS 內容](cdn-manage-expiration-of-cloud-service-content.md)
-#### [儲存體 Blob 服務內容](cdn-manage-expiration-of-blob-content.md)
+#### [Azure 網頁內容](cdn-manage-expiration-of-cloud-service-content.md)
+#### [Azure Blob 儲存體](cdn-manage-expiration-of-blob-content.md)
 ### [依國家/地區限制存取](cdn-restrict-access-by-country.md)
 ### [藉由壓縮檔案來改善效能](cdn-improve-performance.md)
 ### 依查詢字串的快取內容

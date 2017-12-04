@@ -4,6 +4,8 @@
   items:
     - name: Data Factory 簡介
       href: introduction.md
+    - name: 比較版本 1 和 2
+      href: compare-versions.md
 - name: 快速入門
   expanded: true
   items:
@@ -19,6 +21,8 @@
           href: quickstart-create-data-factory-rest-api.md
         - name: 入口網站
           href: quickstart-create-data-factory-portal.md
+        - name: Resource Manager 範本
+          href: quickstart-create-data-factory-resource-manager-template.md
 - name: 教學課程
   items:
     - name: 1 - 將 SSIS 套件部署至 Azure
