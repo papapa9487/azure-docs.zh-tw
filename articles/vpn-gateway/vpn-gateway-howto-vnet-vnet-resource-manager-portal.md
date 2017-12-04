@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/15/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: b2da1c7148e27ca8dd8eb774d4201415a969fada
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: a660e8e83220d77f2b55020fade0732b3a140c54
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>使用 Azure 入口網站設定 VNet 對 VNet 的 VPN 閘道連線
 
-本文說明如何建立虛擬網路之間的VPN 閘道連線。 虛擬網路可位於相同或不同的區域，以及來自相同或不同的訂用帳戶。 連線來自不同訂用帳戶的 VNet 時，訂用帳戶不需與相同的 Active Directory 租用戶相關聯。 
+本文說明如何使用 VNet 對 VNet 連線類型來連線虛擬網路。 虛擬網路可位於相同或不同的區域，以及來自相同或不同的訂用帳戶。 連線來自不同訂用帳戶的 VNet 時，訂用帳戶不需與相同的 Active Directory 租用戶相關聯。 
 
 本文中的步驟適用於 Resource Manager 部署模型並使用 Azure 入口網站。 您也可從下列清單中選取不同的選項，以使用不同的部署工具或部署模型來建立此組態：
 
@@ -39,15 +39,15 @@ ms.lasthandoff: 11/21/2017
 
 ![v2v 圖表](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
-將虛擬網路連接至另一個虛擬網路 (VNet 對 VNet)，類似於將 VNet 連接至內部部署網站位置。 這兩種連線類型都使用 VPN 閘道提供使用 IPsec/IKE 的安全通道。 可以在 Vnet 之間建立站對站 (IPsec) 連線，而非 VNet 對 VNet。 通訊時，這兩種連線類型運作方式都相同。 不過，當您建立 VNet 對 VNet 連線時，如果您更新一個 VNet 的位址空間，另一個 VNet 就會自動得知要路由到更新的位址空間。 如果您建立站對站 (IPsec) 連線，就需要手動設定本機網路閘道的位址空間。 當您使用複雜的組態時，可能需要建立 IPsec 連線，而不是 VNet 對 VNet。 這樣做可讓您以手動方式指定本機網路閘道的其他位址空間。
+## <a name="about"></a>關於連線 VNet
 
-如果您的 Vnet 位在相同區域，您可能會考慮使用 VNet 對等互連來進行連線。 VNet 對等互連不會使用 VPN 閘道。 如需詳細資訊，請參閱 [VNet 對等互連](../virtual-network/virtual-network-peering-overview.md)。
+使用 VNet 對 VNet 連線類型將虛擬網路連線到另一個虛擬網路，類似於建立內部部署網站位置的 IPsec 連線。 這兩種連線類型都使用 VPN 閘道提供使用 IPsec/IKE 的安全通道，且兩者在通訊時的運作方式相同。 連線類型之間的差異在於區域網路閘道的設定方式。 當您建立 VNet 對 VNet 連線時，會看不到區域網路閘道的位址空間。 系統會自動建立並填入該位址空間。 如果您更新一個 VNet 的位址空間，另一個 VNet 就會自動得知要路由到已更新的位址空間。
 
-您可以將 VNet 對 VNet 通訊與多站台組態結合。 這可讓您建立使用內部虛擬網路連線結合跨單位連線的網路拓撲，如下圖所示：
+如果您使用複雜的組態，建議您使用 IPsec 連線類型，而不是 VNet 對 VNet。 這可讓您指定區域網路閘道的其他位址空間，以便路由傳送流量。 如果您使用 IPsec 連線類型來連線 VNet，則需要手動建立和設定區域網路閘道。 如需詳細資訊，請參閱[站對站組態](vpn-gateway-howto-site-to-site-resource-manager-portal.md)。
 
-![關於連接](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "關於連接")
+此外，如果您的 Vnet 位在相同區域，建議您考慮使用 VNet 對等互連進行連線。 VNet 對等互連不會使用 VPN 閘道，其價格和功能稍有不同。 如需詳細資訊，請參閱 [VNet 對等互連](../virtual-network/virtual-network-peering-overview.md)。
 
-### <a name="why-connect-virtual-networks"></a>為什麼要連接虛擬網路？
+### <a name="why"></a>為何要建立 VNet 對 VNet 連線？
 
 針對下列原因，您可能希望連接虛擬網路：
 
@@ -59,7 +59,11 @@ ms.lasthandoff: 11/21/2017
 
   * 在相同區域中，您可以因為隔離或管理需求，設定將多層式應用程式與多個虛擬網路連線在一起。
 
-練習這些步驟時，您可以使用設定值範例。 在範例中，虛擬網路位於相同的訂用帳戶，但在不同的資源群組。 如果您的 Vnet 位於不同的訂用帳戶中，就無法在入口網站中建立連線。 您可以使用 [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) 或 [CLI](vpn-gateway-howto-vnet-vnet-cli.md)。 如需 VNet 對 VNet 連線的詳細資訊，請參閱本文結尾處的 [VNet 對 VNet 常見問題集](#faq) 。
+您可以將 VNet 對 VNet 通訊與多站台組態結合。 這可讓您建立使用內部虛擬網路連線結合跨單位連線的網路拓撲，如下圖所示：
+
+![關於連接](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "關於連接")
+
+本文協助您使用 VNet 對 VNet 連線類型來連線 VNet。 練習這些步驟時，您可以使用設定值範例。 在範例中，虛擬網路位於相同的訂用帳戶，但在不同的資源群組。 如果您的 Vnet 位於不同的訂用帳戶中，就無法在入口網站中建立連線。 您可以使用 [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) 或 [CLI](vpn-gateway-howto-vnet-vnet-cli.md)。 如需 VNet 對 VNet 連線的詳細資訊，請參閱本文結尾處的 [VNet 對 VNet 常見問題集](#faq) 。
 
 ### <a name="values"></a>設定範例
 

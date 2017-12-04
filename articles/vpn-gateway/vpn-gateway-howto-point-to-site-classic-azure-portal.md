@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2017
 ms.author: cherylmc
-ms.openlocfilehash: 12d414b9653aa6f07648fff991b6291e5f91be4c
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 00a9e580a324ded8e979c2a3c58d51319091b628
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>使用憑證驗證設定 VNet 的點對站連線 (傳統)：Azure 入口網站
 
@@ -35,8 +35,10 @@ ms.lasthandoff: 10/20/2017
 
 點對站 (P2S) VPN 閘道可讓您建立從個別用戶端電腦到您的虛擬網路的安全連線。 當您想要從遠端位置 (例如當您從住家或會議進行遠距工作) 連線到您的 VNet 時，點對站 VPN 連線很實用。 當您只有少數用戶端必須連線至 VNet 時，P2S VPN 也是很實用的方案 (而不是使用站對站 VPN)。 P2S VPN 連線的建立方式是從用戶端電腦開始。
 
-傳統部署模型僅支援 Windows VPN 用戶端，並且使用安全通訊端通道通訊協定 (SSTP)，這是 SSL 型 VPN 通訊協定。 若要支援非 Windows VPN 用戶端，您的 VNet 必須使用資源管理員部署模型來建立。 除了 SSTP 以外，資源管理員部署模型還支援 IKEv2 VPN。 如需詳細資料，請參閱[關於 P2S 連線](point-to-site-about.md)。
-
+> [!IMPORTANT]
+> 傳統部署模型僅支援 Windows VPN 用戶端，並且使用安全通訊端通道通訊協定 (SSTP)，這是 SSL 型 VPN 通訊協定。 若要支援非 Windows VPN 用戶端，您的 VNet 必須使用資源管理員部署模型來建立。 除了 SSTP 以外，Resource Manager 部署模型還支援 IKEv2 VPN。 如需詳細資料，請參閱[關於 P2S 連線](point-to-site-about.md)。
+>
+>
 
 ![Point-to-Site-diagram](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 

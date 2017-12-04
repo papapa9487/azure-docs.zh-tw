@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/08/2017
 ms.author: v-semcev
-ms.openlocfilehash: 909c4dc3feaeaedf56ecacc78f4b7e0e15d98875
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 411c5a43d8a3245fc4642596b3725dadf8745728
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Azure 內容傳遞網路 (CDN) 概觀
-> [!NOTE]
-> 本文件說明 Azure 內容傳遞網路 (CDN) 是什麼、其運作方式與每項 Azure CDN 產品的功能。  如果您想要跳過這項資訊，直接進入如何建立 CDN 端點的教學課程，請參閱 [使用 Azure CDN](cdn-create-new-endpoint.md)。  如果您想要查看目前的 CDN 節點位置清單，請參閱 [Azure CDN POP 位置](cdn-pop-locations.md)。
-> 
-> 
+Azure 內容傳遞網路 (CDN) 會在策略性放置的位置上快取靜態 Web 內容，以提供最大輸送量來將內容傳遞給使用者。 CDN 為開發人員提供一套全球解決方案，以在全球實體節點上快取內容來傳遞高頻寬內容。 
 
-Azure 內容傳遞網路 (CDN) 會在策略性放置的位置上快取靜態 Web 內容，以提供最大輸送量來將內容傳遞給使用者。  CDN 為開發人員提供一套全球解決方案，以在全球實體節點上快取內容來傳遞高頻寬內容。 
+> [!NOTE]
+> 本文說明 Azure CDN、其運作方式，以及每項 Azure CDN 產品的功能。 若要跳過這項資訊來檢視如何建立 CDN 端點，請參 [開始使用 Azure CDN](cdn-create-new-endpoint.md)。 若要查看目前的 CDN 節點位置清單，請參閱 [Azure CDN POP 位置](cdn-pop-locations.md)。
+> 
 
 使用 CDN 來快取網站資產的優點包括：
 
 * 讓使用者享有更好的效能和使用者經驗，尤其是當使用的應用程式需要反覆存取多次才能載入內容時。
-* 可進行大幅調整以更妥善地處理瞬間大量負載 (例如產品上市事件的開始)。
-* 透過分散使用者要求以及從 Edge Server 提供內容，傳送至原始來源的流量將會減少。
+* 進行大幅調整可以更妥善地處理瞬間大量負載 (例如產品上市事件的開始)。
+* 分散使用者要求並從 Edge Server 直接提供內容，傳送至原始來源的流量就會減少。
+
 
 ## <a name="how-it-works"></a>運作方式
 ![CDN 概觀](./media/cdn-overview/cdn-overview.png)
@@ -90,7 +90,7 @@ Azure 內容傳遞網路 (CDN) 會在策略性放置的位置上快取靜態 Web
 > 
 
 ## <a name="next-steps"></a>後續步驟
-若要開始使用 CDN，請參閱 [使用 Azure CDN](cdn-create-new-endpoint.md)。
+若要開始使用 CDN，請參閱[開始使用 Azure CDN](cdn-create-new-endpoint.md)。
 
 如果您是現有的 CDN 客戶，現在可以透過 [Microsoft Azure 入口網站](https://portal.azure.com)或 [PowerShell](cdn-manage-powershell.md) 管理您的 CDN 端點。
 
@@ -98,5 +98,5 @@ Azure 內容傳遞網路 (CDN) 會在策略性放置的位置上快取靜態 Web
 
 了解如何透過 [.NET](cdn-app-dev-net.md) 或 [Node.js](cdn-app-dev-node.md) 自動化 Azure CDN。
 
-如需價格資訊，請參閱 [CDN 價格](https://azure.microsoft.com/pricing/details/cdn/)。
+如需價格資訊，請參閱[內容傳遞網路價格](https://azure.microsoft.com/pricing/details/cdn/)。
 

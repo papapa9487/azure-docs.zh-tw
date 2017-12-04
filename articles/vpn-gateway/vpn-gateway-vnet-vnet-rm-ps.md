@@ -1,6 +1,6 @@
 ---
-title: "將 Azure 虛擬網路連接至另一個 VNet︰PowerShell | Microsoft Docs"
-description: "本文將逐步引導您使用 Azure 資源管理員和 PowerShell，將虛擬網路連接在一起。"
+title: "使用 VNet 對 VNet 連線將 Azure 虛擬網路連線至另一個 VNet︰PowerShell | Microsoft Docs"
+description: "本文將逐步引導您使用 VNet 對 VNet 連線和 PowerShell，將虛擬網路連線在一起。"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: 9bcad8ed57980b08e0290e0272a5ff9de46f11a0
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 8a772680355a62c13dbe0361b5b58029642cf84d
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>使用 PowerShell 設定 VNet 對 VNet 的 VPN 閘道連線
 
-本文說明如何建立虛擬網路之間的VPN 閘道連線。 虛擬網路可位於相同或不同的區域，以及來自相同或不同的訂用帳戶。 連線來自不同訂用帳戶的 VNet 時，訂用帳戶不需與相同的 Active Directory 租用戶相關聯。 
+本文說明如何使用 VNet 對 VNet 連線類型來連線虛擬網路。 虛擬網路可位於相同或不同的區域，以及來自相同或不同的訂用帳戶。 連線來自不同訂用帳戶的 VNet 時，訂用帳戶不需與相同的 Active Directory 租用戶相關聯。
 
 本文中的步驟適用於 Resource Manager 部署模型並使用 PowerShell。 您也可從下列清單中選取不同的選項，以使用不同的部署工具或部署模型來建立此組態：
 
@@ -37,13 +37,15 @@ ms.lasthandoff: 11/18/2017
 >
 >
 
-將虛擬網路連接至另一個虛擬網路 (VNet 對 VNet)，類似於將 VNet 連接至內部部署網站位置。 這兩種連線類型都使用 VPN 閘道提供使用 IPsec/IKE 的安全通道。 如果您的 Vnet 位在相同區域，您可能會考慮使用 VNet 對等互連來進行連線。 VNet 對等互連不會使用 VPN 閘道。 如需詳細資訊，請參閱 [VNet 對等互連](../virtual-network/virtual-network-peering-overview.md)。
+## <a name="about"></a>關於連線 VNet
 
-您可以將 VNet 對 VNet 通訊與多站台組態結合。 這可讓您建立使用內部虛擬網路連線結合跨單位連線的網路拓撲，如下圖所示：
+使用 VNet 對 VNet 連線類型 (VNet2VNet) 將虛擬網路連線到另一個虛擬網路，類似於建立內部部署網站位置的 IPsec 連線。 這兩種連線類型都使用 VPN 閘道提供使用 IPsec/IKE 的安全通道，且兩者在通訊時的運作方式相同。 連線類型之間的差異在於區域網路閘道的設定方式。 當您建立 VNet 對 VNet 連線時，會看不到區域網路閘道的位址空間。 系統會自動建立並填入該位址空間。 如果您更新一個 VNet 的位址空間，另一個 VNet 就會自動得知要路由到已更新的位址空間。
 
-![關於連線](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
+如果您使用複雜的組態，建議您使用 IPsec 連線類型，而不是 VNet 對 VNet。 這可讓您指定區域網路閘道的其他位址空間，以便路由傳送流量。 如果您使用 IPsec 連線類型來連線 VNet，則需要手動建立和設定區域網路閘道。 如需詳細資訊，請參閱[站對站組態](vpn-gateway-create-site-to-site-rm-powershell.md)。
 
-### <a name="why-connect-virtual-networks"></a>為什麼要連接虛擬網路？
+此外，如果您的 Vnet 位在相同區域，建議您考慮使用 VNet 對等互連進行連線。 VNet 對等互連不會使用 VPN 閘道，其價格和功能稍有不同。 如需詳細資訊，請參閱 [VNet 對等互連](../virtual-network/virtual-network-peering-overview.md)。
+
+### <a name="why"></a>為何要建立 VNet 對 VNet 連線？
 
 針對下列原因，您可能希望連接虛擬網路：
 
@@ -55,19 +57,22 @@ ms.lasthandoff: 11/18/2017
 
   * 在相同區域中，您可以因為隔離或管理需求，設定將多層式應用程式與多個虛擬網路連線在一起。
 
-如需 VNet 對 VNet 連線的詳細資訊，請參閱本文結尾處的 [VNet 對 VNet 常見問題集](#faq) 。
+您可以將 VNet 對 VNet 通訊與多站台組態結合。 這可讓您建立結合了跨單位連線與內部虛擬網路連線的網路拓撲。
 
 ## <a name="which-set-of-steps-should-i-use"></a>我應該使用哪個步驟集？
 
-在本文中，您會看到兩組不同的步驟。 [位於相同訂用帳戶之 Vnet](#samesub) 的一組步驟。 此組態的步驟是使用 TestVNet1 和 TestVNet4。
+在本文中，您會看到兩組不同的步驟。 一組步驟適用於[位於相同訂用帳戶中的 VNet](#samesub)，一組步驟適用於[位於不同訂用帳戶中的 VNet](#difsub)。
+主要差異在於設定位於不同訂用帳戶之 VNet 的連線時，您必須使用個別的 PowerShell 工作階段。 
 
-![v2v 圖表](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+在此練習中，您可以合併組態，或只選擇您需要使用的一個組態。 所有組態都會使用 VNet 對 VNet 連線類型。 網路流量會在彼此直接連線的 VNet 之間流動。 在此練習中，來自 TestVNet4 的流量不會路由傳送至 TestVNet5。
 
-[位於不同訂用帳戶之 Vnet](#difsub) 有其他的文章。 該組態的步驟是使用 TestVNet1 和 TestVNet5。
+* [位於相同訂用帳戶中的 VNet：](#samesub)此組態的步驟會使用 TestVNet1 和 TestVNet4。
 
-![v2v 圖表](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
+  ![v2v 圖表](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-兩組之間的主要差異在於您是否可以在相同的 PowerShell 工作階段內建立和設定所有的虛擬網路和閘道資源。 在設定位於不同訂用帳戶之 Vnet 的連線時，您必須使用個別的 PowerShell 工作階段。 您可以視需要合併組態，或只選擇您需要使用的一個。
+* [位於不同訂用帳戶中的 VNet：](#difsub)此組態的步驟會使用 TestVNet1 和 TestVNet5。
+
+  ![v2v 圖表](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
 ## <a name="samesub"></a>如何連接相同訂用帳戶中的 VNet
 
@@ -77,7 +82,7 @@ ms.lasthandoff: 11/18/2017
 
 ### <a name="Step1"></a>步驟 1 - 規劃 IP 位址範圍
 
-在下列步驟中，我們會建立兩個虛擬網路，以及它們各自的閘道子網路和組態。 接著建立這兩個 VNet 之間的 VPN 連線。 請務必規劃您的網路組態的 IP 位址範圍。 請記住，您必須先確定您的 VNet 範圍或區域網路範圍沒有以任何方式重疊。 在這些範例中，我們不會包含 DNS 伺服器。 如果您想要了解虛擬網路的名稱解析，請參閱[名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
+在下列步驟中，您會建立兩個虛擬網路，以及它們各自的閘道子網路和組態。 接著建立這兩個 VNet 之間的 VPN 連線。 請務必規劃您的網路組態的 IP 位址範圍。 請記住，您必須先確定您的 VNet 範圍或區域網路範圍沒有以任何方式重疊。 在這些範例中，我們不會包含 DNS 伺服器。 如果您想要了解虛擬網路的名稱解析，請參閱[名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
 
 我們會在範例中使用下列值：
 
@@ -284,7 +289,7 @@ ms.lasthandoff: 11/18/2017
 
 ## <a name="difsub"></a>如何連接不同訂用帳戶中的 VNet
 
-在此案例中，我們會連接 TestVNet1 和 TestVNet5。 TestVNet1 和 TestVNet5 位於不同的訂用帳戶中。 訂用帳戶不需與相同的 Active Directory 租用戶相關聯。 這些步驟與前一組步驟的差別在於，第二個訂用帳戶的內容中有些設定步驟需在不同的 PowerShell 工作階段中執行。 尤其是當兩個訂用帳戶分屬不同的組織時。
+在此案例中，您會連接 TestVNet1 和 TestVNet5。 TestVNet1 和 TestVNet5 位於不同的訂用帳戶中。 訂用帳戶不需與相同的 Active Directory 租用戶相關聯。 這些步驟與前一組步驟的差別在於，第二個訂用帳戶的內容中有些設定步驟需在不同的 PowerShell 工作階段中執行。 尤其是當兩個訂用帳戶分屬不同的組織時。
 
 ### <a name="step-5---create-and-configure-testvnet1"></a>步驟 5 - 建立及設定 TestVNet1
 

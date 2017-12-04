@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 11/14/2017
-ms.openlocfilehash: 7fa7eb53876746f1934af8ca3428cfdacb56382d
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.date: 11/29/2017
+ms.openlocfilehash: b48e5bc2552c92b45e0417e5a8a34705a473073e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>分類鳶尾花第 3 部分：部署模型
 Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家使用。 資料科學家可用來以雲端規模準備資料、開發測試及部署模型。
@@ -163,7 +163,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
 3. 建立環境。 您必須根據環境執行此步驟一次。 例如，對開發環境和實際執行各執行一次。 對此第一個環境使用_本機模式_。 您可以在下列命令中嘗試 `-c` 或 `--cluster` 參數，稍後在_叢集模式_中設定環境。
 
-請注意，下列設定命令要求您具有訂用帳戶的參與者存取權。 如果您沒有該權限，您至少需有所要部署到資源群組的參與者存取權。 若要執行後者，您需要使用 `-g` 旗標將資源群組名稱指定為設定命令的一部分。 
+   請注意，下列設定命令要求您具有訂用帳戶的參與者存取權。 如果您沒有該權限，您至少需有所要部署到資源群組的參與者存取權。 若要執行後者，您需要使用 `-g` 旗標將資源群組名稱指定為設定命令的一部分。 
 
    ```azurecli
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
@@ -276,10 +276,10 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
 若要測試執行中的 **irisapp** Web 服務，請使用包含四個隨機數字陣列、以 JSON 編碼的記錄：
 
-1. Web 服務包含範例資料。 在本機模式中執行時，您可以呼叫 **az ml service show realtime** 命令。 該呼叫會擷取有用的範例執行命令，供您用來測試服務。 此呼叫也會擷取評分 URL，讓您用來在您自己的自訂應用程式中將服務納入：
+1. Web 服務包含範例資料。 在本機模式中執行時，您可以呼叫 **az ml service usage realtime** 命令。 該呼叫會擷取有用的範例執行命令，供您用來測試服務。 此呼叫也會擷取評分 URL，讓您用來在您自己的自訂應用程式中將服務納入：
 
    ```azurecli
-   az ml service show realtime -i <web service ID>
+   az ml service usage realtime -i <web service ID>
    ```
 
 2. 若要測試服務，請執行傳回的服務執行命令：

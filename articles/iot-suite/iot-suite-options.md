@@ -11,11 +11,11 @@ ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e00dd828ef24b9bc97665f0f5fe8d7e14f4e4630
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 1a23835f341bf02f8e662782984d95bfe194030b
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="compare-azure-iot-options"></a>比較各個 Azure IoT 選項
 
@@ -50,7 +50,7 @@ Azure IoT 中樞是 Azure 平台即服務的核心，可讓 Microsoft IoT 中心
 | 存取基礎 PaaS 服務          | 您可存取基礎 Azure 服務來加以管理，或視需要加以取代。 | SaaS。 完全受管理的解決方案，不會公開基礎服務。 |
 | 彈性            | 高。 微服務的程式碼是開放原始碼，您可以使用任何您認為合適的方式修改它。 此外，您可以自訂部署基礎結構。| 中。 您可以使用以內建瀏覽器為基礎的使用者體驗，自訂解決方案模型和 UI 層面。 基礎結構無法自訂，因為並不會公開各種元件。|
 | 技能層級                 | 中高。 需要 Java 或 .NET 技能來自訂解決方案後端。 您需要 JavaScript 技能來自訂視覺效果。 | 低。 您需要有建立模型的技能來自訂解決方案。 不需要編寫程式碼的技能。 |
-| 上手體驗 | 預先設定解決方案會實作 IoT 的常見案例。 可在幾分鐘內部署完成。 | 範本會提供預先建置的模型。 可在幾分鐘內部署完成。 |
+| 上手體驗 | 預先設定解決方案會實作 IoT 的常見案例。 可在幾分鐘內部署完成。 | 應用程式範本和裝置範本會提供預先建置的模型。 可在幾分鐘內部署完成。 |
 | 價格                | 您可以微調該服務以控制成本。 | 簡單且可預測的定價結構。 |
 
 決定使用哪個產品來建置 IoT 解決方案的最重要因素如下：

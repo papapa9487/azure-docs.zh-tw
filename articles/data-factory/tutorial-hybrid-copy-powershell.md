@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: jingwang
-ms.openlocfilehash: 77078087e2532ac779d25ef63cc7fa19b40f0851
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: ca8e664ff1fd509d0461b6d167f28743d2e1e69c
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="tutorial-copy-data-from-on-premises-sql-server-to-azure-blob-storage"></a>教學課程：將資料從內部部署 SQL Server 複製到 Azure Blob 儲存體
 在本教學課程中，您會使用 Azure PowerShell 建立 Data Factory 管線，以將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體。 您要建立及使用自我裝載的整合執行階段，其會在內部部署與雲端資料存放區之間移動資料。 
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/20/2017
 1. 啟動您電腦上的 **SQL Server Management Studio**。 如果您的電腦上沒有 SQL Server Management Studio，請從[下載中心](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)安裝。 
 2. 使用您的認證連線到 SQL Server。 
 3. 建立範例資料庫。 在樹狀檢視中，以滑鼠右鍵按一下 [資料庫]，然後按一下 [新增資料庫]。 在 [新增資料庫] 對話方塊中，輸入資料庫的**名稱**，然後按一下 [確定]。 
-4. 針對資料庫執行下列查詢指令碼，以建立 **emp** 資料表。 在樹狀檢視中，以滑鼠右鍵按一下您建立的**資料庫**，然後按一下 [新增查詢]。 
+4. 針對資料庫執行下列查詢指令碼，以建立 **emp** 資料表並在其中插入一些範例資料。 在樹狀檢視中，以滑鼠右鍵按一下您建立的**資料庫**，然後按一下 [新增查詢]。 
 
     ```sql   
     CREATE TABLE dbo.emp
@@ -61,13 +61,10 @@ ms.lasthandoff: 11/20/2017
         LastName varchar(50),
         CONSTRAINT PK_emp PRIMARY KEY (ID)
     )
-    GO
-    ```
-2. 對資料庫執行下列命令並將某些範例資料插入資料表中：
 
-    ```sql
     INSERT INTO emp VALUES ('John', 'Doe')
     INSERT INTO emp VALUES ('Jane', 'Doe')
+    GO
     ```
 
 ### <a name="azure-storage-account"></a>Azure 儲存體帳戶
@@ -105,10 +102,10 @@ ms.lasthandoff: 11/20/2017
 
     ![容器頁面](media/tutorial-hybrid-copy-powershell/container-page.png)
 
-### <a name="azure-powershell"></a>Azure PowerShell
+### <a name="windows-powershell"></a>Windows PowerShell
 
-#### <a name="install-azure-powershell"></a>安裝 Azure PowerShell
-如果您的電腦上沒有最新的 Azure PowerShell，請加以安裝。 
+#### <a name="install-powershell"></a>安裝 PowerShell
+如果您的電腦上沒有最新的 PowerShell，請加以安裝。 
 
 1. 在網頁瀏覽器中，瀏覽至 [Azure SDK 下載和 SDK](https://azure.microsoft.com/downloads/) 頁面。 
 2. 按一下 [命令列工具] -> [PowerShell] 區段中的 [Windows 安裝]。 
@@ -116,9 +113,9 @@ ms.lasthandoff: 11/20/2017
 
 如需詳細指示，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/install-azurerm-ps)。 
 
-#### <a name="log-in-to-azure-powershell"></a>登入 Azure PowerShell
+#### <a name="log-in-to-powershell"></a>登入 PowerShell
 
-1. 在您的電腦上啟動 **PowerShell**。 保持開啟 Azure PowerShell，直到本快速入門結束為止。 如果您關閉並重新開啟，則需要再次執行這些命令。
+1. 在您的電腦上啟動 **PowerShell**。 讓 PowerShell 視窗保持開啟，直到本快速入門結束為止。 如果您關閉並重新開啟，則需要再次執行這些命令。
 
     ![啟動 PowerShell](media/tutorial-hybrid-copy-powershell/search-powershell.png)
 1. 執行下列命令，並輸入您用來登入 Azure 入口網站的 Azure 使用者名稱和密碼：
@@ -142,25 +139,28 @@ ms.lasthandoff: 11/20/2017
 1. 定義資源群組名稱的變數，以便稍後在 PowerShell 命令中使用。 將下列命令文字複製到 PowerShell，以雙引號指定 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱，然後執行命令。 例如： `"adfrg"`。 
    
      ```powershell
-    $resourceGroupName = "<Specify a name for the Azure resource group>"
+    $resourceGroupName = "ADFTutorialResourceGroup"
     ```
-2. 定義資料處理站名稱的變數，以便稍後在 PowerShell 命令中使用。 
-
-    ```powershell
-    $dataFactoryName = "<Specify a name for the data factory. It must be globally unique.>"
-    ```
-1. 定義 Data Factory 位置的變數： 
-
-    ```powershell
-    $location = "East US"
-    ```
-4. 若要建立 Azure 資源群組，請執行下列命令： 
+2. 若要建立 Azure 資源群組，請執行下列命令： 
 
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
     ``` 
 
-    如果資源群組已經存在，您可能不想覆寫它。 將不同的值指派給 `$resourceGroupName` 變數，然後執行一次命令。   
+    如果資源群組已經存在，您可能不想覆寫它。 將不同的值指派給 `$resourceGroupName` 變數，然後執行一次命令。
+3. 定義資料處理站名稱的變數，以便稍後在 PowerShell 命令中使用。 名稱必須以字母或數字開頭，並且只能包含字母、數字和虛線 (-) 字元。
+
+    > [!IMPORTANT]
+    >  將資料處理站名稱更新為全域唯一的。 例如，ADFTutorialFactorySP1127。 
+
+    ```powershell
+    $dataFactoryName = "ADFTutorialFactory"
+    ```
+1. 定義 Data Factory 位置的變數： 
+
+    ```powershell
+    $location = "East US"
+    ```  
 5. 若要建立 Data Factory，請執行下列 **Set-AzureRmDataFactoryV2** Cmdlet： 
     
     ```powershell       
@@ -182,12 +182,12 @@ ms.lasthandoff: 11/20/2017
 
 在本節中，您可以建立自我裝載整合執行階段，並使用 SQL Server 資料庫將它與內部部署電腦產生關聯。 自我裝載的整合執行階段是一項元件，可將資料從您電腦上的 SQL Server 複製到 Azure blob 儲存體。 
 
-1. 建立整合執行階段名稱的變數。 記下此名稱。 您將在本教學課程稍後使用它。 
+1. 建立整合執行階段名稱的變數。 使用唯一的名稱，並記下此名稱。 您將在本教學課程稍後使用它。 
 
     ```powershell
-   $integrationRuntimeName = "<your integration runtime name>"
+   $integrationRuntimeName = "ADFTutorialIR"
     ```
-1. 建立自我裝載整合執行階段。 請使用唯一名稱，以防有另一個同名的整合執行階段存在。
+1. 建立自我裝載整合執行階段。 
 
    ```powershell
    Set-AzureRmDataFactoryV2IntegrationRuntime -Name $integrationRuntimeName -Type SelfHosted -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName
@@ -230,7 +230,7 @@ ms.lasthandoff: 11/20/2017
    State                     : NeedRegistration
    ```
 
-3. 執行下列命令來取出**驗證金鑰**，用以向雲端中的 Data Factory 服務註冊自我裝載整合執行階段。 複製其中一個金鑰 (排除雙引號括住)，以註冊您在下一個步驟中安裝於電腦上的自我裝載整合執行階段。  
+3. 執行下列命令來取出**驗證金鑰**，用以向雲端中的 Data Factory 服務註冊自我裝載整合執行階段。 
 
    ```powershell
    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
@@ -243,7 +243,8 @@ ms.lasthandoff: 11/20/2017
        "AuthKey1":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=",
        "AuthKey2":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy="
    }
-   ```
+   ```    
+4. 複製其中一個金鑰 (排除雙引號括住)，以註冊您在下一個步驟中安裝於電腦上的自我裝載整合執行階段。  
 
 ## <a name="install-integration-runtime"></a>安裝整合執行階段
 1. 在本機 Windows 電腦上[下載](https://www.microsoft.com/download/details.aspx?id=39717)自我裝載的整合執行階段並執行安裝。 
@@ -283,6 +284,7 @@ ms.lasthandoff: 11/20/2017
     - 輸入**使用者**名稱。 
     - 輸入使用者名稱的**密碼**。
     - 按一下 [測試] 以確認整合執行階段可以連線到 SQL Server。 如果連線成功，您會看到綠色的核取記號。 否則，您會看到與失敗相關的錯誤訊息。 修正所有問題，並確定整合執行階段可連線到您的 SQL Server。
+    - 請記下這些值 (驗證類型、伺服器、資料庫、使用者、密碼)。 您稍後會在本教學課程中用到。 
     
       
 ## <a name="create-linked-services"></a>建立連結的服務
@@ -294,7 +296,7 @@ ms.lasthandoff: 11/20/2017
 1. 在 **C:\ADFv2Tutorial** 資料夾中，使用下列內容建立名為 **AzureStorageLinkedService.json** 的 JSON 檔案：如果 ADFv2Tutorial 資料夾尚不存在，請加以建立。  
 
     > [!IMPORTANT]
-    > 儲存檔案前，以 Azure 儲存體帳戶的名稱和金鑰取代 &lt;accountName&gt; 和 &lt;accountKey&gt;。
+    > 儲存檔案前，以 **Azure 儲存體帳戶**的名稱和金鑰取代 &lt;accountName&gt; 和 &lt;accountKey&gt;。 您已記下這些資料，作為[必要條件](#get-storage-account-name-and-account-key)的一部分。
 
    ```json
     {
@@ -310,6 +312,8 @@ ms.lasthandoff: 11/20/2017
         "name": "AzureStorageLinkedService"
     }
    ```
+
+    如果使用 [記事本]，請在 [另存新檔] 對話方塊的 [存檔類型] 欄位中選取 [所有檔案]。 否則，它可能會將 `.txt` 副檔名新增至檔案。 例如： `AzureStorageLinkedService.json.txt`。 如果您在 [檔案總管] 中建立檔案，然後在 [記事本] 中開啟該檔案，您可能不會看到 `.txt` 副檔名，因為預設已設定 [隱藏已知檔案類型的副檔名] 選項。 先移除 `.txt` 副檔名，再繼續下一個步驟。 
 2. 在 **Azure PowerShell** 中，切換至 **C:\ADFv2Tutorial** 資料夾。
 
    執行 **Set-AzureRmDataFactoryV2LinkedService** Cmdlet 來建立連結服務：**AzureStorageLinkedService**。 
@@ -326,6 +330,8 @@ ms.lasthandoff: 11/20/2017
     DataFactoryName   : onpremdf0914
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureStorageLinkedService
     ```
+
+    如果您收到「找不到檔案」錯誤。 執行 `dir` 命令來確認檔案存在。 如果檔案名稱具有 `.txt` 副檔名 (例如，AzureStorageLinkedService.json.txt)，請將它移除，然後再次執行 PowerShell 命令。 
 
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>建立及加密 SQL Server 連結服務 (來源)
 在此步驟中，您要將內部部署 SQL Server 連結至 Data Factory。
@@ -366,7 +372,7 @@ ms.lasthandoff: 11/20/2017
                     "type": "SecureString",
                     "value": "Server=<server>;Database=<database>;Integrated Security=True"
                 },
-                "userName": "<domain>\\<user>",
+                "userName": "<user> or <domain>\\<user>",
                 "password": {
                     "type": "SecureString",
                     "value": "<password>"
@@ -384,7 +390,7 @@ ms.lasthandoff: 11/20/2017
     > - 以您用於連線到 SQL Server 的**驗證**作為基礎，選取右側區段。
     > - 以您的整合執行階段名稱取代 **&lt;integration****runtime** **name>**。
     > - 儲存檔案之前，以您 SQL Server 的值取代 **&lt;servername>**、**&lt;databasename>**、**&lt;username>** 和 **&lt;password>**。
-    > - 如果您需要在使用者帳戶或伺服器名稱中使用斜線字元 (`\`)，請使用逸出字元 (`\`)。 例如 `mydomain\\myuser`。 
+    > - 如果您需要在使用者帳戶或伺服器名稱中使用斜線字元 (`\`)，請使用逸出字元 (`\`)。 例如： `mydomain\\myuser`。 
 
 2. 若要加密敏感性資料 (使用者名稱、密碼等)，請執行 **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** Cmdlet。 此加密可確保使用資料保護應用程式開發介面 (DPAPI) 來加密認證。 已加密的認證會本機儲存在自我裝載的整合執行階段節點 (本機電腦) 上。 輸出承載可以重新導向至另一個包含加密認證的 JSON 檔案 (在此案例中是 'encryptedLinkedService.json')。
     

@@ -15,13 +15,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/01/2017
+ms.date: 08/02/2017
 ms.author: ayolubek
-ms.openlocfilehash: 788b9d2e7ff9e1dba2aca5eca982e4ddf045a6c4
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: ae7ce2c138a9948654d96e018c167d12356ae93d
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure 入口網站：使用 SQL 查詢編輯器進行連線並查詢資料
 
@@ -29,12 +29,9 @@ SQL 查詢編輯器是瀏覽器查詢工具，可讓您有效率且輕鬆地在 
 
 ## <a name="prerequisites"></a>必要條件
 
-本快速入門可做為在其中一個快速入門中建立之資源的起點︰
+本快速入門可作為在其中一個快速入門中所建立資源的起點︰
 
-- [建立 DB - 入口網站](sql-database-get-started-portal.md)
-- [建立 DB - CLI](sql-database-get-started-cli.md)
-- [建立 DB - PowerShell](sql-database-get-started-powershell.md)
-
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 ## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
 

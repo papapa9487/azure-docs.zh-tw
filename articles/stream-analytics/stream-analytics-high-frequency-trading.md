@@ -15,23 +15,28 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/05/2017
 ms.author: zhongc
-ms.openlocfilehash: 0a5a1129c5b7fc693ed7c187d928a128650f28b9
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f25a27a86b366b2302657c44108cd823b0384831
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>使用串流分析進行高頻率交易模擬
-Azure 串流分析的 SQL 語言、JavaScript UDF 和 UDA 的組合是強大的組合，可讓使用者執行進階分析，包括線上機器學習訓練和評分，以及可設定狀態的程序模擬。 本文說明如何在 Azure 串流分析作業中執行線性迴歸，以在高頻率的交易案例中進行連續訓練和評分。
+Azure 串流分析中的 SQL 語言、JavaScript 使用者定義函式 (UDF) 和使用者定義彙總 (UDA) 組合，讓使用者能夠執行進階分析。 進階分析可能包含線上機器學習訓練和評分，以及可設定狀態的程序模擬。 本文說明如何在 Azure 串流分析作業中執行線性迴歸，以在高頻率的交易案例中進行連續訓練和評分。
 
 ## <a name="high-frequency-trading"></a>高頻率交易
-高頻率交易的邏輯流程是有關從證券交易所取得即時報價，建立以報價為主的預測模型，我們便可以預測價格變動，並據此提出買入或賣出訂單，以便從成功的價格變動預測中獲利。 因此，我們需要下列項目
-* 即時報價摘要
-* 可對即時報價操作的預測模型
-* 可示範交易演算法損益的交易模擬
+高頻率交易的邏輯流程是關於：
+1. 從證券交易所取得即時報價。
+2. 建立以報價為主的預測模型，所以我們可以預期價格變動。
+3. 提出買單或賣單，從成功的價格變動預測獲利。 
+
+因此，我們需要：
+* 即時報價摘要。
+* 可對即時報價操作的預測模型。
+* 可示範交易演算法損益的交易模擬。
 
 ### <a name="real-time-quote-feed"></a>即時報價摘要
-IEX 使用 socket.io (https://iextrading.com/developer/docs/#websockets) 提供免費的即時買賣方報價。 您可以撰寫簡單的主控台程式來接收即時報價並推送到事件中樞作為資料來源。 此程式的基本架構如下所示。 為求簡單明瞭，會忽略錯誤處理。 您還必須在您的專案中包含 SocketIoClientDotNet 和 WindowsAzure.ServiceBus nuget 套件。
+IEX 使用 socket.io 提供免費的[即時買賣方報價](https://iextrading.com/developer/docs/#websockets)。 您可以撰寫簡單的主控台程式來接收即時報價並推送到 Azure 事件中樞作為資料來源。 下列程式碼是此程式的基本架構。 為求簡單明瞭，此程式碼會忽略錯誤處理。 您還必須在您的專案中包含 SocketIoClientDotNet 和 WindowsAzure.ServiceBus NuGet 套件。
 
 
     using Quobject.SocketIoClientDotNet.Client;
@@ -51,7 +56,7 @@ IEX 使用 socket.io (https://iextrading.com/developer/docs/#websockets) 提供�
         socket.Emit("subscribe", symbols);
     });
 
-以下是所產生的一些範例事件。
+以下是所產生的一些範例事件：
 
     {"symbol":"MSFT","marketPercent":0.03246,"bidSize":100,"bidPrice":74.8,"askSize":300,"askPrice":74.83,"volume":70572,"lastSalePrice":74.825,"lastSaleSize":100,"lastSaleTime":1506953355123,"lastUpdated":1506953357170,"sector":"softwareservices","securityType":"commonstock"}
     {"symbol":"GOOG","marketPercent":0.04825,"bidSize":114,"bidPrice":870,"askSize":0,"askPrice":0,"volume":11240,"lastSalePrice":959.47,"lastSaleSize":60,"lastSaleTime":1506953317571,"lastUpdated":1506953357633,"sector":"softwareservices","securityType":"commonstock"}
@@ -65,15 +70,17 @@ IEX 使用 socket.io (https://iextrading.com/developer/docs/#websockets) 提供�
 >事件的時間戳記為 **lastUpdated** (epoch 時間)。
 
 ### <a name="predictive-model-for-high-frequency-trading"></a>高頻率交易的預測模型
-為了進行示範，我們使用 Darryl Shen 在他的論文中說明的線性模型。 http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf。
+為了進行示範，我們使用 Darryl Shen 在[他的論文](http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf)中說明的線性模型。
 
-數量委託單不平衡 (VOI) 是目前買入/賣出價格和數量的函式，以及最後一個檔位中買入/賣出價格/數量的函式。 本文件可識別 VOI 與未來價格變動之間的相互關聯，並建立過去 5 個 VOI 值與接下來 10 個檔位中價格變動之間的線性模型。 使用前一天的資料搭配線性迴歸來訓練模型。 定型的模型接著用於對目前交易日中的報價，進行即時的價格變動預測。 預測到夠大的價格變動時，就會執行交易。 根據臨界值設定，一檔股票在一個交易日中可能會有數千筆交易。
+數量委託單不平衡 (VOI) 是目前買入/賣出價格和數量的函式，以及最後一個檔位中買入/賣出價格和數量的函式。 本文件可識別 VOI 與未來價格變動之間的相互關聯。 它建立過去 5 個 VOI 值與接下來 10 個檔位中價格變動之間的線性模型。 使用前一天的資料搭配線性迴歸來訓練模型。 
+
+定型的模型接著用於對目前交易日中的報價，進行即時的價格變動預測。 預測到夠大的價格變動時，就會執行交易。 根據臨界值設定，一檔股票在一個交易日中可能會有數千筆交易。
 
 ![VOI 定義](./media/stream-analytics-high-frequency-trading/voi-formula.png)
 
 現在，讓我們加快 Azure 串流分析作業中的訓練和預測作業。
 
-首先會清除輸入。 Epoch 時間會使用 **DATEADD** 轉換成日期時間。 **TRY_CAST** 用來強制資料類型，而不會查詢失敗。 將輸入欄位轉換為預期的資料類型，一直是理想的做法，如此欄位的操作或比較就不會出現非預期的行為。
+首先會清除輸入。 Epoch 時間會透過 **DATEADD** 轉換成日期時間。 **TRY_CAST** 用來強制資料類型，而不會查詢失敗。 將輸入欄位轉換為預期的資料類型，一直是理想的做法，如此欄位的操作或比較就不會出現非預期的行為。
 
     WITH
     typeconvertedquotes AS (
@@ -93,7 +100,7 @@ IEX 使用 socket.io (https://iextrading.com/developer/docs/#websockets) 提供�
     ),
     timefilteredquotes AS (
         /* filter between 7am and 1pm PST, 14:00 to 20:00 UTC */
-        /* cleanup invalid data points */
+        /* clean up invalid data points */
         SELECT * FROM typeconvertedquotes
         WHERE DATEPART(hour, lastUpdated) >= 14 AND DATEPART(hour, lastUpdated) < 20 AND bidSize > 0 AND askSize > 0 AND bidPrice > 0 AND askPrice > 0
     ),
@@ -116,7 +123,7 @@ IEX 使用 socket.io (https://iextrading.com/developer/docs/#websockets) 提供�
         FROM timefilteredquotes
     ),
 
-然後，我們可以計算 VOI 值。 請注意，如果先前的檔位不存在，我們會篩選出 null 值，以防萬一。
+然後，我們可以計算 VOI 值。 如果先前的檔位不存在，我們會篩選出 null 值，以防萬一。
 
     currentPriceAndVOI AS (
         /* calculate VOI */
@@ -230,7 +237,7 @@ IEX 使用 socket.io (https://iextrading.com/developer/docs/#websockets) 提供�
         FROM modelparambs
     ),
 
-為了將前一天的模型用於目前事件的評分，我們想要透過此模型加入報價。 不過，我們不會在此使用 **JOIN**，而會 **UNION** 模型事件和報價事件，然後使用 **LAG** 來配對事件與前一天的模型，因此可以取得正好一個相符項目。 因為是週末，我們必須回頭查看三天。 如果直接使用 **JOIN**，則每個報價事件會得到三個模型。
+為了將前一天的模型用於目前事件的評分，我們想要透過此模型加入報價。 不過，我們不會使用 **JOIN**，而會 **UNION** 模型事件和報價事件。 然後使用 **LAG** 來配對事件與前一天的模型，因此可以取得正好一個相符項目。 因為是週末，我們必須回頭查看三天。 如果直接使用 **JOIN**，則每個報價事件會得到三個模型。
 
     shiftedVOI AS (
         /* get two consecutive VOIs */
@@ -266,7 +273,7 @@ IEX 使用 socket.io (https://iextrading.com/developer/docs/#websockets) 提供�
         FROM model
     ),
     VOIANDModelJoined AS (
-        /* match VOIs with the latest model within 3 days (72 hours, to take weekend into account) */
+        /* match VOIs with the latest model within 3 days (72 hours, to take the weekend into account) */
         SELECT
             symbol,
             midPrice,
@@ -279,7 +286,7 @@ IEX 使用 socket.io (https://iextrading.com/developer/docs/#websockets) 提供�
         WHERE type = 'voi'
     ),
 
-現在，我們可以進行預測並產生以模型為基礎的買賣訊號 (臨界值為 0.02)。 交易值為 10 表示買進；交易值為 -10 表示買出。
+現在，我們可以進行預測並產生以模型為基礎的買賣訊號 (臨界值為 0.02)。 交易值為 10 表示買進。 交易值為 -10 表示賣出。
 
     prediction AS (
         /* make prediction if there is a model */
@@ -308,11 +315,13 @@ IEX 使用 socket.io (https://iextrading.com/developer/docs/#websockets) 提供�
     ),
 
 ### <a name="trading-simulation"></a>交易模擬
-一旦擁有交易訊號，我們會想測試交易策略的有效性，而不需實際進行交易。 這可利用使用者定義彙總 (UDA)，透過跳動視窗 (每一分鐘跳動一次) 來達成。 其他日期群組和 having 子句允許此視窗只考量屬於同一天的事件。 對於橫跨兩天的跳動視窗，**GROUP BY** 日期會將群分為前一天和當天。 **HAVING** 子句會篩選出在當天結束、但在前一天分組的視窗。
+擁有交易訊號之後，我們想測試交易策略的有效性，而不需實際進行交易。 
+
+我們透過跳動視窗 (每一分鐘跳動)，使用 UDA 來達成這項測試。 其他日期群組和 having 子句允許此視窗只考量屬於同一天的事件。 對於橫跨兩天的跳動視窗，**GROUP BY** 日期會將群組分為前一天和當天。 **HAVING** 子句會篩選出在當天結束、但在前一天分組的視窗。
 
     simulation AS
     (
-        /* perform trade simulation for the past 7 hours to cover an entire trading day, generate output every minute */
+        /* perform trade simulation for the past 7 hours to cover an entire trading day, and generate output every minute */
         SELECT
             DateAdd(hour, -7, System.Timestamp) AS time,
             symbol,
@@ -323,7 +332,13 @@ IEX 使用 socket.io (https://iextrading.com/developer/docs/#websockets) 提供�
         Having DateDiff(day, date, time) < 1 AND DATEPART(hour, time) < 13
     )
 
-JavaScript UDA 會初始化 init 函式中的所有累加器、以新增至視窗的每個事件計算狀態轉換，並在視窗結尾傳回模擬結果。 一般交易程序是在收到買入信號且沒有任何持股時買入股票；在收到賣出訊號而且有持股時賣出股票，若沒有任何持股則放空。 如果出現空頭，而且收到買入訊號，則空單補回。 我們從未在此模擬中持有或放空指定的股票 10 股，而且交易成本一律為 $8。
+JavaScript UDA 會初始化 `init` 函式中的所有累加器、以新增至視窗的每個事件計算狀態轉換，並在視窗結尾傳回模擬結果。 一般交易程序是：
+
+- 在收到購買訊號而且沒有庫存持股時，買入股票。
+- 在收到賣出訊號而且有庫存持股時，賣出股票。
+- 如果沒有任何持股，則買空。 
+
+如果出現空頭，而且收到買入訊號，我們會空單補回。 我們從未在此模擬中持有或放空 10 股的股票。 交易成本一律為 $8。
 
 
     function main() {
@@ -432,6 +447,10 @@ JavaScript UDA 會初始化 init 函式中的所有累加器、以新增至視�
 
 
 ## <a name="summary"></a>摘要
-如您所見，可以在 Azure 串流分析中使用適度複雜的查詢來實作實際高頻率的交易模型。 因為缺少內建線性迴歸變數，所以我們必須將模型從五個輸入變數簡化為兩個。 不過，對於下定決心的使用者而言，具有更高維度和複雜度的演算法也可能實作為 JavaScript UDA。 值得注意的是，JavaScript UDA 以外的大部分查詢，都可以透過[適用於 Visual Studio 的 Azure 串流分析工具](stream-analytics-tools-for-visual-studio.md)在 Visual Studio 內進行測試和偵錯。 寫入初始查詢之後，作者花不到 30 分鐘的時間在 Visual Studio 中進行查詢測試和偵錯。 目前，UDA 無法在 Visual Studio 中偵錯。 我們正在研究如何透過逐步執行 JavaScript 程式碼的能力來啟用該功能。 此外，請注意達到 UDA 的欄位具有全小寫的欄位名稱。 這不是查詢測試期間的明顯行為。 不過，使用 Azure 串流分析相容性層級 1.1，我們允許保留欄位名稱大小寫，所以此行為更加自然。
+我們可以在 Azure 串流分析中，使用適度複雜的查詢來實作實際高頻率的交易模型。 因為缺少內建線性迴歸變數，所以我們必須將模型從五個輸入變數簡化為兩個。 但是對於下定決心的使用者而言，具有更高維度和複雜度的演算法也可能實作為 JavaScript UDA。 
+
+值得注意的是，JavaScript UDA 以外的大部分查詢，都可以透過[適用於 Visual Studio 的 Azure 串流分析工具](stream-analytics-tools-for-visual-studio.md)在 Visual Studio 中進行測試和偵錯。 寫入初始查詢之後，作者花不到 30 分鐘的時間在 Visual Studio 中進行查詢測試和偵錯。 
+
+目前，UDA 無法在 Visual Studio 中偵錯。 我們正在研究如何透過逐步執行 JavaScript 程式碼的能力來啟用該功能。 此外，請注意達到 UDA 的欄位具有小寫名稱。 這不是查詢測試期間的明顯行為。 但使用 Azure 串流分析相容性層級 1.1，我們會保留欄位名稱大小寫，所以此行為更加自然。
 
 我希望這篇文章可以鼓舞所有的 Azure 串流分析使用者，他們可以使用我們的服務持續執行幾近即時的進階分析。 請讓我們知道您的任何意見反應，進而讓實作進階分析案例的查詢變得更輕鬆。

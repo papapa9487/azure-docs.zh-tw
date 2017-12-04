@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/31/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: bb9c19bb489873d1a2175f4a85f7654a3bf099b8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c073cb28f5c37a402c04d5315d7f8e18de8a1b26
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>管理多部機器的更新
 
@@ -87,6 +87,16 @@ Linux 代理程式必須能夠存取更新存放庫。
 如需有關如何為非 Azure Windows 虛擬機器和電腦啟用更新管理的指示，請參閱[將 Windows 電腦連線到 Azure 中的 Log Analytics 服務](../log-analytics/log-analytics-windows-agents.md)。
 
 如需有關如何為非 Azure Linux 虛擬機器和電腦啟用更新管理的指示，請參閱[將您的 Linux 電腦連線到 Log Analytics](../log-analytics/log-analytics-agent-linux.md)。
+
+## <a name="view-computers-attached-to-your-automation-account"></a>檢視自動化帳戶連結的電腦
+啟用您的電腦的更新管理之後，您可以按一下 [電腦] 來檢視其資訊。 可取得電腦資訊，例如 [名稱]、[合規性]、[環境]、[OS 類型]、[重大和安全性更新] 及 [其他更新]。 
+
+  ![檢視電腦索引標籤](./media/manage-update-multi/update-computers-tab.png)
+
+若為最近啟用更新管理的電腦，它們可能尚未評估。 這些電腦的合規性狀態會是 [未評估]。  以下是合規性狀態的值清單：
+* 符合規範 – 未錯過重大或安全性更新的電腦。
+* 不符合規範 – 至少錯過一次重大或安全性更新的電腦。
+* 未評估 – 在預期的時間範圍內，未收到來自電腦的更新評估資料。  Linux 電腦為過去 3 小時內，Windows 電腦則為過去 12 小時內。  
 
 ## <a name="view-an-update-assessment"></a>檢視更新評估
 

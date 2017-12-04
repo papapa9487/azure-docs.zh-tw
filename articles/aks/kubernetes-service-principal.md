@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: af27d01108cbfb3bd71023ffbce85f348abb0cfe
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 359887a8527d5432e705d9739e30f0eb2363e34f
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>服務主體與 Azure Container Service (AKS)
 
@@ -43,7 +43,7 @@ AKS 叢集需要 [Azure Active Directory 服務主體](../active-directory/devel
 在下列範例中，會建立 AKS 叢集，因為未指定現有服務主體，所以會為叢集建立服務主體。 為了完成這項作業，您的帳戶必須具有建立服務主體的適當權限。
 
 ```azurecli
-az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys
+az aks create --name myK8SCluster --resource-group myResourceGroup --generate-ssh-keys
 ```
 
 ## <a name="use-an-existing-sp"></a>使用現有的 SP
@@ -52,8 +52,6 @@ az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 當使用現有的服務主體時，它必須符合下列需求：
 
-- 範圍：用來部署叢集的訂用帳戶
-- 角色：參與者
 - 用戶端密碼：必須是秘密
 
 ## <a name="pre-create-a-new-sp"></a>預先建立新 SP
@@ -61,8 +59,7 @@ az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 若要使用 Azure CLI 建立服務主體，請使用 [az ad sp create-for-rbac]() 命令。
 
 ```azurecli
-id=$(az account show --query id --output tsv)
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$id"
+az ad sp create-for-rbac --skip-assignment
 ```
 
 輸出大致如下。 記下 `appId` 和 `password`。 建立 AKS 叢集時，會使用這些值。
@@ -82,7 +79,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$id"
 當使用預先建立的服務主體時，提供 `appId` 和 `password` 作為 `az aks create` 命令的引數值。
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> ----client-secret <password>
+az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> --client-secret <password>
 ```
 
 如果從 Azure 入口網站部署 AKS 叢集，請在 AKS 叢集設定表單中輸入這些值。
@@ -99,6 +96,7 @@ az aks create --resource-group myResourceGroup --name myK8SCluster --service-pri
 * 在 Kubernetes 叢集中的主要和節點 VM 上，服務主體認證會儲存在 /etc/kubernetes/azure.json 檔案中。
 * 當您使用 `az aks create` 命令自動產生服務主體時，服務主體認證會寫入用來執行命令之電腦上的 ~/.azure/acsServicePrincipal.json 檔案。
 * 當您使用 `az aks create` 命令自動產生服務主體時，服務主體也可以向在訂用帳戶中建立的 [Azure Container Registry](../container-registry/container-registry-intro.md) 進行驗證。
+* 刪除 `az aks create` 所建立的 AKS 叢集時，將不會刪除自動建立的服務主體。 您可以使用 `az ad sp delete --id $clientID` 將它刪除。
 
 ## <a name="next-steps"></a>後續步驟
 
