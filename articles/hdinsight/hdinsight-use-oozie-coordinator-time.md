@@ -663,7 +663,7 @@ Azure PowerShell 目前並未提供任何用以定義 Oozie 工作的 Cmdlet。 
     # killOozieJob($oozieJobId)
     ```
 
-Remove the # signs if you want to run the additional functions.
+如果您想執行其他函式，請移除 # 符號
 
 9. 如果您的 HDinsight 叢集是 2.1 版，請將 "https://$clusterName.azurehdinsight.net:443/oozie/v2/" 取代為 "https://$clusterName.azurehdinsight.net:443/oozie/v1/"。 HDInsight 叢集 2.1 版不支援 Web 服務的第 2 版。
 10. 按一下 [執行指令碼] 或按 [F5]，以執行指令碼。 輸出將類似於：
