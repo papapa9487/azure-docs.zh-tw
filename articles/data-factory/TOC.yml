@@ -34,7 +34,14 @@
     - name: 4 - 複製大量資料
       href: tutorial-bulk-copy.md
     - name: 5 - 以累加方式複製資料
-      href: tutorial-incremental-copy-powershell.md
+      href: tutorial-incremental-copy-overview.md
+      items:
+        - name: 5.1 - 從資料表複製
+          href: tutorial-incremental-copy-powershell.md
+        - name: 5.2 - 從多個資料表複製
+          href: tutorial-incremental-copy-multiple-tables-powershell.md
+        - name: 5.3 - 使用變更追蹤功能
+          href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6 - 轉換雲端中的資料
       href: tutorial-transform-data-spark-powershell.md
     - name: 7 - 轉換虛擬網路中的資料
@@ -228,6 +235,16 @@
           href: create-azure-ssis-integration-runtime.md
         - name: 將 Azure SSIS 整合執行階段新增至 VNET
           href: join-azure-ssis-integration-runtime-virtual-network.md
+    - name: 在 Azure 中執行 SSIS 套件
+      items:
+        - name: 建立 Azure-SSIS 整合執行階段
+          href: create-azure-ssis-integration-runtime.md
+        - name: 將 Azure SSIS 整合執行階段新增至 VNET
+          href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: 管理 Azure-SSIS 整合執行階段
+          href: manage-azure-ssis-integration-runtime.md
+        - name: 設定 Azure-SSIS 整合執行階段效能
+          href: configure-azure-ssis-integration-runtime-performance.md
 - name: 參考
   items:
     - name: .NET

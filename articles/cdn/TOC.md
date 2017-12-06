@@ -20,16 +20,19 @@
  
 ## 管理
 ### [使用 Azure PowerShell 管理](cdn-manage-powershell.md)
+### [依國家/地區限制存取](cdn-restrict-access-by-country.md)
+### [藉由壓縮檔案來改善效能](cdn-improve-performance.md)
+### 控制快取行為
+#### [快取如何運作](cdn-how-caching-works.md)
+#### [透過快取規則控制快取行為](cdn-caching-rules.md)
+#### 依查詢字串區分的快取內容
+##### [標準層](cdn-query-string.md)
+##### [進階層](cdn-query-string-premium.md)
+#### [清除快取的資產](cdn-purge-endpoint.md)
+#### [預先載入快取資產](cdn-preload-endpoint.md)
 ### 設定存留時間
 #### [Azure 網頁內容](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Azure Blob 儲存體](cdn-manage-expiration-of-blob-content.md)
-### [依國家/地區限制存取](cdn-restrict-access-by-country.md)
-### [藉由壓縮檔案來改善效能](cdn-improve-performance.md)
-### 依查詢字串的快取內容
-#### [標準層](cdn-query-string.md)
-#### [進階層](cdn-query-string-premium.md)
-### [清除快取的資產](cdn-purge-endpoint.md)
-### [預先載入快取資產](cdn-preload-endpoint.md)
 ### [權杖驗證](cdn-token-auth.md)
 ### [監視資源](cdn-resource-health.md)
 ### [使用規則覆寫行為](cdn-rules-engine.md)
