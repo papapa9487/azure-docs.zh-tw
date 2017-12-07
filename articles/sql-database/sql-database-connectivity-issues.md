@@ -14,13 +14,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 11/29/2017
 ms.author: daleche
-ms.openlocfilehash: dda284b45e2e8a35a7228d77afef0ad058c8ea42
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1db0dee597ffe60c587e7bacd00640a308d04e99
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>排解、診斷和防止 SQL Database 的 SQL 連接錯誤和暫時性錯誤
 本文描述如何防止、排解、診斷和減少您的用戶端應用程式在與 Azure SQL Database 互動時發生的連接錯誤和暫時性錯誤。 了解如何設定重試邏輯、建置連接字串和調整其他連接設定。
@@ -40,16 +40,17 @@ ms.lasthandoff: 11/04/2017
 * **嘗試連接期間發生暫時性錯誤**：應該在延遲數秒後重試連接。
 * **執行 SQL 查詢命令期間發生暫時性錯誤**：不應該立即重試命令。 而是在延遲之後，應該建立全新的連接。 然後，可以重試命令。
 
+
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 
-### <a name="retry-logic-for-transient-errors"></a>暫時性錯誤的重試邏輯
+## <a name="retry-logic-for-transient-errors"></a>暫時性錯誤的重試邏輯
 用戶端程式若包含重試邏輯，在偶爾遇到暫時性錯誤時就會更可靠。
 
 當您的程式透過第三方中介軟體與 Azure SQL Database 進行通訊時，請洽詢廠商中介軟體是否包含暫時性錯誤的重試邏輯。
 
 <a id="principles-for-retry" name="principles-for-retry"></a>
 
-#### <a name="principles-for-retry"></a>重試原則
+### <a name="principles-for-retry"></a>重試原則
 * 如果是暫時性錯誤，則應該重新嘗試開啟連接。
 * 不應該直接重試由於暫時性錯誤而失敗的 SQL SELECT 陳述式。
   
@@ -58,30 +59,31 @@ ms.lasthandoff: 11/04/2017
   
   * 重試邏輯必須確保整個資料庫交易完成，或整個交易已復原。
 
-#### <a name="other-considerations-for-retry"></a>其他重試考量
+### <a name="other-considerations-for-retry"></a>其他重試考量
 * 下班後自動啟動的批次程式，以及將在早上前完成的批次程式，可以進行長時間間隔的重試。
 * 使用者介面程式應該說明了人類將在長時間等候後放棄的傾向。
   
   * 不過，方案不得每隔幾秒鐘重試，因為該原則可能讓系統充斥要求。
 
-#### <a name="interval-increase-between-retries"></a>增加重試之間的間隔
+### <a name="interval-increase-between-retries"></a>增加重試之間的間隔
 我們建議您在您第一次重試前延遲 5 秒鐘。 在少於 5 秒的延遲後重試，雲端服務會有超過負荷的風險。 對於後續每次重試，延遲應以指數方式成長，最大值為 60 秒。
 
 在 [SQL Server 連接集區 (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx) 中可找使用 ADO.NET 之用戶端的封鎖期間討論。
 
 您也可能想要設定程式在自行終止之前的重試次數上限。
 
-#### <a name="code-samples-with-retry-logic"></a>具有重試邏輯的程式碼範例
-各種程式設計語言中具有重試邏輯的程式碼範例位於：
+### <a name="code-samples-with-retry-logic"></a>具有重試邏輯的程式碼範例
+使用重試邏輯的程式碼範例位於：
 
-* [SQL Database 和 SQL Server 的連線庫](sql-database-libraries.md)
+- [使用 ADO.NET 復原連線 SQL][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [使用 PHP 復原連線 SQL][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
-#### <a name="test-your-retry-logic"></a>測試您的重試邏輯
+### <a name="test-your-retry-logic"></a>測試您的重試邏輯
 若要測試您的重試邏輯，您必須在程式仍在執行時模擬或產生可以更正的錯誤。
 
-##### <a name="test-by-disconnecting-from-the-network"></a>中斷與網路連接以進行測試
+#### <a name="test-by-disconnecting-from-the-network"></a>中斷與網路連接以進行測試
 您可以測試重試邏輯的方法，就是在程式執行時中斷用戶端電腦與網路的連接。 錯誤為：
 
 * **SqlException.Number** = 11001
@@ -98,7 +100,7 @@ ms.lasthandoff: 11/04/2017
    * 使用 **Console.ReadLine** 方法或含 [確定] 按鈕的對話方塊，暫停進一步執行。 將電腦插入網路中之後。使用者按下 Enter 鍵。
 5. 重新嘗試連接，預期成功。
 
-##### <a name="test-by-misspelling-the-database-name-when-connecting"></a>連接時拼錯資料庫名稱以進行測試
+#### <a name="test-by-misspelling-the-database-name-when-connecting"></a>連接時拼錯資料庫名稱以進行測試
 在第一次連接嘗試之前，您的程式可以故意拼錯使用者名稱。 錯誤為：
 
 * **SqlException.Number** = 18456
@@ -114,15 +116,15 @@ ms.lasthandoff: 11/04/2017
 4. 從使用者名稱中移除 'WRONG_'。
 5. 重新嘗試連接，預期成功。
 
+
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
-### <a name="net-sqlconnection-parameters-for-connection-retry"></a>進行連線重試的.NET SqlConnection 參數
+## <a name="net-sqlconnection-parameters-for-connection-retry"></a>進行連線重試的.NET SqlConnection 參數
 如果您的用戶端程式利用 .NET Framework 類別 **System.Data.SqlClient.SqlConnection** 連接到 Azure SQL Database，您應該使用 .NET 4.6.1 或更新版本 (或是 .NET Core)，以利用它的連線重試功能。 此功能的詳細資料在 [這裡](http://go.microsoft.com/fwlink/?linkid=393996)。
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
-
 
 當您為 [SqlConnection](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) 物件建立 **連接字串** 時，您應該調整下列參數的值：
 
@@ -138,7 +140,7 @@ ms.lasthandoff: 11/04/2017
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
-### <a name="connection-versus-command"></a>連接與命令
+## <a name="connection-versus-command"></a>連接與命令
 **ConnectRetryCount** 和 **ConnectRetryInterval** 參數讓您的 **SqlConnection** 物件可重試連接作業，而不需告知或中斷您的程式，例如將控制權傳回您的程式。 可能會在以下情況中發生重試：
 
 * mySqlConnection.Open 方法呼叫
@@ -146,8 +148,9 @@ ms.lasthandoff: 11/04/2017
 
 有一些微妙的差異。 當執行「查詢」  時若發生暫時性錯誤，您的 **SqlConnection** 物件將不會重試連接作業，且絕對不會重試查詢。 不過，在傳送您的查詢以供執行之前， **SqlConnection** 會先快速檢查連接。 如果快速檢查偵測到連接問題， **SqlConnection** 會重試連接作業。 如果重試成功，就會傳送您的查詢以供執行。
 
-#### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>是否應該將 ConnectRetryCount 與應用程式重試邏輯結合？
+### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>是否應該將 ConnectRetryCount 與應用程式重試邏輯結合？
 假設您的應用程式有健全的自訂重試邏輯。 它可能會重試連接作業 4 次。 如果您將 **ConnectRetryInterval** 和 **ConnectRetryCount** =3 加入到連接字串，您會將重試次數增加為 4 * 3 = 12 次重試。 您可能不會想要這麼多的重試次數。
+
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
 
@@ -373,9 +376,7 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
 ### <a name="entlib60-istransient-method-source-code"></a>EntLib60 IsTransient 方法的原始程式碼
 接下來，**IsTransient** 方法的 C# 原始程式碼來自 **SqlDatabaseTransientErrorDetectionStrategy** 類別。 原始程式碼將釐清哪些錯誤會被視為暫時性並值得重試 (從 2013 年 4 月起)。
 
-為了強調可讀性，已從此副本移除許多 **//comment** 行。
-
-```
+```csharp
 public bool IsTransient(Exception ex)
 {
   if (ex != null)
@@ -444,6 +445,14 @@ public bool IsTransient(Exception ex)
 
 ## <a name="next-steps"></a>後續步驟
 * 如需針對其他常見的 Azure SQL Database 連接問題進行疑難排解，請造訪 [針對 Azure SQL Database 連線問題進行疑難排解](sql-database-troubleshoot-common-connection-issues.md)。
-* [SQL Server 連接集區 (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
+* [SQL Database 和 SQL Server 的連線庫](sql-database-libraries.md)
+* [SQL Server 連接集區 (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
 * [重試是 Apache 2.0 授權的一般用途重試文件庫，以 **Python** 撰寫，幾乎可對任何案例加入重試作業。](https://pypi.python.org/pypi/retrying)
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
 

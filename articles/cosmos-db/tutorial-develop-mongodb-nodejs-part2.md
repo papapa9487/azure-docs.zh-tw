@@ -11,14 +11,15 @@ ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: mimig
-ms.openlocfilehash: 48b7da57b23dbd16571c8fa179efd900cdcf21ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: 2ebc6b2584240b7ae450bde3fda4fe8e81d0d903
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-2-create-a-nodejs-express-app-with-the-angular-cli"></a>使用 Angular 和 Azure Cosmos DB 建立 MongoDB 應用程式 - 第 2 部分：使用 Angular CLI 建立 Node.js Expres 應用程式 
 
@@ -128,7 +129,7 @@ ms.lasthandoff: 10/11/2017
    app.listen(port, () => console.log(`API running on localhost:${port}`));
    ```
 
-5. 在 Visual Studio Code 的 總管 窗格中，以滑鼠右鍵按一下 **server** 資料夾，然後按一下新增檔案。 將新檔案命名為 *routes.js*。 
+5. 在 Visual Studio Code 的 [總管] 窗格中，以滑鼠右鍵按一下 **server** 資料夾，然後按一下 [新增檔案]。 將新檔案命名為 *routes.js*。 
 
 6. 將以下程式碼複製到 **routes.js** 中。 此程式碼：
    * 參考 Express 路由器

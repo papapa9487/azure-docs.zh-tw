@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: cbb752692fbd618d9e7e14c8a80b582aad657b38
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d1b2645580c12777ea39816bdcc62cfabc172d16
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api"></a>Azure Cosmos DB：如何使用資料表 API 來查詢資料表資料？
 
@@ -38,7 +38,7 @@ Azure Cosmos DB [資料表 API](table-introduction.md) 支援對索引鍵/值 (�
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jeff | Jeff@contoso.com| 425-555-0104 | 
 
-請參閱 [Querying Tables and Entities (查詢資料表和實體)] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities)，以了解有關如何使用資料表 API 進行查詢的詳細資料。 
+如需怎樣使用資料表 API 進行查詢的詳細資料，請參閱[查詢資料表和實體](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities)。 
 
 如需 Azure Cosmos DB 所提供之進階功能的詳細資訊，請參閱 [Azure Cosmos DB：資料表 API](table-introduction.md) 和[在 .NET 中使用資料表 API 進行開發](tutorial-develop-table-dotnet.md)。 
 

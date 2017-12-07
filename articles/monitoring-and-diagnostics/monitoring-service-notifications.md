@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: d85281c02b792921f12cc62e6d60bef3e7c13b3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efdd42d244710b27fc33154b708cfbe40312e3b0
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="service-health-notifications"></a>服務健康狀態通知
 ## <a name="overview"></a>概觀
 
 本文將說明如何使用 Azure 入口網站檢視服務健康狀態通知。
 
-藉由服務健康狀態通知，您可以檢視由 Azure 團隊發佈的服務健康狀態訊息，而這些訊息可能正影響著您訂用帳戶下的資源。 這些通知是活動記錄事件的子類別，在活動記錄刀鋒視窗上也找的到。 根據不同類別，服務健康狀態通知可以是告知性質或是可操作的性質。
+藉由服務健康狀態通知，您可以檢視由 Azure 團隊發佈的服務健康狀態訊息，而這些訊息可能正影響著您訂用帳戶下的資源。 這些通知是活動記錄事件的子類別，在活動記錄上也找得到。 根據不同類別，服務健康狀態通知可以是告知性質或是可操作的性質。
 
 服務健康狀態通知有五種類別：  
 
-- **需要採取動作：**有時我們會注意到您的帳戶中有異常狀況。 可能需要您的協助以解決問題。 我們會傳送通知給您，其中會詳述您需要採取的動作，或是附上 Azure 工程或支援的詳細連絡方式。  
-- **協助復原︰**事件已發生，且工程師確認您仍受到影響。 工程人員將需要直接與您一起將服務還原。  
+- **需要採取動作：**有時 Azure 會注意到您的帳戶中有異常狀況。 Azure 可能需要您的協助以解決問題。 Azure 會傳送通知給您，其中會詳述您需要採取的動作，或是附上 Azure 工程或支援的詳細連絡方式。  
+- **協助復原︰**事件已發生，且工程師確認您仍受到影響。 Azure 工程人員需要直接與您一起將服務還原為徹底健康的狀態。  
 - **附帶事件 (Incident)︰**受到服務影響的事件 (event) 目前正在影響您訂用帳戶下一個或多個資源。  
 - **維護︰**此通知是告知您會有計劃性維護活動，可能會影響您訂用帳戶下一個或多個資源。  
-- **資訊：**有時我們會傳送通知給您，告知您可能有最佳化方法可協助您改善資源使用率。  
+- **資訊：**有時 Azure 會傳送通知給您，告知您可能有最佳化方法可協助您改善資源使用率。  
 - **安全性︰**緊急的安全性相關資訊，關係到 Azure 上正在執行的解決方案。
 
-每個服務健康狀態通知皆會傳達關於且影響您資源的詳細資料。 詳細資料包括：
+每個服務健康狀態通知皆會包含關於範圍以及資源所受影響的詳細資料。 詳細資料包括：
 
 屬性名稱 | 說明
 -------- | -----------
@@ -70,14 +70,12 @@ Properties.communicationId | 與此事件相關聯的通訊。
 1.  在[入口網站](https://portal.azure.com)中，瀏覽至 [監視] 服務
 
     ![監視](./media/monitoring-service-notifications/home-monitor.png)
-2.  按一下 [監視] 選項來開啟 [監視] 刀鋒視窗。 此刀鋒視窗會將您所有的監視設定和資料結合成一個彙總檢視。 它會先開啟 [活動記錄檔]  區段。
+2.  按一下 [監視] 選項來開啟 [監視] 體驗。 Azure 監視器會將您所有的監視設定和資料結合成一個彙總檢視。 它會先開啟 [活動記錄檔]  區段。
 
-3.  此時按一下 [服務通知] 區段
+3.  現在按一下 [警示] 區段
 
     ![監視](./media/monitoring-service-notifications/service-health-summary.png)
-4.  按一下任何明細項目以檢視其他詳細資訊
-
-5. 按一下 [+ 加入活動記錄警示] 作業以接收通知，確保您會在未來收到此類型的服務通知。 若要深入了解服務通知上的警示設定，[請按一下這裡](monitoring-activity-log-alerts-on-service-notifications.md)
+4. 按一下 [+新增活動記錄警示] 並設定警示，以確保您會在未來收到服務通知。 若要深入了解如何設定服務通知警示，請[瀏覽活動記錄警示和服務通知頁面](monitoring-activity-log-alerts-on-service-notifications.md)。
 
 ## <a name="next-steps"></a>後續步驟：
 每當[發佈服務健康狀態通知時，即接收警示通知](monitoring-activity-log-alerts-on-service-notifications.md)  

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
-ms.openlocfilehash: 67c11277142d6616fe77179e03b55ed08993b818
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: 7ceb4bf97c29a18d6879af55615eea46037c51ce
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本部署 Azure Cosmos DB 和 Azure App Service Web Apps
 本教學課程示範如何使用 Azure Resource Manager 範本，來部署和整合 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)、[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web 應用程式及範例 Web 應用程式。
@@ -81,7 +82,7 @@ ms.lasthandoff: 10/11/2017
 8. 若要使用應用程式，只要瀏覽至 Web 應用程式 URL (上述範例中的 URL 會是 http://mydemodocdbwebapp.azurewebsites.net ) 。  您會看到下列的 Web 應用程式：
    
    ![範例待辦事項應用程式](./media/create-website/image2.png)
-9. 請繼續在 Web 應用程式中建立幾個工作，然後回到 Azure 入口網站的資源群組刀鋒視窗。 按一下 資源 清單中的 Azure Cosmos DB 帳戶資源，然後按一下查詢總管。
+9. 請繼續在 Web 應用程式中建立幾個工作，然後回到 Azure 入口網站的資源群組刀鋒視窗。 按一下 [資源] 清單中的 Azure Cosmos DB 帳戶資源，然後按一下 [查詢總管]。
     ![包含反白顯示 Web 應用程式的 [摘要] 功能濾鏡的螢幕擷取畫面](./media/create-website/TemplateDeployment8.png)  
 10. 執行預設查詢 "SELECT * FROM c"，然後檢查結果。  請注意查詢已擷取您在步驟 7 所建立待辦事項的 JSON 表示法。  任意嘗試查詢；例如，嘗試執行 SELECT * FROM c WHERE c.isComplete = true，以傳回所有已標示為完成的待辦事項。
     
@@ -118,7 +119,7 @@ ms.lasthandoff: 10/11/2017
    ![範本部署 UI 的螢幕擷取畫面](./media/create-website/TemplateDeployment6.png)
 7. 部署完成時，就會開啟資源群組的刀鋒視窗。
    ![資源群組刀鋒視窗的螢幕擷取畫面](./media/create-website/TemplateDeployment7.png)  
-8. 按一下 [資源] 清單中的 Web 應用程式資源，然後按一下應用程式設定] ![資源群組的螢幕擷取畫面](./media/create-website/TemplateDeployment9.png)  
+8. 按一下 [資源] 清單中的 Web 應用程式資源，然後按一下 [應用程式設定] ![資源群組的螢幕擷取畫面](./media/create-website/TemplateDeployment9.png)  
 9. 請注意出現的 Azure Cosmos DB 端點以及每個 Azure Cosmos DB 主要金鑰的應用程式設定。
 
     ![應用程式設定的螢幕擷取畫面](./media/create-website/TemplateDeployment10.png)  

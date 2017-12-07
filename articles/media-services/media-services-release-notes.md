@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 3000acf91a66af3ec512af52362f7f1e2ba0019b
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 310306e22a9f3c4c770e326d3284d02da7f06039
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒體服務版本資訊
 這些版本資訊彙總了舊版的變更和已知問題。
@@ -411,7 +411,7 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 
 媒體服務 SDK 目前的最新版本為 3.0.0.0。 您可以從 Nuget 下載最新套件，或從 [Github]取得。
 
-從媒體服務 SDK 3.0.0.0 版開始，您可以重複使用 [Azure Active Directory 存取控制服務 (ACS)] 權杖。 如需詳細資訊，請參閱[使用 Media Services SDK for .NET 連接到媒體服務]一文中的「重複使用存取控制服務權杖」一節。
+從媒體服務 SDK 3.0.0.0 版開始，您可以重複使用 Azure Active Directory 存取控制服務 (ACS) 權杖。 
 
 ### <a name="dec_13_donnet_ext_changes"></a>Azure 媒體服務 .NET SDK 延伸模組 2.0.0.0
 Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，可簡化您的程式碼以及使用 Azure 媒體服務進行開發的工作。 您可以從 [Azure 媒體服務 .NET SDK 延伸]取得最新版本。
@@ -580,8 +580,8 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 [建立重疊]: http://msdn.microsoft.com/library/azure/dn640496.aspx
 [結合視訊片段]: http://msdn.microsoft.com/library/azure/dn640504.aspx
 [Azure 媒體服務 .NET SDK 3.0.0.1 和 3.0.0.2 版本]: http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/
-[Azure Active Directory 存取控制服務 (ACS)]: http://msdn.microsoft.com/library/hh147631.aspx
-[使用 Media Services SDK for .NET 連接到媒體服務]: http://msdn.microsoft.com/library/azure/jj129571.aspx
+[Azure Active Directory Access Control Service (ACS)]: http://msdn.microsoft.com/library/hh147631.aspx
+[Connecting to Media Services with the Media Services SDK for .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
 [Azure 媒體服務 .NET SDK 延伸]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
 [azure-sdk-tools]: https://github.com/Azure/azure-sdk-tools
 [Github]: https://github.com/Azure/azure-sdk-for-media-services

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/16/2017
 ms.author: sethm
-ms.openlocfilehash: 69c07cb31b1dc3ec3685448d8187ef3a57bd3821
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 7d5f14d5a65253cf0aad1811ace419bf2f39f7db
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="event-hubs-programming-guide"></a>事件中樞程式設計指南
 
@@ -117,10 +117,10 @@ var client = factory.CreateEventHubClient("MyEventHub");
 public void SendBatch(IEnumerable<EventData> eventDataList);
 ```
 
-請注意，單一批次不能超過每個事件 256 KB 的限制。 此外，批次中的每個訊息都會使用相同的身分識別。 確保批次未超過最大事件大小是傳送者的責任。 如果超過的話，系統會產生用戶端 **Send** 錯誤。
+請注意，單一批次不能超過每個事件 256 KB 的限制。 此外，批次中的每個訊息都會使用相同的身分識別。 確保批次未超過最大事件大小是傳送者的責任。 如果超過的話，系統會產生用戶端 **Send** 錯誤。 您可以使用協助程式方法 [EventHubClient.CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) 以確保批次不超過 256 KB。 您會從 [CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) API 取得空 [EventDataBatch](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch)，然後使用 [TryAdd](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.tryadd#Microsoft_ServiceBus_Messaging_EventDataBatch_TryAdd_Microsoft_ServiceBus_Messaging_EventData_) 新增事件來建立批次。 最後，使用 [EventDataBatch.ToEnumerable](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.toenumerable) 取得基礎事件以傳遞至 [EventHubClient.Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send)API。
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>以非同步方式傳送和大規模傳送
-您也可以採用非同步方式將事件傳送到事件中樞。 以非同步方式傳送可以增加用戶端傳送事件的速率。 [Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) 和 [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) 這兩個方法都有會傳回 [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) 物件的非同步版本。 雖然這項技術可以增加輸送量，不過如果實作不當，可能會造成用戶端在受到事件中樞服務節流的情況下繼續傳送事件，導致用戶端發生失敗或遺失訊息。 此外，您還可以在用戶端上使用 [RetryPolicy](/dotnet/api/microsoft.servicebus.messaging.cliententity#Microsoft_ServiceBus_Messaging_ClientEntity_RetryPolicy) 屬性來控制用戶端重試選項。
+您也可以採用非同步方式將事件傳送到事件中樞。 以非同步方式傳送可以增加用戶端傳送事件的速率。 [Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send) 和 [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendbatch) 這兩個方法都有會傳回 [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) 物件的非同步版本。 雖然這項技術可以增加輸送量，不過如果實作不當，可能會造成用戶端在受到事件中樞服務節流的情況下繼續傳送事件，導致用戶端發生失敗或遺失訊息。 此外，您還可以在用戶端上使用 [RetryPolicy](/dotnet/api/microsoft.servicebus.messaging.cliententity.retrypolicy) 屬性來控制用戶端重試選項。
 
 ## <a name="create-a-partition-sender"></a>建立資料分割的傳送者
 雖然最常見的情況是不使用資料分割索引鍵就將事件傳送到事件中樞，不過在某些情況下，您可能會想要將事件直接傳送到指定的資料分割。 例如：

@@ -15,25 +15,25 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/20/2017
+ms.date: 06/22/2017
 ms.author: carlrab
-ms.openlocfilehash: d07194d4f92b2b32b506813a4b1bb5c84e2f98ac
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: c6c450b0b3b0422121d23ba5d5556637f6d298bc
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Azure SQL Database︰使用 Visual Studio Code 連接及查詢資料
 
-[Visual Studio Code](https://code.visualstudio.com/docs) 是一個圖形化程式碼編輯器，適用於支援擴充功能的 Linux、macOS 和 Windows，包括可供查詢 Microsoft SQL Server、Azure SQL Database 和 SQL 資料倉儲的 [mssql extension](https://aka.ms/mssql-marketplace)。 此快速入門示範如何使用 Visual Studio Code 來連線至 Azure SQL Database，然後使用 Transact-SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。
+[Visual Studio Code](https://code.visualstudio.com/docs) 是一個圖形化程式碼編輯器，適用於支援擴充功能的 Linux、macOS 和 Windows，包括可供查詢 Microsoft SQL Server、Azure SQL Database 和 SQL 資料倉儲的 [mssql extension](https://aka.ms/mssql-marketplace)。 此快速入門示範如何使用 Visual Studio Code 來連線至 Azure SQL 資料庫，然後使用 Transact-SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。
 
 ## <a name="prerequisites"></a>必要條件
 
-本快速入門可做為在其中一個快速入門中建立之資源的起點︰
+本快速入門可作為在其中一個快速入門中所建立資源的起點︰
 
-- [建立 DB - 入口網站](sql-database-get-started-portal.md)
-- [建立 DB - CLI](sql-database-get-started-cli.md)
-- [建立 DB - PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+
+#### <a name="install-vs-code"></a>安裝 VS Code
 
 開始之前，確定您已安裝最新版的 [Visual Studio Code](https://code.visualstudio.com/Download) 並已載入 [mssql 擴充功能](https://aka.ms/mssql-marketplace)。 如需 mssql 擴充功能的安裝指引，請參閱[安裝 VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code)和[適用於 Visual Studio Code 的 mssql](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql)。 
 
@@ -63,13 +63,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 取得連線到 Azure SQL Database 所需的連線資訊。 您在下一個程序中需要完整的伺服器名稱、資料庫名稱和登入資訊。
 
-1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 從左側功能表中選取 [SQL Database]，按一下 [SQL Database]頁面上您的資料庫。 
-3. 在您資料庫的 [概觀] 頁面上，檢閱如下圖所示的完整伺服器名稱。 您可以將滑鼠移至伺服器名稱上，以帶出 [按一下以複製] 選項。
-
-   ![連線資訊](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. 如果您忘記 Azure SQL Database 伺服器的登入資訊，請瀏覽至 [SQL Database 伺服器] 頁面來檢視伺服器系統管理員名稱，並視需要重設密碼。 
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 ## <a name="set-language-mode-to-sql"></a>將語言模式設定為 SQL
 
@@ -175,7 +169,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 ## <a name="delete-data"></a>刪除資料
 
-使用下列程式碼，藉由使用 [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 陳述式刪除您先前新增的產品。
+使用下列程式碼，藉由使用 [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL 陳述式刪除您先前新增的產品。
 
 1. 在 [編輯器] 視窗中，刪除先前的查詢並輸入下列查詢︰
 

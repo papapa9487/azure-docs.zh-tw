@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 01016294c3ef6fd904a7582e4f9c16ef19330a20
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 02c3e0e919b556bc6d4bb41d9c66b4a6d29bdd68
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>長期函式中的繫結 (Azure Functions)
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/18/2017
 以下是協調流程觸發程序的一些附註：
 
 * **單一執行緒** - 單一發送器執行緒用於單一主機執行個體上的所有協調器函式執行。 基於這個理由，請務必確保協調器函式程式碼有效率，且不會執行任何 I/O。 也務必要確保此執行緒不會執行除了等候長期函式特定工作類型以外的任何非同步工作。
-* **有害訊息處理** - 協調流程觸發程序中沒有有害訊息支援。
+* **有害訊息處理** - 協調流程觸發程序中並無有害訊息支援。
 * **訊息可見度** - 協調流程觸發程序訊息會被清除佇列，並且在可設定持續期間保持不可見。 只要函式應用程式正在執行且狀況良好，就會自動更新這些訊息的可見度。
 * **傳回值** - 傳回值會序列化為 JSON，保存到 Azure 資料表儲存體中的協調流程歷程記錄資料表。 協調流程用戶端繫結可以查詢這些傳回值，會在稍後說明。
 

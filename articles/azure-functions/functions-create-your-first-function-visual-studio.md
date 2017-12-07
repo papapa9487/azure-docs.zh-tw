@@ -14,18 +14,20 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 12/1/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 14ab60a5bb6059794d730151193aad36bc2a969e
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 7f71ecb2b58728f466371c7aa6d2aac965177863
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>使用 Visual Studio 建立第一個函式
 
 Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/overview/serverless-computing/)環境中執行程式碼，而不需要先建立 VM 或發佈 Web 應用程式。
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/DrhG-Rdm80k]
 
 在本主題中，您將了解如何使用 Visual Studio 2017 Tools for Azure Functions 在本機建立及測試 "hello world" 函式。 您接著會將函式程式碼發行至 Azure。 這些工具可在 Visual Studio 2017 15.3 版或更新版本的 Azure 開發工作負載中取得。
 

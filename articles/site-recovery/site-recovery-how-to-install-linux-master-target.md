@@ -3,7 +3,7 @@ title: "如何安裝 Linux 主要目標伺服器以從 Azure 容錯移轉至內�
 description: "在重新保護 Linux 虛擬機器之前，您必須先有 Linux 主要目標伺服器。 了解如何進行安裝。"
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 08/11/2017
-ms.author: ruturajd
-ms.openlocfilehash: 5341e3e56e0c366079958dd9a885f6ee3e8436cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/22/2017
+ms.author: rajanaki
+ms.openlocfilehash: 7b2416617696e1df30b08f039ab39bfe7b57e093
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-linux-master-target-server"></a>安裝 Linux 主要目標伺服器
 您可以在容錯移轉虛擬機器之後，將虛擬機器容錯回復至內部部署網站。 若要進行容錯回復，您需要在從 Azure 到內部部署網站的過程中重新保護虛擬機器。 針對此程序，您需要內部部署的主要目標伺服器以接收流量。 
@@ -206,7 +206,7 @@ ms.lasthandoff: 10/11/2017
 
 #### <a name="disable-kernel-upgrades"></a>停用核心升級
 
-Azure Site Recovery 主要目標伺服器需要非常特定版本的 Ubuntu，因此請確認已停用虛擬機器的核心升級。
+Azure Site Recovery 主要目標伺服器需要特定版本的 Ubuntu，因此請確認已停用虛擬機器的核心升級。
 
 如果啟用核心升級，則任何一般升級都將導致主要目標伺服器故障。
 
@@ -374,7 +374,7 @@ wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz
 
 ### <a name="upgrade-the-master-target"></a>升級主要目標
 
-執行安裝程式。 它會自動偵測主要目標上是否已安裝代理程式。 選取 [Y]\(是\) 進行升級。安裝完成之後，您可以使用下列命令來檢查所安裝的主要目標版本。
+執行安裝程式。 它會自動偵測主要目標上是否已安裝代理程式。 選取 [Y]\(是\) 進行升級。安裝完成之後，您可以使用下列命令來檢查所安裝的主要目標版本：
 
     ```
     cat /usr/local/.vx_version

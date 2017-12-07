@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 3b2fbab10836b138792efad7ea30f4f0d15905c3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 69707931402de597c9d6a329da349723da2a782a
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Data Lake Store 或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ ms.lasthandoff: 11/17/2017
 請分別參閱以下各節關於不同驗證類型的更多屬性和 JSON 範例：
 
 - [使用服務主體驗證](#using-service-principal-authentication)
-- [使用受管理的服務識別驗證](#using-managed-service-identitiy-authentication)
+- [使用受管理的服務識別驗證](#using-managed-service-identity-authentication)
 
 ### <a name="using-service-principal-authentication"></a>使用服務主體驗證
 

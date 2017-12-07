@@ -1,6 +1,6 @@
 ---
 title: "如何設定 Azure Functions 執行階段目標版本"
-description: "Azure Functions 支援多個執行階段版本。 了解如何指定 Azure 託管函式應用程式的執行階段版本。"
+description: "Azure Functions 支援多個執行階段版本。 了解如何指定 Azure 中裝載之函式應用程式的執行階段版本。"
 services: functions
 documentationcenter: 
 author: ggailey777
@@ -10,13 +10,13 @@ ms.service: functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 063232e40b30d03b0ee8b087a602fed0fee3be0a
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 588437af80ecf60b7c4b24dbf6bccc67fc33da7a
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>如何設定 Azure Functions 執行階段目標版本
 
@@ -44,9 +44,11 @@ ms.lasthandoff: 11/17/2017
 
 ### <a name="bindings"></a>繫結 
 
-執行階段 1.x 支援的實驗性繫結無法在 2.x 中使用。 如需 2.x 中的繫結支援和其他功能差異 的相關資訊，請參閱[執行階段 2.0 的已知問題](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues)。
-
 執行階段 2.x 可讓您建立自訂[繫結延伸模組](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)。 使用此擴充性模型的內建繫結才可在 2.x 中使用；其中，第一個是 [Microsoft Graph 繫結](functions-bindings-microsoft-graph.md)。
+
+[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+如需 2.x 中的繫結支援和其他功能差異 的詳細資訊，請參閱[執行階段 2.0 的已知問題](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues)。
 
 ### <a name="cross-platform-development"></a>跨平台開發
 

@@ -12,15 +12,15 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b1212bf46261b3fc4cc22224223cf00ec53881cb
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.custom: H1Hack27Feb2017, mvc
+ms.openlocfilehash: 304db0cdcf650697f8e7d328b5f7214ab5ccef8c
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure 備份中的功能概觀
 Azure 備份是您可用來備份 (或保護) 和還原 Microsoft Cloud 資料的 Azure 服務。 Azure 備份將以一個可靠、安全及具成本競爭力的雲端架構解決方案，取代您現有的內部部署或異地備份解決方案。 Azure 備份提供多個元件，您可以下載並部署在適當的電腦、伺服器或雲端中。 您部署的元件或代理程式，取決於您想要保護的項目。 所有 Azure 備份的元件 (無論您要保護的是內部部署或雲端資料) 都可以將資料備份至 Azure 中的復原服務保存庫。 請參閱 [Azure 備份元件資料表](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (稍後於本文提及) 以取得該使用哪個元件來保護特定資料、應用程式或工作負載的資訊。

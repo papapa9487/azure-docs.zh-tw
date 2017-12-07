@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/010/2017
+ms.date: 12/05/2017
 ms.author: cherylmc
-ms.openlocfilehash: 0be8dd6d90edb7b32b6777c76c9778cda0dcd5ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb8fe1ea6d4de066744a6277c1aec96073c1703c
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>使用 Azure 入口網站建立站對站連線 (傳統)
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 10/11/2017
 2. 按一下頁面底部的 [新增] **+**來單一登入應用程式。 在 [搜尋 Marketplace] 欄位中，輸入「虛擬網路」。 在傳回的清單中找到 [虛擬網路]，並按一下以開啟 [虛擬網路] 頁面。
 
   ![搜尋虛擬網路頁面](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
-3. 從接近 虛擬網路 頁面底部的 選取部署模型 下拉式清單中，選取 傳統，然後按一下建立。
+3. 從接近 [虛擬網路] 頁面底部的 [選取部署模型] 下拉式清單中，選取 [傳統]，然後按一下 [建立]。
 
   ![選取部署模型](./media/vpn-gateway-howto-site-to-site-classic-portal/selectmodel.png)
 4. 在 [建立虛擬網路 (傳統)] 頁面上進行 VNet 設定。 在此頁面上，您會新增您的第一個位址空間和單一子網路位址範圍。 完成 VNet 建立之後，您可以返回並新增其他子網路和位址空間。
@@ -96,8 +96,6 @@ ms.lasthandoff: 10/11/2017
 9. 按一下 [建立] 之後，儀表板上會出現一個反映 VNet 進度的圖格。 建立 VNet 時，此圖格會變更。
 
   ![建立虛擬網路圖格](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png "建立虛擬網路")
-
-一旦建立虛擬網路，您可在 Azure 傳統入口網站的網路頁面上看見 [狀態] 下列出 [已建立]。
 
 ## <a name="additionaladdress"></a>2.新增其他位址空間
 
@@ -127,7 +125,7 @@ DNS 設定不是 S2S 組態的必要部分，但如果您想要名稱解析，�
 
   ![按一下以設定閘道設定](./media/vpn-gateway-howto-site-to-site-classic-portal/beforegw125.png "按一下以設定閘道設定")
 3. 在 [新增 VPN 連線] 頁面上，選取 [站對站]。
-4. 按一下 [本機網路 - 進行必要設定] 以開啟 [本機網路] 頁面。 進行設定，然後按一下確定 以儲存設定。
+4. 按一下 [本機網路 - 進行必要設定] 以開啟 [本機網路] 頁面。 進行設定，然後按一下 [確定] 以儲存設定。
   - **名稱︰**建立可讓您輕鬆識別您的本機網站的名稱。
   - **VPN 閘道 IP 位址：**這是您內部部署網路之 VPN 裝置的公用 IP 位址。 VPN 裝置需要 IPv4 公用 IP 位址。 為您要連線的 VPN 裝置指定有效的公用 IP 位址。 它不能在 NAT 後方且必須可讓 Azure 連線。 如果您不知道 VPN 裝置的 IP 位址，您可以一律放入預留位置值 (只要其為有效的公用 IP 位址格式即可)，然後稍後加以變更。
   - **用戶端位址空間︰**列出您要透過此閘道路由傳送至本機內部部署網路的 IP 位址範圍。 您可以加入多個位址空間範圍。 確定您在此指定的範圍，不會與虛擬網路要連接的其他網路範圍重疊，或與虛擬網路本身的位址範圍重疊。

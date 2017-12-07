@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: a55a0c2ef8c1c065b39fce9dc6ef2f806b60dfdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1f5c6e0ab682aedf015189f3540442a5657d462
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>使用 Azure 媒體分析偵測臉部和情緒
 ## <a name="overview"></a>Overview
@@ -333,6 +333,8 @@ ms.lasthandoff: 10/11/2017
 #### <a name="create-and-configure-a-visual-studio-project"></a>建立和設定 Visual Studio 專案
 
 設定您的開發環境並在 app.config 檔案中填入連線資訊，如[使用 .NET 進行 Media Services 開發](media-services-dotnet-how-to-use.md)中所述。 
+
+
 
 #### <a name="example"></a>範例
 

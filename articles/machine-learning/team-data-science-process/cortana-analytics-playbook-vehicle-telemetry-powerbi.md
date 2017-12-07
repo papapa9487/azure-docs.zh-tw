@@ -4,7 +4,7 @@ description: "使用 Cortana Intelligence 具備的強大功能，取得關於�
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: aaeb29a5-4a13-4eab-bbf1-885690d86c56
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 11/15/2017
 ms.author: bradsev
-ms.openlocfilehash: 4a28ef3765518fe2948853d1c6334cf034b40d34
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 626987ec0648f9e770499b4a48bc4ca2d175d2b4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>車輛遙測分析方案範本 Power BI 儀表板安裝指示
 此功能表連結至此腳本的章節： 

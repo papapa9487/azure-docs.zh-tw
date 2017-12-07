@@ -14,11 +14,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/16/2017
 ms.author: mimig
-ms.openlocfilehash: 1c64401a7d0ccfa12232b04cfd57e6beaa1dbca8
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.custom: mvc
+ms.openlocfilehash: 56c52aef2dda899a7f7ce90a26068897781773da
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>快速入門：使用 Python 與 Azure Cosmos DB 建置資料表 API 應用程式
 
@@ -40,7 +41,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 ## <a name="create-a-database-account"></a>建立資料庫帳戶
 
 > [!IMPORTANT] 
-> 您需要建立新的資料表 API 帳戶，以使用正式推出的資料表 API SDK。 正式推出的 SDK 不支援在預覽期間建立的資料表 API 帳戶。
+> 您需要建立新的資料表 API 帳戶，以與正式推出的資料表 API SDK 搭配使用。 正式推出的 SDK 不支援在預覽期間建立的資料表 API 帳戶。
 >
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]

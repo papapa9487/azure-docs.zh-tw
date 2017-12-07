@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: damaerte
-ms.openlocfilehash: e45d66eff4be4918ffd6e7940bbfb5adb4c88c00
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9c2eeef9c20f25d2af97e6c754f005b698222385
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Azure Cloud Shell (預覽) 中 PowerShell 的功能和工具
 
@@ -37,7 +37,7 @@ Cloud Shell (預覽) 中的 PowerShell 會安全地自動驗證 Azure PowerShell
 
 ### <a name="files-persistence-across-sessions"></a>工作階段之間的檔案持續性
 
-若要在工作階段之間保存檔案，Cloud Shell 會在第一次啟動時逐步引導您連結 Azure 檔案共用。
+若要在工作階段之間保存檔案，Cloud Shell 會在第一次啟動時逐步引導您連結 Microsoft Azure 檔案共用。
 完成後，Cloud Shell 會自動連結儲存體 (掛接為 `$home\clouddrive`)，供所有未來的工作階段使用。
 因為 Cloud Shell 的每個要求都會配置暫時電腦，所以不會在工作階段之間保存位於您 `$home\clouddrive` 外面的檔案和電腦狀態。
 

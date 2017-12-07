@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 913805901bf8131e4908be03e9213539a26205ed
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 0973f83ae839597f3b499814a4a04a8a640a1fb6
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Durable Functions 中的函式鏈結- Hello 序列範例
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/13/2017
 重要的是 `orchestrationTrigger` 繫結類型。 所有協調器函式必須都使用此觸發程序類型。
 
 > [!WARNING]
-> 為了遵守協調器函式的「沒有 I/O」規則，當您使用 `orchestrationTrigger` 觸發程序繫結時，請勿使用任何輸入或輸出繫結。  如果需要其他輸入或輸出繫結，請改為在 `activityTrigger` 函式的內容中使用。
+> 為了遵守協調器函式的「沒有 I/O」規則，當您使用 `orchestrationTrigger` 觸發程序繫結時，請勿使用任何輸入或輸出繫結。  如果需要其他輸入或輸出繫結，請改為在協調器所呼叫之 `activityTrigger` 函式的內容中使用。
 
 ## <a name="c-script"></a>C# 指令碼
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 10/13/2017
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_HelloSequence/run.csx)]
 
-所有 C# 協調流程函式都必須有 `DurableOrchestrationContext` 參數 (在 `Microsoft.Azure.WebJobs.Extensions.DurableTask` 組件中)。 如果您使用 C# 指令碼，請利用 `#r` 標記法來參考此組件。 此內容物件可讓您使用其 [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_) 方法來呼叫其他「活動」函式並傳遞輸入參數。
+所有 C# 協調流程函式都必須有 `DurableOrchestrationContext` 類型的參數 (在 `Microsoft.Azure.WebJobs.Extensions.DurableTask` 組件中)。 如果您使用 C# 指令碼，請利用 `#r` 標記法來參考此組件。 此內容物件可讓您使用其 [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_) 方法來呼叫其他「活動」函式並傳遞輸入參數。
 
 程式碼中以不同的參數值連續呼叫 `E1_SayHello` 三次。 每次呼叫的傳回值會新增至函式最後傳回的 `outputs` 清單。
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 10/13/2017
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_SayHello/run.csx)]
 
-此函式具有 [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) 參數，用來取得協調器函式呼叫 [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_)> 時傳回的輸入。
+此函式具有 [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) 類型的參數，其會使用此參數來取得協調器函式呼叫 [`CallActivityAsync<T>`](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_) 時所傳回的輸入。
 
 ## <a name="run-the-sample"></a>執行範例
 

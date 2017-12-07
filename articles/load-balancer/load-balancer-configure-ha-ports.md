@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/02/2017
 ms.author: kumud
-ms.openlocfilehash: 4cd65c01d75af8539f5fa13dbbd2aaec548aea0b
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 646ade828e96810bdc3b07d4dc5c0276a1621969
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>如何設定內部負載平衡器的高可用性連接埠
 
@@ -41,13 +41,10 @@ ms.lasthandoff: 11/04/2017
 
 ## <a name="preview-sign-up"></a>註冊預覽
 
-若要參加 Load Balancer Standard 中 HA 連接埠功能的預覽，請使用 Azure CLI 2.0 或 PowerShell 來註冊您的訂用帳戶以獲得存取。  請註冊訂用帳戶以獲得
-
-1. [Load Balancer Standard 預覽版](https://aka.ms/lbpreview#preview-sign-up)和 
-2. [HA 連接埠預覽版](https://aka.ms/haports#preview-sign-up)。
+若要參加 Load Balancer Standard 中 HA 連接埠功能的預覽，請使用 Azure CLI 2.0 或 PowerShell 來註冊您的訂用帳戶以獲得存取。 註冊您的[Azure Load Balancer Standard 預覽版](https://aka.ms/lbpreview#preview-sign-up)訂用帳戶。
 
 >[!NOTE]
->若要使用此功能，除了「HA 連接埠」之外，您必須也註冊 Load Balancer [Standard 預覽版](https://aka.ms/lbpreview#preview-sign-up)。 註冊「HA 連接埠」或 Load Balancer Standard 預覽版最多可能需要一小時的時間。
+>註冊 Load Balancer Standard 預覽版最多可能需要一小時的時間。
 
 ## <a name="configuring-ha-ports"></a>設定 HA 連接埠
 

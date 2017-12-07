@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 45ae4ab4c832e7537e6ee78c32603734fa64ad86
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 397c0c610c05e65d06a6319672446a6e4c9c445a
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C：常見問題集 (FAQ) 
 此頁面會回答有關 Azure Active Directory (Azure AD) B2C 的常見問題。 請隨時回來查看最新消息。
@@ -75,13 +75,13 @@ Azure AD B2C 也新增了[自訂原則](https://docs.microsoft.com/en-us/azure/a
 目前無法變更電子郵件中的 [從:] 欄位。 請在 [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) 上投票，表示您有興趣自訂驗證電子郵件的本文。
 
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>我如何將現有的使用者名稱、密碼和設定檔從資料庫移轉至 Azure AD B2C？
-您可以使用 Azure AD 圖形 API 來撰寫您的移轉工具。 如需詳細資料，請參閱 [圖形 API 範例](active-directory-b2c-devquickstarts-graph-dotnet.md) 。
+您可以使用 Azure AD 圖形 API 來撰寫您的移轉工具。 如需詳細資訊，請參閱[使用者移轉指南](active-directory-b2c-user-migration.md)。
 
 ### <a name="what-password-policy-is-used-for-local-accounts-in-azure-ad-b2c"></a>Azure AD B2C 中用於本機帳戶的密碼原則為何？
 Azure AD B2C 的本機帳戶密碼原則是以 Azure AD 的原則為基礎。 Azure AD B2C 的註冊、註冊或登入和密碼重設原則會使用「強式」密碼強度，而且不會讓任何密碼到期。 如需更詳細的資料，請閱讀 [Azure AD 中的密碼原則](https://msdn.microsoft.com/library/azure/jj943764.aspx) 。
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>我可以使用 Azure AD Connect，將儲存於內部部署 Active Directory 的取用者身分識別移轉至 Azure AD B2C 嗎？
-否，Azure AD Connect 不是設計來搭配 Azure AD B2C 一起使用。 請考慮使用[圖形 API](active-directory-b2c-devquickstarts-graph-dotnet.md) 來移轉使用者。
+否，Azure AD Connect 不是設計來搭配 Azure AD B2C 一起使用。 請考慮使用[圖形 API](active-directory-b2c-devquickstarts-graph-dotnet.md) 來移轉使用者。  如需詳細資訊，請參閱[使用者移轉指南](active-directory-b2c-user-migration.md)。
 
 ### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>我的應用程式是否能在 iFrame 內開啟 Azure AD B2C 頁面？
 否，基於安全性考量，無法在 iFrame 內開啟 Azure AD B2C 頁面。  我們的服務會與瀏覽器通訊以禁止 iFrame。  安全性社群整體和 OAUTH2 規格的建議是不要使用 iFrame 來提供身分識別體驗，因為會有點擊劫持風險。

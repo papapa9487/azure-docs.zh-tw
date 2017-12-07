@@ -15,39 +15,31 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/26/2017
+ms.date: 11/28/2017
 ms.author: carlrab
-ms.openlocfilehash: f67ba82c3aaf312662096964b7b7942efa108607
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 6ed77d5c106f72a06e410410321c39b3d7059ae9
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database：使用 SQL Server Management Studio 連接及查詢資料
 
-[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) 是整合式的環境，可用來管理任何 SQL 基礎結構，範圍從 Microsoft Windows 的 SQL Server 到 SQL Database。 此快速入門示範如何使用 SSMS 來連線至 Azure SQL Database，然後使用 Transact-SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 
+[SQL Server Management Studio][ssms-install-latest-84g] (SSMS) 是整合式的環境，可用來管理任何 SQL 基礎結構，範圍從 Microsoft Windows 的 SQL Server 到 SQL Database。 此快速入門示範如何使用 SSMS 來連線至 Azure SQL Database，然後使用 Transact-SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 
 
 ## <a name="prerequisites"></a>必要條件
 
-本快速入門可做為在其中一個快速入門中建立之資源的起點︰
+本快速入門可作為在其中一個快速入門中所建立資源的起點︰
 
-- [建立 DB - 入口網站](sql-database-get-started-portal.md)
-- [建立 DB - CLI](sql-database-get-started-cli.md)
-- [建立 DB - PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-開始之前，確定您已安裝最新版的 [SSMS](https://msdn.microsoft.com/library/mt238290.aspx)。 
+#### <a name="install-the-latest-ssms"></a>安裝最新的 SSMS
+
+開始之前，確定您已安裝最新版的 [SSMS][ssms-install-latest-84g]。 
 
 ## <a name="sql-server-connection-information"></a>SQL Server 連線資訊
 
-取得連線到 Azure SQL Database 所需的連線資訊。 您在下一個程序中需要完整的伺服器名稱、資料庫名稱和登入資訊。
-
-1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 從左側功能表中選取 [SQL Database]，按一下 [SQL Database]頁面上您的資料庫。 
-3. 在您資料庫的 [概觀] 頁面上，檢閱如下圖所示的完整伺服器名稱。 您可以將滑鼠移至伺服器名稱上，以帶出 [按一下以複製] 選項。
-
-   ![連線資訊](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. 如果您忘記 Azure SQL Database 伺服器的登入資訊，請瀏覽至 [SQL Database 伺服器] 頁面來檢視伺服器系統管理員名稱，並視需要重設密碼。 
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 ## <a name="connect-to-your-database"></a>連接到您的資料庫
 
@@ -61,13 +53,14 @@ ms.lasthandoff: 10/31/2017
 
 2. 在 [連接到伺服器] 對話方塊中，輸入下列資訊：
 
-   | 設定       | 建議的值 | 說明 | 
-   | ------------ | ------------------ | ------------------------------------------------- | 
+   | 設定      | 建議的值    | 說明 | 
+   | ------------ | ------------------ | ----------- | 
    | **伺服器類型** | 資料庫引擎 | 需要此值。 |
    | **伺服器名稱** | 完整伺服器名稱 | 此名稱應該類似這樣︰**mynewserver20170313.database.windows.net**。 |
    | **驗證** | SQL Server 驗證 | 在本教學課程中，我們只設定了 SQL 驗證這個驗證類型。 |
    | **登入** | 伺服器管理帳戶 | 這是您在建立伺服器時所指定的帳戶。 |
    | **密碼** | 伺服器管理帳戶的密碼 | 這是您在建立伺服器時所指定的密碼。 |
+   ||||
 
    ![連接到伺服器](./media/sql-database-connect-query-ssms/connect.png)  
 
@@ -172,3 +165,9 @@ ms.lasthandoff: 10/31/2017
 - 若要使用 Java 進行連線和查詢，請參閱[使用 Java 進行連線和查詢](sql-database-connect-query-java.md)。
 - 若要使用 Python 進行連線和查詢，請參閱[使用 Python 進行連線和查詢](sql-database-connect-query-python.md)。
 - 若要使用 Ruby 進行連線和查詢，請參閱[使用 Ruby 進行連線和查詢](sql-database-connect-query-ruby.md)。
+
+
+<!-- Article link references. -->
+
+[ssms-install-latest-84g]: https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms
+

@@ -4,7 +4,7 @@ description: "如何針對使用和視覺化評分模型輸出的演算法選擇
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
-ms.author: bradsev
-ms.openlocfilehash: 394c3e4a0feda0b4943b479cf00edf6d6b5a265b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/29/2017
+ms.author: bradsev;garye
+ms.openlocfilehash: d6563d411e9f159399f9863a5b572365dc2b05cc
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="interpret-model-results-in-azure-machine-learning"></a>在 Azure Machine Learning 中解譯模型結果
 本主題說明如何視覺化和解譯 Azure Machine Learning Studio 中的預測結果。 在您訓練好模型並完成其預測 (「模型評分」) 之後，您必須了解和解譯預測結果。
@@ -61,7 +61,7 @@ Azure Machine Learning 有不同的模組可以處理各種類型的分類，但
 
 圖 1. 鳶尾花雙類別分類問題實驗
 
-已執行實驗以解決此問題，如「圖 1」所示。 已訓練及評分雙類別促進式決策樹模型。 您現在可以從[評分模型][score-model]模組將預測結果視覺化，方法是按一下[評分模型][score-model]模組的輸出連接埠，然後按一下視覺化。
+已執行實驗以解決此問題，如「圖 1」所示。 已訓練及評分雙類別促進式決策樹模型。 您現在可以從[評分模型][score-model]模組將預測結果視覺化，方法是按一下[評分模型][score-model]模組的輸出連接埠，然後按一下 [視覺化]。
 
 ![評分模型模組](./media/interpret-model-results/1_1.png)
 
@@ -110,7 +110,7 @@ Azure Machine Learning 有不同的模組可以處理各種類型的分類，但
 
 圖 6. 字母辨識多類別分類問題實驗
 
-從[評分模型][score-model]模組將結果視覺化，方法是按一下[評分模型][score-model]模組的輸出連接埠，然後按一下視覺化，您應會看見如圖 7 所示的內容。
+從[評分模型][score-model]模組將結果視覺化，方法是按一下[評分模型][score-model]模組的輸出連接埠，然後按一下 [視覺化]，您應會看見如圖 7 所示的內容。
 
 ![評分模型模組](./media/interpret-model-results/7.png)
 
@@ -188,7 +188,7 @@ Azure Machine Learning 有不同的模組可以處理各種類型的分類，但
 
 叢集與分類的不同之處在於訓練資料集本身沒有實況標籤。 將訓練資料集執行個體群組至不同的叢集。 在訓練處理期間，模型會為項目加上標籤，方法是學習其特徵之間的差異。 之後，定型模型可進一步用來分類未來的項目。 在叢集問題當中，我們感興趣的結果有兩個部分。 第一個部分是為訓練資料集加上標籤，而第二個部分是使用定型模型來分類新的資料集。
 
-您可以按一下[訓練叢集模型][train-clustering-model]的左側輸出連接埠，然後按一下視覺化，將結果的第一個部分視覺化。 視覺化如圖 16 所示。
+您可以按一下[訓練叢集模型][train-clustering-model]的左側輸出連接埠，然後按一下 [視覺化]，將結果的第一個部分視覺化。 視覺化如圖 16 所示。
 
 ![叢集結果](./media/interpret-model-results/16.png)
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 2f46fc37b9050b19b83685c97198c29a5ce46289
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 0f45468616884a6866bd95ef53acab71b4fed06c
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常見問題集
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB 基本概念
@@ -194,9 +194,11 @@ Azure Cosmos DB 會強制執行嚴格的安全性需求和標準。 Azure Cosmos
 * Azure Cosmos DB 資料表 API 使用保留容量模型來確保效能獲得保證，但這也表示，使用者一建立資料表，就必須支付其容量費用，即使該容量並未使用也是如此。 而在使用 Azure 資料表儲存體時，使用者只需要就實際使用的容量付費。 此一行為有助於解釋，為何資料表 API 可於第 99 個百分位數的水準提供 10 毫秒的讀取和 15 毫秒的寫入 SLA，而 Azure 資料表儲存體則是提供 10 秒的 SLA。 但也因為這樣，資料表 API 的資料表 (甚至是沒有任何要求的空白資料表) 必須付出金錢，才能確保有容量可用來處理其所收到的任何要求，並以 Azure Cosmos DB 所提供的 SLA 來進行。
 * 資料表 API 所傳回的查詢結果，不會和 Azure 資料表儲存體一樣使用資料分割索引鍵/資料列索引鍵順序來排序。
 * 資料列索引鍵最多只能是 255 個位元組
+* 批次最多只可包含 2 MB
 * CreateIfNotExists 呼叫會由固定的管理節流來進行節流處理，且不同於 RU 所涵蓋的其他資料表作業。 這表示因為此限制不是來自其 RU，進行大量 CreateIfNotExists 的作業會受到節流，且將無法再進行其任何相關操作。
 * 目前不支援 CORS
 * 資料表名稱在 Azure 資料表儲存體中不區分大小寫，但在 Azure Cosmos DB 資料表 API 中則有區分
+* 部分 Azure Cosmos DB 用於編碼資訊 (例如二進位欄位) 的內部格式，目前不如預期地有效率。 因此這會對資料大小造成非預期的限制。 例如，目前無法使用資料表實體的完整 1 Meg 來儲存二進位資料，因為編碼方式增加了資料的大小。
 
 就 REST API 來說，Azure Cosmos DB 資料表 API 並不支援某些端點/查詢選項：
 | REST 方法 | REST 端點/查詢選項 | 文件 URL | 說明 |

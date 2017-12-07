@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: a62a3954d10e718f5d180ddb725c6a9c7cda56c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7df154748a4ce8ac592a41f2a3d6b10ac359113
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect︰當您有存在的租用戶
 大部分說明如何使用 Azure AD Connect 的主題會假設您開始使用新的 Azure AD 租用戶，而且沒有任何使用者或其他物件。 但如果您開始使用 Azure AD 租用戶，且以使用者和其他物件填入，而現在想要使用 Connect，則這個主題很適用於您。
@@ -33,7 +33,7 @@ Azure AD 中的物件可能會在雲端 (Azure AD) 中受控或內部部署。 �
 ## <a name="sync-with-existing-users-in-azure-ad"></a>在 Azure AD 中與現有的使用者同步處理
 當您安裝 Azure AD Connect 時，您開始同步處理，Azure AD 同步服務 (在 Azure AD 中) 會檢查每個新的物件，然後嘗試尋找要比對的現有物件。 有三種屬性用於此處理程序︰**userPrincipalName**、**proxyAddresses** 和 **sourceAnchor**/**immutableID**。 比對 **userPrincipalName** 和 **proxyAddresses** 稱為**大致比對**。 比對 **sourceAnchor** 稱為**精確比對**。 針對 **proxyAddresses** 屬性，僅具有 **SMTP:** 的值 (也就是主要電子郵件地址) 會用來進行評估。
 
-比對只會評估來自 Connect 的新物件。 如果您變更現有的物件，而它會比對任何這些屬性，則您會看到錯誤。
+比對只會評估來自 Connect 的新物件。 如果您變更現有的物件，而其與這些屬性中任何一項相符，則您會看到錯誤。
 
 如果 Azure AD 找到的物件當中屬性值與來自 Connect 的物件相同，且已經存在於 Azure AD，則 Azure AD 中的物件會接替 Connect。 先前的雲端管理的物件標示為內部部署管理。 Azure AD 中具有內部部署 AD 值的所有屬性會以內部部署值覆寫。 例外狀況是在屬性擁有 **NULL** 值的內部部署。 在此情況下，會保留 Azure AD 的值，但是您仍然只能在內部部署將它變更為其他項目。
 

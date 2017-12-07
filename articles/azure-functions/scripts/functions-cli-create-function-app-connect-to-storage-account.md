@@ -3,7 +3,7 @@ title: "建立連線至 Azure 儲存體的 Azure 函式 | Microsoft Docs"
 description: "Azure CLI 指令碼範例 - 建立連線至 Azure 儲存體的 Azure 函式"
 services: functions
 documentationcenter: functions
-author: rachelappel
+author: ggailey777
 manager: cfowler
 editor: 
 tags: functions
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 04/20/2017
-ms.author: rachelap
+ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: af90702601d1bd05836dbf2b20cd3e318832b07c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 363a3fd1c80538495658720274840b921baa8675
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="integrate-function-app-into-azure-storage-account"></a>將函式應用程式整合到 Azure 儲存體帳戶
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本主題會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果您在本機使用 CLI，請確定您是執行 Azure CLI 2.0 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 
 
 ## <a name="sample-script"></a>範例指令碼
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="clean-up-deployment"></a>清除部署
 
-在執行過指令碼範例之後，您可以使用下列命令來移除資源群組、App Service 應用程式和所有相關資源：
+在執行過指令碼範例之後，請執行下列命令來移除資源群組和所有相關資源：
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

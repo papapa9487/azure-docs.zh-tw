@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: f1df2f52d00444ba0a27644a6e65cee789788f58
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: ad2a5891e207f6e8320c3e54ae7c817b49db4672
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>IoT Edge 上的 Azure 串流分析 (預覽)
 
@@ -61,6 +61,11 @@ ASA 會使用 IoT 中樞將 Edge 作業部署到裝置。 關於 [IoT Edge 部�
 
 #### <a name="create-an-asa-edge-job"></a>建立 ASA Edge 作業
 1. 從 Azure 入口網站中，建立新的「串流分析作業」。 [在這裡導向連結以建立新的 ASA 作業](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob)。
+
+> [!Note]
+> 您可以在 ASA 支援的所有地區建立 Edge 作業，**除了「美國西部 2」區域之外**。
+> 這項限制很快將會移除。
+
 2. 在 [建立] 畫面中，選取 **Edge** 作為 **裝載環境**(請參閱下圖) ![作業建立](media/stream-analytics-edge/ASAEdge_create.png)
 3. 作業定義
     1. **定義輸入資料流**。 定義適用於您作業的一或多個輸入資料流。

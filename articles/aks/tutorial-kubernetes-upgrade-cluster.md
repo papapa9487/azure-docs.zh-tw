@@ -1,27 +1,19 @@
 ---
-title: "Azure 上的 Kubernetes 教學課程 - 更新叢集 | Microsoft Docs"
+title: "Azure 上的 Kubernetes 教學課程 - 更新叢集"
 description: "Azure 上的 Kubernetes 教學課程 - 更新叢集"
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: "Docker, 容器, 微服務, Kubernetes, DC/OS, Azure"
-ms.assetid: 
 ms.service: container-service
-ms.devlang: aurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d0193e891c6c41687f1aaa3a8033bc71e85b10c3
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: aa457c97292fc9f97d3bc4769ca45d55dd5829a6
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="upgrade-kubernetes-in-azure-container-service-aks"></a>在 Azure Container Service (AKS) 中升級 Kubernetes
 

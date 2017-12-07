@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9b8475dcc51fb24fadd1faa4a2008b25a4464080
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: e061e599f365bf3d343cb59b8dc6a61e06627517
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>將 Azure Machine Learning 部署為 IoT Edge 模組 - 預覽
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/15/2017
 1. 按一下 [儲存] 。
 1. 回到 [新增模組] 步驟中，選取 [下一步]。
 1. 更新模組的路由：
-1. 在 [指定路由] 步驟中，將下列 JSON 複製到文字方塊。 模組會將所有訊息發佈到 Edge 執行階段。 執行階段中的宣告式規則會定義這些訊息的流向。 在本教學課程中，您需要兩個路由。 第一個路由會透過所有 Azure Machine Learning 使用的 mlInput 端點，將訊息從溫度感應器傳輸到機器學習模組。 第二個路由會將訊息從機器學習模組傳輸到 IoT 中樞。 在此路由，''mlOutput'' 是所有 Azure Machine Learning 模組用來輸出資料的 endput，而 ''upstream'' 是告知 Edge 中樞將訊息傳送至 IoT 中樞的特殊目的地。 
+1. 在 [指定路由] 步驟中，將下列 JSON 複製到文字方塊。 模組會將所有訊息發佈到 Edge 執行階段。 執行階段中的宣告式規則會定義這些訊息的流向。 在本教學課程中，您需要兩個路由。 第一個路由會透過所有 Azure Machine Learning 模組使用的「amlInput」端點，將訊息從溫度感應器傳輸到機器學習模組。 第二個路由會將訊息從機器學習模組傳輸到 IoT 中樞。 在此路由中，「amlInput」是所有 Azure Machine Learning 模組用來輸出資料的端點，而「$upstream」是告知 Edge 中樞將訊息傳送至 IoT 中樞的特殊目的地。 
 
     ```json
     {

@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 08/03/2017
+ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: c00e6a190633348411f47490808739d570cafd69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8fcf411db844e227e0c4db0e690a1832f98b42f1
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-lamp-web-server-on-an-azure-vm"></a>在 Azure VM 上安裝 LAMP 網頁伺服器
 本文會逐步引導您在 Azure 中的 Ubuntu VM 上部署 Apache 網頁伺服器、MySQL 和 PHP (LAMP 堆疊)。 如果您偏好使用 NGINX 網頁伺服器，請參閱 [LEMP 堆疊](tutorial-lemp-stack.md)教學課程。 若要查看作用中的 LAMP 伺服器，您可以選擇安裝及設定 WordPress 網站。 在本教學課程中，您了解如何：
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 > * 在 LAMP 伺服器上安裝 WordPress
 
 
-如需 LAMP 堆疊的詳細資訊 (包括適用於生產環境的建議)，請參閱 [Ubuntu 文件](https://help.ubuntu.com/community/ApacheMySQLPHP)。
+此安裝程式適用於快速測試或概念證明。 如需 LAMP 堆疊的詳細資訊 (包括適用於生產環境的建議)，請參閱 [Ubuntu 文件](https://help.ubuntu.com/community/ApacheMySQLPHP)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -42,13 +42,12 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="install-apache-mysql-and-php"></a>安裝 Apache、MySQL 和 PHP
 
-執行下列命令以更新 Ubuntu 套件來源，並安裝 Apache、MySQL 和 PHP。 請注意命令結尾有插入號 (^)。
+執行下列命令以更新 Ubuntu 套件來源，並安裝 Apache、MySQL 和 PHP。 請注意命令結尾的插入號 (^)，其為 `lamp-server^` 套件名稱的一部分。 
 
 
 ```bash
 sudo apt update && sudo apt install lamp-server^
 ```
-
 
 
 系統會提示您安裝套件和其他相依性。 出現提示時，請為 MySQL 設定根密碼，然後按 [Enter] 以繼續。 按照其餘的提示來進行。 此程序會安裝使用 PHP 搭配 MySQL 時所需的基本必要 PHP 擴充功能。 
@@ -78,15 +77,15 @@ apache2 -v
 mysql -V
 ```
 
-我們建議您執行下列指令碼來協助保護 MySQL 的安裝：
+若要協助保護 MySQL 的安裝，請執行 `mysql_secure_installation` 指令碼。 如果您只要設定臨時伺服器，則可略過此步驟。
 
 ```bash
 mysql_secure_installation
 ```
 
-輸入 MySQL 根密碼，並為您的環境設定安全性設定。
+輸入 MySQL 的根密碼，並為您的環境設定安全性設定。
 
-如果您想要建立 MySQL 資料庫，請新增使用者或變更組態設定，登入 MySQL：
+如果您想要試用 MySQL 功能 (建立 MySQL 資料庫、新增使用者或變更組態設定)，請登入 MySQL。 您不需要進行這個步驟也能完成本教學課程。
 
 ```bash
 mysql -u root -p

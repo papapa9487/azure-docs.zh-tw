@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 9970452b62b31f28f8277580dd1075c306767d8b
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 7fad1b662c587fed6cd7dd6a1792d8598f0e4f85
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何將 Azure API 管理與虛擬網路搭配使用
 「Azure 虛擬網路」(VNET) 可讓您將任何 Azure 資源，放在您控制存取權的非網際網路可路由網路中。 然後，可以使用各種 VPN 技術，將這些網路連線到您的內部部署網路。 若要深入了解「Azure 虛擬網路」，請從以下資訊著手：[Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
@@ -45,7 +45,7 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 ### <a name="enable-vnet-connectivity-using-the-azure-portal"></a>使用 Azure 入口網站啟用 VNET 連線能力
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您的 APIM 執行個體。
-2. 選取 [自訂網域和 SSL]。
+2. 選取 [虛擬網路]。
 3. 將 API 管理執行個體設定為在虛擬網路內部署。
 
     ![API 管理的虛擬網路功能表][api-management-using-vnet-menu]
@@ -116,6 +116,7 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 | * / 14000 - 14999 |輸出 |TCP |VIRTUAL_NETWORK / INTERNET|**存取 Azure SQL V12** |外部和內部 |
 | * / 5671 |輸出 |AMQP |VIRTUAL_NETWORK / INTERNET|「記錄到事件中樞」原則和監視代理程式的相依性 |外部和內部 |
 | * / 445 |輸出 |TCP |VIRTUAL_NETWORK / INTERNET|與「適用於 GIT 的 Azure 檔案共用」的相依性 |外部和內部 |
+| * / 25028 |輸出 |TCP |VIRTUAL_NETWORK / INTERNET|連線到 SMTP 轉送以便傳送電子郵件 |外部和內部 |
 | * / 6381 - 6383 |輸入和輸出 |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|存取 RoleInstances 之間的 Redis 快取執行個體 |外部和內部 |
 | * / * | 輸入 |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure 基礎結構負載平衡器 |外部和內部 |
 

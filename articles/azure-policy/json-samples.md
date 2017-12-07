@@ -10,17 +10,17 @@ tags:
 ms.assetid: 
 ms.service: azure-policy
 ms.devlang: na
-ms.topic: article
+ms.topic: samples
 ms.tgt_pltfrm: 
 ms.workload: 
 ms.date: 11/13/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: 4042c3606155d1d37947afccafd64652c9659894
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 4ac9696028b9f24341a630d630b583ac5041cee0
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="templates-for-azure-policy"></a>Azure 原則的範本
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 11/14/2017
 | [稽核 DB 層級威脅偵測設定](scripts/audit-db-threat-det-setting.md) | 稽核 SQL 資料庫安全性警示原則是否未設定成指定的狀態。 您需指定一個指出已啟用或停用威脅偵測的值。  |
 | [稽核 SQL Server 層級稽核設定](scripts/audit-sql-ser-leve-audit-setting.md) | 稽核 SQL Server 稽核設定是否與指定的設定不符。 您需指定一個指出應啟用或停用稽核設定的值。 |
 | [稽核伺服器層級威脅偵測設定](scripts/audit-sql-ser-threat-det-setting.md) | 稽核 SQL 資料庫安全性警示原則是否未設定成指定的狀態。 您需指定一個指出已啟用或停用威脅偵測的值。  |
-| [在沒有 Azure Active Directory 系統管理員時稽核](scripts/audit-no-aad-admin.md) | 在沒有指派給 SQL Server 的 Azure Active Directory 系統管理員時稽核。 |
+| [在沒有 Azure Active Directory 系統管理員時稽核](scripts/audit-no-aad-admin.md) | 在 SQL Server 沒有指派的 Azure Active Directory 系統管理員時稽核。 |
 | [允許的 SQL DB SKU](scripts/allowed-sql-db-skus.md) | 要求 SQL 資料庫使用已核准的 SKU。 您需指定允許的 SKU 識別碼陣列或允許的 SKU 名稱陣列。 |
 |**儲存體**||
 | [允許的儲存體帳戶和虛擬機器 SKU](scripts/allowed-skus-storage.md) | 要求儲存體帳戶和虛擬機器使用已核准的 SKU。 使用內建的原則來確保使用已核准的 SKU。 您需指定已核准的虛擬機器 SKU 陣列和已核准的儲存體帳戶 SKU 陣列。 |

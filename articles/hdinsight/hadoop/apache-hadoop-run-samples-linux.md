@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 3e52fc6ee18faa9b8a04ad19db52dd48505782ae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 700f73d86686761908d241f989aab25e0fb43c0e
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>執行包含在 HDInsight 中的 MapReduce 範例
 
@@ -67,10 +67,7 @@ ms.lasthandoff: 11/03/2017
 * `wordmedian`：mapreduce 程式，可計算輸入檔中字詞的中位數長度。
 * `wordstandarddeviation`：mapreduce 程式，可計算輸入檔中字詞長度的標準差。
 
-**原始程式碼**：這些範例的原始程式碼包含在 HDInsight 叢集上，位於 `/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`。
-
-> [!NOTE]
-> 路徑中的 `2.2.4.9-1` 是 HDInsight 叢集所使用的 Hortonworks Data Platform 版本，且可能與您的叢集不同。
+**原始程式碼**：這些範例的原始程式碼包含在 HDInsight 叢集上，位於 `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`。
 
 ## <a name="run-the-wordcount-example"></a>執行 wordcount 範例
 

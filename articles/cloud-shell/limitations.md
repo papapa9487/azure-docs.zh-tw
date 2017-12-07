@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: juluk
-ms.openlocfilehash: bd947af4cca0ed240ba5811d6a5cd06ff7fffc82
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 65a5c40ce0a4d0cfdc0a325476bea6e8ccebe8c6
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Azure Cloud Shell 限制
 
@@ -28,10 +28,10 @@ Azure Cloud Shell 具有下列已知限制：
 
 ### <a name="system-state-and-persistence"></a>系統狀態和持續性
 
-提供 Cloud Shell 工作階段的電腦只是暫時性，在工作階段閒置 20 分鐘後就會回收。 Cloud Shell 需要掛接檔案共用。 因此，您的訂用帳戶必須能夠設定儲存體資源，才可存取 Cloud Shell。 其他考量包括：
+提供 Cloud Shell 工作階段的電腦只是暫時性，在工作階段閒置 20 分鐘後就會回收。 Cloud Shell 需要掛接 Azure 檔案共用。 因此，您的訂用帳戶必須能夠設定儲存體資源，才可存取 Cloud Shell。 其他考量包括：
 
 * 在掛接的儲存體中，只會保存 `clouddrive` 目錄內的修改。 在 Bash 中，也會保存 `$Home` 目錄。
-* 只能從您的[已指派區域](persisting-shell-storage.md#mount-a-new-clouddrive)內掛接檔案共用。
+* 只能從您的[已指派區域](persisting-shell-storage.md#mount-a-new-clouddrive)內掛接 Azure 檔案共用。
   * 在 Bash 中，會執行 `env` 來尋找設定為 `ACC_LOCATION` 的區域。
 * Azure 檔案只支援本機備援儲存體和異地備援儲存體帳戶。
 
@@ -77,7 +77,12 @@ Bash 命令的歷程記錄可能因為 Cloud Shell 工作階段中斷或並行�
 在 PowerShell 工作階段之間不會保存任何應用程式 (例如：git、vim 和其他項目) 寫入至 `$Home` 的資料。 如需因應措施，[請參閱這裡](troubleshooting.md#powershell-resolutions)。
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>從 Azure 磁碟機建立時的預設檔案位置：
+
 使用 PowerShell Cmdlet 時，使用者無法在 Azure 磁碟機底下建立檔案。 當使用者使用其他工具 (例如 vim 或 nano) 來建立新檔案時，檔案預設會儲存至 C:\Users 資料夾。 
+
+### <a name="gui-applications-are-not-supported"></a>不支援 GUI 應用程式
+
+如果使用者執行的命令會建立 Windows 對話方塊，例如 `Connect-AzureAD` 或 `Login-AzureRMAccount`，其將會看到如下錯誤訊息：`Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`。
 
 ## <a name="next-steps"></a>後續步驟
 

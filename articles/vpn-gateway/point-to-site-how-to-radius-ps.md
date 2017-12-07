@@ -13,21 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/13/2017
-ms.author: cherylmc
-ms.openlocfilehash: 2afaf869af36c98f86feba238c6e1a30d3939ef8
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.date: 12/04/2017
+ms.author: anzaman
+ms.openlocfilehash: c78b3fe37a874fa25c7825046d91af62c39ab0d6
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell-preview"></a>使用 RADIUS 驗證設定 VNet 的點對站連線：PowerShell (預覽)
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>使用 RADIUS 驗證設定 VNet 的點對站連線：PowerShell
 
 本文顯示如何建立具有點對站連線 (使用 RADIUS 驗證) 的 VNet。 此組態只適用於 Resource Manager 部署模型。
-
->[!NOTE]
->P2S RADIUS 驗證目前為預覽版。
->
 
 點對站 (P2S) VPN 閘道可讓您建立從個別用戶端電腦到您的虛擬網路的安全連線。 當您想要從遠端位置 (例如當您從住家或會議進行遠距工作) 連線到您的 VNet 時，點對站 VPN 連線很實用。 當您只有少數用戶端必須連線至 VNet 時，P2S VPN 也是很實用的方案 (而不是使用站對站 VPN)。
 

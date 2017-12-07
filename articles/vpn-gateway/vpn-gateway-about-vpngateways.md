@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2017
+ms.date: 12/04/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2d5da55e757d190db0334ad82eae4042deb5205c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae8de17c6b2ca8e1b9888612221c7f39b629c1b1
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="about-vpn-gateway"></a>關於 VPN 閘道
 
@@ -87,9 +87,6 @@ VPN 閘道連線需仰賴多個具有特定設定的資源。 大部分的資源
 
 如同 S2S 連線，P2S 連線不需要內部部署公眾對應 IP 位址或 VPN 裝置。 P2S 連線可與 S2S 連線透過相同的 VPN 閘道一起使用，前提是這兩個連線的所有設定需求都相容。 如需點對站連線的詳細資訊，請參閱[關於點對站 VPN](point-to-site-about.md)。
 
->[!NOTE]
->P2S RADIUS 驗證和 IKEv2 目前皆處於預覽狀態。
->
 
 ![Azure VPN 閘道點對站連接範例](./media/vpn-gateway-about-vpngateways/point-to-site.png)
 

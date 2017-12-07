@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: juluk
-ms.openlocfilehash: 5d376ea0bce1088206aa369decf92b1b7523918a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4eb5680c618d78e0722e1eb4a0f551f26b4dc902
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>使用 Azure Cloud Shell 視窗
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/15/2017
 ## <a name="restart-cloud-shell"></a>重新啟動 Cloud Shell
 ![](media/using-the-shell-window/restart.png)
 > [!WARNING]
-> 重新啟動 Cloud Shell 將會重設電腦狀態，而所有未由檔案共用保存的檔案都將遺失。
+> 重新啟動 Cloud Shell 將會重設電腦狀態，而所有未由 Azure 檔案共用保存的檔案都將遺失。
 
 * 按一下 Cloud Shell 工具列中的重新啟動圖示，即可重設電腦狀態。
 

@@ -12,18 +12,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/15/2017
-ms.author: markgal;arunak
-ms.openlocfilehash: a3d50d0066f1d0fe38bd7c5474386f54df81bec5
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.author: markgal;arunak;sogup
+ms.openlocfilehash: ad685744595ab86def8d226d7c2fb5455af98da4
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="recovery-services-vaults-overview"></a>復原服務保存庫概觀
 
 本文說明復原服務保存庫的功能。 復原服務保存庫是 Azure 中裝載資料的儲存體實體。 資料通常是資料的副本，或是虛擬機器 (VM)、工作負載、伺服器或工作站的設定資訊。 您可以使用復原服務保存庫來保存各種 Azure 服務 (例如 IaaS VM (Linux 或 Windows) 和 Azure SQL Database) 的備份資料。 復原服務保存庫支援 System Center DPM、Windows Server、Azure 備份伺服器等等。 復原服務保存庫可輕鬆地組織您的備份資料，同時可減輕管理負擔。 
 
-您可以在 Azure 訂用帳戶內建立最多 25 個復原服務保存庫。
+在 Azure 訂用帳戶內，您可以為每個區域最多建立 25 個復原服務保存庫。
 
 ## <a name="comparing-recovery-services-vaults-and-backup-vaults"></a>比較復原服務保存庫與備份保存庫
 

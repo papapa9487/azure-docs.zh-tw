@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 11/21/2017
 ms.author: bradsev;BuckWoody
-ms.openlocfilehash: e043de0aa4ed861139f50291a98c3300574e6078
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 2ab36da70e2c08b770973f4c4d33eddfdebed9e1
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="team-data-science-process-for-developer-operations"></a>適用於開發人員作業的 Team Data Science Process
 
-本文將探索對「進階分析」和「辨識服務」解決方案實作而言特定的「開發人員作業」(DevOps) 功能。 它所參考的主題涵蓋了解 Data Science Process 與平台、DevOps 程序，以及資料科學和 AI 專案與解決方案所特有的 DevOps 工具鏈。
+本文將探索對「進階分析」和「辨識服務」解決方案實作而言特定的「開發人員作業」(DevOps) 功能。 這些訓練教材是關於 Team Data Science Process (TDSP) 和 Microsoft 與開放原始碼軟體和工具套件，對於構思、執行和傳遞資料科學解決方案很有幫助。 它會參考涵蓋 DevOps 工具鏈的主題，專屬於資料科學和 AI 專案與解決方案。
 
 ## <a name="lesson-path"></a>課程路徑
 下表提供的指定層級指引，可協助您完成使用 Azure 技術實作資料科學解決方案所需的 DevOps 目標。

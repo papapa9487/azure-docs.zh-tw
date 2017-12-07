@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0629b0aa7e7981cf04330b407604e4612a58b168
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: ef01271fd4885f9bdac80194bbf72e2a10df0d27
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>使用 Azure Cosmos DB 建置 Python Flask Web 應用程式
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/18/2017
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* 已啟用 **Azure 開發**和 **Python 開發**的 [Visual Studio 2017]((https://www.visualstudio.com/downloads/))。 您可以在本機開啟 **Visual Studio 安裝程式**，檢查這些必要條件是否已安裝，並加以安裝。   
+* 已啟用 **Azure 開發**和 **Python 開發**的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。 您可以在本機開啟 **Visual Studio 安裝程式**，檢查這些必要條件是否已安裝，並加以安裝。   
 * [Microsoft Azure SDK for Python 2.7](https://azure.microsoft.com/downloads/)。 
 * [Python 2.7](https://www.python.org/downloads/windows/)。 您可以使用 32 位元或 64 位元的安裝。
 

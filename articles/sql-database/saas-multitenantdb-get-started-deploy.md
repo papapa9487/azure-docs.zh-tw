@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: sstein
-ms.openlocfilehash: cb55bf1f1c7eeb0fc7608aca8d70818b5e3e06c0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 1ef4355f7234bc6a534d21a57fa52b480983b99b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>部署及探索使用 Azure SQL Database 的分區化多租用戶應用程式
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/23/2017
 
 應用程式是以三個範例租用戶的資料進行部署。 租用戶會一起儲存在一個多租用戶資料庫。
 
-任何人都可以從[我們的 Github 存放庫][link-github-wingtip-multitenantdb-55g]下載 Wingtip Tickets 的 C# 和 PowerShell 原始程式碼。
+任何人都可以從[我們的 GitHub 存放庫][link-github-wingtip-multitenantdb-55g]下載 Wingtip Tickets 的 C# 和 PowerShell 原始程式碼。
 
 #### <a name="learn-in-this-tutorial"></a>在本教學課程中學到
 
@@ -93,7 +93,7 @@ ms.lasthandoff: 11/23/2017
 > [!IMPORTANT]
 > 從外部來源下載 zip 檔案並進行解壓縮時，Windows 可能會封鎖可執行的內容 (指令碼、dll)。 從 zip 檔案解壓縮指令碼時，請遵循下列步驟先解除封鎖 .zip 檔案，再進行解壓縮。 解除封鎖 .zip 檔案時您就確定允許執行指令碼。
 
-1. 瀏覽至 [WingtipTicketsSaaS MultiTenantDb github 存放庫](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)。
+1. 瀏覽至 [WingtipTicketsSaaS MultiTenantDb GitHub 存放庫](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)。
 2. 按一下 [複製或下載]。
 3. 按一下 [下載 ZIP]，並儲存檔案。
 4. 以滑鼠右鍵按一下 **WingtipTicketsSaaS-MultiTenantDb-master.zip** 檔案，然後選取 [屬性]。
@@ -120,7 +120,7 @@ ms.lasthandoff: 11/23/2017
 中央 [事件中樞] 提供特定部署中租用戶的連結清單。
 
 1. 在網頁瀏覽器中開啟 [事件中樞]：
-    - http://events.wingtip-mt.&lt;USER&gt;.trafficmanager.net &nbsp; *(取代為您部署的使用者值。)*
+    - http://events.wingtip.&lt;USER&gt;.trafficmanager.net &nbsp; (取代為您部署的使用者值。)
 
     ![事件中樞](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -130,7 +130,7 @@ ms.lasthandoff: 11/23/2017
 
 為了控制連入要求的發佈，應用程式會使用 [Azure 流量管理員](../traffic-manager/traffic-manager-overview.md)。 事件頁面 (租用戶專屬) 會在 URL中包含租用戶名稱。 URL 也會包含特定使用者值，並遵循以下格式：
 
-- http://events.wingtip-mt.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip.&lt;USER&gt;.trafficmanager.net/fabrikamjazzclub
  
 活動應用程式會剖析 URL 中的租用戶名稱，並且將它雜湊以使用[分區對應管理](sql-database-elastic-scale-shard-map-management.md)，建立索引鍵以存取目錄。 目錄會將鍵值對應到租用戶的資料庫位置。 **事件中樞**會列出在目錄中註冊的所有租用戶。 [事件中樞] 會使用目錄中的延伸中繼資料來擷取與每個對應相關聯的租用戶名稱，以建構 URL。
 
@@ -156,7 +156,7 @@ ms.lasthandoff: 11/23/2017
 
 初始部署在 Tenants1 資料庫中包含三個範例租用戶。 讓我們來建立另一個租用戶，以查看會如何影響部署的應用程式。 在此步驟中，您會快速建立新的租用戶。
 
-1. 在 *PowerShell ISE* 中，開啟 ...\\Learning Modules\ProvisionTenants\\*Demo-ProvisionTenants.ps1*。
+1. 在 [PowerShell ISE] 中，開啟 ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionTenants.ps1*。
 2. 按 **F5** 來執行指令碼 (目前先保持預設值)。
 
    > [!NOTE]
@@ -174,7 +174,7 @@ ms.lasthandoff: 11/23/2017
 
 現在我們佈建另一個租用戶，這次佈建在它自己的資料庫中。
 
-1. 在 ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* 中，將 *$TenantName* 修改為 **Salix Salsa**、將 *$VenueType* 修改為 **dance**，並將 *$Scenario* 修改為 **2**。
+1. 在 ...\\Learning Modules\\Provision and Catalog\*Demo-ProvisionTenants.ps1* 中，將 *$TenantName* 修改為 **Salix Salsa**、將 *$VenueType* 修改為 **dance**，以及將 *$Scenario* 修改為 **2**。
 
 2. 按下 **F5** 以再次執行指令碼。
     - 這次按下 F5 會在個別資料庫中佈建新的租用戶。 資料庫和租用戶會在目錄中註冊。 然後瀏覽器會開啟至租用戶的 [事件] 分頁。
@@ -239,7 +239,7 @@ ms.lasthandoff: 11/23/2017
 > - 如何檢視集區使用率以監視租用戶活動
 > - 如何刪除範例資源以停止相關計費
 
-現在，請嘗試[佈建租用戶教學課程](sql-database-saas-tutorial-provision-and-catalog.md)。
+現在，請嘗試[佈建和類別目錄教學課程](sql-database-saas-tutorial-provision-and-catalog.md)。
 
 
 

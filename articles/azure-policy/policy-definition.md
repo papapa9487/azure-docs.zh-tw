@@ -9,11 +9,11 @@ ms.date: 10/31/2017
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: 8ff85f842356eff3f12ccd04e337d71c52d0efcd
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1b8fd12e071bfbd01567803370e510e7e07ccb99
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -88,13 +88,21 @@ ms.lasthandoff: 11/04/2017
     "type": "array",
     "metadata": {
       "description": "The list of allowed locations for resources.",
-      "displayName": "Allowed locations"
+      "displayName": "Allowed locations",
+      "strongType": "location"
     }
   }
 }
 ```
 
 參數的類型可以是字串或陣列。 中繼資料屬性會用於 Azure 入口網站之類的工具，可顯示使用者易懂的資訊。
+
+在中繼資料屬性內，您可以使用 **strongType** 在 Azure 入口網站內提供可複選的選項清單。  **strongType** 所允許的值目前包括：
+
+* `"location"`
+* `"resourceTypes"`
+* `"storageSkus"`
+* `"vmSKUs"`
 
 在原則規則中，您可以使用下列語法參考參數︰
 

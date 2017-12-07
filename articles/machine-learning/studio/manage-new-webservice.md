@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: 2fc71d3a03ff978485104bcd1cd9391c1d5ee392
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ed9b4e2fc2dd7c795861dc8f1c0f2c6d61d26439
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>使用 Azure Machine Learning Web 服務入口網站管理 Web 服務
 您可以使用 Microsoft Azure Machine Learning Web 服務入口網站，管理 Machine Learning 新式和傳統 Web 服務。 因為傳統 Web 服務和新式 Web 服務是根據不同的基礎技術，所以各有稍微不同的管理功能。
@@ -155,36 +155,4 @@ ms.lasthandoff: 10/11/2017
 * [記錄] 可讓您啟用或停用端點上的錯誤記錄。 如需有關記錄的詳細資訊，請參閱[為 Machine Learning Web 服務啟用記錄](web-services-logging.md)。
 * [啟用範例資料] 可讓您提供範例資料，用來測試要求-回應服務。 如果您是在 Machine Learning Studio 中建立 Web 服務，範例資料會取自您用來訓練模型的資料。 如果您是以程式設計方式建立服務，資料會取自您提供做為 JSON 套件一部分的範例資料。
 
-## <a name="grant-or-suspend-access-to-web-services-for-users-in-the-portal"></a>在入口網站中授與或暫停使用者對 Web 服務的存取
-您可以使用 Azure 傳統入口網站來允許或拒絕特定使用者的存取。
-
-### <a name="access-for-users-of-new-web-services"></a>新式 Web 服務的使用者存取
-若要讓其他使用者在 Azure Machine Learning Web 服務入口網站中使用您的 Web 服務，您必須將他們新增為 Azure 訂用帳戶的共同管理員。
-
-使用您的 Microsoft Azure 帳戶登入 [Azure 傳統入口網站](https://manage.windowsazure.com/) - 使用與 Azure 訂用帳戶相關聯的帳戶。
-
-1. 在導覽窗格中按一下 [設定]，然後按一下 [系統管理員]。
-2. 在視窗底部按一下 [新增]。 
-3. 在 [新增共同管理員] 對話方塊中，輸入您想新增為共同管理員之人員的電子郵件地址，然後選取您想讓共同管理員存取的訂用帳戶。
-4. 按一下 [儲存] 。
-
-### <a name="access-for-users-of-classic-web-services"></a>傳統 Web 服務的使用者存取
-若要管理工作區：
-
-使用您的 Microsoft Azure 帳戶登入 [Azure 傳統入口網站](https://manage.windowsazure.com/) - 使用與 Azure 訂用帳戶相關聯的帳戶。
-
-1. 在 Microsoft Azure 服務面板中，按一下 [機器學習] 。
-2. 按一下您想要管理的工作區。
-3. 按一下 [設定]  索引標籤。
-
-從 [設定] 索引標籤中，您可以按一下 [拒絕] 來擱置對 Machine Learning 工作區的存取。 使用者將不再能在 Machine Learning Studio 中開啟工作區。 若要還原存取，請按一下 [允許]。
-
-特定的使用者︰
-
-若要管理可以存取 Machine Learning Studio 中工作區的其他帳戶，請按一下 [儀表板] 索引標籤中的 [登入 ML Studio]。這會在 Machine Learning Studio 中開啟工作區。 從這裡按一下 [設定] 索引標籤，然後按一下 [使用者]。 您可以按一下 [邀請使用者]，讓使用者存取工作區，或選取使用者，並按一下 [移除]。
-
-> [!NOTE]
-> [ **登入 ML Studio** ] 連結會使用目前登入的 Microsoft 帳戶來開啟 Machine Learning Studio。 您用來登入 Azure 傳統入口網站以建立工作區的 Microsoft 帳戶，不會自動具備開啟該工作區的權限。 若要開啟工作區，您必須使用定義為工作區擁有者的 Microsoft 帳戶登入，或者您需要收到來自擁有者的邀請，才能加入工作區。
-> 
-> 
 

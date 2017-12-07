@@ -3,17 +3,18 @@ title: "使用 Azure IoT Edge部署 Azure Function | Microsoft Docs"
 description: "將 Azure Function 作為模組部署至 Edge 裝置"
 services: iot-edge
 keywords: 
-author: JimacoMS2
+author: kgremban
 manager: timlt
 ms.author: v-jamebr
 ms.date: 11/15/2017
-ms.topic: article
+ms.topic: tutorial
 ms.service: iot-edge
-ms.openlocfilehash: cba901e8929d3626dc06e4600437b6d364e9bc44
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.custom: mvc
+ms.openlocfilehash: fb295b37819788ed14f54e4123ae0fe1b52d0210
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>將 Azure Function 部署為 IoT Edge 模組 - 預覽
 您可以使用 Azure Functions 來部署程式碼，將您的商務邏輯直接實作到您的 IoT Edge 裝置。 本教學課程會逐步引導您建立及部署 Azure Function，以篩選模擬 IoT Edge 裝置上的感應器資料 (模擬裝置是在＜在 [Windows][lnk-tutorial1-win] 或 [Linux][lnk-tutorial1-lin] 上的模擬裝置中部署 Azure IoT Edge＞教學課程中所建立)。 在本教學課程中，您將了解如何：     

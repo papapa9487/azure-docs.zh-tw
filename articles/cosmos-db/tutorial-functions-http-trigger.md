@@ -10,14 +10,15 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: mvc
+ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: mimig
-ms.openlocfilehash: 86a660309fd3fd80f10f706ff460af2309c12174
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: 3fca64db9e19f8295fc462b790beb95f6796ae4c
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>使用 Azure Cosmos DB 輸入繫結建立 Azure Functions HTTP 觸發程序
 
@@ -59,7 +60,7 @@ Azure Cosmos DB 是無結構描述又無伺服器的全域散發多模型資料�
 
    ![安裝圖形 API](./media/tutorial-functions-http-trigger/03-add-azure-graphs.png)
 
-    c. 在 瀏覽 索引標籤中，輸入 **mono.csharp** 尋找 **Mono.CSharp** 套件，然後按一下安裝。
+    c. 在 [瀏覽] 索引標籤中，輸入 **mono.csharp** 尋找 **Mono.CSharp** 套件，然後按一下 [安裝]。
 
    ![安裝 Mono.CSharp](./media/tutorial-functions-http-trigger/04-add-mono.png)
 
@@ -68,7 +69,7 @@ Azure Cosmos DB 是無結構描述又無伺服器的全域散發多模型資料�
    接下來，我們必須撰寫一些程式碼，因此我們要將新的 **Azure Function** 項目新增至專案。 
 
     a. 在 [方案總管] 中，以滑鼠右鍵按一下專案節點，然後選擇 [ 新增] >  [新增項目]。   
-    b. 在 新增項目 對話方塊中，選取 Visual C# 項目，選取 Azure Function，輸入 **Search** 作為專案名稱，然後按一下新增。  
+    b. 在 [新增項目] 對話方塊中，選取 [Visual C# 項目]，選取 [Azure Function]，輸入 **Search** 作為專案名稱，然後按一下 [新增]。  
  
    ![建立名為 Search 的新函式](./media/tutorial-functions-http-trigger/05-add-function.png)
 
@@ -178,7 +179,7 @@ Azure Cosmos DB 是無結構描述又無伺服器的全域散發多模型資料�
 
 2. 將啟始專案變更為新的 Functions 應用程式。 在 [方案總管] 中，以滑鼠右鍵按一下 [PeopleDataFunctions]，然後選取 [設定為啟始專案]。
 
-3. 在 方案總管 中，以滑鼠右鍵按一下 **PeopleDataFunctions** 專案中的 相依性，然後按一下新增參考。 從清單中，選取 System.Configuration，然後按一下確定。
+3. 在 [方案總管] 中，以滑鼠右鍵按一下 **PeopleDataFunctions** 專案中的 [相依性]，然後按一下 [新增參考]。 從清單中，選取 [System.Configuration]，然後按一下 [確定]。
 
 3. 現在可以執行應用程式。 Azure Function 程式碼已裝載且可供使用，請按 F5 以啟動本機偵錯工具 func.exe。
 
@@ -216,7 +217,7 @@ Azure Cosmos DB 是無結構描述又無伺服器的全域散發多模型資料�
 
    ![發佈新的專案](./media/tutorial-functions-http-trigger/12-publish-function.png)
 
-2. 我們已準備好發佈至雲端，在公開情節下進行測試。 在 發佈 索引標籤上，選取 Azure Function 應用程式，選取 新建 以在您的 Azure 訂用帳戶中建立 Azure Function，然後按一下發佈。
+2. 我們已準備好發佈至雲端，在公開情節下進行測試。 在 [發佈] 索引標籤上，選取 [Azure Function 應用程式]，選取 [新建] 以在您的 Azure 訂用帳戶中建立 Azure Function，然後按一下 [發佈]。
 
    ![建立新的 Azure Function 應用程式](./media/tutorial-functions-http-trigger/13-publish-panel.png)
 
@@ -228,9 +229,9 @@ Azure Cosmos DB 是無結構描述又無伺服器的全域散發多模型資料�
    
     c. 在 [資源群組] 中，建立新的資源群組，並使用與應用程式名稱相同的名稱。
    
-    d. 在 [App Service 方案] 中，按一下 [新增]，建立以消費為基礎的新 App Service 方案，因為我們對無伺服器 Azure Function 採用計次付費方法。 在 設定 App Service 方案 頁面上使用預設值，然後按一下確定。
+    d. 在 [App Service 方案] 中，按一下 [新增]，建立以消費為基礎的新 App Service 方案，因為我們對無伺服器 Azure Function 採用計次付費方法。 在 [設定 App Service 方案] 頁面上使用預設值，然後按一下 [確定]。
    
-    e. 在 [儲存體帳戶] 中，也按一下 [新增] 來建立可用於 Azure Function 的新儲存體帳戶，以防我們需要支援 Blob、資料表或佇列來觸發執行其他功能。 在 儲存體帳戶 頁面上使用預設值，然後按一下確定。
+    e. 在 [儲存體帳戶] 中，也按一下 [新增] 來建立可用於 Azure Function 的新儲存體帳戶，以防我們需要支援 Blob、資料表或佇列來觸發執行其他功能。 在 [儲存體帳戶] 頁面上使用預設值，然後按一下 [確定]。
 
     f. 然後按一下對話方塊中的 [建立] 按鈕，在您的 Azure 訂用帳戶中建立所有資源。 Visual Studio 會下載發行設定檔 (簡單的 XML 檔案)，並在您下次發佈 Azure Function 程式碼時使用。
 

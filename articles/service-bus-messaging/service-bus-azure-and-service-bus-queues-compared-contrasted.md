@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: d566b74429bf158e0c9cc51419ba35c9e6c32f64
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: f13c7330c9e828abe6557149b9a31c7170e33dcd
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>儲存體佇列和服務匯流排佇列 - 異同比較
 本文將分析 Microsoft Azure 目前所提供之兩種佇列類型之間的差異和相似性：儲存體佇列和服務匯流排佇列。 透過使用這項資訊，您可以比較和比對個別的技術，而且對於哪一種方案最符合您的需求，也能夠做出更旁徵博引的決定。
@@ -30,12 +30,12 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 
 **服務匯流排佇列**是較廣泛 [Azure 傳訊](https://azure.microsoft.com/services/service-bus/)基礎結構的一部分，支援佇列處理和發佈/訂閱，以及更進階的整合模式。 如需服務匯流排佇列/主題/訂用帳戶的詳細資訊，請參閱[服務匯流排概觀](service-bus-messaging-overview.md)。
 
-雖然這兩種佇列技術同時存在，不過儲存體佇列較早引進，作為建置在 Azure 儲存體服務之上的專用佇列儲存體機制。 服務匯流排佇列則是建置在較廣泛的「傳訊」基礎結構之上，這個基礎結構的設計目的是為了整合可能跨多種通訊協定、資料合約、信任網域和 (或) 網路環境的應用程式或應用程式元件。
+雖然這兩種佇列技術同時存在，不過儲存體佇列較早引進，作為建置在 Azure 儲存體服務之上的專用佇列儲存體機制。 服務匯流排佇列則是建置在較廣泛的傳訊基礎結構之上，這個基礎結構的設計目的是為了整合可能跨多種通訊協定、資料合約、信任網域和 (或) 網路環境的應用程式或應用程式元件。
 
 ## <a name="technology-selection-considerations"></a>技術選擇考量
 儲存體佇列和服務匯流排佇列都是 Microsoft Azure 目前所提供之訊息佇列服務的實作。 每種佇列都有稍微不同的功能集，表示您可以根據特定方案的需求或正在解決的商務/技術問題選擇其中一種佇列，或是使用這兩種佇列。
 
-在判斷哪一種佇列技術適合給定方案的目的時，方案架構設計人員和開發人員應該考慮下列建議。 如需詳細資訊，請參閱下一節。
+在判斷哪一種佇列技術適合給定方案的目的時，方案架構設計人員和開發人員應該考慮這些建議。 如需詳細資訊，請參閱下一節。
 
 身為方案架構設計人員/開發人員，您應該在下列情況下**考慮使用儲存體佇列**：
 
@@ -75,8 +75,8 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 | 推送型 API |**否** |**是**<br/><br/>[OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) 和 **OnMessage** 工作階段的 .NET API。 |
 | 接收模式 |**查看與租用** |**查看與鎖定**<br/><br/>**接收與刪除** |
 | 獨佔存取模式 |**以租用為基礎** |**以鎖定為基礎** |
-| 租用/鎖定持續時間 |**30 秒 (預設值)**<br/><br/>**7 天 (上限)** (您可以使用 [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx) API 更新或釋放訊息租用。) |**60 秒 (預設值)**<br/><br/>您可以使用 [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API 更新訊息鎖定。 |
-| 租用/鎖定精確度 |**訊息層級**<br/><br/>(每個訊息都可以具有不同的逾時值，您稍後可以在處理訊息時，視需要使用 [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx) API 更新這個逾時值) |**佇列層級**<br/><br/>(每個佇列都有套用至所有訊息的鎖定精確度，但是您可以使用 [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API 更新鎖定。) |
+| 租用/鎖定持續時間 |**30 秒 (預設值)**<br/><br/>**7 天 (上限)** (您可以使用 [UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage) API 更新或釋放訊息租用。) |**60 秒 (預設值)**<br/><br/>您可以使用 [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API 更新訊息鎖定。 |
+| 租用/鎖定精確度 |**訊息層級**<br/><br/>(每個訊息都可以具有不同的逾時值，您稍後可以在處理訊息時，視需要使用 [UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage) API 更新這個逾時值) |**佇列層級**<br/><br/>(每個佇列都有套用至所有訊息的鎖定精確度，但是您可以使用 [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API 更新鎖定。) |
 | 批次接收 |**是**<br/><br/>(在擷取訊息時明確指定訊息計數，最多 32 個訊息) |**是**<br/><br/>(隱含啟用預先擷取屬性或明確透過使用交易) |
 | 批次傳送 |**否** |**是**<br/><br/>(透過使用交易或用戶端批次) |
 
@@ -132,9 +132,9 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 | 比較準則 | 儲存體佇列 | 服務匯流排佇列 |
 | --- | --- | --- |
 | 佇列大小上限 |**500 TB**<br/><br/>(限制為[單一儲存體帳戶容量](../storage/common/storage-introduction.md#queue-storage)) |**1 GB 到 80 GB**<br/><br/>(在建立佇列和[啟用分割](service-bus-partitioning.md)時定義 - 請參閱＜其他資訊＞一節) |
-| 訊息大小上限 |**64 KB**<br/><br/>(使用 **Base64** 編碼時則為 48 KB)<br/><br/>Azure 可以結合佇列和 Blob 來支援大型訊息，因此您最多可以將 200GB 的單一項目加入佇列。 |**256 KB** 或 **1 MB**<br/><br/>(包括標頭和主體，標頭大小上限：64 KB)。<br/><br/>取決於[服務層](service-bus-premium-messaging.md)。 |
+| 訊息大小上限 |**64 KB**<br/><br/>(使用 **Base64** 編碼時則為 48 KB)<br/><br/>Azure 可以結合佇列和 Blob 來支援大型訊息，因此您最多可以將 200 GB 的單一項目加入佇列。 |**256 KB** 或 **1 MB**<br/><br/>(包括標頭和主體，標頭大小上限：64 KB)。<br/><br/>取決於[服務層](service-bus-premium-messaging.md)。 |
 | 訊息 TTL 上限 |**7 天** |**TimeSpan.Max** |
-| 佇列數目上限 |**無限制** |**10,000**<br/><br/>(每個服務命名空間，可以增加) |
+| 佇列數目上限 |**無限制** |**10,000**<br/><br/>(每一服務命名空間) |
 | 並行用戶端數目上限 |**無限制** |**無限制**<br/><br/>(100 個並行連接限制只適用於以 TCP 通訊協定為基礎的通訊) |
 
 ### <a name="additional-information"></a>其他資訊

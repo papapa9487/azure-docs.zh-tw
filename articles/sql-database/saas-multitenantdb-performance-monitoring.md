@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: sstein
-ms.openlocfilehash: 6c73cf2e96503f47dd4234387222169cb30b4cce
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 3e97f0635a856256dd08c29d33d8058be9c8d8b4
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>監視及管理多租用戶 SaaS 應用程式中分區化多租用戶 Azure SQL Database 的效能
 
@@ -59,7 +59,7 @@ Wingtip Tickets SaaS 多租用戶資料庫應用程式會使用分區化多租�
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>取得 Wingtip Tickets SaaS 多租用戶資料庫應用程式原始碼和指令碼
 
-可在 [WingtipTicketsSaaS MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) github 存放庫中使用 Wingtip Tickets SaaS 多租用戶資料庫指令碼和應用程式來源程式碼。 <!--Steps to download the Wingtip Tickets SaaS Multi-tenant Database scripts(saas-multitenantdb-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts)-->
+可在 [WingtipTicketsSaaS MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 存放庫中使用 Wingtip Tickets SaaS 多租用戶資料庫指令碼和應用程式來源程式碼。 關於下載和解除封鎖 Wingtip Tickets SaaS 指令碼的步驟，請參閱[一般指引](saas-tenancy-wingtip-app-guidance-tips.md)。
 
 ## <a name="provision-additional-tenants"></a>佈建其他租用戶
 

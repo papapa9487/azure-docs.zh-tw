@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 3b509ffa934949200277ae431761d2accd4a02d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c6a618c9cb93fe5b82e97f84c346e3dc448737e4
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-configuring-docusign-for-user-provisioning"></a>教學課程：設定 DocuSign 的使用者佈建
 
@@ -41,9 +41,12 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 ### <a name="important-tips-for-assigning-users-to-docusign"></a>將使用者指派給 DocuSign 的重要秘訣
 
-*   建議將單一 Azure AD 使用者指派給 DocuSign，以測試佈建設定。 其他使用者及/或群組可能會稍後再指派。
+*   建議將單一 Azure AD 使用者指派給 DocuSign，以測試佈建設定。 其他使用者可能會稍後再指派。
 
 *   將使用者指派給 DocuSign 時，您必須選取有效的使用者角色。 「預設存取」角色不適用於佈建。
+
+> [!NOTE]
+> Azure AD 不支援在 Docusign 應用程式進行群組佈建，只能佈建使用者。
 
 ## <a name="enable-user-provisioning"></a>啟用使用者佈建
 
@@ -86,7 +89,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 12. 按一下 [儲存]。
 
-這會啟動在 [使用者和群組] 區段中指派給 DocuSign 的任何使用者和/或群組之首次同步處理。 初始同步處理會比後續的同步處理花費較多時間執行，只要服務正在執行，大約每 20 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，並遵循連結來佈建活動報告，其會描述您 DocuSign 應用程式上的佈建服務所執行之所有動作。
+這會啟動在 [使用者和群組] 區段中指派給 DocuSign 之任何使用者的首次同步處理。 初始同步處理會比後續的同步處理花費較多時間執行，只要服務正在執行，大約每 20 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，並遵循連結來佈建活動報告，其會描述您 DocuSign 應用程式上的佈建服務所執行之所有動作。
 
 您現在可以建立測試帳戶了。 請等候 20 分鐘以驗證帳戶已同步至 DocuSign。
 

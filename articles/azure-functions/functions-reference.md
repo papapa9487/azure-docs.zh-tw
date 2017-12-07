@@ -3,7 +3,7 @@ title: "Azure Functions 開發指引 | Microsoft Docs"
 description: "了解在 Azure 中開發函式所需的 Azure Functions 概念與技術，其中包含所有的程式設計語言和繫結。"
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: 
 tags: 
@@ -15,12 +15,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
-ms.author: chrande
-ms.openlocfilehash: cf965170e0c645e77a9b8829a10a18b29889a061
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.author: tdykstra
+ms.openlocfilehash: 80996c8bc6e40665201057ed185700ddaeea170a
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 開發人員指南
 在 Azure Functions 中，不論您使用何種語言或繫結，特定函式都會共用一些核心技術概念和元件。 閱讀指定語言或繫結特有的詳細資料之前，請務必詳閱這份適用於所有語言或繫結的概觀。
@@ -81,11 +81,8 @@ Azure 入口網站內建的函式編輯器可讓您更新「function.json」  �
 函式應用程式建置於 App Service 之上，因此[標準 Web 應用程式可用的部署選項](../app-service/app-service-deploy-local-git.md)也可供函式應用程式使用。 以下是一些您可以用來上傳或更新函式應用程式檔案的方法。 
 
 #### <a name="to-use-app-service-editor"></a>使用 App Service 編輯器
-1. 在 Azure Functions 入口網站中，按一下 [函式應用程式設定] 。
-2. 在 [進階設定] 區段中，按一下 [前往 App Service 設定]。
-3. 在 [應用程式功能表導覽] 中的 [開發工具] 底下，按一下 [App Service 編輯器]。
-4. 按一下 [執行] 。
-   
+1. 在 Azure Functions 入口網站中，按一下 [平台功能]。
+2. 在 [開發工具] 區段中，按一下 [App Service 編輯器]。   
    在「App Service 編輯器」載入之後，您將會在 [wwwroot] 底下看見 *host.json* 檔案和函式資料夾。 
 5. 開啟檔案加以編輯，或從您的開發電腦拖放檔案以上傳檔案。
 

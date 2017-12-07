@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
+ms.date: 11/29/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 585e0ab016dcf489ab99f30a9db43b879a8d3070
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 11f3a3fdc5caf96ce672976067e47680822315d4
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>設定 Azure Multi-Factor Authentication 設定 - 公開預覽
 
@@ -96,10 +96,10 @@ ms.lasthandoff: 11/23/2017
 2. 瀏覽至 **Azure Active Directory** > **MFA Server** > **單次許可**。
 
    ![一次性略過](./media/multi-factor-authentication-whats-next/onetimebypass.png)
-3. 選取 [新增]。
+3. 選取 [新增] 。
 4. 如有必要，請選取此許可的複寫群組。
 5. 輸入使用者名稱 (使用 username@domain.com 格式)、許可的持續秒數及許可的理由。 
-6. 選取 [新增]。 時間限制立即生效，因此，使用者必須在單次許可到期之前登入。 
+6. 選取 [新增] 。 時間限制立即生效，因此，使用者必須在單次許可到期之前登入。 
 
 ### <a name="view-the-one-time-bypass-report"></a>檢視單次許可報告
 1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
@@ -170,21 +170,40 @@ ms.lasthandoff: 11/23/2017
 
 不論啟用或停用「信任的 IP」，瀏覽器流程需要雙步驟驗證，較舊的豐富型用戶端應用程式需要應用程式密碼。 
 
-### <a name="to-enable-trusted-ips"></a>啟用信任的 IP
-1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
-2. 選取左邊的 [Active Directory] 。
-3. 選取您想要管理的目錄。 
-4. 選取 [設定]
-5. 在 [多重要素驗證] 底下選取 [管理服務設定]。
-6. 在 [服務設定] 頁面之 [信任的 IP] 下方，您有兩個選擇：
+### <a name="enable-named-locations-using-conditional-access"></a>使用條件式存取啟用具名位置
+
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 在左側，選取 [Azure Active Directory] > [條件式存取] > [具名位置]
+3. 選取 [新增位置]
+4. 提供位置的名稱
+5. 選取 [標記為受信任的位置]
+6. 指定 CIDR 表示法中的 IP 範圍 (例如 192.168.1.1/24)
+7. 選取 [建立] 
+
+### <a name="enable-trusted-ips-using-conditional-access"></a>使用條件式存取啟用信任的 IP
+
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 在左側，選取 [Azure Active Directory] > [條件式存取] > [具名位置]
+3. 選取 [設定 MFA 信任的 IP]
+4. 在 [服務設定] 頁面之 [信任的 IP] 下方，您有兩個選擇：
    
    * **適用於從我的內部網路產生的同盟使用者提出的要求** – 勾選此方塊。 所有從公司網路登入的同盟使用者，將會使用 AD FS 所發行的宣告來略過雙步驟驗證。 請確定 AD FS 有規則可用於將內部網路宣告新增至適當的流量。 如果規則不存在，請在 AD FS 中建立以下規則："c:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
 
+   * **適用於從特定公用 IP 範圍提出的要求**– 在提供的文字方塊中，使用 CIDR 表示法輸入 IP 位址。 例如：xxx.xxx.xxx.0/24 代表介於 xxx.xxx.xxx.1 – xxx.xxx.xxx.254 之範圍內的 IP 位址；xxx.xxx.xxx.xxx/32 代表一個 IP 位址。 您最多可以輸入 50 個 IP 位址範圍。 從這些 IP 位址登入的使用者會略過雙步驟驗證。
+5. 選取 [ **儲存**]。
 
+### <a name="enable-trusted-ips-using-service-settings"></a>使用服務設定啟用信任的 IP
+
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 在左側，選取 [Azure Active Directory] > [使用者和群組] > [所有使用者]
+3. 選取 [Multi-Factor Authentication]
+4. 在 [Multi-Factor Authentication] 下，選取 [服務設定]。
+5. 在 [服務設定] 頁面之 [信任的 IP] 下方，您有兩個選擇：
+   
+   * **適用於從我的內部網路產生的同盟使用者提出的要求** – 勾選此方塊。 所有從公司網路登入的同盟使用者，將會使用 AD FS 所發行的宣告來略過雙步驟驗證。 請確定 AD FS 有規則可用於將內部網路宣告新增至適當的流量。 如果規則不存在，請在 AD FS 中建立以下規則："c:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
 
    * **適用於從特定公用 IP 範圍提出的要求**– 在提供的文字方塊中，使用 CIDR 表示法輸入 IP 位址。 例如：xxx.xxx.xxx.0/24 代表介於 xxx.xxx.xxx.1 – xxx.xxx.xxx.254 之範圍內的 IP 位址；xxx.xxx.xxx.xxx/32 代表一個 IP 位址。 您最多可以輸入 50 個 IP 位址範圍。 從這些 IP 位址登入的使用者會略過雙步驟驗證。
-7. 按一下 [儲存] 。
-8. 套用更新之後，按一下 [關閉]。
+6. 選取 [ **儲存**]。
 
 ![信任的 IP](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
@@ -239,11 +258,10 @@ Azure AD 支援與內部部署 Windows Server Active Directory Domain Services (
 ### <a name="allow-app-password-creation"></a>允許建立應用程式密碼
 根據預設，使用者無法建立應用程式密碼。 這項功能必須經過啟用。 若要允許使用者建立應用程式密碼，請使用下列程序：
 
-1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
-2. 選取左邊的 [Active Directory] 。
-3. 選取您想要管理的目錄。 
-4. 選取 [設定]
-5. 在 [多重要素驗證] 底下選取 [管理服務設定]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 在左側，選取 [Azure Active Directory] > [使用者和群組] > [所有使用者]
+3. 選取 [Multi-Factor Authentication]
+4. 在 [Multi-Factor Authentication] 下，選取 [服務設定]。
 6. 選取 [允許使用者建立應用程式密碼以登入非瀏覽器應用程式] 旁的選項按鈕。
 
 ![建立應用程式密碼](./media/multi-factor-authentication-whats-next/trustedips3.png)
@@ -270,16 +288,16 @@ Azure AD 支援與內部部署 Windows Server Active Directory Domain Services (
 >當使用者透過 Azure MFA Server 或第三方 MFA 解決方案執行雙步驟驗證時，這項功能無法與 AD FS 的「讓我保持登入」功能相容。 如果您的使用者選取 AD FS 上的「讓我保持登入」，並將其裝置標示為受 MFA 信任，他們在「記住 MFA」天數到期後將無法確認。 Azure AD 要求重新整理雙步驟驗證，但是 AD FS 會傳回包含原始 MFA 宣告及日期的權杖，而不是再次執行雙步驟驗證。 這會啟動 Azure AD 與 AD FS 之間的驗證迴圈。 
 
 ### <a name="enable-remember-multi-factor-authentication"></a>啟用記住 Multi-Factor Authentication
-1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
-2. 選取左邊的 [Active Directory] 。
-3. 選取您想要管理的目錄。 
-4. 選取 [設定]
-5. 在 [多重要素驗證] 底下選取 [管理服務設定]。
-6. 在 [服務設定] 頁面的管理使用者裝置設定下方，勾選 [允許使用者在其信任的裝置記住多重要素驗證]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 在左側，選取 [Azure Active Directory] > [使用者和群組] > [所有使用者]
+3. 選取 [Multi-Factor Authentication]
+4. 在 [Multi-Factor Authentication] 下，選取 [服務設定]。
+5. 在 [服務設定] 頁面的 [管理記住多重要素驗證]下，勾選 [允許使用者在其信任的裝置記住多重要素驗證] 方塊。
+
    ![記住裝置](./media/multi-factor-authentication-whats-next/remember.png)
-7. 設定您想要允許受信任的裝置略過雙步驟驗證的天數。 預設值為 14 天。
-8. 按一下 [儲存] 。
-9. 按一下 [關閉] 。
+
+6. 設定您想要允許受信任的裝置略過雙步驟驗證的天數。 預設值為 14 天。
+7. 選取 [ **儲存**]。
 
 ### <a name="mark-a-device-as-trusted"></a>將裝置標示為受信任
 
@@ -292,7 +310,7 @@ Azure AD 支援與內部部署 Windows Server Active Directory Domain Services (
 
 使用者將其帳戶註冊進行 MFA 時，會在您已啟用的選項中選擇慣用驗證方法。 [對我的帳戶進行雙步驟驗證設定](multi-factor-authentication-end-user-first-time.md)涵蓋其註冊程序的指引。
 
-| 方法 | 描述 |
+| 方法 | 說明 |
 |:--- |:--- |
 | 電話通話 |撥打自動語音電話。 使用者可接聽電話並按電話鍵盤上的 # 進行驗證。 此電話號碼將不會同步到內部部署 Active Directory。 |
 | 電話簡訊 |傳送包含驗證碼的簡訊。 系統會提示使用者在登入介面中輸入這個驗證碼。 此程序稱為「單向 SMS」。 雙向 SMS 表示使用者必須以簡訊回傳特定驗證碼。 雙向 SMS 已過時，且自 2018 年 11 月 14 日起將不再支援。 屆時，已設定雙向 SMS 的使用者將自動切換成「電話通話」驗證。|
@@ -300,13 +318,12 @@ Azure AD 支援與內部部署 Windows Server Active Directory Domain Services (
 | 行動應用程式傳回的驗證碼 |Microsoft Authenticator 應用程式每隔 30 秒會產生新的 OATH 驗證碼。 使用者會在登入介面中輸入這個驗證碼。<br>Microsoft 驗證器應用程式適用於 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)、[Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073)。 |
 
 ### <a name="how-to-enabledisable-authentication-methods"></a>如何啟用/停用驗證方法
-1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
-2. 選取左邊的 [Active Directory] 。
-3. 選取您想要管理的目錄。 
-4. 選取 [設定]
-5. 在 [多重要素驗證] 底下選取 [管理服務設定]。
-6. 在 [服務設定] 頁面的驗證選項下，選取/取消選取您想要使用的選項。
-   ![驗證選項](./media/multi-factor-authentication-whats-next/authmethods.png)
-7. 按一下 [儲存] 。
-8. 按一下 [關閉] 。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 在左側，選取 [Azure Active Directory] > [使用者和群組] > [所有使用者]
+3. 選取 [Multi-Factor Authentication]
+4. 在 [Multi-Factor Authentication] 下，選取 [服務設定]。
+5. 在 [服務設定] 頁面的**驗證選項**下，選取/取消選取您想要使用的選項。
 
+   ![驗證方法](./media/multi-factor-authentication-whats-next/authmethods.png)
+
+6. 按一下 [儲存] 。

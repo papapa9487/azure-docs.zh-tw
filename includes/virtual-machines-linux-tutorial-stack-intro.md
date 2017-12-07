@@ -12,7 +12,7 @@ az group create --name myResourceGroup --location eastus
 
 使用 [az vm create](/cli/azure/vm#create) 命令來建立 VM。 
 
-下列範例會建立名為 myVM 的 VM，並建立 SSH 金鑰 (如果它們不存在於預設金鑰位置)。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。  
+下列範例會建立名為 myVM 的 VM，並建立 SSH 金鑰 (如果它們不存在於預設金鑰位置)。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。 此命令也會將 azureuser 設定為管理員使用者名稱。 稍後您會使用此名稱來連線到 VM。 
 
 ```azurecli-interactive 
 az vm create \
@@ -23,7 +23,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-建立 VM 後，Azure CLI 會顯示類似下列範例的資訊。 記下 `publicIpAddress`。 此位址用來存取 VM。
+建立 VM 後，Azure CLI 會顯示類似下列範例的資訊。 記下 `publicIpAddress`。 後面的步驟會使用此位址來存取 VM。
 
 ```azurecli-interactive 
 {
@@ -50,14 +50,14 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ## <a name="ssh-into-your-vm"></a>透過 SSH 連線到您的 VM
 
 
-如果您還不知道您 VM 的公用 IP 位址，請執行 [az network public-ip list](/cli/azure/network/public-ip#list) 命令：
+如果您還不知道您 VM 的公用 IP 位址，請執行 [az network public-ip list](/cli/azure/network/public-ip#list) 命令。 後面有幾個步驟需要此 IP 位址。
 
 
 ```azurecli-interactive
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress
 ```
 
-使用下列命令，建立與虛擬機器的 SSH 工作階段。 替換為您虛擬機器的正確公用 IP 位址。 在此範例中，IP 位址是 *40.68.254.142*。
+使用下列命令，建立與虛擬機器的 SSH 工作階段。 替換為您虛擬機器的正確公用 IP 位址。 在此範例中，IP 位址是 *40.68.254.142*。 azureuser 是您在建立 VM 時所設定的管理員使用者名稱。
 
 ```bash
 ssh azureuser@40.68.254.142

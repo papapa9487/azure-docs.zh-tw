@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: debadde78d937bcd4ec1df665aacfd1887fbcd02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03326304e438f3b716c43d268f07d8e22cd15ea3
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>安裝 Durable Functions 擴充和範例 (Azure Functions)
 
@@ -33,7 +33,7 @@ NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.
 
 ### <a name="prerequisites"></a>必要條件
 
-* 安裝[最新版本的 Visual Studio](https://www.visualstudio.com/downloads/) (15.3 版或更新版本)。 在您的安裝選項中包括 Azure 工具。
+* 安裝[最新版本的 Visual Studio](https://www.visualstudio.com/downloads/) (15.3 版或更新版本)。 在您的安裝選項中包含 **Azure 開發**工作負載。
 
 ### <a name="start-with-sample-functions"></a>從範例函式開始
 
@@ -61,7 +61,7 @@ NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.
 
 1. 在 [functions.azure.com](https://functions.azure.com/signin) 上建立新的函式應用程式。
 2. 將函式應用程式設定成[使用 2.0 執行階段版本](functions-versions.md)。
-3. 建立新的函式，並選取 [Durable Functions 協調器 C#] 範本。
+3. 針對語言選擇 "C#"，針對案例選擇 "All"，以建立新函式。 然後選取 [Durable Functions 協調器 - C#] 範本。
 4. 在 [擴充未安裝] 底下，按一下 [安裝]，從 NuGet.org 下載擴充。
 
 ### <a name="copy-sample-code-to-the-function-app"></a>將範例程式碼複製到函式應用程式

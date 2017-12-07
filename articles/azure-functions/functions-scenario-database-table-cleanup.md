@@ -15,14 +15,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: ac0399867e0cdab1825022c4ed73ce003cc8c7e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d8261a22f5ea9ce61bcdc79d24a6c054597039b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>使用 Azure Functions 連接到 Azure SQL Database
-本主題示範如何使用 Azure Functions 建立可清除 Azure SQL Database 資料表中資料列的排程作業。 新的 C# 函數是根據 Azure 入口網站中預先定義的計時器觸發程序範本所建立。 若要支援此案例，您也必須在函數應用程式中設定資料庫連接字串作為設定。 此案例會對資料庫使用大量作業。 若要讓您的函數程序在 Mobile Apps 資料表中進行個別的 CRUD 作業，您應該改用 [Mobile Apps 繫結](functions-bindings-mobile-apps.md)。
+本主題示範如何使用 Azure Functions 建立可清除 Azure SQL Database 資料表中資料列的排程作業。 新的 C# 函數是根據 Azure 入口網站中預先定義的計時器觸發程序範本所建立。 若要支援此案例，您也必須在函式應用程式中設定資料庫連接字串以作為設定。 此案例會對資料庫使用大量作業。 
+
+若要讓您的函式程序在 Mobile Apps 資料表中個別建立、讀取、更新及刪除 (CRUD) 作業，您應該改用 [Mobile Apps 繫結](functions-bindings-mobile-apps.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -59,7 +61,7 @@ ms.lasthandoff: 10/11/2017
     | 設定       | 建議的值 | 說明             | 
     | ------------ | ------------------ | --------------------- | 
     | **名稱**  |  sqldb_connection  | 用於存取函數程式碼的預存連接字串。    |
-    | **值** | 複製的字串  | 貼上您在上一節中複製的連接字串。 |
+    | **值** | 複製的字串  | 貼上您在上一節中複製的連接字串，並將 `{your_username}` 和 `{your_password}` 預留位置取代為實際的值。 |
     | **類型** | SQL Database | 使用預設的 SQL Database 連接。 |   
 
 3. 按一下 [儲存] 。
@@ -84,7 +86,7 @@ ms.lasthandoff: 10/11/2017
     using System.Threading.Tasks;
     ```
 
-4. 使用下列程式碼來取代現有的 **Run** 函數：
+4. 使用下列程式碼來取代現有的 `Run` 函式：
     ```cs
     public static async Task Run(TimerInfo myTimer, TraceWriter log)
     {
@@ -105,7 +107,7 @@ ms.lasthandoff: 10/11/2017
     }
     ```
 
-    此範例命令會根據出貨日期來更新 **Status** 資料行。 其應該會更新 32 個資料列。
+    此範例命令會以出貨日期作為基礎來更新 `Status` 資料行。 其應該會更新 32 個資料列。
 
 5. 按一下 [儲存]、針對下一個函數執行監看 [記錄] 視窗，然後記下 **SalesOrderHeader** 資料表中更新的資料列數目。
 

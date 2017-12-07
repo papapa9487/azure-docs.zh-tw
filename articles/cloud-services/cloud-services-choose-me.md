@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: d27a4be968dc12818f7031b59ed40fbc9f9d88d3
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 17ecf39128994dad93f017f87f105254f3017230
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>我該選擇雲端服務還是其他服務？
 Azure 雲端服務適合您嗎？ Azure 對於執行的應用程式提供不同的裝載模型。 每個模型都提供不同的服務集，因此請根據您要執行的工作選擇服務集。
@@ -50,7 +50,7 @@ Azure 雲端服務適合您嗎？ Azure 對於執行的應用程式提供不同�
 ## <a name="scaling-and-management"></a>調整和管理
 藉由雲端服務，您不需要建立虛擬機器。 您只需要提供組態檔，讓 Azure 知道您需要多少個執行個體，例如 **3 個 Web 角色**執行個體和 **2 個背景工作角色**執行個體，平台就會為您建立。  您仍然可以選擇這些支援 VM 的 [大小](cloud-services-sizes-specs.md) ，但您不需自行建立這些 VM。 如果應用程式需要處理較大的負載，您可以要求更多的 VM，Azure 將建立這些執行個體。 如果負載減少，您可以關閉這些執行個體並停止付費。
 
-雲端服務應用程式一般透過兩個步驟的程序提供給使用者使用。 開發人員會先將 [應用程式上傳](cloud-services-how-to-create-deploy-portal.md) 到平台的預備區域。 開發人員準備啟動應用程式時，會使用 Azure 入口網站來交換預備與生產環境。 此 [預備與生產之間的切換](cloud-services-nodejs-stage-application.md) 程序完全不會造成停機，因此執行中的應用程式得以在不干擾使用者的情況下升級至新版。
+雲端服務應用程式一般透過兩個步驟的程序提供給使用者使用。 開發人員會先將 [應用程式上傳](cloud-services-how-to-create-deploy-portal.md) 到平台的預備區域。 開發人員準備啟動應用程式時，會使用 Azure 入口網站來交換預備與生產環境。 此 [預備與生產之間的切換](cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production) 程序完全不會造成停機，因此執行中的應用程式得以在不干擾使用者的情況下升級至新版。
 
 ## <a name="monitoring"></a>監視
 雲端服務也提供監視。 和 Azure 虛擬機器一樣，它會偵測故障的實體伺服器，並且在新機器上重新啟動原先在該伺服器上執行的 VM。 不過，雲端服務也會偵測故障的 VM 和應用程式，而不只是硬體故障。 和虛擬機器不同的是，它在各個 Web 角色和背景工作角色中都有代理程式，因此能夠在故障時啟動新的 VM 和應用程式執行個體。

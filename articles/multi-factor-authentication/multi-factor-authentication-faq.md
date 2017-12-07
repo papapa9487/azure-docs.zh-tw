@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d43274875ca7ed3b2fe8a7d71481db27451a6080
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 8881fc9193aa905b5d7083644a3ce8ac4411d693
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>與 Azure Multi-Factor Authentication 相關的常見問題
 此常見問題集回答關於 Azure Multi-Factor Authentication 和使用 Multi-Factor Authentication 服務的常見問題。 並將問題細分為一般服務問題、計費模式、使用者體驗和疑難排解。
@@ -45,6 +45,22 @@ ms.lasthandoff: 11/23/2017
 您可以在 Multi-Factor Authentication Server 中設定選擇性欄位。
 
 驗證結果 (成功或拒絕) 和拒絕原因會與驗證資料一起儲存。 可在驗證和使用方式報告中取得此資料。
+
+**問：何種 SMS 簡短程式碼可用來傳送 SMS 訊息給我的使用者？**
+
+在美國，Microsoft 會使用下列 SMS 簡短程式碼：
+
+   * 97671
+   * 69829
+   * 51789
+   * 99399
+
+在加拿大，Microsoft 會使用下列 SMS 簡短程式碼：
+
+   * 759731 
+   * 673801
+
+Microsoft 不保證相同號碼會提供一致的 SMS 或以語音為基礎的多重要素驗證即時交付。 為了使用者的利益，Microsoft 可能會在調整路由來改善 SMS 傳遞能力時，隨時新增或移除簡短程式碼。 Microsoft 不支援美國和加拿大以外之國家/地區的簡短程式碼
 
 ## <a name="billing"></a>計費
 大部分計費問題可以從 [Multi-Factor Authentication 價格頁面](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)或有關[如何取得 Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md)的文件中得到解答。

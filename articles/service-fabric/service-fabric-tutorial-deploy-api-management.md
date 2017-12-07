@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/10/2017
 ms.author: ryanwi
-ms.openlocfilehash: 97bcf312621ec0fed28e26179d4c4aa101a8a92d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b3bf91a7ae5ed70456352ecdba9c0324f20f3555
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>使用 Service Fabric 部署 API 管理
 本教學課程是一個系列課程的第三部分。  使用 Service Fabric 部署 API 管理是進階案例。  當您需要為您的後端 Service Fabric 服務發佈具有豐富集合之路由規則的 API 時，API 管理很有用。 雲端應用程式通常需要前端閘道來為使用者、裝置或其他應用程式提供單一輸入點。 在 Service Fabric 中，閘道可以是為流量輸入設計的任何無狀態服務，例如 ASP.NET Core 應用程式、事件中樞、IoT 中樞或 Azure API 管理。 
@@ -173,7 +173,7 @@ az account set --subscription <guid>
 
 - **displayName** 可以是 API 的任何名稱。 本教學課程使用 "Service Fabric App"。
 - **name** 提供 API 的唯一和描述性名稱，例如 "service-fabric-app"。 它會顯示在開發人員和發行者入口網站中。 
-- **serviceUrl** 會參考實作 API 的 HTTP 服務。 API 管理則將要求轉送至此位址。 就 Service Fabric 後端而言，並不使用此 URL 值。 您可以在這裡輸入任何值。 舉例來說，本教學課程使用：" http://servicefabric"。 
+- **serviceUrl** 會參考實作 API 的 HTTP 服務。 API 管理則將要求轉送至此位址。 就 Service Fabric 後端而言，並不使用此 URL 值。 您可以在這裡輸入任何值。 舉例來說，本教學課程使用：" http://servicefabric "。 
 - **path** 會附加至 API 管理服務的基底 URL 後面。 基礎 URL 是 API 管理服務主控的所有 API 所共有。 API 管理依尾碼來區分 API，因此，特定發行者的每一個 API 必須有唯一的尾碼。 
 - **protocols** 會決定可使用哪些通訊協定來存取 API。 針對此教學課程，列出 **http** 和 **https**。
 - **path** 是 API 的尾碼。 本教學課程使用 "myapp"。
@@ -326,7 +326,7 @@ ResourceGroupName="sfclustertutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 
-## <a name="conclusion"></a>結論
+## <a name="next-steps"></a>後續步驟
 在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
@@ -335,6 +335,10 @@ az group delete --name $ResourceGroupName
 > * 建立 API 作業
 > * 設定後端原則
 > * 將 API 新增至產品
+
+接下來，請前進到下列的教學課程，了解如何升級叢集執行階段。
+> [!div class="nextstepaction"]
+> [升級 Azure Service Fabric 叢集執行階段](service-fabric-tutorial-upgrade-cluster.md)
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 

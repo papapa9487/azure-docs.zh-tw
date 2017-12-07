@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: c5c93c8e8d108a9a5a29477a532d682659c9d512
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ddac8feedc8ded73e0f436c1e5dd6391016943a9
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>如何取得 Azure Multi-Factor Authentication
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 11/23/2017
 | 以 SMS 做為第二個因素 |● |● |● |
 | 用戶端應用程式密碼不支援 MFA |● |● |● |
 | 系統管理員控制驗證方法 |● |● |● |
-| 透過 MFA 保護非系統管理員帳戶 | | |● |
+| 透過 MFA 保護非系統管理員帳戶 |● (僅適用於 Office 365 應用程式) | |● |
 | PIN 模式 | | |● |
 | 詐騙警示 | | |● |
 | MFA 報告 | | |● |

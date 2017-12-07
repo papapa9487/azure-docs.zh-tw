@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: 944a29aebf7abfe32a7789ab239718b1cd2d7b15
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3adf4dd824b31d5e3d368a0199bc2e981cafe176
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>對雲端服務部署問題進行疑難排解
 當您將雲端服務應用程式封裝部署至 Azure 時，您可以從 Azure 入口網站中的 [屬性]  窗格取得部署的相關資訊。 您可以利用此窗格中的詳細資料來排解雲端服務的問題，也可以在開啟新的支援要求時將這項資訊提供給 Azure 支援。
@@ -27,7 +27,6 @@ ms.lasthandoff: 11/04/2017
 您可以依照下列方式找到 [屬性]  窗格：
 
 * 在 Azure 入口網站中，依序按一下雲端服務的部署、[所有設定] 和 [屬性]。
-* 在 Azure 傳統入口網站中，依序按一下雲端服務的部署、[儀表板]，位於頁面右下角 ([快速概覽] 下方)。 請注意，此窗格中並沒有「屬性」標籤。
 
 > [!NOTE]
 > 您可以按一下窗格右上角的圖示，將 [屬性] 窗格的內容複製到剪貼簿。

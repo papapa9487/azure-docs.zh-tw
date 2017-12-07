@@ -12,15 +12,15 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/20/2017
 ms.author: saurabhsensharma;markgal;
-ms.custom: 
-ms.openlocfilehash: 28e0bc1414b0fea614f217dc3adf1484c1374018
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: b5f77ec04ef6d267583a6dc6a4476f118a4d0f74
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>將檔案從 Azure 復原至 Windows Server
 
@@ -47,7 +47,7 @@ Azure Backup 可以復原 Windows Server 備份中的個別項目。 如果必�
 
 3. 在 [入門] 頁面上，選取 [This server (server name)] \(這部伺服器 (伺服器名稱))，然後按一下 [下一步]。
 
-4. 在 選取復原模式 頁面上，選取 個別檔案與資料夾，然後按一下下一步 開始復原點選取程序。
+4. 在 [選取復原模式] 頁面上，選取 [個別檔案與資料夾]，然後按一下 [下一步] 開始復原點選取程序。
  
 5. 在 [選取磁碟區和日期] 頁面上，選取包含要還原之檔案或資料夾的磁碟區，然後按一下 [掛接]。 選取日期，再從對應到復原點的下拉式功能表中選取時間。 **粗體**的日期表示當日至少有一個復原點可用。
 

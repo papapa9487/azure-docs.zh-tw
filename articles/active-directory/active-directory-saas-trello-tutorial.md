@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: d93667f16f2d72995e4a42e79e9125b8e3f6b07c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 598387b6066612c6c4a4c92cba5ba03e03a55203
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>教學課程：Azure Active Directory 與 Trello 整合
 
@@ -73,7 +73,7 @@ Trello 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-trello-tutorial/tutorial_trello_search.png)
 
-5. 在結果窗格中，選取 Trello，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [Trello]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-trello-tutorial/tutorial_trello_addfromgallery.png)
 
@@ -96,6 +96,10 @@ Trello 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入，然後在您的 Trello 應用程式中設定單一登入。
 
+>[!NOTE]
+    >您應該會從 Trello 取得 **\<enterprise\>** slug。 如果您沒有 Slug 值，請連絡 [Trello 支援小組](mailto:support@trello.com)以取得貴企業的 Slug。
+    > 
+
 **若要使用 Trello 設定 Azure AD 單一登入，請執行下列步驟：**
 
 1. 在 Azure 入口網站的 [Trello] 應用程式整合頁面上，按一下 [單一登入]。
@@ -112,17 +116,15 @@ Trello 與 Azure AD 整合提供下列優點：
 
     在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://trello.com/auth/saml/consume/<enterprise>`
 
-4. 如果您想要以 **SP 起始模式**設定應用程式，請在 [Trello 網域和 URL] 區段上執行下列步驟：
-    
-    ![設定單一登入](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
+4. 如果您想要以「SP 起始模式」起始模式設定應用程式，請執行下列步驟：
+
+  ![設定單一登入](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
 
     a. 按一下 [顯示進階 URL 設定]。
 
-    b.這是另一個 C# 主控台應用程式。 在 [登入 URL] 文字方塊中，以下列模式輸入 URL：`https://trello.com/auth/saml/consume/<enterprise>`
+    b.這是另一個 C# 主控台應用程式。 在 [登入 URL] 文字方塊中，以下列模式輸入 URL：`https://trello.com/auth/saml/login/<enterprise>`
 
-    >[!NOTE]
-    >您應該會從 Trello 取得 **\<enterprise\>** slug。 如果您沒有 Slug 值，請連絡 [Trello 支援小組](mailto:support@trello.com)以取得貴企業的 Slug。
-    > 
+  c. 在 [識別碼] 文字方塊中輸入下列 URL：`https://trello.com/auth/saml/metadata`
 
 5. Trello 應用程式預期 SAML 判斷提示會包含特定屬性。 設定此應用程式的下列屬性。 您可以從應用程式的 [使用者屬性] 管理這些屬性的值。 以下螢幕擷取畫面顯示上述的範例。
 

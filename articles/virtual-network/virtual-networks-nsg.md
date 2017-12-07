@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 54e39a1f1627ccf57271d2e8970af72fea3e75f0
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 726799e5d885f144d6e24ab88aaa022f95f0bdd8
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>使用網路安全性群組來篩選網路流量
 
@@ -123,7 +123,7 @@ NSG 包含兩組規則：輸入和輸出。 規則的優先順序在每一個集
 
 | 部署工具 | 傳統 | Resource Manager |
 | --- | --- | --- |
-| Azure 入口網站   | 是 | [是](virtual-networks-create-nsg-arm-pportal.md) |
+| Azure 入口網站   | 否 | [是](virtual-networks-create-nsg-arm-pportal.md) |
 | PowerShell     | [是](virtual-networks-create-nsg-classic-ps.md) | [是](virtual-networks-create-nsg-arm-ps.md) |
 | Azure CLI **V1**   | [是](virtual-networks-create-nsg-classic-cli.md) | [是](virtual-networks-create-nsg-arm-cli.md) |
 | Azure CLI **V2**   | 否 | [是](virtual-networks-create-nsg-arm-cli.md) |

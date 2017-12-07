@@ -1,9 +1,9 @@
 ---
-title: "Azure Functions 資料表儲存體繫結"
+title: "Azure Functions 的 Azure 資料表儲存體繫結"
 description: "了解如何在 Azure Functions 中使用 Azure 資料表繫結。"
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: 
 tags: 
@@ -14,20 +14,20 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
-ms.author: chrande
-ms.openlocfilehash: 2f54df931d03318a50e9397211e3c50d0898556d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.author: tdykstra
+ms.openlocfilehash: a1305432d98c2e9f9f8bc30cacc62d49b1a8ba36
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-table-storage-bindings"></a>Azure Functions 資料表儲存體繫結
+# <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 資料表儲存體繫結
 
 本文說明如何在 Azure Functions 中使用 Azure 資料表儲存體繫結。 Azure Functions 支援 Azure 資料表儲存體的輸入和輸出繫結。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="table-storage-input-binding"></a>資料表儲存體輸入繫結
+## <a name="input"></a>輸入
 
 使用 Azure 資料表儲存體輸入繫結以讀取 Azure 儲存體帳戶中的資料表。
 
@@ -284,7 +284,7 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## <a name="input---attributes-for-precompiled-c"></a>輸入 - 先行編譯 C# 的屬性
+## <a name="input---attributes"></a>輸入 - 屬性
  
 對於[先行編譯 C#](functions-dotnet-class-library.md) 函數，請使用下列屬性以設定資料表輸入繫結：
 
@@ -298,6 +298,9 @@ module.exports = function (context, myQueueItem) {
       [QueueTrigger("table-items")] string input, 
       [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco, 
       TraceWriter log)
+  {
+      ...
+  }
   ```
 
   您可以設定 `Connection` 屬性來指定要使用的儲存體帳戶，如下列範例所示：
@@ -308,7 +311,12 @@ module.exports = function (context, myQueueItem) {
       [QueueTrigger("table-items")] string input, 
       [Table("MyTable", "Http", "{queueTrigger}", Connection = "StorageConnectionAppSetting")] MyPoco poco, 
       TraceWriter log)
+  {
+      ...
+  }
   ```
+
+  如需完整範例，請參閱[輸入 - 先行編譯 C# 範例](#input---c-example)。
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)，定義於 NuGet 封裝 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) 中
 
@@ -321,6 +329,9 @@ module.exports = function (context, myQueueItem) {
       [FunctionName("TableInput")]
       [StorageAccount("FunctionLevelStorageAppSetting")]
       public static void Run( //...
+  {
+      ...
+  }
   ```
 
 要使用的儲存體帳戶按以下順序決定：
@@ -345,7 +356,9 @@ module.exports = function (context, myQueueItem) {
 |**rowKey** |**RowKey** | 選用。 要讀取之資料表實體的資料列索引鍵。 若要了解如何使用該屬性，請參閱[使用方式](#input---usage)一節。| 
 |**take** |**Take** | 選用。 要在 JavaScript 中讀取的實體數目上限。 若要了解如何使用該屬性，請參閱[使用方式](#input---usage)一節。| 
 |**filter** |**Filter** | 選用。 用於在 JavaScript 中輸入資料表的 OData 篩選運算式。 若要了解如何使用該屬性，請參閱[使用方式](#input---usage)一節。| 
-|**連接** |**連接** | 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br/>當您要在本機開發時，應用程式設定會進入 [local.settings.json 檔案](functions-run-local.md#local-settings-file)的值。|
+|**連接** |**連接** | 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="input---usage"></a>輸入 - 使用方式
 
@@ -368,7 +381,7 @@ module.exports = function (context, myQueueItem) {
 
   請設定 `filter` 和 `take` 屬性。 請勿設定 `partitionKey` 或 `rowKey`。 使用 `context.bindings.<name>` 來存取輸入資料表實體 (或多個實體)。 還原序列化的物件具有 `RowKey` 和 `PartitionKey` 屬性。
 
-## <a name="table-storage-output-binding"></a>資料表儲存體輸出繫結
+## <a name="output"></a>輸出
 
 使用 Azure 資料表儲存體輸出繫結以寫入 Azure 儲存體帳戶中的資料表。
 
@@ -554,9 +567,9 @@ module.exports = function (context) {
 };
 ```
 
-## <a name="output---attributes-for-precompiled-c"></a>輸出 - 先行編譯 C# 的屬性
+## <a name="output---attributes"></a>輸出 - 屬性
 
- 對於[先行編譯 C#](functions-dotnet-class-library.md) 函式，會使用 [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs)，其定義於 NuGet 封裝 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)。
+對於[先行編譯 C#](functions-dotnet-class-library.md) 函式，會使用 [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs)，其定義於 NuGet 封裝 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)。
 
 屬性的建構函式採用資料表名稱。 它可以用於 `out` 參數或函式的傳回值，如下列範例所示：
 
@@ -566,6 +579,9 @@ module.exports = function (context) {
 public static MyPoco TableOutput(
     [HttpTrigger] dynamic input, 
     TraceWriter log)
+{
+    ...
+}
 ```
 
 您可以設定 `Connection` 屬性來指定要使用的儲存體帳戶，如下列範例所示：
@@ -576,9 +592,14 @@ public static MyPoco TableOutput(
 public static MyPoco TableOutput(
     [HttpTrigger] dynamic input, 
     TraceWriter log)
+{
+    ...
+}
 ```
 
-您可以使用 `StorageAccount` 屬性來指定類別、方法或參數層級的儲存體帳戶。 如需詳細資訊，請參閱[輸入 - 先行編譯 C# 的屬性](#input---attributes-for-precompiled-c)。
+如需完整範例，請參閱[輸出 - 先行編譯 C# 範例](#output---c-example)。
+
+您可以使用 `StorageAccount` 屬性來指定類別、方法或參數層級的儲存體帳戶。 如需詳細資訊，請參閱[輸入 - 屬性](#input---attributes-for-precompiled-c)。
 
 ## <a name="output---configuration"></a>輸出 - 設定
 
@@ -592,7 +613,9 @@ public static MyPoco TableOutput(
 |**tableName** |**TableName** | 資料表的名稱。| 
 |**partitionKey** |**PartitionKey** | 要寫入之資料表實體的分割區索引鍵。 若要了解如何使用該屬性，請參閱[使用方式](#output---usage)一節。| 
 |**rowKey** |**RowKey** | 要寫入之資料表實體的資料列索引鍵。 若要了解如何使用該屬性，請參閱[使用方式](#output---usage)一節。| 
-|**連接** |**連接** | 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br/>當您要在本機開發時，應用程式設定會進入 [local.settings.json 檔案](functions-run-local.md#local-settings-file)的值。|
+|**連接** |**連接** | 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>輸出 - 使用方式
 

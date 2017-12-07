@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: 7a77e6ecbf59944c62aa4ae014bf5b8a5a7f7f1f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: f72f4a3a81fc3a03c86805787caeeacbe6135c5e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="high-availability-ports-overview"></a>高可用性連接埠概觀
 
@@ -65,69 +65,10 @@ HA 連接埠功能可在[和 Load Balancer Standard 相同的區域](https://aka
 
 ## <a name="preview-sign-up"></a>註冊預覽
 
-若要參加 Load Balancer Standard 中 HA 連接埠功能的預覽，請註冊您的訂用帳戶以獲得存取。 您可以使用 Azure CLI 2.0 或 PowerShell。
+若要參加 Load Balancer Standard 中 HA 連接埠功能的預覽，請註冊 Load Balancer [Standard 預覽](https://aka.ms/lbpreview#preview-sign-up)的訂用帳戶。 您可以使用 Azure CLI 2.0 或 PowerShell 進行註冊。
 
 >[!NOTE]
->若要使用此功能，除了 HA 連接埠功能之外，您也必須註冊 Load Balancer [Standard 預覽版](https://aka.ms/lbpreview#preview-sign-up)。 註冊最多需要 1 小時。
-
-### <a name="sign-up-by-using-azure-cli-20"></a>使用 Azure CLI 2.0 來進行註冊
-
-1. 向提供者註冊功能：
-    ```cli
-    az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network
-    ```
-    
-2. 上述作業最多可能需要 10 分鐘的時間才能完成。 您可以使用下列命令來檢查作業狀態：
-
-    ```cli
-    az feature show --name AllowILBAllPortsRule --namespace Microsoft.Network
-    ```
-    
-    當功能註冊狀態傳回 [已註冊] 時，作業即成功，如下所示：
-   
-    ```json
-    {
-       "id": "/subscriptions/foo/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowLBPreview",
-       "name": "Microsoft.Network/AllowILBAllPortsRule",
-       "properties": {
-          "state": "Registered"
-       },
-       "type": "Microsoft.Features/providers/features"
-    }
-    ```
-    
-3. 向資源提供者重新註冊您的訂用帳戶，以完成預覽版註冊：
-
-    ```cli
-    az provider register --namespace Microsoft.Network
-    ```
-    
-### <a name="sign-up-by-using-powershell"></a>使用 PowerShell 來進行註冊
-
-1. 向提供者註冊功能：
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-    
-2. 上述作業最多可能需要 10 分鐘的時間才能完成。 您可以使用下列命令來檢查作業狀態：
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-    當功能註冊狀態傳回 [已註冊] 時，作業即成功，如下所示：
-   
-    ```
-    FeatureName          ProviderName      RegistrationState
-    -----------          ------------      -----------------
-    AllowILBAllPortsRule Microsoft.Network Registered
-    ```
-    
-3. 向資源提供者重新註冊您的訂用帳戶，以完成預覽版註冊：
-
-    ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-    ```
-
+>註冊最多需要 1 小時。
 
 ## <a name="limitations"></a>限制
 

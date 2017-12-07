@@ -12,22 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 11/29/2017
 ms.author: frasim
-ms.openlocfilehash: f6131d7f177c3ca02cf8dfe5d140df5e6d8a7ffa
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 7f85c8b0377e57f08044bac41dbddbbedb7a4f55
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/30/2017
 ---
-# <a name="payment-processing-blueprint-for-pci-dss-compliant-environments"></a>適用於 PCI DSS 相容環境的付款處理藍圖
+# <a name="azure-blueprint-automation-payment-processing-for-pci-dss-compliant-environments"></a>Azure Blueprint (藍圖) 自動化：適用於 PCI DSS 相容環境的付款處理
 
-「適用於 PCI DSS 相容環境的付款處理藍圖」可引導您部署符合 PCI DSS 規範的平台即服務 (PaaS) 環境，以處理敏感的支付卡資料。 此藍圖將示範常見的參考架構，並融入可輕鬆採用 Microsoft Azure 的設計。 此基本架構會說明端對端解決方案，以符合組織需要雲端方法來減少部署負擔和成本的需求。
+## <a name="overview"></a>概觀
 
-此基本架構符合嚴格的「支付卡產業資料安全標準」(PCI DSS 3.2)，適用於收集、儲存和擷取支付卡資料。 其中會示範如何在安全且相容的多層式環境中正確處理信用卡資料　(包含卡片號碼、到期日和驗證資料)，並將該環境會部署為端對端且以 Azure 為基礎的解決方案。 如需有關 PCI DSS 3.2 需求和此解決方案的詳細資訊，請參閱　[PCI DSS 需求 - 高階概觀](pci-dss-requirements-overview.md)。
+「適用於 PCI DSS 相容環境的付款處理」可引導您部署符合 PCI DSS 規範的平台即服務 (PaaS) 環境，以處理敏感的支付卡資料。 此藍圖將示範常見的參考架構，並融入可輕鬆採用 Microsoft Azure 的設計。 此藍圖會說明端對端解決方案，以符合組織需要雲端方法來減少部署負擔和成本的需求。
 
-此架構的目的是作為客戶調整其特定需求的基礎，且不建議直接將未作修改的原始架構用於生產環境中。 不作修改地將應用程式部署至此環境，會無法完全符合 PCI DSS 相容解決方案的需求。 請注意：
-- 此基本架構提供了一個基準，可協助客戶透過與 PCI DSS 相容的方式來使用 Microsoft Azure。
+此藍圖設計為符合嚴格的「支付卡產業資料安全標準」(PCI DSS 3.2)，適用於收集、儲存和擷取支付卡資料。 其中會示範如何在安全且相容的多層式環境中正確處理信用卡資料　(包含卡片號碼、到期日和驗證資料)，並將該環境會部署為端對端且以 Azure 為基礎的 PaaS 解決方案。 如需有關 PCI DSS 3.2 需求和此解決方案的詳細資訊，請參閱　[PCI DSS 需求 - 高階概觀](pci-dss-requirements-overview.md)。
+
+此藍圖的目的是作為基礎，讓客戶更加瞭解特定需求，不應完全未經修改就用於生產環境中。 不作修改地將應用程式部署至此環境，會無法完全符合自訂解決方案之 PCI DSS 相容解決方案的需求。 請注意：
+- 此藍圖提供了一個基準，可協助客戶透過與 PCI DSS 相容的方式來使用 Microsoft Azure。
 - 若要與 PCI DSS 相容，實際客戶解決方案需要由公認的合格安全性評估機構 (QSA) 加以證明。
 - 客戶須負責為任何使用基礎結構建置的解決方案安置適當的安全性與合規性檢閱，因為客戶的實作和所在地區可能有不同特性，因此可能會有不同需求。  
 
@@ -41,7 +43,7 @@ ms.lasthandoff: 11/16/2017
 - **部署範本**。 在此部署中，透過在安裝期間指定設定參數，系統會使用 [Azure Resource Manager 範本](/azure/azure-resource-manager/resource-group-overview#template-deployment)來將架構的元件自動部署至 Microsoft Azure。
 - **自動化部署指令碼**。 這些指令碼可協助您部署端對端解決方案。 指令碼包括：
     - 模組安裝和[全域管理員](/azure/active-directory/active-directory-assign-admin-roles-azure-portal)安裝指令碼會用來進行安裝，以及確認必要的 PowerShell 模組和全域管理員角色已正確設定。
-    - 安裝 PowerShell 指令碼會用來部署端對端解決方案，並透過 .zip 檔案和 .bacpac 檔案提供，其中包含預先建置的示範 Web 應用程式與 SQL 資料庫的範例內容。 您可以在[此處](https://github.com/Microsoft/azure-sql-security-sample)檢閱此解決方案的原始程式碼。
+    - 安裝 PowerShell 指令碼會用來部署端對端解決方案，並透過 .zip 檔案和 .bacpac 檔案提供，其中包含預先建置的示範 Web 應用程式與 [SQL 資料庫的範例](https://github.com/Microsoft/azure-sql-security-sample)。 內容。 您可以在[付款處理藍圖代碼存放庫][code-repo]檢閱此解決方案的原始程式碼。 
 
 ## <a name="architectural-diagram"></a>架構圖
 
@@ -49,9 +51,9 @@ ms.lasthandoff: 11/16/2017
 
 ## <a name="user-scenario"></a>使用者案例
 
-套用基本架構的使用案例如下。
+藍圖可解決下列使用案例。
 
-> 此案例說明虛構網路商店如何將他們的支付卡處理程序移至以 Azure 為基礎的解決方案。 解決方案會處理付款資料等基本使用者資訊的收集。 該解決方案不會處理包含持卡人資料的付款作業；一旦收集資料後，客戶會負責開始及完成與付款處理器的交易。 如需詳細資訊，請參閱 [Microsoft 服務信任入口網站](http://aka.ms/stp)上的＜實作的檢閱和指引＞文件。
+> 此案例說明虛構網路商店如何將他們的支付卡處理程序移至以 Azure 為基礎的 PaaS 解決方案。 解決方案會處理付款資料等基本使用者資訊的收集。 該解決方案不會處理包含持卡人資料的付款作業；一旦收集資料後，客戶會負責開始及完成與付款處理器的交易。 如需詳細資訊，請參閱[實作的檢閱和指引](https://aka.ms/pciblueprintprocessingoverview)。
 
 ### <a name="use-case"></a>使用案例
 名為 Contoso Webstore 的小型網路商店已準備好將他們的付款系統移至雲端。 他們已選取 Microsoft Azure 來主控購買處理程序，並允許店員收集客戶的信用卡付款資訊。
@@ -76,9 +78,9 @@ ms.lasthandoff: 11/16/2017
 | 名稱： |`Global Admin Azure PCI Samples`|
 |使用者類型：| `Subscription Administrator and Azure Active Directory Global Administrator`|
 
-* 管理員帳戶無法讀取未遮罩的信用卡資訊。 所有動作皆會記錄。
-* 管理員帳戶無法管理或登入 SQL Database。
-* 管理員帳戶可以管理 Active Directory 和訂用帳戶。
+- 管理員帳戶無法讀取未遮罩的信用卡資訊。 所有動作皆會記錄。
+- 管理員帳戶無法管理或登入 SQL Database。
+- 管理員帳戶可以管理 Active Directory 和訂用帳戶。
 
 #### <a name="role-sql-administrator"></a>角色：SQL 系統管理員
 
@@ -90,8 +92,8 @@ ms.lasthandoff: 11/16/2017
 |姓氏： |`PCI Samples`|
 |使用者類型：| `Administrator`|
 
-* sqladmin 帳戶無法檢視未篩選的信用卡資訊。 所有動作皆會記錄。
-* sqladmin 帳戶可以管理 SQL 資料庫。
+- sqladmin 帳戶無法檢視未篩選的信用卡資訊。 所有動作皆會記錄。
+- sqladmin 帳戶可以管理 SQL 資料庫。
 
 #### <a name="role-clerk"></a>角色：店員
 
@@ -113,13 +115,13 @@ Edna Benson 是接待員和業務經理。 她負責確保客戶資訊正確且�
 
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso Webstore - 估算價格
 
-此基本架構和範例 Web 應用程式使用每月計費結構，而使用量的費用為每小時計費，這些都是決定解決方案大小時須考慮的項目。 您可以使用 [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator/)來估算這些成本。 從 2017年 9 月開始，此解決方案的每月費用預估為 ~ $900。 這些費用會因為使用量不同而有所差異，而且可能會有所變更。 客戶應在部署時估算每月費用，可取得更準確的估計值。 
+此基本架構和範例 Web 應用程式使用每月計費結構，而使用量的費用為每小時計費，這些都是決定解決方案大小時須考慮的項目。 您可以使用 [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator/)來估算這些成本。 從 2017年 9 月開始，此解決方案的每月費用預估為 ~ $2500，這包含 ASE v2 每月 $1000 的使用費。 這些費用會因為使用量不同而有所差異，而且可能會有所變更。 客戶應在部署時估算每月費用，可取得更準確的估計值。 
 
 此解決方案會使用下列 Azure 服務。 部署架構的詳細資料位於＜[部署架構](#deployment-architecture)＞一節中。
 
 >- 應用程式閘道
 >- Azure Active Directory
->- App Service 環境
+>- App Service Environment v2
 >- OMS Log Analytics
 >- Azure 金鑰保存庫
 >- 網路安全性群組
@@ -234,7 +236,7 @@ Contoso Webstore 會將所有信用卡資料加密，並使用 Azure Key Vault �
 
 [Azure App Service](/azure/app-service/) 是受管理的服務，適用於部署 Web 應用程式。 Contoso Webstore 應用程式會部署為 [App Service Web 應用程式](/azure/app-service-web/app-service-web-overview)。
 
-[Azure App Service Environment (ASE)](/azure/app-service/app-service-environment/intro) 是 App Service 的功能，可提供完全隔離和專用的環境，以便安全地大規模執行 App Service 應用程式。 此基礎結構會使用此進階服務方案來符合 PCI DSS 的規範。
+[Azure App Service Environment (ASE v2)](/azure/app-service/app-service-environment/intro) 是 App Service 的功能，可提供完全隔離和專用的環境，以便安全地大規模執行 App Service 應用程式。 此基礎結構會使用此進階服務方案來符合 PCI DSS 的規範。
 
 ASE 已經過隔離，可執行只有單一客戶的應用程式，且一律會部署到虛擬網路。 客戶對於輸入和輸出的應用程式網路流量都有更細微的控制，且應用程式可以透過虛擬網路建立與內部部署公司資源的高速安全連線。
 
@@ -282,7 +284,7 @@ ASE 已經過隔離，可執行只有單一客戶的應用程式，且一律會�
 
 #### <a name="oms-solutions"></a>OMS 解決方案
 
-下列 OMS 解決方案會作為基本架構的一部分預先安裝：
+您應該考慮和設定這些額外的 OMS 解決方案：
 - [活動 Log Analytics](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
 - [使用 Azure 網路分析](/azure/log-analytics/log-analytics-azure-networking-analytics?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 - [Azure SQL 分析](/azure/log-analytics/log-analytics-azure-sql)
@@ -338,7 +340,7 @@ ASE 已經過隔離，可執行只有單一客戶的應用程式，且一律會�
     
     如需詳細的使用方式指示，請參閱[指令碼指示 - 部署和設定 Azure 資源](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md)。
     
-3. OMS 記錄和監視。 一旦部署方案後，[Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview) 工作區即可開啟，並可使用解決方案存放庫中的範例範本來說明如何設定監視儀表板。 如範例 OMS 的範本，請參考 [omsDashboards 資料夾](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md)。
+3. OMS 記錄和監視。 一旦部署方案後，[Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview) 工作區即可開啟，並可使用解決方案存放庫中的範例範本來說明如何設定監視儀表板。 如範例 OMS 的範本，請參考 [omsDashboards 資料夾](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md)。 請注意必須在 OMS 中收集資料，範本才能正確部署。 根據網站活動，這可能需要花費一小時以上。
  
     設定您的 OMS 記錄時，請考慮加入這些資源：
  
@@ -355,11 +357,11 @@ ASE 已經過隔離，可執行只有單一客戶的應用程式，且一律會�
     
 ## <a name="threat-model"></a>威脅模型
 
-適用於 Contoso Webstore 的資料流程圖 (DFD) 和範例威脅模型皆可在[程式碼存放庫][code-repo]的＜文件＞區段中取得。
+適用於 Contoso Webstore 的資料流程圖 (DFD) 和範例威脅模型[付款處理藍圖威脅模型](https://aka.ms/pciblueprintthreatmodel)。
 
 ![](images/pci-threat-model.png)
 
-如需詳細資訊，請參閱 [PCI 藍圖威脅模型](https://aka.ms/pciblueprintthreatmodel)。
+
 
 ## <a name="customer-responsibility-matrix"></a>客戶責任矩陣
 
@@ -373,10 +375,13 @@ ASE 已經過隔離，可執行只有單一客戶的應用程式，且一律會�
 
 *2017 年 9 月*
 
-- 此文件僅供參考之用。 Microsoft 和 AVYAN 對本文件中的資訊不做任何明示、暗示或成文之擔保 這份文件係依「現狀」提供。 本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更，恕不另行通知。 讀取這份文件的客戶用戶須自行承擔使用風險。  
+- 此文件僅供參考之用。 Microsoft 和 AVYAN 對本文件中的資訊不做任何明示、暗示或成文之擔保 這份文件係依「現狀」提供。 本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更，恕不另行通知。 讀取這份文件的客戶須自行承擔使用風險。  
 - 本文件未提供給客戶任何 Microsoft 或 Avyan 產品或解決方案中任何智慧財產的任何法定權利。  
 - 客戶可以複製並使用這份文件，供內部參考之用。  
-- 本文件的某些建議可能會導致資料、網路或 Azure 計算資源使用量增加，並可能增加客戶的 Azure 授權或訂用帳戶成本。  
+
+  > [!NOTE]
+  > 本文件的某些建議可能會導致資料、網路或 Azure 計算資源使用量增加，並可能增加客戶的 Azure 授權或訂用帳戶成本。  
+
 - 這份文件中的解決方案旨在作為基本架構，請勿毫無修改地直接用於生產環境。 達到 PCI 合規性需要客戶向合格安全性評估機構進行諮詢。  
 - 此頁面上的所有客戶名稱、交易記錄和任何相關資料皆屬虛構，僅為此基本架構而建立，並僅供示範用。 並未影射或關聯任何真實的人、事、物。  
 - 此解決方案由 Microsoft 與 Avyan Consulting 共同開發，而且經過 [MIT 授權](https://opensource.org/licenses/MIT)許可。
@@ -384,8 +389,8 @@ ASE 已經過隔離，可執行只有單一客戶的應用程式，且一律會�
 
 ### <a name="document-authors"></a>文件作者
 
-* *Frank Simorjay (Microsoft)*  
-* *Gururaj Pandurangi (Avyan Consulting)*
+- *Frank Simorjay (Microsoft)*  
+- *Gururaj Pandurangi (Avyan Consulting)*
 
 
 [code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "程式碼存放庫"

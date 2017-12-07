@@ -3,7 +3,7 @@ title: "在 Azure Site Recovery 中容錯回復 Hyper-v 虛擬機器 | Microsoft
 description: "Azure Site Recovery 可協調虛擬機器和實體伺服器的複寫、容錯移轉及復原作業。 了解從 Azure 容錯回復至內部部署資料中心。"
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/11/2017
-ms.author: ruturajd
-ms.openlocfilehash: 7f478a61ee448d2d18b3ac7bc0a579b6e341c30d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/22/2017
+ms.author: rajanaki
+ms.openlocfilehash: fafaf3f55f07741d438a06e58713d57d465b1137
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="failback-in-site-recovery-for-hyper-v-virtual-machines"></a>在 Site Recovery 中容錯回復 Hyper-V 虛擬機器
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 當您起始容錯移轉時，刀鋒視窗會讓您知道作業的方向。 如果方向是從 Azure 至內部部署，則為容錯回復。
 
 ## <a name="why-is-there-only-a-planned-failover-gesture-to-failback"></a>為什麼容錯回復只有計劃性容錯移轉動作？
-Azure 是高可用性環境，虛擬機器永遠可用。 錯誤回復是計劃性活動，可讓您決定只要短暫停機，以便工作負載可以在內部部署再次開始執行。 這樣不會遺失資料。 因此，只有計劃性容錯移轉動作可用，它會關閉 Azure 中的 VM、下載最新的變更，並確保不會遺失任何資料。
+Azure 是高可用性環境，您的虛擬機器永遠可用。 錯誤回復是計劃性活動，可讓您決定只要短暫停機，以便工作負載可以在內部部署再次開始執行。 這樣不會遺失資料。 因此，只有計劃性容錯移轉動作可用，它會關閉 Azure 中的 VM、下載最新的變更，並確保不會遺失任何資料。
 
 ## <a name="do-i-need-a-process-server-in-azure-to-failback-to-hyper-v"></a>Azure 中是否需要流程伺服器才能容錯回復至 Hyper-v？
 否，只有在您要保護 VMware 虛擬機器時，才需要流程伺服器。 保護/容錯回復 Hyper-v 虛擬機器時，不需要部署其他元件。
@@ -46,14 +46,14 @@ Azure 是高可用性環境，虛擬機器永遠可用。 錯誤回復是計劃�
 2. 在 [確認計劃性容錯移轉]**** 頁面上，選擇來源與目標位置。 記下容錯移轉方向。 如果來自主要位置的容錯移轉會如預期般運作，且所有虛擬機器均位於次要位置，則這僅供參考。
 3. 如果您正從 Azure 進行容錯回復，請選取 [資料同步處理] 中的設定：
 
-   * **在容錯移轉前同步處理資料 (僅同步處理差異變更)** - 這個選項可將虛擬機器的停機時間縮到最短，因為不需關閉虛擬機器即可進行同步處理。 它具有下列功能：
+   * **在容錯移轉前同步處理資料 (僅同步處理差異變更)** - 這個選項可將虛擬機器的停機時間縮到最短，因為不需關閉虛擬機器即可進行同步處理。 它具有下列步驟：
      * 階段 1：在 Azure 中取得虛擬機器的快照，並將其複製到內部部署的 HYPER-V 主機。 機器會繼續在 Azure 中執行。
      * 階段 2：關閉 Azure 中的虛擬機器，如此一來，虛擬機器上就不會有任何新的變更。 最後一組差異變更會傳送到內部部署伺服器，並啟動內部部署虛擬機器。
 
     - **僅在容錯移轉期間同步處理資料 (完整下載)**—如果您已經在 Azure 上長時間執行，請使用這個選項。 這個選項速度比較快，因為我們預期大部分的磁碟已經變更，而且我們不想花時間計算總和檢查碼。 它會下載磁碟。 當內部部署虛擬機器已遭刪除時，它也很有用。
 
     >[!NOTE]
-    >如果您已經執行 Azure 一段時間 (一個月以上) 或已刪除內部部署虛擬機器，則建議您使用這個選項。這個選項不會執行任何總和檢查碼計算。
+    >如果您已經執行 Azure 一段時間 (一個月以上) 或已刪除內部部署虛擬機器，則建議您使用這個選項。 這個選項不會執行任何總和檢查碼計算。
 
 
 4. 如果已針對雲端啟用資料加密，請在 [加密金鑰] 中，選取當您在 VMM 伺服器上安裝提供者期間啟用資料加密時所發出的憑證。
@@ -70,7 +70,7 @@ Azure 是高可用性環境，虛擬機器永遠可用。 錯誤回復是計劃�
 2. 使用您在原始伺服器上所擁有的相同名稱來建立虛擬網路交換器。
 3. 選取 [受保護的項目]  ->  [保護群組]  ->  <ProtectionGroupName>  ->  您想要進行容錯回復的 <VirtualMachineName>，然後選取 [計畫性容錯移轉]。
 4. 在 [記事]  select 中張貼意見或問題。
-5. 在 [主機名稱]  中，選取要放置虛擬機器的新 Hyper-V 主機伺服器。
+5. 在 [主機名稱] 中，**選取要放置虛擬機器的新 Hyper-V 主機伺服器。
 6. 在 [資料同步處理] 中，建議您選取 [容錯移轉之前同步處理資料] 的選項。 這個選項可以將虛擬機器的停機時間降至最低，因為不需關閉虛擬機器即可進行同步處理。 它具有下列功能：
 
    * 階段 1：在 Azure 中取得虛擬機器的快照，並將其複製到內部部署的 HYPER-V 主機。 機器會繼續在 Azure 中執行。
@@ -95,4 +95,4 @@ Azure 是高可用性環境，虛擬機器永遠可用。 錯誤回復是計劃�
 
 當您完成容錯回復作業後，**認可**虛擬機器。 認可會刪除 Azure 虛擬機器和其磁碟，並準備要再次保護的 VM。
 
-**認可**之後，您可以起始「反向複寫」。 這樣會將虛擬機器從內部部署移回 Azure 來開始保護。 請注意，這只會複寫變更，因為 Azure 中已關閉 VM，因此只會傳送差異變更。
+**認可**之後，您可以起始「反向複寫」。 這樣會將虛擬機器從內部部署移回 Azure 來開始保護。 這只會複寫變更，因為 Azure 中已關閉 VM，因此只會傳送差異變更。

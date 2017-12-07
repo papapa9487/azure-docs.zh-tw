@@ -1,5 +1,5 @@
 ---
-title: "Azure Functions 事件中樞繫結"
+title: "Azure Functions 的 Azure 事件中樞繫結"
 description: "了解如何在 Azure Functions 中使用 Azure 事件中樞繫結。"
 services: functions
 documentationcenter: na
@@ -16,19 +16,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: c2660a3ca8ee7569d49a6998d0dfd5a98a97d294
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 70219ada2f4886f40d088486063afda2bc489611
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-event-hubs-bindings"></a>Azure Functions 事件中樞繫結
+# <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions 的 Azure 事件中樞繫結
 
 本文說明如何針對 Azure Functions 使用 [Azure 事件中樞](../event-hubs/event-hubs-what-is-event-hubs.md)繫結。 Azure Functions 支援事件中樞的觸發程序和輸出繫結。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="event-hubs-trigger"></a>事件中樞觸發程序
+## <a name="trigger"></a>觸發程序
 
 使用事件中樞觸發程序將回應傳送至事件中樞事件資料流。 您必須具有事件中樞的讀取存取權，才能設定觸發程序。
 
@@ -176,7 +176,7 @@ module.exports = function (context, myEventHubMessage) {
 };
 ```
 
-## <a name="trigger---attributes-for-precompiled-c"></a>觸發程序 - 先行編譯 C# 的屬性
+## <a name="trigger---attributes"></a>觸發程序 - 屬性
 
 對於[先行編譯 C#](functions-dotnet-class-library.md) 函式，使用 [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) 屬性，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) 中。
 
@@ -185,9 +185,14 @@ module.exports = function (context, myEventHubMessage) {
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
 public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
+{
+    ...
+}
 ```
 
-## <a name="trigger---configuration"></a>觸發程序 - 設定
+如需完整範例，請參閱[觸發程序 - 先行編譯 C# 範例](#trigger---c-example)。
+
+## <a name="trigger---configuration"></a>觸發程式 - 設定
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `EventHubTrigger` 屬性。
 
@@ -198,7 +203,9 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 |**name** | n/a | 代表函式程式碼中事件項目的變數名稱。 | 
 |**路徑** |**EventHubName** | 事件中樞的名稱。 | 
 |**consumerGroup** |**ConsumerGroup** | 選擇性屬性，可設定用來訂閱中樞內事件的[取用者群組](../event-hubs/event-hubs-features.md#event-consumers)。 如果省略，則會使用 `$Default` 取用者群組。 | 
-|**連接** |**連接** | 應用程式設定的名稱，其中包含事件中樞命名空間的連接字串。 按一下*命名空間*的 [連接資訊] 按鈕 (而不是事件中樞本身)，來複製此連接字串。 此連接字串至少必須具備讀取權限，才能啟動觸發程序。<br/>當您要在本機開發時，應用程式設定會進入 [local.settings.json 檔案](functions-run-local.md#local-settings-file)的值。|
+|**連接** |**連接** | 應用程式設定的名稱，其中包含事件中樞命名空間的連接字串。 按一下*命名空間*的 [連接資訊] 按鈕 (而不是事件中樞本身)，來複製此連接字串。 此連接字串至少必須具備讀取權限，才能啟動觸發程序。|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---hostjson-properties"></a>觸發程序 - host.json 屬性
 
@@ -206,7 +213,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="event-hubs-output-binding"></a>事件中樞輸出繫結
+## <a name="output"></a>輸出
 
 使用事件中樞輸出繫結將事件寫入事件串流。 您必須具備事件中樞的傳送權限，才能將事件寫入其中。
 
@@ -341,7 +348,7 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="output---attributes-for-precompiled-c"></a>輸出 - 先行編譯 C# 的屬性
+## <a name="output---attributes"></a>輸出 - 屬性
 
 對於[先行編譯 C#](functions-dotnet-class-library.md) 函式，使用 [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) 屬性，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) 中。
 
@@ -351,7 +358,12 @@ module.exports = function(context) {
 [FunctionName("EventHubOutput")]
 [return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
 public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
+{
+    ...
+}
 ```
+
+如需完整範例，請參閱[輸出 - 先行編譯 C# 範例](#output---c-example)。
 
 ## <a name="output---configuration"></a>輸出 - 設定
 
@@ -363,13 +375,15 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 |**direction** | n/a | 必須設定為 "out"。 當您在 Azure 入口網站中建立繫結時，會自動設定此參數。 |
 |**name** | n/a | 函式程式碼中所使用的變數名稱，代表事件。 | 
 |**路徑** |**EventHubName** | 事件中樞的名稱。 | 
-|**連接** |**連接** | 應用程式設定的名稱，其中包含事件中樞命名空間的連接字串。 按一下*命名空間*的 [連接資訊] 按鈕 (而不是事件中樞本身)，來複製此連接字串。 此連接字串必須具有傳送權限，才能將訊息傳送至事件資料流。<br/>當您要在本機開發時，應用程式設定會進入 [local.settings.json 檔案](functions-run-local.md#local-settings-file)的值。|
+|**連接** |**連接** | 應用程式設定的名稱，其中包含事件中樞命名空間的連接字串。 按一下*命名空間*的 [連接資訊] 按鈕 (而不是事件中樞本身)，來複製此連接字串。 此連接字串必須具有傳送權限，才能將訊息傳送至事件資料流。|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>輸出 - 使用方式
 
 在 C# 和 C# 指令碼中，使用方法參數 (例如 `out string paramName`) 來傳送訊息。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 若要寫入多則訊息，您可以使用 `ICollector<string>` 或 `IAsyncCollector<string>` 取代 `out string`。
 
-在 JavaScript 中，使用 `context.bindings.<name>` 存取輸出事件。 `<name>` 是 *function.json* 之 `name` 屬性中指定的值。
+在 JavaScript 中，使用 `context.bindings.<name>` 存取輸出事件。 `<name>` 是 function.json 之 `name` 屬性中指定的值。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/28/2017
 ms.author: mimig
-ms.openlocfilehash: fd0454252080679fa880eecb677d609ea0734f09
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 1c53be736ad65a53767626033be27f0891de06ba
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>匯入資料以用於 Azure Cosmos DB 資料表 API
 
@@ -32,11 +32,11 @@ ms.lasthandoff: 11/16/2017
 
 ## <a name="data-migration-tool"></a>資料移轉工具
 
-命令列 Azure Cosmos DB 資料移轉工具 (dt.exe) 可用來將您現有的 Azure 資料表儲存體資料匯入到資料表 API GA 帳戶，或將資料從資料表 API (預覽) 帳戶移轉至資料表 API GA 帳戶。 目前不支援其他來源。
+命令列 Azure Cosmos DB 資料移轉工具 (dt.exe) 可用來將您現有的 Azure 資料表儲存體資料匯入到資料表 API GA 帳戶，或將資料從資料表 API (預覽) 帳戶移轉至資料表 API GA 帳戶。 目前不支援其他來源。 UI 型資料移轉工具 (dtui.exe) 目前不支援資料表 API 帳戶。 
 
 若要執行資料表資料移轉，請完成下列工作：
 
-1. 從 [Microsoft 下載中心](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d)或 [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool) 下載移轉工具。
+1. 請從 [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool) 下載移轉工具。
 2. 使用您案例的命令列引數執行 `dt.exe`。
 
 dt.exe 會採用下列格式的命令：
@@ -92,7 +92,7 @@ dt.exe 會採用下列格式的命令：
 以下命令列範例會說明如何從 Azure 資料表儲存體匯入到資料表 API：
 
 ```
-dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey==<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
+dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 <a id="table-api-preview"></a>
 ### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>命令範例：來源是 Azure Cosmos DB 資料表 API (預覽)

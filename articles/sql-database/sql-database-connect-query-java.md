@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 07/10/2017
+ms.date: 07/11/2017
 ms.author: andrela
-ms.openlocfilehash: cb1c387628a79ddfada0786c8c6422b6671a2c19
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 994705b0a9c7ca850c357a5810f1edb1618098d6
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-java-to-query-an-azure-sql-database"></a>使用 JAVA 查詢 Azure SQL 資料庫
 
@@ -29,15 +29,11 @@ ms.lasthandoff: 10/31/2017
 
 若要完成本快速入門教學課程，請確定您具有下列必要條件︰
 
-- Azure SQL Database。 本快速入門使用其中一個快速入門建立的資源︰ 
-
-   - [建立 DB - 入口網站](sql-database-get-started-portal.md)
-   - [建立 DB - CLI](sql-database-get-started-cli.md)
-   - [建立 DB - PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - 在此快速入門教學課程中，您所使用電腦的公用 IP 位址[伺服器層級防火牆規則](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。
 
-- 您已安裝適用於您作業系統的 JAVA 和相關軟體。
+- 您已安裝適用於您作業系統的 JAVA 和相關軟體：
 
     - **MacOS**：安裝 Homebrew 和 JAVA，然後再安裝 Maven。 請參閱[步驟 1.2 和 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/)。
     - **Ubuntu**：安裝 JAVA Development Kit，並安裝 Maven。 請參閱[步驟 1.2、1.3 和 1.4](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/)。
@@ -45,15 +41,7 @@ ms.lasthandoff: 10/31/2017
 
 ## <a name="sql-server-connection-information"></a>SQL Server 連線資訊
 
-取得連線到 Azure SQL Database 所需的連線資訊。 您在下一個程序中需要完整的伺服器名稱、資料庫名稱和登入資訊。
-
-1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 從左側功能表中選取 [SQL Database]，按一下 [SQL Database]頁面上您的資料庫。 
-3. 在您資料庫的 [概觀] 頁面上，檢閱如下圖所示的完整伺服器名稱。您可以將滑鼠移至伺服器名稱上，以帶出 [按一下以複製] 選項。  
-
-   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. 如果您忘記伺服器登入資訊，請瀏覽至 [SQL Database 伺服器] 頁面來檢視伺服器系統管理員名稱。  如有必要，請重設密碼。     
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 ## <a name="create-maven-project-and-dependencies"></a>**建立 Maven 專案和相依性**
 1. 從終端機，建立名為 **sqltest**的新 Maven 專案。 

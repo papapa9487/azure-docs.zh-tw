@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 11/21/2017
 ms.author: bradsev;BuckWoody
-ms.openlocfilehash: d572fe3ad01d75b76ac87b441a5397d1c1841547
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 52d6fe0757043a0a298c3fdee0478fb364074537
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="team-data-science-process-for-data-scientists"></a>適用於資料科學家的 Team Data Science Process
 
@@ -30,6 +30,8 @@ ms.lasthandoff: 10/31/2017
 - 資料傳輸與儲存的基礎
 - 提供資料來源文件
 - 使用工具來進行分析處理
+
+這些訓練教材是關於 Team Data Science Process (TDSP) 和 Microsoft 與開放原始碼軟體和工具套件，對於構思、執行和傳遞資料科學解決方案很有幫助。
 
 ## <a name="lesson-path"></a>課程路徑
 您可以利用下表中的項目來引導自己的自我學習。 請參閱「說明」欄來依循路徑操作、按一下「主題」連結來取得研究參考資料，以及使用「知識檢驗」欄來檢驗您的技能。

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
-ms.openlocfilehash: 995a5bf0b28f6bfa0e501f5930b9efcad9041b8c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 913bd917ae7c2b44df097ead9c3e35841338905c
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Azure Cloud Shell 中 PowerShell 的快速入門 (預覽)
 
@@ -288,7 +288,7 @@ PS Azure:\> Get-Help
 PS Azure:\> Get-Help Get-AzureRmVM
 ```
 
-## <a name="use-azure-file-storage-to-store-your-data"></a>使用 Azure 檔案儲存體來儲存資料
+## <a name="use-azure-files-to-store-your-data"></a>使用 Azure 檔案來儲存資料
 
 您可以建立指令碼 (例如 `helloworld.ps1`)，並將它儲存至 `CloudDrive`，以跨殼層工作階段使用它。
 

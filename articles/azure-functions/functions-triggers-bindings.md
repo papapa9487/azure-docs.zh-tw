@@ -1,5 +1,5 @@
 ---
-title: "在 Azure Functions 中使用觸發程序和繫結 | Microsoft Docs"
+title: "在 Azure Functions 中使用觸發程序和繫結"
 description: "了解如何在 Azure Functions 中使用觸發程序和繫結，將您的程式碼執行連接到線上事件和雲端服務。"
 services: functions
 documentationcenter: na
@@ -8,26 +8,25 @@ manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構"
-ms.assetid: cbc7460a-4d8a-423f-a63e-1cd33fef7252
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 7d22a6749216486de6132a6d39e2dcf683d0e678
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e3413c9e1055ca9198dae4a467bcf47372ad4ecb
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 觸發程序和繫結概念
 Azure Functions 可讓您撰寫程式碼，以透過「觸發程序」和「繫結」回應 Azure 和其他服務中的事件。 此文章是適用於所有支援之程式設計語言的觸發程序和繫結的概念性概觀。 這裡描述所有繫結的通用功能。
 
 ## <a name="overview"></a>概觀
 
-觸發程序和繫結是定義叫用函數的方式與其處理之資料的宣告式方法。 「觸發程序」會定義叫用函數的方式。 一個函數只能恰有一個觸發程序。 觸發程序具有相關聯的資料，它通常是觸發函數的承載。 
+觸發程序和繫結是定義叫用函數的方式與其處理之資料的宣告式方法。 「觸發程序」會定義叫用函數的方式。 一個函數只能恰有一個觸發程序。 觸發程序具有相關聯的資料，它通常是觸發函數的承載。
 
 輸入和輸出「繫結」提供從您的程式碼內連線到資料的宣告式方法。 類似於觸發程序，您需要在函數組態中指定連接字串和其他屬性。 繫結是選擇性的，而且一個函數可以有多個輸入和輸出繫結。 
 
@@ -35,11 +34,13 @@ Azure Functions 可讓您撰寫程式碼，以透過「觸發程序」和「繫�
 
 您可以在 Azure Functions 入口網站的 [整合] 索引標籤中設定觸發程序和繫結。 實際上，UI 會修改函數目錄中名稱為 *function.json* 的檔案。 您可以變更為 [進階編輯器] 以編輯這個檔案。
 
-下表顯示 Azure Functions 支援的觸發程序和繫結。 
+## <a name="supported-bindings"></a>支援的繫結
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-### <a name="example-queue-trigger-and-table-output-binding"></a>範例︰佇列觸發程序和資料表輸出繫結
+如需哪些繫結為預覽狀態或已核准可用於實際執行環境的資訊，請參閱[支援的語言](supported-languages.md)。
+
+## <a name="example-queue-trigger-and-table-output-binding"></a>範例︰佇列觸發程序和資料表輸出繫結
 
 假設您想要每當新訊息出現在 Azure 佇列儲存體時，就在 Azure 表格儲存體寫入新的資料列。 此案例可以使用 Azure 佇列觸發程序和 Azure 資料表儲存體輸出繫結來實作。 
 
@@ -126,9 +127,9 @@ function generateRandomId() {
 
 如需程式碼範例及整合 Azure 儲存體的詳細資訊，請參閱 [Azure 儲存體的 Azure Functions 觸發程序和繫結](functions-bindings-storage.md)。
 
-### <a name="binding-direction"></a>繫結方向
+## <a name="binding-direction"></a>繫結方向
 
-所有觸發程序和繫結都具有 `direction` 屬性：
+所有觸發程序和繫結在 function.json 檔案中都具有 `direction` 屬性：
 
 - 對於觸發程序，方向一律為 `in`
 - 輸入和輸出繫結使用 `in` 和 `out`
@@ -243,7 +244,7 @@ let Run(input: WorkItem, log: TraceWriter) =
 
 在對應的參考主題中，會描述每個觸發程序之中繼資料屬性的詳細資料。 您也可以在入口網站的 [整合] 索引標籤中，繫結設定區域之下的 [文件] 區段取得文件。  
 
-例如，因為 Blob 觸發程序會有一些延遲，所以您可以使用佇列觸發程序來執行您的函數 (請參閱 [Blob 儲存體觸發程序](functions-bindings-storage-blob.md#blob-storage-trigger))。 佇列訊息會包含要在其上觸發的 Blob 檔案名稱。 使用 `queueTrigger` 中繼資料屬性，您只要在設定中就能指定此行為，而不需在程式碼中指定。
+例如，因為 Blob 觸發程序會有一些延遲，所以您可以使用佇列觸發程序來執行您的函數 (請參閱 [Blob 儲存體觸發程序](functions-bindings-storage-blob.md#trigger))。 佇列訊息會包含要在其上觸發的 Blob 檔案名稱。 使用 `queueTrigger` 中繼資料屬性，您只要在設定中就能指定此行為，而不需在程式碼中指定。
 
 ```json
   "bindings": [

@@ -16,10 +16,10 @@ ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
 ms.openlocfilehash: c4966f3ddc95a7e7c97d09cd45abdb8443601b74
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="create-a-java-application"></a>建立 Java 應用程式
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理微服務與容器。 

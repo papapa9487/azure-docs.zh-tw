@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b994cfd09156ae8e1662f4947241aa1a4672df98
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 956f44068db8fe9c8c7a839a0ce80c19e2b2f11c
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="manage-azure-disks-with-powershell"></a>使用 PowerShell 管理 Azure 磁碟
 
@@ -41,7 +41,7 @@ Azure 虛擬機器使用磁碟來儲存 VM 作業系統、應用程式和資料�
 
 建立 Azure 虛擬機器後，有兩個磁碟會自動連結到虛擬機器。 
 
-**作業系統磁碟** - 作業系統磁碟可裝載 VM 作業系統，其大小可以高達 1 TB。  預設會將磁碟機代號 c: 指派給 OS 磁碟。 OS 磁碟的磁碟快取組態已針對 OS 效能進行最佳化。 OS 磁碟**不得**裝載應用程式或資料。 請對應用程式和資料使用資料磁碟，本文稍後會詳細說明。
+**作業系統磁碟** - 作業系統磁碟可裝載 VM 作業系統，其大小可以高達 4 TB。  預設會將磁碟機代號 c: 指派給 OS 磁碟。 OS 磁碟的磁碟快取組態已針對 OS 效能進行最佳化。 OS 磁碟**不得**裝載應用程式或資料。 請對應用程式和資料使用資料磁碟，本文稍後會詳細說明。
 
 **暫存磁碟** - 暫存磁碟會使用與 VM 位於相同 Azure 主機的固態磁碟機。 暫存磁碟的效能非常好，可用於暫存資料處理等作業。 不過，如果 VM 移至新的主機，則會移除儲存在暫存磁碟上的任何資料。 暫存磁碟的大小取決於 VM 大小。 預設會將磁碟機代號 d: 指派給暫存磁碟。
 
@@ -81,7 +81,7 @@ Azure 提供兩種類型的磁碟。
 
 ### <a name="premium-disk"></a>進階磁碟
 
-進階磁碟是以 SSD 為基礎的高效能、低延遲磁碟為後盾。 最適合用於執行生產工作負載的 VM。 進階儲存體支援 DS 系列、DSv2 系列、GS 系列和 FS 系列 VM。 進階磁碟有三種類型 (P10、P20、P30)，磁碟的大小可決定磁碟類型。 進行選取時，磁碟大小值會上調為下一個類型。 例如，如果大小低於 128 GB，則磁碟類型會是 P10，介於 129 與 512 GB 會是 P20，而超過 512 GB 則為 P30。 
+進階磁碟是以 SSD 為基礎的高效能、低延遲磁碟為後盾。 最適合用於執行生產工作負載的 VM。 進階儲存體支援 DS 系列、DSv2 系列、GS 系列和 FS 系列 VM。 進階磁碟有五種類型 (P10、P20、P30、P40、P50)，磁碟的大小可決定磁碟類型。 進行選取時，磁碟大小值會上調為下一個類型。 例如，如果大小低於 128 GB，則磁碟類型會是 P10，介於 129 與 512 GB 會是 P20，512 GB 是 P30，2 TB 是 P40，4 TB 則是 P50。 
 
 ### <a name="premium-disk-performance"></a>進階磁碟效能
 

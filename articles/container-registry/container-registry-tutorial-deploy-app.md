@@ -2,25 +2,18 @@
 title: "Azure Container Registry 教學課程 - 從 Azure Container Registry 部署 Web 應用程式"
 description: "使用異地複寫的 Azure Container Registry 中的容器映像，部署以 Linux 為基礎的 Web 應用程式。 這是三段式教學課程的第二段。"
 services: container-registry
-documentationcenter: 
 author: mmacy
 manager: timlt
-editor: neilpeterson
-tags: acr, azure-container-registry, geo-replication
-keywords: "Docker, 容器, 登錄, Azure"
 ms.service: container-registry
-ms.devlang: 
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2017
 ms.author: marsma
-ms.custom: 
-ms.openlocfilehash: 90d4b51dfaad409298f72887480dfaf827aef9f0
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.custom: mvc
+ms.openlocfilehash: d775a17cb8069a7521788d850d7d52b92cc67526
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-web-app-from-azure-container-registry"></a>從 Azure Container Registry 部署 Web 應用程式
 

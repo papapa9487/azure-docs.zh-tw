@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: billgib
-ms.openlocfilehash: 094189e08002ce8d4a2f4f92a8c112eaf18ebe13
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 2a36df0e45af5bcce5338d04b7e1ba44221ae964
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Wingtip Tickets SaaS 應用程式
 
@@ -63,15 +63,15 @@ ms.lasthandoff: 11/20/2017
 
 - 獨立應用程式：
     - [獨立應用程式的教學課程][docs-tutorials-for-wingtip-sa]。
-    - [獨立應用程式的程式碼，位於 Github][github-code-for-wingtip-sa]。
+    - [獨立應用程式的程式碼，位於 GitHub][github-code-for-wingtip-sa]。
 
 - 每一租用戶一個資料庫：
     - [每一租用戶一個資料庫的教學課程][docs-tutorials-for-wingtip-dpt]。
-    - [每一租用戶一個資料庫的程式碼，位於 Github][github-code-for-wingtip-dpt]。
+    - [每一租用戶一個資料庫的程式碼，位於 GitHub][github-code-for-wingtip-dpt]。
 
 - 分區化多租用戶：
     - [分區化多租用戶的教學課程][docs-tutorials-for-wingtip-mt]。
-    - [分區化多租用戶的程式碼，位於 Github][github-code-for-wingtip-mt]。
+    - [分區化多租用戶的程式碼，位於 GitHub][github-code-for-wingtip-mt]。
 
 
 

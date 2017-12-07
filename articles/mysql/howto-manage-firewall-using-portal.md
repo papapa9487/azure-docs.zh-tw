@@ -1,5 +1,5 @@
 ---
-title: "使用 Azure 入口網站建立和管理適用於 MySQL 的 Azure 資料庫防火牆規則 | Microsoft Docs"
+title: "在適用於 MySQL 的 Azure 資料庫中建立和管理 MySQL 防火牆規則 | Microsoft Docs"
 description: "使用 Azure 入口網站建立和管理適用於 MySQL 的 Azure 資料庫防火牆規則"
 services: mysql
 author: v-chenyh
@@ -8,19 +8,19 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: 0604b29fcd9849545886a783ae5bbb2cbb72f2ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/27/2017
+ms.openlocfilehash: 63ea6337b35193420924096690ed15cc1d5ede25
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>使用 Azure 入口網站建立和管理適用於 MySQL 的 Azure 資料庫防火牆規則
 伺服器層級的防火牆規則可讓系統管理員從指定的 IP 位址或 IP 位址範圍，存取適用於 MySQL 的 Azure 資料庫伺服器。 
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>在 Azure 入口網站中建立伺服器層級的防火牆規則
 
-1. 在 [MySQL 伺服器] 刀鋒視窗的 [設定] 標題下，按一下 [連線安全性]，開啟「適用於 MySQL 的 Azure 資料庫」的 [連線安全性] 刀鋒視窗。
+1. 在 [MySQL 伺服器] 頁面的 [設定] 標題下，按一下 [連線安全性]，開啟「適用於 MySQL 的 Azure 資料庫」的 [連線安全性] 頁面。
 
    ![Azure 入口網站 - 按一下 [連線安全性]](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
@@ -48,8 +48,8 @@ ms.lasthandoff: 10/11/2017
 * 若要新增目前的電腦，請按一下 [+新增我的 IP]。
 * 若要新增其他 IP 位址，請輸入 [規則名稱]、[起始 IP 位址] 和 [結束 IP 位址]。
 * 若要修改現有的規則，按一下規則中的任何欄位，然後加以修改。
-* 若要刪除現有的規則，按一下省略符號 [...]，然後按一下刪除]。
+* 若要刪除現有的規則，按一下省略符號 [...]，然後按一下 [刪除]。
 * 按一下 [儲存]  儲存變更。
 
 ## <a name="next-steps"></a>後續步驟
-- 如需連線至「適用於 MySQL 的 Azure 資料庫」伺服器的說明，請參閱[「適用於 MySQL 的 Azure 資料庫」的連線庫](./concepts-connection-libraries.md)
+如需連線至「適用於 MySQL 的 Azure 資料庫」伺服器的說明，請參閱[「適用於 MySQL 的 Azure 資料庫」的連線庫](./concepts-connection-libraries.md)

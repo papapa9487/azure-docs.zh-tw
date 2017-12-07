@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: larryfr
-ms.openlocfilehash: f166158d09cd867718acecc6c97ce16b839f49bd
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 5e4fe189a3fa7269a271b422116dc6838e7ef3cb
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>使用指令碼動作自訂 Linux 型 HDInsight 叢集
 
@@ -76,9 +76,6 @@ HDInsight 提供一個稱為 [指令碼動作]  的組態選項，此指令碼�
         > HDInsight 僅支援__一般用途__的 Azure 儲存體帳戶。 目前不支援 __Blob 儲存體__帳戶類型。
 
 * 可以限制為**只在特定節點類型上執行**，例如前端節點或背景工作節點。
-
-  > [!NOTE]
-  > 與 HDInsight Premium 搭配使用時，您可以指定指令碼應該在邊緣節點上使用。
 
 * 可以是**持續性**或**臨時性**。
 
@@ -163,13 +160,13 @@ HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
 
 | 名稱 | 指令碼 |
 | --- | --- |
-| **新增 Azure 儲存體帳戶** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh。 請參閱 [在 HDInsight 叢集新增儲存體](hdinsight-hadoop-add-storage.md)。 |
-| **安裝色調** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh。 請參閱 [在 HDInsight 叢集上安裝及使用色調](hdinsight-hadoop-hue-linux.md)。 |
-| **安裝 Presto** |https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh。 請參閱 [在 HDInsight 叢集上安裝和使用 Presto](hdinsight-hadoop-install-presto.md)。 |
-| **安裝 Solr** |https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh。 請參閱 [在 HDInsight 叢集上安裝及使用 Solr](hdinsight-hadoop-solr-install-linux.md)。 |
-| **安裝 Giraph** |https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh。 請參閱 [在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install-linux.md)。 |
-| **預先載入 Hive 程式庫** |https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh。 請參閱 [在 HDInsight 叢集上新增 Hive 程式庫](hdinsight-hadoop-add-hive-libraries.md)。 |
-| **安裝或更新 Mono** | https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash。 請參閱 [在 HDInsight 上安裝或更新 Mono](hdinsight-hadoop-install-mono.md)。 |
+| **新增 Azure 儲存體帳戶** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh。請參閱[在 HDInsight 叢集新增儲存體](hdinsight-hadoop-add-storage.md)。 |
+| **安裝色調** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh。請參閱 [在 HDInsight 叢集上安裝及使用色調](hdinsight-hadoop-hue-linux.md)。 |
+| **安裝 Presto** |https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh。請參閱[在 HDInsight 叢集上安裝和使用 Presto](hdinsight-hadoop-install-presto.md)。 |
+| **安裝 Solr** |https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh。請參閱 [在 HDInsight 叢集上安裝及使用 Solr](hdinsight-hadoop-solr-install-linux.md)。 |
+| **安裝 Giraph** |https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh。請參閱 [在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install-linux.md)。 |
+| **預先載入 Hive 程式庫** |https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh。請參閱 [在 HDInsight 叢集上新增 Hive 程式庫](hdinsight-hadoop-add-hive-libraries.md)。 |
+| **安裝或更新 Mono** | https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash。 請參閱[在 HDInsight 上安裝或更新 Mono](hdinsight-hadoop-install-mono.md)。 |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>在建立叢集期間使用指令碼動作
 

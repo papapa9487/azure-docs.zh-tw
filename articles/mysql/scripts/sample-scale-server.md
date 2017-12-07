@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 11/02/2017
-ms.openlocfilehash: e37e706c3c12b87cc4b49315589582ae7ab8b015
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 517208b76757655990f82f50677267320eb1393c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 監視和調整適用於 MySQL 的 Azure 資料庫伺服器
 此範例 CLI 指令碼會在查詢計量之後，將單一「適用於 MySQL 的 Azure 資料庫」伺服器調整為不同的效能等級。
@@ -35,10 +35,10 @@ ms.lasthandoff: 11/04/2017
 
 | **命令** | **注意事項** |
 |---|---|
-| [az group create](/cli/azure/group#create) | 建立用來存放所有資源的資源群組。 |
-| [az mysql server create](/cli/azure/mysql/server#create) | 建立主控資料庫的 MySQL 伺服器。 |
-| [az monitor metrics list](/cli/azure/monitor/metrics#list) | 列出資源的度量值。 |
-| [az group delete](/cli/azure/group#delete) | 刪除資源群組，包括所有的巢狀資源。 |
+| [az group create](/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
+| [az mysql server create](/cli/azure/mysql/server#az_mysql_server_create) | 建立主控資料庫的 MySQL 伺服器。 |
+| [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) | 列出資源的度量值。 |
+| [az group delete](/cli/azure/group#az_group_delete) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟
 - 了解 Azure CLI 的詳細資訊：[Azure CLI 文件](/cli/azure/overview)。

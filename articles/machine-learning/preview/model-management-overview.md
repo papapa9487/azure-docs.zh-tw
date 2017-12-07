@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 31b859d86e82c92839462280721c5f84f1d923cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0474e7ae77128a46fc6218de814913d07aa63d97
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-machine-learning-model-management"></a>Azure Machine Learning 模型管理
 
@@ -124,4 +124,4 @@ Azure Machine Learning 模型管理會提供 API 供您重新訓練模型。 您
    當然。 同一個叢集上可以執行 100 倍的服務/端點。 
 
 ## <a name="next-steps"></a>後續步驟
-若要開始使用模型管理，請參閱[設定模型管理](model-management-configuration.md)。
+若要開始使用模型管理，請參閱[設定模型管理](deployment-setup-configuration.md)。

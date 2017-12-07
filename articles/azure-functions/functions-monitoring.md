@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 355cb2cef52b5dfecddae228d0cc24a069d3b695
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33d4a193cc3152bfab1f03dde32ad4f1bcb0afe1
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="monitor-azure-functions"></a>監視 Azure Functions
 
@@ -60,7 +60,7 @@ Functions 也有未使用 Application Insights 的內建監視。 我們建議�
 
    ![複製 Application Insights 檢測金鑰](media/functions-monitoring/copy-ai-key.png)
 
-1. 在函式應用程式的 [應用程式設定] 頁面上，[新增應用程式設定](functions-how-to-use-azure-function-app-settings.md#settings) (命名為 APPINSIGHTS_INSTRUMENTATIONKEY) 並貼上檢測金鑰。
+1. 在函式應用程式的 [應用程式設定] 頁面上，按一下 [新增設定] 以[新增應用程式設定](functions-how-to-use-azure-function-app-settings.md#settings)。 將新的設定命名為 APPINSIGHTS_INSTRUMENTATIONKEY，並貼上所複製的檢測金鑰。
 
    ![將檢測金鑰新增至應用程式設定](media/functions-monitoring/add-ai-key.png)
 
@@ -68,7 +68,7 @@ Functions 也有未使用 Application Insights 的內建監視。 我們建議�
 
 ## <a name="view-telemetry-data"></a>檢視遙測資料
 
-若要在入口網站中從函式應用程式瀏覽至 Application Insights，選取函式應用程式 [概觀] 頁面上的 [Application Insights] 連結。
+若要在入口網站中從函式應用程式瀏覽至已連線的 Application Insights 執行個體，選取函式應用程式 [概觀] 頁面上的 [Application Insights] 連結。
 
 如需如何使用 Application Insights 的相關資訊，請參閱 [Application Insights 文件](https://docs.microsoft.com/azure/application-insights/)。 本節示範一些如何在 Application Insights 中檢視資料的範例。 如果您已經熟悉 Application Insights，就可以直接前往[關於設定和自訂遙測資料的小節](#configure-categories-and-log-levels)。
 
@@ -84,7 +84,7 @@ Functions 也有未使用 Application Insights 的內建監視。 我們建議�
 
 ![效能](media/functions-monitoring/performance.png)
 
-[伺服器] 索引標籤會顯示每一部伺服器的資源使用量和輸送量。 如果要對函式拖累基礎資源的案例進行偵錯，此資料非常有用。 伺服器會作為「雲端角色執行個體」來參考。 
+[伺服器] 索引標籤會顯示每一部伺服器的資源使用量和輸送量。 如果要對函式拖累基礎資源的案例進行偵錯，此資料非常有用。 伺服器會作為「雲端角色執行個體」來參考。
 
 ![伺服器](media/functions-monitoring/servers.png)
 
@@ -94,7 +94,7 @@ Functions 也有未使用 Application Insights 的內建監視。 我們建議�
 
 ## <a name="query-telemetry-data"></a>查詢遙測資料
 
-[Application Insights 分析](../application-insights/app-insights-analytics.md)可讓您存取資料庫中資料表形式的所有遙測資料。 分析會提供用於擷取和操作資料的查詢語言。
+[Application Insights 分析](../application-insights/app-insights-analytics.md)可讓您存取資料庫中資料表形式的所有遙測資料。 分析會提供用於擷取、操作和視覺化資料的查詢語言。
 
 ![選取 [分析]](media/functions-monitoring/select-analytics.png)
 
@@ -131,7 +131,7 @@ traces
 
 ## <a name="configure-categories-and-log-levels"></a>設定類別和記錄層級
 
-您可以使用 Application Insights 而不需任何自訂設定，但預設的組態可能會導致大量資料。 如果您使用 Visual Studio Azure 訂用帳戶，可能就會達到 App Insights 適用的資料上限。 本文的其餘部分示範如何設定及自訂函式傳送至 Application Insights 的資料。
+您可以使用 Application Insights 而不需任何自訂設定，但預設的組態可能會導致大量資料。 如果您使用 Visual Studio Azure 訂用帳戶，可能就會達到 Application Insights 適用的資料上限。 本文的其餘部分示範如何設定及自訂函式傳送至 Application Insights 的資料。
 
 ### <a name="categories"></a>類別
 
@@ -178,7 +178,7 @@ Azure Functions 記錄器也包含具有每個記錄的「記錄層級」。 [Lo
 
 此範例會設定下列規則：
 
-1. 針對類別為 "Host.Results" 或 "Function" 的記錄，只會將 `Error` 層級和以上層級傳送至 Application Insights。 `Information` 層級和以下層級的記錄均會被忽略。
+1. 針對類別為 "Host.Results" 或 "Function" 的記錄，只會將 `Error` 層級和以上層級傳送至 Application Insights。 `Warning` 層級和以下層級的記錄均會被忽略。
 2. 針對類別為 Host 的記錄。 彙總工具，只會將 `Information` 層級和以上層級傳送至 Application Insights。 `Debug` 層級和以下層級的記錄均會被忽略。
 3. 針對所有其他記錄，只會將 `Information` 層級和以上層級傳送至 Application Insights。
 
@@ -217,7 +217,7 @@ Azure Functions 記錄器也包含具有每個記錄的「記錄層級」。 [Lo
 
 這些記錄會透過[可設定](#configure-the-aggregator)的期間來提供函式引動過程的計數與平均。 預設期間為 30 秒或 1,000 個結果，視何者較早達到而定。 
 
-記錄會在 Application Insights 中顯示為 "customMetrics"。 範例包括執行個數、成功率和持續時間。
+您可在 Application Insights 中的 **customMetrics** 資料表取得記錄。 範例包括執行個數、成功率和持續時間。
 
 ![customMetrics 查詢](media/functions-monitoring/custom-metrics-query.png)
 
@@ -225,7 +225,7 @@ Azure Functions 記錄器也包含具有每個記錄的「記錄層級」。 [Lo
 
 ### <a name="other-categories"></a>其他類別
 
-除了已經列出的類別之外，類別的所有記錄均會在 Application Insights 中顯示為 "traces"。
+除了已經列出的類別之外，其他類別的所有記錄均可在 Application Insights 中的 **traces** 資料表內取得。
 
 ![追蹤查詢](media/functions-monitoring/analytics-traces.png)
 
@@ -291,7 +291,7 @@ logger.LogInformation("partitionKey={partitionKey}, rowKey={rowKey}", partitionK
 
 您可以使用這種方式來處理預留位置，讓您能夠執行結構化記錄。 除了訊息字串，Application Insights 還會儲存參數名稱/值組。 結果就是訊息引數會變成您可以查詢的欄位。
 
-例如，如果記錄器方法呼叫看起來像上述範例，則您可以查詢欄位 `customDimensions.prop__rowKey`。 前置詞已新增以確保執行階段新增的欄位與您函式程式碼新增的欄位之間沒有衝突。
+例如，如果記錄器方法呼叫看起來像上述範例，則您可以查詢欄位 `customDimensions.prop__rowKey`。 `prop__` 前置詞已新增以確保執行階段新增的欄位與您函式程式碼新增的欄位之間沒有衝突。
 
 您也可以藉由參考欄位 `customDimensions.prop__{OriginalFormat}`，在原始訊息字串上進行查詢。  
 
@@ -454,7 +454,7 @@ module.exports = function (context, req) {
 
 ### <a name="dependencies"></a>相依項目
 
-相依性不會自動顯示，但您可以撰寫自訂程式碼來顯示相依性。 [C# 自訂遙測區段](#custom-telemetry-in-c-functions)中的範例程式碼會顯示作法。 範例程式碼會在 Application Insights 中產生如下的*應用程式對應*：
+函式對其他服務的相依性不會自動顯示，但您可以撰寫自訂程式碼來顯示相依性。 [C# 自訂遙測區段](#custom-telemetry-in-c-functions)中的範例程式碼會顯示作法。 範例程式碼會在 Application Insights 中產生如下的*應用程式對應*：
 
 ![應用程式對應](media/functions-monitoring/app-map.png)
 
@@ -473,7 +473,7 @@ module.exports = function (context, req) {
 
 ### <a name="real-time-monitoring"></a>即時監視
 
-按一下函式 [監視] 索引標籤上的 [即時事件資料流]，即可進行即時監視。即時事件資料流會在新的瀏覽器索引標籤中以圖表顯示
+按一下函式 [監視] 索引標籤上的 [即時事件資料流]，即可進行即時監視。即時事件資料流會在新的瀏覽器索引標籤中以圖表顯示。
 
 > [!NOTE]
 > 有個已知問題可能會導致您的資料填入失敗。 您可能需要關閉包含即時事件資料流的瀏覽器索引標籤，然後再按一次 [即時事件資料流]，使其正確地填入您的事件資料流資料。 

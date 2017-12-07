@@ -3,7 +3,7 @@ title: "從 Azure 重新保護到內部部署網站 | Microsoft Docs"
 description: "將 VM 容錯移轉到 Azure 之後，您可以起始將 VM 容錯回復到內部部署的作業。 了解如何在容錯回復之前重新保護。"
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
-ms.author: ruturajd
-ms.openlocfilehash: 3644b41c3e3293a263bd9ff996d4e3d26417aeed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rajanaki
+ms.openlocfilehash: 17a43de3faaa3a146fa9d8f43d36545d6d82b274
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>從 Azure 重新保護至內部部署網站
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 此文章說明如何將 Azure 虛擬機器從 Azure 重新保護到內部部署網站。 當您準備好使用已從內部部署網站容錯移轉至 Azure 的 VMware 虛擬機器或 Windows/Linux 實體伺服器容錯回復時，請依照此文章中的指示執行 (如[使用 Azure Site Recovery 將 VMware 虛擬機器和實體伺服器複寫至 Azure](site-recovery-failover.md)所述)。
 
 > [!WARNING]
-> 如果您已[完成移轉](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration)、將虛擬機器移至另一個資源群組，或刪除 Azure 虛擬機器，則您無法在之後執行容錯回復。 如果您停用虛擬機器的保護，便無法進行容錯回復。
+> 如果您已[完成移轉](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration)、將虛擬機器移至另一個資源群組，或刪除 Azure 虛擬機器，則您無法在之後執行容錯回復。 如果您停用虛擬機器的保護，便無法進行容錯回復。 如果該虛擬機器最初是在 Azure 中建立的 (在雲端中誕生)，則您無法重新保護它，進而使它回到內部部署環境。 機器一開始應該在內部部署環境中受到保護，並於容錯移轉至 Azure 後再加以重新保護。
 
 
 完成重新保護且受保護的虛擬機器開始複寫之後，您可以在虛擬機器上起始容錯回復，以將它們回復到內部部署網站。
@@ -62,13 +62,20 @@ ms.lasthandoff: 10/11/2017
   * **主要目標伺服器**：主要目標伺服器會接收容錯回復資料。 您建立的內部部署管理伺服器預設會安裝主要目標伺服器。 不過，您可能必須根據容錯回復流量的大小，另外建立一部用來容錯回復的主要目標伺服器。
     * [Linux 虛擬機器需要 Linux 主要目標伺服器](site-recovery-how-to-install-linux-master-target.md)。
     * Windows 虛擬機器需要 Windows 主要目標伺服器。 您可以再次使用內部部署處理序伺服器和主要目標電腦。
+    * [重新保護之前在主要目標上檢查的常見項目](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server)中，列出主要目標的其他必要條件。
 
-    [重新保護之前在主要目標上檢查的常見項目](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server)中，列出主要目標的其他必要條件。
+> [!NOTE]
+> 複寫群組的所有虛擬機器都應該屬於相同的作業系統類型 (全為 Windows 或全為 Linux)。 具有混合作業系統的複寫群組目前不支援重新保護以及容錯回復至內部部署環境。 其原因是主要目標的作業系統必須和虛擬機器的作業系統相同，而且複寫群組的所有虛擬機器都應該有相同的主要目標。 
+
+    
 
 * 執行容錯回復時，組態伺服器必須為內部部署。 在容錯回復期間，虛擬機器必須存在於組態伺服器資料庫中。 否則，將無法成功容錯回復。 
 
 > [!IMPORTANT]
 > 請確定您定期排程備份設定伺服器。 發生災害時，使用相同的 IP 位址還原伺服器，讓容錯回復運作。
+
+> [!WARNING]
+> 複寫群組中的所有 VM 都會使用相同的主要目標伺服器，因此複寫群組只應有 Windows VM 或 Linux VM 其中之一，而不能兩者兼具，而且 Linux VM 需要 Linux 主要目標伺服器，Windows VM 也是如此。
 
 * 在 VMware 的主要目標虛擬機器組態參數中，進行 `disk.EnableUUID=true` 設定。 如果此列不存在，請新增它。 需要此設定才能提供一致的 UUID 給虛擬機器磁碟 (VMDK)，使其可正確掛接。
 
@@ -170,6 +177,8 @@ ms.lasthandoff: 10/11/2017
 * 主要目標伺服器在磁碟上不能有快照集。 如果有快照集，重新保護和容錯回復會失敗。
 
 * 主要目標不能有 Paravirtual SCSI 控制器。 控制器只能是 LSI Logic 控制器。 如果沒有 LSI Logic 控制器，重新保護會失敗。
+
+* 在任何給定的執行個體上，主要目標最多可以連結 60 個磁碟。 如果要重新保護到內部部署主要目標的虛擬機器數目所擁有的磁碟總數合計超過 60 個，則重新保護到主要目標的作業會開始失敗。 請確定您有足夠的主要目標磁碟位置，或再額外部署主要目標伺服器。
 
 <!--
 ### Failback policy

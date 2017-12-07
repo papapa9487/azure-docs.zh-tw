@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/21/2017
 ms.author: erikje
-ms.openlocfilehash: 977630741b8424c4c6bd5f5d492e33b9981b9cb5
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 6ce8f86592ece59e338578be86c2cb673c35dbc1
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>使用您的 Azure 訂用帳戶註冊 Azure Stack
 
@@ -42,22 +42,6 @@ ms.lasthandoff: 11/20/2017
 如果您沒有符合這些需求的 Azure 訂用帳戶，則可以[在這裡建立免費的 Azure 帳戶](https://azure.microsoft.com/en-us/free/?b=17.06)。 註冊 Azure Stack 不會對您的 Azure 訂用帳戶收取任何費用。
 
 
-
-## <a name="register-azure-stack-resource-provider-in-azure"></a>在 Azure 中註冊 Azure Stack 資源提供者
-> [!NOTE] 
-> 此步驟僅應在 Azure Stack 環境中完成一次。
->
-
-1. 以系統管理員的身分開啟 PowerShell 工作階段。
-2. 登入作為 Azure 訂用帳戶擁有者的 Azure 帳戶 (您可以使用 Login-AzureRmAccount Cmdlet 登入；在您登入時，請務必將 -EnvironmentName 參數設為「AzureCloud」)。
-3. 註冊 Azure 資源提供者「Microsoft.AzureStack」。
-
-**範例：** 
-```Powershell
-Login-AzureRmAccount -EnvironmentName "AzureCloud"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
-```
-
 ## <a name="register-azure-stack-with-azure"></a>向 Azure 註冊 Azure Stack
 
 > [!NOTE]
@@ -66,7 +50,11 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 
 1. 以系統管理員身分開啟 PowerShell 主控台，然後[安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。  
 
-2. 新增您將用來註冊 Azure Stack 的 Azure 帳戶。 若要這麼做，請執行未使用任何參數的 `Add-AzureRmAccount` Cmdlet。 當系統提示您輸入 Azure 帳戶認證時，您可能需要根據帳戶的組態使用雙因素驗證。  
+2. 新增您將用來註冊 Azure Stack 的 Azure 帳戶。 若要這樣做，請執行 `Add-AzureRmAccount` cmdlet 搭配設定為 "AzureCloud" 的 EnvironmentName 參數。 當系統提示您輸入 Azure 帳戶認證時，您可能需要根據帳戶的組態使用雙因素驗證。 
+
+   ```Powershell
+   Add-AzureRmAccount -EnvironmentName "AzureCloud"
+   ```
 
 3. 如果您有多個訂用帳戶，請執行下列命令以選取您要使用的訂用帳戶：  
 
@@ -74,22 +62,28 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
       Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
-4. 刪除任何對應於註冊的現有 Powershell 模組版本，然後[從 GitHub 下載其最新版本](azure-stack-powershell-download.md)。  
+4. 在您的 Azure 訂用帳戶中註冊 AzureStack 資源提供者。 若要這樣做，請執行下列命令：
 
-5. 從先前的步驟中建立的 "AzureStack-Tools-master" 目錄巡覽至「註冊」資料夾，然後匯入 ".\RegisterWithAzure.psm1" 模組：  
+   ```Powershell
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+   ```
+
+5. 刪除任何對應於註冊的現有 Powershell 模組版本，然後[從 GitHub 下載其最新版本](azure-stack-powershell-download.md)。  
+
+6. 從先前的步驟中建立的 "AzureStack-Tools-master" 目錄巡覽至「註冊」資料夾，然後匯入 ".\RegisterWithAzure.psm1" 模組：  
 
    ```powershell 
    Import-Module .\RegisterWithAzure.psm1 
    ```
 
-6. 在同一個 PowerShell 工作階段中，執行下列指令碼。 在出現認證的提示時，將 `azurestack\cloudadmin` 指定為使用者，而密碼則與您在部署期間用於本機管理員的密碼相同。  
+7. 在同一個 PowerShell 工作階段中，執行下列指令碼。 在出現認證的提示時，將 `azurestack\cloudadmin` 指定為使用者，而密碼則與您在部署期間用於本機管理員的密碼相同。  
 
    ```powershell
    $AzureContext = Get-AzureRmContext
    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
    Add-AzsRegistration `
        -CloudAdminCredential $CloudAdminCred `
-       -AzureSubscriptionId $AzureContext.Subscription.Id `
+       -AzureSubscriptionId $AzureContext.Subscription.SubscriptionId `
        -AzureDirectoryTenantName $AzureContext.Tenant.TenantId `
        -PrivilegedEndpoint AzS-ERCS01 `
        -BillingModel Development 
@@ -103,7 +97,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    | PrivilegedEndpoint | 一個預先設定的遠端 PowerShell 主控台，可為您提供記錄收集和其他後續部署工作之類的功能。 針對開發套件，具有特殊權限的端點會裝載在 "AzS-ERCS01" 虛擬機器上。 如果您要使用整合式系統，請向您的 Azure Stack 操作員索取此值。 若要深入了解，請參閱[使用具有特殊權限的端點](azure-stack-privileged-endpoint.md)主題。|
    | BillingModel | 您的訂用帳戶所使用的計費模型。 此參數允許的值為 - "Capacity"、"PayAsYouUse" 和 "Development"。 針對開發套件，此值會設為 "Development"。 如果您要使用整合式系統，請向您的 Azure Stack 操作員索取此值。 |
 
-7. 指令碼完成時，您會看到「正在啟動 Azure Stack (此步驟可能需要 10 分鐘才能完成)」的訊息。 
+8. 指令碼完成時，您會看到「正在啟動 Azure Stack (此步驟可能需要 10 分鐘才能完成)」的訊息。 
 
 ## <a name="verify-the-registration"></a>確認註冊
 

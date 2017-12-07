@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: juluk
-ms.openlocfilehash: 08ab3b38e4c1fbeb1fac67c5d1b6f6749f7a0a3e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 05c4d419f6d7b42a14b9bb13570daaa666d52db3
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 的概觀
 Azure Cloud Shell 是可經由瀏覽器存取的互動式殼層，應用在 Azure 資源管理上。
@@ -55,9 +55,9 @@ Cloud Shell 由 Microsoft 管理，因此其預先安裝受歡迎的命令列工
 * [Azure 行動裝置應用程式](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Visual Studio Code 擴充](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
-### <a name="connect-your-azure-files-storage"></a>連接您的 Azure 檔案儲存體
+### <a name="connect-your-microsoft-azure-files-storage"></a>連線 Microsoft Azure 檔案儲存體
 Cloud Shell 機器是暫存的，因此需要將「Azure 檔案」共用掛接為 `clouddrive`，才能保存 $Home 目錄。
-第一次啟動時，Cloud Shell 會提示要代替您建立資源群組、儲存體帳戶及檔案共用。 這是一次性的步驟，而且會針對所有工作階段自動連接。 單一檔案共用可以進行對應，並同時供 Cloud Shell (預覽) 中的 Bash 和 PowerShell 使用。
+第一次啟動時，Cloud Shell 會提示要代替您建立資源群組、儲存體帳戶及 Azure 檔案共用。 這是一次性的步驟，而且會針對所有工作階段自動連接。 單一的 Azure 檔案共用可以進行對應，並同時供 Cloud Shell (預覽) 中的 Bash 和 PowerShell 使用。
 
 #### <a name="create-new-storage"></a>建立新的儲存體
 ![](media/overview/basic-storage.png)
@@ -70,7 +70,7 @@ Cloud Shell 機器是暫存的，因此需要將「Azure 檔案」共用掛接�
 3. 名稱如下的檔案共用：`cs-<user>-<domain>-com-<uniqueGuid>`
 
 > [!Note]
-> Cloud Shell 中的 Bash 也會建立預設 5-GB 磁碟映像來保存 `$Home`。 $Home 目錄中的所有檔案 (例如 SSH 金鑰) 會都保存於已掛接檔案共用中儲存的使用者磁碟映像中。 在 $Home 目錄和已掛接的檔案共用中儲存檔案時，請套用最佳作法。
+> Cloud Shell 中的 Bash 也會建立預設 5-GB 磁碟映像來保存 `$Home`。 $Home 目錄中的所有檔案 (例如 SSH 金鑰) 會都保存於已掛接之 Azure 檔案共用中儲存的使用者磁碟映像中。 在 $Home 目錄和已掛接的 Azure 檔案共用中儲存檔案時，請套用最佳做法。
 
 #### <a name="use-existing-resources"></a>使用現有的資源
 ![](media/overview/advanced-storage.png)
@@ -79,13 +79,13 @@ Cloud Shell 機器是暫存的，因此需要將「Azure 檔案」共用掛接�
 在儲存體設定提示中，按一下 [顯示進階設定] 以顯示其他選項。
 下拉式清單會針對您指派的 Cloud Shell 區域和本地/全域備援儲存體帳戶進行篩選。
 
-[了解 Cloud Shell 儲存體、更新檔案共用，以及上傳/下載檔案。](persisting-shell-storage.md)
+[了解 Cloud Shell 儲存體、更新 Azure 檔案共用，以及上傳/下載檔案。](persisting-shell-storage.md)
 
 ## <a name="concepts"></a>概念
 * Cloud Shell 會在以每一工作階段、每位使用者為基礎所提供的暫存主機上執行
 * Cloud Shell 會在無互動活動的 20 分鐘後逾時
-* Cloud Shell 需要掛接檔案共用
-* Cloud Shell 會將相同的檔案共用同時用於 Bash 和 PowerShell
+* Cloud Shell 需要掛接 Azure 檔案共用
+* Cloud Shell 會將相同的 Azure 檔案共用同時用於 Bash 和 PowerShell
 * Cloud Shell 會以一台機器、一個使用者帳戶的方式指派
 * 權限設定為一般 Linux 使用者 (採用 Bash)
 

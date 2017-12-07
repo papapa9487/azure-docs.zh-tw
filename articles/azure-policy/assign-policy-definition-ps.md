@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2017
+ms.date: 12/06/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 5c00d50817e40de0a43d05eb85662b494247d8fa
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 6a9b7cff1341bd898b76a226ca413b8135eec408
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-using-powershell"></a>使用 PowerShell 建立原則指派，以識別 Azure 環境中的不相容資源
 
@@ -30,19 +30,6 @@ PowerShell 可用來從命令列或在指令碼中建立和管理 Azure 資源�
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
-## <a name="opt-in-to-azure-policy"></a>加入 Azure 原則
-
-「Azure 原則」目前是以「公開預覽」的形式提供，您必須註冊才能要求存取。
-
-1. 移至 Azure 原則，位置是：https://aka.ms/getpolicy ，然後選取左窗格中的 [註冊]。
-
-   ![搜尋原則](media/assign-policy-definition/sign-up.png)
-
-2. 藉由選取您想要使用之 [訂用帳戶] 清單中的訂用帳戶，加入 Azure 原則。 接著，選取 [註冊]。
-
-   ![加入以使用 Azure 原則](media/assign-policy-definition/preview-opt-in.png)
-
-   針對「預覽版」，系統會自動核准您的要求。 請等候 30 分鐘讓系統處理您的註冊。
 
 ## <a name="create-a-policy-assignment"></a>建立原則指派
 

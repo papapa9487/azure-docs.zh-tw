@@ -11,14 +11,15 @@ ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/17/2016
 ms.author: naziml
-ms.openlocfilehash: 3c218a6fe3857c216bc185c5d3630025f332147b
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.custom: mvc
+ms.openlocfilehash: bfe36ee5365e71db4280e8e2ccff6db8e552dd39
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>設定 App Service 環境的 Web 應用程式防火牆 (WAF)
 ## <a name="overview"></a>概觀
@@ -40,7 +41,7 @@ Web 應用程式防火牆 (例如可在 [Azure Marketplace](https://azure.micros
 若要設定 App Service 環境，請參閱有關本主題的[文件](app-service-web-how-to-create-an-app-service-environment.md)。 建立 App Service 環境之後，即可在此環境中建立 Web App、API App 和 [Mobile Apps](../../app-service-mobile/app-service-mobile-value-prop.md)，而這些都是由下一節中設定的 WAF 所保護。
 
 ## <a name="configuring-your-barracuda-waf-cloud-service"></a>設定 Barracuda WAF 雲端服務
-Barracuda 具有在 Azure 中於虛擬機器上部署其 WAF 的[詳細文章](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure) 。 但是，因為我們想要具有備援性，且不想要引進單一失敗點，您在遵循這些指示時要將至少 2 個 WAF 執行個體 VM 部署至相同的雲端服務。
+Barracuda 具有在 Azure 中於虛擬機器上部署其 WAF 的 [詳細文章](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure) 。 但是，因為我們想要具有備援性，且不想要引進單一失敗點，您在遵循這些指示時要將至少 2 個 WAF 執行個體 VM 部署至相同的雲端服務。
 
 ### <a name="adding-endpoints-to-cloud-service"></a>將端點加入雲端服務
 雲端服務中有 2 個以上的 WAF VM 執行個體之後，即可使用 [Azure 入口網站](https://portal.azure.com/)加入應用程式所使用的 HTTP 和 HTTPS 端點，如下圖所示：

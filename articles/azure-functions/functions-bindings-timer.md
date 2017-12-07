@@ -1,9 +1,9 @@
 ---
-title: "Azure Functions 計時器觸發程序"
+title: "Azure Functions 的計時器觸發程序"
 description: "了解如何在 Azure Functions 中使用計時器觸發程序。"
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: 
 tags: 
@@ -15,15 +15,15 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
-ms.author: glenga
+ms.author: tdykstra
 ms.custom: 
-ms.openlocfilehash: 2a62d70b22081e45bc318dd9fb624b37cf7069e3
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: fd9c1d40ba1398c7ca3f48f0423457482da9a483
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-timer-trigger"></a>Azure Functions 計時器觸發程序
+# <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的計時器觸發程序 
 
 本文說明如何在 Azure Functions 中使用計時器觸發程序。 計時器觸發程序可讓您依照排程執行函式。 
 
@@ -118,7 +118,7 @@ let Run(myTimer: TimerInfo, log: TraceWriter ) =
 }
 ```
 
-以下是 F# 指令碼程式碼：
+以下是 JavaScript 指令碼程式碼：
 
 ```JavaScript
 module.exports = function (context, myTimer) {
@@ -134,7 +134,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-## <a name="attributes-for-precompiled-c"></a>先行編譯 C# 的屬性
+## <a name="attributes"></a>屬性
 
 對於[先行編譯 C#](functions-dotnet-class-library.md) 函式，使用 [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs)，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions)。
 
@@ -143,9 +143,14 @@ module.exports = function (context, myTimer) {
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+{
+   ...
+}
  ```
 
 如果您的函式應用程式在 App Service 方案 (非取用量方案) 上執行，您可以指定 `TimeSpan` 而不是 CRON 運算式。
+
+如需完整範例，請參閱[先行編譯 C# 範例](#c-example)。
 
 ## <a name="configuration"></a>組態
 
@@ -156,7 +161,9 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 |**type** | n/a | 必須設定為 "timerTrigger"。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
 |**direction** | n/a | 必須設定為 "in"。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
 |**name** | n/a | 代表函式程式碼中計時器物件的變數名稱。 | 
-|**schedule**|**ScheduleExpression**|在取用量方案中，您可以使用 CRON 運算式來定義排程。 如果您使用 App Service 方案，也可以使用 `TimeSpan` 字串。 下列各節說明 CRON 運算式。 您可以將排程運算式放在應用程式設定中，並將此屬性設定為以 **%** 符號包裝的值，如此範例所示："%NameOfAppSettingWithCRONExpression%"。 當您要在本機開發時，應用程式設定會進入 [local.settings.json 檔案](functions-run-local.md#local-settings-file)的值。|
+|**schedule**|**ScheduleExpression**|在取用量方案中，您可以使用 CRON 運算式來定義排程。 如果您使用 App Service 方案，也可以使用 `TimeSpan` 字串。 下列各節說明 CRON 運算式。 您可以將排程運算式放在應用程式設定中，並將此屬性設定為以 **%** 符號包裝的值，如此範例所示："%NameOfAppSettingWithCRONExpression%"。 |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ### <a name="cron-format"></a>CRON 格式 
 

@@ -8,15 +8,15 @@ ms.assetid:
 ms.service: backup
 ms.workload: storage-backup-recovery
 keywords: 
-ms.date: 05/15/2017
+ms.date: 11/28/2017
 ms.topic: article
 ms.author: markgal,masaran
 manager: carmonm
-ms.openlocfilehash: 3608c310f43ff9f97563d252437d50d962162f47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45e3e7e1288c9c468619bd553963cfd018298c32
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Azure 備份伺服器保護矩陣
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 10/11/2017
 |Hyper-V 主機 - Hyper-V 主機伺服器、叢集或 VM 上的 DPM 保護代理程式|Windows Server 2008 R2 SP1 - Enterprise 和 Standard|實體伺服器<br /><br />內部部署 Hyper-V 虛擬機器|Y|Y|保護：Hyper-V 電腦、叢集共用磁碟區 (CSV)<br /><br />復原：虛擬機器、檔案和資料夾的項目層級復原、磁碟區、虛擬硬碟|
 |Hyper-V 主機 - Hyper-V 主機伺服器、叢集或 VM 上的 DPM 保護代理程式|Windows Server 2008|實體伺服器<br /><br />內部部署 Hyper-V 虛擬機器|N|N|保護：Hyper-V 電腦、叢集共用磁碟區 (CSV)<br /><br />復原：虛擬機器、檔案和資料夾的項目層級復原、磁碟區、虛擬硬碟|
 |VMware VM|VMware Server 5.5 或 6.0 or 6.5 |內部部署 Hyper-V 虛擬機器|Y|Y (具有 UR1)|叢集共用磁碟區 (CSV)、NFS 和 SAN 儲存體上的 VMware VM<br /> 檔案和資料夾的項目層級復原僅適用於 Windows<br /> 不支援 VMware vApps|
-|Linux|當做 Hyper-V 或 VMware 客體執行的 Linux|內部部署 Hyper-V 虛擬機器|Y|Y|Hyper-V 必須在 Windows Server 2012 R2 或 Windows Server 2016 上執行。 保護：整部虛擬機器<br /><br />復原：整部虛擬機器|
+|Linux|當做 Hyper-V 或 VMware 客體執行的 Linux|內部部署 Hyper-V 虛擬機器|Y|Y|Hyper-V 必須在 Windows Server 2012 R2 或 Windows Server 2016 上執行。 保護：整部虛擬機器<br /><br />復原：整部虛擬機器 <br/><br/> 如需支援的 Linux 發行版本和版本完整清單，請參閱[經 Azure 背書的 Linux 發佈](../virtual-machines/linux/endorsed-distros.md)一文。|
 
 ## <a name="cluster-support"></a>叢集支援
 Azure 備份伺服器可以保護下列叢集應用程式中的資料：

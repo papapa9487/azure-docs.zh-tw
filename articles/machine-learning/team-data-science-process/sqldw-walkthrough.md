@@ -4,7 +4,7 @@ description: "進階分析程序和技術實務"
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 88ba8e28-0bd7-49fe-8320-5dfa83b65724
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
-ms.author: bradsev;hangzh;weig
-ms.openlocfilehash: 9a913533074bfd9b077d66d133f0ad02319a53ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/24/2017
+ms.author: bradsev;weig
+ms.openlocfilehash: 9c858427b01f7b94aae87136a46e1d9ae5e09a1c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team Data Science Process 實務：使用 SQL 資料倉儲
 在本教學課程中，我們將引導您使用 SQL 資料倉儲 (SQL DW)，針對可公開使用的資料集 ( [NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/) 資料集) 建置和部署機器學習服務模型。 所建構的二元分類模型可預測是否已針對某趟車程支付小費，並且也會討論預測支付的小費金額分佈的多元分類模型和迴歸模型。
@@ -839,7 +839,6 @@ ms.lasthandoff: 10/11/2017
 3. 在 [ **資料庫伺服器名稱** ] 欄位中輸入資料庫的 DNS 名稱。 格式： `tcp:<your_virtual_machine_DNS_name>,1433`
 4. 在對應欄位中輸入 **資料庫名稱** 。
 5. 在 [伺服器使用者帳戶名稱] 中輸入「SQL 使用者名稱」，並在 [伺服器使用者帳戶密碼] 中輸入「密碼」。
-6. 選取 [接受任何伺服器憑證]  選項。
 7. 在 [ **資料庫查詢** ] 中編輯文字區域、貼上可擷取必要資料庫欄位的查詢 (包括任何經過計算的欄位，例如標籤)，以及向下取樣所需大小的資料。
 
 下圖是直接從 SQL 資料倉儲資料庫讀取資料的二元分類實驗範例 (請記得用您在逐步解說中所使用的結構描述名稱和資料表名稱來取代資料表名稱 nyctaxi_trip 和 nyctaxi_fare)。 您可以針對多類別分類和迴歸問題建構類似的實驗。

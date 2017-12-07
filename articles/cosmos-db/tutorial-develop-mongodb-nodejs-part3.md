@@ -11,14 +11,15 @@ ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: mimig
-ms.openlocfilehash: 1fb8d7b9f1014f37f0f3afa20605fce10c45a967
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: ff75b4546a85c1c0bbf5c256977a3d33016c8c44
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>使用 Angular 和 Azure Cosmos DB 建立 MongoDB 應用程式 - 第 3 部分：使用 Angular 建置 UI
 
@@ -434,7 +435,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Visual Studio Code 中的燈泡](./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png)
 
-8. 按一下燈泡，然後按一下從 "client/app/hero" 匯入 Hero。 或 [從 "./hero" 匯入 Hero]。 (此訊息會根據您的設定而變更)
+8. 按一下燈泡，然後按一下 [從 "client/app/hero" 匯入 Hero]。 或 [從 "./hero" 匯入 Hero]。 (此訊息會根據您的設定而變更)
 
     第 2 行上會出現一行新程式碼。 如果第 2 行參照用戶端/應用程式/hero，請加以修改，讓它從本機資料夾 (./hero) 參照 Hero 檔案。 第 2 行看起來應該如下所示：
 
@@ -518,7 +519,7 @@ ms.lasthandoff: 10/11/2017
     import { HttpClientModule } from '@angular/common/http';
     ```
 
-5. 在 Visual Studio Code 中，回到 **heroes.components.ts**。 請注意 `constructor(private heroService: HeroService) {}` 行 (第 13 行) 上的 `HeroService` 底下有紅線。 按一下 `HeroService`，您將會在程式碼區塊的左側取得燈泡。 按一下燈泡，然後按一下從 "./hero.service 匯入 HeroService。 或 [從 "client/app/hero.service" 匯入 HeroService]。
+5. 在 Visual Studio Code 中，回到 **heroes.components.ts**。 請注意 `constructor(private heroService: HeroService) {}` 行 (第 13 行) 上的 `HeroService` 底下有紅線。 按一下 `HeroService`，您將會在程式碼區塊的左側取得燈泡。 按一下燈泡，然後按一下 [從 "./hero.service 匯入 HeroService]。 或 [從 "client/app/hero.service" 匯入 HeroService]。
 
     按一下燈泡會在第 2 行上插入一行新程式碼。 如果第 2 行參照用戶端/應用程式/hero.service 資料夾，請加以修改，讓它從本機資料夾 (./hero.serivce) 參照 Hero 檔案。 第 2 行看起來應該如下所示：
     

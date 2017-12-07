@@ -3,7 +3,7 @@ title: "Azure 服務的反向 DNS | Microsoft Docs"
 description: "了解如何設定 Azure 託管服務的反向 DNS 對應"
 services: dns
 documentationcenter: na
-author: jtuliani
+author: KumudD
 manager: timlt
 ms.service: dns
 ms.devlang: na
@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: jonatul
-ms.openlocfilehash: 63701e1ce0c1c6dcf2ce02ebce272b8280395e7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: kumud
+ms.openlocfilehash: 0c5d12e9d6b5ddbee2a930e4e537b8180b7a9c7b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>設定 Azure 託管服務的反向 DNS
 
@@ -28,9 +28,8 @@ Azure 中的服務會使用由 Azure 指派並由 Microsoft 所擁有的 IP 位�
 
 在閱讀本文之前，您應該先熟悉這篇 [Azure 反向 DNS 和支援概觀](dns-reverse-dns-overview.md)。
 
-Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。
-* 在資源管理員部署模型中，是透過 PublicIpAddress 資源公開計算資源 (例如虛擬機器、虛擬機器擴展集或 Service Fabric 叢集)。 反向 DNS 對應是使用 PublicIpAddress 的 'ReverseFqdn' 屬性設定。
-* 在傳統部署模型中，計算資源是使用雲端服務公開。 反向 DNS 對應是使用雲端服務的 'ReverseDnsFqdn' 屬性設定。
+在 Azure DNS 中，是透過 PublicIpAddress 資源公開計算資源 (例如虛擬機器、虛擬機器擴展集或 Service Fabric 叢集)。 反向 DNS 對應是使用 PublicIpAddress 的 'ReverseFqdn' 屬性設定。
+
 
 目前不支援 Azure App Service 反向 DNS。
 

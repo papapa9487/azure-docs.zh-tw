@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: v-deasim
-ms.openlocfilehash: 8df9fd46fe3ce8d87e7ad5377a21a0bc7a458d2b
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: f09195dc07a96ebcca7f7a9e4bcf521fae13630c
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="custom-reports-from-verizon"></a>來自 Verizon 的自訂報告
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/21/2017
 ## <a name="accessing-verizon-custom-reports"></a>存取 Verizon 自訂報告
 1. 在 [CDN 設定檔] 刀鋒視窗中，按一下 [管理]  按鈕。
    
-    ![[CDN 設定檔] 刀鋒視窗的 [管理] 按鈕](./media/cdn-reports/cdn-manage-btn.png)
+    ![CDN 設定檔 [管理] 按鈕](./media/cdn-reports/cdn-manage-btn.png)
    
     隨即開啟 CDN 管理入口網站。
 2. 將滑鼠移至 [分析] 索引標籤上，然後將滑鼠移至 [自訂報告] 飛出視窗上。 按一下 [Edge CNAMEs]。
@@ -74,10 +74,10 @@ Edge CNAMES 自訂報告提供已啟用自訂報告記錄之 Edge CNAMEs 的命�
 | 4xx                       | 指出產生 4xx HTTP 狀態碼 (例如 400 錯誤的要求、403 禁止或 404 找不到) 之 Edge CNAME 的要求總數或已傳輸資料 (MB)。 |
 | 5xx                       | 指出產生 5xx HTTP 狀態碼 (例如 500 內部伺服器或或 502 錯誤的閘道) 之 Edge CNAME 的要求總數或已傳輸資料 (MB)。 |
 | 快取名中百分比               | 指出從快取直接為要求者服務的可快取要求百分比。 |
-| 快取名中                | 指出產生快取命中 (TCP_EXPIRED_HIT、TCP_HIT 或 TCP_PARTIAL_HIT) 之 Edge CNAME 的要求總數或已傳輸資料 (MB)。 當找到所要求內容的快取版本時，就會發生快取命中。 |
+| 快取點擊                | 指出產生快取命中 (TCP_EXPIRED_HIT、TCP_HIT 或 TCP_PARTIAL_HIT) 之 Edge CNAME 的要求總數或已傳輸資料 (MB)。 當找到所要求內容的快取版本時，就會發生快取命中。 |
 | 已傳輸資料 (MB)     | 指出 Edge CNAME 從 Edge Server 傳輸到 HTTP 用戶端 (網頁瀏覽器) 的資料總量 (MB)。 已傳輸的資料量是將 HTTP 回應標頭與回應本文相加來計算。 因此，每個資產已傳輸的資料量會大於實際的檔案大小。 |
 | 說明               | 依主機名稱識別 Edge CNAME |
-| 命中                      | 指出 Edge CNAME 的要求總數 |
+| 點擊                      | 指出 Edge CNAME 的要求總數 |
 | 遺漏                    | 指出產生快取遺漏 (TCP_CLIENT_REFRESH_MISS、TCP_EXPIRED_MISS 或 TCP_MISS) 之 Edge CNAME 的要求總數或已傳輸資料 (MB)。 當接受要求的 Edge Server 上未快取要求的內容時，就會發生快取遺漏。 | 
 | 無快取                  | 指出產生 CONFIG_NOCACHE 快取狀態碼之 Edge CNAME 的要求總數或已傳輸資料 (MB)。  |
 | 其他                     | 指出 Edge CNAME 中產生 2xx - 5xx 範圍以外之 HTTP 狀態碼的要求總數或已傳輸資料 (MB)。 |

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/20/2017
+ms.date: 11/28/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 2dec744b512a86a30cec1f334e265572fa7acc3e
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 60e90fbce525f4328671ecded9ad96583c4c3c9e
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>收集關於 Azure 虛擬機器的資料
 [Azure Log Analytics](log-analytics-overview.md) 可將環境中 Azure 虛擬機器和其他資源的資料直接收集到單一存放庫，以供詳細分析和相互關聯。  本快速入門向您示範如何以幾個簡單步驟來設定和收集 Azure Linux 或 Windows VM 的資料。  
@@ -46,6 +46,9 @@ ms.lasthandoff: 10/24/2017
 
 ## <a name="enable-the-log-analytics-vm-extension"></a>啟用 Log Analytics VM 延伸模組
 對於已部署在 Azure 中的 Windows 和 Linux 虛擬機器，您可以使用 Log Analytics VM 延伸模組來安裝 Log Analytics 代理程式。  使用擴充可以簡化安裝程序，並自動設定代理程式將資料傳送到您指定的 Log Analytics 工作區。 代理程式也會自動升級，以確保您擁有最新的功能和修正程式。
+
+>[!NOTE]
+>OMS agent for Linux 無法設定為回報多個 Log Analytics 工作區。 
 
 您可能會在入口網站發現 Log Analytics 資源頁面頂端的橫幅邀請您升級。  基於本快速入門的目的，不需要升級。<br>
 

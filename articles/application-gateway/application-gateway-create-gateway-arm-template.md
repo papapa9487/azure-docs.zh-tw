@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
-ms.openlocfilehash: 305a0529b6f6ad8bd96ac10da5f7ebc48317df45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0aa16e9d7472d2d8c3c251e60a506a7f4223ac1d
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>使用 Azure 資源管理員範本建立應用程式閘道
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 10/11/2017
 
 Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內部部署環境中，此閘道均提供在不同伺服器之間進行容錯移轉及效能路由傳送 HTTP 要求。 應用程式閘道提供許多應用程式傳遞控制器 (ADC) 功能，包括 HTTP 負載平衡、以 Cookie 為基礎的工作階段同質性、安全通訊端層 (SSL) 卸載、自訂健康情況探查、多網站支援，以及許多其他功能。 若要尋找完整的支援功能清單，請瀏覽[應用程式閘道概觀](application-gateway-introduction.md)
 
-本文會逐步引導您從 GitHub 下載和修改現有 Azure Resource Manager 範本，以及從 GitHub、PowerShell 和 Azure CLI 部署範本。
+本文會逐步引導您從 GitHub 下載和修改現有 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)，以及從 GitHub、PowerShell 和 Azure CLI 部署範本。
 
-如果您只需直接從 GitHub 部署 Azure 資源管理員範本而不做任何變更，請跳至＜從 GitHub 部署範本＞。
+如果您只需要直接從 GitHub 部署範本而不做任何變更，請跳至從 GitHub 部署範本。
 
 ## <a name="scenario"></a>案例
 
@@ -76,11 +76,8 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
    * **名稱**。 資源的名稱。 請注意 `[parameters('applicationGatewayName')]` 的用法，這表示此名稱是在部署期間由您輸入的內容，或是由參數檔案所提供。
    * **屬性**。 資源屬性的清單。 此範本會在應用程式閘道建立期間，使用虛擬網路與公用 IP 位址。
 
-   > [!NOTE]
-   > 如需範本的詳細資訊，請造訪︰[Resource Manager 範本參考](/templates/)
-
 1. 瀏覽回 [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
-1. 按一下 azuredeploy-parameters.json，然後按一下RAW。
+1. 按一下 [azuredeploy-parameters.json]，然後按一下 [RAW]。
 1. 將檔案儲存至您電腦上的本機資料夾。
 1. 開啟您儲存的檔案，以編輯參數的值。 使用下列值來部署本文案例所述的應用程式閘道。
 

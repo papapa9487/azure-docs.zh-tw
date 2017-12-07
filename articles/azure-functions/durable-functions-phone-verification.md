@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: cfb6758703ebf3ce0458a4e1ad74324a4ccc2ece
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 822abf5cd09a0cd0d66441acfe4ae114c6ba73eb
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>長期函式中的人為互動 - 電話驗證範例
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/13/2017
 
 這個範例牽涉到使用 [Twilio](https://www.twilio.com/) 服務來將 SMS 訊息傳送至行動電話。 Azure Functions 已透過 [Twilio 繫結](https://docs.microsoft.com/azure/azure-functions/functions-bindings-twilio)支援 Twilio，範例會使用該功能。
 
-首先您需要的是 Twilio 帳戶。 您可以在下列位置免費建立一個帳戶：https://www.twilio.com/try-twilio。 一旦您擁有帳戶，將下列三個**應用程式設定**新增至您的專案。
+首先您需要的是 Twilio 帳戶。 您可以在下列位置免費建立一個帳戶：https://www.twilio.com/try-twilio。 一旦您擁有帳戶，將下列三個**應用程式設定**新增至您的函式應用程式。
 
 | 應用程式設定名稱 | 值說明 |
 | - | - |

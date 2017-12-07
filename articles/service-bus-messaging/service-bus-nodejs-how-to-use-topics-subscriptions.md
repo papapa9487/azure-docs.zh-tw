@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.openlocfilehash: 5e758e831765ba2762b7efe7c3a10f10e59a5ddc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d9e463273fff0ecc198b0574443c4241dde7be79
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>如何透過 Node.js 使用服務匯流排主題和訂用帳戶
 
@@ -61,7 +61,7 @@ var azure = require('azure');
 ```
 
 ### <a name="set-up-a-service-bus-connection"></a>設定服務匯流排連接
-Azure 模組會讀取環境變數 `AZURE_SERVICEBUS_NAMESPACE` 和 `AZURE_SERVICEBUS_ACCESS_KEY`，以取得連接服務匯流排所需的資訊。 如果未設定這些環境變數，則呼叫 `createServiceBusService` 時必須指定帳戶資訊。
+Azure 模組會讀取環境變數 `AZURE_SERVICEBUS_CONNECTION_STRING` 以取得您從前面的步驟＜取得認證＞所取得的連接字串。 如未設定此環境變數，必須在呼叫 `createServiceBusService` 時指定帳戶資訊。
 
 如需在 Azure 雲端服務的環境變數設定範例，請參閱[使用儲存體的 Node.js 雲端服務][Node.js Cloud Service with Storage]。
 

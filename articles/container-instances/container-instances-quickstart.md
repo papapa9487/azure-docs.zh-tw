@@ -4,17 +4,16 @@ description: "部署和開始使用 Azure Container Instances"
 services: container-instances
 author: seanmck
 manager: timlt
-editor: mmacy
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 11/29/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: f6c809698bed4f91a7121c4515b4375b3cad6d70
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 22f7ec70b5fc9d04de18a8b6029f0e24d3f6a83f
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>在 Azure Container Instances 中建立您的第一個容器
 Azure Container Instances 能讓您在 Azure 中輕鬆建立及管理 Docker 容器，不需要佈建虛擬機器或採用高階服務即可完成。 在本快速入門中，您會在 Azure 中建立容器，並使用公用 IP 位址向網際網路公開此容器。在本快速入門中，您會在 Azure 中建立容器，並使用公用 IP 位址向網際網路公開此容器。 只需要一個命令就能完成這項作業。 只在幾秒內，您就能在瀏覽器中看到下列結果：

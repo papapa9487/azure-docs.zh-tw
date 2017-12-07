@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: 681a9d1636d547492f6f827461c6b2494b918778
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be1398e9b0a10efcd694e46d6322d5d7b9e7a843
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>事件中樞的可用性和一致性
 
@@ -36,7 +36,7 @@ Brewer 的理論會定義一致性和可用性，如下所示：
 「事件中樞」是建置在已分割的資料模型上。 您可以在安裝時設定事件中樞中的分割區數目，但之後即無法變更此值。 由於您必須將分割區與事件中樞搭配使用，因此必須決定應用程式相關的可用性和一致性。
 
 ## <a name="availability"></a>Availability
-開始使用事件中樞的最簡單方式是使用預設行為。 如果您建立新的 `EventHubClient` 物件並使用 `Send` 方法，系統就會在事件中樞的分割區之間自動分配事件。 此行為可讓運作時間達到最長。
+開始使用事件中樞的最簡單方式是使用預設行為。 如果您建立新的 **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** 物件並使用 **[Send](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** 方法，系統就會在事件中樞的分割區之間自動分配事件。 此行為可讓運作時間達到最長。
 
 針對需要最長運作時間的使用案例，建議使用此模型。
 

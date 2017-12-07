@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: 265538a7e31d58a7d58c9e30870510eb66954f44
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: d262d9c2bd23a09c2efdb5fd6695bb2ed29cae54
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux 上的 Azure App Service 常見問題集
 
@@ -64,6 +64,20 @@ ms.lasthandoff: 11/17/2017
 **我可以使用 *Web 部署*來部署我的 Web 應用程式嗎？**
 
 是，您需要將稱為 `WEBSITE_WEBDEPLOY_USE_SCM` 的應用程式設定設定為 *false*。
+
+**使用 Linux Web 應用程式時，應用程式的 Git 部署會失敗。如何解決此問題？**
+
+如果您的 Linux Web 應用程式無法部署 Git，您可以選擇下列其他選項來部署應用程式程式碼：
+
+- 使用持續傳遞 (預覽) 功能：您可以將您的應用程式原始程式碼儲存在 Team Services 的 Git 存放庫或 GitHub 存放庫來使用 Azure 連續傳遞。 如需更多詳細資料，請參閱[如何設定 Linux Web 應用程式的持續傳遞](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/) (英文)。
+
+- 使用 [ZIP 部署 API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)：若要使用此應用程式開發介面，[SSH 到您的 Web 應用程式](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection)，然後移至您要部署程式碼的資料夾。 執行下列命令：
+
+   ```
+   curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
+   ```
+
+   如果您收到錯誤：找不到 `curl` 命令，請確定您在執行先前的 `curl` 命令之前，使用 `apt-get install curl` 來安裝 curl。
 
 ## <a name="language-support"></a>語言支援
 

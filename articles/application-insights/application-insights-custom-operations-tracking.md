@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: sergkanz
-ms.openlocfilehash: 6412445f4e7a9b639ae9a38a44ff51038c6fcc00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18712b1c19fc81e290ead62f73a177874ebe86cd
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>使用 Application Insights .NET SDK 追蹤自訂作業
 
@@ -33,7 +33,7 @@ Azure Application Insights SDK 會自動追蹤相依服務的連入 HTTP 要求�
 ## <a name="overview"></a>概觀
 作業是應用程式執行的邏輯部分。 它具有名稱、開始時間、持續時間、結果和執行的內容，例如使用者名稱、屬性和結果。 如果作業 A 是由作業 B 起始，則作業 B 設為 A 的父代。作業只能有一個父代，但是可以有多個子系作業。 如需有關作業和遙測相互關聯的詳細資訊，請參閱 [Azure Application Insights 遙測相互關聯](application-insights-correlation.md)。
 
-在 Application Insights.NET SDK 中，作業是由抽象類別 [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/Extensibility/Implementation/OperationTelemetry.cs) 及其子系 [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/RequestTelemetry.cs) 和 [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/DependencyTelemetry.cs) 描述。
+在 Application Insights.NET SDK 中，作業是由抽象類別 [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) 及其子系 [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) 和 [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs) 描述。
 
 ## <a name="incoming-operations-tracking"></a>傳入作業追蹤 
 Application Insights Wb SDK 會針對在 IIS 管線中執行的 ASP.NET 應用程式和所有的 ASP.NET Core 應用程式，自動收集 HTTP 要求。 其他平台和架構有社群支援的解決方案。 不過，如果任何標準或社群支援的解決方案不支援應用程式，您可以用手動方式進行檢測。

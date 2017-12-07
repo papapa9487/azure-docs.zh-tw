@@ -1,5 +1,5 @@
 ---
-title: "使用 .NET Standard 從 Azure 事件中樞接收事件 | Microsoft Docs"
+title: "使用 .NET Standard 程式庫從 Azure 事件中樞接收事件 | Microsoft Docs"
 description: "開始使用 .NET Standard 中的 EventProcessorHost 接收訊息"
 services: event-hubs
 documentationcenter: na
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2017
+ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: cc62792dad0284f9514664795fdfb32e94a85943
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a88b5da8fa504e0528caa7fa212d4cec26d1cf66
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>開始使用 .NET Standard 中的事件處理器主機來接收訊息
 
 > [!NOTE]
 > 您可在 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) 上取得此範例。
 
-本教學課程說明如何撰寫一個 .NET Core 主控台應用程式，以使用 **EventProcessorHost** 從事件中樞接收訊息。 您可以依現狀執行 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) 解決方案，其中以您事件中樞和儲存體帳戶的值來取代字串。 或者，您可以遵循本教學課程中的步驟，來建立自己的解決方案。
+本教學課程說明如何撰寫 .NET Core 主控台應用程式，以使用**事件處理器主機**程式庫從事件中樞接收訊息。 您可以依現狀執行 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) 解決方案，其中以您事件中樞和儲存體帳戶的值來取代字串。 或者，您可以遵循本教學課程中的步驟，來建立自己的解決方案。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -33,22 +33,22 @@ ms.lasthandoff: 10/11/2017
 * [.NET Core Visual Studio 2015 或 2017 工具](http://www.microsoft.com/net/core)。
 * Azure 訂用帳戶。
 * Azure 事件中樞命名空間。
-* 一個 Azure 儲存體帳戶。
+* Azure 儲存體帳戶。
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>建立事件中樞命名空間和事件中樞  
 
-第一個步驟是使用 [Azure 入口網站](https://portal.azure.com)來建立「事件中樞」類型的命名空間，然後取得您應用程式與事件中樞進行通訊所需的管理認證。 若要建立命名空間和事件中樞，請依照[這篇文章](event-hubs-create.md)中的程序操作，然後繼續進行下列步驟。  
+第一個步驟是使用 [Azure 入口網站](https://portal.azure.com)來建立「事件中樞」類型的命名空間，然後取得您應用程式與事件中樞進行通訊所需的管理認證。 若要建立命名空間和事件中樞，請依照[這篇文章](event-hubs-create.md)中的程序操作，然後繼續進行本教學課程。  
 
 ## <a name="create-an-azure-storage-account"></a>建立 Azure 儲存體帳戶  
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。  
 2. 在入口網站的左方瀏覽窗格中，依序按一下 [新增]、[儲存體] 及 [儲存體帳戶]。  
-3. 完成 儲存體帳戶 刀鋒視窗中的欄位，然後按一下建立。
+3. 完成 [儲存體帳戶] 視窗中的欄位，然後按一下 [建立]。
 
     ![建立儲存體帳戶][1]
 
-4. 在看到「部署成功」訊息之後，按一下新儲存體帳戶的名稱。 在 [基本資訊] 刀鋒視窗中，按一下 [Blob]。 當 [Blob 服務] 刀鋒視窗開啟時，按一下頂端的 [+ 容器]。 為容器命名，然後關閉 [Blob 服務] 刀鋒視窗。  
-5. 按一下左側刀鋒視窗中的 [存取金鑰]，然後複製儲存體容器的名稱、儲存體帳戶及 **key1** 的值。 將這些值儲存到記事本或一些其他暫存位置。  
+4. 在看到「部署成功」訊息之後，按一下新儲存體帳戶的名稱。 在 [基本資訊] 視窗中，按一下 [Blob]。 當 [Blob 服務] 對話方塊開啟時，按一下頂端的 [+ 容器]。 為容器命名，然後關閉 [Blob 服務]。  
+5. 按一下左側視窗中的 [存取金鑰]，然後複製儲存體容器的名稱、儲存體帳戶及 **key1** 的值。 將這些值儲存到記事本或一些其他暫存位置。  
 
 ## <a name="create-a-console-application"></a>建立主控台應用程式
 
@@ -58,15 +58,15 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="add-the-event-hubs-nuget-package"></a>新增事件中樞 NuGet 封裝
 
-遵循下列幾個步驟，將 [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) 和 [`Microsoft.Azure.EventHubs.Processor`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) .NET 標準程式庫 NuGet 套件新增至您的專案： 
+遵循下列步驟，在您的專案中新增 [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) 和 [**Microsoft.Azure.EventHubs.Processor**](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) .NET Standard 程式庫 NuGet 套件： 
 
 1. 以滑鼠右鍵按一下新建立的專案，然後選取 [管理 NuGet 套件]。
-2. 按一下 [瀏覽] 索引標籤，然後搜尋「Microsoft.Azure.EventHubs」並選取 [Microsoft.Azure.EventHubs] 套件。 按一下 [安裝]  完成安裝作業，然後關閉此對話方塊。
+2. 按一下 [瀏覽] 索引標籤，然後搜尋 **Microsoft.Azure.EventHubs** 並選取 [Microsoft.Azure.EventHubs] 套件。 按一下 [安裝]  完成安裝作業，然後關閉此對話方塊。
 3. 重複步驟 1 和 2，並安裝 **Microsoft.Azure.EventHubs.Processor** 套件。
 
 ## <a name="implement-the-ieventprocessor-interface"></a>實作 IEventProcessor 介面
 
-1. 在 方案總管 中，於專案上按一下滑鼠右鍵，按一下 新增，然後按一下類別。 將新類別命名為 **SimpleEventProcessor**。
+1. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，按一下 [新增]，然後按一下 [類別]。 將新類別命名為 **SimpleEventProcessor**。
 
 2. 開啟 SimpleEventProcessor.cs 檔案，然後在檔案開頭新增下列 `using` 陳述式。
 

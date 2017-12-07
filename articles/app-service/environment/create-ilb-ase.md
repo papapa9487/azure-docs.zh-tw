@@ -10,14 +10,15 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: cc7bdd7860506c20187dc913b72111824d1737ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: 9f7343102cf7af6d7f2ba6b4b2f08b7b855da6f8
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>建立及使用內部負載平衡器與 App Service Environment #
 
@@ -175,7 +176,7 @@ ILB ASE 與非 ILB ASE 稍微有些不同。 如先前所述，您需要管理�
 
 7. 在該 VM 上使用瀏覽器並移至 http://mytestapp.ilbase.com 。(或移至任何名稱含您的網域的 Web 應用程式。)
 
-8. 在該 VM 上使用瀏覽器並移至 https://mytestapp.ilbase.com 。如果您使用自我簽署憑證，就必須接受安全性不足。
+8. 在該 VM 上使用瀏覽器並移至 https://mytestapp.ilbase.com  。如果您使用自我簽署憑證，就必須接受安全性不足。
 
     您的 ILB IP 位址列在 [IP 位址] 底下。 此清單中也有外部 VIP 使用的 IP 位址以及用於輸入管理流量的 IP 位址。
 

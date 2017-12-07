@@ -16,7 +16,7 @@
     設定|建議的值|說明
     ---|---|---
     ID|唯一值|您選擇用來識別 Azure Cosmos DB 帳戶的唯一名稱。 documents.azure.com 會附加到您所提供的識別碼以建立 URI，因此，請使用可供辨識的唯一識別碼。 此識別碼只能包含小寫字母、數字及 '-' 字元，且長度必須為 3 到 50 個字元。
-    API|MongoDB|在本文稍後，我們會針對 [MongoDB API](../articles/cosmos-db/mongodb-introduction.md) 進行程式設計。|
+    API|MongoDB|API 會決定要建立的帳戶類型。 Azure Cosmos DB 會提供五個 API，以符合應用程式的需求︰SQL (文件資料庫)、Gremlin (圖形資料庫)、MongoDB (文件資料庫)、Azure 資料表及 Cassandra，目前各自需要個別的帳戶。 <br><br>選取 [MongoDB]，因為在本快速入門中，您會使用 MongoDB 建立可查詢的文件資料庫。<br><br>[深入了解 MongoDB API](../articles/cosmos-db/mongodb-introduction.md)|
     訂用帳戶|*您的訂用帳戶*|您要用於 Azure Cosmos DB 帳戶的 Azure 訂用帳戶。 
     資源群組|與識別碼相同的值|您帳戶的新資源群組名稱。 為求簡化，您可以使用和識別碼相同的名稱。 
     位置|最接近使用者的區域|用來主控 Azure Cosmos DB 帳戶的地理位置。 請選擇最接近使用者的位置，以便他們能以最快速度存取到資料。

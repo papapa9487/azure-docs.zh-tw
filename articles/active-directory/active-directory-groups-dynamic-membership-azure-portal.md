@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: d3496a5b18d8fecfbd8dff95ef667d456bbb1d59
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: b8aa841cca63c0c4eb45105e3ccff91920ad35e3
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>在 Azure Active Directory 中針對動態群組成員資格建立以屬性為基礎的規則
 在 Azure Active Directory (Azure AD) 中，您可以建立進階規則，以對群組啟用更複雜的屬性型動態成員資格。 本文將詳細說明用以建立適用於使用者或裝置之動態成員資格規則的屬性和語法。
@@ -163,6 +163,7 @@ ms.lasthandoff: 11/22/2017
 | companyName | 任何字串值或 *null* | (user.companyName -eq "value") |
 | department |任何字串值或 *null* |(user.department -eq "value") |
 | displayName |任何字串值 |(user.displayName -eq "value") |
+| employeeId |任何字串值 |(user.employeeId -eq "value")<br>(user.employeeId -ne *null*) |
 | facsimileTelephoneNumber |任何字串值或 *null* |(user.facsimileTelephoneNumber -eq "value") |
 | givenName |任何字串值或 *null* |(user.givenName -eq "value") |
 | jobTitle |任何字串值或 *null* |(user.jobTitle -eq "value") |

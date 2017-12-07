@@ -15,11 +15,11 @@ ms.date: 06/26/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 6a0f8cb76684a6efcc5e2d4be05493f18d5d4c76
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b73b5e47e3e14742e5094b8b0e979de7835cb9c7
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>如何要求使用者或群組使用雙步驟驗證
 
@@ -40,11 +40,11 @@ ms.lasthandoff: 11/15/2017
 
 Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同狀態：
 
-| 狀態 | 說明 | 受影響的非瀏覽器應用程式 |
-|:---:|:---:|:---:|
-| 已停用 |未註冊 Azure Multi-Factor Authentication (MFA) 之新使用者的預設狀態。 |否 |
-| 已啟用 |已在 Azure MFA 中註冊使用者，但使用者尚未註冊。 系統將在他們下一次登入時提示他們註冊。 |不會。  它們會繼續運作，直到註冊程序完成為止。 |
-| 已強制 |已註冊使用者，而且使用者已完成 Azure MFA 的註冊程序。 |是。  應用程式需要應用程式密碼。 |
+| 狀態 | 說明 | 受影響的非瀏覽器應用程式 | 受影響的瀏覽器應用程式和現代化驗證 |
+|:---:|:---:|:---:|:--:|
+| 已停用 |未註冊 Azure Multi-Factor Authentication (MFA) 之新使用者的預設狀態。 |否 |否 |
+| 已啟用 |已在 Azure MFA 中註冊使用者，但使用者尚未註冊。 系統將在他們下一次登入時提示他們註冊。 |不會。  它們會繼續運作，直到註冊程序完成為止。 | 是。 一旦工作階段的重新整理權杖到期，就必須進行 MFA 註冊。|
+| 已強制 |已註冊使用者，而且使用者已完成 Azure MFA 的註冊程序。 |是。  應用程式需要應用程式密碼。 |是。 登入時需要 MFA。 |
 
 使用者的狀態會反映系統管理員是否已在 Azure MFA 中註冊他們，以及他們是否已完成註冊程序。
 

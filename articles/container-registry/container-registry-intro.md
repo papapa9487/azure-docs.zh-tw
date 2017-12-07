@@ -2,25 +2,18 @@
 title: "Azure 中的私人 Docker 容器登錄"
 description: "Azure 容器登錄庫服務的簡介，此服務提供雲端式管理的私人 Docker Registry。"
 services: container-registry
-documentationcenter: 
 author: stevelas
-manager: balans
-editor: mmacy
-tags: 
-keywords: 
-ms.assetid: ee2b652b-fb7c-455b-8275-b8d4d08ffeb3
+manager: timlt
 ms.service: container-registry
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: overview
 ms.date: 10/13/2017
 ms.author: stevelas
-ms.openlocfilehash: d54caa45078221cdbe091649cb3fe3b65eaa47e8
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.custom: mvc
+ms.openlocfilehash: e4bca1cc09d115cf0b1b13f7675645ef1ef5ec53
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure 中的私人 Docker 容器登錄的簡介
 

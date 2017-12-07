@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8982cc0153bb4554c84e2cac504c23fb7e65ec15
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 17539b703993431649ddb235d7ee09b2e9e995e3
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>升級 Windows Azure Active Directory Sync 和 Azure Active Directory Sync
 Azure AD Connect 是連接內部部署目錄與 Azure AD 和 Office 365 的最佳方式。 這是將 Azure AD Connect 從 Windows Azure Active Directory Sync (DirSync) 或 Azure AD Sync 升級的最佳時機，因為這些工具現在已淘汰，而且從 2017 年 4 月 13 日起不再提供支援。
@@ -41,6 +41,9 @@ Azure AD Connect 是 DirSync 和 Azure AD Sync 的後續產品。它結合了兩
 ## <a name="how-to-transition-to-azure-ad-connect"></a>如何轉換為 Azure AD Connect
 如果您正在執行 DirSync，有兩種方式可以升級︰就地升級和平行部署。 對大多數的客戶，以及如果您擁有最新的作業系統和少於 50,000 個物件，建議採用就地升級。 在其他情況下，建議執行平行部署，DirSync 組態會移至執行 Azure AD Connect 的新伺服器。
 
+>[!NOTE]
+>2017 年 12 月 31 之後不再支援從 DirSync 就地升級為 Azure AD Connect，您可能需要執行平行部署才可升級。
+
 如果您使用 Azure AD Sync，則建議採用就地升級。 如果您想要，您也可以並行安裝新的 Azure AD Connect 伺服器，並且執行從 Azure AD 同步伺服器到 Azure AD Connect 的變換移轉。
 
 | 方案 | 案例 |
@@ -59,7 +62,7 @@ Azure AD Connect 是 DirSync 和 Azure AD Sync 的後續產品。它結合了兩
 這項通知也會傳送給使用 Azure AD Connect 組建編號 1.0.\*.0 (使用 1.1 發行前版本) 的客戶。 Microsoft 建議客戶使用最新的 Azure AD Connect 版本。 1.1 版引進的[自動升級](active-directory-aadconnect-feature-automatic-upgrade.md)功能可讓您持續輕鬆擁有最新的 Azure AD Connect 安裝版本。
 
 **問︰DirSync/Azure AD Sync 會在 2017 年 4 月 13 日停止運作嗎？**  
-DirSync/Azure AD Sync 在 2017 年 4 月 13 日會繼續運作。  不過，Azure AD 在 2017 年 12 月 31 日之後，將不再接受來自 DirSync/Azure AD Sync 的通訊。
+DirSync/Azure AD Sync 在 2017 年 4 月 13 日會繼續運作。  不過，Azure AD 在 2017 年 12 月 31 日之後將不再接受來自 DirSync/Azure AD Sync 的通訊。
 
 **問：哪些 DirSync 版本可以進行升級？**  
 目前使用的任何 DirSync 版本皆支援升級。 請注意，在 2017 年 12 月 31 日之後，將不再支援從 DirSync 就地升級至 Azure AD Connect。 在該日期之後使用 DirSync 並需要移至 Azure AD Connect 的客戶，可能必須改為執行全新安裝 Azure AD connect。

@@ -10,15 +10,15 @@ ms.assetid: 5d71886b-463a-43ae-b61f-35c6fc9bae25
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/15/2017
+ms.date: 11/28/2017
 ms.author: rclaus
-ms.openlocfilehash: 9174f7c8d16ff311312980fbe4d35996ec7ac832
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1bc03d15096e7f1d4538d6642a61aaee9bb572f7
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Microsoft Azure 上的 Oracle 解決方案及其部署
 本文涵蓋在 Microsoft Azure 上成功部署各種 Oracle 解決方案的必要資訊。 這些解決方案以 Oracle 在 Azure Marketplace 中發佈的虛擬機器映像為基礎。 若要取得目前可用的映像清單，請執行下列命令：
@@ -46,22 +46,22 @@ Oracle-WebLogic-Server  Oracle       Oracle-WebLogic-Server  Oracle:Oracle-WebLo
 個人也可以選擇將其在 Azure 中從頭建立的自訂映像，或從內部部署環境上傳的自訂映像作為解決方案的基礎。
 
 ## <a name="support-for-jd-edwards"></a>JD Edwards 的支援
-根據 Oracle 支援附註 [Doc ID 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4)，符合其特定 `Minimum Technical Requirements` (MTR) 的**任何公用雲端供應項目**都支援 JD Edwards EnterpriseOne 9.2 和更新版本。  您必須建立符合其 OS 和軟體應用程式相容性之 MTR 規格的自訂映像。 
+根據 Oracle 支援附註 [Doc ID 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4)，符合其特定 `Minimum Technical Requirements` (MTR) 的**任何公用雲端供應項目**都支援 JD Edwards EnterpriseOne 9.2 版和更新版本。  您必須建立符合其 OS 和軟體應用程式相容性之 MTR 規格的自訂映像。 
 
 ## <a name="oracle-database-virtual-machine-images"></a>Oracle 資料庫虛擬機器映像
 Oracle 支援在以 Oracle Linux 為基礎的虛擬機器映像上，在 Azure 中執行 Oracle DB 12.1 Standard 和 Enterprise 版本。  若要讓 Azure 上的 Oracle DB 生產工作負載提供最佳效能，請務必適當地調整 VM 映像的大小，並使用進階儲存體支援的受控磁碟。 如需有關如何使用 Oracle 已發佈之 VM 映像在 Azure 中快速地讓 Oracle DB 啟動並執行的指示，[請嘗試 Oracle DB 快速入門逐步解說](oracle-database-quick-create.md)。
 
 ### <a name="attached-disk-configuration-options"></a>連接的磁碟組態選項
 
-連接的磁碟依賴 Azure Blob 儲存體服務。 理論上每個標準磁碟最多都能達約每秒 500 輸入/輸出作業 (IOPS)。 我們的進階磁碟品項十分適用於高效能資料庫工作附載，並且達到每部磁碟最多 5000 IOPS。 如果一個磁碟就能符合您的效能需求，則您可以僅使用單一磁碟，然而，透過使用多個連結的磁碟，並將資料庫資料分散至其間，然後使用 Oracle Automatic Storage Management (ASM)，通常就能改善有效的 IOPS 效能。 如需有關 Oracle ASM 的特定詳細資訊，請參閱 [Oracle Automatic Storage 概觀](http://www.oracle.com/technetwork/database/index-100339.html) (英文)。 如需如何在 Linux Azure VM 上安裝和設定 Oracle ASM 的範例，您可以嘗試[安裝和設定 Oracle Automatic Storage Management](configure-oracle-asm.md) 教學課程。
+連接的磁碟依賴 Azure Blob 儲存體服務。 理論上每個標準磁碟最多都能達約每秒 500 輸入/輸出作業 (IOPS)。 我們的進階磁碟供應項目十分適用於高效能資料庫工作附載，且可達到每部磁碟最多 5000 IOPS。 如果一個磁碟就能符合您的效能需求，則您可以僅使用單一磁碟，然而，透過使用多個連結的磁碟，並將資料庫資料分散至其間，然後使用 Oracle Automatic Storage Management (ASM)，通常就能改善有效的 IOPS 效能。 如需有關 Oracle ASM 的特定詳細資訊，請參閱 [Oracle Automatic Storage 概觀](http://www.oracle.com/technetwork/database/index-100339.html) (英文)。 如需如何在 Linux Azure VM 上安裝和設定 Oracle ASM 的範例，您可以嘗試[安裝和設定 Oracle Automatic Storage Management](configure-oracle-asm.md) 教學課程。
 
-### <a name="oracle-realtime-application-cluster-rac"></a>Oracle Realtime Application Cluster (RAC)
-Oracle RAC 是用來在內部部署的多節點叢集組態中，減少發生單一節點錯誤的機率。  它依賴以下兩個內部部署技術，而這兩個技術並非大規模公用雲端環境的原生技術︰網路多點傳送和共用磁碟。 如果您需要在 Azure 中部署 Oracle RAC，某些公司已建立可模擬這些技術的協力廠商解決方案，[例如 FlashGrid](https://www.flashgrid.io/oracle-rac-in-azure/)。 
+## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle Real Application Cluster (Oracle RAC)
+Oracle RAC 是用來在內部部署的多節點叢集組態中，減少發生單一節點錯誤的機率。 它依賴以下兩個內部部署技術，而這兩個技術並非大規模公用雲端環境的原生技術︰網路多點傳送和共用磁碟。 若您的資料庫解決方案需要位在 Azure 中的 Oracle RAC，則您會需要第三方軟體才能啟用這些技術。  在 Microsoft Azure Marketplace 中提供經 **Microsoft Azure 認證**，名為[適用於 Oracle RAC 的 FlashGrid 節點](https://azuremarketplace.microsoft.com/marketplace/apps/flashgrid-inc.flashgrid-racnode?tab=Overview)的供應項目，是由 FlashGrid Inc. 所發行。如需此解決方案的詳細資訊，及其在 Azure 中的運作方式，請參閱 [FlashGrid 解決方案頁面](https://www.flashgrid.io/oracle-rac-in-azure/)。
 
-### <a name="high-availability-and-disaster-recovery-considerations"></a>高可用性和災害復原考量
+## <a name="high-availability-and-disaster-recovery-considerations"></a>高可用性和災害復原考量
 在 Azure 中使用 Oracle 資料庫時，您必須負責實作高可用性和災害復原解決方案，以避免任何停機。 
 
-Azure 上的 Oracle Database Enterprise Edition (不含 RAC) 可以使用 [Data Guard、Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) 或 [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate) 來達成高可用性和災害復原，且兩個資料庫位於不同的虛擬機器上。 這兩個虛擬機器應該位於相同的[虛擬網路](https://azure.microsoft.com/documentation/services/virtual-network/)中，以確保它們可以透過永續私人 IP 位址互相存取。  此外，建議您將虛擬機器放置於相同的可用性設定組，讓 Azure 將其放置於不同的容錯網域和升級網域。  如果您想要擁有異地備援，您可以讓這兩個資料庫在兩個不同的區域之間進行複寫，並透過 VPN 閘道連接兩個執行個體。
+在 Azure 上可以使用 [Data Guard、Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) 或 [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate) 來達成 Oracle Database Enterprise Edition 的高可用性和災害復原 (不需倚賴 Oracle RAC)，且兩個資料庫位於兩個不同的虛擬機器上。 這兩個虛擬機器應該位於相同的[虛擬網路](https://azure.microsoft.com/documentation/services/virtual-network/)中，以確保它們可以透過永續私人 IP 位址互相存取。  此外，建議您將虛擬機器放置於相同的可用性設定組，讓 Azure 將其放置於不同的容錯網域和升級網域。  如果您想要擁有異地備援，您可以讓這兩個資料庫在兩個不同的區域之間進行複寫，並透過 VPN 閘道連接兩個執行個體。
 
 我們的教學課程「[在 Azure 上實作 Oracle DataGuard](configure-oracle-dataguard.md)」會引導您完成在 Azure 上試用此實作的基本安裝程序。  
 
@@ -69,7 +69,7 @@ Azure 上的 Oracle Database Enterprise Edition (不含 RAC) 可以使用 [Data 
 
 我們的教學課程「[在 Azure 上實作 Oracle GoldenGate](configure-oracle-golden-gate.md)」會引導您完成在 Azure 上試用此實作的基本安裝程序。
 
-儘管已在 Azure 中建構 HA和 DR 解決方案架構，您仍需要確定擁有可用於還原資料庫的備份策略。  我們的教學課程[備份和復原 Oracle 資料庫](oracle-backup-recovery.md)會引導您完成建立一致備份的基本程序。
+儘管已在 Azure 中建構 HA 和 DR 解決方案架構，您仍需要確定擁有可用於還原資料庫的備份策略。  我們的教學課程「[備份及復原 Oracle 資料庫](oracle-backup-recovery.md)」會引導您完成建立一致性備份的基本程序。
 
 ## <a name="oracle-weblogic-server-virtual-machine-images"></a>Oracle WebLogic Server 虛擬機器映像
 * **只有在 Enterprise Edition 上才支援叢集。** 只有當您使用的是 WebLogic Server Enterprise Edition 時，才會獲授權使用 WebLogic 叢集。 請勿在使用 WebLogic Server Standard Edition 時使用叢集。
@@ -80,7 +80,7 @@ Azure 上的 Oracle Database Enterprise Edition (不含 RAC) 可以使用 [Data 
 
        Bootstrap to: example.cloudapp.net/138.91.142.178:7006' over: 't3' got an error or timed out]
 
-   這是因為對於任何遠端 T3 存取，WebLogic Server 預期負載平衡器連接埠和 WebLogic 受管理伺服器連接埠是相同的。 在上述案例中，用戶端正在存取連接埠 7006 (負載平衡器連接埠)，而受管理伺服器正在接聽 7008 (私人連接埠)。 這項限制只適用於 T3 存取，不適用於 HTTP。
+   這是因為對於任何遠端 T3 存取，WebLogic Server 預期負載平衡器連接埠和 WebLogic 受管理伺服器連接埠是相同的。 在上述情況中，用戶端正在存取連接埠 7006 (負載平衡器連接埠)，而受管理的伺服器正在接聽 7008 (私人連接埠)。 這項限制只適用於 T3 存取，不適用於 HTTP。
 
    若要避免此問題，請使用下列其中一種因應措施：
 
@@ -91,9 +91,9 @@ Azure 上的 Oracle Database Enterprise Edition (不含 RAC) 可以使用 [Data 
 
 如需相關資訊，請參閱知識庫文章 **860340.1**，位於：<http://support.oracle.com>。
 
-* **動態叢集和負載平衡限制。** 假設您想要在 WebLogic Server 中使用動態叢集，並透過 Azure 中的單一、公用負載平衡端點將它公開。 做法是只要您使用各個受管理伺服器的固定連接埠號碼 (不是從範圍動態指派)，且不要啟動比系統管理員正在追蹤之機器的數量還多的受管理伺服器 (也就是每台虛擬機器不超過一個受管理伺服器)。 如果您的設定會導致啟動比虛擬機器更多的 WebLogic Server (亦即，多個 WebLogic Server 執行個體共用相同的虛擬機器)，則無法讓一個以上的 WebLogic Server 伺服器執行個體繫結至指定的連接埠號碼 - 該虛擬機器上的其他執行個體將會失敗。
+* **動態叢集和負載平衡限制。** 假設您想要在 WebLogic Server 中使用動態叢集，並透過 Azure 中的單一、公用負載平衡端點將它公開。 做法是只要您使用各個受管理伺服器的固定連接埠號碼 (不是從範圍動態指派)，且不要啟動比系統管理員正在追蹤之機器的數量還多的受管理伺服器 (也就是每台虛擬機器不超過一個受管理伺服器)。 若您的設定會導致啟動的 WebLogic 伺服器多於可用的虛擬機器 (也就是多個 WebLogic Server 執行個體共用相同的虛擬機器)，則那些 WebLogic 伺服器執行個體中只有一個可以繫結到指定的連接埠號碼，該虛擬機器上的其他執行個體則會失敗。
 
-   另一方面，如果您設定管理伺服器自動將唯一的連接埠號碼指派給受管理伺服器，則無法進行負載平衡，因為 Azure 不支援從單一公用連接埠對應至多個私人連接埠，而這是此組態的必要設定。
+   若您設定管理伺服器自動將唯一的連接埠號碼指派給受其管理的伺服器，則無法進行負載平衡，因為 Azure 不支援從單一公用連接埠對應至多個私人連接埠，而此設定中需要這樣做。
 * **虛擬機器上的多個 Weblogic Server 執行個體。** 根據您的部署需求，如果虛擬機器夠大，您可以考慮選擇在相同虛擬機器上執行多個 WebLogic Server 的執行個體。 例如，在中型大小虛擬機器上 (包含 2 個核心)，您可以選擇執行兩個 WebLogic Server 的執行個體。 不過請注意，仍然建議您避免將單一失敗點引入您的架構，如果您僅使用一個執行多個 WebLogic Server 執行個體的虛擬機器也是如此。 使用至少兩個虛擬機器可能是較好的方法，每個虛擬機器可以執行多個 WebLogic Server 執行個體。 每個 WebLogic Server 的執行個體仍可以是相同叢集的一部分。 但是請注意，目前無法使用 Azure 對相同虛擬機器內此類 WebLogic Server 部署所公開的端點進行負載平衡，因為 Azure 負載平衡器需要負載平衡伺服器在唯一的虛擬機器內散佈。
 
 ## <a name="oracle-jdk-virtual-machine-images"></a>Oracle JDK 虛擬機器映像
@@ -103,5 +103,5 @@ Azure 上的 Oracle Database Enterprise Edition (不含 RAC) 可以使用 [Data 
 * **64 位元 JDK。** Oracle WebLogic Server 虛擬機器映像和 Azure 所提供的 Oracle JDK 虛擬機器映像包含 Windows Server 和 JDK 的 64 位元版本。
 
 ## <a name="next-steps"></a>後續步驟
-您現在已大致了解 Microsoft Azure 上目前的 Oracle 解決方案。 下一個步驟便是著手在 Azure 上部署第一個 Oracle 資料庫。
+您現在已大致了解 Microsoft Azure 上目前的 Oracle 解決方案。 下一個步驟是在 Azure 上部署第一個 Oracle 資料庫。
 - 請嘗試[在 Azure 上建立 Oracle 資料庫](oracle-database-quick-create.md)教學課程以開始進行。

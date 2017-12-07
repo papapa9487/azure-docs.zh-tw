@@ -6,19 +6,19 @@ documentationCenter: na
 author: jeevansd
 manager: femila
 ms.reviewer: joflore
-ms.assetid: f39f0ddd-b504-4562-971f-77b88d1e75fb
+ms.assetid: 2263e583-3eb2-4a06-982d-33f5f54858f4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 11/27/2017
 ms.author: jeedes
-ms.openlocfilehash: ad03516f684acc59912ffc57f6e0712828bd03f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f1f16865a3adb55fc63c09c1dbdc9720b02f9c33
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filecloud"></a>教學課程：Azure Active Directory 與 FileCloud 整合
 
@@ -108,12 +108,12 @@ FileCloud 與 Azure AD 整合提供下列優點：
 
     ![FileCloud 網域和 URL 單一登入資訊](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<subdomain>.filecloudhosted.com`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<subdomain>.filecloudonline.com`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.filecloudhosted.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.filecloudonline.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
 
     > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [FileCloud 用戶端支援小組](mailto:support@codelathe.com)以取得這些值。
+    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [FileCloud 用戶端支援小組](mailto:support@codelathe.com)以取得這些值。 
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -131,23 +131,23 @@ FileCloud 與 Azure AD 整合提供下列優點：
 
 8. 在左側的導覽窗格上，按一下 [設定] 。 
    
-    ![應用程式端上的設定區段](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_000.png)
+    ![在應用程式端設定單一登入](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_000.png)
 
 9. 按一下 [設定] 區段上的 [SSO] 索引標籤。 
    
-    ![應用程式端上的單一登入索引標籤](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_001.png)
+    ![在應用程式端設定單一登入](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_001.png)
 
 10. 在 **Single Sign On (SSO) Settings** (單一登入 (SSO) 設定) 面板上，選取 **SAML** 作為 **Default SSO Type** (預設 SSO 類型)。
    
-    ![應用程式端上的單一登入設定面板](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_002.png)
+    ![在應用程式端設定單一登入](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_002.png)
 
-11. 將您從 Azure 入口網站複製的「SAML 實體識別碼」貼到 [IdP 端點 URL] 文字方塊中。
+11. 在 [IdP 端點 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 實體識別碼] 值。
 
-    ![IDP 端點 URL 文字方塊](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_003.png)
+    ![在應用程式端設定單一登入](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_003.png)
 
 12. 在記事本中開啟您下載的中繼資料，將其內容複製到剪貼簿上，然後貼到 **SAML Settings** (SAML 設定) 面板的 **IdP Meta Data** (IdP 中繼資料) 文字方塊中。
 
-    ![應用程式端上的 IDP 中繼資料區段](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
+    ![在應用程式端設定單一登入](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
 
 13. 按一下 [儲存]  按鈕。
 
@@ -167,7 +167,7 @@ FileCloud 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-filecloud-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-filecloud-tutorial/create_aaduser_02.png)
 
@@ -192,7 +192,7 @@ FileCloud 與 Azure AD 整合提供下列優點：
 本節的目標是要在 FileCloud 中建立名為 Britta Simon 的使用者。 FileCloud 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 嘗試存取 FileCloud 時，如果使用者尚未存在，就會建立新使用者。
 
 >[!NOTE]
->如果您需要手動建立使用者，您需要連絡 [FileCloud 用戶端支援小組](mailto:support@codelathe.com)。 
+>如果您需要手動建立使用者，您需要連絡 [FileCloud 用戶端支援小組](mailto:support@codelathe.com)。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -226,9 +226,10 @@ FileCloud 與 Azure AD 整合提供下列優點：
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 
-本節的目標是要使用「存取面板」來測試您的 Azure AD SSO 組態。
+在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [FileCloud] 圖格時，應該會自動登入您的 FileCloud 應用程式。
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

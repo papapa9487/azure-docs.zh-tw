@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/07/2017
+ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 8c307bbe2ab9b917f46d93ce11ba8573be8fe419
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1a9093255b7f9281afbcca0ea04654780ebf5b89
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="example-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>HDInsight 上 Apache Storm 的範例 Storm 拓撲及元件
 
@@ -32,7 +32,6 @@ ms.lasthandoff: 11/03/2017
 | [事件中樞 Spout 和 Bolt 來源](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |事件中樞 Spout 和 Bolt 的來源 |Java |
 | [開發 Apache Storm on HDInsight 的 Java 型拓撲][5797064f] |Maven |Java |
 | [使用 Visual Studio 開發 Apache Storm on HDInsight 的 C# 拓撲][16fce2d1] |HDInsight Tools for Visual Studio |C#，Java |
-| [在 C# Storm 拓撲中建立多個資料流][ec5a4064] |多個資料流 |C# |
 | [利用 Storm on HDInsight 處理 Azure 事件中樞的事件 (C#)][844d1d81] |事件中樞 |C# 和 Java |
 | [使用 Storm on HDInsight 處理 Azure 事件中樞的事件 (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/) |事件中樞 |Java |
 | [在 HDInsight 中使用 Storm 和 HBase 分析感應器資料][ab894747] |事件中心、HBase、Socket.IO、Web 儀表板 |C#、Java、JavaScript、HTML |
@@ -52,7 +51,6 @@ ms.lasthandoff: 11/03/2017
 [6eb0d3b8]:apache-storm-deploy-monitor-topology.md "了解如何使用 Web 型 Storm 儀表板和 Storm UI 或 HDInsight Tools for Visual Studio 部署和管理拓撲。"
 [16fce2d1]:apache-storm-develop-csharp-visual-studio-topology.md "了解如何使用 HDInsight Tools for Visual Studio 建立 C# Storm 拓撲。"
 [5797064f]:apache-storm-develop-java-topology.md "了解如何建立基本字數統計拓撲，以使用 Maven 在 Java 中建立 Storm 拓撲。"
-[ec5a4064]: https://github.com/Blackmist/csharp-storm-example "示範執行在 C# 中實作之字數統計的基本 Storm 拓撲。這也會示範如何建立 C# 拓撲中的多個資料流。"
 [844d1d81]:apache-storm-develop-csharp-event-hub-topology.md "了解如何利用 Storm on HDInsight 從 Azure 事件中樞讀取和寫入資料。"
 [ab894747]:apache-storm-sensor-data-analysis.md "了解如何使用 Apache Storm on HDInsight 處理 Azure 事件中樞的感應器資料，使用 D3.js 將視覺化，並將它 (選擇性) 儲存至 HBase。"
 [246ee964]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md "了解如何使用 Storm 拓撲讀取 Azure 事件中樞的訊息，閱讀 Azure Cosmos DB 的文件做為資料參考，並將資料儲存至 Azure 儲存體。"

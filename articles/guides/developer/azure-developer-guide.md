@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 2de8349c9e727dca48ab8ca3e04851a5ee57d30b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 37942b7aa2fa675e316f368e8c74cb2081ba4648
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 開發人員開始使用指南
 
@@ -299,7 +299,7 @@ Azure 資源總管是很棒的工具，可用來以視覺化方式檢視您已�
 
 -   **服務主體物件**：除了提供對使用者主體和群組的存取之外，您還可以授與對服務主體的相同存取。
 
-    > **使用時機**：當您以程式設計方式管理 Azure 資源或授與應用程式存取權時。 如需詳細資訊，請參閱[建立 Active Directory 供應和服務主體](../../resource-group-create-service-principal-portal.md)。
+    > **使用時機**：當您以程式設計方式管理 Azure 資源或授與應用程式存取權時。 如需詳細資訊，請參閱[建立 Active Directory 應用程式和服務主體](../../resource-group-create-service-principal-portal.md)。
 
 #### <a name="tags"></a>標記
 

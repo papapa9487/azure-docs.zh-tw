@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 0ebf8964bc565e5d4f95fb1ad3edbc16f841851c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d59dccec4532ff0903972f2b15ed9dd8429a2ed
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>將機器學習服務模型部署為 Web 服務
 
@@ -25,7 +25,7 @@ Azure Machine Learning 模型管理會提供介面供您將模型部署為容器
 ## <a name="deploying-web-services"></a>部署 Web 服務
 使用 CLI，您就可以部署會在本機機器或叢集上執行的 Web 服務。
 
-建議您先從本機部署開始。 請先驗證模型和程式碼可正常運作，然後再將 Web 服務部署至叢集以供生產級別的環境使用。 如需設定環境以供部署叢集的詳細資訊，請參閱[模型管理設定](model-management-configuration.md)。 
+建議您先從本機部署開始。 請先驗證模型和程式碼可正常運作，然後再將 Web 服務部署至叢集以供生產級別的環境使用。 如需設定環境以供部署叢集的詳細資訊，請參閱[模型管理設定](deployment-setup-configuration.md)。 
 
 部署步驟如下：
 1. 使用已儲存且經過訓練的機器學習服務模型
@@ -186,4 +186,4 @@ az ml service run realtime -i <service id> -d "{\"input_df\": [{\"sepal length\"
 ```
 
 ## <a name="next-steps"></a>後續步驟
-現在您已測試過 Web 服務可在本機執行，接下來您可以將服務部署到叢集以便大規模使用。 如需有關設定叢集以便部署 Web 服務的詳細資訊，請參閱[模型管理設定](model-management-configuration.md)。 
+現在您已測試過 Web 服務可在本機執行，接下來您可以將服務部署到叢集以便大規模使用。 如需有關設定叢集以便部署 Web 服務的詳細資訊，請參閱[模型管理設定](deployment-setup-configuration.md)。 

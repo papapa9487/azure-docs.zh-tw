@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/15/2017
+ms.date: 12/05/2017
 ms.author: shlo
-ms.openlocfilehash: c3cf9bfeabb65fa15941e3085d9f9146c3feef80
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 5c78f61074258c734cefade28d6aca1055519758
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory 中的整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可跨不同網路環境提供下列資料整合功能：
@@ -141,7 +141,7 @@ Data Factory 會使用相同地理位置中最接近接收之區域中的 Azure 
 &nbsp; | 美國中南部 | 美國中南部
 &nbsp; | 美國中西部 | 美國中西部
 &nbsp; | 美國西部 | 美國西部
-&nbsp; | 美國西部 2 | 美國西部
+&nbsp; | 美國西部 2 | 美國西部 2
 加拿大 | 加拿大東部 | 加拿大中部
 &nbsp; | 加拿大中部 | 加拿大中部
 巴西 | 巴西南部 | 巴西南部

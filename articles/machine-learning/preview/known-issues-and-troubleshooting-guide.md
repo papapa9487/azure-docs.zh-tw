@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: a03fb4f202bddb6454f703c998e95abf13d14fff
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 5c7c15eacdf43d3623000ed228adfaeb55803c8f
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - 已知問題和疑難排解指南 
 本文可協助您尋找和修正使用 Azure Machine Learning Workbench 應用程式過程中遇到的錯誤與失敗。 
@@ -39,6 +39,17 @@ ms.lasthandoff: 11/16/2017
 /tmp/amlinstaller/logs/*
 ```
 您可以將這些目錄的內容壓縮，然後傳送給我們進行診斷。
+
+### <a name="app-update"></a>應用程式更新 
+#### <a name="no-update-notification-on-windows-desktop"></a>Windows 桌面上沒有更新通知 
+未來更新將解決這個問題。 在此同時，因應措施是避免從釘選在工作列上的捷徑啟動應用程式。 改為使用 [開始] 功能表或開始搜尋列，或桌面上的捷徑 (如果有的話) 來啟動應用程式。 
+
+#### <a name="no-update-notification-on-an-ubuntu-data-sciece-virtual-machine-dsvm"></a>Ubuntu 資料科學虛擬機器 (DSVM) 上沒有更新通知
+執行下列步驟以下載最新的應用程式：   
+   - 移除資料夾 \Users\AppData\Local\amlworkbench
+   - 移除指令碼 `c:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - 移除可啟動上述指令碼的桌面捷徑
+   - 使用 [https://aka.ms/azureml-wb-msi](https://aka.ms/azureml-wb-msi) 輕易安裝
 
 ### <a name="workbench-desktop-app"></a>Workbench 傳統型應用程式
 如果您無法登入，或如果 Workbench 傳統型應用程式當機，就可以在以下位置找到記錄檔：

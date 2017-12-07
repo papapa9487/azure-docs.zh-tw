@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 11/03/2017
-ms.openlocfilehash: 286b16148d28509714862714dcc5986496d9af44
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 9a94f257e5cd3534127e8594ddee3c5f837876df
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 列出及更新 Azure Database for MySQL 伺服器的組態
 這個範例 CLI 指令碼會列出所有可用的組態參數，以及其對於 Azure Database for MySQL 伺服器的允許值，並將 innodb_lock_wait_timeout 設定為預設值以外的值。
@@ -37,12 +37,12 @@ ms.lasthandoff: 11/06/2017
 
 | **命令** | **注意事項** |
 |---|---|
-| [az group create](/cli/azure/group#create) | 建立用來存放所有資源的資源群組。 |
-| [az mysql server create](/cli/azure/mysql/server#create) | 建立主控資料庫的 MySQL 伺服器。 |
-| [az mysql server configuration list](/cli/azure/mysql/server/configuration#list) | 列出 Azure Database for MySQL 伺服器的組態。 |
-| [az mysql server configuration set](/cli/azure/mysql/server/configuration#set) | 更新 Azure Database for MySQL 伺服器的組態。 |
-| [az mysql server configuration show](/cli/azure/mysql/server/configuration#show) | 顯示 Azure Database for MySQL 伺服器的組態。 |
-| [az group delete](/cli/azure/group#delete) | 刪除資源群組，包括所有的巢狀資源。 |
+| [az group create](/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
+| [az mysql server create](/cli/azure/mysql/server#az_msql_server_create) | 建立主控資料庫的 MySQL 伺服器。 |
+| [az mysql server configuration list](/cli/azure/mysql/server/configuration#az_msql_server_configuration_list) | 列出 Azure Database for MySQL 伺服器的組態。 |
+| [az mysql server configuration set](/cli/azure/mysql/server/configuration#az_msql_server_configuration_set) | 更新 Azure Database for MySQL 伺服器的組態。 |
+| [az mysql server configuration show](/cli/azure/mysql/server/configuration#az_msql_server_configuration_show) | 顯示 Azure Database for MySQL 伺服器的組態。 |
+| [az group delete](/cli/azure/group#az_group_delete) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟
 - 了解 Azure CLI 的詳細資訊：[Azure CLI 文件](/cli/azure/overview)。

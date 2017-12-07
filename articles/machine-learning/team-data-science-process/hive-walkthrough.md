@@ -4,7 +4,7 @@ description: "對採用 HDInsight Hadoop 叢集來建置和部署使用公開可
 services: machine-learning,hdinsight
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: e9e76c91-d0f6-483d-bae7-2d3157b86aa0
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
-ms.author: hangzh;bradsev
-ms.openlocfilehash: 1be39ab258235740c7e0875a5c0c29ee4a665a71
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.date: 11/29/2017
+ms.author: bradsev
+ms.openlocfilehash: ad7bc8bb65a3395599a4de9a9954ff203fa624c6
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process 實務：使用 Azure HDInsight Hadoop 叢集
 在這個逐步解說中，我們會在採用 [Azure HDInsight Hadoop 叢集](https://azure.microsoft.com/services/hdinsight/)的端對端案例中使用 [Team Data Science Process (TDSP)](overview.md)，以對 [NYC Taxi Trips (NYC 計程車車程)](http://www.andresmh.com/nyctaxitrips/) 資料集內可公開使用的資料進行儲存、探索和特徵工程設計，並縮減取樣資料。 資料的模型是使用 Azure Machine Learning 建置，以處理二元和多元分類和迴歸預測工作。

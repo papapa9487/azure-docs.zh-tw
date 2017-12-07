@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: vturecek
-ms.openlocfilehash: eb076c30eda63c37a8b555d40d5903cbbf0d426a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ea17cf744779f390fe4b3f4049deb0c1ad985024
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="getting-started-with-reliable-actors"></a>開始使用 Reliable Actors
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/23/2017
 
 本文將逐步說明如何在 Visual Studio 中建立一個簡單的 Reliable Actor 應用程式並進行偵錯。 如需 Reliable Actors 的相關詳細資訊，請參閱 [Service Fabric Reliable Actors 簡介](service-fabric-reliable-actors-introduction.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在開始之前，請確保您的電腦上已設定 Service Fabric 開發環境 (包括 Visual Studio)。 如需詳細資訊，請參閱[如何設定開發環境](service-fabric-get-started.md)。
 
@@ -101,7 +101,7 @@ internal class HelloWorld : Actor, IHelloWorld
     ![[新增專案] 對話方塊][6]    
     
     > [!NOTE]
-    > 主控台應用程式不是您通常作為 Service Fabric 中之用戶端使用的應用程式類型，但是它是使用本機 Service Fabric 模擬器進行偵錯和測試的便捷範例。
+    > 主控台應用程式不是您通常作為 Service Fabric 中之用戶端使用的應用程式類型，但是它是使用本機 Service Fabric 叢集進行偵錯和測試的便捷範例。
 
 3. 主控台應用程式必須是 64 位元應用程式，才能維持與介面專案和其他相依性的相容性。  在 [方案總管] 中，以滑鼠右鍵按一下 [ActorClient] 專案，然後按一下 [屬性]。  在 [組建] 索引標籤上，將 [平台目標] 設定為 [x64]。
     
@@ -115,7 +115,7 @@ internal class HelloWorld : Actor, IHelloWorld
 
     NuGet 套件及其所有相依性都安裝在 ActorClient 專案中。
 
-5. 用戶端專案也需要介面專案的參考。  在 ActorClient 專案中，以滑鼠右鍵按一下 [相依性]，然後按一下 [加入參考]。選取 [專案] > [方案] (如果尚未選取)，然後選取 **HelloWorld.Interfaces** 旁的核取方塊。  按一下 [確定]。
+5. 用戶端專案也需要介面專案的參考。  在 ActorClient 專案中，以滑鼠右鍵按一下 [相依性]，然後按一下 [加入參考]。選取 [專案] > [方案] (如果尚未選取)，然後選取 **HelloWorld.Interfaces** 旁的核取方塊。  按一下 [確定] 。
     
     ![[加入參考] 對話方塊][7]
 
@@ -145,7 +145,7 @@ internal class HelloWorld : Actor, IHelloWorld
 
 ## <a name="running-and-debugging"></a>執行和偵錯
 
-按 **F5** 在本機建置、部署和執行 Service Fabric 開發叢集中的應用程式。  在部署的過程中，您可以在 [輸出] 視窗中查看進度。
+按 **F5** 在本機建置、部署和執行 Service Fabric 開發叢集中的應用程式。  在部署的過程中，您可在 [輸出]  視窗中查看進度。
 
 ![Service Fabric 偵錯輸出視窗][3]
 

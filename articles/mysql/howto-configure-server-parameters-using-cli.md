@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/28/2017
-ms.openlocfilehash: 6a0d218a9b9cb41a87264cfd5f653bb631b0bce9
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.date: 11/29/2017
+ms.openlocfilehash: 5983bbf6fac9c3cddda19f6a11d2fe2b18177160
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>使用 Azure CLI 自訂伺服器設定參數
 您可以使用 Azure CLI (Azure 命令列公用程式)，來列出、顯示和更新適用於 MySQL 的 Azure 資料庫伺服器的設定參數。 有一部分的引擎設定會在伺服器層級公開而且可供修改。 
@@ -34,7 +34,7 @@ az mysql server configuration list --resource-group myresourcegroup --server mys
 如需每個列出參數的定義，請參閱[伺服器系統變數](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html) \(英文\) 中的 MySQL 參考小節。
 
 ## <a name="show-server-configuration-parameter-details"></a>顯示伺服器設定參數的詳細資料
-若要顯示有關伺服器特定設定參數的詳細資訊，請執行 [az mysql server configuration show](/cli/azure/mysql/server/configuration#show) 命令。
+若要顯示有關伺服器特定設定參數的詳細資訊，請執行 [az mysql server configuration show](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_show) 命令。
 
 此範例會針對資源群組 **myresourcegroup** 下的伺服器 **myserver4demo.mysql.database.azure.com**，顯示 **slow\_query\_log** 伺服器設定參數的詳細資料。
 ```azurecli-interactive

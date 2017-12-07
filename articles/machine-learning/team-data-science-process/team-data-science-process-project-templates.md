@@ -1,6 +1,6 @@
 ---
 title: "Team Data Science Process 專案規劃 - Azure | Microsoft Docs"
-description: TBD
+description: "Microsoft Project 和 Excel 範本可協助您規劃和管理資料科學專案。"
 documentationcenter: 
 author: bradsev
 manager: cgronlun
@@ -11,17 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 11/27/2017
 ms.author: bradsev;
-ms.openlocfilehash: 554e653a1f1b060743a2f461327c58e9a60a56b1
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 7f99b0bc36a08f52148f032567771f21c56ce42e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="team-data-science-process-project-planning"></a>Team Data Science Process 專案規劃
 
-Team Data Science Process (TDSP) 會提供建構資料科學專案開發的生命週期。 生命週期可描繪出專案一般執行時 (通常會反覆進行) 的主要階段：
+Team Data Science Process (TDSP) 會提供建構資料科學專案開發的生命週期。 本文章提供 Microsoft Project 和 Excel 範本的連結，這些範本可協助您規劃和管理這些專案階段。
+
+生命週期可描繪出專案一般執行時 (通常會反覆進行) 的主要階段：
 
 - 了解商務
 - 資料取得與認知
@@ -31,8 +33,7 @@ Team Data Science Process (TDSP) 會提供建構資料科學專案開發的生�
 
 如需每個階段的描述，請參閱 [Team Data Science Process 生命週期](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/lifecycle)。
 
-本文章提供 Microsoft Project 和 Excel 範本的連結，這些範本可協助您規劃和管理這些專案階段。 
-
+ 
 ## <a name="microsoft-project-template"></a>Microsoft Project 範本
 
 適用於 Team Data Science Process 的 Microsoft Project 範本可於以下位置取得：[Microsoft Project 範本](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.mpp) 
@@ -54,7 +55,7 @@ Team Data Science Process (TDSP) 會提供建構資料科學專案開發的生�
 
 ## <a name="next-steps"></a>後續步驟
 
-[執行資料科學專案](project-execution.md) 本文件說明藉由使用 Team Data Science Process，在專案小組中以系統化、版本控制，以及共同作業的方式執行資料科學專案。
+[資料科學專案](agile-development.md) 本文件說明藉由使用 Team Data Science Process，在專案小組中以系統化、版本控制，以及共同作業的方式執行資料科學專案。
 
 也會提供逐步解說，說明**特定案例**之程序中的所有步驟。 [範例逐步解說](walkthroughs.md)主題中會列出這些逐步解說以及簡短說明的連結。 這些逐步解說說明如何將雲端、內部部署工具及服務組合成工作流程或管線，以建立智慧型應用程式。 
 

@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/13/2017
+ms.date: 11/28/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: d22fe6456c3bd886f8f8863d362c0084fbe03da3
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 66748adc49ef921ab8adb5306b2a483234b076ae
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="collect-data-from-linux-computers-hosted-in-your-environment"></a>從您的環境中裝載的 Linux 電腦收集資料
 [Azure Log Analytics](log-analytics-overview.md) 可將來自環境中實體或虛擬 Linux 電腦和其他資源的資料直接收集到單一儲存機制，以供詳細分析和相互關聯。  本快速入門向您示範如何以幾個簡單步驟來設定和收集 Linux 電腦的資料。  針對 Azure Linux VM，請參閱下列主題[收集關於 Azure 虛擬機器的資料](log-analytics-quick-collect-azurevm.md)。  
- 
+
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="log-in-to-azure-portal"></a>登入 Azure 入口網站
@@ -44,17 +44,20 @@ ms.lasthandoff: 10/24/2017
 
 在驗證資訊及建立工作區時，您可以在功能表的 [通知] 底下追蹤其進度。 
 
-## <a name="obtain-workspace-id-and-key"></a>取得工作區識別碼和索引鍵
+## <a name="obtain-workspace-id-and-key"></a>取得工作區識別碼和金鑰
 安裝 OMS Agent for Linux 之前，您需要 Log Analytics 工作區的工作區識別碼和索引鍵。  代理程式的包裝函式指令碼需要這項資訊，才能正確設定代理程式，並確定它能與 Log Analytics 順利進行通訊。  
 
 1. 在 Azure 入口網站中，按一下左下角的 [更多服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
 2. 在 Log Analytics 工作區清單中，選取稍早建立的 *DefaultLAWorkspace*。
 3. 選取 [進階設定]。<br><br> ![Log Analytics 進階設定](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
 4. 選取 [連接的來源]，然後選取 [Linux 伺服器]。   
-5. [工作區識別碼] 和 [主索引鍵] 右邊的值。 將兩者複製並貼到您最愛的編輯器。   
+5. [工作區識別碼] 和 [主要金鑰] 右邊的值。 將兩者複製並貼到您最愛的編輯器。   
 
 ## <a name="install-the-agent-for-linux"></a>安裝 Agent for Linux
 下列步驟會設定 Azure 和 Azure Government 雲端中 Log Analytics 代理程式的安裝程式。  
+
+>[!NOTE]
+>OMS agent for Linux 無法設定為回報多個 Log Analytics 工作區。  
 
 1. 若要設定 Linux 電腦以連接到 Log Analytics，請執行下列命令，提供稍早複製的工作區識別碼和主索引鍵。  此命令會下載代理程式、驗證其總和檢查碼，並將它安裝。 
     
@@ -98,10 +101,10 @@ Log Analytics 可以從 Linux Syslog 收集事件，和收集您指定要用於�
 7. 按一下頁面頂端的 [儲存] 來儲存設定。
 
 ## <a name="view-data-collected"></a>檢視收集的資料
-現在您已啟用資料收集，可以執行簡單的記錄搜尋範例，查看來自目標電腦的一些資料。  
+既然您已啟用資料收集，現在即可執行簡單的記錄搜尋範例，以查看來自目標電腦的一些資料。  
 
 1. 在 Azure 入口網站中，瀏覽至 Log Analytics 並選取稍早建立的工作區。
-2. 按一下 [記錄搜尋] 圖格，然後在 [記錄搜尋] 窗格的查詢欄位中輸入 `Perf`，再按 Enter 鍵，或按一下查詢欄位右邊的搜尋按鈕。<br><br> ![Log Analytics 記錄搜尋查詢範例](media/log-analytics-quick-collect-linux-computer/log-analytics-portal-queryexample.png)<br><br> 例如，下列影像中的查詢會傳回 735 筆效能記錄。<br><br> ![Log Analytics 記錄搜尋結果](media/log-analytics-quick-collect-linux-computer/log-analytics-search-perf.png)
+2. 按一下 [記錄搜尋] 圖格，然後在 [記錄搜尋] 窗格的查詢欄位中輸入 `Perf`，再按 Enter 鍵，或按一下查詢欄位右邊的搜尋按鈕。<br><br> ![Log Analytics 記錄搜尋查詢範例](media/log-analytics-quick-collect-linux-computer/log-analytics-portal-queryexample.png)<br><br> 例如，下圖中的查詢會傳回 735 筆效能記錄。<br><br> ![Log Analytics 記錄搜尋結果](media/log-analytics-quick-collect-linux-computer/log-analytics-search-perf.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 不再需要時，您可以從 Linux 電腦移除代理程式，並刪除 Log Analytics 工作區。  
@@ -113,10 +116,10 @@ Log Analytics 可以從 Linux Syslog 收集事件，和收集您指定要用於�
 
     `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
 
-若要刪除工作區，請選取您稍早建立的 Log Analytics 工作區，然後在資源頁面上，按一下 [刪除]。<br><br> ![刪除 Log Analytics 資源](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
+若要刪除工作區，請選取您先前建立的 Log Analytics 工作區，然後在資源頁面上，按一下 [刪除]。<br><br> ![刪除 Log Analytics 資源](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
 
 ## <a name="next-steps"></a>後續步驟
-現在您正在從內部部署 Linux 電腦收集作業和效能資料，您可以輕鬆地針對收集的資料「免費」開始探索、分析及採取行動。  
+既然您正在從內部部署 Linux 電腦收集作業和效能資料，即可輕鬆開始針對收集的資料「免費」進行探索、分析及採取行動。  
 
 若要了解如何檢視和分析資料，請繼續進行本教學課程。   
 

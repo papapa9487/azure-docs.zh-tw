@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: damaerte
-ms.openlocfilehash: 59aec1cb6433e90caf683b4bce98c92e9f79fd18
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 233569303ea3651192aafe9681f58a9582625d29
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshooting-azure-cloud-shell"></a>針對 Azure Cloud Shell 進行疑難排解
 
@@ -64,8 +64,9 @@ Azure Cloud Shell 問題的已知解決方式包括：
 
 ### <a name="gui-applications-are-not-supported"></a>不支援 GUI 應用程式
 
-- **詳細資料**：如果使用者啟動 GUI 應用程式，則不會傳回提示。 例如，當使用者複製已啟用雙因素驗證的私人 GitHub 存放庫時，會顯示一個對話方塊，用以完成雙因素驗證。
-- **解決方式**：`Ctrl+C` 結束命令。
+- **詳細資料**：如果使用者啟動 GUI 應用程式，則不會傳回提示。 例如，當使用者複製已啟用雙因素驗證的私人 GitHub 存放庫時，會顯示一個對話方塊，用以完成雙因素驗證。  
+- **解決方式**：關閉並重新開啟殼層。
+
 
 ### <a name="get-help--online-does-not-open-the-help-page"></a>Get-Help -online 不會開啟說明頁面
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure Functions 佇列儲存體繫結"
+title: "Azure Functions 的 Azure 佇列儲存體繫結"
 description: "了解如何在 Azure Functions 中使用 Azure 佇列儲存體觸發程序和輸出繫結。"
 services: functions
 documentationcenter: na
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: 9cf506d571c8d67a1e48ce34860db3dbc3445509
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 0aae58fa52f9f7f64b08e1701b7688a90c56e6ed
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-queue-storage-bindings"></a>Azure Functions 佇列儲存體繫結
+# <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 佇列儲存體繫結
 
 本文說明如何在 Azure Functions 中使用 Azure 佇列儲存體繫結。 Azure Functions 支援適用於佇列的觸發程序和輸出繫結。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="queue-storage-trigger"></a>佇列儲存體觸發程序
+## <a name="trigger"></a>觸發程序
 
 在佇列上收到新項目時，可使用佇列觸發程序以啟動函式。 佇列訊息會當成函式輸入提供。
 
@@ -151,7 +151,7 @@ module.exports = function (context) {
 
 [使用方式](#trigger---usage)章節會說明 `myQueueItem` (由 function.json 中的`name` 屬性命名)。  [訊息中繼資料區段](#trigger---message-metadata)會說明所有其他顯示的變數。
 
-## <a name="trigger---attributes-for-precompiled-c"></a>觸發程序 - 先行編譯 C# 的屬性
+## <a name="trigger---attributes"></a>觸發程序 - 屬性
  
 對於[先行編譯 C#](functions-dotnet-class-library.md) 函數，請使用下列屬性以設定佇列觸發程序：
 
@@ -164,6 +164,9 @@ module.exports = function (context) {
   public static void Run(
       [QueueTrigger("myqueue-items")] string myQueueItem, 
       TraceWriter log)
+  {
+      ...
+  }
   ```
 
   您可以設定 `Connection` 屬性來指定要使用的儲存體帳戶，如下列範例所示：
@@ -173,8 +176,13 @@ module.exports = function (context) {
   public static void Run(
       [QueueTrigger("myqueue-items", Connection = "StorageConnectionAppSetting")] string myQueueItem, 
       TraceWriter log)
+  {
+      ....
+  }
   ```
  
+  如需完整範例，請參閱[觸發程序 - 先行編譯 C# 範例](#trigger---c-example)。
+
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)，定義於 NuGet 封裝 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) 中
 
   提供另一種方式來指定要使用的儲存體帳戶。 建構函式採用的是內含儲存體連接字串的應用程式設定名稱。 屬性可以套用在參數、方法或類別層級。 下列範例所示範的是類別層級與方法層級：
@@ -186,6 +194,9 @@ module.exports = function (context) {
       [FunctionName("QueueTrigger")]
       [StorageAccount("FunctionLevelStorageAppSetting")]
       public static void Run( //...
+  {
+      ...
+  }
   ```
 
 要使用的儲存體帳戶按以下順序決定：
@@ -206,7 +217,9 @@ module.exports = function (context) {
 |**direction**| n/a | 僅限在 *function.json* 檔案中。 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
 |**name** | n/a |代表函式程式碼中佇列的變數名稱。  | 
 |**queueName** | **QueueName**| 要輪詢的佇列名稱。 | 
-|**連接** | **連接** |應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br/>當您要在本機開發時，應用程式設定會進入 [local.settings.json 檔案](functions-run-local.md#local-settings-file)的值。|
+|**連接** | **連接** |應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>觸發程序 - 使用方式
  
@@ -245,7 +258,7 @@ module.exports = function (context) {
 
 [!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
 
-## <a name="queue-storage-output-binding"></a>佇列儲存體輸出繫結
+## <a name="output"></a>輸出
 
 使用 Azure 佇列儲存體輸出繫結，將訊息寫入佇列。
 
@@ -386,7 +399,7 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="output---attributes-for-precompiled-c"></a>輸出 - 先行編譯 C# 的屬性
+## <a name="output---attributes"></a>輸出 - 屬性
  
 對於[先行編譯 C#](functions-dotnet-class-library.md) 函式，會使用 [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs)，其定義於 NuGet 封裝 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) 中。
 
@@ -396,6 +409,9 @@ module.exports = function(context) {
 [FunctionName("QueueOutput")]
 [return: Queue("myqueue-items")]
 public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
+{
+    ...
+}
 ```
 
 您可以設定 `Connection` 屬性來指定要使用的儲存體帳戶，如下列範例所示：
@@ -404,9 +420,14 @@ public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 [FunctionName("QueueOutput")]
 [return: Queue("myqueue-items, Connection = "StorageConnectionAppSetting")]
 public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
+{
+    ...
+}
 ```
 
-您可以使用 `StorageAccount` 屬性來指定類別、方法或參數層級的儲存體帳戶。 如需詳細資訊，請參閱[觸發程序 - 先行編譯 C# 的屬性](#trigger---attributes-for-precompiled-c)。
+如需完整範例，請參閱[輸出 - 先行編譯 C# 範例](#output---c-example)。
+
+您可以使用 `StorageAccount` 屬性來指定類別、方法或參數層級的儲存體帳戶。 如需詳細資訊，請參閱[觸發程序 - 屬性](#trigger---attributes-for-precompiled-c)。
 
 ## <a name="output---configuration"></a>輸出 - 設定
 
@@ -418,7 +439,9 @@ public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 |**direction** | n/a | 必須設為 `out`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
 |**name** | n/a | 代表函式程式碼中佇列的變數名稱。 設為 `$return` 以參考函式傳回值。| 
 |**queueName** |**QueueName** | 佇列的名稱。 | 
-|**連接** | **連接** |應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br>當您要在本機開發時，應用程式設定會進入 [local.settings.json 檔案](functions-run-local.md#local-settings-file)的值。|
+|**連接** | **連接** |應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>輸出 - 使用方式
  

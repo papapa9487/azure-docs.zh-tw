@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ef6e649d2f5563ea066b70d5ef3f80c5af36ce23
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 85484b79012243afd374a97e7f518e9a8b1043ea
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Durable Functions 中的展開傳送/收合傳送情節 - 雲端備份範例
 
@@ -67,13 +67,13 @@ Durable Functions 方法提供上述所有優點，而且額外負荷極低。
 4. 等候所有上傳完成。
 5. 傳回已上傳到 Azure Blob 儲存體的位元組總數。
 
-請注意 `await Task.WhenAll(tasks);` 這一行。 呼叫 `E2_CopyFileToBlob` 函式時全部都「不會」等候。 這是為了平行執行而刻意設計。 將這一批工作傳給 `Task.WhenAll` 時，將會傳回一個「直到所有複製作業都完成」才會完成的工作。 如果您熟悉 .NET 中的工作平行程式庫 (TPL)，則對此不會感到陌生。 差別在於，這些工作可以在多個虛擬機器上同時執行，而此擴充可確保端對端執行在處理序回收的情況下迅速恢復。
+請注意 `await Task.WhenAll(tasks);` 這一行。 呼叫 `E2_CopyFileToBlob` 函式時全部都「不會」等候。 這是為了平行執行而刻意設計。 將這一批工作傳給 `Task.WhenAll` 時，將會傳回一個「直到所有複製作業都完成」才會完成的工作。 如果您熟悉 .NET 中的工作平行程式庫 (TPL)，則對此不會感到陌生。 差別在於，這些工作可以在多個虛擬機器上同時執行，而 Durable Functions 擴充可確保端對端執行在處理序回收的情況下迅速恢復。
 
 結束等候 `Task.WhenAll` 之後，就可知道所有函式呼叫已完成，而值也已傳回給我們。 每次呼叫 `E2_CopyFileToBlob` 都會傳回已上傳的位元組數，因此，只要合計所有這些傳回值，就能算出位元組總數。
 
 ## <a name="helper-activity-functions"></a>協助程式活動函式
 
-如同其他範例一樣，協助程式活動函式只不過是使用 `activityTrigger` 觸發程序繫結的一般函式。 例如，`E2_GetFileList` 的 *function.json* 檔案看起來像下面這樣：
+如同其他範例一樣，協助程式活動函式只不過是使用 `activityTrigger` 觸發程序繫結的一般函式。 例如，`E2_GetFileList` 的 function.json 檔案看起來像下面這樣：
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/function.json)]
 
@@ -92,7 +92,7 @@ Durable Functions 方法提供上述所有優點，而且額外負荷極低。
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
 
-實作從磁碟載入檔案，並以非同步方式將內容串流至相同名稱的 blob。 傳回值是複製到儲存體的位元組數，協調器函式接著會利用此值來計算的總數。
+實作會從磁碟載入檔案，並以非同步方式將內容串流至 "backups" 容器中相同名稱的 blob。 傳回值是複製到儲存體的位元組數，協調器函式接著會利用此值來計算的總數。
 
 > [!NOTE]
 > 這是將 I/O 作業移入 `activityTrigger` 函式中的最佳範例。 不僅可將工作分散至許多不同的虛擬機器，還可讓您享受到檢查點檢查進度的好處。 如果主機處理序由於任何原因而終止，您會知道哪些上傳已完成。

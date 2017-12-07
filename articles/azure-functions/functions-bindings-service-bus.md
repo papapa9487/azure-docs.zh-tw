@@ -1,9 +1,9 @@
 ---
-title: "Azure Functions 服務匯流排觸發程序和繫結"
+title: "Azure Functions 的 Azure 服務匯流排繫結"
 description: "瞭解如何在 Azure Functions 中使用「Azure 服務匯流排」觸發程序和繫結。"
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: 
 tags: 
@@ -15,20 +15,20 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
-ms.author: glenga
-ms.openlocfilehash: 5ef558f19bb88d208b0d224e30137ac237ab64bc
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: tdykstra
+ms.openlocfilehash: 6d59b26fa4ab17c17827a8e3450e808e40e5c2dd
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-service-bus-bindings"></a>Azure Functions 服務匯流排繫結
+# <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions 的 Azure 服務匯流排繫結
 
 本文說明如何在 Azure Functions 中使用 Azure 服務匯流排繫結。 Azure Functions 支援服務匯流排佇列和主題的觸發程序和輸出繫結。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="service-bus-trigger"></a>服務匯流排觸發程序
+## <a name="trigger"></a>觸發程序
 
 使用服務匯流排觸發程序來回應來自服務匯流排佇列或主題的訊息。 
 
@@ -144,7 +144,7 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
-## <a name="trigger---attributes-for-precompiled-c"></a>觸發程序 - 先行編譯 C# 的屬性
+## <a name="trigger---attributes"></a>觸發程序 - 屬性
 
 對於[先行編譯 C#](functions-dotnet-class-library.md) 函數，請使用下列屬性來設定服務匯流排觸發程序：
 
@@ -156,6 +156,9 @@ module.exports = function(context, myQueueItem) {
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
   public static void Run(
       [ServiceBusTrigger("myqueue")] string myQueueItem, TraceWriter log)
+  {
+      ...
+  }
   ```
 
   您可以設定 `Connection` 屬性來指定要使用的服務匯流排帳戶，如下列範例所示：
@@ -165,7 +168,12 @@ module.exports = function(context, myQueueItem) {
   public static void Run(
       [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] 
       string myQueueItem, TraceWriter log)
+  {
+      ...
+  }
   ```
+
+  如需完整範例，請參閱[觸發程序 - 先行編譯 C# 範例](#trigger---c-example)。
 
 * [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs)，定義於 NuGet 套件 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) 中
 
@@ -180,6 +188,9 @@ module.exports = function(context, myQueueItem) {
       public static void Run(
           [ServiceBusTrigger("myqueue", AccessRights.Manage)] 
           string myQueueItem, TraceWriter log)
+  {
+      ...
+  }
   ```
 
 要使用的服務匯流排帳戶按以下順序決定：
@@ -190,7 +201,7 @@ module.exports = function(context, myQueueItem) {
 * `ServiceBusAccount` 屬性套用至該類別。
 * "AzureWebJobsServiceBus" 應用程式設定。
 
-## <a name="trigger---configuration"></a>觸發程序 - 設定
+## <a name="trigger---configuration"></a>觸發程式 - 設定
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `ServiceBusTrigger` 屬性。
 
@@ -202,8 +213,10 @@ module.exports = function(context, myQueueItem) {
 |**queueName**|**QueueName**|要監視的佇列名稱。  只有在監視佇列時設定 (不適用於主題)。
 |**topicName**|**TopicName**|要監視的主題名稱。 只有在監視主題時設定 (不適用於佇列)。|
 |**subscriptionName**|**SubscriptionName**|要監視的訂用帳戶名稱。 只有在監視主題時設定 (不適用於佇列)。|
-|**連接**|**連接**|應用程式設定的名稱包含要用於此繫結的服務匯流排連接字串。 如果應用程式設定名稱是以 "AzureWebJobs" 開頭，您只能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為 "MyServiceBus"，則 Function 執行階段會尋找名稱為 "AzureWebJobsMyServiceBus" 的應用程式設定。 如果您將 `connection` 保留空白，則 Functions 執行階段會使用應用程式設定中名稱為 "AzureWebJobsServiceBus" 的預設服務匯流排連接字串。<br><br>若要取得連接字串，請遵循[取得管理認證](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials)所示的步驟。 連接字串必須是用於服務匯流排命名空間，而不限於特定佇列或主題。 <br/>當您要在本機開發時，應用程式設定會進入 [local.settings.json 檔案](functions-run-local.md#local-settings-file)的值。|
+|**連接**|**連接**|應用程式設定的名稱包含要用於此繫結的服務匯流排連接字串。 如果應用程式設定名稱是以 "AzureWebJobs" 開頭，您只能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為 "MyServiceBus"，則 Functions 執行階段會尋找名稱為 "AzureWebJobsMyServiceBus" 的應用程式設定。 如果您將 `connection` 保留空白，則 Functions 執行階段會使用應用程式設定中名稱為 "AzureWebJobsServiceBus" 的預設服務匯流排連接字串。<br><br>若要取得連接字串，請遵循[取得管理認證](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials)所示的步驟。 連接字串必須是用於服務匯流排命名空間，而不限於特定佇列或主題。 |
 |**accessRights**|**Access**|連接字串的存取權限。 可用值為 `manage` 和 `listen`。 預設值是 `manage`，這表示 `connection` 已具備**管理**權限。 如果您使用沒有**管理**權限的連接字串，請將 `accessRights` 設定為 "listen"。 否則，Functions 執行階段在嘗試執行需要管理權限的作業時可能會失敗。|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>觸發程序 - 使用方式
 
@@ -229,7 +242,7 @@ Functions 執行階段會在 [PeekLock 模式](../service-bus-messaging/service-
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-service-bus.md)]
 
-## <a name="service-bus-output-binding"></a>服務匯流排輸出繫結
+## <a name="output"></a>輸出
 
 使用 Azure 服務匯流排輸出繫結來傳送佇列或主題訊息。
 
@@ -396,27 +409,35 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-## <a name="output---attributes-for-precompiled-c"></a>輸出 - 先行編譯 C# 的屬性
+## <a name="output---attributes"></a>輸出 - 屬性
 
 對於[先行編譯 C#](functions-dotnet-class-library.md) 函式，使用 [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs) 屬性，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) 中。
 
-  該屬性的建構函式會採用佇列名稱或標題和訂用帳戶。 您也可以指定連線的存取權限。 [輸出 - 組態](#output---configuration)一節說明如何選擇存取權限設定。 以下範例顯示套用至函式傳回值的屬性：
+該屬性的建構函式會採用佇列名稱或標題和訂用帳戶。 您也可以指定連線的存取權限。 [輸出 - 組態](#output---configuration)一節說明如何選擇存取權限設定。 以下範例顯示套用至函式傳回值的屬性：
 
-  ```csharp
-  [FunctionName("ServiceBusOutput")]
-  [return: ServiceBus("myqueue")]
-  public static string Run([HttpTrigger] dynamic input, TraceWriter log)
-  ```
+```csharp
+[FunctionName("ServiceBusOutput")]
+[return: ServiceBus("myqueue")]
+public static string Run([HttpTrigger] dynamic input, TraceWriter log)
+{
+    ...
+}
+```
 
-  您可以設定 `Connection` 屬性來指定要使用的服務匯流排帳戶，如下列範例所示：
+您可以設定 `Connection` 屬性來指定要使用的服務匯流排帳戶，如下列範例所示：
 
-  ```csharp
-  [FunctionName("ServiceBusOutput")]
-  [return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
-  public static string Run([HttpTrigger] dynamic input, TraceWriter log)
-  ```
+```csharp
+[FunctionName("ServiceBusOutput")]
+[return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
+public static string Run([HttpTrigger] dynamic input, TraceWriter log)
+{
+    ...
+}
+```
 
-您可以使用 `ServiceBusAccount` 屬性來指定要在類別、方法或參數層級使用的服務匯流排帳戶。  如需詳細資訊，請參閱[觸發程序 - 先行編譯 C# 的屬性](#trigger---attributes-for-precompiled-c)。
+如需完整範例，請參閱[輸出 - 先行編譯 C# 範例](#output---c-example)。
+
+您可以使用 `ServiceBusAccount` 屬性來指定要在類別、方法或參數層級使用的服務匯流排帳戶。  如需詳細資訊，請參閱[觸發程序 - 屬性](#trigger---attributes-for-precompiled-c)。
 
 ## <a name="output---configuration"></a>輸出 - 設定
 
@@ -430,8 +451,10 @@ module.exports = function (context, myTimer) {
 |**queueName**|**QueueName**|佇列的名稱。  只有在傳送佇列訊息時設定 (不適用於主題)。
 |**topicName**|**TopicName**|要監視的主題名稱。 只有在傳送主題訊息時設定 (不適用於佇列)。|
 |**subscriptionName**|**SubscriptionName**|要監視的訂用帳戶名稱。 只有在傳送主題訊息時設定 (不適用於佇列)。|
-|**連接**|**連接**|應用程式設定的名稱包含要用於此繫結的服務匯流排連接字串。 如果應用程式設定名稱是以 "AzureWebJobs" 開頭，您只能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為 "MyServiceBus"，則 Functions 執行階段會尋找名稱為 "AzureWebJobsMyServiceBus" 的應用程式設定。 如果您將 `connection` 保留空白，則 Functions 執行階段會使用應用程式設定中名稱為 "AzureWebJobsServiceBus" 的預設服務匯流排連接字串。<br><br>若要取得連接字串，請遵循[取得管理認證](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials)所示的步驟。 連接字串必須是用於服務匯流排命名空間，而不限於特定佇列或主題。 <br/>當您要在本機開發時，應用程式設定會進入 [local.settings.json 檔案](functions-run-local.md#local-settings-file)的值。|
+|**連接**|**連接**|應用程式設定的名稱包含要用於此繫結的服務匯流排連接字串。 如果應用程式設定名稱是以 "AzureWebJobs" 開頭，您只能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為 "MyServiceBus"，則 Functions 執行階段會尋找名稱為 "AzureWebJobsMyServiceBus" 的應用程式設定。 如果您將 `connection` 保留空白，則 Functions 執行階段會使用應用程式設定中名稱為 "AzureWebJobsServiceBus" 的預設服務匯流排連接字串。<br><br>若要取得連接字串，請遵循[取得管理認證](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials)所示的步驟。 連接字串必須是用於服務匯流排命名空間，而不限於特定佇列或主題。|
 |**accessRights**|**Access** |連接字串的存取權限。 可用的值為 "manage" 和 "listen"。 預設值是 "manage"，這表示連線具有 [管理] 權限。 如果您使用沒有 [管理] 權限的連接字串，請將 `accessRights` 設定為 "listen"。 否則，Functions 執行階段在嘗試執行需要管理權限的作業時可能會失敗。|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>輸出 - 使用方式
 

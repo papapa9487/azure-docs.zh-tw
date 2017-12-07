@@ -13,46 +13,37 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/05/2017
+ms.date: 11/29/2017
 ms.author: carlrab
-ms.openlocfilehash: 5fc50c78af7c88cc2d0c537456cb8323002f8696
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 913055fca46580d870dc2e015f442b431c9ff6e0
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>使用 .NET (C#) 搭配 Visual Studio 連線及查詢 Azure SQL database
 
-此快速入門教學課程示範如何使用 [.NET 架構](https://www.microsoft.com/net/)搭配 Visual Studio 來建立 C# 程式以連線至 Azure SQL 資料庫，並使用 Transact-SQL 陳述式來查詢資料。
+此快速入門教學課程示範如何使用 [.NET framework](https://www.microsoft.com/net/) 搭配 Visual Studio 來建立 C# 程式以連線至 Azure SQL 資料庫，並使用 Transact-SQL 陳述式來查詢資料。
 
 ## <a name="prerequisites"></a>必要條件
 
 若要完成本快速入門教學課程，請確定您具有下列項目︰
 
-- Azure SQL Database。 本快速入門使用其中一個快速入門建立的資源︰ 
-
-   - [建立 DB - 入口網站](sql-database-get-started-portal.md)
-   - [建立 DB - CLI](sql-database-get-started-cli.md)
-   - [建立 DB - PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - 在此快速入門教學課程中，您所使用電腦的公用 IP 位址[伺服器層級防火牆規則](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。
+
 - 安裝 [Visual Studio Community 2017、Visual Studio Professional 2017 或 Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/)。
 
 ## <a name="sql-server-connection-information"></a>SQL Server 連線資訊
 
-取得連線到 Azure SQL Database 所需的連線資訊。 您在下一個程序中需要完整的伺服器名稱、資料庫名稱和登入資訊。
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 從左側功能表中選取 [SQL Database]，按一下 [SQL Database]頁面上您的資料庫。 
-3. 在您資料庫的 [概觀] 頁面上，檢閱如下圖所示的完整伺服器名稱。 您可以將滑鼠移至伺服器名稱上，以帶出 [按一下以複製] 選項。 
+#### <a name="for-adonet"></a>針對 ADO.NET
 
-   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
+1. 按一下 [顯示資料庫連接字串] 以繼續。
 
-4. 如果您忘記 Azure SQL Database 伺服器登入資訊，請瀏覽至 [SQL Database 伺服器] 頁面來檢視伺服器系統管理員名稱。 如有必要，您可以重設密碼。
-
-5. 按一下 [顯示資料庫連接字串]。
-
-6. 檢閱完整的 **ADO.NET** 連接字串。
+2. 檢閱完整的 **ADO.NET** 連接字串。
 
     ![ADO.NET 連接字串](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
 
@@ -142,3 +133,10 @@ namespace sqltest
 - 了解 [使用命令列以開始使用在 Windows/Linux/macOS 上的 .NET Core](/dotnet/core/tutorials/using-with-xplat-cli)。
 - 深入了解如何[使用 SSMS 設計您的第一個 Azure SQL 資料庫](sql-database-design-first-database.md)或[使用 .NET 設計您的第一個 Azure SQL 資料庫](sql-database-design-first-database-csharp.md)。
 - 如需 .NET 的詳細資訊，請參閱 [.NET 文件](https://docs.microsoft.com/dotnet/)。
+- [重試邏輯範例：使用 ADO.NET 彈性連接到 SQL][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+

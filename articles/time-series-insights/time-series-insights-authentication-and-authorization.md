@@ -1,5 +1,5 @@
 ---
-title: "如何在 Azure Time Series Insights 中設定 API 的驗證和授權"
+title: "如何在 Azure 時間序列深入解析中以 API 驗證和授權"
 description: "本文說明如何為呼叫 Azure Time Series Insights API 的自訂應用程式設定驗證和授權。"
 services: time-series-insights
 ms.service: time-series-insights
@@ -11,12 +11,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/21/2017
-ms.openlocfilehash: cab37f65541ecf8bfa58edcd40df0aed39b37680
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 11/27/2017
+ms.openlocfilehash: dd78e1e726029aaceef5aff0e0eed84acac646cf
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API 的驗證和授權
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/22/2017
 * 如果您的職責變更，就不需要變更應用程式的認證。
 * 您可以在執行自動指令碼時，使用憑證或應用程式金鑰自動進行驗證。
 
-本主題說明如何透過 Azure 入口網站執行這些步驟。 其中著重在說明單一租用戶應用程式，此應用程式的目的是只在一個組織內執行。 您通常會將單一租用戶應用程式用在組織內執行的企業營運系統應用程式。
+本文說明如何透過 Azure 入口網站執行這些步驟。 其中著重在說明單一租用戶應用程式，此應用程式的目的是只在一個組織內執行。 您通常會將單一租用戶應用程式用在組織內執行的企業營運系統應用程式。
 
 設定流程是由三個高階步驟所組成：
 

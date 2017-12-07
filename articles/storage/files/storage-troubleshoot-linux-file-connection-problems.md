@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
-ms.openlocfilehash: 660fe4fb9f962c835de9a2f900ceaabb4371b0db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8fd09c748786f0bfe070c3f41201eddc3d272116
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>針對 Linux 中的 Azure 檔案服務問題進行疑難排解
 
@@ -154,6 +154,21 @@ COPYFILE 中的強制旗標 **f** 會導致在 Unix 上執行 **cp -p -f**。 �
 ### <a name="solution"></a>方案
 
 若要解決此問題，請使用[適用於 Linux 上 Azure 檔案服務掛接錯誤的疑難排解工具](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) \(英文\)。 此工具可協助您驗證用戶端執行環境、偵測可能造成 Azure 檔案服務存取錯誤的不相容用戶端設定、提供自行修正的規範指引，以及收集診斷追蹤。
+
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls：無法存取 '&lt;path&gt;'：輸入/輸出錯誤
+
+當您嘗試使用 ls 命令列出 Azure 檔案共用中的檔案時，ls 命令會在列出檔案時停滯，而您會收到下列錯誤：
+
+**ls：無法存取 '&lt;path&gt;'：輸入/輸出錯誤**
+
+
+### <a name="solution"></a>方案
+將 Linux 核心升級為下列已修正此問題的版本：
+
+- 4.4.87+
+- 4.9.48+
+- 4.12.11+
+- 大於或等於 4.13 的所有版本
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
 

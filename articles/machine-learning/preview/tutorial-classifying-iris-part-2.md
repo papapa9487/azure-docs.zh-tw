@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 11/06/2017
-ms.openlocfilehash: b723cc23ccbda6c5d39627682116cc314dcf2c0e
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 79374f18d46e8e7d84772423c2cd40d9acb4d7dd
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>分類鳶尾花第 2 部分：建置模型
 Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家用來以雲端規模準備資料、開發測試以及部署模型。
@@ -102,9 +102,9 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
    ![執行 sklearn](media/tutorial-classifying-iris/run_sklearn.png)
 
-8. 選取 [作業] 窗格的作業狀態文字中的 [已完成]。 快顯視窗隨即會開啟，並顯示執行中指令碼的標準輸出 (stdout) 文字。 若要關閉 stdout 文字，請選取快顯視窗上右上方的 **關閉** \(**x**) 按鈕。
+8. 選取 [作業] 窗格的作業狀態文字中的 [已完成]。 快顯視窗隨即會開啟，並顯示執行中指令碼的標準輸出 (stdout) 文字。 若要關閉 stdout 文字，請選取快顯視窗上右上方的 [關閉] (**x**) 按鈕。
 
-9. 在 [作業] 窗格的相同作業狀態中，選取 [已完成] 狀態和開始時間正上方的藍色文字 **iris_sklearn.py [n]** \(_n_ 是執行編號)。 [執行屬性] 視窗隨即開啟，並顯示下列該特定執行的資訊：
+9. 在 [作業] 窗格的相同作業狀態中，選取 [已完成] 狀態和開始時間正上方的藍色文字 **iris_sklearn.py [n]** (_n_ 是執行編號)。 [執行屬性] 視窗隨即開啟，並顯示下列該特定執行的資訊：
    - [執行屬性] 資訊
    - **輸出**檔案
    - **視覺效果**，若有的話
@@ -184,7 +184,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
    每個環境有兩個檔案，例如 `docker-python.compute` 和 `docker-python.runconfig`。 開啟每一個檔案，可看到某些選項可以在文字編輯器中設定。  
 
-   若要進行清理，請選取任何所開啟文字編輯器之索引標籤上的 **關閉** \(**x**) 索引標籤。
+   若要進行清理，請選取任何所開啟文字編輯器之索引標籤上的 [關閉] (**x**) 索引標籤。
 
 3. 使用 **docker-python** 環境執行 **iris_sklearn.py** 指令碼： 
 
@@ -300,7 +300,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
  
    ```azurecli
    REM creates an myvm compute target
-   az ml computetarget attach --name myvm --address <IP address> --username <username> --password <password> --type remotedocker
+   az ml computetarget attach remotedocker --name myvm --address <IP address> --username <username> --password <password>
    ```
    
    >[!NOTE]
@@ -351,7 +351,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 
    ```azurecli
    REM creates a compute target that points to a HDInsight cluster
-   az ml computetarget attach --name myhdi --address <cluster head node FQDN> --username <username> --password <password> --type cluster
+   az ml computetarget attach cluster --name myhdi --address <cluster head node FQDN> --username <username> --password <password>
 
    REM prepares the HDInsight cluster
    az ml experiment prepare -c myhdi

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 08/11/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c4e6bdba54ded3880aabfc22ea07217fb5035477
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0503cef234b01c4eefb1c1de3d88d9a812c4c39
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="how-to-customize-a-windows-virtual-machine-in-azure"></a>如何自訂 Azure 中的 Windows 虛擬機器
 若要以快速且一致的方式設定虛擬機器 (VM)，通常需要某種形式的自動化。 自訂 Windows VM 的常見方法是使用 [Windows 的自訂指令碼擴充功能](extensions-customscript.md)。 在本教學課程中，您將了解如何：
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，本教學課程將會需要 Azure PowerShell 模組 3.6 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。 
+如果您選擇在本機安裝和使用 PowerShell，本教學課程會要求使用 Azure PowerShell 模組版本 3.6 或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。 
 
 
 ## <a name="custom-script-extension-overview"></a>自訂指令碼擴充功能概觀
@@ -127,6 +127,7 @@ Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer `
     -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
 Add-AzureRmVMNetworkInterface -Id $nic.Id
 
+# Create a virtual machine using the configuration
 New-AzureRmVM -ResourceGroupName myResourceGroupAutomate -Location EastUS -VM $vmConfig
 ```
 

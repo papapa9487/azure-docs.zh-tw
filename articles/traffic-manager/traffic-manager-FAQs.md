@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: eac9c3c2b7fde4ac225e17cc3b98ca5ee926c3b3
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 5b0a7d423bc0d8d9f9f7cad56838bd006e944050
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理員常見問題集 (FAQ)
 
@@ -277,7 +277,7 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 
 每個端點的目前監視狀態以及整體設定檔都會顯示於 Azure 入口網站中。 您也可以透過流量監視 [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx)、[PowerShell cmdlets](https://msdn.microsoft.com/library/mt125941.aspx) 和[跨平台 Azure CLI](../cli-install-nodejs.md) 取得此資訊。
 
-Azure 未提供關於過去端點健全狀況的歷程記錄資訊，或針對端點健全狀況的變更來提出警示的能力。
+您也可以使用 Azure 監視器來追蹤端點的健康情況，並查看它們的視覺效果表示法。 如需如何使用 Azure 監視器的相關資訊，請參閱 [Azure 監視文件](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics)。
 
 ### <a name="can-i-monitor-https-endpoints"></a>我可以監視 HTTPS 端點嗎？
 
@@ -288,6 +288,10 @@ Azure 未提供關於過去端點健全狀況的歷程記錄資訊，或針對�
 * 不會驗證伺服器端憑證
 * 不支援 SNI 伺服器端憑證
 * 不支援用戶端憑證
+
+### <a name="i-stopped-an-azure-cloud-service--web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>我已停止「流量管理員」設定檔中的 Azure 雲端服務 / Web 應用程式端點，但即使在重新啟動它之後都未收到任何流量。 我該怎麼辦？
+
+當 Azure 雲端服務 / Web 應用程式端點停止時，「流量管理員」會停止檢查其健康情況，並僅在它偵測到端點已重新啟動之後，才會重新啟動健康情況檢查。 若要避免這種延遲，在重新啟動該端點之後，請在「流量管理員」設定檔中停用然後重新啟用該端點。   
 
 ### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>即使我的應用程式不支援 HTTP 或 HTTPS 也可以使用流量管理員嗎？
 

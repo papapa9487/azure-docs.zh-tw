@@ -6,14 +6,14 @@ metadata:
   title: Azure Cosmos DB 文件 - 教學課程和 API 參考
   description: 了解如何使用 Azure Cosmos DB 來建置全域分散式的多模型資料庫。 教學課程會示範如何建置並查詢文件、索引鍵/值組及圖表資料庫。
   services: cosmos-db
-  author: czeumault
-  manager: carolz
+  author: mimig
+  manager: jhubbard
   ms.service: cosmos-db
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/29/2017
-  ms.author: carolz
+  ms.date: 12/05/2017
+  ms.author: mimig
 abstract:
   description: Azure Cosmos DB 是全域散發的多模型資料庫服務。 透過這些快速入門、教學課程及範例，使用常用的 API 及程式設計模型來開發文件、金鑰值、整個資料行和圖形資料庫。 並了解如何跨數個 Azure 區域複製資料並調整儲存體以外的輸送量，同時享受完整的 SLA 優點。
   aside:
@@ -56,14 +56,14 @@ sections:
               - href: /azure/cosmos-db/create-mongodb-java
               - href: /azure/cosmos-db/create-mongodb-dotnet
               - href: /azure/cosmos-db/create-mongodb-nodejs
-              - href: null
+              - href: /azure/cosmos-db/create-mongodb-flask
               - href: null
           - title: 圖形 API
             values:
               - href: /azure/cosmos-db/create-graph-java
               - href: /azure/cosmos-db/create-graph-dotnet
               - href: /azure/cosmos-db/create-graph-nodejs
-              - href: /azure/cosmos-db/create-graph-python
+              - href: null
               - href: /azure/cosmos-db/create-graph-gremlin-console
           - title: 資料表 API
             values:

@@ -3,7 +3,7 @@ title: "建立連線至 Azure Cosmos DB 的 Azure 函式 | Microsoft Docs"
 description: "Azure CLI 指令碼範例 - 建立連線至 Azure Cosmos DB 的 Azure 函式"
 services: functions
 documentationcenter: functions
-author: rachelappel
+author: ggailey777
 manager: cfowler
 editor: 
 tags: functions
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 04/20/2017
-ms.author: rachelap
+ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: c2c3530df62a1f291be51739a7918f7b8ab08487
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e9ccd26e7c066189576903c39be63a421d1da23
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>建立連線至 Azure Cosmos DB 的 Azure 函式
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本主題會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果您在本機使用 CLI，請確定您是執行 Azure CLI 2.0 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 
 
 ## <a name="sample-script"></a>範例指令碼
 
@@ -46,15 +46,15 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="script-explanation"></a>指令碼說明
 
-此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
+此指令碼會使用下列命令：下表中的每個命令都會連結至命令特定的文件。
 
 | 命令 | 注意事項 |
 |---|---|
 | [az login](https://docs.microsoft.com/cli/azure/#login) | 登入 Azure。 |
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 指定位置建立資源群組 |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account) | 建立儲存體帳戶 |
+| [az storage accounts create](https://docs.microsoft.com/cli/azure/storage/account) | 建立儲存體帳戶 |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | 建立新的函式應用程式 |
-| [az documentdb create](https://docs.microsoft.com/cli/azure/documentdb#az_documentdb_create) | 建立 DocumentDB 資料庫 |
+| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | 建立 cosmosdb 資料庫 |
 | [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | 清除 |
 
 ## <a name="next-steps"></a>後續步驟

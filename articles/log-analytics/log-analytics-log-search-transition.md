@@ -11,22 +11,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2017
+ms.date: 11/28/2017
 ms.author: bwren
-ms.openlocfilehash: 38cb11befe844178572981abb29fe5439286dbc1
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 9c487ab33859ae453a0074ef0344f61de19c7b4d
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>轉換為 Azure Log Analytics 新的查詢語言
 Log Analytics 最近已實作新的查詢語言。  如果您雖熟悉舊版語言卻仍需要協助，本文會提供轉換為這個 Log Analytics 語言的協助。
+
+## <a name="resources"></a>資源
+
 
 ## <a name="language-converter"></a>語言轉換器
 
 如果您已熟悉舊版 Log Analytics 查詢語言，以新的語言建立相同查詢的最簡單方式是使用「語言轉換器」，它已在您的工作區轉換時安裝在記錄搜尋入口網站中。  使用轉換器很簡單，就如同在頂端文字方塊中輸入舊版查詢，然後按一下 [轉換] 一樣。  您可以按一下搜尋按鈕以執行查詢，或複製並貼上它以在其他地方使用。
 
 ![語言轉換器](media/log-analytics-log-search-upgrade/language-converter.png)
+
+
+## <a name="resources"></a>資源
+[Log Analytics 查詢語言的文件網站](https://docs.loganalytics.io)擁有快速上手新語言所需的所有資源。  這包括教學課程、範例和完整的語言參考。
 
 
 ## <a name="cheat-sheet"></a>功能提要

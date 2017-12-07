@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: kraigb
-ms.openlocfilehash: 0979722b9ec715e91825c7aba74657451df6e83f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 470fda7722e6a22e50ed66a7bc193fc7c9f71536
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="continuous-delivery-for-cloud-services-in-azure"></a>Azure 中雲端服務的連續傳遞
 本文所述的程序顯示如何為 Azure 雲端應用程式設定連續傳遞。 此程序可讓您自動建立套件，並在每次程式碼簽入時將套件部署到 Azure。 本文所述的套件建置程序等同於 Visual Studio 中的 [封裝]命令，而發佈步驟等同於 Visual Studio 中的 [發佈] 命令。
@@ -310,7 +310,7 @@ ms.lasthandoff: 10/11/2017
 12. 將組建排入佇列，以同時執行套件建置及發佈。 如果已將觸發程序設為 Continuous Integration，則每次簽入時都會執行此行為。
 
 ### <a name="publishcloudserviceps1-script-template"></a>PublishCloudService.ps1 指令碼範本
-```
+```powershell
 Param(  $serviceName = "",
         $storageAccountName = "",
         $packageLocation = "",
@@ -522,7 +522,6 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 [Scale out your build system]: https://msdn.microsoft.com/library/dd793166.aspx
 [Deploy and configure a build server]: https://msdn.microsoft.com/library/ms181712.aspx
 [Azure PowerShell cmdlets]: /powershell/azureps-cmdlets-docs
-[the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
 [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01bc.png
 [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
 [3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png

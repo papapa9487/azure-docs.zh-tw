@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2017
 ms.author: kaanan
-ms.openlocfilehash: 3dec7a7ae3f1fee633949b51365ca3e5d3fa19d7
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 2cf85e1405597c8fb2a0f0c80d3e8317fe6e76eb
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -100,7 +100,7 @@ ms.lasthandoff: 11/20/2017
 | **LG CNS** |支援 |支援 |釜山、首爾 |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |支援 |支援 |阿姆斯特丹、芝加哥、達拉斯、香港、拉斯維加斯、倫敦、洛杉磯、墨爾本、邁阿密、紐約、魁北克市、聖安東尼奧、西雅圖、矽谷、新加坡、雪梨、多倫多、華盛頓特區 |
 | **MTN** |支援 |支援 |倫敦 |
-| **[Neutrona Networks](http://www.neutrona.com/index.php/services#cloud-connect)** |支援 |支援 |邁阿密、聖保羅 |
+| **[Neutrona Networks](http://www.neutrona.com/index.php/azure-expressroute/)** |支援 |支援 |邁阿密、聖保羅 |
 | **[新一代資料](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |支援 |支援 |Newport(Wales) |
 | **NEXTDC** |支援 |支援 |墨爾本、雪梨 |
 | **[NTT Communications](http://www.ntt.com/en/services/network/virtual-private-network.html)** |支援 |支援 |倫敦、洛杉磯、大阪、新加坡、東京、華盛頓特區 |

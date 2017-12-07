@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: cf077fef6df2fd21cf51f6b4fd4e26a4b5081247
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: b5cd022c87a6a7a9e18f33b869db04e72be5cef7
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Microsoft Azure 儲存體總管 (預覽) 版本資訊
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 11/06/2017
 * 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
 * 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
 ```
-./StorageExplorer.exe --disable-gpu
+./StorageExplorer --disable-gpu
 ```
 * 使用 Ubuntu 14.04 的使用者必須確定 GCC 編譯器集合是最新版本，這可以透過執行下列命令並重新啟動電腦來完成：
 
@@ -137,7 +137,7 @@ ms.lasthandoff: 11/06/2017
 * 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
 * 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
 ```
-./StorageExplorer.exe --disable-gpu
+./StorageExplorer --disable-gpu
 ```
 * 使用 Ubuntu 14.04 的使用者必須確定 GCC 編譯器集合是最新版本，這可以透過執行下列命令並重新啟動電腦來完成：
 

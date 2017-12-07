@@ -11,13 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 11/29/2017
 ms.author: dobett
-ms.openlocfilehash: a499783fc02e1371562edd41b827758e19fbd823
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1e22a4378caf69d2077d79f78682c4d438dbcd2
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>針對裝置對雲端訊息使用訊息路由和自訂端點
 
@@ -33,6 +33,8 @@ IoT 中樞可讓您根據訊息屬性，將[裝置對雲端訊息][lnk-device-to
 單一訊息可能符合多個路由規則的條件，在這種情況下 IoT 中樞會將訊息傳遞至與每個符合的規則相關聯的端點。 IoT 中樞也會自動刪除重複的訊息傳遞，如此若有訊息符合多個規則並且都有相同的目的地，則訊息僅會寫入到該目的地一次。
 
 IoT 中樞具有預設[內建端點][lnk-built-in]。 您可以將訂用帳戶中的其他服務連結到中樞，來建立要路由傳送訊息的目標自訂端點。 IoT 中樞目前支援 Azure 儲存體容器、事件中樞、服務匯流排佇列，及服務匯流排主題作為自訂端點。
+
+當您使用路由及自訂端點時，不符合任何規則的訊息只會傳遞至內建端點。 若要將訊息傳遞至內建端點以及自訂端點，請新增會將訊息傳送至**事件**端點的路由。
 
 > [!NOTE]
 > IoT 中樞僅支援將資料寫入 Azure 儲存體容器作為 blob。

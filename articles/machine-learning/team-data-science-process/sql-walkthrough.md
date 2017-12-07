@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: fashah;bradsev
-ms.openlocfilehash: d42377a55b1decc0918932b3ecc13cf575f934a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4157820bad3c0d7c07965e4a5556db2f6fb69fe2
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process 實務：使用 SQL Server
 在這個教學課程中，您將遵循逐步解說，使用 SQL Server 和可公開取得的資料集 ([NYC Taxi Trips (NYC 計程車車程)](http://www.andresmh.com/nyctaxitrips/) 資料集)，完成建置和部署機器學習服務模型的程序。 程序會遵循標準的資料科學工作流程︰包括擷取和瀏覽資料，以及設計功能以加快學習，接著建置和部署模型。
@@ -581,7 +581,6 @@ ms.lasthandoff: 10/11/2017
 3. 在 [ **資料庫伺服器名稱** ] 欄位中輸入資料庫的 DNS 名稱。 格式： `tcp:<your_virtual_machine_DNS_name>,1433`
 4. 在對應欄位中輸入 **資料庫名稱** 。
 5. 在 **[伺服器使用者帳戶名稱] 中輸入 **SQL 使用者名稱**，並在 [伺服器使用者帳戶密碼] 中輸入密碼。
-6. 選取 [ **接受任何伺服器憑證** ] 選項。
 7. 在 [ **資料庫查詢** ] 中編輯文字區域、貼上可擷取必要資料庫欄位的查詢 (包括任何經過計算的欄位，例如標籤)，以及向下取樣所需大小的資料。
 
 下圖顯示從 SQL Server 資料庫中直接讀取資料的二進位分類實驗範例。 您可以針對多類別分類和迴歸問題建構類似的實驗。
