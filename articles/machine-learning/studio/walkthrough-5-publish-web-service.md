@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: 1bbc8ce31fc8e5ffb048a1fb9553a82975680a3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba8f1678d87159088c58cf0e05e0fe5a6579b358
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>逐步解說步驟 5：部署 Azure Machine Learning Web 服務
 這是 [在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](walkthrough-develop-predictive-solution.md)
@@ -106,7 +106,7 @@ Machine Learning Studio 已在移除[分割][split]模組時移除一個[執行 
 > 
 > 
 
-最後一次執行實驗 (按一下 [執行])。如果要確認模型仍然有效，請按一下 [評分模型][][score-model]模組的輸出結果，並選取 [檢視結果]。 您可以看到原始資料出現，也會看到信用風險值 ("Scored Labels") 和評分機率值 ("Scored Probabilities")。 
+最後一次執行實驗 (按一下 [執行])。如果要確認模型仍然有效，請按一下 [評分模型][score-model]模組的輸出結果，並選取 [檢視結果]。 您可以看到原始資料出現，也會看到信用風險值 ("Scored Labels") 和評分機率值 ("Scored Probabilities")。 
 
 ## <a name="deploy-the-web-service"></a>部署 Web 服務
 您可以將實驗部署為傳統 Web 服務或架構在 Azure Resource Manager 上的新式 Web 服務。
@@ -142,7 +142,7 @@ Machine Learning Studio 已在移除[分割][split]模組時移除一個[執行 
 若要測試 Web 服務，按一下 [測試] 索引標籤 (請參閱下面的**測試 Web 服務**)。 如需建立應用程式以存取 Web 服務的相關資訊，請按一下 [取用] 索引標籤 (本逐步解說的下一個步驟將提供更多詳細資料)。
 
 > [!TIP]
-> 您可以在部署 Web 服務之後進行更新。 例如，如果想要變更模型，則可以編輯訓練實驗、調整模型參數，然後按一下部署 Web 服務，選取 [部署 Web 服務 [傳統]] 或 [部署 Web 服務 [新式]]。 重新部署實驗時，將會取代 Web 服務 (現在使用的是已更新的模型)。  
+> 您可以在部署 Web 服務之後進行更新。 例如，如果想要變更模型，則可以編輯訓練實驗、調整模型參數，然後按一下 [部署 Web 服務]，選取 [部署 Web 服務 [傳統]] 或 [部署 Web 服務 [新式]]。 重新部署實驗時，將會取代 Web 服務 (現在使用的是已更新的模型)。  
 > 
 > 
 
@@ -170,7 +170,7 @@ Machine Learning Studio 已在移除[分割][split]模組時移除一個[執行 
 
 1. 在 Web 服務的 [儀表板] 頁面上，按一下 [預設端點] 下的 [測試] 按鈕。 對話方塊隨即顯示，要求您提供服務的輸入資料。 這些就是在原始的信用風險資料集中出現的資料行。  
 
-2. 輸入一組資料，然後按一下確定 。 
+2. 輸入一組資料，然後按一下 [確定] 。 
 
 #### <a name="test-in-the-machine-learning-web-services-portal"></a>在 Machine Learning Web 服務入口網站中測試
 
@@ -184,32 +184,12 @@ Machine Learning Studio 已在移除[分割][split]模組時移除一個[執行 
 
 1. 在 [Azure Machine Learning Web 服務](https://services.azureml.net/quickstart)入口網站中，按一下頁面頂端的 [測試]。 [測試] 頁面會開啟，您可以輸入服務的資料。 顯示的輸入欄位會對應到在原始的信用風險資料集中出現的資料行。 
 
-2. 輸入一組資料，然後按一下測試要求-回應 。
+2. 輸入一組資料，然後按一下 [測試要求-回應] 。
 
 測試的結果會顯示在頁面右邊的輸出資料行上。 
 
 
 ## <a name="manage-the-web-service"></a>管理 Web 服務
-
-### <a name="manage-a-classic-web-service-in-the-azure-classic-portal"></a>在 Azure 傳統入口網站中管理傳統 Web 服務
-
-一旦部署傳統 Web 服務之後，您就可以從 [Azure 傳統入口網站](https://manage.windowsazure.com)管理它。
-
-1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)
-2. 在 Microsoft Azure 服務面板中，按一下 [Machine Learning]
-3. 按一下您的工作區
-4. 按一下 [Web 服務] 索引標籤
-5. 按一下我們建立的 Web 服務
-6. 按一下「預設」端點
-
-從這裡您可以進行一些動作，例如監視 Web 服務的執行狀況，以及變更服務可處理的並行呼叫數來調整效能。
-
-如需詳細資訊，請參閱：
-
-* [建立端點](create-endpoint.md)
-* [調整 Web 服務](scaling-webservice.md)
-
-### <a name="manage-a-classic-or-new-web-service-in-the-azure-machine-learning-web-services-portal"></a>在 Azure Machine Learning Web 服務入口網站中管理傳統或新式 Web 服務
 
 一旦部署 Web 服務 (傳統或新式) 之後，您就可以從 [Microsoft Azure Machine Learning Web 服務](https://services.azureml.net/quickstart)入口網站管理它。
 

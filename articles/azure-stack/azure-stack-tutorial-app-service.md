@@ -1,6 +1,6 @@
 ---
-title: "將 Web、行動裝置與 API 應用程式提供給您的 Azure Stack 使用者 | Microsoft Docs"
-description: "此教學課程說明如何安裝 App Service 資源提供者，並建立供應項目以為您的 Azure Stack 使用者提供建立 Web、行動裝置與 API 應用程式的能力。"
+title: "將 Web 與 API 應用程式提供給您的 Azure Stack 使用者 | Microsoft Docs"
+description: "此教學課程說明如何安裝 App Service 資源提供者，並建立供應項目，讓您的 Azure Stack 使用獲得建立 Web 與 API 應用程式的能力。"
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -15,15 +15,15 @@ ms.topic: tutorial
 ms.date: 7/03/2017
 ms.author: erikje
 ms.custom: mvc
-ms.openlocfilehash: 2d011e933cb063eef88a372fccc49d2b9de19717
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42d94eea8b9e4db611b821cd84e7d02f1d226293
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
-# <a name="make-web-mobile-and-api-apps-available-to-your-azure-stack-users"></a>將 Web、行動裝置與 API 應用程式提供給您的 Azure Stack 使用者
+# <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>將 Web 與 API 應用程式提供給您的 Azure Stack 使用者
 
-身為 Azure Stack 雲端系統管理員，您可以建立供應項目，以讓您的使用者 (租用戶) 建立 Azure Functions 與 Web、行動裝置與 API 應用程式。 透過將對這些隨選雲端式應用程式的存取權提供給您的使用者，您可以節省其時間與資源。 若要設定，您將必須：
+身為 Azure Stack 雲端系統管理員，您可以建立供應項目，以讓您的使用者 (租用戶) 建立 Azure Functions 和 Web，還有 API 應用程式。 透過將對這些隨選雲端式應用程式的存取權提供給您的使用者，您可以節省其時間與資源。 若要設定，您將必須：
 
 > [!div class="checklist"]
 > * 部署 App Service 資源提供者
@@ -57,7 +57,8 @@ ms.lasthandoff: 10/11/2017
 既然您已部署 App Service 資源提供者並建立供應項目，您能以使用者身分登入並訂閱該供應項目，然後建立應用程式。 針對此範例，我們將建立 DNN 平台內容管理系統。 您必須先建立 SQL 資料庫，然後再建立 DNN Web 應用程式。
 
 ### <a name="subscribe-to-the-offer"></a>訂閱該供應項目
-1. 以租用戶身分登入 Azure Stack 入口網站 ( https://portal.local.azurestack.external )。
+1. 以租用戶身分登入 Azure Stack 入口網站 
+( https://portal.local.azurestack.external )。
 2. 按一下 [取得訂用帳戶] > 在 [顯示名稱] 下輸入 **TestAppServiceSubscription** > [選取服務] > [TestAppServiceOffer] > [建立]。
 
 ### <a name="create-a-sql-database"></a>建立 SQL 資料庫

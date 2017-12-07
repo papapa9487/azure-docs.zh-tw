@@ -1,27 +1,19 @@
 ---
-title: "升級 Azure Container Service (AKS) 叢集 | Microsoft Docs"
+title: "升級 Azure Container Service (AKS) 叢集"
 description: "升級 Azure Container Service (AKS) 叢集"
 services: container-service
-documentationcenter: 
 author: gabrtv
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: "Kubernetes, Docker, 容器, 微服務, Azure"
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 15e3e96587962ef9cc531e1825f37b92d26928fd
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 40b55309ee4c52743b30682d8751e6e432f9bb4a
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="upgrade-an-azure-container-service-aks-cluster"></a>升級 Azure Container Service (AKS) 叢集
 
@@ -43,7 +35,7 @@ Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion 
 default  myResourceGroup  1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
 ```
 
-我們有三個版本可進行升級：1.7.9、1.8.1 和 1.8.2。 我們可以使用 `az aks upgrade` 命令，升級為最新的可用版本。  在升級過程中，會仔細地[隔離並清空](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) \(英文\) 節點，將執行應用程式的中斷情況降到最低。
+我們有三個版本可進行升級：1.7.9、1.8.1 和 1.8.2。 我們可以使用 `az aks upgrade` 命令，升級為最新的可用版本。  在升級過程中，會仔細地[隔離並清空](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) \(英文\) 節點，將執行應用程式的中斷情況降到最低。  開始進行叢集升級之前，請確定您有足夠的額外計算容量可處理新增和移除叢集節點時的工作負載。
 
 ```azurecli-interactive
 az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.2

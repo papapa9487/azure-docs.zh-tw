@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/25/2017
 ms.author: pratshar
-ms.openlocfilehash: 9c00cf88fa8b754c92cfd0f01be61a596d04d7c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 160457fdad57cd947077aeb3a4ed85fd2a2849d8
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="failover-in-site-recovery"></a>Site Recovery 中的容錯移轉
 本文說明如何容錯移轉 Site Recovery 所保護的虛擬機器和實體伺服器。
@@ -70,7 +70,7 @@ ms.lasthandoff: 10/11/2017
 1. 一旦您滿意容錯移轉的虛擬機器，您可以 [認可] 容錯移轉。 [認可] 會刪除服務可用的所有復原點，而且無法再使用 [變更復原點] 選項。
 
 ## <a name="planned-failover"></a>計劃性容錯移轉
-使用 Site Recovery 保護的虛擬機器/實體伺服器也支援**計劃性容錯移轉**。 計劃性容錯移轉是完全不會遺失資料的容錯移轉選項。 觸發計劃性容錯移轉時，首先，來源虛擬機器會關機，尚未同步處理的資料會同步處理，然後觸發容錯移轉。
+使用 Site Recovery 保護的虛擬機器/實體伺服器也支援**計劃性容錯移轉**。 計劃性容錯移轉是完全不會遺失資料的容錯移轉選項。 觸發計劃性容錯移轉時，首先，來源虛擬機器會關機，最新的資料會同步處理，然後觸發容錯移轉。
 
 > [!NOTE]
 > 當您在兩個內部部署網站之間容錯移轉 Hyper-v 虛擬機器時，若要回到主要內部部署網站，您必須先將虛擬機器**反向複寫**回主要網站，然後再觸發容錯移轉。 如果主要虛擬機器無法使用，則開始**反向複寫**之前，您必須從備份還原虛擬機器。   

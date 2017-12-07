@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 11/23/2017
 ms.author: jeedes
-ms.openlocfilehash: b23e73c47b9a00893e036b67826e4b7ead819a1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52212c44c925598b2c19df1b20eb4e8123f974ba
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-druva"></a>教學課程：Azure Active Directory 與 Druva 整合
 
@@ -104,21 +104,27 @@ Druva 與 Azure AD 整合提供下列優點：
  
     ![單一登入對話方塊](./media/active-directory-saas-druva-tutorial/tutorial_druva_samlbase.png)
 
-3. 在 [Druva 網域與 URL] 區段中，執行下列步驟：
+3. 如果您想要以 **IDP** 起始模式設定應用程式，請在 [Druva 網域及 URL] 區段上執行下列步驟：
 
     ![設定單一登入](./media/active-directory-saas-druva-tutorial/tutorial_druva_url.png)
 
+    在 [識別碼] 文字方塊中，輸入字串值：`druva-cloud`
+    
+4. 按一下 [顯示進階 URL 設定]。 如果您想要以 **SP** 起始模式設定應用程式：
+
+    ![設定單一登入](./media/active-directory-saas-druva-tutorial/tutorial_druva_url1.png)
+    
     在 [登入 URL] 文字方塊中，輸入 URL：`https://cloud.druva.com/home`
 
-4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
+5. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
     ![憑證下載連結](./media/active-directory-saas-druva-tutorial/tutorial_druva_certificate.png) 
 
-5. Druva 應用程式需要特定格式的 SAML 判斷提示，您需要將自訂屬性對應加入您的 **SAML 權杖屬性**組態。 
+6. Druva 應用程式需要特定格式的 SAML 判斷提示，您需要將自訂屬性對應加入您的 **SAML 權杖屬性**組態。 
 
     ![設定單一登入](./media/active-directory-saas-druva-tutorial/tutorial_druva_attribute.png)
 
-6. 在 [單一登入] 對話方塊的 [使用者屬性] 區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
+7. 在 [單一登入] 對話方塊的 [使用者屬性] 區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
 
     | 屬性名稱      | 屬性值      |
     | ------------------- | -------------------- |
@@ -136,47 +142,47 @@ Druva 與 Azure AD 整合提供下列優點：
     
     d. 按一下 [確定] 。    
 
-7. 按一下 [儲存]  按鈕。
+8. 按一下 [儲存]  按鈕。
 
     ![設定單一登入](./media/active-directory-saas-druva-tutorial/tutorial_general_400.png)
 
-8. 在 [Druva 組態] 區段上，按一下 [設定 Druva] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL 和 SAML 單一登入服務 URL]。
+9. 在 [Druva 組態] 區段上，按一下 [設定 Druva] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL 和 SAML 單一登入服務 URL]。
 
     ![設定單一登入](./media/active-directory-saas-druva-tutorial/tutorial_druva_configure.png) 
 
-9. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Druva 公司網站。
+10. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Druva 公司網站。
 
-10. 移至 [管理] \> [設定]。
+11. 移至 [管理] \> [設定]。
 
     ![設定](./media/active-directory-saas-druva-tutorial/ic795091.png "設定")
 
-11. 在 [單一登入設定] 對話方塊中，執行下列步驟：
+12. 在 [單一登入設定] 對話方塊中，執行下列步驟：
 
     ![單一登入設定](./media/active-directory-saas-druva-tutorial/ic795092.png "單一登入設定")
     
-    a. 將您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值，貼到 [識別碼提供者登入 URL] 文字方塊中。
-    
-    b. 在 [識別碼提供者登出 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] 值。
-    
-     c. 在記事本中開啟您的 base-64 編碼的憑證，將其內容複製到您的剪貼簿，然後貼到 [識別提供者憑證]  文字方塊中。
+    a. 在 [識別碼提供者登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [單一登入服務 URL] 值。
+        
+    b. 在 [識別碼提供者登出 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] 值
+        
+    c. 在記事本中開啟您的 base-64 編碼的憑證，將其內容複製到您的剪貼簿，然後貼到 [識別提供者憑證]  文字方塊中。
      
-     d. 按一下 [儲存] 來開啟 [設定] 頁面。
+    d. 按一下 [儲存] 來開啟 [設定] 頁面。
 
-12. 在 [設定] 頁面上，按一下 [產生 SSO Token]。
+13. 在 [設定] 頁面上，按一下 [產生 SSO Token]。
 
     ![設定](./media/active-directory-saas-druva-tutorial/ic795093.png "設定")
 
-13. 在 [單一登入驗證 Token]  對話方塊中，執行下列步驟：
+14. 在 [單一登入驗證 Token]  對話方塊中，執行下列步驟：
 
     ![SSO 權杖](./media/active-directory-saas-druva-tutorial/ic795094.png "SSO 權杖")
     
-    a. 按一下 [複製]，在 [新增屬性] 區段的 [值] 文字方塊中貼上複製的值。
+    a. 按一下 [複製]，在 Azure 入口網站之 [新增屬性] 區段的 [值] 文字方塊中貼上複製的值。
     
     b. 按一下 [關閉] 。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+ 
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -190,7 +196,7 @@ Druva 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-druva-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
+2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-druva-tutorial/create_aaduser_02.png)
 
@@ -280,8 +286,6 @@ Druva 與 Azure AD 整合提供下列優點：
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

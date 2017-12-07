@@ -4,7 +4,7 @@ description: "了解如何建立、解密和編輯 StorSimple 8000 系列裝置�
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2017
+ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 92abbb96b2117e10800de61b5c405a784453265b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 641109970865ea915f83d48488f1bdf5cb2d5242
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>建立及管理 StorSimple 8000 系列的支援封裝
 
@@ -58,14 +58,14 @@ StorSimple 支援封裝是一種簡便的機制，可收集所有相關的記錄
    
    * 對於受密碼保護的網路共用，請輸入：
      
-       `Export-HcsSupportPackage –PackageTag "MySupportPackage" –Credential "Username" -Force`
+       `Export-HcsSupportPackage -Path <\\IP address\location of the shared folder> -Include Default -Credential domainname\username`
      
-       系統會提示您輸入密碼、網路共用的資料夾路徑及加密複雜密碼 (因為支援封裝已加密)。 然後會在指定的資料夾中建立支援封裝。
+       系統會提示您輸入密碼及加密複雜密碼 (因為支援封裝已加密)。 然後會在預設資料夾 (裝置名稱加上目前的日期和時間) 中建立支援封裝。
    * 對於不受密碼保護的共用內容，您不需要 `-Credential` 參數。 輸入以下資訊：
      
-       `Export-HcsSupportPackage –PackageTag "MySupportPackage" -Force`
+       `Export-HcsSupportPackage`
      
-       在指定的網路共用資料夾中，同時為兩個控制器建立支援封裝。 這是加密的壓縮檔案，可傳送給 Microsoft 支援服務進行疑難排解。 如需詳細資訊，請參閱 [連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md)。
+       在預設的資料夾中，同時為兩個控制器建立支援封裝。 該封裝是加密的壓縮檔案，可傳送給 Microsoft 支援服務進行疑難排解。 如需詳細資訊，請參閱 [連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md)。
 
 ### <a name="the-export-hcssupportpackage-cmdlet-parameters"></a>The Export-HcsSupportPackage cmdlet 參數
 

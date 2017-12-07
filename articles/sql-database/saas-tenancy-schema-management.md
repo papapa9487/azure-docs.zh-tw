@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: 701a7296368cd8150eedf8cc50b989fdf6112101
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: c3eaa4d490b61b746e427d2fe2640ae5cdd6032c
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>在使用 Azure SQL Database 的多租用戶應用程式中，管理多租用戶的結構描述
 
@@ -44,8 +44,8 @@ ms.lasthandoff: 11/16/2017
 * 已安裝 Azure PowerShell。 如需詳細資料，請參閱[開始使用 Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * 已安裝最新版的 SQL Server Management Studio (SSMS)。 [下載並安裝 SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
-*本教學課程使用的 SQL Database 服務功能處於有限預覽版狀態 (彈性資料庫作業)。如果想要進行本教學課程，請將您的訂用帳戶識別碼提供給 SaaSFeedback@microsoft.com，並使用主旨 Elastic Jobs Preview (彈性作業預覽)。在您收到訂用帳戶已啟用的確認之後，請[下載並安裝最新的發行前版本作業 Cmdlet (英文)](https://github.com/jaredmoo/azure-powershell/releases)。這是有限預覽版，如果有相關問題或需要支援，請連絡 SaaSFeedback@microsoft.com。*
-
+> [!NOTE]
+> 本教學課程使用的 SQL Database 服務功能處於有限預覽版狀態 (彈性資料庫工作)。 如果想要進行本教學課程，請將您的訂用帳戶識別碼提供給 SaaSFeedback@microsoft.com，並使用主旨 Elastic Jobs Preview (彈性作業預覽)。 在您收到訂用帳戶已啟用的確認之後，請[下載並安裝最新的發行前版本作業 Cmdlet (英文)](https://github.com/jaredmoo/azure-powershell/releases)。 這是有限預覽版，如果有相關問題或需要支援，請連絡 SaaSFeedback@microsoft.com。
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>SaaS 結構描述管理模式的簡介
 
@@ -59,11 +59,11 @@ ms.lasthandoff: 11/16/2017
 新版本的「彈性作業」現在是 Azure SQL Database 的整合功能 (不需要額外的服務或元件)。 這個新的「彈性作業」版本目前處於有限預覽版狀態。 這個有限預覽版目前支援使用 PowerShell 建立作業帳戶，以及使用 T-SQL 建立及管理作業。
 
 > [!NOTE]
-> *本教學課程使用的 SQL Database 服務功能處於有限預覽版狀態 (彈性資料庫作業)。如果想要進行本教學課程，請將您的訂用帳戶識別碼提供給 SaaSFeedback@microsoft.com，並使用主旨 Elastic Jobs Preview (彈性作業預覽)。在您收到訂用帳戶已啟用的確認之後，請[下載並安裝最新的發行前版本作業 Cmdlet (英文)](https://github.com/jaredmoo/azure-powershell/releases)。這是有限預覽版，如果有相關問題或需要支援，請連絡 SaaSFeedback@microsoft.com。*
+> 本教學課程使用的 SQL Database 服務功能處於有限預覽版狀態 (彈性資料庫工作)。 如果想要進行本教學課程，請將您的訂用帳戶識別碼提供給 SaaSFeedback@microsoft.com，並使用主旨 Elastic Jobs Preview (彈性作業預覽)。 在您收到訂用帳戶已啟用的確認之後，請[下載並安裝最新的發行前版本作業 Cmdlet (英文)](https://github.com/jaredmoo/azure-powershell/releases)。 這是有限預覽版，如果有相關問題或需要支援，請連絡 SaaSFeedback@microsoft.com。
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>取得 Wingtip Tickets SaaS Database Per Tenant 應用程式指令碼
 
-在 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) github 存放庫中可取得 Tickets SaaS Database Per Tenant 指令碼和應用程式原始程式碼。 [下載 Wingtip Tickets SaaS Database Per Tenant 指令碼的步驟](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts)。
+可在 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 存放庫中使用 Wingtip Tickets SaaS 多租用戶資料庫指令碼和應用程式來源程式碼。 關於下載和解除封鎖 Wingtip Tickets SaaS 指令碼的步驟，請參閱[一般指引](saas-tenancy-wingtip-app-guidance-tips.md)。
 
 ## <a name="create-a-job-account-database-and-new-job-account"></a>建立作業帳戶資料庫和新的作業帳戶
 
@@ -91,13 +91,14 @@ ms.lasthandoff: 11/16/2017
 1. 修改陳述式：SET @wtpUser = &lt;user&gt; ，並使用您在部署 Wingtip Tickets SaaS 每一租用戶一個資料庫應用程式時使用的 User 值來取代
 1. 確定您已連線到 jobaccount 資料庫，然後按 **F5** 以執行指令碼
 
+請注意下列 *DeployReferenceData.sql* 指令碼中的內容：
 * **sp\_add\_target\_group** 會建立目標群組名稱 DemoServerGroup，我們現在需要新增目標成員。
 * **sp\_add\_target\_group\_member** 會新增「伺服器」目標成員類型，這會將該伺服器 (請注意，這是包含租用戶資料庫的 tenants1-dpt-&lt;User&gt; 伺服器) 中的所有資料庫視為作業執行時應包含在作業中的項目，其次是新增「資料庫」目標成員類型，具體而言是「範本」資料庫 (basetenantdb)，它位於 catalog-dpt-&lt;User&gt; 伺服器上，最後，另一個「資料庫」目標群組成員類型會包括稍後教學課程要使用的 adhocanalytics 資料庫。
 * **sp\_add\_job** 會建立稱為「參考資料部署」的作業
 * **sp\_add\_jobstep** 會建立作業步驟，包含更新參考資料表 VenueTypes 的 T-SQL 命令文字
 * 指令碼中的其餘檢視會顯示物件是否存在，以及監視作業執行。 使用這些查詢來檢閱 **lifecycle** 資料行中的值，以判斷作業在所有租用戶資料庫上，以及包含參考資料表的兩個額外資料庫上成功完成的時間。
 
-1. 在 SSMS 中，瀏覽至 *tenants1-dpt-\<user\>* 伺服器上的 *contosoconcerthall* 資料庫，並查詢 *VenueTypes* 資料表以確認 *Motorcycle Racing* (機車賽) 和 *Swimming Club* (游泳俱樂部) 現在**存在於**結果清單中。
+在 SSMS 中，瀏覽至 *tenants1-dpt-\<user\>* 伺服器上的 *contosoconcerthall* 資料庫，並查詢 *VenueTypes* 資料表以確認 *Motorcycle Racing* (機車賽) 和 *Swimming Club* (游泳俱樂部) 現在**存在於**結果清單中。
 
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>建立作業以管理參考資料表索引
@@ -111,9 +112,10 @@ ms.lasthandoff: 11/16/2017
 1. 按一下滑鼠右鍵並選取 [連線]，然後連線到 catalog-dpt-&lt;User&gt;.database.windows.net 伺服器 (如果您尚未連線)
 1. 確定您已連線到 jobaccount 資料庫，然後按 F5 以執行指令碼
 
-* sp\_add\_job 會建立稱為「線上 PK 索引重建\_\_VenueTyp\_\_265E44FD7FD4C885」的新作業
-* sp\_add\_jobstep 會建立作業步驟，其中包含要更新索引的 T-SQL 命令文字
-
+請注意下列 *OnlineReindex.sql* 指令碼中的內容：
+* **sp\_add\_job** 會建立稱為「線上 PK 索引重建\_\_VenueTyp\_\_265E44FD7FD4C885」的新作業
+* **sp\_add\_jobstep** 會建立作業步驟，其中包含要更新索引的 T-SQL 命令文字
+* 指令碼中的其餘檢視會監視作業執行。 使用這些查詢來檢閱 **lifecycle** 資料行中的值，以判斷作業在所有目標群組成員上成功完成的時間。
 
 
 
@@ -127,7 +129,7 @@ ms.lasthandoff: 11/16/2017
 > * 更新所有租用戶資料庫中的資料
 > * 針對所有租用戶資料庫中的資料表建立索引
 
-[臨機操作分析教學課程](saas-tenancy-adhoc-analytics.md)
+接下來請嘗試[臨機操作報告教學課程](saas-tenancy-adhoc-analytics.md)。
 
 
 ## <a name="additional-resources"></a>其他資源

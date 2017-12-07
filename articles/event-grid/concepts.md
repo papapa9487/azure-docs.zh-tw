@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: babanisa
-ms.openlocfilehash: 5b69478bf00284594b984fde452f6bed4e73859b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ccbd861c985e54a3808c0d4e8ea6169b6a61f134
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event Grid 中的概念
 
@@ -20,7 +20,7 @@ Azure Event Grid 中的主要概念如下：
 
 ## <a name="events"></a>事件
 
-事件是完整說明系統中發生內容的最小量資訊。  每個事件都有一般資訊，例如：事件來源、事件發生的時間，以及唯一識別碼。  每個事件也有只與特定事件相關的特定資訊。 例如，關於在 Azure 儲存體中建立新檔案的事件包含檔案相關詳細資料，例如 lastTimeModified 值。 或者，關於虛擬機器重新開機的事件包含虛擬機器的名稱，以及重新開機的原因。 每個事件會限制為 64 KB 資料。
+事件是完整說明系統中發生內容的最小量資訊。  每個事件都有一般資訊，例如：事件來源、事件發生的時間，以及唯一識別碼。  每個事件也有只與特定事件類型相關的特定資訊。 例如，關於在 Azure 儲存體中建立新檔案的事件包含檔案相關詳細資料，例如 `lastTimeModified` 值。 或者，關於虛擬機器重新開機的事件包含虛擬機器的名稱，以及重新開機的原因。 每個事件會限制為 64 KB 資料。
 
 ## <a name="event-sourcespublishers"></a>事件來源/發行者
 
@@ -46,7 +46,7 @@ Azure Event Grid 中的主要概念如下：
 
 ## <a name="security"></a>安全性
 
-事件提供訂閱主題和發佈主題的安全性。 訂閱時，您必須在資源或主題上具有適當權限。 發佈時，您必須具有該主題的 SAS 權杖或金鑰驗證。 如需詳細資訊，請參閱 [Event Grid 安全性和驗證](security-authentication.md)。
+Event Grid 提供訂閱主題和發佈主題的安全性。 訂閱時，您必須在資源或主題上具有適當權限。 發佈時，您必須具有該主題的 SAS 權杖或金鑰驗證。 如需詳細資訊，請參閱 [Event Grid 安全性和驗證](security-authentication.md)。
 
 ## <a name="failed-delivery"></a>傳遞失敗
 

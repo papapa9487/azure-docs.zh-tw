@@ -1,7 +1,7 @@
 ---
 title: "Azure Data Lake Tools：使用 Azure Data Lake Tools for Visual Studio Code | Microsoft Docs"
 description: "了解如何使用 Azure Data Lake Tools for Visual Studio Code 來建立、測試和執行 U-SQL 指令碼。 "
-Keywords: "VScode,Azure Data Lake Tools,本機執行,本機偵錯,預覽儲存體檔案,上傳至儲存體路徑,下載,上傳"
+Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview file,upload to storage path,download,upload
 services: data-lake-analytics
 documentationcenter: 
 author: jejiang
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/10/2017
+ms.date: 11/10/2017
 ms.author: jejiang
-ms.openlocfilehash: e724a8db4424a1e608ae7ee5625cd4cc16f6078f
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 60307b8b16718fdc947bde7616532fa6a0920cf0
+ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>使用 Azure Data Lake Tools for Visual Studio Code
 
 了解 Azure Data Lake Tools for Visual Studio Code (VS Code) 以建立、測試和執行 U-SQL 指令碼。 下列影片中也涵蓋此資訊︰
 
-<a href="https://www.youtube.com/watch?v=J_gWuyFnaGA&feature=youtu.be"><img src="./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png"></a>
+<a href="https://channel9.msdn.com/Series/AzureDataLake/Azure-Data-Lake-Tools-for-VSCode?term=ADL%20Tools%20for%20VSCode"><img src="./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png"></a>
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -86,33 +86,20 @@ Azure Data Lake Tools for VSCode 支援 Windows、Linux 及 MacOS。
 
     這個指令碼會在 /output 資料夾中建立 departments.csv 檔案並納入一些資料。
 
-5. 在開啟的資料夾中，將檔案儲存為 **myUSQL.usql**。 專案中也會加入 adltools_settings.json 組態檔。
-4. 開啟 adltools_settings.json，並使用下列屬性設定︰
+5. 在開啟的資料夾中，將檔案儲存為 **myUSQL.usql**。 xxx_settings.json 組態檔也會新增到資料夾。
+6. 開啟 xxx_settings.json 並使用下列屬性設定：
 
-    - 帳戶：在您的 Azure 訂用帳戶下的 Data Lake Analytics 帳戶。
+    - 帳戶：編譯及執行 U-SQL 作業時需使用的 Azure 訂用帳戶下之 Data Lake Analytics 帳戶，因此需要先設定電腦帳戶，然後再編譯及執行 U-SQL 作業。
     - 資料庫：您帳戶底下的資料庫。 預設值為 **master**。
     - 結構描述：您資料庫底下的結構描述。 預設值為 **dbo**。
     - 選擇性設定︰
         - 優先順序︰優先順序範圍是從 1 到 1000，1 是最高的優先順序。 預設值為 **1000**。
         - 平行處理原則︰平行處理原則的範圍是從 1 到 150。 預設值為您 Azure Data Lake Analytics 帳戶中允許的平行處理原則上限。 
         
-        > [!NOTE] 
-        > 如果設定無效，則會使用預設值。
-
         ![Data Lake Tools for Visual Studio Code 組態檔](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-configuration-file.png)
-
-        編譯和執行 U-SQL 作業需要計算 Data Lake Analytics 帳戶。 編譯和執行 U-SQL 作業之前，您必須先設定電腦帳戶。
-    
-        在儲存組態後，帳戶、資料庫和結構描述資訊就會出現在對應之 .usql 檔案左下角的狀態列上。 
- 
- 
-相較於開啟檔案，當您開啟資料夾時，您可以：
-
-- 使用程式碼後置檔案。 在單一檔案模式中，不支援程式碼後置。
-- 使用組態檔。 當您開啟資料夾時，工作資料夾中的指令碼會共用一個組態檔。
-
-
-U-SQL 指令碼會透過 Data Lake Analytics 服務在遠端進行編譯。 當您發出**編譯**命令時，U-SQL 指令碼會傳送至 Data Lake Analytics 帳戶。 之後，Visual Studio Code 會收到編譯結果。 因為是遠端編譯，所以 Visual Studio Code 會需要您列出資訊才能連線到您在組態檔中的 Data Lake Analytics 帳戶。
+      
+        > [!NOTE] 
+        > 在儲存組態後，帳戶、資料庫和結構描述資訊就會出現在對應之 .usql 檔案左下角的狀態列上。
 
 **編譯 U-SQL 指令碼**
 
@@ -129,29 +116,8 @@ U-SQL 指令碼會透過 Data Lake Analytics 服務在遠端進行編譯。 當�
 
 若要能夠輸出作業詳細資料，請在 **vs code for the u-sql_settings.json** 檔案中設定 **jobInformationOutputPath**。
  
-## <a name="use-a-code-behind-file"></a>使用程式碼後置檔案
-
-程式碼後置檔案是與單一 U-SQL 指令碼關聯的 C# 檔案。 您可以在程式碼後置檔案中定義專用於 UDO、UDA、UDT 和 UDF 的指令碼。 UDO、UDA、UDT 和 UDF 可以直接在指令碼中使用，而不需要先註冊組件。 程式碼後置檔案會放在與其對等互連 U-SQL 指令碼檔案相同的資料夾中。 如果指令碼名稱為 xxx.usql，程式碼後置就會被命名為 xxx.usql.cs。 如果您手動刪除該程式碼後置檔案，系統就會停用其相關聯之 U-SQL 指令碼的程式碼後置功能。 如需撰寫 U-SQL 指令碼之客戶程式碼的詳細資訊，請參閱[在 U-SQL 中撰寫並使用自訂程式碼：使用者定義函式]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/) (英文)。
-
-若要支援程式碼後置，您必須開啟工作資料夾。 
-
-**產生程式碼後置檔案**
-
-1. 開啟來源檔案。 
-2. 選取 Ctrl+Shift+P 以開啟命令選擇區。
-3. 輸入 **ADL: Generate Code Behind**。 程式碼後置檔案會建立在相同的資料夾中。 
-
-您也可以在指令碼檔案上按一下滑鼠右鍵，然後選取 [ADL: Generate Code Behind]。 
-
-若要使用程式碼後置檔案來編譯並提交 U-SQL 指令碼，其方式與獨立的 U-SQL 指令碼檔案相同。
-
-下列兩個螢幕擷取畫面顯示程式碼後置檔案及其相關聯的 U-SQL 指令碼檔案︰
- 
-![Data Lake Tools for Visual Studio Code 程式碼後置](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-behind.png)
-
-![Data Lake Tools for Visual Studio Code 程式碼後置指令碼檔案](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-behind-call.png) 
-
-我們支援本機執行和本機偵錯，如需指示，請參閱[使用 Visual Studio Code 來進行 U-SQL 本機執行和本機偵錯](data-lake-tools-for-vscode-local-run-and-debug.md)。
+## <a name="use-python-r-and-csharp-code-behind-file"></a>使用 Python、R 和 CSharp 程式碼後置檔案
+Azure Data Lake Tool 支援多個自訂程式碼，如需指示，請參閱[針對 VSCode 中的 Azure Data Lake Analytics 使用 Python、R、CSharp 開發 U-SQL](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md) (英文)。
 
 ## <a name="use-assemblies"></a>使用組件
 
@@ -277,14 +243,14 @@ OUTPUT @d1
 您可以使用 Azure Data Lake Storage 相關命令來進行下列作業：
  - 瀏覽 Azure Data Lake Storage 資源。 [列出儲存體路徑](#list-the-storage-path)。 
  - 預覽 Azure Data Lake Storage 檔案。 [預覽儲存體檔案](#preview-the-storage-file)。 
- - 在 VS Code 中直接將檔案上傳至 Azure Data Lake Storage。 [上傳檔案](#upload-file)。
+ - 在 VS Code 中直接將檔案上傳至 Azure Data Lake Storage。 [上傳檔案或資料夾](#upload-file-or-folder)。
  - 在 VS Code 中直接從 Azure Data Lake Storage 下載檔案。 [下載檔案](#download-file)。
 
 ## <a name="list-the-storage-path"></a>列出儲存體路徑 
 
 **透過命令選擇區來列出儲存體路徑**
 
-以滑鼠右鍵按一下指令碼編輯器，然後選取 [ADL: List Storage Path]。
+以滑鼠右鍵按一下指令碼編輯器，然後選取 [ADL: List Path]。
 
 在清單中選擇資料夾，或按一下 [輸入路徑] 或 [從根路徑瀏覽] (以 [輸入路徑] 為例)。 -> 選取您的 **ADLA 帳戶**。 -> 瀏覽或輸入儲存體資料夾路徑 (例如：/output/)。 -> 命令選擇區會根據您的輸入列出路徑資訊。
 
@@ -294,55 +260,40 @@ OUTPUT @d1
 
 **透過按一下滑鼠右鍵來列出儲存體路徑**
 
-在路徑字串上按一下滑鼠右鍵以選取 [List Storage Path] 來繼續。
+以滑鼠右鍵按一下路徑字串，然後選取 [清單路徑] 以繼續。
 
 ![Data Lake Tools for Visual Studio Code 右鍵快顯功能表](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-right-click-path.png)
 
 
 ## <a name="preview-the-storage-file"></a>預覽儲存體檔案
 
-以滑鼠右鍵按一下指令碼編輯器，然後選取 [ADL: Preview Storage File]。
+以滑鼠右鍵按一下指令碼編輯器，然後選取 [ADL: Preview File]。
 
 選取您的 **ADLA 帳戶**。 -> 輸入 Azure 儲存體檔案路徑 (例如，/output/SearchLog.txt)。 -> 結果：檔案在 VSCode 中開啟。
 
    ![Data Lake Tools for Visual Studio Code 預覽檔案結果](./media/data-lake-analytics-data-lake-tools-for-vscode/preview-storage-file.png)
 
-還有另一個預覽儲存體檔案的方式，就是在指令碼編輯器中的檔案完整路徑或檔案相對路徑上，透過右鍵操作功能表來上傳。 
+還有另一個預覽檔案的方式，就是在指令碼編輯器中的檔案完整路徑或檔案相對路徑上，透過右鍵操作功能表來進行。 
 
-## <a name="upload-file"></a>上傳檔案 
+## <a name="upload-file-or-folder"></a>上傳檔案或資料夾
 
-您可以透過輸入 **ADL: Upload File** 或 **ADL: Upload File through Configuration** 命令來上傳檔案。
+1. 以滑鼠右鍵按一下指令碼編輯器，然後選取 [上傳檔案] 或 [上傳資料夾]。
 
-**透過 ADL: Upload File through Configuration 命令來上傳檔案**
-1.  以滑鼠右鍵按一下指令碼編輯器，然後選取 [Upload File through Configuration]。
-2.  VS Code 會顯示一個 JSON 檔案。 您可以輸入檔案路徑，然後同時上傳多個檔案。 指示會顯示在 [輸出] 視窗中。 若要繼續上傳檔案，請儲存 (Ctrl+S) JSON 檔案。
+2. 如果選擇要上傳檔案，請選擇一或多個檔案，如果選擇上傳資料夾，請選擇整個資料夾，然後按一下 [上傳]。 -> 在清單中選擇儲存體資料夾，或按一下 [輸入路徑] 或 [從根路徑瀏覽] (以 [輸入路徑] 為例)。 -> 選取您的 **ADLA 帳戶**。 -> 瀏覽或輸入儲存體資料夾路徑 (例如：/output/)。 -> 按一下 [Choose current folder] 來指定您的上傳目的地。
 
-       ![Data Lake Tools for Visual Studio Code 檔案路徑](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-file.png)
+   ![Data Lake Tools for Visual Studio Code 上傳狀態](./media/data-lake-analytics-data-lake-tools-for-vscode/upload-file.png)    
 
-3.  結果：[輸出] 視窗會顯示檔案上傳狀態。
 
-       ![Data Lake Tools for Visual Studio Code 上傳狀態](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-status.png)     
+   還有另一個將檔案上傳到儲存體的方式，就是在指令碼編輯器中的檔案完整路徑或檔案相對路徑上，透過右鍵操作功能表來上傳。
 
 同時，您可以監視[上傳狀態](#check-storage-tasks-status)。
 
-**透過 ADL: Upload File 命令來上傳檔案**
-
-以滑鼠右鍵按一下指令碼編輯器，然後選取 [Upload File]。
-
-輸入您的**本機檔案路徑**。 -> 在清單中選擇資料夾，或按一下 [輸入路徑] 或 [從根路徑瀏覽] (以 [輸入路徑] 為例)。 -> 選取您的 **ADLA 帳戶**。 -> 瀏覽或輸入儲存體資料夾路徑 (例如：/output/)。 -> 按一下 [Choose current folder] 來指定您的上傳目的地。
-
-![Data Lake Tools for Visual Studio Code 上傳狀態](./media/data-lake-analytics-data-lake-tools-for-vscode/upload-file.png)    
-
-
-還有另一個將檔案上傳到儲存體的方式，就是在指令碼編輯器中的檔案完整路徑或檔案相對路徑上，透過右鍵操作功能表來上傳。
-
-同時，您可以監視[上傳狀態](#check-storage-tasks-status)。
 
 ## <a name="download-file"></a>下載檔案 
-您可以輸入 **ADL: Download Storage File** 或 **ADL: Download Storage File through Configuration** 命令來下載檔案。
+您可以輸入 **ADL: Download File** 或 **ADL: Download File (Advanced)** 命令來下載檔案。
 
-**透過 ADL: Download File through Configuration 命令來下載檔案**
-1. 以滑鼠右鍵按一下指令碼編輯器，然後選取 [Download Storage File through Configuration]。
+**透過 ADL: Download File (Advanced) 下載檔案**
+1. 以滑鼠右鍵按一下指令碼編輯器，然後選取 [Download File (Advanced)]。
 2. VS Code 會顯示一個 JSON 檔案。 您可以輸入檔案路徑，然後同時下載多個檔案。 指示會顯示在 [輸出] 視窗中。 若要繼續下載檔案，請儲存 (Ctrl+S) JSON 檔案。
 
     ![Data Lake Tools for Visual Studio Code 下載檔案與設定](./media/data-lake-analytics-data-lake-tools-for-vscode/download-multi-files.png)
@@ -353,17 +304,16 @@ OUTPUT @d1
 
 同時，您可以監視[下載狀態](#check-storage-tasks-status)。
 
-**透過 ADL: Download Storage File 命令來下載檔案**
+**透過 ADL: Download File 下載檔案**
 
-以滑鼠右鍵按一下指令碼編輯器，然後選取 [Download Storage File]。
+1. 以滑鼠右鍵按一下指令碼編輯器，選取 [下載檔案]，然後從 [選取資料夾] 對話方塊選取目的地資料夾。
 
-在清單中選擇資料夾，或按一下 [輸入路徑] 或 [從根路徑瀏覽] (以 [輸入路徑] 為例)。 -> 選取您的 **ADLA 帳戶**。 -> 瀏覽或輸入儲存體資料夾路徑 (例如：/output/) -> 選擇要下載的檔案。
+2. 在清單中選擇資料夾，或按一下 [輸入路徑] 或 [從根路徑瀏覽] (以 [輸入路徑] 為例)。 -> 選取您的 **ADLA 帳戶**。 -> 瀏覽或輸入儲存體資料夾路徑 (例如：/output/) -> 選擇要下載的檔案。
 
    ![Data Lake Tools for Visual Studio Code 下載狀態](./media/data-lake-analytics-data-lake-tools-for-vscode/download-file.png) 
 
-   在結果圖片中，檔案會儲存為暫存資料夾。 您可以透過 VSCode 功能表 [檔案] -> [喜好設定] -> [設定]，自行為 **usql.defaultLocalFolderForDownload** 參數設定預設的下載路徑。
-
-還有另一個下載儲存體檔案的方式，就是在指令碼編輯器中的檔案完整路徑或檔案相對路徑上，透過右鍵操作功能表來上傳。
+   
+   還有另一個下載儲存體檔案的方式，就是在指令碼編輯器中的檔案完整路徑或檔案相對路徑上，透過右鍵操作功能表來上傳。
 
 同時，您可以監視[下載狀態](#check-storage-tasks-status)。
 
@@ -373,12 +323,20 @@ OUTPUT @d1
 
    ![Data Lake Tools for Visual Studio Code 檢查儲存體狀態](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-status.png)
 
+## <a name="vscode-explorer-integration-with-azure-data-lake"></a>VSCode Explorer 與 Azure Data Lake 整合
+1. 登入之後，您會看到所有 Azure 帳戶都列在 **DataLake 總管**的左側面板中。 展開一個資料庫，即可檢視節點下的 [結構描述]、[資料表]、[組件] 等等。
 
-## <a name="open-azure-storage-explorer"></a>開啟 Azure 儲存體總管
-您可以透過輸入 **ADL: Open Web Azure Storage Explorer** 命令來開啟 **Azure 儲存體總管**，或透過從右鍵快顯功能表選取 Azure 儲存體總管來加以開啟。
+   ![DataLake 總管](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
-**開啟 Azure 儲存體總管**
+2. 您可以用滑鼠右鍵按一下 [組件] 節點，以執行 [註冊組件] 命令。
 
+    ![DataLake 總管](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer-register-assembly.png)
+
+3. 瀏覽至 [儲存體帳戶]，您可以用滑鼠右鍵按一下資料夾或檔案，以上傳或下載檔案。 也可以透過操作功能表，使用**預覽**檔案、**下載**、**複製相對路徑**、**複製完整路徑**等功能。
+
+   ![DataLake 總管](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
+
+## <a name="open-adl-storage-explorer-in-portal"></a>在入口網站中開啟 ADL 儲存體總管
 1. 選取 Ctrl+Shift+P 以開啟命令選擇區。
 2. 輸入 **Open Web Azure Storage Explorer**，或在指令碼編輯器中的相對路徑或完整路徑上按一下滑鼠右鍵，然後選取 **Open Web Azure Storage Explorer**。
 3. 選取 Data Lake Analytics 帳戶。
@@ -420,11 +378,12 @@ Data Lake Tools for VSCode 支援下列功能︰
     ![Data Lake Tools for Visual Studio Code 語法醒目顯示](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 
 ## <a name="next-steps"></a>後續步驟
+- [針對 VSCode 中的 Azure Data Lake Analytics 使用 Python、R、CSharp 開發 U-SQL](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
+- [使用 Visual Studio Code 來進行 U-SQL 本機執行和本機偵錯](data-lake-tools-for-vscode-local-run-and-debug.md)
+- [教學課程：開始使用 Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md)
+- [教學課程：使用 Data Lake Tools for Visual Studio 開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)
+- [針對 Azure Data Lake Analytics 作業開發 U-SQL 組件](data-lake-analytics-u-sql-develop-assemblies.md)
 
-- 如需了解如何使用 Visual Studio Code 來進行 U-SQL 本機執行和本機偵錯，請參閱[使用 Visual Studio Code 來進行 U-SQL 本機執行和本機偵錯](data-lake-tools-for-vscode-local-run-and-debug.md)。
-- 如需 Data Lake Analytics 的入門資訊，請參閱[教學課程︰開始使用 Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md)。
-- 如需 Data Lake Tools for Visual Studio 的相關資訊，請參閱[教學課程：使用 Data Lake Tools for Visual Studio 開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)。
-- 如需有關開發組件的資訊，請參閱[針對 Azure Data Lake Analytics 作業開發 U-SQL 組件](data-lake-analytics-u-sql-develop-assemblies.md)。
 
 
 

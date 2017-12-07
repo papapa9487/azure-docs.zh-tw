@@ -12,27 +12,27 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 11/24/2017
 ms.author: pullabhk;markgal;
-ms.openlocfilehash: 7ef808e933d1c3ff88e18766cd3a29138959297a
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 696f86f616575364bb65021260daf0c8458fc4e9
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshoot-azure-backup-server"></a>針對 Azure 備份伺服器進行疑難排解
 
 您可以針對使用 Azure 備份伺服器搭配下表列出的資訊時所發生的錯誤進行疑難排解。
 
-## <a name="error-invalid-vault-credentials-provided-the-file-is-either-corrupted-or-does-not-have-the-latest-credentials-associated-with-recovery-service"></a>錯誤：提供的保存庫認證無效。 檔案可能損毀或沒有復原服務所關聯的最新認證 
+## <a name="invalid-vault-credentials-provided"></a>提供的保存庫認證無效 
 
 若要解決此問題，請遵循這些[疑難排解步驟](https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues)。
 
-## <a name="error-the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-server"></a>錯誤：代理程式作業因為伺服器上的 DPM 代理程式協調員服務發生通訊錯誤而失敗 
+## <a name="the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-server"></a>代理程式作業因為伺服器上的 DPM 代理程式協調員服務發生通訊錯誤而失敗 
 
 若要解決此問題，請遵循這些[疑難排解步驟](https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues)。
 
-## <a name="error-setup-could-not-update-registry-metadata"></a>錯誤：安裝程式無法更新登錄中繼資料
+## <a name="setup-could-not-update-registry-metadata"></a>安裝程式無法更新登錄中繼資料
 
 若要解決此問題，請遵循這些[疑難排解步驟](https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#installation-issues)。
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 10/13/2017
 | 作業 | 錯誤詳細資料 | 因應措施 |
 | --- | --- | --- |
 | 設定保護群組 | DPM 無法列舉受保護電腦 (受保護的電腦名稱) 上的應用程式元件 | 在相關的資料來源/元件層級按一下設定保護群組 UI 畫面上的 [重新整理] |
-| 設定保護群組 | 無法設定保護 | 如果受保護的伺服器是 SQL Server，請檢查是否以將 sysadmin 角色權限提供給[這篇文章](https://technet.microsoft.com/library/hh757977(v=sc.12).aspx)中所述之受保護電腦上的系統帳戶 (NTAuthority\System)
+| 設定保護群組 | 無法設定保護 | 如果受保護的伺服器是 SQL Server，請檢查是否已將 sysadmin 角色權限提供給[這篇文章](https://technet.microsoft.com/library/hh757977(v=sc.12).aspx)中所述之受保護電腦上的系統帳戶 (NTAuthority\System)
 | 設定保護群組 | 此保護群組在儲存體集區中沒有足夠的可用空間 | 新增至儲存體集區的磁碟[不應包含磁碟分割](https://technet.microsoft.com/library/hh758075(v=sc.12).aspx)。 刪除磁碟上的任何現有磁碟區，然後將它新增到儲存體集區|
 | 原則變更 |無法修改備份原則。 錯誤：由於發生內部服務錯誤 [0x29834]，導致目前的作業失敗。 請稍後再重試操作。 如果問題持續發生， 請連絡 Microsoft 支援服務。 |**原因：**<br/>當安全性設定已啟用，而您嘗試將保留範圍縮減至低於上面指定的最小值，且您使用不受支援的版本 (低於 MAB 2.0.9052 版和 Azure 備份伺服器更新 1) 時，就會出現此錯誤。 <br/>**建議的動作：**<br/> 在此情況下，您應該將保留期限設定為高於指定的最小保留期限 (若是每日則 7 天、若是每週則 4 週、若是每月則 3 個月，若是每年則 1 年)，以繼續進行與原則有關的更新。 (選擇性) 較好的方法是更新備份代理程式和 Azure 備份伺服器，以利用所有安全性更新。 |
 
@@ -67,14 +67,14 @@ ms.lasthandoff: 10/13/2017
 | --- | --- | --- |
 | 備份 | 複本不一致 | 請確定已開啟「保護群組」精靈中的自動一致性檢查選項。 在[這裡](https://technet.microsoft.com/library/cc161593.aspx)找到更多關於複本不一致原因和相關建議的詳細資料 <br> <ol><li> 如果是系統狀態/BMR 備份，請檢查受保護伺服器上是否已安裝 Windows Server Backup </li><li> 檢查 DPM/MABS 伺服器上 DPM 儲存體集區的空間相關問題，並視需要配置儲存體 </li><li> 檢查受保護伺服器上的磁碟區陰影複製服務狀態。 如果它是停用狀態，請將它設定為手動啟動，並在伺服器上啟動服務。 然後返回 DPM/MABS 主控台，並開始一致性檢查作業的同步處理。</li></ol>|
 | 備份 | 執行作業時發生非預期的錯誤，裝置未就緒 | **如果產品所示的建議動作沒有用**， <br> <ol><li>針對保護群組中的項目，將陰影複製儲存空間設定為無限，並執行一致性檢查 <br></li> (或) <li>嘗試刪除現有保護群組，並建立多個新的保護群組，每個保護群組中各有一個個別項目</li></ol> |
-| 備份 | 如果您只要備份系統狀態，請確認受保護的電腦上是否有足夠的可用空間可儲存系統狀態備份 | <ol><li>確認受保護的電腦上已安裝 WSB</li><li>確認受保護的電腦上有足夠空間可存放系統狀態︰最簡單的執行方法是移到受保護的電腦上、開啟 WSB、逐一點選選取項目，然後選取 BMR。 然後，UI 會告訴您這需要多少空間。 開啟 WSB -> 本機備份 -> 備份排程 -> 選取備份設定 -> 完整伺服器 (大小會顯示出來)。 使用此大小進行驗證。</li></ol>
+| 備份 | 如果您只要備份系統狀態，請確認受保護的電腦上是否有足夠的可用空間可儲存系統狀態備份 | <ol><li>確認受保護的電腦上已安裝 WSB</li><li>確認受保護的電腦上有足夠空間可存放系統狀態︰最簡單的執行方法是移到受保護的電腦上、開啟 WSB、逐一點選選取項目，然後選取 BMR。 UI 會告訴您這需要多少空間。 開啟 WSB -> 本機備份 -> 備份排程 -> 選取備份設定 -> 完整伺服器 (大小會顯示出來)。 使用此大小進行驗證。</li></ol>
 | 備份 | 線上復原點建立失敗 | 如果錯誤訊息指出「Windows Azure Backup Agent 無法建立所選磁碟區的快照集」，請嘗試增加複本和復原點磁碟區中的空間。
 | 備份 | 線上復原點建立失敗 | 如果錯誤訊息顯示「Windows Azure 備份代理程式無法連線到 OBEngine 服務」，請確認 OBEngine 存在於電腦上的執行中服務清單。 如果 OBEngine 服務不在執行中，請使用 "net start OBEngine" 命令來啟動 OBEngine 服務。
 | 備份 | 線上復原點建立失敗 | 如果錯誤訊息指出「未設定此伺服器的加密複雜密碼。 請設定加密複雜密碼」，請嘗試設定加密複雜密碼。 如果作業失敗， <br> <ol><li>請檢查暫存位置是否存在。 名稱為 “ScratchLocation” 之登錄 HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config 中所提到的位置應該要存在。</li><li> 如果暫存位置存在，請嘗試使用舊的複雜密碼重新註冊。 **每當您設定加密複雜密碼時，請將它儲存在安全的位置**</li><ol>
 | 備份 | BMR 的備份失敗 | 如果 BMR 大小很大，請將一些應用程式檔案移到作業系統磁碟機後再重試 |
 | 備份 | 重新保護新的 MABS 伺服器上的 VMWare VM，不會顯示為可供新增。 | VMWare 屬性會指向舊的已停用的 MABS 伺服器。 若要解決這個問題：在 VCenter (SC VMM 的對等項目) 中，移至 [摘要] 索引標籤，然後按一下 [自訂屬性]。  從 'DPMServer' 值中刪除舊的 MABS 伺服器名稱。  返回新 MABS 伺服器，並修改 PG。  使用 [重新整理] 按鈕後，會顯示 VM 和可供新增到保護的核取方塊。 |
 | 備份 | 存取檔案/共用資料夾時發生錯誤 | 請嘗試依[這裡](https://technet.microsoft.com/library/hh757911.aspx)的建議修改防毒設定|
-| 備份 | VMware VM 的線上復原點建立作業失敗。 DPM 在嘗試取得變更追蹤資訊時，VMware 發生錯誤。 ErrorCode - FileFaultFault (ID 33621 ) |  1.針對受影響的 VM，在 VMWare 上重設 ctk <br/> 檢查獨立磁碟不在 VMWare 上 <br/> 停止保護受影響的 VM，然後使用 [重新整理] 按鈕重新保護 <br/> 對受影響的 VM 執行 CC|
+| 備份 | VMware VM 的線上復原點建立作業失敗。 DPM 在嘗試取得變更追蹤資訊時，VMware 發生錯誤。 ErrorCode - FileFaultFault (ID 33621 ) |  1.針對受影響的 VM，在 VMWare 上重設 ctk <br/> 2.檢查獨立磁碟不在 VMWare 上 <br/> 3.停止保護受影響的 VM，然後使用 [重新整理] 按鈕重新保護 <br/> 4.對受影響的 VM 執行 CC|
 
 
 ## <a name="change-passphrase"></a>變更複雜密碼
@@ -87,4 +87,4 @@ ms.lasthandoff: 10/13/2017
 ## <a name="configure-email-notifications"></a>設定電子郵件通知
 | 作業 | 錯誤詳細資料 | 因應措施 |
 | --- | --- | --- |
-| 嘗試使用 Office365 帳戶設定電子郵件通知。 | 取得錯誤 ID：2013| **原因：**<br/> 嘗試使用 Office 365 帳戶 <br/> **建議的動作：**<br/> 所要確保的第一件事就是已 Exchange 上設定 DPM 伺服器的「允許接收連接器上的匿名轉送」。 以下是如何進行此設定的連結：http://technet.microsoft.com/en-us/library/bb232021.aspx <br/> 如果您無法使用內部 SMTP 轉送，而需要使用 Office 365 伺服器進行設定，您可以將 IIS 設定為其轉送。 <br/> 您必須將 DPM 伺服器設定為能使用 IIS 將 SMTP 轉送至 O365 (https://technet.microsoft.com/en-us/library/aa995718(v=exchg.65).aspx)，才能設定 IIS 來轉送至 O365 <br/> 重要事項：在步驟 3->g->ii，務必使用 user@domain.com 格式，而非 domain\user 格式 <br/> 指示 DPM 使用本機伺服器名稱作為 SMTP 伺服器、連接埠 587，以及應送出電子郵件的使用者電子郵件。 <br/> DPM SMTP 設定頁面上的使用者名稱和密碼，應該是網域 DPM 所在的網域帳戶。 <br/> 注意：變更 SMTP 伺服器位址時，對新設定進行變更，關閉 [設定] 方塊，然後重新開啟來確定其反映新的值。  只有變更和測試不一定會採用新的設定，因此以這種方式測試是最佳做法。 <br/> 在此程序期間，您可藉由關閉 DPM 主控台並編輯下列登錄機碼，隨時清除這些設定︰<br/> HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> 刪除 SMTPPassword 和 SMTPUserName 索引鍵。 <br/> 再次啟動時，您可以在 UI 中將它們加回。
+| 嘗試使用 Office365 帳戶設定電子郵件通知。 | 取得錯誤 ID：2013| **原因：**<br/> 嘗試使用 Office 365 帳戶 <br/> **建議的動作：**<br/> 1.所要確保的第一件事就是已 Exchange 上設定 DPM 伺服器的「允許接收連接器上的匿名轉送」。 此[連結](http://technet.microsoft.com/en-us/library/bb232021.aspx)會說明如何進行設定。  <br/> 2.如果您無法使用內部 SMTP 轉送，而需要使用 Office 365 伺服器進行設定，您可以將 IIS 設定為其轉送。 您必須將 DPM 伺服器設定為[能夠使用 IIS 轉送 SMTP 至 O365](https://technet.microsoft.com/en-us/library/aa995718(v=exchg.65).aspx) <br/><br/> 重要事項：在步驟 3->g->ii，務必使用 user@domain.com 格式，而非 domain\user 格式 <br/> 指示 DPM 使用本機伺服器名稱作為 SMTP 伺服器、連接埠 587，以及應送出電子郵件的使用者電子郵件。 <br/> DPM SMTP 設定頁面上的使用者名稱和密碼，應該是網域 DPM 所在的網域帳戶。 <br/><br/> 注意：變更 SMTP 伺服器位址時，對新設定進行變更，關閉 [設定] 方塊，然後重新開啟來確定其反映新的值。  只有變更和測試不一定會採用新的設定，因此以這種方式測試是最佳做法。 <br/><br/> 在此程序期間，您可藉由關閉 DPM 主控台並編輯下列登錄機碼，隨時清除這些設定︰<br/> HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> 刪除 SMTPPassword 和 SMTPUserName 索引鍵。 <br/> 再次啟動時，您可以在 UI 中將它們加回。

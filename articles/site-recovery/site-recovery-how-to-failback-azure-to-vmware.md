@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 11/28/2017
 ms.author: ruturajd
-ms.openlocfilehash: 1ca34b262a51b694cb9541750588bbea139eeae1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad424818f41e6b48e754dd0d39771248a1cd04fb
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>從 Azure 容錯回復至內部部署網站
 
@@ -118,13 +118,13 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="commit"></a>認可
 需要認可，以便從 Azure 移除容錯移轉的虛擬機器。
-請以滑鼠右鍵按一下受保護的項目，然後按一下認可。 此時會有作業移除 Azure 中已容錯移轉的虛擬機器。
+請以滑鼠右鍵按一下受保護的項目，然後按一下 [認可]。 此時會有作業移除 Azure 中已容錯移轉的虛擬機器。
 
 ### <a name="reprotect-from-on-premises-to-azure"></a>從內部部署移至 Azure 來重新保護
 
 在認可完成後，虛擬機器會回到內部部署網站上，但不會受到保護。 若要再次開始複寫至 Azure，請執行下列動作：
 
-1. 在 保存庫 > 設定 > 已複寫的項目 中，選取已容錯回復的虛擬機器，然後按一下重新保護。
+1. 在 [保存庫] > [設定] > [已複寫的項目] 中，選取已容錯回復的虛擬機器，然後按一下 [重新保護]。
 2. 提供必須用來將資料傳送回 Azure 之處理伺服器的值。
 3. 按一下 [確定] 以開始重新保護作業。
 
@@ -135,3 +135,17 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="common-issues"></a>常見問題
 請先確定 vCenter 處於已連線狀態，再進行容錯回復。 否則，將磁碟中斷連線並將它們重新連結至虛擬機器的作業會失敗。
+
+### <a name="common-error-codes"></a>常見的錯誤碼
+
+#### <a name="error-code-8038"></a>錯誤碼 8038
+
+*由於發生錯誤而無法啟動內部部署的虛擬機器*
+
+發生這種情況的時機： 
+1. 在未佈建足夠記憶體的主機上啟動內部部署虛擬機器。
+
+若要解決此問題
+1. 您可以在 ESXi 主機上佈建更多記憶體。
+2. 將虛擬機器 vMotion 到另一台有足夠記憶體可啟動虛擬機器的 ESXi 主機。
+

@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 11/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a8024a12c4a79e92e37df0a56b6e6bd0cb6a8d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ed3da2d9730d8c30d8170ddf40fe4895dfa5dec
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>解決資源配額的錯誤
 
@@ -93,9 +93,29 @@ Virtual Machines                             0 10000 Count
 
 ### <a name="solution-3"></a>解決方案 3
 
-如果您需要增加配額限制，請移至入口網站，並提出支援問題，以針對您想要部署的區域提高配額。
+若要要求增加配額，請移至入口網站並提出支援問題。 請在支援問題中，要求提高您要部署的區域的配額。
 
 > [!NOTE]
 > 請記住，對於資源群組，配額適用於每個個別區域，而不是整個訂用帳戶。 如果您需要在美國西部部署 30 個核心，就必須要求在美國西部擁有 30 個資源管理員核心。 如果您需要在任何具有存取權限的區域中部署 30 個核心，就應該要求在所有區域中擁有 30 個 Resource Manager 核心。
 >
 >
+
+1. 選取 [訂用帳戶]。
+
+   ![訂用帳戶](./media/resource-manager-quota-errors/subscriptions.png)
+
+2. 選取需要增加配額的訂用帳戶。
+
+   ![選取訂用帳戶](./media/resource-manager-quota-errors/select-subscription.png)
+
+3. 選取 [使用量 + 配額]
+
+   ![選取使用量和配額](./media/resource-manager-quota-errors/select-usage-quotas.png)
+
+4. 在右上角，選取 [要求增加配額]。
+
+   ![要求增加配額](./media/resource-manager-quota-errors/request-increase.png)
+
+5. 填寫需要增加的配額類型的表單。
+
+   ![填寫表單](./media/resource-manager-quota-errors/forms.png)

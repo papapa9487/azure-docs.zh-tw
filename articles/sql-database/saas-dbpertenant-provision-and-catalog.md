@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
-ms.openlocfilehash: 17eb9b3ff059912e4fe3fafda0b9c435e3983888
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: b82623f63681daff502f1e23d052da7480dda942
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>了解如何佈建新的租用戶並在目錄中註冊它們
 
@@ -68,9 +68,9 @@ SaaS 應用程式以外，目錄可以啟用資料庫工具。  在 Wingtip Tick
 Wingtip Tickets SaaS Database per Tenant 應用程式會佈建新的租用戶，方法是複製目錄伺服器上所部署、名為 basetenantdb 的範本資料庫。  可將佈建整合到應用程式作為註冊體驗的一部分，及/或使用指令碼整合到支援的離線。 本教學課程會使用 PowerShell 來探索佈建。 佈建指令碼會複製 basetenantdb 資料庫，以在彈性集區中建立新的租用戶資料庫，然後使用租用戶專屬的資訊進行初始化，並在目錄分區對應中進行註冊。  在 Wingtip Tickets SaaS Database Per Tenant 應用程式中，會以租用戶名稱作為基礎來指定資料庫的名稱，但這並非模式的重要部分 – 使用目錄可讓任何名稱指派給租用戶資料庫。+ 
 
 
-## <a name="get-the-wingtip-application-scripts"></a>取得 Wingtip 應用程式指令碼
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>取得 Wingtip Tickets SaaS Database Per Tenant 應用程式指令碼
 
-在 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 存放庫可取得 Wingtip Tickets 指令碼和應用程式原始程式碼。 [下載 Wingtip Tickets SaaS 指令碼的步驟](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts)。
+可在 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 存放庫中使用 Wingtip Tickets SaaS 多租用戶資料庫指令碼和應用程式來源程式碼。 關於下載和解除封鎖 Wingtip Tickets SaaS 指令碼的步驟，請參閱[一般指引](saas-tenancy-wingtip-app-guidance-tips.md)。
 
 
 ## <a name="provision-and-catalog-detailed-walkthrough"></a>佈建及編目的詳細逐步解說

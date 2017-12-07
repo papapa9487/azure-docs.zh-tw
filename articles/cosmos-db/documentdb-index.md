@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: ce24e445177b7e2e499309f016478030efa6bfe8
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 8d618e00ed274f5d5705346a4ffd8281769de4e3
+ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="azure-cosmos-db-documentdb-api-documentation"></a>Azure Cosmos DB：DocumentDB API 文件
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/26/2017
 
 ## <a name="quickstarts"></a>快速入門
 
-快速入門主題是使用 Azure Cosmos DB 建立工作應用程式的最快方法。 在每個快速入門中，您可以了解如何使用 UI 型 Azure 入口網站和您最愛的編碼語言，來使用 Azure Cosmos DB 建立資料庫解決方案。 GitHub 區域的可複製 Web 應用程式可用於每個快速入門。 
+快速入門主題是使用 Azure Cosmos DB 建立工作應用程式的最快方法。 在每個快速入門中，您可以了解如何使用 UI 型 Azure 入口網站和您最愛的編碼語言，來使用 Azure Cosmos DB 建立資料庫解決方案。 GitHub 的可複製 Web 應用程式可用於每個快速入門。 
 
 - [.NET + Azure 入口網站 + Web 應用程式](create-documentdb-dotnet.md)
 - [Java + Azure 入口網站 + Web 應用程式](create-documentdb-java.md)

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: sstein
-ms.openlocfilehash: 9b1ae219eb1278b818e3e1d4237d04fe54c980ec
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f91ddff81e51e7cc3d1561dc799013764530924b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>使用 Azure SQL Database，部署及探索使用 每一租用戶一個資料庫模式的多租用戶 SaaS 應用程式
 
@@ -173,7 +173,7 @@ ms.lasthandoff: 11/15/2017
 
 如果負載產生器已經執行數分鐘，應該以有足夠的資料可供開始查看集區和資料庫的內建監視功能。
 
-1. 瀏覽至伺服器 **tenants1-dpt-&lt;USER&gt;**，然後按一下 [Pool1] 檢視集區的資源使用率 (在下列圖表中，負載產生器已執行一個小時)：
+瀏覽至伺服器 **tenants1-dpt-&lt;USER&gt;**，然後按一下 [Pool1] 檢視集區的資源使用率 (在下列圖表中，負載產生器已執行一個小時)：
 
    ![監視集區](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 

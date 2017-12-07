@@ -12,28 +12,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 03/19/2017
+ms.date: 11/13/2017
 ms.author: kraigb
-ms.openlocfilehash: b2578c837732ab05d538e9b896ed3a3035075a70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54acfc7c686dc7025368c381d79cde93d7d48fc5
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="accessing-private-azure-clouds-with-visual-studio"></a>使用 Visual Studio 存取 Azure 私人雲端
-根據預設，Visual Studio 支援 Azure 公用雲端 REST 端點。 在本主題中，您將了解如何使用私人雲端的憑證，從 Visual Studio 存取私人雲端 (並進行互動)。
 
-## <a name="to-access-a-private-azure-cloud-in-visual-studio"></a>存取 Visual Studio 中的 Azure 私人雲端
-1. 在私人雲端的 [Azure 傳統入口網站](http://go.microsoft.com/fwlink/?LinkID=213885)中下載發佈設定檔，或連絡您的系統管理員以取得發佈設定檔。 在 Azure 的公用版本上，下載此檔案的連結是 [https://manage.windowsazure.com/publishsettings/](https://manage.windowsazure.com/publishsettings/)。 (下載檔案的副檔名應該是 `.publishsettings`)
+根據預設，Visual Studio 支援 Azure 雲端 REST 端點。 在本文中，您將了解如何使用私人雲端的憑證，從 Visual Studio 存取私人雲端 (並進行互動)。
 
-1. 開啟 Visual Studio
+1. 在私人雲端的 Azure 入口網站中，下載發佈設定檔，或連絡您的系統管理員以取得發佈設定檔。 (檔案具有副檔名 `.publishsettings`。)
 
-1. 在 [伺服器總管] 中，以滑鼠右鍵按一下 [Azure] 節點，然後從操作功能表中選取 [管理及篩選訂閱]。
-   
+1. 在 Visual Studio [伺服器總管] 中，以滑鼠右鍵按一下 [Azure] 節點，然後選取 [管理及篩選訂閱]。
+
     ![管理訂用帳戶命令](./media/vs-azure-tools-access-private-azure-clouds-with-visual-studio/IC790778.png)
 
 1. 在 [管理 Microsoft Azure 訂用帳戶] 對話方塊中，選取 [憑證] 索引標籤，然後選取 [匯入]。
-   
+
     ![正在匯入 Azure 憑證](./media/vs-azure-tools-access-private-azure-clouds-with-visual-studio/IC790779.png)
 
 1. 在 [匯入 Microsoft Azure 訂用帳戶] 對話方塊中，選取 [瀏覽]。
@@ -49,7 +47,4 @@ ms.lasthandoff: 10/11/2017
     ![匯入發佈設定檔](./media/vs-azure-tools-access-private-azure-clouds-with-visual-studio/IC790780.png)
 
     憑證會從發佈設定檔匯入 Visual Studio，而您現在可以與您的私人雲端資源互動。
-   
-## <a name="next-steps"></a>後續步驟
-- [從 Visual Studio 發佈至 Azure 雲端服務](https://msdn.microsoft.com/library/azure/ee460772.aspx)
-- [如何：下載和匯入發佈設定和訂用帳戶資訊](https://msdn.microsoft.com/library/dn385850\(v=nav.70\).aspx)
+

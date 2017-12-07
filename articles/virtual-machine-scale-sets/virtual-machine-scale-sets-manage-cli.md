@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 2348db8f19391292f79608092a3c2482216493c6
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 5686d8bd3f9817be2308583afe778e0615154580
+ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 管理虛擬機器擴展集
 在虛擬機器擴展集生命週期期間，您可能需要執行一或多個管理工作。 此外，您可以建立指令碼來自動化各種生命週期工作。 本文詳述一些可讓您執行這些工作的一般 Azure CLI 2.0 命令。
@@ -36,7 +36,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 
 ## <a name="view-vms-in-a-scale-set"></a>檢視擴展集中的 VM
-若要檢視擴展集中的 VM 執行個體清單，請使用 [az vmss list-instances](/cli/azure/vmss#list-instances)。 下列範例列出 myScaleSet 擴展集和 myResourceGroup 資源群組中的所有 VM 執行個體。 針對這些名稱提供您自己的值：
+若要檢視擴展集中的 VM 執行個體清單，請使用 [az vmss list-instances](/cli/azure/vmss#list-instances)。 下列範例列出 *myResourceGroup* 資源群組中名稱為 *myScaleSet* 之擴展集中的所有 VM 執行個體。 針對這些名稱提供您自己的值：
 
 ```azurecli
 az vmss list-instances \

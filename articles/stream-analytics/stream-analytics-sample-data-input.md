@@ -1,10 +1,10 @@
 ---
-title: "對 Azure 串流分析中的輸入進行取樣 | Microsoft Docs"
+title: "Azure 串流分析中的查詢測試 |M icrosoft Docs"
 description: "針對串流分析作業進行移難排解時精準找出問題。"
 keywords: "對輸入進行疑難排解、輸入取樣"
 documentationcenter: 
 services: stream-analytics
-author: samacha
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
-ms.openlocfilehash: db9686fad7153d63fc659869b93821200e08397c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: e2636b8b89b86bbb2a2991972386462535d5a10f
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="azure-stream-analytics-input-stream-sampling"></a>Azure 資料流分析輸入串流的取樣
+# <a name="azure-stream-analytics-query-testing-and-input-stream-sampling"></a>Azure 串流分析查詢測試和輸入串流取樣
 
 藉由使用 Azure 串流分析，您可以對來自檔案的輸入事件進行取樣並在入口網站測試查詢，且無須開始或停止作業。
 

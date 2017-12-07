@@ -1,6 +1,6 @@
 ---
 title: "使用多個服務組態設定 Azure 專案 | Microsoft Docs"
-description: "了解如何透過變更 ServiceDefinition.csdef 和 ServiceConfiguration.cscfg 檔案來設定 Azure 雲端服務專案。"
+description: "了解如何透過變更 ServiceDefinition.csdef、ServiceConfiguration.Local.cscfg 和 ServiceConfiguration.Cloud.cscfg 檔案來設定 Azure 雲端服務專案。"
 services: visual-studio-online
 documentationcenter: na
 author: kraigb
@@ -12,97 +12,99 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 11/11/2017
 ms.author: kraigb
-ms.openlocfilehash: 59492ccc64a70680d71ad1de0700ed30f9e45306
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: a6f9b300cd832c5f9615f70ee297e3c5ad728e44
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="configuring-your-azure-project-using-multiple-service-configurations"></a>使用多個服務組態設定 Azure 專案
-Azure 雲端服務專案包含兩個組態檔：ServiceDefinition.csdef 和 ServiceConfiguration.cscfg。 這些檔案會與您的 Azure 雲端服務應用程式一起封裝並部署至 Azure。
+# <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>在 Visual Studio 中設定 Azure 專案，以便使用多個服務組態
 
-* **ServiceDefinition.csdef** 檔案包含 Azure 環境為了符合雲端服務應用程式需求而需要的中繼資料，包括其內含的角色。 這個檔案也包含套用至所有執行個體的組態設定。 在執行階段可以使用 Azure 服務裝載執行階段 API 來讀取這些組態設定。 當您的服務在 Azure 中執行時，無法更新此檔案。
-* **ServiceConfiguration.cscfg** 檔案會設定服務定義檔中所定義組態設定的值，並指定要針對每個角色執行的執行個體數目。 當您的雲端服務在 Azure 中執行時，可以更新此檔案。
+Visual Studio 中的 Azure 雲端服務專案包含三個組態檔：`ServiceDefinition.csdef`、`ServiceConfiguration.Local.cscfg` 和 `ServiceConfiguration.Cloud.cscfg`：
 
-Azure Tools for Microsoft Visual Studio 提供的屬性頁面可供您設定這些檔案中儲存的組態設定。 若要存取屬性頁，請在 [方案總管] 中連按兩下 Azure 雲端服務專案底下的角色參考，或以滑鼠右鍵按一下角色參考並選擇 [屬性] ，如下圖所示。
+- `ServiceDefinition.csdef` 會部署至 Azure，以描述雲端服務及其角色的需求，並提供適用於所有執行個體的設定。 在執行階段可以使用 Azure 服務裝載執行階段 API 來讀取設定。 唯有當雲端服務停止時，您才可以在 Azure 上更新此檔案。
+- `ServiceConfiguration.Local.cscfg` 和 `ServiceConfiguration.Cloud.cscfg` 提供定義檔中的設定值，並指定每個角色要執行的執行個體數目。 "Local" 檔案含有用於本機偵錯的值；"Cloud" 檔案會部署至 Azure 以做為 `ServiceConfiguration.cscfg`，並提供伺服器環境的設定。 當您的雲端服務在 Azure 中執行時，可以更新此檔案。
+
+您可以在 Visual Studio 中使用適當角色的屬性頁來管理和修改組態設定 (以滑鼠右鍵按一下角色，然後選取 [屬性]，或按兩下角色)。 您可以將變更的範圍限定為在 [服務組態] 下拉式清單中選擇的任何組態。 除了以下各節描述的內容之外，Web 與背景工作角色的屬性相去不遠。
 
 ![VS_Solution_Explorer_Roles_Properties](./media/vs-azure-tools-multiple-services-project-configurations/IC784076.png)
 
 如需服務定義檔和服務組態檔的基礎結構描述相關資訊，請參閱 [.csdef XML Schema](cloud-services/schema-csdef-file.md)和 [.cscfg XML Schema](cloud-services/schema-cscfg-file.md)。 如需服務組態的詳細資訊，請參閱 [如何設定雲端服務](cloud-services/cloud-services-how-to-configure-portal.md)。
 
-## <a name="configuring-role-properties"></a>設定角色屬性
-下列各節指出 Web 角色和背景工作角色的屬性頁很類似，但有一些差異。
 
-您可以從 [快取]  頁面設定 Azure 快取服務。
+## <a name="configuration-page"></a>組態頁面
 
-### <a name="configuration-page"></a>組態頁面
-在 [組態]  頁面上，您可以設定下列屬性：
+### <a name="service-configuration"></a>服務組態
 
-**執行個體**
+選取受變更影響的 `ServiceConfiguration.*.cscfg` 檔案。 根據預設，檔案中會有 Local 和 Cloud 變體，您可以使用 [管理...] 命令來複製、重新命名和移除組態檔案。 這些檔案會加入至您的雲端服務專案，且會出現在**方案總管**中。 不過，重新命名或移除組態只能從這個控制項進行。
+
+### <a name="instances"></a>執行個體
 
 將 [執行個體]  計數屬性設定為服務應對此角色執行的執行個體數目。
 
 將 [VM 大小] 屬性設為 [超小]、[小型]、[中型]、[大型] 或 [特大]。  如需詳細資訊，請參閱 [雲端服務的大小](cloud-services/cloud-services-sizes-specs.md)。
 
-**啟動動作** (僅限 Web 角色)
+### <a name="startup-action-web-role-only"></a>啟動動作 (僅限 Web 角色)
 
 設定此屬性，可指定當您開始偵錯時，Visual Studio 應針對 HTTP 端點或 HTTPS 端點或兩者啟動網頁瀏覽器。
 
-只有在您已為角色定義 HTTPS 端點時，才可使用 HTTPS 端點選項。 您可以在 [端點]  屬性頁面上定義 HTTPS 端點。
+只有在您已為角色定義 HTTPS 端點時，才可使用 **HTTPS 端點**選項。 您可以在 [端點]  屬性頁面上定義 HTTPS 端點。
 
-如果您已新增 HTTPS 端點，則預設會啟用 HTTPS 端點選項，而在您開始偵錯時，Visual Studio 會為此端點啟動瀏覽器 (除了為 HTTP 端點啟動瀏覽器以外)。 這是假設兩個啟動選項都已啟用。
+如果您已新增 HTTPS 端點，則預設會啟用 HTTPS 端點選項，而在您開始偵錯時，Visual Studio 除了會為 HTTP 端點啟動瀏覽器之外，還會為此端點啟動瀏覽器 (假設兩種啟動選項均已啟用)。
 
-**診斷**
+### <a name="diagnostics"></a>診斷
 
-Web 角色預設會啟用診斷。 Azure 雲端服務專案和儲存體帳戶已設為使用本機儲存體模擬器。 當您準備好部署至 Azure 時，您可以選取產生器按鈕 ([...])，將儲存體帳戶更新成使用雲端的 Azure 儲存體。 您可以隨選方式或在自動排程的間隔，將診斷資料傳輸至儲存體帳戶。 如需 Azure 診斷的詳細資訊，請參閱 [在 Azure 雲端服務和虛擬機器中啟用診斷](cloud-services/cloud-services-dotnet-diagnostics.md)。
+Web 角色預設會啟用診斷。 Azure 雲端服務專案和儲存體帳戶已設為使用本機儲存體模擬器。 當您準備好部署至 Azure 時，您可以選取產生器按鈕 ([...]) 改用 Azure 儲存體。 您可以隨選方式或在自動排程的間隔，將診斷資料傳輸至儲存體帳戶。 如需 Azure 診斷的詳細資訊，請參閱 [在 Azure 雲端服務和虛擬機器中啟用診斷](cloud-services/cloud-services-dotnet-diagnostics.md)。
 
 ## <a name="settings-page"></a>設定頁面
-在 [設定]  頁面上，您可以新增服務的組態設定。 組態設定是名稱-值組。 在角色中執行的程式碼可以在執行階段使用 [Azure 受管理的資源庫](http://go.microsoft.com/fwlink?LinkID=171026)所提供的類別讀取組態設定的值。 具體來說， [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx) 方法會在執行階段傳回具名組態設定的值。
 
-### <a name="configuring-a-connection-string-to-a-storage-account"></a>設定儲存體帳戶的連接字串
-連接字串是一個組態設定，可為儲存體模擬器或 Azure 儲存體帳戶提供連接和驗證資訊。 每當您的程式碼必須從在角色中執行的程式碼存取 Azure 儲存體服務資料 (也就是 Blob、佇列或資料表資料) 時，您必須定義該儲存體帳戶的連接字串。
+在 [設定] 頁面上，您可以利用成對的名稱和數值形式將設定加入組態。 在角色中執行的程式碼可以在執行階段使用 [Azure 受控程式庫](http://go.microsoft.com/fwlink?LinkID=171026) 所提供的類別 (具體而言，使用 [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx) 方法) 讀取組態設定的值。
 
-指向 Azure 儲存體帳戶的連接字串必須使用已定義的格式。 如需如何建立連接字串的相關資訊，請參閱 [設定 Azure 儲存體連接字串](storage/common/storage-configure-connection-string.md)。
+### <a name="configuring-a-connection-string-for-a-storage-account"></a>設定儲存體帳戶的連接字串
 
-當您準備好要針對 Azure 儲存體服務測試您的服務，或當您準備好要將您的雲端服務部署至 Azure 時，您可以變更任何連接字串的值以指向您的 Azure 儲存體帳戶。 選取 ([…])，選取 [輸入儲存體帳戶認證]。 輸入您的帳戶資訊，包含您的帳戶名稱和帳戶金鑰。 在 [儲存體帳戶連接字串]  對話方塊中，您也可以指出要使用預設 HTTPS 端點 (預設選項)、預設 HTTP 端點或自訂端點。 如果您已為您的服務註冊自訂網域名稱，您可以決定使用自訂端點，如 [針對 Azure 儲存體帳戶中的 Blob 資料設定自訂網域名稱](storage/blobs/storage-custom-domain-name.md)中所述。
+連接字串是一個設定，可為儲存體模擬器或 Azure 儲存體帳戶提供連線和驗證資訊。 每當角色中的程式碼存取 Azure 儲存體時 (Blob、佇列或資料表)，其皆需要連接字串。
 
-> [!IMPORTANT]
-> 您必須將連接字串修改成指向 Azure 儲存體帳戶，才能部署您的服務。 無法執行這項操作，可能會導致您的角色無法啟動，或在初始化中、忙碌中和停止中狀態間循環。
-> 
-> 
+> [!Note]
+> Azure 儲存體帳戶的連接字串必須使用已定義的格式 (請參閱[設定 Azure 儲存體連接字串](storage/common/storage-configure-connection-string.md))。
+
+您可以視需要將連接字串設定為使用本機儲存體，然後在將應用程式部署到雲端時，設定為使用 Azure 儲存體帳戶。 連接字串的設定不正確，可能會導致您的角色無法啟動，或在初始化中、忙碌中和停止中狀態間循環。
+
+若要建立連接字串，請選取 [新增設定]，再將 [類型] 設定為 [連接字串]。
+
+對於全新或現有的連接字串，請選取 [值] 欄位右側的 [...]* 以開啟 [建立儲存體連接字串] 對話方塊：
+
+1. 在 [連接方式] 下方，選擇 [您的訂用帳戶] 選項以從訂用帳戶選取儲存體帳戶。 Visual Studio 接著會自動從 `.publishsettings` 檔案取得儲存體帳戶認證。
+1. 選取 [手動輸入的認證]可讓您使用 Azure 入口網站的資訊直接指定帳戶名稱和金鑰。 若要複製帳戶金鑰：a. 在 Azure 入口網站上瀏覽至儲存體帳戶，然後選取 [管理金鑰]。
+    2. 在 [管理存取金鑰] 頁面上，選取主要存取金鑰的文字，然後按 Ctrl+C 鍵予以複製。
+1. 選取其中一個連線選項。 [指定自訂端點] 會要求您指定 Blob、資料表和佇列的特定 URL。 自訂端點允許您使用[自訂網域](storage/blobs/storage-custom-domain-name.md)更精確地控制存取。 請參閱[設定 Azure 儲存體連接字串](./storage/common/storage-configure-connection-string.md)。
+1. 選取 [確定]，接著再選取 [檔案] > [儲存] 以新的連接字串更新組態。
+
+再強調一次，當您將應用程式發佈至 Azure 時，請選擇包含連接字串之 Azure 儲存體帳戶的服務組態。 發佈您的應用程式之後，請確認應用程式如預期般對 Azure 儲存體服務運作。
+
+如需關於如何更新服務組態的詳細資訊，請參閱[管理儲存體帳戶的連接字串](vs-azure-tools-configure-roles-for-cloud-service.md#manage-connection-strings-for-storage-accounts)一節。
 
 ## <a name="endpoints-page"></a>端點頁面
-背景工作角色可以有任意數目的 HTTP、HTTPS 或 TCP 端點。 端點可以是可供外部用戶端使用的輸入端點，或是可供在服務中執行的其他角色使用的內部端點。
 
-* 若要讓 HTTP 端點可供外部用戶端和網頁瀏覽器使用，請將端點類型變更為輸入，並指定名稱和公用連接埠號碼。
-* 若要讓 HTTPS 端點可供外部用戶端和網頁瀏覽器使用，請將端點類型變更為 [輸入] ，並指定名稱、公用連接埠號碼和管理憑證名稱。
-  
-    請注意，您必須先在 [憑證]  屬性頁面上定義憑證，才可以指定管理憑證。
-* 若要讓端點可供雲端服務中的其他角色用於內部存取，請將端點類型變更為內部，並指定此端點的名稱和可能的私人連接埠。
+Web 角色通常會有一個位於連接埠 80 的 HTTP 端點。 另一方面，背景工作角色可以有任意數目的 HTTP、HTTPS 或 TCP 端點。 端點可以是可供外部用戶端使用的輸入端點，或是可供在服務中執行的其他角色使用的內部端點。
+
+- 若要讓 HTTP 端點可供外部用戶端和網頁瀏覽器使用，請將端點類型變更為輸入，並指定名稱和公用連接埠號碼。
+- 若要讓 HTTPS 端點可供外部用戶端和網頁瀏覽器使用，請將端點類型變更為 [輸入] ，並指定名稱、公用連接埠號碼和管理憑證名稱。 您必須先在 [憑證]  屬性頁面上定義憑證，才可以指定管理憑證。 
+- 若要讓端點可供雲端服務中的其他角色用於內部存取，請將端點類型變更為內部，並指定此端點的名稱和可能的私人連接埠。
 
 ## <a name="local-storage-page"></a>本機儲存體頁面
+
 您可以使用 [本機儲存體]  屬性頁面，為角色保留一或多個本機儲存體資源。 本機儲存體資源是執行中角色執行個體所在之 Azure 虛擬機器的檔案系統中的保留目錄。
 
 ## <a name="certificates-page"></a>憑證頁面
-在 [憑證]  頁面上，您可以讓憑證與您的角色產生關聯。 您新增的憑證可用來在 [端點]  屬性頁面上設定 HTTPS 端點。
 
 [憑證]  屬性頁面會將憑證的相關資訊新增至您的服務組態。 請注意，您的憑證不會與您的服務一起封裝；您必須透過 [Azure 入口網站](http://portal.azure.com)將憑證分別上傳至 Azure。
 
-若要讓憑證與角色產生關聯，請提供憑證的名稱。 在 [端點]  屬性頁面上設定 HTTPS 端點時，您可以使用這個名稱來參照憑證。 接下來，指定憑證存放區為 [本機電腦] 或 [目前使用者] 和存放區的名稱。 最後，輸入憑證的指紋。 如果憑證在目前使用者 \ 個人 (我的) 存放區中，您可從填入的清單中選取憑證，以輸入憑證的指紋。 如果憑證位於任何其他位置，請以手動方式輸入指紋值。
+在這裡新增憑證會將憑證的相關資訊新增至您的服務組態。 憑證不會與您的服務一起封裝；您必須透過 Azure 入口網站分別上傳憑證。
 
-當您從憑證存放區新增憑證時，所有中繼憑證都會自動新增至您的組態設定。 這些中繼憑證也必須上傳至 Azure，以便針對 SSL 正確設定您的服務。
+若要讓憑證與角色產生關聯，請提供憑證的名稱。 在 [端點] 頁面上設定 HTTPS 端點時，您可以使用這個名稱來參照憑證。 接下來，指定憑證存放區為 [本機電腦] 或 [目前使用者] 和存放區的名稱。 最後，輸入憑證的指紋。 如果憑證在目前使用者 \ 個人 (我的) 存放區中，您可從填入的清單中選取憑證，以輸入憑證的指紋。 如果憑證位於任何其他位置，請以手動方式輸入指紋值。
+
+當您從憑證存放區新增憑證時，所有中繼憑證都會自動新增至您的組態設定。 此外，這些中繼憑證也必須上傳至 Azure，以便針對 SSL 正確設定您的服務。
 
 只在您的服務在雲端執行時，與您的服務相關聯的管理憑證才會套用至您的服務。 當您的服務在本機開發環境中執行時，它會使用由計算模擬器所管理的標準憑證。
-
-## <a name="configuring-the-azure-cloud-service-project"></a>建立 Azure 雲端服務專案
-若要設定套用至整個 Azure 雲端服務專案的設定，請先開啟該專案節點的捷徑功能表，然後選擇 [屬性] 以開啟其屬性頁面。 下表顯示這些屬性頁面。
-
-| 屬性頁面 | 說明 |
-| --- | --- |
-| 應用程式 |在此頁面，您可以顯示此雲端服務專案使用的 Azure Tools 版本相關資訊，而且可以升級至目前版本的工具。 |
-| 建置事件 |在此頁面，您可以設定建置前和建置後事件。 |
-| 開發 |在此頁面，您可以指定組建組態指示以及執行任何建置後事件的條件。 |
-| Web |在此頁面，您可以設定 Web 伺服器的相關設定。 |
-

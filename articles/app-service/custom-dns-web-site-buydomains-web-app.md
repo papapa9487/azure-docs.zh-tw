@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 3cb22b935624041ab51e64028a1b668fd694f9b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ba6e3a79e5eb4eca4a3c7d35ada8c58bfe2295e
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>針對 Azure Web Apps 購買自訂網域名稱
 
@@ -31,6 +31,7 @@ App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它�
 若要完成本教學課程：
 
 * [建立 App Service 應用程式](/azure/app-service/)，或使用您針對另一個教學課程建立的應用程式。
+* [移除訂用帳戶的消費限制](../billing/billing-spending-limit.md#remove)。 您無法使用免費的訂用帳戶信用額度購買 App Service 網域。
 
 ## <a name="prepare-the-app"></a>準備應用程式
 
@@ -86,11 +87,21 @@ App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它�
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
 
+> [!NOTE]
+> 如果您沒看見 [App Service 網域] 區段，則需要移除您 Azure 帳戶的消費限制 (請參閱[必要條件](#prerequisites))。
+>
+>
+
 ### <a name="configure-the-domain-purchase"></a>設定網域購買
 
-在 [App Service 網域] 頁面的 [搜尋網域] 方塊中，輸入要購買的網域名稱，然後輸入 `Enter`。 建議的可用網域會顯示在文字方塊下方。 選取一或多個要購買的網域。 
+在 [App Service 網域] 頁面的 [搜尋網域] 方塊中，輸入要購買的網域名稱，然後輸入 `Enter`。 建議的可用網域會顯示在文字方塊下方。 選取一或多個要購買的網域。
    
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
+
+> [!NOTE]
+> App Service 網域支援下列[頂層網域](https://wikipedia.org/wiki/Top-level_domain)：_com_、_net_、_co.uk_、_org_、_nl_、_in_、_biz_、_org.uk_，以及 _co.in_。
+>
+>
 
 按一下 [連絡人資訊]，然後填寫網域的連絡人資訊表單。 完成之後，請按一下 [確定] 以返回 [App Service 網域] 頁面。
    
@@ -100,8 +111,7 @@ App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它�
 
 | 設定 | 建議的值 | 說明 |
 |-|-|-|
-|自動續訂 | **啟用** | 每年自動續訂 App Service 網域。 我們會在每次續訂時向您的信用卡收取相同的購買費用。 |
-|隱私權保護 | 啟用 | 選擇加入「隱私權保護」，此服務已「免費」包含在購買價格中 (除了其登錄不支援隱私權保護的頂層網域以外，例如 _.co.in_、_.co.uk_ 等)。 |
+|隱私權保護 | 啟用 | 選擇加入「隱私權保護」，此服務已_免費_包含在購買價格中。 有些頂層網域受控於不支援隱私權保護的註冊機構，會將之列在 [隱私權保護] 頁面中。 |
 | 指派預設主機名稱 | **www** 和 **@** | 如有需要，請選取所需的主機名稱繫結。 網域購買作業完成時，Web 應用程式就可以從選取的主機名稱存取。 如果 Web 應用程式受 [Azure 流量管理員](https://azure.microsoft.com/services/traffic-manager/)管理，您就不會看到指派根網域 (@) 的選項，因為流量管理員不支援 A 記錄。 您可以在網域購買完成之後變更主機名稱指派。 |
 
 ### <a name="accept-terms-and-purchase"></a>接受條款並購買
@@ -125,7 +135,7 @@ App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它�
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
-您也會在 [自訂網域] 頁面的 [主機名稱] 區段中看到選取的主機名稱。 
+您也會在 [自訂網域] 頁面的 [自訂主機名稱] 區段中看到選取的主機名稱。 
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
@@ -182,7 +192,25 @@ App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它�
 
 請在瀏覽器中瀏覽至列出的主機名稱。 在上方螢幕擷取畫面的範例中，嘗試瀏覽至 _abc.kontoso.net_。
 
-<a name="custom" />
+## <a name="renew-the-domain"></a>續訂網域
+
+您購買的 App Service 網域自購買起一年內有效。 按照預設，網域會設定為自動續訂下一年度，並使用您的付款方式付費。 如果您想要關閉自動續訂，或想要以手動方式續訂網域，請依照下列步驟進行。
+
+在 [Web Apps] 索引標籤中，按一下您 Web 應用程式的名稱，選取 [設定]，然後選取 [自訂網域]。
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+
+在 [App Service 網域] 區段中，選取您想要設定的網域。
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
+
+從網域的左側導覽中，選取 [網域續訂]。 若要停止自動續訂您的網域，請選取 [關閉]，然後選取 [儲存]。 
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
+
+若要以手動方式續訂您的網域，請選取 [續訂網域]。 不過，此按鈕在網域到期前 90 天才會啟用。
+
+<a name="custom"></a>
 
 ## <a name="manage-custom-dns-records"></a>管理自訂 DNS 記錄
 
@@ -236,6 +264,14 @@ App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它�
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
 
-選取 [確定] 來確認作業。 如果您不想繼續，請按一下確認對話方塊之外的任何位置。
+若要確認作業，請選取 [是]。
 
 作業完成之後，該網域就會從您的訂用帳戶中釋放，並可再次供任何人購買。 
+
+## <a name="direct-default-url-to-a-custom-directory"></a>將預設 URL 導向自訂目錄
+
+根據預設，App Service 會將 Web 要求導向應用程式程式碼的根目錄。 若要將這些要求導向子目錄 (例如 `public`)，請參閱[將預設 URL 導向自訂目錄](app-service-web-tutorial-custom-domain.md#virtualdir)。
+
+## <a name="more-resources"></a>其他資源
+
+[常見問題集：App Service 網域 (預覽) 與自訂網域](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/)

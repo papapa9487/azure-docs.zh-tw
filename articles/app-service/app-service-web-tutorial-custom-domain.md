@@ -1,6 +1,7 @@
 ---
 title: "將現有的自訂 DNS 名稱對應至 Azure Web Apps | Microsoft Docs"
 description: "學習如何將現有的自訂 DNS 網域名稱 (虛名網域) 新增至 Azure App Service 中的 Web 應用程式、行動裝置應用程式後端或 API 應用程式。"
+keywords: "應用程式服務, Azure 應用程式服務, 網域對應, 網域名稱, 現有的網域, 主機名稱"
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,11 +16,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6d7c99b1b02a0450cae406e2bc70a7e5563e2ac2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1a0b54e75bd6356ba7ba351d51d5f4a59bd64c75
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>將現有的自訂 DNS 名稱對應至 Azure Web Apps
 
@@ -269,6 +270,27 @@ ms.lasthandoff: 11/03/2017
 瀏覽至您稍早設定的 DNS 名稱 (`contoso.com`、`www.contoso.com`、`sub1.contoso.com` 和 `sub2.contoso.com`)。
 
 ![入口網站瀏覽至 Azure 應用程式](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+
+## <a name="resolve-404-error-web-site-not-found"></a>解決 404 錯誤「找不到網站」
+
+如果您在瀏覽自訂網域 URL 時收到 HTTP 404 (找不到) 錯誤，請使用 <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a> 確認網域是否能解析成應用程式的 IP 位址。 如果不行，這可能是下列其中一個原因所造成：
+
+- 設定的自訂網域遺漏 A 記錄和/或 CNAME 記錄。
+- 瀏覽器用戶端已將網域的舊 IP 位址加入快取。 請清除快取並再次測試 DNS 解析。 在 Windows 電腦上，您可以使用 `ipconfig /flushdns` 清除快取。
+
+<a name="virtualdir"></a>
+
+## <a name="direct-default-url-to-a-custom-directory"></a>將預設 URL 導向自訂目錄
+
+根據預設，App Service 會將 Web 要求導向應用程式程式碼的根目錄。 不過，某些 Web 架構並非從根目錄開始。 例如，[Laravel](https://laravel.com/) 從`public` 子目錄開始。 若要繼續 `contoso.com` DNS 範例，這類應用程式在 `http://contoso.com/public` 上可以存取，不過實際上您會想要將 `http://contoso.com` 改為導向 `public` 目錄。 這個步驟與 DNS 解析無關，反而是與自訂虛擬目錄相關。
+
+若要引導應用程式，請在 Web 應用程式頁面左側的導覽中選取 [應用程式設定]。 
+
+在頁面底部，根虛擬目錄 `/` 預設指向 `site\wwwroot`，這是應用程式程式碼的根目錄。 例如，請將其變更為指向 `site\wwwroot\public`，然後再儲存變更。 
+
+![自訂虛擬目錄](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
+
+當作業完成時，應用程式應該會傳回位於根路徑 (如 http://contoso.com) 的正確頁面。
 
 ## <a name="automate-with-scripts"></a>使用指令碼進行自動化
 

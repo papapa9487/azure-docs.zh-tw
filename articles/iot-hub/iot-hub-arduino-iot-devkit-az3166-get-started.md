@@ -12,13 +12,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2017
+ms.date: 11/20/2017
 ms.author: xshi
-ms.openlocfilehash: 0b8ae318fab2eaa186dca050ce2710b1ff232783
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: deb362796966524ec2db5808623d2f92a1bf44e1
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>將 IoT DevKit AZ3166 連線到雲端中的 Azure IoT 中樞
 
@@ -197,42 +197,45 @@ IoT 專案依賴網際網路連線。 請使用下列指示設定 DevKit，使�
 
 在搜尋工具中，找出 .zip 檔並將其解壓縮：
 
+![macOS 搜尋工具](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/mac-finder.png)
+
 啟動終端機應用程式，找出 .zip 檔案的解壓縮資料夾，然後執行：
 
 ```bash
 ./install.sh
 ```
 
+![macOS 安裝](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/mac-install-sh.png)
+
 > [!NOTE] 
 > 如果您遇到 Homebrew 權限錯誤，請執行 `brew doctor` 來修正它。 如需更多詳細資料，請參閱[常見問題集](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#homebrew-permission-error-on-macos)。
 
 您現在已具備安裝 macOS 的所有必要工具與封裝。
 
-## <a name="open-the-project-folder"></a>開啟專案資料夾
 
-您將開始建立「Azure IoT 中樞」、將 DevKit 連線到該中樞、從感應器收集溫度和溼度資料，然後將資料傳送到 IoT 中樞。
+## <a name="open-the-project-folder"></a>開啟專案資料夾
 
 ### <a name="start-vs-code"></a>啟動 VS Code
 
 請確定 DevKit 未連線。 先啟動 VS Code，然後將 DevKit 連線至您的電腦。 VS Code 會自動尋找 DevKit，並開啟簡介頁面：
 
-![[簡介] 頁面](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution-vscode.png)
+![[簡介] 頁面](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/vscode_start.png)
 
 > [!NOTE] 
-> 有時候在您啟動 VS Code 時，系統會出現錯誤提示，指明找不到 Arduino IDE 或相關面板封裝。 請關閉 VS Code，再次啟動 Arduino IDE，VS Code 應該會正確找出 Arduino IDE 路徑。
+> 有時在您啟動 VS Code 時，系統會出現錯誤提示，指出找不到 Arduino IDE 或相關開發板套件。 請關閉 VS Code，然後重新啟動 Arduino IDE。 VS Code 接著應該就會正確找到 Arduino IDE 路徑。
 
 
 ### <a name="open-the-arduino-examples-folder"></a>開啟 Arduino 範例資料夾
 
-展開左邊的 [ARDUINO EXAMPLES] \(ARDUINO 範例\) 區段，瀏覽至 [Examples for MXCHIP AZ3166] \(MXCHIP AZ3166 的範例\) > [AzureIoT]，然後選取 [GetStarted]。 這會開啟一個內含專案資料夾的新 VS Code 視窗。
+在 [Arduino 範例] 索引標籤上，瀏覽至 [MXCHIP AZ3166 的範例] > [AzureIoT]，然後選取 [GetStarted]。
 
-![[Arduino 範例] 索引標籤](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution-examples.png)
+![[Arduino 範例] 索引標籤](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/vscode_start.png)
 
 如果您不小心關閉該窗格，可予以重新開啟。 請使用 `Ctrl+Shift+P` (macOS：`Cmd+Shift+P`) 來開啟命令選擇區，輸入 **Arduino**，然後尋找並選取 [Arduino: Examples] \(Arduino: 範例\)。
 
 ## <a name="provision-azure-services"></a>佈建 Azure 服務
 
-在方案視窗中，透過 `Ctrl+P` (macOS：`Cmd+P`) 執行您的工作，方法是輸入 `task cloud-provision`：
+在解決方案視窗中，輸入 `task cloud-provision` 以 `Ctrl+P` (macOS：`Cmd+P`) 執行您的工作。
 
 VS Code 終端機中會有互動式命令列來引導您佈建所需的 Azure 服務：
 
@@ -240,25 +243,23 @@ VS Code 終端機中會有互動式命令列來引導您佈建所需的 Azure �
 
 ## <a name="build-and-upload-the-arduino-sketch"></a>建置並上傳 Arduino 草圖
 
-### <a name="install-the-required-library"></a>安裝必要的程式庫
+### <a name="windows"></a>Windows
 
-1. 按 `F1` 或 `Ctrl+Shift+P` (macOS：`Cmd+Shift+P`) 來開啟命令選擇區，輸入 **Arduino**，然後尋找並選取 [Arduino: Library Manager]。
-
-2. 搜尋 **ArduinoJson** 程式庫，然後選取 [Install] \(安裝\)**Install**：![安裝 Arduino 程式庫](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/arduino-json.png)
-
-### <a name="build-and-upload-the-device-code-windows"></a>組建並上傳裝置程式碼 (Windows)
 1. 使用 `Ctrl+P` 來執行 `task device-upload`。
 2. 終端機會提示您進入設定模式。 若要這樣做，請按住按鈕 A，然後按下並放開 [重設] 按鈕。 畫面會顯示 DevKit 識別碼和 [Configuraiton] \(設定\)。
 
 這是用來設定從 `task cloud-provision` 步驟擷取的連接字串。
 
-然後終端機會開始驗證和上傳 Arduino 草圖：
+接著，VS Code 就會開始驗證並上傳 Arduino 草稿碼：
 
 ![驗證和上傳 Arduino 草圖](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/device-upload.png)
 
 DevKit 會重新開機，然後開始執行程式碼。
 
-### <a name="build-and-upload-the-device-code-mac"></a>組建並上傳裝置程式碼 (Mac)
+> [!NOTE] 
+> 有時候，您會收到錯誤訊息「錯誤：AZ3166：未知的封裝」。 這是因為未重新整理面板套件封裝索引。 請查看[常見問題集步驟](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)來解決此問題。
+
+### <a name="macos"></a>macOS
 
 1. 讓 DevKit 進入設定模式：按住 A 按鈕，然後按下再放開 [重設] 按鈕。 畫面會顯示 [Configuraiton] \(設定\)。
 2. 使用 `Cmd+P` 來執行 `task device-upload`。
@@ -271,13 +272,17 @@ DevKit 會重新開機，然後開始執行程式碼。
 
 DevKit 會重新開機，然後開始執行程式碼。
 
+> [!NOTE] 
+> 有時候，您會收到錯誤訊息「錯誤：AZ3166：未知的封裝」。 這是因為未重新整理面板套件封裝索引。 請查看[常見問題集步驟](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)來解決此問題。
+
+
 ## <a name="test-the-project"></a>測試專案
 
 在 VS Code 中，依照下列步驟來開啟和設定「序列監視器」：
 
 1. 按一下狀態列上的 `COM[X]` 文字，以設定含有 `STMicroelectronics` 的正確 COM 連接埠：![com-port](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/com-port.png)
 
-2. 按一下狀態列上的電源插頭圖示，以開啟「序列監視器」：![serial-monitor](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/serial-monitor.png)
+2. 按一下狀態列上的電源插頭圖示，以開啟「序列監視器」：![serial-monitor](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution//connect-iothub/serial-monitor.png)
 
 3. 在狀態列上，按一下代表「傳輸速率」的數字，然後設定為 `115200`![baud-rate](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/baud-rate.png)
 

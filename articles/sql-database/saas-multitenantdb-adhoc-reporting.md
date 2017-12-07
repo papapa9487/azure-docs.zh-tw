@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: AyoOlubeko
-ms.openlocfilehash: c85dec1023e4d4f0a14dfbc249850b6dc6e78edf
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c0ed3eb344ea8ec7e2d3e86125d60c8cc28f723d
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>跨多個 Azure SQL Database 執行臨機操作分析查詢
 
@@ -52,12 +52,11 @@ SaaS 應用程式可以分析集中儲存在雲端中的大量租用戶資料。
 
 彈性查詢將查詢分散到整個租用戶資料庫，能夠立即深入了解即時的實際執行資料。 不過，因為彈性查詢可能會從多個資料庫提取資料，所以查詢延遲有時可能會高於提交至單一多租用戶資料庫的對等查詢。 請務必設計查詢來最小化傳回的資料。 彈性查詢通常最適合查詢少量的即時資料，而非建立常用或複雜的分析查詢或報告。 如果查詢的效能不佳，請查看[執行計畫](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan)以查看查詢的哪個部分已向下推送至遠端資料庫。 並評估會傳回多少資料。 需要複雜分析處理的查詢，透過將擷取的租用戶資料儲存到針對分析查詢最佳化的資料庫來提供服務，可能會比較好。 SQL Database 和 SQL 資料倉儲可以裝載此類分析資料庫。
 
-<!-- ?? This pattern for analytics is explained in the [tenant analytics tutorial](saas-multitenantdb-tenant-analytics.md).
--->
+[租用戶分析教學課程](saas-multitenantdb-tenant-analytics.md)會說明此分析模式。
 
-## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-scripts"></a>取得 Wingtip Tickets SaaS 多租用戶資料庫應用程式指令碼
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>取得 Wingtip Tickets SaaS 多租用戶資料庫應用程式原始碼和指令碼
 
-可在 [WingtipTicketsSaaS MultitenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) github 存放庫中使用 Wingtip Tickets SaaS 多租用戶資料庫指令碼和應用程式來源程式碼。 請務必遵循讀我檔案中所概述的解除封鎖步驟。
+可在 [WingtipTicketsSaaS MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 存放庫中使用 Wingtip Tickets SaaS 多租用戶資料庫指令碼和應用程式來源程式碼。 關於下載和解除封鎖 Wingtip Tickets SaaS 指令碼的步驟，請參閱[一般指引](saas-tenancy-wingtip-app-guidance-tips.md)。
 
 ## <a name="create-ticket-sales-data"></a>建立票證銷售資料
 
@@ -77,7 +76,7 @@ SaaS 應用程式可以分析集中儲存在雲端中的大量租用戶資料。
 
 此練習會部署 adhocreporting 資料庫。 這就是包含用來查詢所有租用戶資料庫之結構描述的 head 資料庫。 此資料庫會部署到現有的目錄伺服器，也就是在範例應用程式中供所有管理相關資料庫使用的伺服器。
 
-1. 在 PowerShell ISE 中開啟 ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\Demo-AdhocReporting.ps1 並設定下列值：
+1. 在 [PowerShell ISE] 中開啟 ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\Demo-AdhocReporting.ps1 並設定下列值：
    * **$DemoScenario** = 2，**部署臨機操作分析資料庫**。
 
 2. 按 **F5** 以執行指令碼並建立 adhocreporting 資料庫。
@@ -96,7 +95,7 @@ SaaS 應用程式可以分析集中儲存在雲端中的大量租用戶資料。
 
     ![建立認證](media/saas-multitenantdb-adhoc-reporting/create-credential.png)
 
-   外部資料來源，其已定義為在目錄資料庫中使用租用戶分區對應。 以此作為外部資料來源，在執行查詢時，查詢會分散到在目錄中註冊的所有資料庫。 因為每個部署的伺服器名稱不同，所以此初始化指令碼會擷取指令碼執行所在的目前伺服器 (@@servername)，取得目錄資料庫的位置。
+   使用目錄資料庫作為外部資料來源後，在執行查詢時，查詢會分散到在目錄中註冊的所有資料庫。 因為每個部署的伺服器名稱不同，所以此初始化指令碼會擷取指令碼執行所在的目前伺服器 (@@servername)，取得目錄資料庫的位置。
 
     ![建立外部資料來源](media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
@@ -120,7 +119,7 @@ SaaS 應用程式可以分析集中儲存在雲端中的大量租用戶資料。
 
 檢查執行計畫時，將滑鼠停留在計畫圖示上方，以取得詳細資料。 
 
-1. 在 SSMS 中開啟 ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\Demo-AdhocReportingQueries.sql。
+1. 在 *SSMS* 中開啟 ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql*。
 2. 確定您已連線到 **adhocreporting** 資料庫。
 3. 選取 [查詢] 功能表，然後按一下 [包括實際執行計畫]
 4. 反白顯示 [Which venues are currently registered?] \(目前註冊哪些地點?\) 查詢，然後按 **F5**。
@@ -155,9 +154,7 @@ SaaS 應用程式可以分析集中儲存在雲端中的大量租用戶資料。
 > * 對所有租用戶資料庫執行分散式查詢
 > * 部署隨選報表資料庫，並將結構描述新增至資料庫中，以執行分散式查詢。
 
-<!-- ??
-Now try the [Tenant Analytics tutorial](saas-multitenantdb-tenant-analytics.md) to explore extracting data to a separate analytics database for more complex analytics processing...
--->
+現在可以嘗試一下[租用戶分析教學課程](saas-multitenantdb-tenant-analytics.md)，了解如何將資料擷取到另一個分析資料庫，進行更複雜的分析處理。
 
 ## <a name="additional-resources"></a>其他資源
 

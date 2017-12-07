@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 11/28/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9de535b2fb70181c68fb698e847dd8361bf54385
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: f1538e1c26cfe658c7f42ccdd57d8bf5aca0b1fb
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
@@ -43,18 +43,20 @@ ms.lasthandoff: 11/22/2017
 
 ## <a name="november-2017"></a>2017 年 11 月
  
+### <a name="retiring-acs"></a>淘汰 ACS
+
 
 
 **類型：**方案變更  
 **服務類別：**ACS  
 **產品功能：**存取控制服務 
 
-**淘汰 ACS**
 
 Microsoft Azure Active Directory 存取控制 (也稱為存取控制服務或 ACS) 將於 2018 年底淘汰。  未來幾週，我們將會提供詳細的排程和高階移轉指引等詳細資訊。 在此同時，您可以在這個頁面上發表意見與關於 ACS 的任何問題，我們的小組成員將會協助解答。
 
 ---
 
+### <a name="restrict-browser-access-to-the-intune-managed-browser"></a>限制瀏覽器對 Intune Managed Browser 的存取 
 
 
 **類型：**方案變更  
@@ -62,7 +64,6 @@ Microsoft Azure Active Directory 存取控制 (也稱為存取控制服務或 AC
 **產品功能：**身分識別安全性與保護
 
 
-**限制瀏覽器對 Intune Managed Browser 的存取** 
 
 
 透過此行為，您將能透過使用 Intune Managed Browser 作為已核准的應用程式，來限制瀏覽器對 Office 365 和其他已連線至 Azure AD 之雲端應用程式的存取。 
@@ -82,6 +83,7 @@ Microsoft Azure Active Directory 存取控制 (也稱為存取控制服務或 AC
  
 ---
 
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>針對 Azure AD 應用程式型條件式存取之新的已核准用戶端應用程式
 
  
 **類型：**方案變更  
@@ -89,7 +91,6 @@ Microsoft Azure Active Directory 存取控制 (也稱為存取控制服務或 AC
 **產品功能：**身分識別安全性與保護
 
 
-**針對 Azure AD 應用程式型條件式存取之新的已核准用戶端應用程式**
 
 
 已計畫將下列應用程式新增至[已核准的用戶端應用程式](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)清單：
@@ -108,6 +109,9 @@ Microsoft Azure Active Directory 存取控制 (也稱為存取控制服務或 AC
 
 ---
 
+### <a name="terms-of-use-support-for-multiple-languages"></a>針對多種語言的使用規定支援
+
+
 
 **類型：**新功能    
 **服務類別：**使用規定  
@@ -115,7 +119,6 @@ Microsoft Azure Active Directory 存取控制 (也稱為存取控制服務或 AC
 
 
 
-**針對多種語言的使用規定支援**
 
 
 系統管理員現在可以建立包含多個 PDF 文件的新使用規定 (TOU)。 您能以相對應的語言標記這些 PDF 文件。 針對適用範圍內的使用者，系統會根據其喜好設定顯示相符語言的 PDF。 如果沒有相符項目，則會顯示預設語言。
@@ -124,13 +127,15 @@ Microsoft Azure Active Directory 存取控制 (也稱為存取控制服務或 AC
 ---
  
 
+### <a name="realtime-password-writeback-client-status"></a>即時密碼回寫用戶端狀態
+
+
 
 **類型：**新功能  
 **服務類別：**SSPR  
 **產品功能：**使用者驗證
 
 
-**即時密碼回寫用戶端狀態**
  
 
 您現在可以檢閱內部部署密碼回寫用戶端的狀態。 此選項可於 [[密碼重設](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)] 頁面的 [內部部署整合] 區段中取得。 
@@ -145,6 +150,12 @@ Microsoft Azure Active Directory 存取控制 (也稱為存取控制服務或 AC
 
  
 ---
+
+
+### <a name="azure-ad-app-based-conditional-access"></a>Azure AD 應用程式型條件式存取 
+
+
+
  
 **類型：**新功能  
 **服務類別：**Azure AD  
@@ -152,7 +163,6 @@ Microsoft Azure Active Directory 存取控制 (也稱為存取控制服務或 AC
 
 
 
-**Azure AD 應用程式型條件式存取** 
 
 
 您現在可以使用 [Azure AD 應用程式型條件式存取](active-directory-conditional-access-mam.md)，限制支援 Intune 應用程式防護的[已核准用戶端應用程式](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)對 Office 365 和其他已連線至 Azure AD 之雲端應用程式的存取。 系統會使用 Intune 應用程式防護原則，來設定及保護這些用戶端應用程式上的公司資料。
@@ -180,6 +190,8 @@ Microsoft Azure Active Directory 存取控制 (也稱為存取控制服務或 AC
  
 ---
 
+### <a name="managing-azure-ad-devices-in-the-azure-portal"></a>在 Azure 入口網站中管理 Azure AD 裝置
+
 
 
 **類型：**新功能  
@@ -188,7 +200,6 @@ Microsoft Azure Active Directory 存取控制 (也稱為存取控制服務或 AC
 
  
 
-**在 Azure 入口網站中管理 Azure AD 裝置**
 
 
 您現在可以在單一位置找到所有已連線至 Azure AD 的裝置，以及與裝置相關的活動。 現已推出在 Azure 入口網站中管理所有裝置身分識別和設定的新系統管理體驗。 在這個版本中，您將可以︰
@@ -209,14 +220,13 @@ Microsoft Azure Active Directory 存取控制 (也稱為存取控制服務或 AC
  
 ---
 
+### <a name="support-for-macos-as-device-platform-for-azure-ad-conditional-access"></a>支援使用 macOS 作為 Azure AD 條件式存取的裝置平台 
+
+
 
 **類型：**新功能    
 **服務類別：**條件式存取  
 **產品功能：**身分識別安全性與保護 
-
-
-
-**支援使用 macOS 作為 Azure AD 條件式存取的裝置平台** 
  
 
 您現在可以在 Azure AD 條件式存取原則中，將 macOS 包含為裝置平台條件 (或是將它排除)。 除了將 macOS 新增為支援的裝置平台之外，您也可以：
@@ -236,13 +246,14 @@ Microsoft Azure Active Directory 存取控制 (也稱為存取控制服務或 AC
  
 ---
 
+### <a name="nps-extension-for-azure-mfa"></a>Azure MFA 的 NPS 擴充功能 
+
 
 **類型：**新功能    
 **服務類別：**MFA  
 **產品功能：**使用者驗證
 
 
-**Azure MFA 的 NPS 擴充功能** 
 
 
 Azure MFA 的網路原則伺服器 (NPS) 擴充功能可使用現有伺服器將雲端式 MFA 功能新增至驗證基礎結構。 利用 NPS 擴充功能，您可以在現有驗證流程中新增通話、簡訊或電話應用程式驗證，而不必安裝、設定及維護新的伺服器。 
@@ -255,13 +266,13 @@ Azure MFA 的網路原則伺服器 (NPS) 擴充功能可使用現有伺服器將
  
 ---
 
+### <a name="restore-or-permanently-remove-deleted-users"></a>還原或永久移除已刪除的使用者
+
 
 **類型：**新功能    
 **服務類別：**使用者管理  
 **產品功能：**目錄 
 
-
-**還原或永久移除已刪除的使用者**
 
 
 在 Azure AD 系統管理中心中，您現在可以：
@@ -281,14 +292,12 @@ Azure MFA 的網路原則伺服器 (NPS) 擴充功能可使用現有伺服器將
  
 ---
 
-
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>針對 Azure AD 應用程式型條件式存取之新的已核准用戶端應用程式
 
  
 **類型：**已變更的功能  
 **服務類別：**條件式存取  
 **產品功能：**身分識別安全性與保護
-
-**針對 Azure AD 應用程式型條件式存取之新的已核准用戶端應用程式**
 
 
 已將下列應用程式新增至[已核准的用戶端應用程式](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)清單：
@@ -307,14 +316,13 @@ Azure MFA 的網路原則伺服器 (NPS) 擴充功能可使用現有伺服器將
 
 ---
 
+### <a name="ability-to-or-between-controls-in-a-conditional-access-policy"></a>在條件式存取原則中的控制之間加入 'OR' 的能力 
 
 
 **類型：**已變更的功能    
 **服務類別：**條件式存取  
 **產品功能：**身分識別安全性與保護
 
-
-**在條件式存取原則中的控制之間加入 'OR' 的能力** 
  
 已推出針對條件式存取控制項加入 'OR' 的能力 (需要其中一個選取的控制項)。 此功能可讓您建立在存取控制項之間具有 **OR** 的原則。 例如，您可以使用此功能來建立要求使用者使用多重要素驗證登入**或**使用符合規範裝置的原則。
 
@@ -323,13 +331,13 @@ Azure MFA 的網路原則伺服器 (NPS) 擴充功能可使用現有伺服器將
  
 ---
 
+### <a name="aggregation-of-realtime-risk-events"></a>即時風險事件的彙總
 
 
 **類型：**已變更的功能    
 **服務類別：**身分識別保護  
 **產品功能：**身分識別安全性與保護
 
-**即時風險事件的彙總**
 
 為了改善您的系統管理體驗，Azure AD Identity Protection 中於同一天內源自於相同 IP 位址的即時風險事件，現已會針對每個風險事件類型進行彙總。 此項變更會限制系統所顯示的風險事件量，但並不會對使用者安全性產生任何變更。
 
@@ -344,12 +352,15 @@ Azure MFA 的網路原則伺服器 (NPS) 擴充功能可使用現有伺服器將
 
 ## <a name="october-2017"></a>2017 年 10 月
 
+
+### <a name="deprecating-azure-ad-reports"></a>即將過時的 Azure AD 報告
+
+
 **類型：**方案變更  
 **服務類別：**報告  
 **產品功能：**身分識別生命週期管理  
 
 
-**即將過時的 Azure AD 報告**
 
 Azure 入口網站可讓您使用：
 
@@ -360,12 +371,13 @@ Azure 入口網站可讓您使用：
 
 ---
 
+### <a name="automatic-sign-in-field-detection"></a>自動登入欄位偵測
+
+
 **類型：**固定   
-**服務類別：**我的應用程式  
+**服務類別：**My Apps  
 **產品功能：**SSO  
 
-
-**自動登入欄位偵測**
 
 
 Azure Active Directory 針對呈現 HTML 使用者名稱和密碼欄位的應用程式，支援自動登入欄位偵測。  [如何自動擷取應用程式的登入欄位](application-config-sso-problem-configure-password-sso-non-gallery.md#how-to-manually-capture-sign-in-fields-for-an-application)記錄下列步驟。 您可以在藉由在 [Azure 入口網站](http://aad.portal.azure.com) 的 [企業應用程式] 頁面上新增 [非資源庫] 應用程式來尋找此功能。 此外，您可以在此新應用程式上將 [單一登入] 模式設為 [密碼型單一登入]，輸入 web URL，然後再儲存頁面。
@@ -374,12 +386,14 @@ Azure Active Directory 針對呈現 HTML 使用者名稱和密碼欄位的應用
 
 ---
 
+### <a name="new-mfa-features"></a>新的 MFA 功能
+
+
 **類型：**新功能  
 **服務類別：**MFA  
 **產品功能：**身分識別安全性與保護  
 
 
-**新的 MFA 功能**
 
 多重要素驗證 (MFA) 是保護您組織不可或缺的環節。 為了使認證更具彈性，並讓使用體驗更加順暢，我們已新增下列功能： 
 
@@ -393,12 +407,16 @@ Azure Active Directory 針對呈現 HTML 使用者名稱和密碼欄位的應用
 
 
 ---
+
+### <a name="introducing-terms-of-use"></a>使用規定的推出
+
+
+
 **類型：**新功能  
 **服務類別：**使用規定  
 **產品功能：**控管  
 
 
-**使用規定的推出**
 
 「Azure AD 使用規定」能提供將資訊呈現給使用者的簡易方式。 這確保使用者看到合法或合規性需求的相關免責聲明。
 
@@ -414,11 +432,14 @@ Azure Active Directory 針對呈現 HTML 使用者名稱和密碼欄位的應用
 
 
 ---
+
+### <a name="enhancements-to-privileged-identity-management"></a>針對 Privileged Identity Management 的增強功能
+
+
 **類型：**新功能  
 **服務類別：**PIM  
 **產品功能：**Privileged Identity Management  
 
-**針對 Privileged Identity Management 的增強功能**
 
 您現在可以利用 Azure Active Directory Privileged Identity Management (PIM) 來管理、控制和監視下列項目針對組織內 Azure 資源 (預覽) 的存取行為：
 
@@ -432,11 +453,14 @@ Azure Active Directory 針對呈現 HTML 使用者名稱和密碼欄位的應用
 
 
 ---
+
+### <a name="introducing-access-reviews"></a>存取權檢閱的推出
+
+
 **類型：**新功能  
 **服務類別：**存取權檢閱  
 **產品功能：**控管  
 
-**存取權檢閱的推出**
 
 
 存取權檢閱 (預覽) 可讓組織有效地管理群組成員資格和企業應用程式的存取權： 
@@ -451,12 +475,16 @@ Azure Active Directory 針對呈現 HTML 使用者名稱和密碼欄位的應用
 
 
 ---
+
+### <a name="hiding-third-party-applications-from-my-apps-and-the-office-365-launcher"></a>從 [我的應用程式] 和 Office 365 啟動器隱藏協力廠商應用程式
+
+
+
 **類型：**新功能  
-**服務類別：**我的應用程式  
+**服務類別：**My Apps  
 **產品功能：**SSO  
 
 
-**從 [我的應用程式] 和 Office 365 啟動器隱藏協力廠商應用程式**
 
 您現在可以更好管理您透過新的**隱藏應用程式**屬性，在使用者入口網站顯示的應用程式。 隱藏應用程式有助於解決因後端服務的應用程式磚或是重複磚的出現，而造成使用者的應用程式啟動器凌亂的情況。 該切換位於協力廠商應用程式的屬性區段上，並標示為 [讓使用者可以看到?] 您也可以透過 PowerShell 以程式設計方式隱藏應用程式。 
 
@@ -470,12 +498,14 @@ Azure Active Directory 針對呈現 HTML 使用者名稱和密碼欄位的應用
 
 ## <a name="september-2017"></a>2017 年 9 月
 
+### <a name="hotfix-for-microsoft-identity-manager"></a>適用於 Microsoft Identity Manager 的 Hotfix
+
+
 **類型：**已變更的功能  
 **服務類別：**Microsoft Identity Manager  
 **產品功能：**身分識別生命週期管理  
 
 
-**適用於 Microsoft Identity Manager 的 Hotfix**
 
 自 2017 年 9 月 25 日起，可使用 Microsoft Identity Manager (MIM) 2016 2016 Service Pack 1 (SP1) 的 Hotfix 彙總套件 (建置 4.4.1642.0)。 此彙總套件：
 
