@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 08e682c51b12d4506019d2f6b68e1eae0798b990
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab2aed2b9e86dc9b3111dc1fdf9deea2e2930c7c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect：如何從 LocalDB 10-GB 的限制復原
 Azure AD Connect 需要 SQL Server 資料庫來儲存身分識別資料。 您可以使用 Azure AD Connect 安裝的預設 SQL Server 2012 Express LocalDB 或使用您自己的完整 SQL。 SQL Server Express 會實行 10 GB 的大小限制。 使用 LocalDB 且達到這個限制時，Azure AD Connect 同步處理服務無法再啟動或正確同步處理。 本文提供復原步驟。
@@ -63,11 +63,11 @@ Azure AD Connect 需要 SQL Server 資料庫來儲存身分識別資料。 您�
 * 做為 Azure AD Connect 同步處理服務內容之作業系統的同步處理服務帳戶。
 * 在安裝期間建立的本機群組 ADSyncAdmins。
 
-1. 藉由將 `%ProgramFiles%\program files\Microsoft Azure AD Sync\Data` 下的 **ADSync.mdf** 和 **ADSync_log.ldf** 檔案複製到安全的位置來備份資料庫。
+1. 藉由將 `%ProgramFiles%\Microsoft Azure AD Sync\Data` 下的 **ADSync.mdf** 和 **ADSync_log.ldf** 檔案複製到安全的位置來備份資料庫。
 
 2. 啟動新的 PowerShell 工作階段。
 
-3. 瀏覽至資料夾 `%ProgramFiles%\Program Files\Microsoft SQL Server\110\Tools\Binn`。
+3. 瀏覽至資料夾 `%ProgramFiles%\Microsoft SQL Server\110\Tools\Binn`。
 
 4. 使用系統管理員或資料庫 DBO 的認證，藉由執行 `./SQLCMD.EXE -S “(localdb)\.\ADSync” -U <Username> -P <Password>` 命令來啟動 **sqlcmd** 公用程式。
 

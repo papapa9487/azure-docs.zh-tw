@@ -5,15 +5,15 @@ services: azure-stack
 author: ErikjeMS
 manager: byronr
 ms.service: azure-stack
-ms.topic: azure-stack
+ms.topic: quickstart
 ms.date: 09/15/2017
 ms.author: erikje
 ms.custom: mvc
-ms.openlocfilehash: abca538f28bbc0a8f3f00311ca1a69d196f10272
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 64a623b3f5cb443e0676e7d89d7040837be95737
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-stack-portal"></a>使用 Azure Stack 入口網站建立 Windows 虛擬機器
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 按一下 [+ 新增] > [計算] > [Windows Server 2016 Datacenter Eval] > [建立]。 如果您沒有看到 [Windows Server 2016 Datacenter Eval] 項目，請連絡您的 Azure Stack 操作員。 如[將 Windows Server 2016 VM 映像新增到 Azure Stack 市集](../azure-stack-add-default-image.md)文章中所述，請要求他們將它新增至市集。 
     ![](media/azure-stack-quick-windows-portal/image01.png)
-2. 在 [基本] 中，輸入 [名稱]、[使用者名稱] 與 [密碼]。 選擇 [訂用帳戶] 。 建立 資源群組 或選取現有的資源群組，選取 位置，然後按一下確定。
+2. 在 [基本] 中，輸入 [名稱]、[使用者名稱] 與 [密碼]。 選擇 [訂用帳戶] 。 建立 [資源群組] 或選取現有的資源群組，選取 [位置]，然後按一下 [確定]。
 
     ![](media/azure-stack-quick-windows-portal/image02.png)
 3. 在 [選擇大小] 下，按一下 [D1 標準] > [選取]。

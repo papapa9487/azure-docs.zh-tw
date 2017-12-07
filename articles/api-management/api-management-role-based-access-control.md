@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: a3872aae3a9eb8da0b881ec9388f54546e84b08b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c775780a39c4d423c62bf88f55d35675c70442c7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>如何在 Azure API 管理中使用角色型存取控制
 Azure API 管理需要 Azure 角色型存取控制 (RBAC)，才能針對 API 管理服務及實體 (例如 API 和原則) 啟用更細緻的存取管理。 本文章將為您提供 API 管理中內建角色和自訂角色的概觀。 如需有關 Azure 入口網站中的存取管理的詳細資訊，請參閱[開始在 Azure 入口網站中使用存取管理](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/)。
@@ -32,9 +32,9 @@ API 管理目前提供三個內建角色，不久之後會再新增兩個角色�
 | ------------- | ---- | ---- | ---- | ---- | ---- | ---- |
 | Azure API 管理服務參與者 | ✓ | ✓  | ✓  | ✓ | 進階使用者。 具有 API 管理服務及實體 (例如 API 和原則) 的完整 CRUD 存取。 具有舊版發行者入口網站的存取權限。 |
 | Azure API 管理服務讀者 | ✓ | | || 具有 API 管理服務及實體的唯讀權限。 |
-| Azure API 管理服務操作員 | ✓ | | ✓  | | 可以管理 API 管理服務，但無法管理實體。|
-| Azure API 管理服務編輯者<sup>*</sup> | ✓ | ✓  | |  | 可以管理 API 管理實體，但無法管理服務。|
-| Azure API 管理內容管理員<sup>*</sup> | ✓ | | | ✓  | 可以管理開發人員入口網站。 具有服務和實體的唯讀權限。|
+| Azure API 管理服務操作員 | ✓ | | ✓ | | 可以管理 API 管理服務，但無法管理實體。|
+| Azure API 管理服務編輯者<sup>*</sup> | ✓ | ✓ | |  | 可以管理 API 管理實體，但無法管理服務。|
+| Azure API 管理內容管理員<sup>*</sup> | ✓ | | | ✓ | 可以管理開發人員入口網站。 具有服務和實體的唯讀權限。|
 
 <sup>[1] API 管理服務及實體 (例如 API 和原則) 的讀取權限</sup>
 
@@ -61,9 +61,12 @@ New-AzureRmRoleAssignment -ObjectId <object ID of the user account> -RoleDefinit
 
 [Azure Resource Manager 資源提供者作業](../active-directory/role-based-access-control-resource-provider-operations.md#microsoftapimanagement)一文包含可在 API 管理層級上授與的權限清單。
 
-## <a name="watch-a-video-overview"></a>觀看影片概觀
+## <a name="video"></a>影片
 
-如需詳細資訊，您可以觀看 [API 管理中的角色型存取控制](https://channel9.msdn.com/Blogs/AzureApiMgmt/Role-Based-Access-Control-in-API-Management/player)影片。
+
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Role-Based-Access-Control-in-API-Management/player]
+>
+>
 
 ## <a name="next-steps"></a>後續步驟
 

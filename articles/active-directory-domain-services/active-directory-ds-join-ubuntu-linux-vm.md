@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: maheshu
-ms.openlocfilehash: 8946166c04ce778d751ad79f7a010c9a5e71a05c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b41cebcc8592468fcabb157b1aee830dfe954229
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>在 Azure 中將 Ubuntu 虛擬機器加入受管理網域
 本文說明如何將 Ubuntu Linux 虛擬機器加入 Azure AD Domain Services 受管理網域。
@@ -120,12 +120,12 @@ sudo systemctl start ntp
     sudo realm discover CONTOSO100.COM
     ```
 
-      > [!NOTE] 
-      > **疑難排解：**如果 [領域探索] 找不到受管理網域：
-        * Ensure that the domain is reachable from the virtual machine (try ping).
-        * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-        * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
-      >
+   > [!NOTE] 
+   > **疑難排解：**如果 [領域探索] 找不到受管理網域：
+     * 確定可從虛擬機器觸達網域 (請嘗試 ping)。
+     * 檢查虛擬機器已確實部署到有提供受管理網域的相同虛擬網路上。
+     * 查看您是否已更新虛擬網路的 DNS 伺服器設定，以指向受管理網域的網域控制站。
+   >
 
 2. 初始化 Kerberos。 在 SSH 終端機中輸入下列命令： 
 

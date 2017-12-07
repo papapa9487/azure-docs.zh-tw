@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
-ms.openlocfilehash: 948693c8501ecc46a1508e5ea085846d0910783e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fcd78eaa0c5b09b70aa973466a34556fff56071
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="call-the-microsoft-graph-api-from-an-ios-app"></a>從 iOS 應用程式呼叫 Microsoft Graph API
 
@@ -45,9 +45,9 @@ ms.lasthandoff: 10/11/2017
 MSAL 會為您管理快取和重新整理存取權杖，因此您的應用程式不需要執行這些作業。
 
 
-### <a name="nuget-packages"></a>NuGet 套件
+### <a name="libraries"></a>程式庫
 
-本指南會使用以下 NuGet 套件：
+本指南使用下列程式庫：
 
 |程式庫|說明|
 |---|---|

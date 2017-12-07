@@ -1,4 +1,4 @@
-在 Cloud Shell 中，使用 [az webapp create](/cli/azure/webapp#create) 命令，在 [ App Service 方案中建立 ](../articles/app-service/app-service-web-overview.md)Web 應用程式`myAppServicePlan`。 
+在 Cloud Shell 中，使用 [az webapp create](/cli/azure/webapp#az_webapp_create) 命令，在 [ App Service 方案中建立 ](../articles/app-service/app-service-web-overview.md)Web 應用程式`myAppServicePlan`。 
 
 在下列範例中，使用全域唯一的應用程式名稱 (有效的字元為 `a-z`、`0-9` 和 `-`) 取代 \<app_name>。 
 

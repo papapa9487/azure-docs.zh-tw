@@ -214,6 +214,6 @@
     * [使用受控磁碟的 Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) \(英文\)
     * [受控磁碟範本的完整清單](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md) \(英文\)
 * 瀏覽 [Azure 受控磁碟概觀](../articles/virtual-machines/windows/managed-disks-overview.md)文件，深入了解受控磁碟。
-* 瀏覽 [Microsoft.Compute/virtualMachines 範本參考](/templates/microsoft.compute/virtualmachines)文件，檢閱虛擬機器資源的範本參考文件。
-* 瀏覽 [Microsoft.Compute/disks 範本參考](/templates/microsoft.compute/disks)文件，檢閱磁碟資源的範本參考文件。
+* 瀏覽 [Microsoft.Compute/virtualMachines 範本參考](/azure/templates/microsoft.compute/virtualmachines)文件，檢閱虛擬機器資源的範本參考文件。
+* 瀏覽 [Microsoft.Compute/disks 範本參考](/azure/templates/microsoft.compute/disks)文件，檢閱磁碟資源的範本參考文件。
  

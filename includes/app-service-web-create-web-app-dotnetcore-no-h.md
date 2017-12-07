@@ -1,6 +1,6 @@
-在 Cloud Shell 中，使用 [az webapp create](/cli/azure/webapp#create) 命令，在 [ App Service 方案中建立 ](../articles/app-service/containers/app-service-linux-intro.md)Web 應用程式`myAppServicePlan`。 
+在 Cloud Shell 中，使用 [az webapp create](/cli/azure/webapp#az_webapp_create) 命令，在 [ App Service 方案中建立 ](../articles/app-service/containers/app-service-linux-intro.md)Web 應用程式`myAppServicePlan`。 
 
-在下列範,了中，使用全域唯一的應用程式名稱 (有效的字元為 `a-z`、`0-9` 和 `-`) 取代 `<app_name>`。 執行階段設定為 `dotnetcore|1.1`。 若要查看所有支援的執行階段，請執行 [az webapp list-runtimes](/cli/azure/webapp#list-runtimes)。 
+在下列範,了中，使用全域唯一的應用程式名稱 (有效的字元為 `a-z`、`0-9` 和 `-`) 取代 `<app_name>`。 執行階段設定為 `dotnetcore|1.1`。 若要查看所有支援的執行階段，請執行 [az webapp list-runtimes](/cli/azure/webapp#az_webapp_list_runtimes)。 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "dotnetcore|1.1" --deployment-local-git

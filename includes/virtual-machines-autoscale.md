@@ -44,7 +44,7 @@ Azure 監視器的自動調整功能可讓您以[計量](../articles/monitoring-
 
 您可以新增或移除 VM，方法是變更擴展集的容量。 在 Azure 入口網站中，您可以減少或增加擴展集中的 VM 數目 (顯示為**執行個體計數**)，方法是將調整螢幕上的覆寫條件列向左或向右滑動。
 
-使用 Azure PowerShell 時，您必須使用 [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) 來取得擴展集物件。 然後，您要將 **sku.capacity** 屬性設定為您需要的 VM 數目，並以 [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) 來更新擴展集。 使用 Azure CLI 時，您要透過 [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#scale) 命令的 **--new-capacity** 參數來變更容量。
+使用 Azure PowerShell 時，您必須使用 [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) 來取得擴展集物件。 然後，您要將 **sku.capacity** 屬性設定為您需要的 VM 數目，並以 [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) 來更新擴展集。 使用 Azure CLI 時，您要透過 [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) 命令的 **--new-capacity** 參數來變更容量。
 
 ### <a name="vertical"></a>Vertical
 

@@ -1,6 +1,6 @@
 # <a name="azure-managed-disks-overview"></a>Azure 受控磁碟概觀
 
-Azure 受控磁碟會管理 VM 磁碟相關的[儲存體帳戶](../articles/storage/common/storage-introduction.md)，簡化 Azure IaaS VM 的磁碟管理。 您只需要指定類型 ([進階](../articles/storage/common/storage-premium-storage.md)或[標準](../articles/storage/common/storage-standard-storage.md))，還有您需要的磁碟大小，Azure 就會替您建立並管理磁碟。
+Azure 受控磁碟會管理 VM 磁碟相關的[儲存體帳戶](../articles/storage/common/storage-introduction.md)，簡化 Azure IaaS VM 的磁碟管理。 您只需要指定類型 ([進階](../articles/virtual-machines/windows/premium-storage.md)或[標準](../articles/virtual-machines/windows/standard-storage.md))，還有您需要的磁碟大小，Azure 就會替您建立並管理磁碟。
 
 ## <a name="benefits-of-managed-disks"></a>受控磁碟的好處
 
@@ -44,7 +44,7 @@ Azure 磁碟設計成確保可用性達 99.999%。 得知有三個資料複本�
 
 讓我們仔細看看這些資訊。
 
-**儲存體類型︰**受控磁碟提供 2 個效能層級︰[進階](../articles/storage/common/storage-premium-storage.md) (以 SSD 為基礎) 和[標準](../articles/storage/common/storage-standard-storage.md) (以 HDD 為基礎)。 受控磁碟的計費取決於您為磁碟選取的儲存體類型。
+**儲存體類型︰**受控磁碟提供 2 個效能層級︰[進階](../articles/virtual-machines/windows/premium-storage.md) (以 SSD 為基礎) 和[標準](../articles/virtual-machines/windows/standard-storage.md) (以 HDD 為基礎)。 受控磁碟的計費取決於您為磁碟選取的儲存體類型。
 
 
 **磁碟大小**：受控磁碟的計費取決於磁碟的佈建大小。 Azure 會將佈建大小對應 (無條件進位) 至下表中指定的最接近受控磁碟選項。 每一個受控磁碟對應至其中一個支援的佈建大小，並據此計費。 例如，如果您建立標準受控磁碟，並指定佈建大小 200 GB，則會依據 S20 磁碟類型的價格向您收費。
@@ -131,9 +131,9 @@ Azure 磁碟加密可讓您加密由 IaaS 虛擬機器所使用的作業系統�
 
 ### <a name="compare-managed-disks-storage-options"></a>比較受控磁碟儲存體選項
 
-* [進階儲存體和磁碟](../articles/storage/common/storage-premium-storage.md)
+* [進階儲存體和磁碟](../articles/virtual-machines/windows/premium-storage.md)
 
-* [標準儲存體和磁碟](../articles/storage/common/storage-standard-storage.md)
+* [標準儲存體和磁碟](../articles/virtual-machines/windows/standard-storage.md)
 
 ### <a name="operational-guidance"></a>作業指引
 

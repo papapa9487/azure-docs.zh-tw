@@ -75,7 +75,7 @@ Azure 在世界各地多個資料中心運作。 這些資料中心會依據地�
 如需有關不同儲存體類型和可用性選項的定價資訊，請參閱 [Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/) 。
 
 ## <a name="availability-sets"></a>可用性集合
-可用性設定組是資料中心內 VM 的邏輯群組，可讓 Azure 了解您應用程式的建置方式，以提供備援和可用性。 建議您在可用性設定組內建立兩個或多個 VM，以提供具高可用性的應用程式，以及符合 [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)。 當單一 VM 是使用 [Azure 進階儲存體](../articles/storage/common/storage-premium-storage.md)時，非計劃性的維護事件適用 Azure SLA。 
+可用性設定組是資料中心內 VM 的邏輯群組，可讓 Azure 了解您應用程式的建置方式，以提供備援和可用性。 建議您在可用性設定組內建立兩個或多個 VM，以提供具高可用性的應用程式，以及符合 [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)。 當單一 VM 是使用 [Azure 進階儲存體](../articles/virtual-machines/windows/premium-storage.md)時，非計劃性的維護事件適用 Azure SLA。 
 
 可用性設定組是由可防止硬體故障及允許安全地套用更新的兩個額外群組所組成 - 容錯網域 (FD) 和更新網域 (UD)。 您可以深入了解如何管理 [Linux VM](../articles/virtual-machines/linux/manage-availability.md) 或 [Windows VM](../articles/virtual-machines/windows/manage-availability.md)。
 

@@ -19,7 +19,7 @@
 
 [網路介面 (NIC)](../articles/virtual-network/virtual-network-network-interface.md) 是 VM 與虛擬網路 (VNet) 之間互相連線的橋樑。 VM 必須有至少一個 NIC，但視您所建立的 VM 大小而定，可以有一個以上的 NIC。 了解 [Windows](../articles/virtual-machines/windows/sizes.md)或[Linux](../articles/virtual-machines/linux/sizes.md) 的每個 VM 大小所支援的 NIC 數目。
 
-您可以使用多個 NIC 來建立 VM，並透過 VM 的生命週期來新增或移除 NIC。 多個 NIC 允許 VM 連線到不同的子網路，並透過最適當的介面來傳送或接收流量。 深入了解如何使用多個 NIC 搭配 [Windows](../articles/virtual-machines/windows/multiple-nics.md) 或 [Linux](../articles/virtual-machines/linux/multiple-nics.md) VM。
+您可以使用多個 NIC 來建立 VM，並透過 VM 的生命週期來新增或移除 NIC。 多個 NIC 允許 VM 連線到不同的子網路，並透過最適當的介面來傳送或接收流量。
 
 如果 VM 已新增至可用性設定組，則可用性設定組內的所有 VM 都必須具有一或多個 NIC。 具有多個 NIC 的 VM 不需要有相同數目的 NIC，但全都必須有至少兩個 NIC。
 
@@ -30,8 +30,8 @@
 | 方法 | 說明 |
 | ------ | ----------- |
 | Azure 入口網站 | 當您在 Azure 入口網站中建立 VM 時，系統會自動為您建立網路介面 (您無法使用您個別建立的 NIC)。 入口網站會建立只有一個 NIC 的 VM。 如果您想要建立具有多個 NIC 的 VM，您必須使用不同的方法來建立它。 |
-| [Azure PowerShell](../articles/virtual-network/virtual-network-deploy-multinic-arm-ps.md) | 使用 [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) 搭配 **-PublicIpAddressId** 參數，提供您先前建立之公用 IP 位址的識別項。 |
-| [Azure CLI](../articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md) | 若要提供您先前建立之公用 IP 位址的識別項，請使用 [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) 搭配 **--public-ip-address** 參數。 |
+| [Azure PowerShell](../articles/virtual-machines/windows/multiple-nics.md) | 使用 [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) 搭配 **-PublicIpAddressId** 參數，提供您先前建立之公用 IP 位址的識別項。 |
+| [Azure CLI](../articles/virtual-machines/linux/multiple-nics.md) | 若要提供您先前建立之公用 IP 位址的識別項，請使用 [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) 搭配 **--public-ip-address** 參數。 |
 | [範本](../articles/virtual-network/virtual-network-deploy-multinic-arm-template.md) | 使用[虛擬網路中具有公用 IP 位址的網路介面](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet)做為使用範本部署網路介面的指南。 |
 
 ## <a name="ip-addresses"></a>IP 位址 
