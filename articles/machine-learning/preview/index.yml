@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Machine Learning 文件 (預覽)
+title: "Azure Machine Learning 文件 (預覽)"
 metadata:
-  title: Azure Machine Learning 文件 (預覽)
+  title: "Azure Machine Learning 文件 (預覽)"
   meta.description: Learn how to use Azure Machine Learning public preview features.
   services: machine-learning
   author: czeumault
@@ -13,38 +13,43 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/06/2017
   ms.author: carolz
+  ms.openlocfilehash: 30febb517eb5820e5e2eed1594141e96d12ac19d
+  ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 10/13/2017
 abstract:
-  description: 了解如何透過我們的快速入門和教學課程，準備資料以及建置和部署模型。 Azure Machine Learning 的預覽功能能夠使用任何 Python 工具和程式庫來建置、部署和管理 ML 和 AI 模型。 您可以在 Azure 中使用各種不同的資料和計算服務來儲存和處理資料。
+  description: "了解如何透過我們的快速入門和教學課程，準備資料以及建置和部署模型。 Azure Machine Learning 的預覽功能能夠使用任何 Python 工具和程式庫來建置、部署和管理 ML 和 AI 模型。 您可以在 Azure 中使用各種不同的資料和計算服務來儲存和處理資料。"
 sections:
-  - title: 5 分鐘快速入門
+- title: "5 分鐘快速入門"
+  items:
+  - type: paragraph
+    text: "建置第一個 Machine Learning 專案"
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 建置第一個 Machine Learning 專案
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/machine-learning/media/index/i_machine-learning.svg
-            text: 安裝和建立
-            href: quickstart-installation
-  - title: 逐步教學課程
+    - image:
+        src: /azure/machine-learning/media/index/i_machine-learning.svg
+      text: "安裝和建立"
+      href: quickstart-installation
+- title: "逐步教學課程"
+  items:
+  - type: paragraph
+    text: "了解如何準備您的資料、設定實驗，以及讓您的模型得以運作"
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 了解如何準備您的資料、設定實驗，以及讓您的模型得以運作
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-classifying-iris-part-1">逐步說明 Machine Learning 服務的基本概念 (預覽)</a>
-          - html: <a href="tutorial-classifying-iris-part-2">使用 Machine Learning Workbench 來建置含有鳶尾花資料集的模型</a>
-          - html: <a href="tutorial-classifying-iris-part-3">了解如何部署 Machine Learning 模型</a>
-          - html: <a href="tutorial-bikeshare-dataprep">使用 Azure Machine Learning Workbench 進行進階資料準備</a>
-  - title: 參考
+    - html: "<a href=\"tutorial-classifying-iris-part-1\">逐步說明 Machine Learning 服務的基本概念 (預覽)</a>"
+    - html: "<a href=\"tutorial-classifying-iris-part-2\">使用 Machine Learning Workbench 來建置含有鳶尾花資料集的模型</a>"
+    - html: "<a href=\"tutorial-classifying-iris-part-3\">了解如何部署 Machine Learning 模型</a>"
+    - html: "<a href=\"tutorial-bikeshare-dataprep\">使用 Azure Machine Learning Workbench 進行進階資料準備</a>"
+- title: "參考"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 語言
-            html: '<p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
-          - title: REST
-            html: <p><a href="model-management-api-reference">模型管理 REST API</a></p>
+    - title: "語言"
+      html: <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
+    - title: REST
+      html: "<p><a href=\"model-management-api-reference\">模型管理 REST API</a></p>"

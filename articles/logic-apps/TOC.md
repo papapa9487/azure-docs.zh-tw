@@ -50,6 +50,7 @@
 ### [驗證 XML](logic-apps-enterprise-integration-xml-validation.md)
 ### [針對 XML 驗證新增結構描述](logic-apps-enterprise-integration-schemas.md)
 ### [轉換 XML](logic-apps-enterprise-integration-transform.md)
+### [轉換 JSON](logic-apps-enterprise-integration-liquid-transform.md)
 ### [針對 XML 轉換新增對應](logic-apps-enterprise-integration-maps.md)
 ### [針對 B2B 安全性新增憑證](logic-apps-enterprise-integration-certificates.md)
 ### [構件的儲存體中繼資料](logic-apps-enterprise-integration-metadata.md)

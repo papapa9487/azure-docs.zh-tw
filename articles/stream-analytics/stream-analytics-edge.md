@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: ad2a5891e207f6e8320c3e54ae7c817b49db4672
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 916aefb7916ab374c882efb95417babfc5b06a50
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>IoT Edge 上的 Azure 串流分析 (預覽)
 
@@ -35,7 +35,7 @@ IoT Edge 上的 Azure 串流分析是在 [Azure IoT Edge](https://azure.microsof
 * **低延遲命令和控制**：例如，製造安全系統必須回應包含超低延遲的作業資料。 透過 IoT Edge 上的 ASA，您可以近乎即時地分析感應器資料，並在偵測到異常時發出命令來停止電腦或觸發程序的警示。
 *   **有限的雲端連線能力**：諸如遠端採礦設備、已連線的容器或海外深入探索等任務關鍵系統都必須分析和回應資料，即使是當雲端連線斷斷續續時也一樣。 利用 ASA，您的串流邏輯就會獨立執行網路連線，從而能夠選擇傳送至雲端進行進一步處理或儲存體的項目。
 * **受限頻寬**：噴射引擎或連線的車輛所產生的資料量可能會很大，在將資料傳送到雲端之前，必須先篩選或預先處理。 您可以使用 ASA 來篩選或彙總必須傳送至雲端的資料。
-* **合規性**：法規合規性可能會要求某些資料在傳送至雲端之前，先在本機進行匿名或彙總。 透過 ASA，您 
+* **合規性**：法規合規性可能會要求某些資料在傳送至雲端之前，先在本機進行匿名或彙總。
 
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Azure 串流分析中的 Edge 作業
 ### <a name="what-is-an-edge-job"></a>什麼是 "Edge" 作業？

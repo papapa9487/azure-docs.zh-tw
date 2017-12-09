@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Site Recovery 文件 - Azure 到 Azure 災害復原
+title: "Site Recovery 文件 - Azure 到 Azure 災害復原"
 metadata:
-  title: Azure Site Recovery 文件 - 教學課程和 API 參考 | Microsoft Docs
+  title: "Azure Site Recovery 文件 - 教學課程和 API 參考 | Microsoft Docs"
   meta.description: Learn how to set up disaster recovery for Azure VMs
   services: site-recovery
   author: rayne-wiselman
@@ -13,37 +13,42 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/26/2017
   ms.author: raynew
+  ms.openlocfilehash: d89187ffd117479f6416427ab3ed9cd56c9666f1
+  ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 11/30/2017
 abstract:
-  description: Azure Site Recovery 可協調和管理 Azure VM 的災害復原。 了解如何以我們的快速入門和教學課程複寫至次要地區，並執行容錯移轉和容錯回復。
+  description: "Azure Site Recovery 可協調和管理 Azure VM 的災害復原。 了解如何以我們的快速入門和教學課程複寫至次要地區，並執行容錯移轉和容錯回復。"
 sections:
-  - title: 5 分鐘快速入門
+- title: "5 分鐘快速入門"
+  items:
+  - type: paragraph
+    text: "快速設定 Azure VM 的災害復原"
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 快速設定 Azure VM 的災害復原
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/site-recovery/azure-to-azure/media/index/portal.svg
-            text: Azure 入口網站
-            href: /azure/site-recovery/azure-to-azure-quickstart
-  - title: 逐步教學課程
+    - image:
+        src: /azure/site-recovery/azure-to-azure/media/index/portal.svg
+      text: "Azure 入口網站"
+      href: /azure/site-recovery/azure-to-azure-quickstart
+- title: "逐步教學課程"
+  items:
+  - type: paragraph
+    text: "了解如何設定 Azure VM 的災害復原、容錯移轉和容錯回復。"
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 了解如何設定 Azure VM 的災害復原、容錯移轉和容錯回復。
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="azure-to-azure-tutorial-enable-replication">設定災害復原</a>
-          - html: <a href="azure-to-azure-tutorial-dr-drill">執行災害復原演練</a>
-          - html: <a href="azure-to-azure-tutorial-failover-failback">執行容錯移轉和容錯回復</a>
-  - title: 參考
+    - html: "<a href=\"azure-to-azure-tutorial-enable-replication\">設定災害復原</a>"
+    - html: "<a href=\"azure-to-azure-tutorial-dr-drill\">執行災害復原演練</a>"
+    - html: "<a href=\"azure-to-azure-tutorial-failover-failback\">執行容錯移轉和容錯回復</a>"
+- title: "參考"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 命令列
-            html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/site-recovery/">REST API 參考</a></p>
+    - title: "命令列"
+      html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
+    - title: REST
+      html: "<p><a href=\"/rest/api/site-recovery/\">REST API 參考</a></p>"

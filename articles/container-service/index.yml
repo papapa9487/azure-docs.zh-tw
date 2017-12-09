@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Container Service 文件
+title: "Container Service 文件"
 metadata:
-  document_id: null
-  title: Azure Container Service 文件 - 教學課程和 API 參考 | Microsoft Docs
-  meta.description: 'Azure Container Service allows you to quickly deploy a production ready Kubernetes, DC/OS, or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.'
+  document_id: 
+  title: "Azure Container Service 文件 - 教學課程和 API 參考 | Microsoft Docs"
+  meta.description: Azure Container Service allows you to quickly deploy a production ready Kubernetes, DC/OS, or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.
   services: container-service
   author: czeumault
   manager: carolz
@@ -14,22 +14,27 @@ metadata:
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: carolz
+  ms.openlocfilehash: 7625fbb02a1ede91c01c35cddd286f4c26ad77be
+  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 10/11/2017
 abstract:
-  description: Azure Container Service 可讓您快速部署可進行生產的 Kubernetes、DC/OS 或 Docker Swarm 叢集。 了解如何透過我們的快速入門、教學課程和範例使用 Azure Container Service。
+  description: "Azure Container Service 可讓您快速部署可進行生產的 Kubernetes、DC/OS 或 Docker Swarm 叢集。 了解如何透過我們的快速入門、教學課程和範例使用 Azure Container Service。"
 sections:
-  - title: null
+- title: 
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
     items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: 開始使用 Kubernetes 叢集
-            href: /azure/container-service/kubernetes
-            image:
-              src: media/index/get-started.svg
-              href: /azure/container-service/kubernetes
-          - title: 開始使用 DC/OS 和 Docker Swarm 叢集
-            href: /azure/container-service/dcos-swarm
-            image:
-              src: media/index/get-started.svg
-              href: /azure/container-service/dcos-swarm
+    - title: "開始使用 Kubernetes 叢集"
+      href: /azure/container-service/kubernetes
+      image:
+        src: media/index/get-started.svg
+        href: /azure/container-service/kubernetes
+    - title: "開始使用 DC/OS 和 Docker Swarm 叢集"
+      href: /azure/container-service/dcos-swarm
+      image:
+        src: media/index/get-started.svg
+        href: /azure/container-service/dcos-swarm

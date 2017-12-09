@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure 受管理的應用程式文件
+title: "Azure 受管理的應用程式文件"
 metadata:
-  title: Azure 受管理的應用程式文件 - 教學課程和 API 參考
-  description: 使用 Azure 受管理的應用程式來發佈雲端解決方案，讓客戶更容易進行維護。
+  title: "Azure 受管理的應用程式文件 - 教學課程和 API 參考"
+  description: "使用 Azure 受管理的應用程式來發佈雲端解決方案，讓客戶更容易進行維護。"
   services: managed-applications
   author: tfitzmac
   manager: timlt
@@ -13,38 +13,43 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/25/2017
   ms.author: tomfitz
+  ms.openlocfilehash: 1deaf3659882855a8b9f510c108db838020abb94
+  ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 10/27/2017
 abstract:
-  description: Azure 受管理的應用程式可讓您向內部及外部客戶提供雲端解決方案。 您可以定義解決方案的基礎結構，以及該解決方案目前的管理條款。 解決方案的帳單則是透過 Azure 計費處理。
+  description: "Azure 受管理的應用程式可讓您向內部及外部客戶提供雲端解決方案。 您可以定義解決方案的基礎結構，以及該解決方案目前的管理條款。 解決方案的帳單則是透過 Azure 計費處理。"
 sections:
-  - title: 5 分鐘快速入門
+- title: "5 分鐘快速入門"
+  items:
+  - type: paragraph
+    text: "了解如何發佈和部署受管理的應用程式。"
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 了解如何發佈和部署受管理的應用程式。
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/managed-applications/media/index/cli.svg
-            text: Azure CLI
-            href: /azure/managed-applications/managed-apps-quickstart-cli
-  - title: 逐步教學課程
+    - image:
+        src: /azure/managed-applications/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/managed-applications/managed-apps-quickstart-cli
+- title: "逐步教學課程"
+  items:
+  - type: paragraph
+    text: "了解如何開發受管理的應用程式，並透過 Azure Marketplace 提供服務。"
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 了解如何開發受管理的應用程式，並透過 Azure Marketplace 提供服務。
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/managed-applications/publish-service-catalog-app">發佈受管理的應用程式，以供內部使用</a>
-          - html: <a href="/azure/managed-applications/publish-marketplace-app">發佈受管理的應用程式，以供外部使用</a>
-  - title: 參考
+    - html: "<a href=\"/azure/managed-applications/publish-service-catalog-app\">發佈受管理的應用程式，以供內部使用</a>"
+    - html: "<a href=\"/azure/managed-applications/publish-marketplace-app\">發佈受管理的應用程式，以供外部使用</a>"
+- title: "參考"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 命令列
-            html: <p><a href="/cli/azure/managedapp">Azure CLI</a></p><p><a href="/powershell/module/azurerm.resources">PowerShell</a></p>
-          - title: REST API
-            html: <p><a href="/rest/api/resources/">REST</a></p>
-          - title: 使用者介面
-            html: <p><a href="/azure/managed-applications/create-uidefinition-elements">UI 元素</a></p><p><a href="/azure/managed-applications/create-uidefinition-functions">UI 功能</a></p>
+    - title: "命令列"
+      html: <p><a href="/cli/azure/managedapp">Azure CLI</a></p><p><a href="/powershell/module/azurerm.resources">PowerShell</a></p>
+    - title: REST API
+      html: <p><a href="/rest/api/resources/">REST</a></p>
+    - title: "使用者介面"
+      html: "<p><a href=\"/azure/managed-applications/create-uidefinition-elements\">UI 元素</a></p><p><a href=\"/azure/managed-applications/create-uidefinition-functions\">UI 功能</a></p>"

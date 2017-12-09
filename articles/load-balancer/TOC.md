@@ -1,7 +1,7 @@
 # 概觀
 ## [何謂負載平衡器？](load-balancer-overview.md)
 ## [何謂 Load Balancer 標準？](load-balancer-standard-overview.md)
-## [網際網路負載平衡器](load-balancer-internet-overview.md)
+## [公用 Load Balancer](load-balancer-internet-overview.md)
 ## [內部負載平衡器](load-balancer-internal-overview.md)
 ## [了解負載平衡器偵查](load-balancer-custom-probe-overview.md)
 ## [了解高可用性連接埠](load-balancer-ha-ports-overview.md)
@@ -12,31 +12,23 @@
 
 # 開始使用
 
-## [設定內部負載平衡器](load-balancer-get-started-ilb-arm-portal.md)
-### [設定內部負載平衡器 (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
-### [設定內部負載平衡器 (CLI)](load-balancer-get-started-ilb-arm-cli.md)
-### [設定內部負載平衡器 (範本)](load-balancer-get-started-ilb-arm-template.md)
+## [設定內部 Load Balancer](load-balancer-get-started-ilb-arm-portal.md)
+### [設定內部 Load Balancer (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
+### [設定內部 Load Balancer (CLI)](load-balancer-get-started-ilb-arm-cli.md)
+### [設定內部 Load Balancer (範本)](load-balancer-get-started-ilb-arm-template.md)
 
-## [設定雲端服務的內部負載平衡器](load-balancer-get-started-ilb-classic-cloud.md)
-### [設定雲端服務的內部負載平衡器 (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
-### [設定雲端服務的內部負載平衡器 (CLI)](load-balancer-get-started-ilb-classic-cli.md)
+## [設定公用 Load Balancer](load-balancer-get-started-internet-portal.md)
+### [設定公用 Load Balancer (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
+### [設定公用 Load Balancer (CLI)](load-balancer-get-started-internet-arm-cli.md)
+### [設定公用 Load Balancer (範本)](load-balancer-get-started-internet-arm-template.md)
 
-## [設定網際網路對向負載平衡器](load-balancer-get-started-internet-portal.md)
-### [設定網際網路對向負載平衡器 (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
-### [設定網際網路對向負載平衡器 (CLI)](load-balancer-get-started-internet-arm-cli.md)
-### [設定網際網路對向負載平衡器 (範本)](load-balancer-get-started-internet-arm-template.md)
+## [以 IPv6 建立公用 Load Balancer](load-balancer-ipv6-internet-ps.md)
+### [以 IPv6 建立公用 Load Balancer (CLI)](load-balancer-ipv6-internet-cli.md)
+### [以 IPv6 建立公用 Load Balancer (範本)](load-balancer-ipv6-internet-template.md)
 
-## [設定網際網路對向 Load Balancer (傳統 PowerShell)](load-balancer-get-started-internet-classic-ps.md)
-### [設定網際網路對向負載平衡器 (傳統雲端)](load-balancer-get-started-internet-classic-cloud.md)
-### [設定網際網路對向負載平衡器 (傳統 CLI)](load-balancer-get-started-internet-classic-cli.md)
-
-## [建立使用 IPv6 的網際網路對向負載平衡器](load-balancer-ipv6-internet-ps.md)
-### [建立使用 IPv6 的網際網路對向負載平衡器 (CLI)](load-balancer-ipv6-internet-cli.md)
-### [建立使用 IPv6 的網際網路對向負載平衡器 (範本)](load-balancer-ipv6-internet-template.md)
-
-## [建立區域備援公用負載平衡器標準](load-balancer-get-started-internet-az-portal.md)
-### [建立區域備援公用負載平衡器標準 (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
-### [建立區域備援公用負載平衡器標準 (CLI)](load-balancer-get-started-internet-az-cli.md)
+## [建立區域備援公用 Load Balancer 標準](load-balancer-get-started-internet-az-portal.md)
+### [建立區域備援公用 Load Balancer 標準 (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [建立區域備援公用 Load Balancer 標準 (CLI)](load-balancer-get-started-internet-az-cli.md)
 
 # 作法
 ## [設定負載平衡器的 TCP 閒置逾時](load-balancer-tcp-idle-timeout.md)
@@ -50,11 +42,17 @@
 ## [Azure 負載平衡器的 Log Analytics](load-balancer-monitor-log.md)
 ## [設定 Linux VM 的 DHCPv6](load-balancer-ipv6-for-linux.md)
 ## [設定內部負載平衡器的高可用性連接埠](load-balancer-configure-ha-ports.md)
-## [在可用性區域中建立公用 IP 位址](../virtual-network/create-public-ip-availability-zone-portal.md)
-## [在可用性區域中建立公用 IP 位址 (PowerShell)](../virtual-network/create-public-ip-availability-zone-powershell.md)
-## [在可用性區域中建立公用 IP 位址 (CLI)](../virtual-network/create-public-ip-availability-zone-cli.md)
+
 ## 疑難排解
 ### [針對 Azure Load Balancer 的問題進行疑難排解](load-balancer-troubleshoot.md)
+
+## 傳統部署模型文章
+### [設定雲端服務的內部 Load Balancer](load-balancer-get-started-ilb-classic-cloud.md)
+#### [設定雲端服務的內部 Load Balancer (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
+#### [設定雲端服務的內部 Load Balancer (CLI)](load-balancer-get-started-ilb-classic-cli.md)
+### [設定公用 Load Balancer (傳統 PowerShell)](load-balancer-get-started-internet-classic-ps.md)
+#### [設定公用 Load Balancer (傳統雲端)](load-balancer-get-started-internet-classic-cloud.md)
+#### [設定公用 Load Balancer (傳統 CLI)](load-balancer-get-started-internet-classic-cli.md)
 
 # 參考
 ## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)

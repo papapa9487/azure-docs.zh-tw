@@ -41,13 +41,14 @@
 
 ## 分析
 ### [分析 Azure CDN 使用模式](cdn-log-analysis.md)
-#### [來自 Verizon 的 Core 報告](cdn-analyze-usage-patterns.md)
-#### [來自 Verizon 的自訂報告](cdn-verizon-custom-reports.md)
 #### [Azure 診斷記錄](cdn-azure-diagnostic-logs.md)
-### 來自 Verizon 的 Azure CDN 分析工具
-#### [產生進階 HTTP 報告](cdn-advanced-http-reports.md)
-#### [檢視即時統計資料](cdn-real-time-stats.md)
-#### [分析邊緣效能](cdn-edge-performance.md)
+#### 來自 Verizon 的 Azure CDN 分析工具
+##### [來自 Verizon 的 Core 報告](cdn-analyze-usage-patterns.md)
+##### [來自 Verizon 的自訂報告](cdn-verizon-custom-reports.md)
+#### 來自 Verizon 的 Azure CDN Premium 分析工具
+##### [產生進階 HTTP 報告](cdn-advanced-http-reports.md)
+##### [檢視即時統計資料](cdn-real-time-stats.md)
+##### [分析邊緣效能](cdn-edge-performance.md)
 
 ## 開發
 ### [.NET](cdn-app-dev-net.md)

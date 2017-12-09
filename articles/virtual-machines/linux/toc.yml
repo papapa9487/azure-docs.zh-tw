@@ -164,6 +164,8 @@
       items:
         - name: Prepay for VMs - 保留執行個體
           href: prepay-reserved-vm-instances.md
+        - name: VM 使用方式
+          href: vm-usage.md
         - name: 一般 CLI 工作
           href: cli-manage.md
         - name: 移動 VM

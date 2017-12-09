@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Container Registry 文件
+title: "Azure Container Registry 文件"
 metadata:
-  title: Azure Container Registry 文件 - 教學課程 | Microsoft Docs
-  description: Azure Container Registry 可讓您儲存和管理所有容器部署類型的映像。 了解如何透過我們的快速入門、教學課程和範例來使用 Azure Container Registry。
+  title: "Azure Container Registry 文件 - 教學課程 | Microsoft Docs"
+  description: "Azure Container Registry 可讓您儲存和管理所有容器部署類型的映像。 了解如何透過我們的快速入門、教學課程和範例來使用 Azure Container Registry。"
   services: container-registry
   author: czeumault
   manager: carolz
@@ -13,47 +13,54 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/26/2017
   ms.author: carolz
+  ms.openlocfilehash: cdd33e3aed48cc94f91962b78f17628a6e29657d
+  ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 12/07/2017
 abstract:
-  description: Azure Container Registry 可讓您儲存和管理所有容器部署類型的映像。 了解如何透過我們的快速入門、教學課程和範例來使用 Azure Container Registry。
+  description: "Azure Container Registry 可讓您儲存和管理所有容器部署類型的映像。 了解如何透過我們的快速入門、教學課程和範例來使用 Azure Container Registry。"
 sections:
-  - title: 5 分鐘快速入門
+- title: "5 分鐘快速入門"
+  items:
+  - type: paragraph
+    text: "了解如何部署 Azure Container Registry。"
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 了解如何部署 Azure Container Registry。
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
-            text: Azure CLI
-            href: /azure/container-registry/container-registry-get-started-azure-cli
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg'
-            text: Azure 入口網站
-            href: /azure/container-registry/container-registry-get-started-portal
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg'
-            text: Azure PowerShell
-            href: /azure/container-registry/container-registry-get-started-powershell
-  - title: 逐步教學課程
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/container-registry/container-registry-get-started-azure-cli
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg
+      text: "Azure 入口網站"
+      href: /azure/container-registry/container-registry-get-started-portal
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/container-registry/container-registry-get-started-powershell
+- title: "逐步教學課程"
+  items:
+  - type: paragraph
+    text: "了解如何透過這些教學課程來使用 Azure Container Registry。"
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: 了解如何透過這些教學課程來使用 Azure Container Registry。
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">容器登錄異地複寫 (預覽)</a>
-          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Container Registry 搭配 Azure Container Instances</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">容器登錄搭配 Azure Container Service (AKS)</a>
-          - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">容器登錄搭配 Service Fabric</a>
-  - title: 參考
+    - html: "<a href=\"/azure/container-registry/container-registry-tutorial-prepare-registry\">容器登錄異地複寫 (預覽)</a>"
+    - html: "<a href=\"/azure/container-instances/container-instances-tutorial-prepare-app\">Container Registry 搭配 Azure Container Instances</a>"
+    - html: "<a href=\"/azure/aks/tutorial-kubernetes-prepare-app\">容器登錄搭配 Azure Container Service (AKS)</a>"
+    - html: "<a href=\"/azure/service-fabric/service-fabric-tutorial-create-container-images\">容器登錄搭配 Service Fabric</a>"
+- title: "參考"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 命令列
-            html: <p><a href="/cli/azure/acr">Azure CLI</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/containerregistry">REST API 參考</a></p>
+    - title: "命令列"
+      html: <p><a href="/cli/azure/acr">Azure CLI</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
+    - title: "語言"
+      html: <p><a href="/dotnet/api/overview/azure/containerregistry">.NET</a></p><p><a href="/python/api/overview/azure/container-registry">Python</a></p><p><a href="/javascript/api/overview/azure/container-registry">Node.js</a></p>
+    - title: REST
+      html: "<p><a href=\"/rest/api/containerregistry\">REST API 參考</a></p><p><a href=\"/azure/templates/microsoft.containerregistry/registries\">Resource Manager 範本</a></p><p><a href=\"/azure/container-registry/container-registry-webhook-reference\">Webhook 結構描述</a></p>"

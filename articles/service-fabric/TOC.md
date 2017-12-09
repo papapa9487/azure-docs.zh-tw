@@ -101,7 +101,6 @@
 
 ## 管理應用程式
 ### [概觀](service-fabric-application-lifecycle.md)
-### [ ImageStoreConnectionString 設定](service-fabric-image-store-connection-string.md)
 ### 應用程式升級
 #### [概觀](service-fabric-application-upgrade.md)
 #### [組態](service-fabric-visualstudio-configure-upgrade.md)
@@ -109,6 +108,7 @@
 #### [應用程式升級的資料序列化](service-fabric-application-upgrade-data-serialization.md)
 #### [應用程式升級進階主題](service-fabric-application-upgrade-advanced.md)
 ### [錯誤分析概觀](service-fabric-testability-overview.md)
+### [ ImageStoreConnectionString 設定](service-fabric-image-store-connection-string.md)
 
 ## 建立和管理叢集
 ### [概觀](service-fabric-deploy-anywhere.md)
@@ -136,8 +136,6 @@
 #### [節流](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [服務動作](service-fabric-cluster-resource-manager-movement-cost.md)
 
-## [與 API 管理整合](service-fabric-api-management-overview.md)
-
 ## 監視與診斷
 ### [監視與診斷應用程式](service-fabric-diagnostics-overview.md)
 ### 產生事件
@@ -164,13 +162,14 @@
 #### [使用 OMS 分析事件](service-fabric-diagnostics-event-analysis-oms.md)
 ### [針對本機叢集進行疑難排解](service-fabric-troubleshoot-local-cluster-setup.md)
 
+## [與 API 管理整合](service-fabric-api-management-overview.md)
+
 # 使用說明指南
 ## 設定開發環境
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
-
-## [設定 Service Fabric CLI](service-fabric-cli.md)
+### [設定 Service Fabric CLI](service-fabric-cli.md)
 
 ## 建置應用程式
 ### [在 Visual Studio 中建立您的第一個 C# 應用程式](service-fabric-create-your-first-application-in-visual-studio.md)

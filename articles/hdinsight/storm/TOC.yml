@@ -11,6 +11,9 @@
   items:
     - name: 建立 Storm 叢集
       href: apache-storm-tutorial-get-started-linux.md
+    - name: 安裝 HDInsight 應用程式
+      href: ../hdinsight-apps-install-applications.md
+      maintainContext: true
     - name: 容量規劃
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
@@ -45,17 +48,11 @@
           href: apache-storm-sensor-data-analysis.md
     - name: 擴充叢集
       items:
-        - name: 使用安全的儲存體帳戶
-          href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
-          maintainContext: true
         - name: 使用啟動程序自訂叢集
           href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
           maintainContext: true
         - name: 使用指令碼動作來自訂叢集
           href: ../hdinsight-hadoop-customize-cluster-linux.md
-          maintainContext: true
-        - name: 將 HDInsight 連線至內部部署網路
-          href: ../connect-on-premises-network.md
           maintainContext: true
         - name: 開發指令碼動作
           href: ../hdinsight-hadoop-script-actions-linux.md
@@ -63,14 +60,8 @@
         - name: 安裝或更新 Mono
           href: ../hdinsight-hadoop-install-mono.md
           maintainContext: true
-        - name: 使用虛擬網路
-          href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
         - name: 建置 HDInsight 應用程式
           items:
-            - name: 安裝 HDInsight 應用程式
-              href: ../hdinsight-apps-install-applications.md
-              maintainContext: true
             - name: 安裝自訂應用程式
               href: ../hdinsight-apps-install-custom-applications.md
               maintainContext: true
@@ -180,20 +171,6 @@
         - name: HDInsight 叢集的作業系統修補
           href: ../hdinsight-os-patching.md
           maintainContext: true
-    - name: 監視
-      items:
-        - name: 使用 Azure Log Analytics
-          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: 叢集特定儀表板
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
-          maintainContext: true
-        - name: 透過 Log Analytics 使用查詢
-          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-          maintainContext: true
-        - name: 監視叢集效能
-          href: ../hdinsight-key-scenarios-to-monitor.md
-          maintainContext: true
     - name: 疑難排解
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
@@ -220,6 +197,33 @@
             - name: 啟用 Hadoop 適用的服務堆積傾印
               href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
               maintainContext: true
+- name: 企業整備
+  items:
+    - name: 保護資料
+      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+      maintainContext: true
+    - name: 網路存取
+      items:
+        - name: Azure VNet 中的 HDInsight
+          href: ../hdinsight-extend-hadoop-virtual-network.md
+          maintainContext: true
+        - name: 將 HDInsight 與內部部署網路連線
+          href: ../connect-on-premises-network.md
+          maintainContext: true
+    - name: 使用 OMS 監控
+      items:
+        - name: 使用 Azure Log Analytics
+          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+          maintainContext: true
+        - name: 叢集特定儀表板
+          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
+          maintainContext: true
+        - name: 透過 Log Analytics 使用查詢
+          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+          maintainContext: true
+        - name: 監視叢集效能
+          href: ../hdinsight-key-scenarios-to-monitor.md
+          maintainContext: true
 - name: 參考
   items:
     - name: 程式碼範例

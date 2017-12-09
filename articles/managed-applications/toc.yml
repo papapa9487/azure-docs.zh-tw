@@ -12,8 +12,6 @@
   items:
     - name: 建立服務目錄應用程式
       href: publish-service-catalog-app.md
-    - name: 建立 Marketplace 應用程式
-      href: publish-marketplace-app.md
 - name: 範例
   items:
     - name: Azure CLI

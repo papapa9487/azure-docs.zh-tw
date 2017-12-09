@@ -2,9 +2,9 @@
 documentType: LandingData
 title: Azure Container Service (AKS)
 metadata:
-  document_id: null
-  title: Azure Container Service (AKS) 文件 - 教學課程和 API 參考 | Microsoft Docs
-  meta.description: 'AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.'
+  document_id: 
+  title: "Azure Container Service (AKS) 文件 - 教學課程和 API 參考 | Microsoft Docs"
+  meta.description: AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.
   services: container-service
   author: carolz
   manager: carolz
@@ -14,42 +14,47 @@ metadata:
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: carolz
+  ms.openlocfilehash: effec3747fef172e3124c4d2ea6fef86b0b80590
+  ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 10/27/2017
 abstract:
-  description: Azure Container Service (AKS) 會管理您的託管 Kubernetes 環境；無需容器協調流程專業技術，就能快速輕鬆地部署並管理容器化的應用程式。 也可透過佈建、升級與依需求調整資源，以無需讓應用程式離線的方式來消除進行中作業及維護之間的界線。
+  description: "Azure Container Service (AKS) 會管理您的託管 Kubernetes 環境；無需容器協調流程專業技術，就能快速輕鬆地部署並管理容器化的應用程式。 也可透過佈建、升級與依需求調整資源，以無需讓應用程式離線的方式來消除進行中作業及維護之間的界線。"
 sections:
-  - title: 5 分鐘快速入門
+- title: "5 分鐘快速入門"
+  items:
+  - type: paragraph
+    text: "了解如何部署 AKS 叢集："
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 了解如何部署 AKS 叢集：
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/media/index/ContainerService.svg
-            text: 建立 AKS 叢集
-            href: /azure/aks/kubernetes-walkthrough
-  - title: 逐步教學課程
+    - image:
+        src: /azure/media/index/ContainerService.svg
+      text: "建立 AKS 叢集"
+      href: /azure/aks/kubernetes-walkthrough
+- title: "逐步教學課程"
+  items:
+  - type: paragraph
+    text: "了解如何在 AKS 叢集中部署、管理和更新應用程式。"
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 了解如何在 AKS 叢集中部署、管理和更新應用程式。
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">從應用程式建立容器映像</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-acr">將容器映像上傳至 Azure Container Registry</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-deploy-cluster">部署 AKS 叢集</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">在 Kubernetes 中執行容器映像</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-scale">調整應用程式和 Kubernetes 基礎結構</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-app-update">更新在 Kubernetes 中執行的應用程式</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-monitor">透過 OMS 監視 Kubernetes</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-upgrade-cluster">升級 AKS 叢集</a>
-  - title: 參考
+    - html: "<a href=\"/azure/aks/tutorial-kubernetes-prepare-app\">從應用程式建立容器映像</a>"
+    - html: "<a href=\"/azure/aks/tutorial-kubernetes-prepare-acr\">將容器映像上傳至 Azure Container Registry</a>"
+    - html: "<a href=\"/azure/aks/tutorial-kubernetes-deploy-cluster\">部署 AKS 叢集</a>"
+    - html: "<a href=\"/azure/aks/tutorial-kubernetes-deploy-application\">在 Kubernetes 中執行容器映像</a>"
+    - html: "<a href=\"/azure/aks/tutorial-kubernetes-scale\">調整應用程式和 Kubernetes 基礎結構</a>"
+    - html: "<a href=\"/azure/aks/tutorial-kubernetes-app-update\">更新在 Kubernetes 中執行的應用程式</a>"
+    - html: "<a href=\"/azure/aks/tutorial-kubernetes-monitor\">透過 OMS 監視 Kubernetes</a>"
+    - html: "<a href=\"/azure/aks/tutorial-kubernetes-upgrade-cluster\">升級 AKS 叢集</a>"
+- title: "參考"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 命令列
-            html: <p><a href="/cli/azure/aks">Azure CLI</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/aks">REST API</a></p>
+    - title: "命令列"
+      html: <p><a href="/cli/azure/aks">Azure CLI</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/aks">REST API</a></p>

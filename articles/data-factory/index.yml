@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Data Factory V2 預覽文件
+title: "Azure Data Factory V2 預覽文件"
 metadata:
-  title: Azure Data Factory 文件 - 教學課程和 API 參考 | Microsoft Docs
-  description: 了解如何使用 Data Factory 來設定內部部署和雲端來源的雙向自動化資料管線，以便移動和處理資料以供分析。
+  title: "Azure Data Factory 文件 - 教學課程和 API 參考 | Microsoft Docs"
+  description: "了解如何使用 Data Factory 來設定內部部署和雲端來源的雙向自動化資料管線，以便移動和處理資料以供分析。"
   services: data-factory
   author: spelluru
   manager: jhubbard
@@ -13,73 +13,78 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/08/2017
   ms.author: spelluru
+  ms.openlocfilehash: 293cfbc2cc9030a8315fa48e835a1446ff10d469
+  ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 12/01/2017
 abstract:
-  description: 了解如何使用 Data Factory (雲端資料整合服務)，將資料儲存、移動及處理服務組合成自動化資料管線。 教學課程和其他文件會示範如何設定和管理資料管線，以及移動和轉換資料以供分析。 <p>目前，Data Factory V2 版處於預覽狀態。 V1 版已正式推出。 如果您使用 Data Factory 服務 V1 版，請參閱 <a href=/azure/data-factory/v1/data-factory-introduction>V1 文件</a>。</p>
+  description: "了解如何使用 Data Factory (雲端資料整合服務)，將資料儲存、移動及處理服務組合成自動化資料管線。 教學課程和其他文件會示範如何設定和管理資料管線，以及移動和轉換資料以供分析。 <p>目前，Data Factory V2 版處於預覽狀態。 V1 版已正式推出。 如果您使用 Data Factory 服務 V1 版，請參閱 <a href=/azure/data-factory/v1/data-factory-introduction>V1 文件</a>。</p>"
 sections:
-  - title: 5 分鐘快速入門
+- title: "5 分鐘快速入門"
+  items:
+  - type: paragraph
+    text: "了解如何使用下列各項來建立資料處理站："
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 了解如何使用下列各項來建立資料處理站：
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/data-factory/media/index/logo_powershell.svg
-            text: Azure PowerShell
-            href: /azure/data-factory/quickstart-create-data-factory-powershell
-          - image:
-              src: /azure/data-factory/media/index/logo_net.svg
-            text: .NET
-            href: /azure/data-factory/quickstart-create-data-factory-dot-net
-          - image:
-              src: /azure/data-factory/media/index/logo_python.svg
-            text: Python
-            href: /azure/data-factory/quickstart-create-data-factory-python
-          - image:
-              src: /azure/data-factory/media/index/logo_rest.svg
-            text: REST
-            href: /azure/data-factory/quickstart-create-data-factory-rest-api
-          - image:
-              src: /azure/data-factory/media/index/portal.svg
-            text: Azure 入口網站
-            href: /azure/data-factory/quickstart-create-data-factory-portal
-          - image:
-              src: /azure/data-factory/media/index/logo_azure_resource_manager.svg
-            text: Resource Manager 範本
-            href: /azure/data-factory/quickstart-create-data-factory-resource-manager-template
-  - title: 逐步教學課程
+    - image:
+        src: /azure/data-factory/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/data-factory/quickstart-create-data-factory-powershell
+    - image:
+        src: /azure/data-factory/media/index/logo_net.svg
+      text: .NET
+      href: /azure/data-factory/quickstart-create-data-factory-dot-net
+    - image:
+        src: /azure/data-factory/media/index/logo_python.svg
+      text: Python
+      href: /azure/data-factory/quickstart-create-data-factory-python
+    - image:
+        src: /azure/data-factory/media/index/logo_rest.svg
+      text: REST
+      href: /azure/data-factory/quickstart-create-data-factory-rest-api
+    - image:
+        src: /azure/data-factory/media/index/portal.svg
+      text: "Azure 入口網站"
+      href: /azure/data-factory/quickstart-create-data-factory-portal
+    - image:
+        src: /azure/data-factory/media/index/logo_azure_resource_manager.svg
+      text: "Resource Manager 範本"
+      href: /azure/data-factory/quickstart-create-data-factory-resource-manager-template
+- title: "逐步教學課程"
+  items:
+  - type: paragraph
+    text: "了解如何建立和監視資料處理站："
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 了解如何建立和監視資料處理站：
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">將 SSIS 套件部署至 Azure</a>
-          - html: <a href="/azure/data-factory/tutorial-copy-data-dot-net">複製雲端中的資料</a>
-          - html: <a href="../data-factory/tutorial-hybrid-copy-powershell">將內部部署資料複製到雲端</a>
-          - html: <a href="../data-factory/tutorial-bulk-copy">複製大量資料</a>
-          - html: <a href="../data-factory/tutorial-incremental-copy-powershell">以累加方式複製資料</a>
-          - html: <a href="../data-factory/tutorial-transform-data-spark-powershell">使用 Spark 轉換雲端中的資料</a>
-          - html: <a href="../data-factory/tutorial-transform-data-hive-virtual-network">轉換虛擬網路中的資料</a>
-          - html: <a href="../data-factory/tutorial-control-flow">控制流程</a>
-  - title: 範例
+    - html: "<a href=\"/azure/data-factory/tutorial-deploy-ssis-packages-azure\">將 SSIS 套件部署至 Azure</a>"
+    - html: "<a href=\"/azure/data-factory/tutorial-copy-data-dot-net\">複製雲端中的資料</a>"
+    - html: "<a href=\"../data-factory/tutorial-hybrid-copy-powershell\">將內部部署資料複製到雲端</a>"
+    - html: "<a href=\"../data-factory/tutorial-bulk-copy\">複製大量資料</a>"
+    - html: "<a href=\"../data-factory/tutorial-incremental-copy-powershell\">以累加方式複製資料</a>"
+    - html: "<a href=\"../data-factory/tutorial-transform-data-spark-powershell\">使用 Spark 轉換雲端中的資料</a>"
+    - html: "<a href=\"../data-factory/tutorial-transform-data-hive-virtual-network\">轉換虛擬網路中的資料</a>"
+    - html: "<a href=\"../data-factory/tutorial-control-flow\">控制流程</a>"
+- title: "範例"
+  items:
+  - type: paragraph
+    text: "使用下列範例來使用 Data Factory"
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: 使用下列範例來使用 Data Factory
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/data-factory/samples-powershell">PowerShell</a>
-  - title: 參考
+    - html: <a href="/azure/data-factory/samples-powershell">PowerShell</a>
+- title: "參考"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 命令列
-            html: <p><a href="/powershell/module/azurerm.datafactoryv2/">Azure PowerShell</a></p>
-          - title: 語言
-            html: <p><a href="/dotnet/api/microsoft.azure.management.datafactory">.NET</a></p><p><a href="/python/api/overview/azure/datafactory?view=azure-python">Python</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/datafactory">REST API</a></p>
+    - title: "命令列"
+      html: <p><a href="/powershell/module/azurerm.datafactoryv2/">Azure PowerShell</a></p>
+    - title: "語言"
+      html: <p><a href="/dotnet/api/microsoft.azure.management.datafactory">.NET</a></p><p><a href="/python/api/overview/azure/datafactory?view=azure-python">Python</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/datafactory">REST API</a></p>
