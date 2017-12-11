@@ -1,26 +1,18 @@
 ---
-title: "Azure Container Service - 常見問題集 | Microsoft Docs"
+title: "Azure Container Service - 常見問題集"
 description: "解答有關 Azure Container Service 的常見問題，Azure Container Service 服務可簡化用以執行 Docker 容器應用程式之虛擬機器叢集的建立、設定和管理作業。"
 services: container-service
-documentationcenter: 
 author: dlepow
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker、容器、微服務、Mesos、Azure、Kubernetes"
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/28/2017
 ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 95bd6478540683afa45da2159579171dbf76e665
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: H1Hack27Feb201
+ms.openlocfilehash: 1c5d8677ce7012a4861ee61999b1044a5e162566
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 [!INCLUDE [container-service-faq.md](../../../includes/container-service-faq.md)]

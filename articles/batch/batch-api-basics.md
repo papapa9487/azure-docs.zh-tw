@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3028e913937db304ac0a1df8e6a095072630505d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 22c5597cf14f27671667176dce8782cf0c79918d
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 開發大規模的平行運算解決方案
 
@@ -56,10 +56,8 @@ ms.lasthandoff: 11/18/2017
 * [計算節點](#compute-node)
 * [集區](#pool)
 * [作業](#job)
-
   * [作業排程](#scheduled-jobs)
 * [Task](#task)
-
   * [啟動工作](#start-task)
   * [作業管理員工作](#job-manager-task)
   * [作業準備和作業釋放工作](#job-preparation-and-release-tasks)
@@ -263,6 +261,9 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台。 這些集區可
 * 執行工作所應根據的 **條件約束** 。 例如，條件約束包括允許執行工作的時間上限、失敗的工作應該重試的次數上限，以及檔案保留在工作的工作目錄中的時間上限。
 * **Application packages** 。 [應用程式封裝](#application-packages) 會提供您的工作執行之應用程式的簡化部署和版本控制。 在共用集區的環境中，工作層級的應用程式封裝特別有用：不同的作業會在一個集區上執行，而某項作業完成時並不會刪除該集區。 如果您的作業擁有的工作少於集區中的節點，工作應用程式套件可以減少資料傳輸，因為您的應用程式只會部署至執行工作的節點。
 * Docker 中樞或私人登錄中的**容器映像**參考和其他設定，用來建立 Docker 容器，工作會在其中的節點上執行。 如果集區是使用容器設定進行設定，您只能指定此資訊。
+
+> [!NOTE]
+> 工作的最長存留期 (從它新增至作業到完成時) 為 7 天。 已完成的工作會無限期保留；無法存取未在最長存留期內完成之工作的資料。
 
 除了您定義在節點上執行計算的工作以外，Batch 服務還提供下列特殊工作：
 

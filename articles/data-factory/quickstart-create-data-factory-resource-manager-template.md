@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/28/2017
 ms.author: spelluru
-ms.openlocfilehash: 6a6d0af6ed4e2c4ece7d69f6d7606e3ca149f8a7
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 8d00602dd2634b6fdbd9e9203efaf1e4393f4c09
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>教學課程：使用 Azure Resource Manager 範本建立 Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -426,7 +426,7 @@ DeploymentDebugLogLevel :
     ```
 
 ## <a name="monitor-the-pipeline"></a>監視管線
-1. 登入 [Azure 入口網站](https://portal.azure.com/)後，按一下 [更多服務]，以 `data fa` 等關鍵字進行搜尋，然後選取 [資料管理站]。
+1. 登入 [Azure 入口網站](https://portal.azure.com/)後，按一下 [更多服務]，以 **data fa** 等關鍵字進行搜尋，然後選取 [資料管理站]。
 
     ![瀏覽資料處理站功能表](media/quickstart-create-data-factory-resource-manager-template/browse-data-factories-menu.png)
 2. 在 [資料管理站] 頁面中，按一下您建立的資料管理站。 如有需要，以您的資料管理站名稱篩選清單。  

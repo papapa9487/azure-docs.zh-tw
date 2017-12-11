@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 12/04/2017
 ms.author: owend
-ms.openlocfilehash: 350f95b2f9ec8dc4a3e2dc8f7d390f841b248fa1
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 224ecbb80e8fc5b3f1a32e42eda7ec5452e9e553
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>什麼是 Azure Analysis Services？
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -124,7 +124,7 @@ Azure Analysis Services 受 [Microsoft Online Services 條款](http://www.micros
 ## <a name="get-help"></a>取得說明
 
 #### <a name="documentation"></a>文件
-設定和管理 Azure Analysis Services 非常容易。 您可以在此找到建立和管理伺服器服務所需要的全部資訊。 建立要部署到您的伺服器的資料模型時，就像是要建立您部署到內部部署伺服器的資料模型一樣。 [Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services) 有一個內容廣泛的程式庫，包含概念、程序、教學課程及參考文件。
+設定和管理 Azure Analysis Services 非常容易。 您可以在此找到建立和管理伺服器服務所需要的全部資訊。 建立要部署到您的伺服器的資料模型時，就像是要建立您部署到內部部署伺服器的資料模型一樣。 [SQL Server Analysis Services 說明](https://docs.microsoft.com/sql/analysis-services/analysis-services)有一個內容廣泛的程式庫，包含概念、程序、教學課程及參考文件。
 
 #### <a name="videos"></a>影片
 觀看 [Channel 9 上有關 Azure Analysis Services](https://channel9.msdn.com/series/Azure-Analysis-Services) 的實用影片。

@@ -1,29 +1,29 @@
 ---
-title: "Azure 搜尋入口網站頁面中的索引、查詢和篩選器 | Microsoft Docs"
-description: "在 Azure 入口網站中，使用預先定義的範例資料來產生索引。 探索全文檢索搜尋、篩選器、面向、模糊搜尋、地理搜尋功能等等。"
+title: "使用入口網站進行編製索引、查詢和篩選的 Azure 搜尋服務教學課程 | Microsoft Docs"
+description: "在 Azure 入口網站中，使用預先定義的範例資料在 Azure 搜尋服務中產生索引。 探索全文檢索搜尋、篩選器、面向、模糊搜尋、地理搜尋功能等等。"
 services: search
 documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
 editor: 
 tags: azure-portal
-ms.assetid: 21adc351-69bb-4a39-bc59-598c60c8f958
+ms.assetid: 
 ms.service: search
 ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 06/26/2017
+ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: a67de3d385ccb1f65d026acfa0d4413df889bafe
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 098faa777746ac23ce7e88aa01fc727f88d4259c
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>在入口網站中建立、查詢和篩選 Azure 搜尋服務索引
 
-在 Azure 入口網站中，從預先定義的範例資料集著手，使用 [匯入資料] 精靈快速產生索引。 使用**搜尋總管**探索全文檢索搜尋、篩選器、面向、模糊搜尋和地理搜尋功能。  
+在 Azure 入口網站中，從預先定義的範例資料集著手，使用 [匯入資料] 精靈快速產生 Azure 搜尋服務索引。 使用**搜尋總管**探索全文檢索搜尋、篩選器、面向、模糊搜尋和地理搜尋功能。  
 
 此無程式碼的簡介，讓您從預先定義的資料著手，以便立即撰寫有趣的查詢。 雖然入口網站工具無法取代程式碼，但您可能發現它適合用於下列工作︰
 

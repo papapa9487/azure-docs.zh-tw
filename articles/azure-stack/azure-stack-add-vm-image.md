@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.openlocfilehash: 54b6a6984e66f32642336f4ea5e1e9f4ec9d03f3
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: b54bb67e1188037385d0b373850b6b923eb8d7ac
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>在 Azure Stack 中提供自訂虛擬機器映像
 
@@ -184,7 +184,7 @@ Remove-AzsVMImage `
 
 2. 以操作員身分登入 Azure Stack。 在功能表中，選取 [更多服務] > [資源提供者]。 然後，選取 [計算] > [VM 映像] > [新增]。
 
-3. 在 [新增 VM 映像] 底下，輸入虛擬機器映像的發行者、供應項目、SKU 及版本。 這些名稱區段指的是 Resource Manager 範本中的 VM 映像。 請務必正確選取 **osType** 值。 針對 [OD 磁碟 Blob URI]，輸入上傳映像所在的 Blob URI。 然後，選取 [建立] 以開始建立 VM 映像。
+3. 在 [新增 VM 映像] 底下，輸入虛擬機器映像的發行者、供應項目、SKU 及版本。 這些名稱區段指的是 Resource Manager 範本中的 VM 映像。 請務必正確選取 **osType** 值。 針對 [OS 磁碟 Blob URI]，輸入上傳映像所在的 Blob URI。 然後，選取 [建立] 以開始建立 VM 映像。
    
    ![開始建立映像](./media/azure-stack-add-vm-image/image4.png)
 

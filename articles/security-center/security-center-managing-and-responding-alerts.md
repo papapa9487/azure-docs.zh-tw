@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/30/2017
 ms.author: yurid
-ms.openlocfilehash: a1ea4007f7399dff6da9d66931e1f5366942be0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1388a351b82beb6b3e7eb61a3a0517aa90c695f5
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>管理及回應 Azure 資訊安全中心的安全性警示
 本文件可協助您使用 Azure 資訊安全中心來管理及回應安全性警示。
@@ -57,6 +57,10 @@ ms.lasthandoff: 10/11/2017
 * **狀態**：該警示目前的狀態。 狀態分為兩種：
   * **使用中**：已偵測到安全性警示。
 * **嚴重性**：嚴重性層級，分為高、中或低。
+
+> [!NOTE]
+> 資訊安全中心產生的安全性警示也會出現在 Azure 活動記錄之下。 如需有關如何存取 Azure 活動記錄的詳細資訊，請參閱[檢視活動記錄以稽核對資源的動作](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)。
+>
 
 ### <a name="filtering-alerts"></a>篩選警示
 您可以根據日期、狀態及嚴重性來篩選警示。 如果您需要縮小顯示的安全性警示檢視範圍，篩選警示會相當有用。 例如，您可能想確認在過去 24 小時發生的安全性警示，因為您正在調查系統中可能的入侵行動。

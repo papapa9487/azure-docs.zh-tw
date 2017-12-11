@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: b797ee3ef270ff3420ff9e7f4aa8032641714d7a
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: fb664b76a948244d96a26b199a4e8e6c83bae0f4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 簡介 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,63 +67,7 @@ Azure Data Factory 中的管線 (資料導向工作流程) 通常會執行下列
 ### <a name="monitor"></a>監視
 在您順利建置並部署資料整合管線之後 (從精簡資料提供業務價值)，請監視所排定活動和管線的成功和失敗率。 Azure Data Factory 提供內建支援，可讓您透過 Azure 監視器、API、PowerShell、Microsoft Operations Management Suite 及 Azure 入口網站上的健康情況面板監視管線。
 
-## <a name="whats-different-in-version-2"></a>第 2 版有何不同？
-Azure Data Factory 第 2 版是以原始 Azure Data Factory 資料移動和轉換服務為基礎，延伸至一組更廣泛的雲端優先資料整合案例。 Azure Data Factory 第 2 版提供下列功能：
-
-- 控制流程和規模
-- 在 Azure 中部署和執行 SQL Server Integration Services (SSIS) 套件
-
-在第 1 版發行之後，我們體認到客戶需要設計要求在雲端、內部部署環境及雲端 VM 中移動和處理資料的複雜混合式資料整合案例。 這些要求帶來一項需求，亦即在受保護的虛擬網路環境內轉送和處理資料，並使用依需求提供的處理能力進行相應放大。
-
-隨著資料管線變成商務分析策略的一個重要部分，我們已目睹這些重要的資料活動需要彈性的排程，以支援增量資料載入和事件觸發的執行。 最後，隨著這些作業的複雜性增加，要求服務支援常見工作流程範例 (包括分支、迴圈及條件式處理) 的需求也隨之增加。
-
-在第 2 版中，您也可以將現有的 SSIS 封裝移轉到雲端。 您可以將 SSIS 原形移轉為在 ADF 內管理的 Azure 服務，並且利用「整合執行階段」(IR)」這想新功能。 藉由在第 2 版中運作 SSIS IR，您將能夠在雲端執行、管理、監視及建置 SSIS 套件。
-
-### <a name="control-flow-and-scale"></a>控制流程和規模 
-為了支援現代化資料倉儲中的各種整合流程和模式，Data Factory 已啟用一個不再與時間序列資料繫結的新彈性資料管線模型。 在此版本中，您可以在資料管線的控制流程中為條件式和分支建立模型，然後明確地在這些流程內及跨這些流程傳遞參數。
-
-您現在可以自由地為其資料整合所需的任何流程樣式建立模型，其可依需求分派或依時鐘排程重複地分派。 幾個現在已啟用但先前無法使用的常見流程包括：   
-
-- 控制流程：
-    - 將管線內的活動循序鏈結
-    - 將管線內的活動分支
-    - 參數
-        - 可在管線層級定義參數，而在依需求或從觸發程序叫用管線時，可以傳遞引數。
-        - 活動可以取用傳遞給管線的引數。
-    - 自訂狀態傳遞
-        - 活動輸出 (包括狀態) 可供管線中的後續活動取用。
-    - 迴圈容器
-        - For-each 
-- 以觸發程序為基礎的流程
-    - 可依需求或依時鐘時間觸發管線。
-- 差異流程
-    - 在從內部部署環境或雲端中的關聯式存放區移動維度或參考資料表，以將資料載入到 Data Lake 中時，使用參數並為差異複本定義上限標準。 
-
-如需詳細資訊，請參閱[在 Data Factory 管道中將活動分支和鏈結](tutorial-control-flow.md)。
-
-### <a name="deploy-ssis-packages-to-azure"></a>將 SSIS 套件部署至 Azure 
-如果您想要移動 SSIS 工作負載，可以建立一個 Data Factory 第 2 版，然後佈建 Azure-SSIS 整合執行階段 (IR)。 Azure-SSIS IR 是一個完全受管理的 Azure VM (節點) 叢集，專門用來執行您的雲端 SSIS 套件。 如需逐步指示，請參閱教學課程[將 SQL Server Integration Services 套件部署至 Azure](tutorial-deploy-ssis-packages-azure.md)。 
- 
-
-### <a name="sdks"></a>SDK
-如果您是進階使用者且正在尋找程式設計介面，則第 2 版提供一組豐富的 SDK，可供您使用慣用的 IDE 來撰寫、管理及監視管線。
-
-- *.NET SDK*：針對第 2 版更新 .NET SDK。 
-- *PowerShell*：針對第 2 版更新 PowerShell Cmdlet。 第 2 版 Cmdlet 的名稱中會有 **DataFactoryV2**。 例如：Get-AzureRmDataFactoryV2。 
-- *Python SDK*：此 SDK 是第 2 版的新增項目。
-- *REST API*：針對第 2 版更新 REST API。  
-
-針對第 2 版更新的 SDK 不具與第 1 版用戶端的回溯相容性。 
-
-### <a name="monitoring"></a>監視
-目前，第 2 版僅支援使用 SDK 來監視資料處理站。 入口網站尚未支援監視第 2 版資料處理站。 
-
-## <a name="load-the-data-into-a-lake"></a>將資料載入到資料湖中
-Data Factory 有超過 30 種連接器，可讓您將混合式和異質環境中的資料載入到 Azure 中。 如需來自內部測試的最新效能結果和微調建議，請參閱[效能和微調指南](copy-activity-performance.md)。 
-
-此外，我們最近已針對您安裝在私人網路環境中的自我裝載「整合執行階段」啟用「高可用性」和「延展性」。 這可解決大型第 1 層企業客戶對更佳可用性和延展性的需求。
-
-## <a name="top-level-concepts-in-version-2"></a>第 2 版中的最上層概念
+## <a name="top-level-concepts"></a>最上層概念
 Azure 訂用帳戶可能會有一或多個 Azure Data Factory 執行個體 (或資料處理站)。 Azure Data Factory 是由四個主要元件所組成。 這些元件會一起運作，以提供平台讓您撰寫具有資料移動和轉換步驟的資料驅動工作流程。
 
 ### <a name="pipeline"></a>管線
@@ -147,8 +91,7 @@ Data Factory 中的連結服務，有兩個用途：
 - 用來代表可裝載活動執行的 **計算資源** 。 例如，HDInsightHive 活動會在 HDInsight Hadoop 叢集上執行。 如需轉換活動和所支援計算環境的清單，請參閱[轉換資料](transform-data.md)一文。
 
 ### <a name="triggers"></a>觸發程序
-觸發程序代表處理單位，用來決定何時需要開始執行管線。 針對不同類型的事件，有不同類型的觸發程序。 就預覽版而言，我們支援時鐘排程器觸發程序。 
-
+觸發程序代表處理單位，用來決定何時需要開始執行管線。 針對不同類型的事件，有不同類型的觸發程序。 就預覽版而言，Data Factory 支援時鐘排程器觸發程序。 
 
 ### <a name="pipeline-runs"></a>管線執行
 管線執行是管線執行的執行個體。 「管線執行」通常是藉由將引數傳遞給管線中定義的參數來具現化。 傳遞引數時，可以藉由手動方式傳遞，或在觸發程序定義內傳遞。
@@ -179,6 +122,9 @@ Azure Data Factory 本身不會儲存任何資料。 它可讓您建立資料導
 雖然只有「美國東部」、「美國東部 2」和「西歐」區域提供 Data Factory，但為 Data Factory 中的資料移動提供技術支援的服務卻是全球數個區域中都有提供。 如果資料存放區位於防火牆後面，則會改由內部部署環境中所安裝的資料管理閘道負責移動資料。
 
 如需範例，讓我們假設您的計算環境 (例如 Azure HDInsight 叢集和 Azure 機器學習服務) 即將用盡西歐區域的資源。 您可以在北歐建立和利用 Azure Data Factory 執行個體，並用它排程您在西歐區域之計算環境上的工作。 只要幾毫秒的時間，Data Factory 就能觸發計算環境上的作業，但執行計算環境上作業所需的時間則不會改變。
+
+## <a name="compare-with-version-2"></a>與第 2 版比較
+如需第 1 版與第 2 版 Data Factory 服務之間的差異清單，請參閱[與第 1 版比較](compare-versions.md)。 
 
 ## <a name="next-steps"></a>後續步驟
 依照下列快速入門中的逐步指示操作，以了解如何建立資料處理站：[PowerShell](quickstart-create-data-factory-powershell.md)[.NET](quickstart-create-data-factory-dot-net.md)[Python](quickstart-create-data-factory-python.md)[REST API](quickstart-create-data-factory-rest-api.md) 及 Azure 入口網站。 

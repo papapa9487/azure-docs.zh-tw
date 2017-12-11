@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
-ms.openlocfilehash: 72b724d5cf6787f8d6afc73fb37f4944cbae78a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dfae23638e31242dc795922fd62d1abb02579480
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>適用於雲端解決方案提供者 (CSP) 的 ExpressRoute
 Microsoft 為傳統的轉銷商和經銷商 (CSP) 提供超大規模的服務，以便為您的客戶快速佈建新的服務和解決方案，而不需要投資開發這些新服務。 若要讓雲端解決方案提供者 (CSP) 能夠直接管理這些新服務，Microsoft 提供了一些程式和 API，讓 CSP 可以代表您的客戶管理 Microsoft Azure 資源。 其中一個資源是 ExpressRoute。 ExpressRoute 可讓 CSP 將現有的客戶資源連接到 Azure 服務。 ExpressRoute 是 Azure 中服務的高速私用通訊連結。 
 
-ExpresRoute 是由一組附加至單一客戶訂用帳戶的高可用性電路所組成，不能由多個客戶共用。 每個電路應在不同的路由器中終止，以維持高可用性。
+ExpresRoute 是由一組連結至單一客戶訂用帳戶的高可用性線路所組成，不能由多個客戶共用。 每個電路應在不同的路由器中終止，以維持高可用性。
 
 > [!NOTE]
 > ExpressRoute 有頻寬和連接端點，這表示大型/複雜的實作需要單一客戶有多個 ExpressRoute 電路。
 > 
 > 
 
-Microsoft Azure 提供越來越多的服務，您可以將這些服務提供給您的客戶。  若要充分利用這些服務，則必須使用 ExpressRoute 連接，以提供對 Microsoft Azure 環境的高速低延遲存取。
+Microsoft Azure 提供越來越多的服務，您可以將這些服務提供給您的客戶。 ExpressRoute 藉由提供對 Microsoft Azure 環境的高速低延遲存取，協助您與您的客戶利用這些服務。
 
 ## <a name="microsoft-azure-management"></a>Microsoft Azure 管理
 Microsoft 允許以程式設計方式整合您自己的服務管理系統，進而提供 API 讓 CSP 管理 Azure 客戶訂用帳戶。 [這裡](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx)可以找到支援的管理功能。
@@ -67,7 +67,7 @@ Microsoft 允許以程式設計方式整合您自己的服務管理系統，進�
 
 * **角色型存取控制 (RBAC)** – RBAC 是以 Azure Active Directory 為基礎。  如需 Azure RBAC 的詳細資訊，請參閱 [這裡](../active-directory/role-based-access-control-configure.md)。
 * **網路** – 涵蓋 Microsoft Azure 中的各種網路主題。
-* **Azure Active Directory (AAD)** – AAD 提供 Microsoft Azure 和第三方 SaaS 應用程式的身分識別管理。 如需有關 Azure AD 的詳細資訊，請參閱 [這裡](https://azure.microsoft.com/documentation/services/active-directory/)。  
+* **Azure Active Directory (Azure AD)** – Azure AD 提供 Microsoft Azure 和第三方 SaaS 應用程式的身分識別管理。 如需有關 Azure AD 的詳細資訊，請參閱 [這裡](https://azure.microsoft.com/documentation/services/active-directory/)。  
 
 ## <a name="network-speeds"></a>網路速度
 ExpressRoute 支援 50 Mb/s 至 10 Gb/s 的網路速度。 這可讓客戶購買其獨特環境所需的網路頻寬量。

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/23/2017
 ms.author: raynew
-ms.openlocfilehash: d3d5a3bcd3be55d1915ff7fdc6d82aebbb992fc7
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5c78f68c481b68cff31bdc5fd410549c2d44ba5a
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="about-azure-migrate"></a>關於 Azure Migrate
 
@@ -32,15 +32,17 @@ Azure Migrate 服務會評估要移轉至 Azure 的內部部署工作負載。 �
 Azure Migrate 可協助您：
 
 - **評估 Azure 整備程度**：評估您的內部部署機器是否適合在 Azure 中執行。 
-- **取得大小建議**：根據內部部署 VM 的效能記錄，在移轉之後的 Azure VM 大小建議。 
-- **預估每月成本**：在 Azure 中執行內部部署機器的估計成本。
-- **有信心移轉**：當您將內部部署機器分組以便評估時，您可將相依性視覺化以增加評估信心。 您可準確地檢視特定機器或群組中所有機器的相依性。
+- **取得大小建議**：根據內部部署 VM 的效能歷程記錄，取得 Azure VM 的大小建議。 
+- **預估每月成本**：取得在 Azure 中執行內部部署機器的估計成本。  
+- **安心地移轉**：將內部部署機器的相依性視覺化，以建立您將一起評估和移轉的機器群組。 您可準確地檢視特定機器或群組中所有機器的相依性。
 
 ## <a name="current-limitations"></a>目前的限制
 
 - 目前，您可以評估內部部署 VMware 虛擬機器 (VM) 以便移轉到 Azure VM。
+
 > [!NOTE]
 > Hyper-V 支援已在藍圖中，將在幾個月內啟用。 在過渡時期，我們建議您使用 Azure Site Recovery 部署規劃工具來規劃 Hyper-V 工作負載的移轉。 
+
 - 您可以評估單一評估中多達 1000 部的 VM，以及單一 Azure Migrate 專案中多達 1500 部的機器。 如果您需要評估更多機器，您可以增加專案或評估的數目。 [深入了解](how-to-scale-assessment.md)。
 - 您要評估的 VM 必須由 vCenter Server (5.5、6.0 或 6.5 版) 管理。
 - 您只能在「美國中西部」區域建立 Azure Migrate 專案。 不過，這不會影響您針對不同的目標 Azure 位置規劃移轉的能力。 移轉專案的位置只用於儲存在內部部署環境中發現的中繼資料。
@@ -54,11 +56,11 @@ Azure Migrate 可協助您：
 
 ## <a name="whats-in-an-assessment"></a>評估包含什麼？
 
-Azure Migrate 評估是以下表中摘要說明的設定為基礎。
+評估可協助您識別內部部署 VM 的 Azure 適用性，取得在 Azure 中執行 VM 的適當大小建議和成本估計。 評估是以下表中摘要說明的屬性為基礎。 您可以在 Azure Migrate 入口網站中修改這些屬性。 
 
-**設定** | **詳細資料**
+**屬性** | **詳細資料**
 --- | ---
-**目標位置** | 要作為移轉目的地的 Azure 位置。 根據預設，這是您建立 Azure Migrate 專案的位置。 您可以修改此設定。   
+**目標位置** | 要作為移轉目的地的 Azure 位置。 根據預設，目標位置會設定為美國西部 2。 
 **儲存體備援** | Azure VM 會在移轉之後使用的儲存體類型。 LRS 是預設值。
 **價格方案** | 評估會考慮您是否已註冊軟體保證，並且可以使用 [Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/)。 它也會考慮應該提供的 Azure 供應項目，並允許您指定經由供應項目取得的特定訂用帳戶折扣 (%)。 
 **定價層** | 您可以指定 Azure VM 的[定價層 (基本/標準)](../virtual-machines/windows/sizes-general.md)。 根據您是否在生產環境中，協助您移轉至合適的 Azure VM 系列。 預設會使用[標準](../virtual-machines/windows/sizes-general.md)層。
@@ -70,11 +72,11 @@ Azure Migrate 評估是以下表中摘要說明的設定為基礎。
 
 1.  您可建立 Azure Migrate 專案。
 2.  Azure Migrate 會使用稱為收集器設備的內部部署 VM，探索您的內部部署機器相關資訊。 若要建立設備，您可下載開放虛擬化設備 (.ova) 格式的安裝檔案，然後將它匯入為內部部署 vCenter Sever 上的 VM。
-3.  您可使用 vCenter Server 的唯讀認證來連線到 VM，然後執行收集器。
+3.  您在 vCenter Server 中使用主控台連線來連線到 VM，在連線時為 VM 指定新密碼，然後在 VM 中執行收集器應用程式來開始探索。
 4.  收集器會使用 VMware PowerCLI Cmdlet 來收集 VM 中繼資料。 探索是無代理程式的，而且不會在 VMware 主機或 VM 上安裝任何項目。 所收集的中繼資料包含 VM 資訊 (核心、記憶體、磁碟、磁碟大小和網路介面卡。 它也會收集 VM 的效能資料，包括 CPU 和記憶體使用量、磁碟 IOPS、磁碟輸送量 (MBps) 以及網路輸出 (MBps)。
 5.  中繼資料會推送至 Azure Migrate 專案。 您可以在 Azure 入口網站中檢視它。
-6.  基於評估目的，您會將 VM 集合成群組。 例如，您可將執行相同應用程式的 VM 群組在一起。 您可以在 vCenter 或 vCenter 入口網站中使用標記來群組 VM。 使用視覺效果來確認特定機器或群組中所有機器的相依性。
-7.  您可建立群組的評估。
+6.  基於評估目的，您會將探索到的 VM 集合成群組。 例如，您可將執行相同應用程式的 VM 群組在一起。 您可以在 Azure Migrate 入口網站中群組 VM，或在 vCenter Server 中使用標記。 此外，您可以使用相依性視覺效果來檢視特定機器的相依性，或檢視群組中所有機器的相依性並調整群組。
+7.  在群組形成後，您可建立群組的評估。 
 8.  評估完成後，您可以在入口網站中進行檢視，或以 Excel 格式進行下載。
 
 
@@ -89,7 +91,7 @@ Azure Migrate 評估是以下表中摘要說明的設定為基礎。
 |-------------------|------------------------|---------------|---------|
 |收集器          |Azure Migrate 服務   |TCP 443        |收集器會透過 SSL 連接埠 443 連線至服務|
 |收集器          |vCenter Server          |預設值 9443   | 根據預設，收集器會連線到連接埠 9443 上的 vCenter Server。 如果伺服器接聽不同的連接埠，則應該設定為收集器 VM 上的傳出連接埠。 |
-|內部部署 VM     | OMS 工作區          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |MMA 代理程式會使用 TCP 443 來連線到 Log Analytics。 如果您正在使用相依性視覺效果功能，且正在安裝 MMA 代理程式，您只需要此連接埠。 |
+|內部部署 VM     | Operations Management Suite (OMS) 工作區          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |MMA 代理程式會使用 TCP 443 來連線到 Log Analytics。 如果您正在使用相依性視覺效果功能，且正在安裝 Microsoft Monitoring Agent (MMA) 代理程式，您只需要此連接埠。 |
 
 
   

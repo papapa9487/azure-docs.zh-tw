@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 12/04/2017
 ms.author: cherylmc
-ms.openlocfilehash: 8c4b2d578a8a586fc63c972ab5da694b2dd9d571
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 367288e313ae5517b126b17c905ae291b5b37975
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>使用原生 Azure 憑證驗證設定 VNet 的點對站連線：PowerShell
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 
 您可使用下列驗證方法來與用戶端連線：
 
-* RADIUS 伺服器 - 目前為預覽狀態
+* RADIUS 伺服器
 * VPN 閘道原生 Azure 憑證驗證
 
 本文會協助您設定使用原生 Azure 憑證驗證來進行驗證的 P2S 組態。 如果您想要使用 RADIUS 來驗證要連線的使用者，請參閱[使用 RADIUS 驗證的 P2S](point-to-site-how-to-radius-ps.md)。
@@ -45,13 +45,9 @@ ms.lasthandoff: 10/11/2017
 
 點對站連線不需要 VPN 裝置或公眾對應 IP 位址。 P2S 會建立透過 SSTP (安全通訊端通道通訊協定) 或 IKEv2 的 VPN 連線。
 
-* SSTP 是僅在 Windows 用戶端平台上支援的 SSL 型 VPN 通道。 它可以穿透防火牆，這是從任何地方連線到 Azure 的理想選項。 我們在伺服器端上支援 SSTP 1.0、1.1 和 1.2 版。 用戶端會決定要使用的版本。 若為 Windows 8.1 和更新版本，SSTP 預設使用 1.2。
+* SSTP 是僅在 Windows 用戶端平台上支援的 SSL 型 VPN 通道。 它可以穿透防火牆，這是從任何地方連線到 Azure 的理想選項。 伺服器端支援 SSTP 1.0、1.1 和 1.2 版。 用戶端會決定要使用的版本。 若為 Windows 8.1 和更新版本，SSTP 預設使用 1.2。
 
-* IKEv2 VPN，標準型 IPsec VPN 解決方案。 IKEv2 VPN 可用於從 Mac 裝置連線 (OSX 版本 10.11 和更新版本)。 IKEv2 目前為預覽版。
-
->[!NOTE]
->適用於 P2S 的 IKEv2 目前為預覽版。
->
+* IKEv2 VPN，標準型 IPsec VPN 解決方案。 IKEv2 VPN 可用於從 Mac 裝置連線 (OSX 版本 10.11 和更新版本)。
 
 點對站原生 Azure 憑證驗證連線需要下列各項：
 
@@ -69,10 +65,10 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="example"></a>範例值
 
-您可以使用範例值來建立測試環境，或參考這些值來進一步了解本文中的範例。 我們會在本文的區段 [1](#declare) 中設定變數。 您可以使用這些步驟做為逐步解說並使用未經變更的值，或變更這些值以反映您的環境。
+您可以使用範例值來建立測試環境，或參考這些值來進一步了解本文中的範例。 本文的第 [1](#declare) 節會設定變數。 您可以使用這些步驟做為逐步解說並使用未經變更的值，或變更這些值以反映您的環境。
 
 * **名稱：VNet1**
-* **位址空間：192.168.0.0/16** 和 **10.254.0.0/16**<br>在此範例中，我們使用一個以上的位址空間來說明此組態可以與多個位址空間搭配使用。 不過，此組態不需要多個位址空間。
+* **位址空間：192.168.0.0/16** 和 **10.254.0.0/16**<br>此範例使用一個以上的位址空間來說明此組態可以與多個位址空間搭配使用。 不過，此組態不需要多個位址空間。
 * **子網路名稱：FrontEnd**
   * **子網路位址範圍：192.168.1.0/24**
 * **子網路名稱：BackEnd**
@@ -143,7 +139,7 @@ ms.lasthandoff: 10/11/2017
   ```
 3. 建立虛擬網路
 
-  在此範例中，-DnsServer 伺服器是選擇性的。 指定一個值並不會建立新的 DNS 伺服器。 您指定的 DNS 伺服器 IP 位址應該是可以解析您從 VNet 連線之資源名稱的 DNS 伺服器。 在此範例中，我們使用了私人 IP 位址，但這可能不是您 DNS 伺服器的 IP 位址。 請務必使用您自己的值。 您指定的值會供部署至 VNet 的資源使用，而非供 P2S 連線或 VPN 用戶端使用。
+  在此範例中，-DnsServer 伺服器是選擇性的。 指定一個值並不會建立新的 DNS 伺服器。 您指定的 DNS 伺服器 IP 位址應該是可以解析您從 VNet 連線之資源名稱的 DNS 伺服器。 此範例使用私人 IP 位址，但這可能不是您 DNS 伺服器的 IP 位址。 請務必使用您自己的值。 您指定的值會供部署至 VNet 的資源使用，而非供 P2S 連線或 VPN 用戶端使用。
 
   ```powershell
   New-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG -Location $Location -AddressPrefix $VNetPrefix1,$VNetPrefix2 -Subnet $fesub, $besub, $gwsub -DnsServer 10.2.1.3
@@ -167,14 +163,14 @@ ms.lasthandoff: 10/11/2017
 
 設定和建立 VNet 的虛擬網路閘道。
 
-* -GatewayType 必須是 **Vpn**，而且 -VpnType 必須是 **RouteBased**。
-* 使用 -VpnClientProtocols 可指定您想要啟用的通道類型。 通道有 **SSTP** 和 **IKEv2** 這兩個選項。 您可以選擇啟用其中一個或兩個都啟用。 如果您想要將兩個選項都啟用，請同時指定這兩個名稱並以逗號隔開。 Android 和 Linux 上的 Strongswan 用戶端以及 iOS 和 OSX 上的原生 IKEv2 VPN 用戶端只會使用 IKEv2 通道來進行連線。 Windows 用戶端會先嘗試 IKEv2，如果無法連線，就會切換回使用 SSTP。
-* 視您選取的[閘道 sku](vpn-gateway-about-vpn-gateway-settings.md) 而定，VPN 閘道可能需要 45 分鐘的時間才能完成。 在此範例中，我們使用目前為預覽狀態的 IKEv2。
+* -GatewayType 必須是 **Vpn**，而 -VpnType 必須是 **RouteBased**。
+* 使用 -VpnClientProtocol 可指定您想要啟用的通道類型。 通道有 **SSTP** 和 **IKEv2** 這兩個選項。 您可以選擇啟用其中一個或兩個都啟用。 如果您想要將兩個選項都啟用，請同時指定這兩個名稱並以逗號隔開。 Android 和 Linux 上的 Strongswan 用戶端以及 iOS 和 OSX 上的原生 IKEv2 VPN 用戶端只會使用 IKEv2 通道來進行連線。 Windows 用戶端會先嘗試 IKEv2，如果無法連線，就會切換回使用 SSTP。
+* 視您選取的[閘道 sku](vpn-gateway-about-vpn-gateway-settings.md) 而定，VPN 閘道可能需要 45 分鐘的時間才能完成。 此範例使用目前為預覽狀態的 IKEv2。
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 -Location $Location -IpConfigurations $ipconf -GatewayType Vpn `
--VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1 -VpnClientProtocols "IKEv2"
+-VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1 -VpnClientProtocol "IKEv2"
 ```
 
 ## <a name="addresspool"></a>4.新增 VPN 用戶端位址集區
@@ -241,7 +237,7 @@ VPN 用戶端組態檔所包含的設定，可用來將裝置設定為透過 P2S
 ### <a name="to-connect-from-a-windows-vpn-client"></a>從 Windows VPN 用戶端連線
 
 1. 若要連接至您的 VNet，在用戶端電腦上瀏覽到 VPN 連線，然後找出所建立的 VPN 連線。 其名稱會與虛擬網路相同。 按一下 [ **連接**]。 可能會出現與使用憑證有關的快顯訊息。 按一下 [繼續] 以使用較高的權限。 
-2. 在 [連線] 狀態頁面上，按一下 [連線] 以便開始連線。 如果出現 [選取憑證]  畫面，請確認顯示的用戶端憑證是要用來連接的憑證。 如果沒有，請使用下拉箭頭來選取正確的憑證，然後按一下確定 。
+2. 在 [連線] 狀態頁面上，按一下 [連線] 以便開始連線。 如果出現 [選取憑證]  畫面，請確認顯示的用戶端憑證是要用來連接的憑證。 如果沒有，請使用下拉箭頭來選取正確的憑證，然後按一下 [確定] 。
 
   ![VPN 用戶端連線至 Azure](./media/vpn-gateway-howto-point-to-site-rm-ps/clientconnect.png)
 3. 已建立您的連線。

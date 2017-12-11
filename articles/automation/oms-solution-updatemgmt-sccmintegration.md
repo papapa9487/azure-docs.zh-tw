@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.openlocfilehash: c3ae8da65e03fe9e11b5657a6a40d02de0567da6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04540524f83e367f92912171ddc55b6e6f82f80e
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="integrate-system-center-configuration-manager-with-oms-update-management-preview"></a>整合 System Center Configuration Manager 與 OMS 更新管理 [預覽]
+# <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>整合 System Center Configuration Manager 與 OMS 更新管理
 
 投資了 System Center Configuration Manager 以管理電腦、伺服器和行動裝置的客戶也需仰賴其管理軟體更新的強度和成熟度，作為軟體更新管理 (SUM) 週期的一部分。  
 
@@ -42,12 +42,13 @@ ms.lasthandoff: 10/11/2017
 如果您要繼續從 Configuration Manager 管理更新部署，請執行下列步驟。  OMS 會連線至 Configuration Manager，將更新套用至連線到您 Log Analytics 工作區的用戶端電腦。 更新內容可從用戶端電腦快取取得，就如同部署受到 Configuration Manager 管理一般。  
 
 1. 從使用[部署軟體更新程序](https://docs.microsoft.com/en-us/sccm/sum/deploy-use/deploy-software-updates)中描述的程序，從 Configuration Manager 階層中的頂層站台建立軟體更新部署。  必須與標準部署不同的唯一設定為可控制部署封裝下載行為的選項 [不要安裝軟體更新]。 此行為是由 OMS 更新管理解決方案透過在下一個步驟中建立排定的更新部署來管理。  
-2. 在 Azure 入口網站中，在 [自動化帳戶] 畫面上選取您的自動化帳戶，並遵循[使用 Azure 入口網站建立新的變數](../automation/automation-variables.md#to-create-a-new-variable-with-the-azure-portal)，建立值為 **true**、名為 **UseOMSForSCCMUpdates** 的布林類型變數。
-3. 在 OMS 入口網站中，開啟 [更新管理] 儀表板。  遵循[建立更新部署](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment)中所述的步驟來建立新的部署，並從下拉式清單選取以 OMS 電腦群組表示的適當 Configuration Manager 集合。  請記住下列重點：
+
+1. 在 OMS 入口網站中，開啟 [更新管理] 儀表板。  遵循[建立更新部署](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment)中所述的步驟來建立新的部署，並從下拉式清單選取以 OMS 電腦群組表示的適當 Configuration Manager 集合。  請記住下列重點：
     1. 如果已在所選的 Configuration Manager 裝置集合上定義維護時段，該集合的成員會接受它，而不是 OMS 的排程部署中定義的 [持續時間] 設定。
-    2. 目標集合的成員必須具有網際網路的連線 (直接、透過 Proxy 伺服器或透過 OMS 閘道)。  
+    1. 目標集合的成員必須具有網際網路的連線 (直接、透過 Proxy 伺服器或透過 OMS 閘道)。  
 
 完成使用 OMS 解決方案的更新部署之後，屬於所選電腦群組成員的目標電腦會在排定的時間，從其本機用戶端快取安裝更新。  您可以[檢視更新部署狀態](../operations-management-suite/oms-solution-update-management.md#viewing-update-deployments)，以監視您的部署結果。  
+
 
 ### <a name="manage-software-updates-from-oms"></a>從 OMS 管理軟體更新
 

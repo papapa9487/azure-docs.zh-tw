@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/27/2017
-ms.author: eslesar
-ms.openlocfilehash: 839689ab991fdc251608cf79d65a5810db5eeeb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/01/2017
+ms.author: magoedte;eslesar
+ms.openlocfilehash: 668065933745168c88a1f4bf755f1adc0cc31d7f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="update-management-solution-in-oms"></a>OMS 中的更新管理方案
 
@@ -57,7 +57,7 @@ OMS 管理的電腦會使用下列各項來執行評估和更新部署︰
 在更新部署中指定的日期和時間，目標電腦會以平行方式執行部署。  系統會先執行掃描，以確認安裝仍然需要並加以安裝。  請務必注意，對於 WSUS 用戶端電腦而言，如果未在 WSUS 中核准更新，則更新部署會失敗。  套用更新的結果會轉送給 OMS 在儀表板中進行處理及彙總，或藉以搜尋事件。     
 
 ## <a name="prerequisites"></a>必要條件
-* 此解決方案支援針對 Windows Server 2008 和更新版本執行更新評估，以及針對 Windows Server 2008 R2 SP1 和更新版本執行更新部署。  不支援「伺服器核心」和「Nano 伺服器」安裝選項。
+* 此解決方案支援針對 Windows Server 2008 和更新版本執行更新評估，以及針對 Windows Server 2008 R2 SP1 和更新版本執行更新部署。  不支援 Nano Server。
 
     > [!NOTE]
     > 支援將更新部署到 Windows Server 2008 R2 SP1 需要 .NET Framework 4.5 和 WMF 5.0 或更新版本。

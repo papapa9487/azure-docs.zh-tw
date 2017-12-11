@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
 ms.author: garye
-ms.openlocfilehash: 2b4d04af7fe7a40a1d907a06ab8772f20956bc19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b162d7534eff0d1f79808fc86bacf92dbfc2f84a
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning 常見問題集：計費、功能、限制及支援
 以下是有關 Azure Machine Learning 的一些常見問題和對應解答，而 Azure Machine Learning 是適合透過 Web 服務開發預測性模型和運作方案的雲端服務。 這個常見問題涵蓋如何使用服務的相關問題，包括計費模型、功能、限制及支援。
@@ -230,7 +230,7 @@ Machine Learning Studio 目前支援 400 個以上的 CRAN 套件，以下是所
 
 **如何監控部署在實際執行環境中的 Web 服務？**
 
-部署預測模型之後，您可以從 Azure 傳統入口網站 (僅限傳統 Web 服務) 或 Azure Machine Learning Web 服務入口網站加以監視。 每個已部署的服務都有其本身的儀表板，您可以在此處檢視該服務的監控資訊。 如需如何管理已部署 Web 服務的詳細資訊，請參閱[使用 Azure Machine Learning Web 服務入口網站管理 Web 服務](manage-new-webservice.md)和[管理 Azure Machine Learning 工作區](manage-workspace.md)。
+部署預測模型之後，您可以從 Azure Machine Learning Web 服務入口網站加以監視。 每個已部署的服務都有其本身的儀表板，您可以在此處檢視該服務的監控資訊。 如需如何管理已部署 Web 服務的詳細資訊，請參閱[使用 Azure Machine Learning Web 服務入口網站管理 Web 服務](manage-new-webservice.md)和[管理 Azure Machine Learning 工作區](manage-workspace.md)。
 
 **是否有哪個位置，可讓我查看我的 RRS/BES 輸出？**
 
@@ -285,7 +285,7 @@ Machine Learning Studio 中的模組對常見使用案例支援最多 10 GB 的�
 ## <a name="security-and-availability"></a>安全性和可用性
 **根據預設，哪些人可以存取 Web 服務的 HTTP 端點？如何限制對此端點的存取？**
 
-部署 Web 服務之後，我們會建立該服務的預設端點。 該預設端點可使用其 API 金鑰進行呼叫。 您可以從 Azure 傳統入口網站或使用 Web 服務管理 API 以程式設計方式新增更多具有專屬金鑰的端點。 必須要有存取金鑰，才能呼叫 Web 服務。 如需詳細資訊，請參閱 [如何取用 Azure Machine Learning Web 服務](consume-web-services.md)。
+部署 Web 服務之後，我們會建立該服務的預設端點。 該預設端點可使用其 API 金鑰進行呼叫。 您可以從 Web 服務入口網站或使用 Web 服務管理 API 以程式設計方式新增更多具有專屬金鑰的端點。 必須要有存取金鑰，才能呼叫 Web 服務。 如需詳細資訊，請參閱 [如何取用 Azure Machine Learning Web 服務](consume-web-services.md)。
 
 **如果找不到我的 Azure 儲存體帳戶，會發生什麼情況？**
 
@@ -297,7 +297,7 @@ Machine Learning Studio 依賴使用者提供的 Azure 儲存體帳戶，才能�
 
 Machine Learning Studio 依賴使用者提供的 Azure 儲存體帳戶，才能在執行工作流程時儲存中繼資料。 此儲存體帳戶是在建立工作區時提供給 Machine Learning Studio，並且存取金鑰會與該工作區相關聯。 建立工作區之後，如果變更存取金鑰，該工作區便無法再存取儲存體帳戶。 它會停止運作，而該工作區中的所有實驗將會失敗。
 
-如果您變更了儲存體帳戶存取金鑰，請使用 Azure 傳統入口網站在工作區中重新同步處理存取金鑰。  
+如果您變更了儲存體帳戶存取金鑰，請使用 Azure 入口網站在工作區中重新同步處理存取金鑰。  
 
 ## <a name="support-and-training"></a>支援和訓練
 **哪裡可以取得 Azure Machine Learning 的訓練？**
@@ -446,7 +446,7 @@ Machine Learning 服務是多租用戶服務。 後端實際使用的計算資�
 ### <a name="new-web-services-overages"></a>新型 Web 服務：超額
 **如何檢查 Web 服務使用量是否超額？**
 
-您可以在 Azure Machine Learning Web 服務入口網站的 [方案] 頁面，檢視所有方案的使用量。 請登入該入口網站，然後按一下方案 功能表選項。
+您可以在 Azure Machine Learning Web 服務入口網站的 [方案] 頁面，檢視所有方案的使用量。 請登入該入口網站，然後按一下 [方案] 功能表選項。
 
 在資料表的 [交易] 和 [計算] 資料行，您可以看到方案的包含數量和已使用的百分比。
 
@@ -505,11 +505,11 @@ Azure Machine Learning API 服務會根據它是傳統 Web 服務還是新型 (R
 
 **如何註冊 Azure Machine Learning 免費層？**
 
-您只需要 Microsoft 帳戶。 前往 [Azure Machine Learning 首頁](https://azure.microsoft.com/services/machine-learning/)，然後按一下立即開始。 使用 Microsoft 帳戶登入，系統便會為您建立免費層工作區。 您可以立即開始探索，並建立機器學習服務實驗。
+您只需要 Microsoft 帳戶。 前往 [Azure Machine Learning 首頁](https://azure.microsoft.com/services/machine-learning/)，然後按一下 [立即開始]。 使用 Microsoft 帳戶登入，系統便會為您建立免費層工作區。 您可以立即開始探索，並建立機器學習服務實驗。
 
 **如何註冊 Azure Machine Learning 標準層？**
 
-您必須先取得 Azure 訂用帳戶的存取權，才能建立標準 Machine Learning 工作區。 您可以註冊 30 天的免費試用 Azure 訂用帳戶，之後再升級為付費 Azure 訂用帳戶，也可以直接購買付費的 Azure 訂用帳戶。 您可以在取得訂用帳戶的存取權後，從 Microsoft Azure 傳統入口網站建立 Machine Learning 工作區。 請檢視 [逐步指示](https://azure.microsoft.com/trial/get-started-machine-learning-b/)。
+您必須先取得 Azure 訂用帳戶的存取權，才能建立標準 Machine Learning 工作區。 您可以註冊 30 天的免費試用 Azure 訂用帳戶，之後再升級為付費 Azure 訂用帳戶，也可以直接購買付費的 Azure 訂用帳戶。 您可以在取得訂用帳戶的存取權後，從 Microsoft Azure 入口網站建立 Machine Learning 工作區。 請檢視 [逐步指示](https://azure.microsoft.com/trial/get-started-machine-learning-b/)。
 
 或者，您也可以受到標準 Machine Learning 工作區擁有者的邀請，存取擁有者的工作區。
 
@@ -531,8 +531,8 @@ Azure Machine Learning API 服務會根據它是傳統 Web 服務還是新型 (R
 
 1. 登入 Azure Machine Learning Studio，確定您可以在上方導覽列的工作區選取器中看到免費工作區和標準工作區。
 2. 如果您目前位於標準工作區，請切換至免費工作區。
-3. 在實驗清單檢視中，選取想要複製的實驗，然後按一下複製 命令按鈕。
-4. 在開啟的對話方塊中選取 標準 工作區，然後按一下複製 按鈕。
+3. 在實驗清單檢視中，選取想要複製的實驗，然後按一下 [複製] 命令按鈕。
+4. 在開啟的對話方塊中選取 [標準] 工作區，然後按一下 [複製] 按鈕。
    所有相關聯的資料集、訓練好的模型等項目，會連同實驗複製到標準工作區中。
 5. 您必須在標準工作區中重新執行實驗並重新發行 Web 服務。
 

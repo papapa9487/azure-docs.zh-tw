@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: hero-article
-ms.date: 11/16/2017
+ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: cb58fe167fe8b369f51e234badd8e419ebd284e4
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 4bbac0e82181e46b84afee5ff7601da018226ec0
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="create-an-azure-data-factory-using-powershell"></a>使用 PowerShell 建立 Azure 資料處理站 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,30 +42,26 @@ ms.lasthandoff: 11/29/2017
     $resourceGroupName = "ADFQuickStartRG";
     ```
 
-    如果資源群組已經存在，您可能不想覆寫它。 將不同的值指派給 `$resourceGroupName` 變數，然後執行一次命令
+    如果資源群組已經存在，您可能不想覆寫它。 將不同的值指派給 `$ResourceGroupName` 變數，然後執行一次命令
 2. 若要建立 Azure 資源群組，請執行下列命令： 
 
     ```powershell
-    New-AzureRmResourceGroup $resourceGroupName $location
+    $ResGrp = New-AzureRmResourceGroup $resourceGroupName -location 'eastus'
     ``` 
-    如果資源群組已經存在，您可能不想覆寫它。 將不同的值指派給 `$resourceGroupName` 變數，然後執行一次命令。 
+    如果資源群組已經存在，您可能不想覆寫它。 將不同的值指派給 `$ResourceGroupName` 變數，然後執行一次命令。 
 3. 定義 Data Factory 名稱的變數。 
 
     > [!IMPORTANT]
     >  將資料處理站名稱更新為全域唯一的。 例如，ADFTutorialFactorySP1127。 
 
     ```powershell
-    $dataFactoryName = "ADFQuickStartFactory";
+    $DataFactoryName = "ADFQuickStartFactory";
     ```
-1. 定義 Data Factory 位置的變數： 
 
-    ```powershell
-    $location = "East US"
-    ```
-5. 若要建立 Data Factory，請執行下列 **Set-AzureRmDataFactoryV2** Cmdlet： 
+5. 若要建立 Data Factory，請從 $ResGrp 變數使用 Location 和 ResourceGroupName 屬性來執行下列 **Set-AzureRmDataFactoryV2** Cmdlet： 
     
     ```powershell       
-    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
+    $DataFactory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResGrp.ResourceGroupName -Location $ResGrp.Location -Name $dataFactoryName 
     ```
 
 請注意下列幾點：
@@ -104,10 +100,14 @@ ms.lasthandoff: 11/29/2017
     如果使用 [記事本]，請在 [另存新檔] 對話方塊的 [存檔類型] 欄位中選取 [所有檔案]。 否則，它可能會將 `.txt` 副檔名新增至檔案。 例如： `AzureStorageLinkedService.json.txt`。 如果您在 [檔案總管] 中建立檔案，然後在 [記事本] 中開啟該檔案，您可能不會看到 `.txt` 副檔名，因為預設已設定 [隱藏已知檔案類型的副檔名] 選項。 先移除 `.txt` 副檔名，再繼續下一個步驟。
 2. 在 **PowerShell** 中，切換到 **ADFv2QuickStartPSH** 資料夾。
 
+```powershell
+Set-Location 'C:\ADFv2QuickStartPSH'
+```
+
 3. 執行 **Set-AzureRmDataFactoryV2LinkedService** Cmdlet 來建立連結服務：**AzureStorageLinkedService**。 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -DefinitionFile ".\AzureStorageLinkedService.json"
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "AzureStorageLinkedService" -DefinitionFile ".\AzureStorageLinkedService.json"
     ```
 
     以下是範例輸出：
@@ -151,7 +151,7 @@ ms.lasthandoff: 11/29/2017
 2. 若要建立資料集：**BlobDataset**，請執行 **Set-AzureRmDataFactoryV2Dataset** Cmdlet。
 
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "BlobDataset" -DefinitionFile ".\BlobDataset.json"
+    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "BlobDataset" -DefinitionFile ".\BlobDataset.json"
     ```
 
     以下是範例輸出：
@@ -221,7 +221,7 @@ ms.lasthandoff: 11/29/2017
 2. 若要建立管線：**Adfv2QuickStartPipeline**，請執行 **Set-AzureRmDataFactoryV2Pipeline** Cmdlet。
 
     ```powershell
-    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "Adfv2QuickStartPipeline" -DefinitionFile ".\Adfv2QuickStartPipeline.json"
+    $DFPipeLine = Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "Adfv2QuickStartPipeline" -DefinitionFile ".\Adfv2QuickStartPipeline.json"
     ```
 
     以下是範例輸出：
@@ -249,7 +249,7 @@ ms.lasthandoff: 11/29/2017
 2. 執行 **Invoke-AzureRmDataFactoryV2Pipeline** Cmdlet 來建立管線執行，並傳入參數值。 Cmdlet 會傳回管線執行識別碼，方便後續監視。
 
     ```powershell
-    $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
+    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineName $DFPipeLine.Name -ParameterFile .\PipelineParameters.json
     ```
 
 ## <a name="monitor-the-pipeline-run"></a>監視管道執行
@@ -258,19 +258,19 @@ ms.lasthandoff: 11/29/2017
 
     ```powershell
     while ($True) {
-        $run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
+        $Run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -PipelineRunId $RunId
 
-        if ($run) {
+        if ($Run) {
             if ($run.Status -ne 'InProgress') {
-                Write-Host "Pipeline run finished. The status is: " $run.Status -foregroundcolor "Yellow"
-                $run
+                Write-Output ("Pipeline run finished. The status is: " +  $Run.Status)
+                $Run
                 break
             }
-            Write-Host  "Pipeline is running...status: InProgress" -foregroundcolor "Yellow"
+            Write-Output  "Pipeline is running...status: InProgress"
         }
 
         Start-Sleep -Seconds 10
-    }
+    }   
     ```
 
     以下是管線執行的範例輸出：
@@ -314,15 +314,15 @@ ms.lasthandoff: 11/29/2017
 1. 執行下列指令碼來取出複製活動執行詳細資料，例如，讀取/寫入資料的大小。
 
     ```powershell
-    Write-Host "Activity run details:" -foregroundcolor "Yellow"
-    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
-    $result
-    
-    Write-Host "Activity 'Output' section:" -foregroundcolor "Yellow"
-    $result.Output -join "`r`n"
-    
-    Write-Host "\nActivity 'Error' section:" -foregroundcolor "Yellow"
-    $result.Error -join "`r`n"
+    Write-Output "Activity run details:"
+    $Result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineRunId $RunId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $Result
+
+    Write-Output "Activity 'Output' section:"
+    $Result.Output -join "`r`n"
+
+    Write-Output "Activity 'Error' section:"
+    $Result.Error -join "`r`n"
     ```
 3. 確認您看到的輸出類似下列活動執行結果範例輸出：
 

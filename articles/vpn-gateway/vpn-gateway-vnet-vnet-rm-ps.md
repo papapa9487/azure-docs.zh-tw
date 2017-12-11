@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: 8a772680355a62c13dbe0361b5b58029642cf84d
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 54cb7a9630a64be1a3012604929613fe0a843666
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>使用 PowerShell 設定 VNet 對 VNet 的 VPN 閘道連線
 
@@ -39,15 +39,23 @@ ms.lasthandoff: 11/28/2017
 
 ## <a name="about"></a>關於連線 VNet
 
-使用 VNet 對 VNet 連線類型 (VNet2VNet) 將虛擬網路連線到另一個虛擬網路，類似於建立內部部署網站位置的 IPsec 連線。 這兩種連線類型都使用 VPN 閘道提供使用 IPsec/IKE 的安全通道，且兩者在通訊時的運作方式相同。 連線類型之間的差異在於區域網路閘道的設定方式。 當您建立 VNet 對 VNet 連線時，會看不到區域網路閘道的位址空間。 系統會自動建立並填入該位址空間。 如果您更新一個 VNet 的位址空間，另一個 VNet 就會自動得知要路由到已更新的位址空間。
+VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連線方式。
 
-如果您使用複雜的組態，建議您使用 IPsec 連線類型，而不是 VNet 對 VNet。 這可讓您指定區域網路閘道的其他位址空間，以便路由傳送流量。 如果您使用 IPsec 連線類型來連線 VNet，則需要手動建立和設定區域網路閘道。 如需詳細資訊，請參閱[站對站組態](vpn-gateway-create-site-to-site-rm-powershell.md)。
+### <a name="vnet-to-vnet"></a>VNet 對 VNet
 
-此外，如果您的 Vnet 位在相同區域，建議您考慮使用 VNet 對等互連進行連線。 VNet 對等互連不會使用 VPN 閘道，其價格和功能稍有不同。 如需詳細資訊，請參閱 [VNet 對等互連](../virtual-network/virtual-network-peering-overview.md)。
+設定 VNet 對 VNet 連線是輕鬆連線 VNet 的好方法。 使用 VNet 對 VNet 連線類型 (VNet2VNet) 將虛擬網路連線到另一個虛擬網路，類似於建立內部部署位置的站對站 IPsec 連線。  這兩種連線類型都使用 VPN 閘道提供使用 IPsec/IKE 的安全通道，且兩者在通訊時的運作方式相同。 連線類型之間的差異在於區域網路閘道的設定方式。 當您建立 VNet 對 VNet 連線時，會看不到區域網路閘道的位址空間。 系統會自動建立並填入該位址空間。 如果您更新一個 VNet 的位址空間，另一個 VNet 就會自動得知要路由到已更新的位址空間。 相較於在 VNet 之間建立站對站連線，建立 VNet 對 VNet 連線通常比較快速而容易。
 
-### <a name="why"></a>為何要建立 VNet 對 VNet 連線？
+### <a name="site-to-site-ipsec"></a>站對站 (IPsec)
 
-針對下列原因，您可能希望連接虛擬網路：
+如果您使用複雜的網路組態，您可能偏好使用[站對站](vpn-gateway-create-site-to-site-rm-powershell.md)步驟 (而不是 VNet 對 VNet 步驟) 來連線 VNet。 當您使用站對站步驟時，您會以手動方式建立及設定區域網路閘道。 每個 VNet 的區域網路閘道都會將其他 VNet 視為本機網站。 這可讓您指定區域網路閘道的其他位址空間，以便路由傳送流量。 如果 VNet 的位址空間變更，您需要更新對應的區域網路閘道，才會反映變更。 它並不會自動更新。
+
+### <a name="vnet-peering"></a>VNet 對等互連
+
+建議您使用 VNet 對等互連來進行 VNet 連線。 VNet 對等互連不會使用 VPN 閘道，且具有不同的條件約束。 此外，[VNet 對等互連價格](https://azure.microsoft.com/pricing/details/virtual-network)與 [VNet 對 VNet VPN 閘道價格](https://azure.microsoft.com/pricing/details/vpn-gateway)的計算方式不同。 如需詳細資訊，請參閱 [VNet 對等互連](../virtual-network/virtual-network-peering-overview.md)。
+
+## <a name="why"></a>為何要建立 VNet 對 VNet 連線？
+
+基於下列原因，建議您使用 VNet 對 VNet 連線來進行虛擬網路連線：
 
 * **跨區域的異地備援和異地目前狀態**
 
@@ -59,7 +67,7 @@ ms.lasthandoff: 11/28/2017
 
 您可以將 VNet 對 VNet 通訊與多站台組態結合。 這可讓您建立結合了跨單位連線與內部虛擬網路連線的網路拓撲。
 
-## <a name="which-set-of-steps-should-i-use"></a>我應該使用哪個步驟集？
+## <a name="steps"></a>我應該使用哪些 VNet 對 VNet 步驟？
 
 在本文中，您會看到兩組不同的步驟。 一組步驟適用於[位於相同訂用帳戶中的 VNet](#samesub)，一組步驟適用於[位於不同訂用帳戶中的 VNet](#difsub)。
 主要差異在於設定位於不同訂用帳戶之 VNet 的連線時，您必須使用個別的 PowerShell 工作階段。 

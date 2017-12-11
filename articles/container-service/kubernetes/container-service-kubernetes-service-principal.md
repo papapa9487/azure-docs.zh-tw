@@ -1,26 +1,19 @@
 ---
-title: "Azure Kubernetes 叢集的服務主體 | Microsoft Docs"
+title: "Azure Kubernetes 叢集的服務主體"
 description: "在 Azure Container Service 中建立和管理 Kubernetes 叢集的 Azure Active Directory 服務主體"
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acs, azure-container-service, kubernetes
-keywords: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2c07bebb98345981d36eb928bea14a09df9bc741
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 0c7e05525f1c6d11c17b4b36946dd797a7a95d08
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>在 Container Service 中設定 Kubernetes 叢集的 Azure AD 服務主體
 
@@ -36,9 +29,9 @@ ms.lasthandoff: 11/29/2017
 
 您可以使用符合下列需求的現有 Azure AD 服務主體，或建立一個新的服務主體。
 
-* **範圍**：用來部署叢集的資源群組。
+* **範圍**：資源群組
 
-* **角色**：**參與者**
+* **角色**：參與者
 
 * **用戶端密碼**：必須是密碼。 目前，您無法使用針對憑證驗證設定的服務主體。
 
@@ -59,7 +52,7 @@ az account set --subscription "mySubscriptionID"
 
 az group create --name "myResourceGroup" --location "westus"
 
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>"
 ```
 
 輸出如下所示 (以下顯示擬定的輸出)：
@@ -126,11 +119,50 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 * 指定服務主體的 [用戶端識別碼] 時，您可以使用 `appId` 的值 (如本文所示) 或對應的服務主體`name` (例如，`https://www.contoso.org/example`)。
 
-* 在 Kubernetes 叢集中的主要和代理程式 VM 上，服務主體認證會儲存在 /etc/kubernetes/azure.json 檔案中。
+* 在 Kubernetes 叢集中的主要和代理程式 VM 上，服務主體認證會儲存在 `/etc/kubernetes/azure.json` 檔案中。
 
-* 當您使用 `az acs create` 命令自動產生服務主體時，服務主體認證會寫入用來執行命令之電腦上的 ~/.azure/acsServicePrincipal.json 檔案。
+* 當您使用 `az acs create` 命令自動產生服務主體時，服務主體認證會寫入用來執行命令之電腦上的 `~/.azure/acsServicePrincipal.json` 檔案。
 
 * 當您使用 `az acs create` 命令自動產生服務主體時，服務主體也可以向在訂用帳戶中建立的 [Azure Container Registry](../../container-registry/container-registry-intro.md) 進行驗證。
+
+* 服務主體認證可能會過期，導致您的叢集節點進入 **NotReady** 狀態。 請參閱[認證到期](#credential-expiration)一節，以取得風險降低資訊。
+
+## <a name="credential-expiration"></a>認證到期
+
+除非您在建立服務主體時以 `--years` 參數指定自訂的有效範圍，否則其認證的有效期為自建立起 1 年內。 當認證到期時，您的叢集節點可能會進入 **NotReady** 狀態。
+
+若要檢查服務主體的到期日，請執行 [az ad app show](/cli/azure/ad/app#az_ad_app_show) 命令並搭配 `--debug` 參數，然後在輸出底部附近尋找 `passwordCredentials` 的 `endDate` 值：
+
+```azurecli
+az ad app show --id <appId> --debug
+```
+
+輸出 (此處顯示已截斷的內容)：
+
+```json
+...
+"passwordCredentials":[{"customKeyIdentifier":null,"endDate":"2018-11-20T23:29:49.316176Z"
+...
+```
+
+如果您的服務主體認證到期，請使用 [az ad sp reset-credentials](/cli/azure/ad/sp#az_ad_sp_reset_credentials) 命令更新認證：
+
+```azurecli
+az ad sp reset-credentials --name <appId>
+```
+
+輸出：
+
+```json
+{
+  "appId": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "name": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "password": "404203c3-0000-0000-0000-d1d2956f3606",
+  "tenant": "72f988bf-0000-0000-0000b-2d7cd011db47"
+}
+```
+
+然後，使用所有叢集節點上的新認證更新 `/etc/kubernetes/azure.json`，並重新啟動節點。
 
 ## <a name="next-steps"></a>後續步驟
 

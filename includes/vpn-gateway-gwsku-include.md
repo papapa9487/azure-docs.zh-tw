@@ -22,7 +22,7 @@
 
 | **SKU**| **特性**|
 | ---    | ---         |
-|**基本**   | **以路由為基礎的 VPN**：10 個含 P2S 的通道；無 RADIUS 驗證；無 IKEv2<br>**原則式 VPN** (IKEv1)：1 個通道；沒有 P2S|
+|**基本**   | **路由式 VPN**：10 個 P2S 通道；沒有適用於 P2S 的 RADIUS 驗證；沒有適用於 P2S 的 IKEv2<br>**原則式 VPN** (IKEv1)：1 個通道；沒有 P2S|
 | **VpnGw1、VpnGw2 和 VpnGw3** | **路由式 VPN**：最多 30 個通道 (*)，P2S、BGP、主動-主動、自訂 IPsec/IKE 原則、ExpressRoute/VPN 共存 |
 |        |             |
 

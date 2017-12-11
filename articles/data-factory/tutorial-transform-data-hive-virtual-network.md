@@ -13,22 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shengc
-ms.openlocfilehash: b8c30a2fd68178ddd2bfb3ff079c47ba00928855
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c15d723efdcf273c86f54ddce04904ce1a274631
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>在 Azure 虛擬網路中使用 Azure Data Factory 中的 Hive 活動轉換資料
-
-[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
-
-#### <a name="this-tutorial"></a>本教學課程
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (正式推出版本 (GA))，請參閱 [Data Factory 第 1 版文件](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
-
-在本教學課程中，您會使用 Azure PowerShell 建立 Data Factory 管道，以在 Azure 虛擬網路中的 HDInsight 叢集上，使用 Hive 活動來轉換資料。 您會在本教學課程中執行下列步驟：
+在本教學課程中，您會使用 Azure PowerShell 建立 Data Factory 管道，以在 Azure 虛擬網路 (VNet) 中的 HDInsight 叢集上，使用 Hive 活動來轉換資料。 您會在本教學課程中執行下列步驟：
 
 > [!div class="checklist"]
 > * 建立資料處理站。 
@@ -39,6 +31,8 @@ ms.lasthandoff: 11/04/2017
 > * 監視管道執行 
 > * 驗證輸出。 
 
+> [!NOTE]
+> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (正式推出版本 (GA))，請參閱 [Data Factory 第 1 版文件](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
@@ -71,22 +65,32 @@ ms.lasthandoff: 11/04/2017
    FROM hivesampletable
    ```
 2. 在 Azure Blob 儲存體中，建立名為 **adftutorial** 的容器 (如果不存在)。
-3. 建立名為 `hivescripts` 的資料夾。
-4. 將 `hivescript.hql` 檔案上傳至 `hivescripts` 子資料夾。
+3. 建立名為 **hivescripts** 的資料夾。
+4. 將 **hivescript.hql** 檔案上傳至 **hivescripts** 子資料夾。
 
  
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
 
-1. 逐一設定變數。
+1. 設定資源群組名稱。 在本教學課程進行期間，您會建立資源群組。 不過，如果您想要的話，也可以使用現有的資源群組。 
 
     ```powershell
-    $subscriptionID = "<subscription ID>" # Your Azure subscription ID
-    $resourceGroupName = "ADFTutorialResourceGroup" # Name of the resource group
-    $dataFactoryName = "MyDataFactory09142017" # Globally unique name of the data factory
-    $pipelineName = "MyHivePipeline" # Name of the pipeline
-    $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" # make it a unique name. 
+    $resourceGroupName = "ADFTutorialResourceGroup" 
+    ```
+2. 指定 Data Factory 名稱。 必須是全域唯一的。
+
+    ```powershell
+    $dataFactoryName = "MyDataFactory09142017"
+    ```
+3. 指定管線的名稱。 
+
+    ```powershell
+    $pipelineName = "MyHivePipeline" # 
+    ```
+4. 指定自我裝載之整合執行階段的名稱。 當 Data Factory 需要存取 VNet 內部的資源 (例如 Azure SQL Database) 時，您必須有自我裝載的整合執行階段。 
+    ```powershell
+    $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" 
     ```
 2. 啟動 **PowerShell**。 保持開啟 Azure PowerShell，直到本快速入門結束為止。 如果您關閉並重新開啟，則需要再次執行這些命令。 目前，Data Factory V2 只允許您在美國東部、美國東部 2 和西歐區域中建立資料處理站。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 
@@ -226,17 +230,23 @@ ms.lasthandoff: 11/04/2017
   
         `10.6.0.15 myHDIClusterName.azurehdinsight.net`
 
-切換至您建立 JSON 檔案的資料夾，然後執行下列命令來部署連結服務： 
+## <a name="create-linked-services"></a>建立連結的服務
+在 PowerShell 中，切換至您建立 JSON 檔案的資料夾，然後執行下列命令來部署連結服務： 
 
+1. 在 PowerShell 中，切換至您建立 JSON 檔案的資料夾。
+2. 執行下列命令來建立 Azure 儲存體連結服務。 
 
-```powershell
-Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
+    ```powershell
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
+    ```
+3. 執行下列命令來建立 Azure HDInsight 連結服務。 
 
-Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyHDILinkedService" -File "MyHDILinkedService.json"
-```
+    ```powershell
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyHDInsightLinkedService" -File "MyHDInsightLinkedService.json"
+    ```
 
 ## <a name="author-a-pipeline"></a>撰寫管道
-在此步驟中，您會建立具有 Hive 活動的新管道。 此活動會執行 Hive 指令碼，以傳回範例資料表的資料，並儲存到您定義的路徑。 在您慣用的編輯器中建立 JSON 檔案、複製下列管道定義 JSON 定義，然後儲存為 **MyHiveOnDemandPipeline.json**。
+在此步驟中，您會建立具有 Hive 活動的新管道。 此活動會執行 Hive 指令碼，以傳回範例資料表的資料，並儲存到您定義的路徑。 在您慣用的編輯器中建立 JSON 檔案、複製下列管道定義 JSON 定義，然後儲存為 **MyHivePipeline.json**。
 
 
 ```json

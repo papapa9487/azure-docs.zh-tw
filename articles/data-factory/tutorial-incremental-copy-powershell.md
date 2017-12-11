@@ -1,5 +1,5 @@
 ---
-title: "使用 Azure Data Factory 以累加方式複製資料 | Microsoft Docs"
+title: "使用 Azure Data Factory 以累加方式複製資料表 | Microsoft Docs"
 description: "在本教學課程中，您會建立 Azure Data Factory 管道，以累加方式將資料從 Azure SQL Database 複製到 Azure Blob 儲存體。"
 services: data-factory
 documentationcenter: 
@@ -13,24 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shlo
-ms.openlocfilehash: f352f46f2d4c23124f4ee7e886cae9bdd8d5d2c9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 0b05971b5ab8ec3fd14dd4ce14d07df478e1dcc9
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage"></a>以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體
+在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從 Azure SQL Database 中的資料表載入到 Azure Blob 儲存體。 
 
-[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
-
-#### <a name="this-tutorial"></a>本教學課程
 
 > [!NOTE]
 > 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (正式推出版本 (GA))，請參閱 [Data Factory 第 1 版文件](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
-在資料整合過程中，其中一個廣泛使用的情境是在初始資料載入和分析之後，定期以累加方式載入資料，以重新整理更新的分析結果。 在本教學課程中，您專注於只將新的或更新的記錄從資料來源載入到資料接收。 相較於完整載入，這樣效率更高，特別是針對大型資料集。    
-
-您可以使用 Data Factory 建立高水位線解決方案，在管道中利用查閱、複製和預存程序活動，以達成累加資料載入。  
 
 您會在本教學課程中執行下列步驟：
 
@@ -46,7 +41,7 @@ ms.lasthandoff: 11/04/2017
 ## <a name="overview"></a>概觀
 高階解決方案圖表如下： 
 
-![以累加方式載入資料](media\tutorial-Incrementally-load-data-from-azure-sql-to-blob\incrementally-load.png)
+![以累加方式載入資料](media\tutorial-Incrementally-copy-powershell\incrementally-load.png)
 
 以下是建立此解決方案的重要步驟： 
 
@@ -71,7 +66,7 @@ ms.lasthandoff: 11/04/2017
 * **Azure PowerShell**(英文)。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/install-azurerm-ps) 中的指示。
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>在 Azure SQL 資料庫中建立資料來源資料表
-1. 在**伺服器總管**中開啟 **SQL Server Management Studio**，以滑鼠右鍵按一下資料庫，然後選擇 [新增查詢]。
+1. 開啟 **SQL Server Management Studio**。 在**伺服器總管**中，以滑鼠右鍵按一下資料庫，然後選擇 [新增查詢]。
 2. 對 Azure SQL 資料庫執行下列 SQL 命令，以建立名為 `data_source_table` 的資料表作為資料來源存放區。  
     
     ```sql
@@ -151,40 +146,47 @@ END
 ```
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
-
-1. 啟動 **PowerShell**。 將 Azure PowerShell 維持在開啟狀態，直到本教學課程結束為止。 如果您關閉並重新開啟，則需要再次執行這些命令。
-
-    執行下列命令，並輸入您用來登入 Azure 入口網站的使用者名稱和密碼：
-        
-    ```powershell
-    Login-AzureRmAccount
-    ```        
-    執行下列命令以檢視此帳戶的所有訂用帳戶：
-
-    ```powershell
-    Get-AzureRmSubscription
-    ```
-    執行下列命令以選取您要使用的訂用帳戶。 以您的 Azure 訂用帳戶識別碼取代 **SubscriptionId**：
-
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
-    ```
-2. 執行 **Set-AzureRmDataFactoryV2** Cmdlet 來建立資料處理站。 執行命令之前，以您自己的值取代預留位置。
-
-    ```powershell
-    Set-AzureRmDataFactoryV2 -ResourceGroupName "<your resource group to create the factory>" -Location "East US" -Name "<specify the name of data factory to create. It must be globally unique.>" 
+1. 定義資源群組名稱的變數，以便稍後在 PowerShell 命令中使用。 將下列命令文字複製到 PowerShell，以雙引號指定 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱，然後執行命令。 例如： `"adfrg"`。 
+   
+     ```powershell
+    $resourceGroupName = "ADFTutorialResourceGroup";
     ```
 
-    請注意下列幾點：
+    如果資源群組已經存在，您可能不想覆寫它。 將不同的值指派給 `$resourceGroupName` 變數，然後執行一次命令
+2. 定義 Data Factory 位置的變數： 
 
-    * Azure Data Factory 的名稱在全域必須是唯一的。 如果發生下列錯誤，請變更名稱，並再試一次。
+    ```powershell
+    $location = "East US"
+    ```
+3. 若要建立 Azure 資源群組，請執行下列命令： 
 
-        ```
-        The specified Data Factory name '<data factory name>' is already in use. Data Factory names must be globally unique.
-        ```
+    ```powershell
+    New-AzureRmResourceGroup $resourceGroupName $location
+    ``` 
+    如果資源群組已經存在，您可能不想覆寫它。 將不同的值指派給 `$resourceGroupName` 變數，然後執行一次命令。 
+3. 定義 Data Factory 名稱的變數。 
 
-    * 若要建立 Data Factory 執行個體，您必須是 Azure 訂用帳戶的參與者或系統管理員。
-    * 目前，Data Factory V2 只允許您在美國東部、美國東部 2 和西歐區域中建立資料處理站。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
+    > [!IMPORTANT]
+    >  將資料處理站名稱更新為全域唯一的。 例如，ADFTutorialFactorySP1127。 
+
+    ```powershell
+    $dataFactoryName = "ADFIncCopyTutorialFactory";
+    ```
+5. 若要建立 Data Factory，請執行下列 **Set-AzureRmDataFactoryV2** Cmdlet： 
+    
+    ```powershell       
+    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
+    ```
+
+請注意下列幾點：
+
+* Azure Data Factory 的名稱在全域必須是唯一的。 如果發生下列錯誤，請變更名稱，並再試一次。
+
+    ```
+    The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
+    ```
+* 若要建立 Data Factory 執行個體，您用來登入 Azure 的使用者帳戶必須為**參與者**或**擁有者**角色，或是 Azure 訂用帳戶的**管理員**。
+* 目前，Data Factory 第 2 版只允許您在美國東部、美國東部 2 和西歐區域中建立資料處理站。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 
 
 ## <a name="create-linked-services"></a>建立連結的服務
@@ -224,7 +226,7 @@ END
     ```
 
 ### <a name="create-azure-sql-database-linked-service"></a>建立 Azure SQL Database 連結服務。
-1. 在 **C:\ADF** 資料夾中，使用下列內容建立名為 **AzureSQLDatabaseLinkedService.json** 的 JSON 檔案：(如果 ADF 資料夾尚不存在，請建立。) 儲存檔案之前，以您的 Azure SQL Server 名稱、使用者識別碼和密碼，取代 **&lt;server&gt;、&lt;user id&gt; 和 &lt;password&gt;**。 
+1. 在 **C:\ADF** 資料夾中，使用下列內容建立名為 **AzureSQLDatabaseLinkedService.json** 的 JSON 檔案：(如果 ADF 資料夾尚不存在，請建立。) 儲存檔案之前，以您的 Azure SQL Server 名稱、資料庫、使用者識別碼和密碼，取代 **&lt;server&gt;、&lt;database&gt;、&lt;user id&gt; 和 &lt;password&gt;**。 
 
     ```json
     {
@@ -233,15 +235,15 @@ END
             "type": "AzureSqlDatabase",
             "typeProperties": {
                 "connectionString": {
-                    "value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database name>; Persist Security Info=False; User ID=<user name> ; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
+                    "value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database>; Persist Security Info=False; User ID=<user> ; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
                     "type": "SecureString"
                 }
             }
         }
     }
     ```
-2. 在 **Azure PowerShell** 中，切換至 **ADF** 資料夾。
-3. 執行 **Set-AzureRmDataFactoryV2LinkedService** Cmdlet 來建立連結服務：**AzureSQLDatabaseLinkedService**。 
+1. 在 **Azure PowerShell** 中，切換至 **ADF** 資料夾。
+2. 執行 **Set-AzureRmDataFactoryV2LinkedService** Cmdlet 來建立連結服務：**AzureSQLDatabaseLinkedService**。 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -280,7 +282,7 @@ END
     }
    
     ```
-    在本教學課程中，我們使用資料表名稱：**data_source_table**。 如果您使用不同名稱的資料表，請取代此名稱。 
+    在本教學課程中，您使用的資料表名稱是：**data_source_table**。 如果您使用不同名稱的資料表，請取代此名稱。 
 2.  執行 Set-AzureRmDataFactoryV2Dataset Cmdlet 來建立資料集：SourceDataset
     
     ```powershell
@@ -379,7 +381,7 @@ END
 在本教學課程中，您會建立具有兩個查閱活動、一個複製活動和一個預存程序活動的管道，這些活動都在一個管道中鏈結。 
 
 
-1. 在相同的資料夾中，使用下列內容建立 JSON 檔案：IncrementalCopyPipeline.json。 
+1. 在相同的資料夾中，使用下列內容建立 JSON 檔案 IncrementalCopyPipeline.json： 
 
     ```json
     {
@@ -512,9 +514,9 @@ END
 1. 使用 **Invoke-AzureRmDataFactoryV2Pipeline** Cmdlet 執行管道：**IncrementalCopyPipeline**。 以您自己的資源群組和資料處理站名稱取代預留位置。
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup "<your resource group>" -dataFactoryName "<your data factory name>"
+    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ``` 
-2. 執行 Get-AzureRmDataFactoryV2ActivityRun Cmdlet 來檢查管道的狀態，直到您看到所有活動成功執行為止。 在 RunStartedAfter 和 RunStartedBefore 參數中，以您自己的適當時間取代預留位置。  在本教學課程中，我們會使用 -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15"
+2. 執行 Get-AzureRmDataFactoryV2ActivityRun Cmdlet 來檢查管道的狀態，直到您看到所有活動成功執行為止。 在 RunStartedAfter 和 RunStartedBefore 參數中，以您自己的適當時間取代預留位置。  在本教學課程中，您會使用 -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15"
 
     ```powershell
     Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
@@ -616,7 +618,7 @@ END
     VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
     ``` 
 
-    Azure SQL 資料庫中更新的資料如下所示：
+    Azure SQL Database 中更新的資料如下：
 
     ```
     PersonID | Name | LastModifytime
@@ -632,9 +634,9 @@ END
 2. 使用 **Invoke-AzureRmDataFactoryV2Pipeline** Cmdlet 再次執行管道：**IncrementalCopyPipeline**。 以您自己的資源群組和資料處理站名稱取代預留位置。
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup "<your resource group>" -dataFactoryName "<your data factory name>"
+    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ```
-3. 執行 **Get-AzureRmDataFactoryV2ActivityRun** Cmdlet 來檢查管道的狀態，直到您看到所有活動成功執行為止。 在 RunStartedAfter 和 RunStartedBefore 參數中，以您自己的適當時間取代預留位置。  在本教學課程中，我們會使用 -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15"
+3. 執行 **Get-AzureRmDataFactoryV2ActivityRun** Cmdlet 來檢查管道的狀態，直到您看到所有活動成功執行為止。 在 RunStartedAfter 和 RunStartedBefore 參數中，以您自己的適當時間取代預留位置。  在本教學課程中，您會使用 -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15"
 
     ```powershell
     Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
@@ -725,10 +727,10 @@ END
 > * 執行管道。
 > * 監視管道執行。 
 
-進入下列教學課程，以了解如何在 Azure 上使用 Spark 叢集來轉換資料：
+在本教學課程中，管線已從 Azure SQL Database 中的**單一資料表**將資料複製到 Azure Blob 儲存體。 請前進到下列教學課程，來了解如何從內部部署 SQL Server 資料庫中的**多個資料表**，將資料複製到 Azure SQL Database。 
 
 > [!div class="nextstepaction"]
->[在雲端中使用 Spark 叢集轉換資料](tutorial-transform-data-spark-powershell.md)
+>[以累加方式將 SQL Server 中多個資料表的資料載入到 Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
 
 
 
