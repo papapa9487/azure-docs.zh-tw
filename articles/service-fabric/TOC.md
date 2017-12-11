@@ -50,14 +50,11 @@
 ## [術語](service-fabric-technical-overview.md)
 
 ## 建置應用程式與服務
-### 支援的程式設計模型
-#### [概觀](service-fabric-choose-framework.md)
-#### 容器
-##### [概觀](service-fabric-containers-overview.md)
+### [支援的程式設計模型](service-fabric-choose-framework.md)
+#### [容器](service-fabric-containers-overview.md)
 ##### [Docker Compose (預覽)](service-fabric-docker-compose.md)
 ##### [資源管理](service-fabric-resource-governance.md)
-#### Reliable Services
-##### [概觀](service-fabric-reliable-services-introduction.md)
+#### [Reliable Services](service-fabric-reliable-services-introduction.md)
 ##### [Reliable Services 生命週期 - C#](service-fabric-reliable-services-lifecycle.md)
 ##### [Reliable Services 生命週期 - Java](service-fabric-reliable-services-lifecycle-java.md)
 ##### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
@@ -69,8 +66,7 @@
 ##### [Reliable State Manager 與 Reliable Collection 內部](service-fabric-reliable-services-reliable-collections-internals.md)
 ##### [進階用量](service-fabric-reliable-services-advanced-usage.md)
 
-#### Reliable Actors
-##### [概觀](service-fabric-reliable-actors-introduction.md)
+#### [Reliable Actors](service-fabric-reliable-actors-introduction.md)
 ##### [架構](service-fabric-reliable-actors-platform.md)
 ##### [生命週期與記憶體回收](service-fabric-reliable-actors-lifecycle.md)
 ##### [狀態管理](service-fabric-reliable-actors-state-management.md)
@@ -86,10 +82,9 @@
 #### [服務狀態](service-fabric-concepts-state.md)
 #### [服務分割](service-fabric-concepts-partitioning.md)
 #### [服務可用性](service-fabric-availability-services.md)
-#### [複本和執行個體](service-fabric-concepts-replica-lifecycle.md)
+#### [複本和執行個體生命週期](service-fabric-concepts-replica-lifecycle.md)
 #### [重新設定](service-fabric-concepts-reconfiguration.md)
-#### 服務通訊
-##### [概觀](service-fabric-connect-and-communicate-with-services.md)
+#### [服務通訊](service-fabric-connect-and-communicate-with-services.md)
 ##### [DNS 服務](service-fabric-dnsservice.md)
 ##### [反向 Proxy](service-fabric-reverseproxy.md)
 ##### [設定安全通訊的反向 proxy](service-fabric-reverseproxy-configure-secure-communication.md)
@@ -99,10 +94,8 @@
 
 ### [規劃應用程式容量](service-fabric-capacity-planning.md)
 
-## 管理應用程式
-### [概觀](service-fabric-application-lifecycle.md)
-### 應用程式升級
-#### [概觀](service-fabric-application-upgrade.md)
+## [管理應用程式](service-fabric-application-lifecycle.md)
+### [應用程式升級](service-fabric-application-upgrade.md)
 #### [組態](service-fabric-visualstudio-configure-upgrade.md)
 #### [應用程式升級參數](service-fabric-application-upgrade-parameters.md)
 #### [應用程式升級的資料序列化](service-fabric-application-upgrade-data-serialization.md)
@@ -110,8 +103,7 @@
 ### [錯誤分析概觀](service-fabric-testability-overview.md)
 ### [ ImageStoreConnectionString 設定](service-fabric-image-store-connection-string.md)
 
-## 建立和管理叢集
-### [概觀](service-fabric-deploy-anywhere.md)
+## [建立和管理叢集](service-fabric-deploy-anywhere.md)
 ### 規劃和準備
 #### [容量規劃](service-fabric-cluster-capacity.md)
 #### [災害復原](service-fabric-disaster-recovery.md)
@@ -121,8 +113,7 @@
 ### Azure 上的叢集
 #### [節點類型與 VM 擴展集](service-fabric-cluster-nodetypes.md)
 #### [叢集網路模式](service-fabric-patterns-networking.md)
-### 叢集資源管理員
-#### [概觀](service-fabric-cluster-resource-manager-introduction.md)
+### [叢集資源管理員](service-fabric-cluster-resource-manager-introduction.md)
 #### [架構](service-fabric-cluster-resource-manager-architecture.md)
 #### [描述叢集](service-fabric-cluster-resource-manager-cluster-description.md)
 #### [應用程式群組概觀](service-fabric-cluster-resource-manager-application-groups.md)
@@ -230,7 +221,7 @@
 #### [管理應用程式密碼](service-fabric-application-secret-management.md)  
 #### [設定應用程式的安全性原則](service-fabric-application-runas-security.md)
 
-## 在 Windows 開發人員環境中工作
+## 在 Windows/VS 開發人員環境中工作
 ### [在 Visual Studio 中管理應用程式](service-fabric-manage-application-in-visual-studio.md)
 ### [在 Visual Studio 中設定安全連線](service-fabric-visualstudio-configure-secure-connections.md)
 ### [針對多種環境設定您的應用程式](service-fabric-manage-multiple-environment-app-configuration.md)
@@ -239,7 +230,7 @@
 ### [在本機上監視及診斷](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 ### [在 Windows 上設定 Linux 叢集](service-fabric-local-linux-cluster-windows.md)
 
-## 在 Linux 開發環境中工作
+## 在 Linux/Eclipse 開發人員環境中工作
 ### [開始使用 Eclipse 外掛程式進行 Java 部署](service-fabric-get-started-eclipse.md)
 ### [在 Eclipse 中的Java 服務中進行偵錯](service-fabric-debugging-your-application-java.md)
 ### [在本機上監視及診斷](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)

@@ -16,6 +16,7 @@
 ## [工作 5：啟用密碼同步化](active-directory-ds-getting-started-password-sync.md)
 
 # 作法
+## [在 Azure CSP 訂用帳戶中使用 Azure AD Domain Services](active-directory-ds-csp.md)
 ## [使用 PowerShell 啟用 Azure AD Domain Services](active-directory-ds-enable-using-powershell.md)
 ## 加入受管理的網域
 ### [Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)

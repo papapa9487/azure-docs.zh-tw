@@ -38,6 +38,7 @@
 
 ## 整合
 ### [概觀](sql-data-warehouse-overview-integrate.md)
+### [SQL Database 彈性查詢](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 
 ## 監視與微調
@@ -100,9 +101,8 @@
 
 
 ## 整合
-###  [設定 SQL Database 的彈性查詢](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
+### [設定 SQL Database 彈性查詢](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ### [新增 Azure 串流分析作業](sql-data-warehouse-integrate-azure-stream-analytics.md)
-### [設定彈性查詢](how-to-use-elastic-query-with-sql-data-warehouse.md)
 ### [使用機器學習服務](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 ### [使用 Power BI 視覺化資料](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 

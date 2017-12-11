@@ -66,6 +66,9 @@
         - name: 計算最佳化
           href: sizes-compute.md
         - name: 記憶體最佳化
+          items:
+            - name: 限制 vCPU
+              href: constrained-vcpu.md
           href: sizes-memory.md
         - name: 儲存體最佳化
           href: sizes-storage.md

@@ -142,6 +142,10 @@
               href: app-insights-proactive-failure-diagnostics.md
             - name: 效能異常
               href: app-insights-proactive-performance-diagnostics.md
+            - name: 追蹤轉化
+              href: app-insights-proactive-trace-severity.md
+            - name: 例外狀況磁碟區
+              href: app-insights-proactive-exception-volume.md
         - name: 建立資源
           href: app-insights-create-new-resource.md
     - name: 分析
