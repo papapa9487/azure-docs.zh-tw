@@ -1,29 +1,53 @@
 - name: Azure HDInsight 文件
   href: /azure/hdinsight
-- name: HDInsight 上的企業安全性
+- name: 企業安全性
   items:
     - name: 概觀
       href: apache-domain-joined-introduction.md
-    - name: 規劃已加入網域的 HDInsight
+    - name: 企業安全性方案
       href: apache-domain-joined-architecture.md
-    - name: 元件版本控制
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-- name: 開始使用
-  items:
-    - name: 設定已加入網域的 HDInsight
+    - name: 在 HDInsight 中設定企業安全性
       href: apache-domain-joined-configure.md
-    - name: 使用 Azure AD DS 設定已加入網域的 HDInsight
+    - name: 使用 Azure AD DS 在 HDInsight 中設定企業安全性
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: 設定 Hive 原則
       href: apache-domain-joined-run-hive.md
     - name: 容量規劃
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
-- name: 作法
-  items:
-    - name: 管理叢集
+    - name: 以企業安全性管理叢集
       href: apache-domain-joined-manage.md
+- name: 保護資料
+  href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+  maintainContext: true
+- name: 網路存取
+  items:
+    - name: Azure VNet 中的 HDInsight
+      href: ../hdinsight-extend-hadoop-virtual-network.md
+      maintainContext: true
+    - name: 將 HDInsight 與內部部署網路連線
+      href: ../connect-on-premises-network.md
+      maintainContext: true
+    - name: 在 Azure VNet 中建立 HBase 叢集
+      href: ../hbase/apache-hbase-provision-vnet.md
+      maintainContext: true
+    - name: Azure VNet 中 HBase 叢集複寫
+      href: ../hbase/apache-hbase-replication.md
+      maintainContext: true
+- name: 使用 OMS 監控
+  items:
+    - name: 使用 Azure Log Analytics
+      href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+      maintainContext: true
+    - name: 叢集特定儀表板
+      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
+      maintainContext: true
+    - name: 透過 Log Analytics 使用查詢
+      href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+      maintainContext: true
+    - name: 監視叢集效能
+      href: ../hdinsight-key-scenarios-to-monitor.md
+      maintainContext: true
 - name: 參考
   items:
     - name: 程式碼範例

@@ -31,8 +31,6 @@
       href: tutorial-kubernetes-upgrade-cluster.md
 - name: 使用說明指南
   items:
-    - name: 使用 OSBA 與 Azure 整合
-      href: integrate-azure.md
     - name: 調整 AKS 叢集
       href: scale-cluster.md
     - name: 升級 AKS 叢集
@@ -43,6 +41,8 @@
       href: kubernetes-draft.md
     - name: 透過 Azure 檔案保存資料
       href: azure-files.md
+    - name: 使用 OSBA 與 Azure 整合
+      href: integrate-azure.md
     - name: 使用 Kubernetes 儀表板
       href: kubernetes-dashboard.md
     - name: 建立服務主體
