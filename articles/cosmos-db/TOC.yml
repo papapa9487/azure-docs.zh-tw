@@ -9,7 +9,7 @@
 - name: 快速入門
   expanded: true
   items:
-    - name: DocumentDB
+    - name: SQL
       items:
         - name: .NET
           href: create-documentdb-dotnet.md
@@ -71,7 +71,7 @@
   items:
     - name: 1 - 建立
       items:
-        - name: DocumentDB
+        - name: SQL
           href: tutorial-develop-documentdb-dotnet.md
         - name: MongoDB with .NET
           href: tutorial-develop-mongodb.md
@@ -87,7 +87,7 @@
           href: tutorial-develop-cassandra-java.md
     - name: 2 - 匯入
       items:
-        - name: DocumentDB
+        - name: SQL
           href: import-data.md
         - name: MongoDB
           href: mongodb-migrate.md
@@ -97,7 +97,7 @@
           href: cassandra-import-data.md
     - name: 3 - 查詢
       items:
-        - name: DocumentDB
+        - name: SQL
           href: tutorial-query-documentdb.md
         - name: MongoDB
           href: tutorial-query-mongodb.md
@@ -107,7 +107,7 @@
           href: tutorial-query-graph.md
     - name: 4 - 全域散發
       items:
-        - name: DocumentDB
+        - name: SQL
           href: tutorial-global-distribution-documentdb.md
         - name: MongoDB
           href: tutorial-global-distribution-mongodb.md
@@ -147,7 +147,7 @@
       href: request-units.md
     - name: 多模型 API
       items:
-        - name: DocumentDB
+        - name: SQL
           href: documentdb-introduction.md
         - name: MongoDB
           href: mongodb-introduction.md
@@ -170,7 +170,7 @@
   items:
     - name: 開發
       items:
-        - name: DocumentDB API
+        - name: SQL API
           href: documentdb-index.md
           items:
             - name: 資源
@@ -239,8 +239,6 @@
                   href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: 服務更新
                   href: 'https://azure.microsoft.com/updates/?product=cosmos-db'
-                - name: 社群入口網站
-                  href: community.md
                 - name: 結構描述無從驗證索引文件
                   href: 'http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf'
                 - name: 淘汰 S1、S2、S3
@@ -378,13 +376,13 @@
           href: powerbi-visualize.md
         - name: 運用 ODBC 驅動程式展現資料視覺效果
           href: odbc-driver.md
-        - name: 使用 Spring Boot Starter 搭配 DocumentDB API
+        - name: 使用 Spring Boot Starter 搭配 SQL API
           href: documentdb-java-spring-boot-starter-with-cosmos-db.md
 - name: 參考
   items:
     - name: 程式碼範例
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
-    - name: DocumentDB API
+    - name: SQL API
       items:
         - name: Java
           href: documentdb-sdk-java.md

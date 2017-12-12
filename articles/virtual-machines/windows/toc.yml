@@ -116,6 +116,8 @@
       items:
         - name: 基礎結構方針
           href: infrastructure-example.md
+        - name: vCPU 配額
+          href: quotas.md
 - name: 使用說明指南
   items:
     - name: 建立 VM

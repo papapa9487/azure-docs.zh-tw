@@ -143,11 +143,11 @@
               href: site-recovery-vmware-deployment-planner-run.md
             - name: 分析已產生的報告
               href: site-recovery-vmware-deployment-planner-analyze-report.md
-            - name: 分析災害復原成本預估報告
+            - name: 分析成本預估報告
               href: site-recovery-vmware-deployment-planner-cost-estimation.md
         - name: 相應放大處理伺服器以供 VMware 進行複寫
           href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
-        - name: Hyper-V 複寫至 Azure 的部署規劃和工具
+        - name: 將 Hyper-V 複寫至 Azure 的部署規劃工具
           href: null
           items:
             - name: 概觀和必要條件
@@ -156,7 +156,7 @@
               href: site-recovery-hyper-v-deployment-planner-run.md
             - name: 分析已產生的報告
               href: site-recovery-hyper-v-deployment-planner-analyze-report.md
-            - name: 分析災害復原成本預估報告
+            - name: 分析成本預估報告
               href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
         - name: 內部部署站台間 Hyper-V 複寫的效能調整測試
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
