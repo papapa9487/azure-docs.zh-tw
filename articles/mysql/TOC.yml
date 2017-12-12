@@ -83,12 +83,6 @@
           href: concepts-compatibility.md
         - name: XBOX Video Application Development
           href: concepts-database-application-development.md
-    - name: 移轉資料庫
-      items:
-        - name: 傾印和還原
-          href: concepts-migrate-dump-restore.md
-        - name: 匯入和匯出
-          href: concepts-migrate-import-export.md
 - name: 使用說明指南
   items:
     - name: 管理伺服器
@@ -107,6 +101,12 @@
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
+    - name: 移轉資料庫
+      items:
+        - name: 傾印和還原
+          href: concepts-migrate-dump-restore.md
+        - name: 匯入和匯出
+          href: concepts-migrate-import-export.md
     - name: 連線應用程式
       items:
         - name: 建立使用者

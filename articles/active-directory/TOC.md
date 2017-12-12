@@ -219,7 +219,6 @@
 ### [使用 HRD 原則設定登入時自動加速](active-directory-auto-acceleration-using-hrd.md)
 
 ### [管理應用程式的存取權](active-directory-managing-access-to-apps.md)
-#### [自助服務存取](active-directory-self-service-application-access.md)
 #### [SSO 存取](active-directory-appssoaccess-whatis.md)
 #### [SSO 憑證](active-directory-sso-certs.md)
 #### [租用戶限制](active-directory-tenant-restrictions.md)
