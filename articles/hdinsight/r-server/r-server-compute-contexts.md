@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 24df96f55b0f207d8576bd05c2c83a884e7fc2bd
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 4c839bf0c39bf10855f8a31770b82a04ed1ca457
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>適用於 HDInsight 上 R 伺服器的計算內容選項
 
@@ -33,19 +33,19 @@ Azure HDInsight 上的 Microsoft R 伺服器控制如何透過設定計算內容
 ## <a name="compute-contexts-for-an-edge-node"></a>邊緣節點的計算內容
 一般而言，在邊緣節點上 R 伺服器中執行的 R 指令碼會在該節點上的 R 解譯器內執行。 但呼叫 ScaleR 函數的步驟則屬例外。 ScaleR 呼叫會在計算環境中執行，該環境是由您設定 ScaleR 計算內容的方式所決定。  當您從邊緣節點執行 R 指令碼時，可能的計算內容值為：
 
-- 本機循序 (*‘local’*)
-- 本機平行 (*‘localpar’*)
+- 本機循序 (local)
+- 本機平行 (localpar)
 - Map Reduce
 - Spark
 
-*‘local’* 和 *‘localpar’* 選項的差別只在於執行 **rxExec** 呼叫的方式。 它們都會在所有可用的核心之間，以平行方式執行其他的 rx 函數呼叫，除非已指定，否則皆使用 ScaleR **numCoresToUse** 選項，例如 `rxOptions(numCoresToUse=6)`。 平行執行選項提供最佳效能。
+local 和 localpar 選項的差別只在於執行 **rxExec** 呼叫的方式。 它們都會在所有可用的核心之間，以平行方式執行其他的 rx 函數呼叫，除非已指定，否則皆使用 ScaleR **numCoresToUse** 選項，例如 `rxOptions(numCoresToUse=6)`。 平行執行選項提供最佳效能。
 
 下表摘要說明各種不同的計算內容選項來設定呼叫的執行方式：
 
 | 計算內容  | 設定方式                      | 執行內容                        |
 | ---------------- | ------------------------------- | ---------------------------------------- |
-| 本機循序 | rxSetComputeContext(‘local’)    | 跨邊緣節點伺服器的核心平行執行，只有 rxExec 為循序執行 |
-| 本機平行   | rxSetComputeContext(‘localpar’) | 跨邊緣節點伺服器的核心平行執行 |
+| 本機循序 | rxSetComputeContext('local')    | 跨邊緣節點伺服器的核心平行執行，只有 rxExec 為循序執行 |
+| 本機平行   | rxSetComputeContext('localpar') | 跨邊緣節點伺服器的核心平行執行 |
 | Spark            | RxSpark()                       | 跨 HDI 叢集的節點透過 Spark 平行處理分散式執行 |
 | Map Reduce       | RxHadoopMR()                    | 跨 HDI 叢集的節點透過 Map Reduce 平行處理分散式執行 |
 
@@ -62,8 +62,8 @@ Azure HDInsight 上的 Microsoft R 伺服器控制如何透過設定計算內容
 在給定這些原則的情況下，以下各節提供一些有關選取計算內容的一般準則。
 
 ### <a name="local"></a>本機
-* 如果要分析的資料量很小，而且不需要重複分析，請使用 *'local'* 或 *'localpar'* 直接將它串流到分析常式。
-* 如果要分析的資料量很小或是中等大小，而且需要重複分析，請將它複製到本機檔案系統、匯入至 XDF，然後透過 *'local'* 或 *'localpar'* 分析。
+* 如果要分析的資料量很小，而且不需要重複分析，請使用 local 或 localpar 直接將它串流到分析常式。
+* 如果要分析的資料量很小或是中等大小，而且需要重複分析，請將它複製到本機檔案系統、匯入至 XDF，然後透過 local 或 localpar 分析。
 
 ### <a name="hadoop-spark"></a>Hadoop Spark
 * 如果要分析的資料量很大，請使用 **RxHiveData** 或 **RxParquetData** 將它匯入到 Spark DataFrame，或匯入到 HDFS 中的 XDF (除非儲存體會是問題)，然後使用 Spark 計算內容分析。
@@ -76,7 +76,7 @@ Azure HDInsight 上的 Microsoft R 伺服器控制如何透過設定計算內容
 
     > ?rxSetComputeContext
 
-您也可以參閱可從 [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx "MSDN 上的 R 伺服器") 文件庫取得的 [ScaleR 分散式計算指南](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing) \(英文\)。
+您也可以參閱可從 [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx) 文件庫取得的 [ScaleR 分散式計算指南](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing) \(英文\)。
 
 ## <a name="next-steps"></a>後續步驟
 在此文章中，您可以了解可用於指定是否以及如何跨邊緣節點核心或 HDInsight 叢集將執行作業平行化的選項。 若要深入了解如何搭配 HDInsight 叢集使用 R 伺服器，請參閱下列主題：

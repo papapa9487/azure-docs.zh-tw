@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: bd5de92a418ae5caa23ae4b081b688707cedcf06
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: ddddf280613554e81884dbcbd0c0011e505500bc
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,7 +48,7 @@ ms.lasthandoff: 11/10/2017
 
 以下是針對「Azure SQL 資料倉儲」已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | 類型 | 類型屬性必須設為： **AzureSqlDW** | 是 |
 | connectionString |針對 connectionString 屬性指定連線到 Azure SQL 資料倉儲執行個體所需的資訊。 僅支援基本驗證。 請將此欄位標示為 SecureString。 |是 |
@@ -85,7 +85,7 @@ ms.lasthandoff: 11/10/2017
 
 若要從「Azure SQL 資料倉儲」複製資料或將資料複製到該處，請將資料集的類型屬性設定為 **AzureSqlDWTable**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | 類型 | 資料集的類型屬性必須設定為：**AzureSqlDWTable** | 是 |
 | tableName |「Azure SQL 資料倉儲」執行個體中已連結的服務所參考的資料表或檢視名稱。 | 是 |
@@ -117,7 +117,7 @@ ms.lasthandoff: 11/10/2017
 
 若要從「Azure SQL 資料倉儲」複製資料，請將複製活動中的來源類型設定為 **SqlDWSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | 類型 | 複製活動來源的類型屬性必須設定為：**SqlDWSource** | 是 |
 | SqlReaderQuery |使用自訂 SQL 查詢來讀取資料。 範例：`select * from MyTable`. |否 |
@@ -221,7 +221,7 @@ GO
 
 若要將資料複製到「Azure SQL 資料倉儲」，請將複製活動中的接收器類型設定為 **SqlDWSink**。 複製活動的 **sink** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | 類型 | 複製活動接收器的 type 屬性必須設定為：**SqlDWSink** | 是 |
 | allowPolyBase |指出是否使用 PolyBase (適用的話) 而不是使用 BULKINSERT 機制。 <br/><br/> 建議使用 PolyBase 將資料載入 SQL 資料倉儲。 請參閱 [使用 PolyBase 將資料載入 Azure SQL 資料倉儲](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 一節中的條件約束和詳細資料。<br/><br/>允許的值為：**True** (預設值) 和 **False**。  |否 |
@@ -269,7 +269,7 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob 和 Azure Data Lake Store (使
 如果不符合需求，Azure Data Factory 會檢查設定，並自動切換回適用於資料移動的 BULKINSERT 機制。
 
 1. 「來源已連結服務」的類型為：**AzureStorage** 或 **AzureDataLakeStore**。
-2. 「輸入資料集」**的類型為**：**AzureBlob** 或 **AzureDataLakeStoreFile**，而 `type` 屬性底下的格式類型為 **OrcFormat** 或具備下列組態的 **TextFormat**：
+2. 「輸入資料集」的類型為：**AzureBlob** 或 **AzureDataLakeStoreFile**，而 `type` 屬性底下的格式類型為 **OrcFormat**、**ParquetFormat** 或具備下列設定的 **TextFormat**：
 
    1. `rowDelimiter` 必須是 **\n**。
    2. `nullValue` 設定為「空字串」 ("") 或將 `treatEmptyAsNull` 設定為 **true**。

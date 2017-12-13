@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: v-donglo
-ms.openlocfilehash: 40079da0e04520477771a11a1e4111768cf18280
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 4f117e7099ffd0a8f85aa96f0fd075d4bcbeb6b4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>重新定型現有的預測 Web 服務
 本文件描述下列案例的重新定型程序︰
@@ -86,20 +86,19 @@ ms.lasthandoff: 11/07/2017
 ### <a name="update-the-azure-storage-information"></a>更新 Azure 儲存體資訊
 BES 範例程式碼會將檔案從本機磁碟機 (例如，C:\temp\CensusIpnput.csv) 上傳至 Azure 儲存體、加以處理後，再將結果寫回 Azure 儲存體。  
 
-若要更新 Azure 儲存體資訊，您必須從 Azure 傳統入口網站擷取儲存體帳戶的儲存體帳戶名稱、金鑰和容器資訊，然後更新程式碼中的對應值。
 執行實驗後，產生的工作流程應該如下：
 
 ![執行後產生的工作流程][4]
 
-1. 登入 Azure 傳統入口網站。
-2. 在左側導覽中，按一下 [儲存體] 。
+1. 登入 Azure 入口網站。
+2. 在左側導覽中，按一下 [更多服務]，搜尋 [儲存體帳戶]，並加以選取。
 3. 在儲存體帳戶的清單中，選取要儲存重新定型模型的帳戶。
-4. 按一下此頁面底部的 [管理存取金鑰] 。
-5. 複製並儲存 **主要存取金鑰** ，然後關閉對話方塊。
-6. 按一下頁面頂端的 [容器] 。
+4. 在左側導覽中，按一下 [存取金鑰]。
+5. 複製並儲存 [主要存取金鑰]。
+6. 在左側導覽中，按一下 [容器]。
 7. 您可以使用現有容器，或建立新的容器並儲存名稱。
 
-找到 StorageAccountName、StorageAccountKey、StorageContainerName 宣告，更新為您從傳統入口網站儲存的值。
+找到 StorageAccountName、StorageAccountKey、StorageContainerName 宣告，更新為您從入口網站儲存的值。
 
     const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
     const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key

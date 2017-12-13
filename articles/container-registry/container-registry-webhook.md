@@ -2,46 +2,36 @@
 title: Azure Container Registry Webhook
 description: "了解如何在您的登錄存放庫發生特定動作時，使用 Webhook 來觸發事件。"
 services: container-registry
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acr, azure-container-registry
-keywords: "Docker、容器、ACR"
-ms.assetid: 
 ms.service: container-registry
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/08/2017
+ms.date: 12/02/2017
 ms.author: nepeters
-ms.openlocfilehash: 5a9dab91aafb92f944b473f05144242143e36477
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 133e36179a500dc65c3a543266a7afcf9988b87d
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="using-azure-container-registry-webhooks"></a>使用 Azure Container Registry Webhook
 
-Azure Container Registry 會儲存和管理私人 Docker 容器映像，其方式類似於 Docker 中樞儲存公用 Docker 映像。 在其中一個登錄存放庫發生特定動作時，您要使用 Webhook 來觸發事件。 Webhook 可以回應登錄層級的事件，或可將範圍縮小至特定的存放庫標記。
+Azure Container Registry 會儲存和管理私人 Docker 容器映像，其方式類似於 Docker 中樞儲存公用 Docker 映像。 在其中一個登錄存放庫發生特定動作時，您可以使用 Webhook 來觸發事件。 Webhook 可以回應登錄層級的事件，或可將範圍縮小至特定的存放庫標記。
 
-如需詳細背景和概念，請參閱[什麼是 Azure Container Registry？](./container-registry-intro.md)。
+如需 Webhook 要求的詳細資訊，請參閱 [Azure Container Registry Webhook 結構描述參考](container-registry-webhook-reference.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
-- Azure 容器管理的登錄 - 在 Azure 訂用帳戶中建立受管理的容器登錄。 例如，使用 [Azure 入口網站](container-registry-get-started-portal.md)或 [Azure CLI](container-registry-get-started-azure-cli.md)。
-- Docker CLI - 若要將您的本機電腦設定為 Docker 主機並存取 Docker CLI 命令，請安裝 [Docker 引擎](https://docs.docker.com/engine/installation/)。
+* Azure 容器登錄 - 在 Azure 訂用帳戶中建立容器登錄。 例如，使用 [Azure 入口網站](container-registry-get-started-portal.md)或 [Azure CLI](container-registry-get-started-azure-cli.md)。
+* Docker CLI - 若要將您的本機電腦設定為 Docker 主機並存取 Docker CLI 命令，請安裝 [Docker 引擎](https://docs.docker.com/engine/installation/)。
 
 ## <a name="create-webhook-azure-portal"></a>建立 Webhook Azure 入口網站
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)並瀏覽至您要在當中建立 Webhook 的登錄。
-
-2. 在 [容器] 刀鋒視窗中，選取 [服務] 底下的 [Webhook] 索引標籤。
-
-3. 選取 [Webhook] 刀鋒視窗工具列中的 [新增]。
-
-4. 填入下列資訊以完成 [建立 Webhook] 表單：
+1. 登入 [Azure 入口網站](https://portal.azure.com)
+1. 瀏覽至您要在其中建立 Webhook 的容器登錄。
+1. 在 [服務] 下選取 [Webhook]。
+1. 選取 [Webhook] 工具列中的 [新增]。
+1. 填入下列資訊以完成 [建立 Webhook] 表單：
 
 | 值 | 描述 |
 |---|---|
@@ -68,7 +58,7 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-在容器映像上使用 Webhook 推送和刪除動作之前，可以使用 [Ping] 按鈕測試它。 Ping 會將泛型 POST 要求傳送至指定的端點，並記錄回應。 這可協助您確認您已正確設定 Webhook。
+在容器映像上使用 Webhook 推送和刪除動作之前，可以使用 [Ping] 按鈕測試它。 Ping 會將泛型 POST 要求傳送至指定的端點，並記錄回應。 使用 Ping 功能可協助您確認您已正確設定 Webhook。
 
 1. 選取您想要測試的 Webhook。
 2. 在頂端工具列中，選取 [Ping]。
@@ -101,3 +91,7 @@ az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook0
 ```azurecli-interactive
 az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 ```
+
+## <a name="next-steps"></a>後續步驟
+
+[Azure Container Registry Webhook 結構描述參考](container-registry-webhook-reference.md)

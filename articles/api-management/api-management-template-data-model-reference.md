@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 72936a4d38f809934ddea74e5ae4a6029450a97c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92a52910ef8b9f078a8ea6ac409f89719f889b24
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API 管理範本資料模型參考
 本主題說明在 Azure API 管理的開發人員入口網站範本資料模型中，所使用之一般項目的實體和類型表示法。  
@@ -332,7 +332,7 @@ ms.lasthandoff: 10/11/2017
 |DelegationEnabled|布林值|是否啟用委派的登入。|  
 |DelegationUrl|字串|委派的登入 url (如果已啟用)。|  
 |SsoSignUpUrl|字串|使用者的單一登入 URL (如果有的話)。|  
-|AuxServiceUrl|字串|如果目前的使用者是系統管理員，這是 Azure 傳統入口網站中服務執行個體的連結。|  
+|AuxServiceUrl|字串|如果目前的使用者是系統管理員，這是 Azure 入口網站中服務執行個體的連結。|  
 |提供者|[提供者](#Provider)實體的集合|此使用者的驗證提供者。|  
 |UserRegistrationTerms|字串|使用者必須先同意才能登入的條款。|  
 |UserRegistrationTermsEnabled|布林值|是否啟用條款。|  

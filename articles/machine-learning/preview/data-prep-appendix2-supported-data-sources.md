@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: db4774de28a17e022de111986f72a1f15ec32beb
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 458338cd23c704c40c512dd96b22a4790f27d017
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Azure Machine Learning 資料準備支援的資料來源 
 本文概述 Azure Machine Learning 資料準備目前支援的資料來源。
@@ -24,6 +24,25 @@ ms.lasthandoff: 11/06/2017
 以下列出此版本支援的資料來源。
 
 ## <a name="types"></a>類型 
+
+### <a name="sql-server"></a>SQL Server
+從內部部署 SQL Server 或 Azure SQL Database 讀取。
+
+#### <a name="options"></a>選項
+- 伺服器位址
+- 信任伺服器 (即使伺服器上的憑證無效也會信任。 請謹慎使用)
+- 驗證類型 (Windows、伺服器)
+- 使用者名稱
+- 密碼
+- 要連線的資料庫
+- SQL 查詢
+
+#### <a name="notes"></a>注意事項
+- 不支援 Sql-variant 資料行
+- 系統會透過將來自資料庫的時間附加到日期 1970/1/1，將時間資料行轉換成日期時間
+- 在 Spark 叢集上執行時，所有資料相關資料行 (date、datetime、datetime2、datetimeoffset) 都會把 1583 年之前的日期評估為不正確的值
+- 十進位資料行中的值可能會因為轉換成十進位而失去準確度
+
 ### <a name="directory-vs-file"></a>目錄和檔案
 選擇單一檔案並將它讀入資料準備。 剖析檔案類型以判斷下一個畫面顯示之檔案連接的預設參數。
 
@@ -88,6 +107,9 @@ Parquet 資料集是一個以上 .parquet 檔案的集合，其中每一個都�
 ## <a name="locations"></a>位置
 ### <a name="local"></a>本機
 本機硬碟或對應的網路儲存位置。
+
+### <a name="sql-server"></a>SQL Server
+內部部署 SQL 伺服器或 Azure SQL Database。
 
 ### <a name="azure-blob-storage"></a>Azure Blob 儲存體
 Azure Blob 儲存體，需要 Azure 訂用帳戶。

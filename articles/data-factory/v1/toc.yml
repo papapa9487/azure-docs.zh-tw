@@ -179,6 +179,8 @@
           href: data-factory-troubleshoot.md
         - name: 使用資料管理閘道針對問題進行疑難排解
           href: data-factory-troubleshoot-gateway-issues.md
+    - name: 使用預存程序活動叫用 SSIS 套件
+      href: how-to-invoke-ssis-package-stored-procedure-activity.md
 - name: 參考
   items:
     - name: 程式碼範例

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 70219ada2f4886f40d088486063afda2bc489611
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5e0ff1b98be73eb5990601ae7c5528e4a7af670b
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions 的 Azure 事件中樞繫結
 
@@ -34,9 +34,30 @@ ms.lasthandoff: 11/29/2017
 
 事件中樞觸發程序函式觸發時，觸發它的訊息會以字串形式傳遞至函式。
 
+## <a name="trigger---scaling"></a>觸發程序 - 調整規模
+
+事件中樞所觸發之函式的每個執行個體只能由 1 個 EventProcessorHost (EPH) 執行個體來支援。 事件中樞會確保只有 1 個 EPH 可以在指定的分割區上取得租用。
+
+例如，假設我們開始進行下列設定，並假設事件中樞具有：
+
+1. 10 個分割區。
+1. 1000 個平均散佈於所有分割區上的事件 => 每個分割區中有 100 個訊息。
+
+當您的函式首次啟用時，只會有 1 個函式執行個體。 讓我們將這個函式執行個體稱為 Function_0。 Function_0 將具有 1 個會設法在所有 10 個分割區上取得租用的 EPH。 它將會開始讀取分割區 0-9 的事件。 從這裡開始，將發生下列其中一件事：
+
+* **只需要 1 個函式執行個體**：Function_0 能夠在 Azure Functions 的規模調整邏輯開始生效之前完全處理 1000 個。 因此，Function_0 會完全處理 1000 個訊息。
+
+* **新增另 1 個函式執行個體**：Azure Functions 的規模調整邏輯判斷 Function_0 所擁有的訊息數目比它可處理的還多，因此會建立新的執行個體 Function_1。 事件中樞偵測到新的 EPH 執行個體正在嘗試讀取訊息。 事件中樞將開始在 EPH 執行個體之間進行分割區的負載平衡，例如，將分割區 0-4 指派給 Function_0，並將分割區 5-9 指派給 Function_1。 
+
+* **新增另 N 個函式執行個體**：Azure Functions 的規模調整邏輯判斷 Function_0 和 Function_1 所擁有的訊息數目比它們可處理的還多。 它將再次進行規模調整，以建立 Function_2…N，其中 N 大於事件中樞分割區數目。 事件中樞將在 Function_0...9 執行個體之間進行分割區的負載平衡。
+
+Azure Functions 目前規模調整邏輯特有的事實是 N 大於分割區數目。 這樣做是為了確保一律會有 EPH 的執行個體可方便用來在分割區變成可從其他執行個體使用時，快速取得分割區上的鎖定。 使用者只需針對函式執行個體執行時所使用的資源付費，不需要針對這個過度佈建付費。
+
+如果所有函式執行都成功且未發生錯誤，就會將檢查點新增至相關聯的儲存體帳戶。 當檢查點檢查成功時，應該永遠不會再次擷取所有的 1000 個訊息。
+
 ## <a name="trigger---example"></a>觸發程序 - 範例
 
-請參閱特定語言的範例：
+查看特定語言的範例：
 
 * [先行編譯 C#](#trigger---c-example)
 * [C# 指令碼](#trigger---c-script-example)
@@ -180,7 +201,7 @@ module.exports = function (context, myEventHubMessage) {
 
 對於[先行編譯 C#](functions-dotnet-class-library.md) 函式，使用 [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) 屬性，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) 中。
 
-此屬性的建構函式接受事件中樞的名稱、取用者群組的名稱，以及包含連接字串的應用程式設定名稱。 如需這些設定的詳細資訊，請參閱[觸發程序組態](#trigger---configuration)一節。 以下是 `EventHubTriggerAttribute` 屬性範例：
+此屬性的建構函式接受事件中樞的名稱、取用者群組的名稱，以及包含連接字串的應用程式設定名稱。 如需這些設定的詳細資訊，請參閱[觸發程序設定](#trigger---configuration)一節。 以下是 `EventHubTriggerAttribute` 屬性範例：
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -352,7 +373,7 @@ module.exports = function(context) {
 
 對於[先行編譯 C#](functions-dotnet-class-library.md) 函式，使用 [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) 屬性，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) 中。
 
-此屬性的建構函式接受事件中樞的名稱，以及包含連接字串的應用程式設定名稱。 如需這些設定的詳細資訊，請參閱[輸入 - 組態](#output---configuration)一節。 以下是 `EventHub` 屬性範例：
+此屬性的建構函式接受事件中樞的名稱，以及包含連接字串的應用程式設定名稱。 如需這些設定的詳細資訊，請參閱[輸入 - 設定](#output---configuration)一節。 以下是 `EventHub` 屬性範例：
 
 ```csharp
 [FunctionName("EventHubOutput")]

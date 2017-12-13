@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/10/2017
-ms.openlocfilehash: 06c7f9f6bd49ebfaf03b04cb6e30b963593bfb35
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: f3fc8fb08cd23543ecfcbdc4010aabc9c0184a65
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>如何使用 Azure 入口網站，在適用於 MySQL 的 Azure 資料庫中設定伺服器參數
 
@@ -44,7 +44,7 @@ MySQL 的 Azure 資料庫支援某些伺服器參數的組態。 本主題說明
 | 標準 400 | 10240 | 800 | 
 | 標準 800 | 20480 | 1600 |
 
-適用於版本 [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) \(英文\) 和 [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html) \(英文\) 的其他伺服器參數預設值。
+未列在上表中的所有其他伺服器參數會設定為其在 [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) 和 [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html) 版中的預設值。
 
 ## <a name="next-steps"></a>後續步驟
 - [適用於 MySQL 的 Azure 資料庫的連線庫](concepts-connection-libraries.md)。

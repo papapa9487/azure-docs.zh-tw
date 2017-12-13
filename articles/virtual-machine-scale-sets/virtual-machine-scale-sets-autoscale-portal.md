@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 3714a4feb14bc47132e501629fc339bc7d0e40a1
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 141ae5f004ec1c85c506955873c69c03a89cd08c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>如何在 Azure 入口網站中自動調整虛擬機器擴展集
 當您建立擴展集時，您會定義您想要執行的 VM 執行個體數目。 當您的應用程式需求變更時，您可以自動增加或減少 VM 執行個體數目。 自動調整的能力可讓您在整個應用程式的生命週期中，跟上客戶的需求或對應用程式效能變更做出回應。
@@ -122,7 +122,7 @@ ms.lasthandoff: 11/23/2017
 
     ![建立依排程調整的自動調整規則](media/virtual-machine-scale-sets-autoscale-portal/schedule-autoscale.PNG)
 
-若要查看您的自動調整規則會如何套用，請選取橫跨 [調整] 視窗頂端的 [執行歷程記錄]。 圖形和事件清單會顯示何時觸發了自動調整規則，以及您的擴展集內 VM 執行個體數目是增加或減少。
+若要查看您的自動調整規則會如何套用，請選取橫跨 [調整] 視窗頂端的 [執行歷程記錄]。 圖形和事件清單會顯示觸發自動調整規則的時間，以及您的擴展集內 VM 執行個體數目是增加或減少。
 
 
 ## <a name="next-steps"></a>後續步驟

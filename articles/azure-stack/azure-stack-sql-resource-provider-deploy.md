@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/29/2017
 ms.author: JeffGo
-ms.openlocfilehash: 31ffd31b5d540617c4a7a1224e6cf0ee656c9678
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 6c74071cedb1da9a59f47b10eaf538d24cb9ab01
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>在 Microsoft Azure Stack 上使用 SQL 資料庫
 
@@ -49,10 +49,17 @@ ms.lasthandoff: 11/21/2017
 
     b. 在多節點系統上，主機必須是可存取特殊權限端點的系統。
 
-3. [下載 SQL 資源提供者二進位檔案](https://aka.ms/azurestacksqlrp)，並執行自我解壓縮程式將內容解壓縮至暫存目錄。
+3. 下載 SQL 資源提供者二進位檔案，並執行自我解壓縮程式將內容解壓縮至暫存目錄。
 
-    > [!NOTE]
-    > 如果您是在 Azure Stack 組建 20170928.3 或更早版本上執行，請[下載這個版本](https://aka.ms/azurestacksqlrp1709)。
+    >[!NOTE] 
+    > 資源提供者組建會對應至 Azure Stack 組建。 您必須為執行的 Azure Stack 版本下載正確的二進位檔案。
+
+    | Azure Stack 組建 | SQL RP 安裝程式 |
+    | --- | --- |
+    | 1.0.171122.1 | [SQL RP 版本 1.1.10.0](https://aka.ms/azurestacksqlrp) |
+    | 1.0.171028.1 | [SQL RP 版本 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
+    | 1.0.170928.3 | [SQL RP 版本 1.1.3.0](https://aka.ms/azurestacksqlrp1709) |
+   
 
 4. Azure Stack 根憑證是從特殊權限端點擷取。 對於 ASDK，系統會在此程序的執行過程中建立自我簽署憑證。 對於多節點，您必須提供適當的憑證。
 
@@ -102,7 +109,7 @@ $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set the credentials for the Resource Provider VM
+# Set credentials for the new Resource Provider VM
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
 

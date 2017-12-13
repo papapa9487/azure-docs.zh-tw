@@ -1,5 +1,5 @@
 ---
-title: "Azure Functions 主控方案比較 | Microsoft Docs"
+title: "Azure Functions 的規模調整和主控 |Microsoft Docs"
 description: "了解如何在 Azure Functions 取用方案與 App Service 方案之間做出選擇。"
 services: functions
 documentationcenter: na
@@ -17,15 +17,15 @@ ms.workload: na
 ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09bb662e30a97e2741303e2e4630582625954909
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ff3f7072792c76c5d05310451771bde61b61e009
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="azure-functions-hosting-plans-comparison"></a>Azure Functions 主控方案比較
+# <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的規模調整和主控
 
-Azure Functions 的執行模式有兩種︰取用方案和 Azure App Service 方案。 取用方案會在您的程式碼執行時自動配置計算能力、視需要相應放大來處理負載，然後在程式碼未執行時相應減少。 因此，您不必支付閒置 VM 的費用，或必須預先保留容量。 本文的重點是取用方案 ([無伺服器](https://azure.microsoft.com/overview/serverless-computing/)應用程式模型)。 如需 App Service 方案運作方式的詳細資訊，請參閱 [Azure App Service 方案深入概觀](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。 
+Azure Functions 的執行模式有兩種︰取用方案和 Azure App Service 方案。 取用方案會在您的程式碼執行時自動配置計算能力、視需要相應放大來處理負載，然後在程式碼未執行時相應減少。 您不必支付閒置虛擬機器的費用，或必須預先保留容量。 本文的重點是取用方案 ([無伺服器](https://azure.microsoft.com/overview/serverless-computing/)應用程式模型)。 如需 App Service 方案運作方式的詳細資訊，請參閱 [Azure App Service 方案深入概觀](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。 
 
 >[!NOTE]  
 > Linux 裝載目前僅適用於 App Service 方案。
@@ -84,18 +84,20 @@ VM 可以減少執行數目、執行時間以及使用記憶體的成本。 如�
 
 不論是取用方案或 App Service 方案，函式應用程式都需要有支援 Azure Blob、佇列、檔案、表格儲存體的一般 Azure 儲存體帳戶。 Azure Functions 會在內部使用「Azure 儲存體」來進行作業，例如管理觸發程序和記錄函數執行。 有些儲存體帳戶並不支援佇列和表格，例如僅限 Blob 的儲存體帳戶 (包括進階儲存體) 和搭配區域備援儲存體複寫的一般用途儲存體帳戶。 建立函數應用程式時，[儲存體帳戶] 刀鋒視窗中會過濾掉這些帳戶。
 
+<!-- JH: Does using a PRemium Storage account improve perf? -->
+
 若要深入了解儲存體帳戶類型，請參閱 [Azure 儲存體服務簡介](../storage/common/storage-introduction.md#introducing-the-azure-storage-services)。
 
 ## <a name="how-the-consumption-plan-works"></a>取用方案的運作方式
 
-在取用方案中，調整控制器會根據事件函式被觸發的事件數目，新增額外的 Functions 主機執行個體，藉此自動調整 CPU 和記憶體資源。 Functions 主機的每個執行個體僅限於 1.5 GB 記憶體。
+在取用方案中，調整控制器會根據事件函式被觸發的事件數目，新增額外的 Functions 主機執行個體，藉此自動調整 CPU 和記憶體資源。 Functions 主機的每個執行個體僅限於 1.5 GB 記憶體。  主機執行個體是函式應用程式，表示函式應用程式內的所有函式會共用執行個體內的資源，並會同時進行規模調整。
 
 使用取用主控方案時，函式程式碼檔案會儲存在函式之主要儲存體帳戶的 Azure 檔案共用上。 當您刪除函式應用程式的主要儲存體帳戶時，函式程式碼檔案會被刪除，且無法復原。
 
 > [!NOTE]
 > 在執行取用方案中使用 blob 觸發程序時，如果函數應用程式已進入閒置狀態，則處理新 blob 時最多會有 10 分鐘的延遲。 在函數應用程式開始執行之後，會立即處理 blob。 為了避免發生此初始延遲，請考慮下列做法︰
 > - 在 App Service 方案上主控函式應用程式，並啟用「永遠開啟」。
-> - 使用其他機制來觸發 blob 處理，像是包含 blob 名稱的佇列訊息。 如需範例，請參閱 [Blob 輸入和輸出繫結的 C# 指令碼和 JavaScript 範例](functions-bindings-storage-blob.md#input--output---example)。
+> - 使用其他機制來觸發 blob 處理，像是包含 blob 名稱的 Event Grid 訂用帳戶和佇列訊息。 如需範例，請參閱 [Blob 輸入和輸出繫結的 C# 指令碼和 JavaScript 範例](functions-bindings-storage-blob.md#input--output---example)。
 
 ### <a name="runtime-scaling"></a>執行階段調整
 
@@ -104,6 +106,20 @@ Azure Functions 使用名為「縮放控制器」的元件來監視事件的速�
 調整的單位是函數應用程式。 當函式應用程式相應放大時，會配置額外資源來執行 Azure Functions 主機的多個執行個體。 反之，當計算需求降低時，縮放控制器會移除 Functions 主機的執行個體。 執行個體的數目最終會在函數應用程式中沒有任何函式執行時相應減少至零個。
 
 ![縮放控制器能監視事件及建立執行個體](./media/functions-scale/central-listener.png)
+
+### <a name="understanding-scaling-behaviors"></a>了解規模調整行為
+
+縮放比例會因為許多因素而有所不同，也會因為選取的觸發程序和語言不同，而進行不同的規模調整。 不過，現在系統中存在數個面向的縮放行為：
+* 單一函式應用程式只能將規模調整至最多 200 個執行個體。 單一執行個體可能會一次處理一個以上的訊息或要求，因此沒有設定平行執行的數目上限。
+* 最多每 10 秒配置一個新的執行個體。
+
+不同的觸發程序可能也會有不同的縮放限制，包含下方文件中所述的限制：
+
+* [事件中樞](functions-bindings-event-hubs.md#trigger---scaling)
+
+### <a name="best-practices-and-patterns-for-scalable-apps"></a>可調整應用程式的最佳做法與模式
+
+函式應用程式中有多個面向會影響其調整規模的效果，包括主機設定、執行階段耗用量和資源效能。  如需詳細資訊，請檢視[效能考量文章中的延展性一節](functions-best-practices.md#scalability-best-practices)。
 
 ### <a name="billing-model"></a>計費模式
 

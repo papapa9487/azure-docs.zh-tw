@@ -12,14 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 11/28/2017
 ms.author: nisoneji
-ms.openlocfilehash: 840a559a82f3227a865d3c606b2fa321cb6144ab
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f504888aac9e8d97e974fb5bec0a12a8ede39c76
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/05/2017
 ---
+[Hyper-V 到 Azure 的 Azure Site Recovery 部署規劃工具](site-recovery-hyper-v-deployment-planner.md)的新增強版本現已推出並取代舊版工具。 使用新版工具進行部署規劃。 此工具會提供下列指導方針：
+* 以磁碟數目、磁碟大小、IOPS、變換和幾個 VM 特性為基礎的 VM 合適性評估。
+* 網路頻寬需求與 RPO 評估。
+* Azure 基礎結構需求。
+* 內部部署基礎結構需求。
+* 初始複寫批次處理指引。
+* Azure DR 的估計成本。
+
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>規劃使用 Site Recovery 保護 Hyper-V VM 的容量
 
 Azure Site Recovery Capacity Planner 工具可協助您釐清使用 Azure Site Recovery 複寫 Hyper-V VM 時的容量需求。

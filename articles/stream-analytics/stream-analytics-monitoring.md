@@ -4,7 +4,7 @@ description: "了解串流分析工作監視"
 keywords: "查詢監視"
 services: stream-analytics
 documentationcenter: 
-author: samacha
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 5f5cc00f-4a7b-491e-89e1-dbafea46d399
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 12545dd3875e81f8f2248acceb66d2d840cf6702
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7474f45494c6190ffcac354e75458b18f5777fb9
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>了解串流分析工作監視功能，以及如何監視查詢
 
@@ -40,7 +40,7 @@ Azure 入口網站會顯示關鍵效能計量，可供您用來監視查詢和�
 | 輸出事件          | 「串流分析」工作所傳送的資料量 (以事件數為單位)。 |
 | 順序錯亂事件    | 所收到順序錯亂的事件數目，這些事件會根據事件順序原則，予以捨棄或指定調整後的時間戳記。 順序錯亂容錯視窗設定的組態可能會造成影響。 |
 | 資料轉換錯誤 | 串流分析工作所造成的錯誤訊息數目。 |
-| 執行階段錯誤         | 在執行「串流分析」工作期間發生的錯誤總數。 |
+| 執行階段錯誤         | 與查詢處理相關的錯誤總數 (不包括在擷取事件或輸出結果時發現的錯誤) |
 | 延遲輸入事件      | 從來源延遲抵達的事件數目，這些事件已根據延遲抵達容錯視窗設定的事件順序原則組態卸除或調整其時間戳記。 |
 | 函式要求      | 對 Azure Machine Learning 函式發出的呼叫次數 (如果有的話)。 |
 | 失敗的函式要求 | 失敗的 Azure Machine Learning 函式呼叫次數 (如果有的話)。 |

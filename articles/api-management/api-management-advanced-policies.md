@@ -6,53 +6,38 @@ documentationcenter:
 author: vladvino
 manager: erikre
 editor: 
-ms.assetid: 8a13348b-7856-428f-8e35-9e4273d94323
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 08834531b78a857b54f0e9e792290774f9e477de
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 191870aea5f35830115ae1e8885cd3035597411f
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-advanced-policies"></a>API 管理進階原則
 本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](http://go.microsoft.com/fwlink/?LinkID=398186)。  
-  
+
 ##  <a name="AdvancedPolicies"></a>進階原則  
   
 -   [控制流程](api-management-advanced-policies.md#choose) - 根據布林值[運算式](api-management-policy-expressions.md)的評估結果，有條件地套用原則陳述式。  
-  
 -   [轉寄要求](#ForwardRequest) - 將要求轉寄至後端服務。
-
 -   [限制並行](#LimitConcurrency) - 防止超過指定之要求數目同時執行括住的原則。
-  
 -   [記錄至事件中樞](#log-to-eventhub) - 將指定格式的訊息傳送至記錄器實體所定義的事件中樞。 
-
 -   [Mock 回應](#mock-response) - 中止管線執行，並將模擬回應直接傳回給呼叫者。
-  
 -   [重試](#Retry) - 重試已括住的原則陳述式執行，直到符合條件為止。 系統會在指定的時間間隔重複執行，直到指定的重試計數為止。  
-  
 -   [傳回回應](#ReturnResponse) - 中止管線執行，並將指定的回應直接傳回呼叫者。 
-  
 -   [傳送單向要求](#SendOneWayRequest) - 將要求傳送到指定的 URL，無須等待回應。  
-  
 -   [傳送要求](#SendRequest) - 將要求傳送到指定的 URL。  
-
 -   [設定 HTTP Proxy](#SetHttpProxy) - 可讓您透過 HTTP Proxy 路由轉送要求。  
-
 -   [設定要求方法](#SetRequestMethod) - 允許您變更要求的 HTTP 方法。  
-  
 -   [設定狀態碼](#SetStatus) - 將 HTTP 狀態碼變更為指定的值。  
-  
 -   [設定變數](api-management-advanced-policies.md#set-variable) - 保存具名[內容](api-management-policy-expressions.md#ContextVariables)變數中的值，供日後存取使用。  
-
 -   [追蹤](#Trace) - 將字串新增至 [API 檢查器](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/)輸出。  
-  
 -   [等候](#Wait) - 等候括住的 [Send 要求](api-management-advanced-policies.md#SendRequest)、[取得快取的值](api-management-caching-policies.md#GetFromCacheByKey)或[控制流程](api-management-advanced-policies.md#choose)原則完成後再繼續。  
   
 ##  <a name="choose"></a>控制流程  
@@ -137,7 +122,7 @@ ms.lasthandoff: 11/22/2017
   
 ### <a name="elements"></a>元素  
   
-|元素|描述|必要|  
+|元素|說明|必要|  
 |-------------|-----------------|--------------|  
 |choose|根元素。|是|  
 |when|要用於 `choose` 原則之 `if` 或 `ifelse` 組件的條件。 如果 `choose` 原則有多個 `when` 區段，則會依序評估這些區段。 一旦 when 元素的 `condition` 評估為 `true` 後，就不會再評估後面的 `when` 條件。|是|  
@@ -145,7 +130,7 @@ ms.lasthandoff: 11/22/2017
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|描述|必要|  
+|屬性|說明|必要|  
 |---------------|-----------------|--------------|  
 |condition="Boolean expression &#124; Boolean constant"|所包含之 `when` 原則陳述式受到評估時，所要評估的布林運算式或常數。|是|  
   
@@ -249,13 +234,13 @@ ms.lasthandoff: 11/22/2017
   
 ### <a name="elements"></a>元素  
   
-|元素|描述|必要|  
+|元素|說明|必要|  
 |-------------|-----------------|--------------|  
 |forward-request|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|描述|必要|預設值|  
+|屬性|說明|必要|預設值|  
 |---------------|-----------------|--------------|-------------|  
 |timeout="integer"|以秒為單位的逾時間隔，後端服務的呼叫在經過此間隔後便會失敗。|否|無逾時|  
 |follow-redirects="true &#124; false"|指定來自後端服務的重新導向會由閘道遵循或傳回給呼叫者。|否|false|  
@@ -264,7 +249,6 @@ ms.lasthandoff: 11/22/2017
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
 -   **原則區段︰**後端  
-  
 -   **原則範圍：**所有範圍  
   
 ##  <a name="LimitConcurrency"></a> 限制並行  
@@ -297,13 +281,13 @@ ms.lasthandoff: 11/22/2017
 
 ### <a name="elements"></a>元素  
   
-|元素|描述|必要|  
+|元素|說明|必要|  
 |-------------|-----------------|--------------|    
 |limit-concurrency|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|描述|必要|預設值|  
+|屬性|說明|必要|預設值|  
 |---------------|-----------------|--------------|--------------|  
 |key|字串。 允許的運算式。 指定並行範圍。 可由多個原則共用。|是|N/A|  
 |max-count|整數。 指定允許輸入原則的要求數目上限。|是|N/A|  
@@ -347,13 +331,13 @@ ms.lasthandoff: 11/22/2017
   
 ### <a name="elements"></a>元素  
   
-|元素|描述|必要|  
+|元素|說明|必要|  
 |-------------|-----------------|--------------|  
 |log-to-eventhub|根元素。 此元素的值是要記錄至事件中樞的字串。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|描述|必要|  
+|屬性|說明|必要|  
 |---------------|-----------------|--------------|  
 |logger-id|向 API 管理服務註冊之記錄器的識別碼。|是|  
 |partition-id|指定訊息傳送目的地的資料分割索引。|選用。 如果使用 `partition-key`，就不能使用這個屬性。|  
@@ -390,13 +374,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|描述|必要|  
+|元素|說明|必要|  
 |-------------|-----------------|--------------|  
 |mock-response|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|描述|必要|預設值|  
+|屬性|說明|必要|預設值|  
 |---------------|-----------------|--------------|--------------|  
 |status-code|指定回應狀態碼，且用來選取對應範例或結構描述。|否|200|  
 |Content-Type|指定 `Content-Type` 回應標頭值，且用來選取對應範例或結構描述。|否|None|  
@@ -446,13 +430,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|描述|必要|  
+|元素|說明|必要|  
 |-------------|-----------------|--------------|  
 |retry|根元素。 可包含其他任何原則來做為其子元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|描述|必要|預設值|  
+|屬性|說明|必要|預設值|  
 |---------------|-----------------|--------------|-------------|  
 |condition|布林常值或[運算式](api-management-policy-expressions.md)，指定應停止 (`false`) 還是繼續 (`true`) 重試。|是|N/A|  
 |計數|正數，指定要嘗試的重試次數上限。|是|N/A|  
@@ -501,7 +485,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|描述|必要|  
+|元素|說明|必要|  
 |-------------|-----------------|--------------|  
 |return-response|根元素。|是|  
 |set-header|[set-header](api-management-transformation-policies.md#SetHTTPheader) 原則陳述式。|否|  
@@ -510,7 +494,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|描述|必要|  
+|屬性|說明|必要|  
 |---------------|-----------------|--------------|  
 |response-variable-name|所參考的內容變數名稱，其參考來源為 (舉例來說) 上游 [send-request](api-management-advanced-policies.md#SendRequest) 原則，且包含 `Response` 物件|選用。|  
   
@@ -567,7 +551,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|描述|必要|  
+|元素|說明|必要|  
 |-------------|-----------------|--------------|  
 |send-one-way-request|根元素。|是|  
 |url|要求的 URL。|mode=copy 時為 [否]；否則為 [是]。|  
@@ -577,7 +561,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|描述|必要|預設值|  
+|屬性|說明|必要|預設值|  
 |---------------|-----------------|--------------|-------------|  
 |mode="string"|判斷這是新要求還是現行要求的複本。 在輸出模式中，mode=copy 不會初始化要求本文。|否|新增|  
 |名稱|指定要設定之標頭的名稱。|是|N/A|  
@@ -646,7 +630,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|描述|必要|  
+|元素|說明|必要|  
 |-------------|-----------------|--------------|  
 |send-request|根元素。|是|  
 |url|要求的 URL。|mode=copy 時為 [否]；否則為 [是]。|  
@@ -656,7 +640,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|描述|必要|預設值|  
+|屬性|說明|必要|預設值|  
 |---------------|-----------------|--------------|-------------|  
 |mode="string"|判斷這是新要求還是現行要求的複本。 在輸出模式中，mode=copy 不會初始化要求本文。|否|新增|  
 |response-variable-name="string"|如果不存在，則會使用 `context.Response`。|否|N/A|  
@@ -692,13 +676,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|描述|必要|  
+|元素|說明|必要|  
 |-------------|-----------------|--------------|  
 |proxy|根元素|是|  
 
 ### <a name="attributes"></a>屬性  
   
-|屬性|描述|必要|預設值|  
+|屬性|說明|必要|預設值|  
 |---------------|-----------------|--------------|-------------|  
 |url="string"|http://host:port 形式的 Proxy URL。|是|N/A|  
 |username="string"|用於向 Proxy 驗證的使用者名稱。|否|N/A|  
@@ -752,7 +736,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|描述|必要|  
+|元素|說明|必要|  
 |-------------|-----------------|--------------|  
 |set-method|根元素。 元素的值會指定 HTTP 方法。|是|  
   
@@ -792,13 +776,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|描述|必要|  
+|元素|說明|必要|  
 |-------------|-----------------|--------------|  
 |set-status|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|描述|必要|預設值|  
+|屬性|說明|必要|預設值|  
 |---------------|-----------------|--------------|-------------|  
 |code="integer"|要傳回的 HTTP 狀態碼。|是|N/A|  
 |reason="string"|狀態碼傳回原因的描述。|是|N/A|  
@@ -807,7 +791,6 @@ status code and media type. If no example or schema found, the content is empty.
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
 -   **原則區段︰**輸出、後端、錯誤  
-  
 -   **原則範圍：**所有範圍  
 
 ##  <a name="set-variable"></a>設定變數  
@@ -828,13 +811,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|描述|必要|  
+|元素|說明|必要|  
 |-------------|-----------------|--------------|  
 |set-variable|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|描述|必要|  
+|屬性|說明|必要|  
 |---------------|-----------------|--------------|  
 |名稱|變數的名稱。|是|  
 |value|變數的值。 此值可為運算式或常值。|是|  
@@ -843,72 +826,41 @@ status code and media type. If no example or schema found, the content is empty.
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
 -   **原則區段︰**輸入、輸出、後端、錯誤  
-  
 -   **原則範圍：**所有範圍  
   
 ###  <a name="set-variableAllowedTypes"></a>允許的類型  
  `set-variable` 原則中使用的運算式必須傳回下列其中一個基本類型。  
   
 -   System.Boolean  
-  
 -   System.SByte  
-  
 -   System.Byte  
-  
 -   System.UInt16  
-  
 -   System.UInt32  
-  
 -   System.UInt64  
-  
 -   System.Int16  
-  
 -   System.Int32  
-  
 -   System.Int64  
-  
 -   System.Decimal  
-  
 -   System.Single  
-  
 -   System.Double  
-  
 -   System.Guid  
-  
 -   System.String  
-  
 -   System.Char  
-  
 -   System.DateTime  
-  
 -   System.TimeSpan  
-  
 -   System.Byte?  
-  
 -   System.UInt16?  
-  
 -   System.UInt32?  
-  
 -   System.UInt64?  
-  
 -   System.Int16?  
-  
 -   System.Int32?  
-  
 -   System.Int64?  
-  
 -   System.Decimal?  
-  
 -   System.Single?  
-  
 -   System.Double?  
-  
 -   System.Guid?  
-  
 -   System.String?  
-  
 -   System.Char?  
-  
 -   System.DateTime?  
 
 ##  <a name="Trace"></a>追蹤  
@@ -926,13 +878,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|描述|必要|  
+|元素|說明|必要|  
 |-------------|-----------------|--------------|  
 |trace|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|描述|必要|預設值|  
+|屬性|說明|必要|預設值|  
 |---------------|-----------------|--------------|-------------|  
 |來源|對追蹤檢視器有意義，並指定了訊息來源的字串常值。|是|N/A|  
   
@@ -993,24 +945,27 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|描述|必要|  
+|元素|說明|必要|  
 |-------------|-----------------|--------------|  
 |wait|根元素。 只能包含做為子元素 `send-request`、`cache-lookup-value` 和 `choose` 原則。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|屬性|描述|必要|預設值|  
+|屬性|說明|必要|預設值|  
 |---------------|-----------------|--------------|-------------|  
 |for|決定 `wait` 原則是要等候所有直屬子原則完成或只等候一個完成。 允許的值包括：<br /><br /> -   `all` - 等候所有直屬子原則完成<br />-   any - 等候任一直屬子原則完成。 第一個直屬子原則完成後，`wait` 原則便會完成，並終止執行任何其他直屬子原則。|否|所有|  
   
 ### <a name="usage"></a>使用量  
- 此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
+ 
+此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
 -   **原則區段︰**輸入、輸出、後端  
-  
 -   **原則範圍：**所有範圍  
   
 ## <a name="next-steps"></a>後續步驟
+
 如需使用原則的詳細資訊，請參閱︰
--   [API 管理中的原則](api-management-howto-policies.md) 
--   [原則運算式](api-management-policy-expressions.md)
++ [API 管理中的原則](api-management-howto-policies.md) 
++ [原則運算式](api-management-policy-expressions.md)
++ [原則參考文件](api-management-policy-reference.md)，取得原則陳述式及其設定的完整清單
++ [原則範例](policy-samples.md)   

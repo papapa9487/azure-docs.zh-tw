@@ -8,14 +8,35 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/02/2017
-ms.openlocfilehash: 069ad2fcdd11f6fd2c7c282d28dbfa67edb902a1
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.date: 12/01/2017
+ms.openlocfilehash: 08af9d01e55c3f7541d89605323602ec28c73db3
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-database-for-postgresql-videos"></a>Azure Database for PostgreSQL 影片
+
+
+[概觀：適用於 PostgreSQL 與 MySQL 的 Azure 資料庫](https://channel9.msdn.com/Events/Connect/2017/T147)
+
+<iframe src="https://channel9.msdn.com/Events/Connect/2017/T147/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
+
+適用於 PostgreSQL 的 Azure 資料庫和適用於 MySQL 的 Azure 資料庫結合了社群版資料庫引擎和完全受控服務的功能，因此您可以專注於您的應用程式，而無須分心於管理資料庫。 觀看影片以快速瀏覽使用該服務的優點，並了解應用上的部分功能。
+
+[深入探索 MySQL 和 PostgreSQL 的受控服務功能](https://channel9.msdn.com/Events/Connect/2017/T148)
+
+<iframe src="https://channel9.msdn.com/Events/Connect/2017/T148/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
+
+適用於 PostgreSQL 的 Azure 資料庫和適用於 MySQL 的 Azure 資料庫結合了社群版資料庫引擎和完全受控服務的功能。 觀看影片以深入探索這些服務的運作方式 — 我們如何確保高可用性和快速縮放 (幾秒內)，讓您可以符合客戶需求。 您也可以了解在安全性與全球可用性上的一些基礎投資。
+
+[使用 PostgreSQL 開發智慧型分析應用程式](https://channel9.msdn.com/Events/Connect/2017/T149)
+
+<iframe src="https://channel9.msdn.com/Events/Connect/2017/T149/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
+
+適用於 PostgreSQL 的 Azure 資料庫結合了社群版資料庫引擎和完全受控服務的功能，因此您可以專注於您的應用程式，而無須分心於管理資料庫。 觀看影片以了解實際在 Azure 上建立新體驗 (像是將辨識服務新增至應用程式) 有多簡單。
+
+
 [如何開始使用新的 Azure Database for PostgreSQL 服務](https://channel9.msdn.com/events/Build/2017/B8046)
 
 <iframe src="https://channel9.msdn.com/Events/Build/2017/B8046/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>

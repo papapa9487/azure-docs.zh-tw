@@ -54,7 +54,7 @@
 
 **受控磁碟是否為 Azure 入口網站中的預設選項？**
 
-目前不是，但未來會變成預設值。
+是。 
 
 **我是否可以建立空的受控磁碟？**
 
@@ -108,6 +108,40 @@ Azure 受控磁碟目前只支援本地備援儲存體受控磁碟。
 **哪裡可以找到 Azure Resource Manager 範本範例以建立具有受控磁碟的 VM**
 * [使用受控磁碟的範本清單](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
+
+## <a name="migrate-to-managed-disks"></a>移轉到受控磁碟 
+
+**在移轉至受控磁碟前/後，預先存在的 Azure 備份服務設定需要哪些變更？**
+
+不需要任何變更。 
+
+**在移轉繼續運作之前，是否會透過 Azure 備份服務建立我的 VM 備份？**
+
+是，備份會順利運作。
+
+**在移轉至受控磁碟前/後，預先存在的 Azure 磁碟加密設定需要哪些變更？**
+
+不需要任何變更。 
+
+**是否支援將現有 VM 擴展集 (VMSS) 從未受控磁碟自動移轉至受控磁碟？**
+
+否。 您可以使用您舊 VMSS 中的映像搭配未受控磁碟，建立包含受控磁碟的新 VMSS。 
+
+**在移轉至受控磁碟之前，是否可以從頁面 blob 快照集建立受控磁碟？**
+
+否。 您可以匯出分頁 Blob 快照集作為分頁 Blob，然後再從匯出的分頁 Blob 建立受控磁碟。 
+
+**是否可以將受 Azure Site Recovery 保護的內部部署機器容錯移轉至具有受控磁碟的 VM？**
+
+是，您可以選擇容錯移轉至具有受控磁碟的 VM。
+
+**在透過 Azure 受 Azure Site Recovery (ASR) 保護的 Azure VM 上移轉至 Azure 複寫是否有任何影響？**
+
+是。 ASR Azure 對 Azure 的保護不支援具有受控磁碟的 VM。 它在 CY2018 底會受到支援。 
+
+**我是否可以將具有非受控磁碟 (位於之前已加密的儲存體帳戶上) 的 VM 移轉至受控磁碟？**
+
+是
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>受控磁碟和儲存體服務加密 
 

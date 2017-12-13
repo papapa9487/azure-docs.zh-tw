@@ -8,14 +8,26 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 88a3114271088ad49a3d4231facc88ee6f89b54b
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 12/01/2017
+ms.openlocfilehash: 9320a08217a5748ee8e41ab6f282490757b4acd1
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-database-for-mysql-videos"></a>Azure Database for MySQL 影片
+
+[概觀：適用於 PostgreSQL 與 MySQL 的 Azure 資料庫](https://channel9.msdn.com/Events/Connect/2017/T147)
+
+<iframe src="https://channel9.msdn.com/Events/Connect/2017/T147/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
+
+適用於 PostgreSQL 的 Azure 資料庫和適用於 MySQL 的 Azure 資料庫結合了社群版資料庫引擎和完全受控服務的功能，因此您可以專注於您的應用程式，而無須分心於管理資料庫。 觀看影片以快速瀏覽使用該服務的優點，並了解應用上的部分功能。
+
+[深入探索 MySQL 和 PostgreSQL 的受控服務功能](https://channel9.msdn.com/Events/Connect/2017/T148)
+
+<iframe src="https://channel9.msdn.com/Events/Connect/2017/T148/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
+
+適用於 PostgreSQL 的 Azure 資料庫和適用於 MySQL 的 Azure 資料庫結合了社群版資料庫引擎和完全受控服務的功能。 觀看影片以深入探索這些服務的運作方式 — 我們如何確保高可用性和快速縮放 (幾秒內)，讓您可以符合客戶需求。 您也可以了解在安全性與全球可用性上的一些基礎投資。
 
 [如何開始使用新的 Azure Database for MySQL 服務](https://channel9.msdn.com/events/Build/2017/B8045)
 

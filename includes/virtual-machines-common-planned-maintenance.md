@@ -47,4 +47,4 @@
 
 虛擬機器擴展集是一個可讓您以單一資源的形式，部署和管理一組相同 VM 的 Azure 計算資源。 擴展集會自動部署於更新網域，如可用性設定組中的 VM。 就如同可用性設定組，使用擴展集，在任何指定時間只有單一更新網域受影響。
 
-如需設定虛擬機器以提供高可用性的詳細資訊，請參閱〈管理 Windows (../articles/virtual-machines/windows/manage-availability.md) 或 [Linux](../articles/virtual-machines/linux/manage-availability.md) 虛擬機器的可用性〉。
+如需設定虛擬機器以取得高可用性的詳細資訊，請參閱管理 [Windows](../articles/virtual-machines/windows/manage-availability.md) 或 [Linux](../articles/virtual-machines/linux/manage-availability.md) 虛擬機器的可用性。

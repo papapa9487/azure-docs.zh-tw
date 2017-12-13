@@ -2,7 +2,7 @@
 
 | **Resource** | **預設限制** | **注意**
 | --- | --- | --- |
-| 每日資料總量 | 500 GB | 您可以設定上限來減少資料。 如果您需要更多資料，請寄送郵件至 AIDataCap@microsoft.com。
+| 每日資料總量 | 100 GB | 您可以設定上限來減少資料。 如果您需要更多資訊，可以從入口網站將限制增加到最多 1,000 GB。 若容量大於 1,000 GB，傳送郵件給 AIDataCap@microsoft.com。
 | 每月免費的資料量<br/> (基本定價方案) | 1 GB | 每 GB 收費的額外資料量。
 | 節流 | 32 k 事件數/秒 | 此限制會測量超過一分鐘。
 | 資料保留 | 90 天 | 此資源適用於[搜尋](../articles/application-insights/app-insights-diagnostic-search.md)、[分析](../articles/application-insights/app-insights-analytics.md)和[計量瀏覽器](../articles/application-insights/app-insights-metrics-explorer.md)。

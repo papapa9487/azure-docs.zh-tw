@@ -4,7 +4,7 @@ description: "Azure Active Directory Domain Services 的網路考量"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 23a857a5-2720-400a-ab9b-1ba61e7b145a
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 12/01/2017
 ms.author: maheshu
-ms.openlocfilehash: 5f9236c5cf660be00db6e09d61df617b64d978e9
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 537643f582f6cc3328bd1c098de03c4f6e07c113
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD 網域服務的網路考量
 ## <a name="how-to-select-an-azure-virtual-network"></a>如何選取 Azure 虛擬網路
@@ -28,10 +28,6 @@ ms.lasthandoff: 10/23/2017
 * **Resource Manager 虛擬網路**：使用 Azure Resource Manager 建立的虛擬網路可以啟用 Azure AD Domain Services。
 * 您無法啟用傳統 Azure 虛擬網路中的 Azure AD Domain Services。
 * 您可以將其他虛擬網路連線到啟用 Azure AD Domain Services 的虛擬網路。 如需詳細資訊，請參閱[網路連線](active-directory-ds-networking.md#network-connectivity)。
-* **區域虛擬網路**：如果您計劃使用現有的虛擬網路，請確定它是區域虛擬網路。
-
-  * 使用舊版同質群組機制的虛擬網路不能與 Azure AD 網域服務搭配使用。
-  * 若要使用 Azure AD 網域服務， [請將傳統的虛擬網路移轉到區域虛擬網路](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)。
 
 ### <a name="azure-region-for-the-virtual-network"></a>虛擬網路的 Azure 區域
 * 您的 Azure AD 網域服務受管理網域已部署在與您選擇用來啟用該服務的虛擬網路所在的同一 Azure 區域。
@@ -39,7 +35,7 @@ ms.lasthandoff: 10/23/2017
 * 請參閱 [依區域提供的 Azure 服務](https://azure.microsoft.com/regions/#services/) 頁面，以了解可使用 Azure AD 網域服務的 Azure 區域。
 
 ### <a name="requirements-for-the-virtual-network"></a>虛擬網路需求
-* **Azure 工作負載的近接感測**：選取需要存取 Azure AD 網域服務的目前主控/即將主控的虛擬網路。 如果您的工作負載是部署在與受管理網域不同的虛擬網路，也可以選擇連線虛擬網路。
+* **Azure 工作負載的近接感測**：選取需要存取 Azure AD 網域服務的目前主控/即將主控的虛擬網路。 如果您的工作負載是部署在與受控網域不同的虛擬網路，也可以選擇連線虛擬網路。
 * **自訂/自備 DNS 伺服器**：請確定沒有針對虛擬網路設定的自訂 DNS 伺服器。 自訂 DNS 伺服器的範例，是您已部署在虛擬網路中的 Windows Server VM 上執行之 Windows Server DNS 的執行個體。 Azure AD Domain Services 不會與虛擬網路內部署的任何自訂 DNS 伺服器進行整合。
 * **網域名稱相同的現有網域**：請確定現有網域的名稱並未與該虛擬網路上可用的網域名稱相同。 例如，假設您有名為 'contoso.com' 的網域已可用於選取的虛擬網路。 接著，您可嘗試在該虛擬網路上啟用具有相同網域名稱 (即 'contoso.com') 的 Azure AD 網域服務受管理網域。 您在嘗試啟用 Azure AD 網域服務時發生錯誤。 這個錯誤是因為名稱與該虛擬網路上的網域名稱衝突。 在此情況下，您必須使用不同的名稱來設定 Azure AD 網域服務受管理網域。 或者，您可以解除佈建現有的網域，然後繼續啟用 Azure AD 網域服務。
 
@@ -48,12 +44,11 @@ ms.lasthandoff: 10/23/2017
 >
 >
 
-## <a name="network-security-groups-and-subnet-design"></a>網路安全性群組與子網路設計
-[網路安全性群組 (NSG)](../virtual-network/virtual-networks-nsg.md) 包含存取控制清單 (ACL) 規則的清單，可允許或拒絕虛擬網路中 VM 執行個體的網路流量。 NSG 可與子網路或該子網路內的個別 VM 執行個體相關聯。 當 NSG 與子網路相關聯時，ACL 規則便會套用至該子網路中的所有 VM 執行個體。 此外，將 NSG 直接關聯至該 VM，即可進一步限制個別 VM 的流量。
+
+## <a name="guidelines-for-choosing-a-subnet"></a>選擇子網路的指導方針
 
 ![建議的子網路設計](./media/active-directory-domain-services-design-guide/vnet-subnet-design.png)
 
-### <a name="guidelines-for-choosing-a-subnet"></a>選擇子網路的指導方針
 * 將 Azure AD 網域服務部署到 Azure 虛擬網路中**不同的專用子網路**。
 * 請勿將 NSG 套用至受管理網域的專用子網路。 如果您必須將 NSG 套用至專用子網路，請確保**不會封鎖服務及管理您的網域所需的連接埠**。
 * 請勿過度限制受管理網域的專用子網路內可用的 IP 位址數目。 此限制會使服務無法將兩個網域控制站提供給受管理的網域使用。
@@ -64,20 +59,40 @@ ms.lasthandoff: 10/23/2017
 >
 >
 
-### <a name="ports-required-for-azure-ad-domain-services"></a>Azure AD 網域服務所需的連接埠
+## <a name="ports-required-for-azure-ad-domain-services"></a>Azure AD 網域服務所需的連接埠
 下列是 Azure AD 網域服務維護及服務受管理網域所需的連接埠。 請確保未針對已啟用受管理網域的子網路封鎖這些連接埠。
 
-| 連接埠號碼 | 目的 |
-| --- | --- |
-| 443 |與 Azure AD 租用戶同步處理 |
-| 3389 |管理您的網域 |
-| 5986 |管理您的網域 |
-| 636 |保護受管理網域的 LDAP (LDAPS) 存取 |
+| 連接埠號碼 | 必要？ | 目的 |
+| --- | --- | --- |
+| 443 | 強制 |與 Azure AD 租用戶同步處理 |
+| 5986 | 強制 | 管理您的網域 |
+| 3389 | 選用 | 管理您的網域 |
+| 636 | 選用 | 保護受管理網域的 LDAP (LDAPS) 存取 |
 
-連接埠 5986 用來在受管理網域上使用 PowerShell 遠端執行管理工作。 受管理網域的網域控制站不通常會接聽此連接埠。 只有在需要對受管理網域執行管理或維護作業時，服務才會於受管理網域控制站上開啟此連接埠。 只要作業完成，服務就會在受管理網域控制站上關閉此連接埠。
+**連接埠 443 (與 Azure AD 同步)**
+* 用來同步您的 Azure AD 目錄與受控網域。
+* 在 NSG 中允許存取此連接埠是必要的。 若無法存取此連接埠，您的受控網域將無法與 Azure AD 目錄同步。 使用者可能會因為他們變更的密碼未與受控網域同步，而無法登入。
+* 您可以限制僅屬於 Azure IP 位址範圍的 IP 位址有此連接埠的對內存取權。
 
-連接埠 3389 用於對受管理網域的遠端桌面連線。 此連接埠在您的受管理網域上也會維持為大致關閉。 只有當我們需要連線到您的受管理網域以進行疑難排解時，服務才會啟用此連接埠，這是在回應您所起始的服務要求時起始。 因為使用 PowerShell 遠端執行管理和監視工作，因此不會持續使用此機制。 只有在罕見的情況下，我們需要從遠端連線到您的受管理網域進行進階疑難排解，才會使用此連接埠。 一旦疑難排解作業完成，隨即會關閉連接埠。
+**連接埠 5986 (PowerShell 遠端處理)** 
+* 用來在受控網域上使用 PowerShell 遠端執行管理工作。
+* 在 NSG 中允許透過此連接埠進行存取是必要的。 若無法存取此連接埠，您的受控網域會無法進行更新、設定、備份或監視。
+* 您可以限制僅下列來源 IP 位址有此連接埠的對內存取權：52.180.183.8、23.101.0.70、52.225.184.198、52.179.126.223、13.74.249.156、52.187.117.83、52.161.13.95、104.40.156.18、104.40.87.209、52.180.179.108、52.175.18.134、52.138.68.41、104.41.159.212、52.169.218.0、52.187.120.237、52.161.110.169、52.174.189.149、13.64.151.161 
+* 受管理網域的網域控制站不通常會接聽此連接埠。 只有在需要對受管理網域執行管理或維護作業時，服務才會於受管理網域控制站上開啟此連接埠。 只要作業完成，服務就會在受管理網域控制站上關閉此連接埠。
 
+**連接埠 3389 (遠端桌面)** 
+* 用於對受控網域的網域控制站進行遠端桌面連線。 
+* 透過您的 NSG 開啟此連接埠是選擇性選項。 
+* 此連接埠在您的受管理網域上也會維持為大致關閉。 因為使用 PowerShell 遠端執行管理和監視工作，因此不會持續使用此機制。 只有在罕見的情況下，Microsoft 需要從遠端連線到您的受控網域進行進階疑難排解，才會使用此連接埠。 一旦疑難排解作業完成，隨即會關閉連接埠。
+
+**連接埠 636 (安全 LDAP)**
+* 用來啟用受控網域的安全 LDAP 存取 (透過網際網路)。
+* 透過您的 NSG 開啟此連接埠是選擇性選項。 僅在您啟用網際網路上的安全 LDAP 存取時，開啟該連接埠。
+* 您可以限制只有預期透過安全 LDAP 進行連線的來源 IP 位址，可以有此連接埠的對內存取權。
+
+
+## <a name="network-security-groups"></a>網路安全性群組
+[網路安全性群組 (NSG)](../virtual-network/virtual-networks-nsg.md) 包含存取控制清單 (ACL) 規則的清單，可允許或拒絕虛擬網路中 VM 執行個體的網路流量。 NSG 可與子網路或該子網路內的個別 VM 執行個體相關聯。 當 NSG 與子網路相關聯時，ACL 規則便會套用至該子網路中的所有 VM 執行個體。 此外，將 NSG 直接關聯至該 VM，即可進一步限制個別 VM 的流量。
 
 ### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>具有 Azure AD Domain Services 之虛擬網路的範例 NSG
 下表說明您可以針對具有 Azure AD Domain Services 受管理網域之虛擬網路設定的範例 NSG。 這個規則允許透過需要的連接埠輸入流量，以確保您受管理網域保持修補、更新，並且可由 Microsoft 監視。 預設 'DenyAll' 規則適用於來自網際網路的所有其他輸入流量。

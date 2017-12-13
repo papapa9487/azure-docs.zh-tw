@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: cherylmc
-ms.openlocfilehash: 1d289c09465cb8d5e4bfa569441dffcbf562b3bf
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: b67fdfc82bbc132772186e3500079cfcfdafe02b
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>使用入口網站刪除虛擬網路閘道
 
@@ -28,11 +28,15 @@ ms.lasthandoff: 11/17/2017
 > * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [PowerShell (傳統)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 
-如果您想要刪除 VPN 閘道組態的虛擬網路閘道，您可以採取幾種不同的方法。
+本文會提供您方法來刪除使用 Resource Manager 部署模型部署的 Azure VPN 閘道。 如果您想要刪除 VPN 閘道組態的虛擬網路閘道，您可以採取幾種不同的方法。
 
 - 如果您想要刪除所有內容並重頭開始 (例如使用測試環境的情況)，您可以刪除資源群組。 刪除資源群組時，會一併刪除群組內的所有資源。 只有在您不想保留資源群組中的任何資源時，才建議使用此方法。 您無法使用這種方法，選擇性地只刪除一些資源。
 
 - 如果您想要保留資源群組中的部分資源，刪除虛擬網路閘道會變得稍微複雜一點。 您必須先刪除任何相依於閘道的資源，才可以刪除虛擬網路閘道。 您遵循的步驟取決於您所建立的連線類型以及每個連線的相依資源。
+
+> [!IMPORTANT]
+> 以下指示說明如何刪除使用 Resource Manager 部署模型部署的 Azure VPN 閘道。 若要刪除使用傳統部署模型部署的 VPN 閘道，請依循[此處](vpn-gateway-delete-vnet-gateway-classic-powershell.md)的描述使用 Azure PowerShell。
+
 
 ## <a name="delete-a-vpn-gateway"></a>刪除 VPN 閘道
 

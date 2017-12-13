@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: c7604fdb948a2f4d2adca5d6821d9ea36e96dae6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 488a4c4b7daf5c07ca5f6b6bb72464279658d372
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="api-management-caching-policies"></a>API 管理快取原則
 本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -28,15 +28,12 @@ ms.lasthandoff: 10/11/2017
 -   回應快取原則  
   
     -   [從快取中取得](api-management-caching-policies.md#GetFromCache) - 執行快取查閱並傳回有效的快取回應 (如果有的話)。  
-  
     -   [儲存至快取](api-management-caching-policies.md#StoreToCache) - 根據指定的快取控制組態來快取回應。  
   
 -   值快取原則  
-  
-    -   [從快取取得值](#GetFromCacheByKey) - 依金鑰擷取快取的項目。  
-  
-    -   [儲存快取中的值](#StoreToCacheByKey) -依金鑰儲存快取中的項目。  
-  
+
+    -   [從快取取得值](#GetFromCacheByKey) - 依金鑰擷取快取的項目。 
+    -   [儲存快取中的值](#StoreToCacheByKey) -依金鑰儲存快取中的項目。 
     -   [移除快取中的值](#RemoveCacheByKey) - 依金鑰移除快取中的項目。  
   
 ##  <a name="GetFromCache"></a>從快取中取得  
@@ -54,7 +51,7 @@ ms.lasthandoff: 10/11/2017
   <vary-by-header>Accept-Charset</vary-by-header>  
   <!-- should be present in most cases -->  
   <vary-by-header>Authorization</vary-by-header>  
-  <!-- should be present when allow-authorized-response-caching is "true"-->  
+  <!-- should be present when allow-private-response-caching is "true"-->  
   <vary-by-header>header name</vary-by-header>  
   <!-- optional, can repeated several times -->  
   <vary-by-query-parameter>parameter name</vary-by-query-parameter>  
@@ -119,14 +116,13 @@ ms.lasthandoff: 10/11/2017
 |allow-private-response-caching|當設定為 `true` 時，可快取包含 Authorization 標頭的要求。|否|false|  
 |downstream-caching-type|此屬性必須設為下列其中一個值。<br /><br /> -   none - 不允許下游快取。<br />-   private - 允許下游私人快取。<br />-   public - 允許私人和共用下游快取。|否|無|  
 |must-revalidate|當下游快取啟用時，此屬性會開啟或關閉閘道回應中的 `must-revalidate` 快取控制指示詞。|否|true|  
-|vary-by-developer|設定為 `true` 可按照開發人員索引鍵來快取回應。|否|false|  
-|vary-by-developer-groups|設定為 `true` 可按照使用者角色來快取回應。|否|false|  
+|vary-by-developer|設定為 `true` 可按照開發人員索引鍵來快取回應。|是||  
+|vary-by-developer-groups|設定為 `true` 可按照使用者角色來快取回應。|是||  
   
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
 -   **原則區段︰**輸入  
-  
 -   **原則範圍︰**API、作業、產品  
   
 ##  <a name="StoreToCache"></a>儲存至快取  
@@ -198,8 +194,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
--   **原則區段︰**輸出  
-  
+-   **原則區段︰**輸出    
 -   **原則範圍︰**API、作業、產品  
   
 ##  <a name="GetFromCacheByKey"></a>從快取取得值  
@@ -244,7 +239,6 @@ ms.lasthandoff: 10/11/2017
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
 -   **原則區段︰**輸入、輸出、後端、錯誤  
-  
 -   **原則範圍︰**全域、API、作業、產品  
   
 ##  <a name="StoreToCacheByKey"></a>儲存快取中的值  
@@ -287,11 +281,10 @@ ms.lasthandoff: 10/11/2017
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
 -   **原則區段︰**輸入、輸出、後端、錯誤  
-  
 -   **原則範圍︰**全域、API、作業、產品  
   
 ###  <a name="RemoveCacheByKey"></a>移除快取中的值  
- `cache-remove-value` 會刪除依其索引鍵所識別的快取項目。 金鑰可以具有任意字串值，而且通常會使用原則運算式來提供。  
+`cache-remove-value` 會刪除依其索引鍵所識別的快取項目。 金鑰可以具有任意字串值，而且通常會使用原則運算式來提供。  
   
 #### <a name="policy-statement"></a>原則陳述式  
   
@@ -325,9 +318,13 @@ ms.lasthandoff: 10/11/2017
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
 -   **原則區段︰**輸入、輸出、後端、錯誤  
-  
 -   **原則範圍︰**全域、API、作業、產品  
-  
 
 ## <a name="next-steps"></a>後續步驟
-如需有關使用原則的詳細資訊，請參閱 [API 管理中的原則](api-management-howto-policies.md)。  
+
+如需使用原則的詳細資訊，請參閱︰
+
++ [API 管理中的原則](api-management-howto-policies.md)
++ [轉換 API](transform-api.md)
++ [原則參考文件](api-management-policy-reference.md)，取得原則陳述式及其設定的完整清單。
++ [原則範例](policy-samples.md)   

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: sngun
-ms.openlocfilehash: f45b65c1cb16a79a44e873e3e001e0f5c12a8e37
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 1c4c9aa36836398ad87c3655ff039a9dc8730456
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="install-powershell-for-azure-stack"></a>安裝 Azure Stack 的 PowerShell  
 
@@ -51,7 +51,7 @@ Set-PSRepository `
 
 下列各節說明安裝 Azure Stack 的 PowerShell 的必要步驟。 可在連線、部分連線或中斷連線案例中，於 Azure Stack 上安裝 PowerShell。 
 
-## <a name="install-powershell-in-a-connected-scenario"></a>在連線案例中安裝 PowerShell 
+## <a name="install-powershell-in-a-connected-scenario-with-internet-connectivity"></a>在已連線的情況 (有網際網路連線能力) 安裝 PowerShell
 
 透過 API 版本設定檔安裝 Azure Stack 相容的 AzureRM 模組。 Azure Stack 需要 **2017-03-09-profile** API 版本設定檔 (可藉由安裝 AzureRM.Bootstrapper 模組取得)。 若要深入了解 API 版本設定檔和其所提供的 cmdlet，請參閱[管理 API 版本設定檔](azure-stack-version-profiles.md)。 除了 AzureRM 模組外，您也應該安裝 Azure Stack 特有的 Azure PowerShell 模組。 執行下列 PowerShell 指令碼，在開發工作站上安裝這些模組：
 
@@ -80,7 +80,7 @@ Set-PSRepository `
   ```
   如果安裝成功，輸出中會顯示 AzureRM 和 AzureStack 模組。
 
-## <a name="install-powershell-in-a-disconnected-or-in-a-partially-connected-scenario"></a>在已中斷連線或部分連線案例中安裝 PowerShell
+## <a name="install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>在中斷連線或部份連線的情況 (網際網路連線能力有限) 安裝 PowerShell
 
 在中斷連線或部分連線的案例中，您必須先將 PowerShell 模組下載至具有網際網路連線的電腦，然後將其傳送至 Azure Stack 開發套件進行安裝。
 

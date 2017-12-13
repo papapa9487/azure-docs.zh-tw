@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e7007bd6cca24dc4c2573fb274cecbf88ecfa374
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b507b9108dca2fd3aee4acdac231acad9c9154e8
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>大規模部署和監視 IoT Edge 模組 - 預覽
 
@@ -42,19 +42,21 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
 
 1. 登入 [Azure 入口網站][lnk-portal]，然後瀏覽至 IoT 中樞。 
 1. 選取 [IoT Edge (預覽)]。
-1. 選取 [建立 Edge 部署]。
+1. 選取 [新增 IoT Edge 部署]。
 
 建立部署有五個步驟。 下列各節將逐步解說每一個步驟。 
 
-### <a name="step-1-label-deployment"></a>步驟 1：標籤部署
+### <a name="step-1-name-and-label"></a>步驟 1：名稱和標籤
 
-1. 為您的部署提供唯一識別碼。 避免空格和下列無效字元：`& ^ [ ] { } \ | " < > /`。
-1. 新增標籤，以協助追蹤您的部署。 標籤是成對的「**名稱**, **值**」，可描述您的部署。 例如，`HostPlatform, Linux` 或 `Version, 3.0.1`。
-1. 選取 [下一步] 移至步驟二。 
+1. 為您的部署提供唯一名稱。 避免空格和下列無效字元：`& ^ [ ] { } \ | " < > /`。
+1. 新增標籤，以協助追蹤您的部署。 標籤是成對的「名稱, 值」，可描述您的部署。 例如，`HostPlatform, Linux` 或 `Version, 3.0.1`。
+1. 選取 [下一步] 以移至步驟二。 
 
-### <a name="step-2-add-modules"></a>步驟 2：新增模組
+### <a name="step-2-add-modules-optional"></a>步驟 2：新增模組 (選擇性)
 
 您可以新增至部署的模組有兩種類型。 第一種是以 Azure 服務為基礎的模組，例如儲存體帳戶或串流分析。 第二種是以您自己的程式碼為基礎的模組。 您可以將任一種類型的多個模組新增至部署。 
+
+如果您建立不含模組的部署，它會將任何現有的模組從裝置移除。 
 
 >[!NOTE]
 >Azure Machine Learning 和 Azure Functions 尚未支援自動化的 Azure 服務部署。 請使用自訂模組部署，手動將這些服務新增至您的部署。 
@@ -95,7 +97,7 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
 
 1. 為部署**優先順序**輸入一個正整數。
 1. 輸入**目標條件**來判斷這個部署會將哪些裝置設為目標。 條件會以裝置對應項標記為基礎，且應符合運算式格式。 例如： `tags.environment='test'`。 
-1. 選取 [下一步] 移到最後一個步驟。
+1. 選取 [下一步] 以移到最後一個步驟。
 
 ### <a name="step-5-review-template"></a>步驟 5：檢閱範本
 

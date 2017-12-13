@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 0815c4d826d9ee09f2e787d9b27258149c55d400
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e9b979861f5ad815fd3794a98f3b9ca2115b415c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 方案概觀
 
@@ -117,4 +117,4 @@ App Service 方案的_定價層_可決定您獲得哪些 App Service 功能，�
 ## <a name="manage-an-app-service-plan"></a>管理 App Service 方案
 
 > [!div class="nextstepaction"]
-> [在 Azure 中相應增加應用程式的規模](app-service-plan-manage.md)
+> [管理 App Service 方案](app-service-plan-manage.md)

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 9e20c606973447e0b01eaf9716fabf47eefd228b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: e85515c29d8f626c7eb2bfb636dc6c18da78b5c5
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>自行車共享教學課程：使用 Azure Machine Learning Workbench 的進階資料準備
 Azure Machine Learning 服務 (預覽) 是一套整合性的端對端資料科學，以及進階分析解決方案，適用於專業資料科學家準備資料、開發實驗並部署雲規模模型。
@@ -201,7 +201,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合性的端對端資料科�
    ![篩選對話方塊的映像](media/tutorial-bikeshare-dataprep/weatherfilterinfm15.png)
 
    > [!NOTE]
-   > FM 15 是一種航空例行天氣報告 (METAR)。 FM 15 報告的觀察經驗是最完整的，幾乎不會缺少數據。
+   > FM 15 是一種航空例行天氣報告 (METAR)。 FM-15 報告就觀察經驗而言是最完整的，幾乎不會缺少數據。
 
 ## <a name="remove-a-column"></a>移除資料行
 

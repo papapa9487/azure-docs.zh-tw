@@ -26,7 +26,7 @@ Azure 提供兩種建立 VM 進階儲存體磁碟的方法：
 如需將現有 VM 移轉到進階儲存體的詳細資訊，請參閱[將 Windows VM 從非受控磁碟轉換至控磁碟](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)或[將 Linux VM 從非受控磁碟轉換至受控磁碟](../articles/virtual-machines/linux/convert-unmanaged-to-managed-disks.md)。
 
 > [!NOTE]
-> 進階儲存體可在大部分地區使用。 如需可用區域的清單，請在[依區域的 Azure 服務](https://azure.microsoft.com/regions/#services)中查看哪些區域支援受支援的進階支援大小系列 VM (DS 系列、DSV2 系列、GS 系列和 Fs 系列 Vm)。
+> 進階儲存體可在大部分地區使用。 如需可用區域的清單，請參閱[依區域提供的 Azure 產品](https://azure.microsoft.com/regions/#services)中**磁碟儲存體**的資料列。
 > 
 
 ## <a name="features"></a>特性

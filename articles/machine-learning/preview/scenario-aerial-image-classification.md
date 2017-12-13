@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: 07e74c64e587cce99612cd5047516bf131943f2e
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: f8ea2c269906732aef8d577c0d744e730c1dedcd
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="aerial-image-classification"></a>空拍影像分類
 
@@ -59,9 +59,14 @@ ms.lasthandoff: 11/15/2017
 - [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)
     - 請遵循[安裝及建立快速入門](quickstart-installation.md)，以安裝 Azure Machine Learning Workbench 並建立測試帳戶和模型管理帳戶。
 - [Batch AI](https://github.com/Azure/BatchAI) Python SDK 和 Azure CLI 2.0
-    - 遵循[配方必要條件一節](https://github.com/Azure/BatchAI/tree/master/recipes)中的指示安裝 Batch AI SDK 和 Azure CLI 2.0。
-        - 撰寫本文時，Azure Machine Learning Workbench 會使用 Azure CLI 2.0 的不同分支。 為了清楚起見，我們將參考 CLI 的 Workbench 版本作為「從 Azure Machine Learning Workbench 啟動的 CLI」，以及一般發行版本 (包含 Batch AI) 作為「Azure CLI 2.0」。
-    - 遵循[這些指示](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials)，建立 Azure Active Directory 應用程式和服務主體。 記錄用戶端識別碼、祕密和租用戶識別碼。
+    - 完成 [Batch AI 配方讀我檔案](https://github.com/Azure/BatchAI/tree/master/recipes) \(英文\) 中的下列小節：
+        - "Prerequisites"
+        - "Create and get your Azure Active Directory (AAD) application"
+        - "Register BatchAI Resource Providers" (在 "Run Recipes Using Azure CLI 2.0" 之下)
+        - "Install Azure Batch AI Management Client"
+        - "Install Azure Python SDK"
+    - 記錄指導您建立之 Azure Active Directory 應用程式的用戶端識別碼、祕密和租用戶識別碼。 您稍後將會在本教學課程中使用那些認證。
+    - 撰寫本文時，Azure Machine Learning Workbench 和 Azure Batch AI 會使用 Azure CLI 2.0 的不同分支。 為了清楚起見，我們將參考 CLI 的 Workbench 版本作為「從 Azure Machine Learning Workbench 啟動的 CLI」，以及一般發行版本 (包含 Batch AI) 作為「Azure CLI 2.0」。
 - [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy)，可用來協調 Azure 儲存體帳戶之間檔案傳輸的免費公用程式
     - 請確定包含 AzCopy 可執行檔的資料夾位於您系統的 PATH 環境變數上。 ([這裡](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp)有提供如何修改環境變數的指示。)
 - 針對 SSH 用戶端；我們建議 [PuTTY](http://www.putty.org/)。
@@ -215,7 +220,7 @@ Batch AI 叢集會存取網路檔案伺服器上的定型資料。 相較於從 
 1. 發出以下命令以建立網路檔案伺服器：
 
     ```
-    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_D2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
+    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
     ```
 
 1. 使用下列命令來檢查您網路檔案伺服器的佈建狀態：

@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 12/01/2017
 ms.author: jeedes
-ms.openlocfilehash: e8ca7fdacf8361570d88260b3c359ee6e2fd3e17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 026eca7fc8f17602ba44ba38db138d645c9d7713
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>教學課程︰設定 Google Apps 來自動佈建使用者
 
@@ -90,6 +90,10 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
      ![網域](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_4.png)
 
     e. 對於所有您想要新增至目錄的網域，重複上述步驟。
+
+    > [!NOTE]
+    針對使用者佈建，Google Apps 自訂網域必須符合來源 Azure AD 的網域名稱。 如果不相符，您可以藉由實作屬性對應的自訂來解決問題。
+
 
 5. 您已經向 Azure AD 驗證所有網域，但是您還必須向 Google Apps 再驗證一次。 對於尚未向 Google Apps 註冊的每個網域，請採取下列步驟：
    

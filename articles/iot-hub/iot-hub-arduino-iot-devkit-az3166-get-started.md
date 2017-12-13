@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2017
 ms.author: xshi
-ms.openlocfilehash: deb362796966524ec2db5808623d2f92a1bf44e1
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 6a9d5e029e48c1bb62ad4731c7413f023b97c8c9
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>將 IoT DevKit AZ3166 連線到雲端中的 Azure IoT 中樞
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/27/2017
 ## <a name="what-you-do"></a>您要做什麼
 將 [DevKit](https://microsoft.github.io/azure-iot-developer-kit/) 連線到您建立的 Azure IoT 中樞，收集來自感應器的溫度與溼度，並傳送資料至 IoT 中樞。
 
-還沒有 DevKit 嗎？ [立即買一個](https://aka.ms/iot-devkit-purchase)。
+還沒有 DevKit 嗎？ 試用 [DevKit 模擬器](https://azure-samples.github.io/iot-devkit-web-simulator/) \(英文\) 或[取得一個](https://aka.ms/iot-devkit-purchase) \(英文\)。
 
 ## <a name="what-you-learn"></a>您學到什麼
 

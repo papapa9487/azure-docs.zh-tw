@@ -41,6 +41,8 @@
       href: log-analytics-usage.md
     - name: 管理存取權
       href: log-analytics-manage-access.md
+    - name: 監視混合式環境
+      href: log-analytics-concept-hybrid.md
     - name: 服務提供者的功能
       href: log-analytics-service-providers.md
     - name: 記錄搜尋
@@ -58,11 +60,7 @@
         - name: 連接的來源
           items:
             - name: Windows 代理程式
-              href: log-analytics-windows-agents.md
-            - name: Linux 代理程式
-              href: log-analytics-agent-linux.md
-            - name: Azure 虛擬機器
-              href: log-analytics-azure-vm-extension.md
+              href: log-analytics-agent-windows.md
             - name: Azure 資源
               href: log-analytics-azure-storage.md
             - name: Azure PaaS 資源
@@ -75,6 +73,8 @@
               href: log-analytics-sccm.md
             - name: OMS 閘道
               href: log-analytics-oms-gateway.md
+            - name: 針對 Linux 代理程式進行疑難排解
+              href: log-analytics-agent-linux-support.md
         - name: 資料來源
           items:
             - name: 資料來源概觀
@@ -158,6 +158,8 @@
           href: log-analytics-solution-alert-management.md
     - name: 管理
       items:
+        - name: 代理程式管理
+          href: log-analytics-agent-manage.md
         - name: 管理工作區成本
           href: log-analytics-manage-cost-storage.md
         - name: 刪除工作區

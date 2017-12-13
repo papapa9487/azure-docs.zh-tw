@@ -1,6 +1,6 @@
 ---
 title: "Azure API 管理常見問題集 | Microsoft Docs"
-description: "了解 Azure API 管理中常見問題、模式和最佳作法的答案。"
+description: "了解 Azure API 管理中常見問題集 (FAQ)、模式和最佳做法的答案。"
 services: api-management
 documentationcenter: 
 author: vladvino
@@ -12,20 +12,19 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: a9740cf527e4a9811b510ad5c96e5ab769efc2d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d0072a56c2688c297d499533a125926ba9915ff9
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-api-management-faqs"></a>Azure API 管理常見問題集
 得到 Azure API 管理常見問題、模式和最佳作法的答案。
 
 ## <a name="contact-us"></a>與我們連絡
 * [如何向 Microsoft Azure API 管理小組詢問問題？](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
-
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 * [功能預覽中是什麼意思？](#what-does-it-mean-when-a-feature-is-in-preview)
@@ -62,7 +61,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>如何保護 API 管理閘道與後端服務之間的連線安全？
 您有幾個選項可以保護 API 管理閘道與後端服務之間的連線安全。 您可以：
 
-* 使用 HTTP 基本驗證。 如需詳細資訊，請參閱 [設定 API 設定](api-management-howto-create-apis.md#configure-api-settings)。
+* 使用 HTTP 基本驗證。 如需詳細資訊，請參閱[匯入和發佈您的第一個 API](import-and-publish.md)。
 * 依照[如何使用 Azure API 管理中的用戶端憑證驗證保護後端服務](api-management-howto-mutual-certificates.md)所述，使用 SSL 相互驗證。
 * 在您的後端服務上使用 IP 允許清單。 如果您有標準或高階層 API 管理執行個體，閘道的 IP 位址會保持不變。 您可以設定您的允許清單來允許此 IP 位址。 您可以在 Azure 入口網站中的 [儀表板] 上取得API 管理執行個體的 IP 位址。
 * 將您的 API 管理執行個體連接至 Azure 虛擬網路。
@@ -102,7 +101,7 @@ ms.lasthandoff: 10/11/2017
 您有一些選項可在 API 管理中使用 API 版本設定：
 
 * 在 API 管理中，您可以設定 API 來代表不同的版本。 例如，您可能有兩個不同的 API (MyAPIv1 和 MyAPIv2)。 開發人員可以選擇開發人員想要使用的版本。
-* 您也可以使用不包含版本區段的服務 URL (例如 https://my.api) 來設定您的 API。 接著，在每個作業的[重寫 URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) 範本上設定版本區段。 例如，您的作業可以有名為 /resource 的 [URL 範本](api-management-howto-add-operations.md#url-template)和名為 /v1/Resource 的[重寫 URL](api-management-howto-add-operations.md#rewrite-url-template) 範本。 您可以分別變更每個作業的版本區段值。
+* 您也可以使用不包含版本區段的服務 URL (例如 https://my.api) 來設定您的 API。 接著，在每個作業的[重寫 URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) 範本上設定版本區段。 
 * 如果您想要在 API 的服務 URL 中保留「預設」版本區段，請在選取的作業上設定一個原則，以使用[設定後端服務](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService)原則來變更後端要求路徑。
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>如何在單一 API 中設定多個環境？

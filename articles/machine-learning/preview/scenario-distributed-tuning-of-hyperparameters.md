@@ -8,11 +8,11 @@ ms.topic: article
 ms.author: dmpechyo
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 643cea5cc134a2eb25a0dec4abefd9edca726332
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9372e45e8666dc572b805dfd4a505c9446145079
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>使用 Azure Machine Learning Workbench 的分散式超參數微調
 
@@ -27,9 +27,9 @@ ms.lasthandoff: 10/11/2017
 
 很多機器學習演算法都有一個或多個旋鈕 (Knob)，稱之為超參數。 這些旋鈕能夠微調演算法，使其對於未來資料的效能最佳化，而效能是根據使用者指定的計量 (例如精確度、AUC、RMSE) 來測量。 資料科學家必須在建立訓練資料的模型以及查看未來測試資料之前，提供超參數的值。 我們如何根據已知的訓練資料來設定超參數的值，讓模型對未知的測試資料有良好的效果？ 
 
-微調超參數的常用技術為「結合交叉驗證的網格搜尋」。 交叉驗證技術可評估模型的效果，在訓練集上進行訓練，以及對測試集進行預測。 使用這項技術，一開始我們會將資料集分成 K 折 (K folds)，然後以循環配置資源的方式，對所有的折 (但名為留出 (held-out) 折的其中一折除外) 訓練演算法 K 時間。 我們可對對 K 個留出折計算 K 模型的計量平均值。 這個平均值 (名為「交叉驗證效能評估」) 取決於建立 K 模型時所用的超參數值。 微調超參數時，我們會搜尋候選超參數值的整個空間，尋找可最佳化交叉驗證效能估計值的值。 網格搜尋是常見的搜尋技術，其中多個超參數的候選值空間是個別超參數候選值集的交叉乘積。 
+微調超參數的常用技術為「結合交叉驗證的網格搜尋」。 交叉驗證技術可評估模型的效果，在訓練集上進行訓練，以及對測試集進行預測。 使用這項技術時，我們會先將資料集分成 K 個折，然後以循環配置資源的方式訓練演算法 K 次。 我們會對所有的折這樣做，但其中名為留出 (held-out) 的折除外。 我們可對對 K 個留出折計算 K 模型的計量平均值。 這個平均值 (名為「交叉驗證效能評估」) 取決於建立 K 模型時所用的超參數值。 微調超參數時，我們會搜尋候選超參數值的整個空間，尋找可最佳化交叉驗證效能估計值的值。 網格搜尋是一個常見的搜尋技術。 在網格搜尋中，多個超參數的候選值空間是個別超參數候選值集的交叉乘積。 
 
-使用交叉驗證的網格搜尋可能很費時。 如果演算法有 5 個超參數，每個超參數都有 5 個候選值，而且我們使用 K=5 折，我們必須訓練 5<sup>6</sup>=15625 個模型才完成網格搜尋。 幸運的是，使用交叉驗證的網格搜尋是窘迫平行程序，而這些模型全都可以平行訓練。
+使用交叉驗證的網格搜尋可能很費時。 如果演算法有五個超參數，每個超參數有五個候選值，我們會使用 K=5 個折。 然後我們會透過訓練 5<sup>6</sup>=15625 個模型，以完成網格搜尋。 幸運的是，使用交叉驗證的網格搜尋是窘迫平行程序，而這些模型全都可以平行訓練。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -37,11 +37,19 @@ ms.lasthandoff: 10/11/2017
 * 已安裝的 [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) 複本，請依照[安裝和建立快速入門](./quickstart-installation.md)安裝 Workbench 並建立帳戶。
 * 此案例假設您在 Windows 10 或 MacOS (已於本機安裝 Docker 引擎) 上執行 Azure ML Workbench。 
 * 若要執行具有遠端 Docker 容器的案例，請依照[指示](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm)佈建 Ubuntu 資料科學虛擬機器 (DSVM)。 我們建議使用至少 8 個核心和 28 GB 記憶體的虛擬機器。 虛擬機器的 D4 執行個體有此容量。 
-* 若要使用 Spark 叢集執行此案例，請依照[指示](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)佈建 HDInsight 叢集。 我們建議叢集有至少 6 個背景工作節點，且在標頭與背景工作節點中至少有 8 個核心與 28 Gb 的記憶體。 虛擬機器的 D4 執行個體有此容量。 若要將叢集的效能最大化，我們建議遵循[指示](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager)並在「自訂 Spark 預設值」一節中編輯定義，以變更 spark.executor.instances、spark.executor.cores 和 spark.executor.memory 參數。
+* 若要搭配 Spark 叢集執行此案例，請依照這些[指示](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)佈建 Azure HDInsight 叢集。 我們建議使用至少具備以下條件的叢集： 
+- 六個背景工作節點
+- 八個核心
+- 標頭和背景工作節點皆具備 28 Gb 的記憶體。 虛擬機器的 D4 執行個體有此容量。 我們建議變更下列參數，來使叢集發揮最高效能。
+- spark.executor.instances
+- spark.executor.cores
+- spark.executor.memory 
 
-     **疑難排解**：您的 Azure 訂用帳戶有可用的核心數目配額。 Azure 入口網站不允許建立核心總數超過配額的叢集。 若要找出您的配額，請進入 Azure 入口網站的 訂用帳戶 區段，按一下用來部署叢集的訂用帳戶，然後按一下使用量 + 配額。 通常會針對每個 Azure 區域定義配額，您可以選擇在有足夠可用核心的區域中部署 Spark 叢集。 
+您可以遵循這些[指示](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager)並編輯 [自訂 Spark 預設值] 區段中的定義。
 
-* 建立用來儲存資料集的 Azure 儲存體帳戶。 請依照[指示](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account)建立儲存體帳戶。
+     **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
+
+* 建立用來儲存資料集的 Azure 儲存體帳戶。 請遵循這些[指示](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account)以建立儲存體帳戶。
 
 ## <a name="data-description"></a>資料說明
 
@@ -72,7 +80,7 @@ ms.lasthandoff: 10/11/2017
 
 修改的 conda\_dependencies.yml 檔案會儲存在教學課程的 aml_config 目錄中。 
 
-在後續步驟中，我們會將執行環境連線至 Azure 帳戶。 按一下 AML Workbench 左上角的 [檔案] 功能表並選擇 [開啟命令提示字元]，以開啟命令列視窗 (CLI)。 然後在 CLI 中執行
+在後續步驟中，我們會將執行環境連線至 Azure 帳戶。 按一下 AML Workbench 左上角的 [檔案] 功能表。 然後選擇 [開啟命令提示字元]。 然後在 CLI 中執行
 
     az login
 
@@ -84,7 +92,7 @@ ms.lasthandoff: 10/11/2017
 
     az account list -o table
 
-並尋找具有您的 AML Workbench 工作區帳戶之 Azure 訂用帳戶的訂用帳戶 ID。 最後，在 CLI 中執行
+並尋找具有您 AML Workbench 工作區帳戶的 Azure 訂用帳戶 ID。 最後，在 CLI 中執行
 
     az account set -s <subscription ID>
 
@@ -96,7 +104,7 @@ ms.lasthandoff: 10/11/2017
 
  若要設定遠端 Docker 容器，請在 CLI 中執行
 
-    az ml computetarget attach --name dsvm --address <IP address> --username <username> --password <password> --type remotedocker
+    az ml computetarget attach remotedocker --name dsvm --address <IP address> --username <username> --password <password> 
 
 使用 DSVM 中的 IP 位址、使用者名稱和密碼。 在 Azure 入口網站中 DSVM 頁面的 [概觀] 區段中，可以找到 DSVM 的 IP 位址：
 
@@ -106,7 +114,7 @@ ms.lasthandoff: 10/11/2017
 
 若要設定 Spark 環境，請在 CLI 中執行
 
-    az ml computetarget attach --name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> --type cluster
+    az ml computetarget attach cluster--name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
 
 使用叢集的名稱、叢集的 SSH 使用者名稱和密碼。 SSH 使用者名稱的預設值是 `sshuser`，除非您在叢集的佈建期間變更此值。 在 Azure 入口網站中您叢集頁面的 [屬性] 區段中，可以找到叢集的名稱：
 
@@ -131,18 +139,18 @@ ms.lasthandoff: 10/11/2017
 ### <a name="data-ingestion"></a>資料擷取
 此案例中的程式碼假設資料儲存在 Azure blob 儲存體中。 我們一開始示範如何從 Kaggle 網站將資料下載到您的電腦，並將它上傳至 blob 儲存體。 然後我們會示範如何從 blob 儲存體讀取資料。 
 
-若要從 Kaggle 下載資料，請移至[資料集頁面](https://www.kaggle.com/c/talkingdata-mobile-user-demographics/data)並且按 [下載] 按鈕。 系統會要求您登入 Kaggle。 登入之後，系統會將您重新導回資料集頁面。 然後選取左欄中的前七個檔案並且按 [下載] 按鈕，下載這些檔案。 所下載檔案的大小總計為 289 Mb。 若要將這些檔案上傳至 blob 儲存體，請在您的儲存體帳戶中建立 blob 儲存體容器 'dataset'。 移至您儲存體帳戶的 Azure 頁面，按一下 Blob，然後按一下+容器，即可進行該作業。 輸入 'dataset' 作為名稱，然後按一下 [確定]。 以下螢幕擷取畫面說明這些步驟：
+若要從 Kaggle 下載資料，請移至[資料集頁面](https://www.kaggle.com/c/talkingdata-mobile-user-demographics/data)並且按 [下載] 按鈕。 系統會要求您登入 Kaggle。 登入之後，系統會將您重新導回資料集頁面。 然後選取左欄中的前七個檔案並且按 [下載] 按鈕，下載這些檔案。 所下載檔案的大小總計為 289 Mb。 若要將這些檔案上傳至 blob 儲存體，請在您的儲存體帳戶中建立 blob 儲存體容器 'dataset'。 移至您儲存體帳戶的 Azure 頁面，按一下 Blob，然後按一下 [+容器]，即可進行該作業。 輸入 'dataset' 作為名稱，然後按一下 [確定]。 以下螢幕擷取畫面說明這些步驟：
 
 ![開啟 blob](media/scenario-distributed-tuning-of-hyperparameters/open_blob.png)
 ![開啟容器](media/scenario-distributed-tuning-of-hyperparameters/open_container.png)
 
-之後，從清單中選取資料集容器，並按一下 [上傳] 按鈕。 Azure 入口網站允許同時上傳多個檔案。 在 上傳 blob 區段中按一下資料夾按鈕、選取資料集中的所有檔案、按一下 開啟，然後按一下上傳。 以下螢幕擷取畫面說明這些步驟：
+之後，從清單中選取資料集容器，並按一下 [上傳] 按鈕。 Azure 入口網站允許同時上傳多個檔案。 在 [上傳 blob] 區段中按一下資料夾按鈕、選取資料集中的所有檔案、按一下 [開啟]，然後按一下 [上傳]。 以下螢幕擷取畫面會說明這些步驟：
 
 ![上傳 Blob](media/scenario-distributed-tuning-of-hyperparameters/upload_blob.png) 
 
 視您的網際網路連線而定，上傳檔案需要數分鐘的時間。 
 
-在我們的程式碼中，我們使用 [Azure 儲存體 SDK](https://azure-storage.readthedocs.io/en/latest/) 將資料集從 blob 儲存體下載到目前的執行環境。 下載會在 load_data.py 檔案的 load\_data() 函式中執行。 若要使用此程式碼，您必須以主控資料集之儲存體帳戶的名稱與主要金鑰取代 <ACCOUNT_NAME> and <ACCOUNT_KEY>。 帳戶名稱會顯示在您儲存體帳戶的 Azure 頁面左上角。 若要取得帳戶，請在儲存體帳戶的 Azure 頁面中選取 [存取金鑰] \(請參閱「資料擷取」一節中的第一個螢幕擷取畫面)，然後複製金鑰欄的第一列中的長字串：
+在我們的程式碼中，我們使用 [Azure 儲存體 SDK](https://azure-storage.readthedocs.io/en/latest/) 將資料集從 blob 儲存體下載到目前的執行環境。 下載會在 load_data.py 檔案的 load\_data() 函式中執行。 若要使用此程式碼，您必須以主控資料集之儲存體帳戶的名稱與主要金鑰取代 <ACCOUNT_NAME> and <ACCOUNT_KEY>。 您可以在您儲存體帳戶的 Azure 頁面左上角看到帳戶名稱。 若要取得帳戶，請在儲存體帳戶的 Azure 頁面中選取 [存取金鑰] (請參閱「資料擷取」一節中的第一個螢幕擷取畫面)，然後複製金鑰欄的第一列中的長字串：
  
 ![存取金鑰](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 
@@ -161,7 +169,7 @@ ms.lasthandoff: 10/11/2017
     # Load blob
     my_service.get_blob_to_path(CONTAINER_NAME, 'app_events.csv.zip', 'app_events.csv.zip')
 
-請注意，您不需要手動執行 load_data.py 檔案。 稍後將從其他檔案進行呼叫。
+請注意，您不需要手動執行 load_data.py 檔案。 稍後將從其他檔案呼叫它。
 
 ### <a name="feature-engineering"></a>特徵設計
 用於計算所有特徵的程式碼位於 feature\_engineering.py 檔案。 您不需要手動執行 feature_engineering.py 檔案。 稍後將從其他檔案進行呼叫。
@@ -174,11 +182,11 @@ ms.lasthandoff: 10/11/2017
 * 使用者在每個應用程式中產生的事件片段 (one\_hot\_app_labels 函式)
 * 使用者在每個應用程式標籤中產生的事件片段 (one\_hot\_app_labels 函式)
 * 使用者在每個應用程式類別中產生的事件片段 (text\_category_features 函式)
-* 所產生事件使用之應用程式類別的指標特徵 (one\_hot_category 函式)
+* 用來產生事件之應用程式類別的指標特徵 (one\_hot_category 函式)
 
 這些特徵是由 Kaggle 核心 ([應用程式和標籤的線性模型](https://www.kaggle.com/dvasyukova/a-linear-model-on-apps-and-labels)) 所啟發。
 
-計算這些特徵時需要大量的記憶體。 一開始，我們嘗試在具有 16 Gb RAM 的本機環境中計算特徵。 我們可以計算前四個特徵集，但是在運算第五個特徵集時收到「記憶體不足」錯誤。 前四個特徵集的計算是在 singleVMsmall.py 檔案中，並可以在本機環境中執行，方法是執行 
+計算這些特徵時需要大量的記憶體。 一開始，我們會嘗試在具有 16-GB RAM 的本機環境中計算特徵。 我們可以計算前四個特徵集，但是在運算第五個特徵集時收到「記憶體不足」錯誤。 前四個特徵集的計算是在 singleVMsmall.py 檔案中，並可以在本機環境中執行，方法是執行 
 
      az ml experiment submit -c local .\singleVMsmall.py   
 
@@ -190,7 +198,7 @@ ms.lasthandoff: 10/11/2017
 我們會使用梯度樹提升的 [xgboost](https://anaconda.org/conda-forge/xgboost) 實作 [1]。 我們會使用 [scikit-learn](http://scikit-learn.org/) 套件來微調 xgboost 的超參數。 雖然 xgboost 不屬於 scikit-learn 套件，但它會實作 scikit-learn API，因此可以搭配 scikit-learn 的超參數微調函式使用。 
 
 Xgboost 有八個超參數：
-* n_esitmators
+* n_estimators
 * max_depth
 * reg_alpha
 * reg_lambda
@@ -198,7 +206,10 @@ Xgboost 有八個超參數：
 * learning_rate
 * colsample\_by_level
 * subsample
-* 在[這裡](http://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn)和[這裡](https://github.com/dmlc/xgboost/blob/master/doc/parameter.md)可以找到這些超參數的目標 A 說明。 一開始，我們使用會遠端 DSVM 並從小型候選值網格中微調超參數：
+* 在下列兩個位置可以找到這些超參數的目標 A 說明：
+- http://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn- https://github.com/dmlc/xgboost/blob/master/doc/parameter.md)。 
+- 
+一開始，我們會使用遠端 DSVM 並從小型候選值網格中微調超參數：
 
     tuned_parameters = [{'n_estimators': [300,400], 'max_depth': [3,4], 'objective': ['multi:softprob'], 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1],'learning_rate': [0.1], 'colsample_bylevel': [0.1,], 'subsample': [0.5]}]  
 
@@ -224,7 +235,7 @@ Xgboost 有八個超參數：
     for key in clf_cv.best_params_.keys():
         run_logger.log(key, clf_cv.best_params_[key]) 
 
-我們也會建立 sweeping_results.txt 檔案，其中包含網格中所有超參數值組合的交叉驗證負值對數損失：
+我們也會建立 sweeping_results.txt 檔案，其中包含網格中所有超參數值組合的交叉驗證負值對數損失。
 
     if not path.exists('./outputs'):
         makedirs('./outputs')
@@ -249,13 +260,13 @@ Xgboost 有八個超參數：
 
 ![執行歷程記錄](media/scenario-distributed-tuning-of-hyperparameters/run_history.png)
 
-根據預設，[執行歷程記錄] 視窗會顯示第 1-2 個記錄值的值和圖形。 若要查看所選超參數值的完整清單，請按一下在上一個螢幕擷取畫面中以紅色圓圈標記的設定圖示，並選取要在資料表中顯示的超參數。 此外，若要選取 [執行歷程記錄] 視窗最上方顯示的圖形，按一下以藍色圓形標記的設定圖示，並選取清單中的圖形。 
+根據預設，[執行歷程記錄] 視窗會顯示第 1-2 個記錄值的值和圖形。 若要查看所選超參數值的完整清單，請按一下在上一個螢幕擷取畫面中以紅色圓圈標記的設定圖示。 然後選取要在資料表中顯示的超參數。 此外，若要選取 [執行歷程記錄] 視窗最上方顯示的圖形，按一下以藍色圓形標記的設定圖示，並選取清單中的圖形。 
 
 在 [執行屬性] 視窗中也可以檢查所選的超參數值： 
 
 ![執行屬性](media/scenario-distributed-tuning-of-hyperparameters/run_properties.png)
 
-[執行屬性] 視窗的右上角有一個 [輸出檔] 區段，內含在執行環境的 '.\output' 資料夾中建立的所有檔案清單。 選取 sweeping\_results.txt 並且按 [下載] 按鈕，即可下載該檔案。 sweeping_results.txt 應該有下列輸出：
+[執行屬性] 視窗的右上角有一個 [輸出檔案] 區段，內含在 '.\output' 資料夾中建立之所有檔案的清單。 選取 sweeping\_results.txt 並且按 [下載] 按鈕，即可下載該檔案。 sweeping_results.txt 應該有下列輸出：
 
     metric =  neg_log_loss
     mean: -2.29096, std: 0.03748, params: {'colsample_bytree': 1, 'learning_rate': 0.1, 'subsample': 0.5, 'n_estimators': 300, 'reg_alpha': 1, 'objective': 'multi:softprob', 'colsample_bylevel': 0.1, 'reg_lambda': 1, 'max_depth': 3}
@@ -297,15 +308,15 @@ scikit-learn 套件沒有使用 Spark 叢集微調超參數的原生支援。 �
 
     az ml experiment submit -c spark .\distributed_sweep.py
 
-如果 DSVM 有 6 個背景工作節點和 28 Gb 記憶體，此命令會在 1 小時 6 分鐘內完成。 在 Azure Machine Learning Workbench 中可以存取在 Spark 叢集中微調超參數的結果 (也就是記錄、超參數的最佳值和 sweeping_results.txt 檔案)，其方法如同在遠端 DSVM 執行中一樣。 
+如果 DSVM 有 6 個背景工作節點和 28 Gb 記憶體，此命令會在 1 小時 6 分鐘內完成。 超參數微調結果可以在 Azure Machine Learning Workbench 中存取，存取方式和遠端 DSVM 執行相同。 (也就是記錄檔、超參數的最佳值及 sweeping_results.txt 檔案)
 
 ### <a name="architecture-diagram"></a>架構圖表
 
-下圖顯示端對端工作流程：![架構](media/scenario-distributed-tuning-of-hyperparameters/architecture.png) 
+下圖顯示整體工作流程：![架構](media/scenario-distributed-tuning-of-hyperparameters/architecture.png) 
 
 ## <a name="conclusion"></a>結論 
 
-在此案例中，我們示範了如何使用 Azure Machine Learning Workbench，在遠端虛擬機器和遠端 Spark 叢集中執行超參數微調。 我們發現 Azure Machine Learning Workbench 所提供的工具，可讓您輕鬆設定執行環境並在其間切換。 
+在此案例中，我們示範了如何使用 Azure Machine Learning Workbench，在遠端虛擬機器和 Spark 叢集中執行超參數微調。 我們發現 Azure Machine Learning Workbench 所提供的工具，可讓您輕鬆設定執行環境。 也可以在它們之間輕鬆切換。 
 
 ## <a name="references"></a>參考
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5a0344dcef779a9818be3e320bd5c269a2859f71
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 68686e128d7e9528396f338b95f483adf07c3292
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 應用程式中的例外狀況偵錯快照集
 
@@ -27,6 +27,16 @@ ms.lasthandoff: 10/26/2017
 快照集集合適用於：
 * 執行 .NET Framework 4.5 或更新版本的 .NET Framework 和 ASP.NET 應用程式。
 * 在 Windows 上執行的 .NET Core 2.0 和 ASP.NET Core 2.0 應用程式。
+
+支援下列環境：
+* Azure App Service。
+* 執行作業系統系列 4 或更新版本的 Azure 雲端服務。
+* 在 Windows Server 2012 R2 或更新版本上執行的 Azure Service Fabric 服務。
+* 執行 Windows Server 2012 R2 或更新版本的 Azure 虛擬機器。
+* 執行 Windows Server 2012 R2 或更新版本的內部部署虛擬或實體機器。
+
+> [!NOTE]
+> 不支援用戶端應用程式 (例如，WPF、Windows Forms 或 UWP)。
 
 ### <a name="configure-snapshot-collection-for-aspnet-applications"></a>設定 ASP.NET 應用程式的快照集集合
 

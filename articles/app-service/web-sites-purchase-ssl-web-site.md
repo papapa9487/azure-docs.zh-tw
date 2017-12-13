@@ -1,11 +1,10 @@
 ---
-title: "將 SSL 憑證新增至 Azure App Service 應用程式 | Microsoft Docs"
-description: "了解如何將 SSL 憑證新增至您的 App Service 應用程式。"
+title: "購買及設定您的 Azure App Service 的 SSL 憑證 | Microsoft Docs"
+description: "了解如何購買 App Service 憑證並將它繫結至您的 App Service 應用程式"
 services: app-service
 documentationcenter: .net
-author: ahmedelnably
-manager: stefsch
-editor: cephalin
+author: cephalin
+manager: cfowler
 tags: buy-ssl-certificates
 ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
 ms.service: app-service
@@ -13,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
-ms.author: apurvajo
-ms.openlocfilehash: 214f05f45f59b0403e6902988f9184d6b62618bd
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 12/01/2017
+ms.author: apurvajo;cephalin
+ms.openlocfilehash: 256cb9a33d49bc3c24b2d94c417632edb0c8df31
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>購買並設定您的 Azure App Service 的 SSL 憑證
 
@@ -74,12 +73,16 @@ ms.lasthandoff: 10/24/2017
 
 ## <a name="step-4---verify-the-domain-ownership"></a>步驟 4︰確認網域擁有權
 
-> [!NOTE]
-> App Service 憑證支援 3 種類型的網域驗證：網域、郵件和手動驗證。 [進階](#advanced)一節會詳細說明這些驗證類型。
-
 從您在步驟 3 使用的相同 [憑證設定] 頁面，按一下 [步驟 2：驗證] 步驟。
 
-**網域驗證**：**只有**在您**已經從 Azure App Service 購買自訂網域[時，這才是最方便的程序。](custom-dns-web-site-buydomains-web-app.md)**
+選擇慣用的網域驗證方法。 
+
+App Service 憑證支援 4 種網域驗證：App Service、網域、郵件和手動驗證。 [進階](#advanced)一節會詳細說明這些驗證類型。
+
+> [!NOTE]
+> 當您想要驗證的網域已對應至相同訂用帳戶中的 App Service 應用程式，[App Service 驗證] 是最方便的選項。 它會利用 App Service 應用程式已驗證網域擁有權的這個事實。
+>
+
 按一下 [驗證] 按鈕來完成這個步驟。
 
 ![插入網域驗證的影像](./media/app-service-web-purchase-ssl-web-site/DomainVerificationRequired.png)
@@ -142,6 +145,10 @@ App Service 憑證另外支援 2 種類型的網域驗證：郵件和手動驗�
 
 如果您需要重新傳送驗證電子郵件，按一下 [重新傳送電子郵件] 按鈕。
 
+#### <a name="domain-verification"></a>網域驗證
+
+僅針對[購自 Azure 的 App Service 網域](custom-dns-web-site-buydomains-web-app.md)選擇此選項。 Azure 會自動為您新增驗證 TXT 記錄並完成程序。
+
 #### <a name="manual-verification"></a>手動驗證
 
 > [!IMPORTANT]
@@ -197,6 +204,7 @@ App Service 憑證另外支援 2 種類型的網域驗證：郵件和手動驗�
 - GoDaddy (會產生 App Service 憑證) 每三年需要驗證網域一次。 網域系統管理員每三年就會收到一次用來驗證網域的電子郵件。 若未檢查電子郵件或驗證網域，App Service 憑證就不會自動更新。 
 - 2017 年 3 月 31 日之前發出的所有 App Service 憑證，都需要在下一次更新時重新驗證網域 (即使憑證已啟用自動更新)。 這是由於 GoDaddy 原則有所變更。 請檢查您的電子郵件，並完成這項一次性的網域驗證，以繼續自動更新 App Service 憑證。 
 
-## <a name="next-steps"></a>後續步驟
+## <a name="more-resources"></a>其他資源
 
-* [新增內容傳遞網路](app-service-web-tutorial-content-delivery-network.md)
+* [在 Azure App Service 中的應用程式程式碼中使用 SSL 憑證](app-service-web-ssl-cert-load.md)
+* [常見問題集：App Service 憑證](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

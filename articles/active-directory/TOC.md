@@ -283,8 +283,9 @@
 #### [開始使用](active-directory-conditional-access-azure-portal-get-started.md)
 #### [最佳作法](active-directory-conditional-access-best-practices.md)
 #### [了解 Office 365 服務的裝置原則](active-directory-conditional-access-device-policies.md)
+#### [移轉傳統原則](active-directory-conditional-access-migration.md)
 #### 工作
-##### [移轉傳統原則](active-directory-conditional-access-migration.md)
+##### [移轉傳統 MFA 原則](active-directory-conditional-access-migration-mfa.md)
 ##### [設定裝置型條件式存取](active-directory-conditional-access-policy-connected-applications.md)
 ##### [設定應用程式型條件式存取](active-directory-conditional-access-mam.md)
 ##### [為使用者和應用程式提供使用規定](active-directory-tou.md)

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: rodejo
-ms.openlocfilehash: 5cad44dc7bf415002b3c9872fffdcf0d54bb6ad6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e59528df6a66979c3fc2f596e3e94c1f51f0111
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>適用於群組管理的 Azure Active Directory 第 2 版 Cmdlet
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 本文包含的範例，會說明如何使用 PowerShell 管理 Azure Active Directory (Azure AD) 中的群組。  其中也會說明如何使用 Azure AD PowerShell 模組來完成設定。 首先，您必須 [下載 Azure AD PowerShell 模組](https://www.powershellgallery.com/packages/AzureAD/)。
 
-## <a name="installing-the-azure-ad-powershell-module"></a>安裝 Azure AD PowerShell 模組
+## <a name="install-the-azure-ad-powershell-module"></a>安裝 Azure AD PowerShell 模組
 若要安裝 AzureAD PowerShell 模組，請使用下列命令︰
 
     PS C:\Windows\system32> install-module azuread
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 現在您可以開始在模組中使用 Cmdlet。 如需有關 Azure AD 模組中各式 Cmdlet 的完整描述，請參閱 [Azure Active Directory PowerShell 第 2 版](/powershell/azure/install-adv2?view=azureadps-2.0)的線上參考文件。
 
-## <a name="connecting-to-the-directory"></a>連線到目錄
+## <a name="connect-to-the-directory"></a>連線至目錄
 使用 Azure AD PowerShell Cmdlet 開始管理群組之前，您必須先將 PowerShell 工作階段連線至想要管理的目錄。 使用下列命令：
 
     PS C:\Windows\system32> Connect-AzureAD
@@ -59,8 +59,10 @@ Cmdlet 會提示您輸入需要用來存取目錄的認證。 在此範例中，
 
 現在您可以開始使用 AzureAD Cmdlet 來管理您目錄中的群組。
 
-## <a name="retrieving-groups"></a>擷取群組
-若要從目錄中擷取現有的群組，您可以使用 Get-AzureADGroups Cmdlet。 若要擷取目錄中的所有群組，請在使用 Cmdlet 時不要使用參數：
+## <a name="retrieve-groups"></a>擷取群組
+若要從目錄中擷取現有的群組，請使用 Get-AzureADGroups Cmdlet。 
+
+若要擷取目錄中的所有群組，請在使用 Cmdlet 時不要使用參數：
 
     PS C:\Windows\system32> get-azureadgroup
 
@@ -108,14 +110,14 @@ Cmdlet 將會傳回所連線目錄中的所有群組。
     SecurityEnabled              : True
 
 > [!NOTE] 
-> AzureAD PowerShell Cmdlet 實作 OData 查詢標準。 如需詳細資訊，請參閱[使用 OData 端點的 OData 系統查詢選項](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter)中的 **$filter**。
+> Azure AD PowerShell Cmdlet 實作 OData 查詢標準。 如需詳細資訊，請參閱[使用 OData 端點的 OData 系統查詢選項](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter)中的 **$filter**。
 
-## <a name="creating-groups"></a>建立群組
+## <a name="create-groups"></a>建立群組
 若要在目錄中建立新群組，請使用 New-AzureADGroup Cmdlet。 這個 Cmdlet 會建立名為 “Marketing" 的新安全性群組︰
 
     PS C:\Windows\system32> New-AzureADGroup -Description "Marketing" -DisplayName "Marketing" -MailEnabled $false -SecurityEnabled $true -MailNickName "Marketing"
 
-## <a name="updating-groups"></a>更新群組
+## <a name="update-groups"></a>更新群組
 若要更新現有的群組，請使用 Set-AzureADGroup Cmdlet。 在這個範例中，我們要變更 “Intune Administrators” 群組的 DisplayName 屬性。 首先，我們使用 Get-AzureADGroup Cmdlet 找到該群組，然後使用 DisplayName 屬性進行篩選︰
 
     PS C:\Windows\system32> Get-AzureADGroup -Filter "DisplayName eq 'Intune Administrators'"
@@ -160,18 +162,20 @@ Cmdlet 將會傳回所連線目錄中的所有群組。
     ProxyAddresses               : {}
     SecurityEnabled              : True
 
-## <a name="deleting-groups"></a>刪除群組
+## <a name="delete-groups"></a>刪除群組
 若要從目錄中刪除群組，請使用 Remove-AzureADGroup Cmdlet，如下所示︰
 
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 
-## <a name="managing-members-of-groups"></a>管理群組成員
-如果您需要將新成員新增至群組，請使用Add-AzureADGroupMember Cmdlet。 此命令會將成員新增至上述範例中所使用的 Intune Administrators 群組︰
+## <a name="manage-group-membership"></a>管理群組成員資格 
+### <a name="add-members"></a>新增成員
+若要將新成員新增至群組，請使用 Add-AzureADGroupMember Cmdlet。 此命令會將成員新增至上述範例中所使用的 Intune Administrators 群組︰
 
     PS C:\Windows\system32> Add-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 
 我們想要新增成員的群組，其 ObjectID 就是 -ObjectId 參數，而我們想要新增為群組成員的使用者，其 ObjectID 為 -RefObjectId。
 
+### <a name="get-members"></a>取得成員
 若要取得群組的現有成員，請使用 Get-AzureADGroupMember Cmdlet，如此範例所示︰
 
     PS C:\Windows\system32> Get-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
@@ -181,10 +185,12 @@ Cmdlet 將會傳回所連線目錄中的所有群組。
                           72cd4bbd-2594-40a2-935c-016f3cfeeeea User
                           8120cc36-64b4-4080-a9e8-23aa98e8b34f User
 
+### <a name="remove-members"></a>移除成員
 若要移除先前加入群組的成員，請使用Remove-AzureADGroupMember Cmdlet，如此處所示︰
 
     PS C:\Windows\system32> Remove-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -MemberId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 
+### <a name="verify-members"></a>確認成員
 若要驗證使用者的群組成員資格，請使用 Select-AzureADGroupIdsUserIsMemberOf Cmdlet。 這個 Cmdlet 會將要檢查群組成員資格的使用者，其 ObjectId 以及一份要檢查成員資格的群組清單做為參數。 務必要以 “Microsoft.Open.AzureAD.Model.GroupIdsForMembershipCheck” 複雜變數類型的形式提供群組清單，因此我們必須先使用該類型建立一個變數：
 
     PS C:\Windows\system32> $g = new-object Microsoft.Open.AzureAD.Model.GroupIdsForMembershipCheck
@@ -204,7 +210,24 @@ Cmdlet 將會傳回所連線目錄中的所有群組。
 
 傳回的值就是成員中有這位使用者的群組清單。 您也可以使用 Select-AzureADGroupIdsContactIsMemberOf、Select-AzureADGroupIdsGroupIsMemberOf 或 Select-AzureADGroupIdsServicePrincipalIsMemberOf，在檢查特定群組清單中的連絡人、群組或服務主體成員資格時，採用這個方法
 
-## <a name="managing-owners-of-groups"></a>管理群組擁有者
+## <a name="disable-group-creation-by-your-users"></a>停用您使用者的群組建立
+您可以避免非管理使用者建立安全性群組。 Microsoft Online 目錄服務 (MSODS) 的預設行為是可讓非管理使用者建立群組，無論是否也啟用自助式群組管理 (SSGM)。 SSGM 設定只會控制 [我的應用程式] 存取面板中的行為。 
+
+若要停用非管理使用者的群組建立：
+
+1. 請確認允許非管理使用者建立群組：
+   
+  ````
+  PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
+  ````
+  
+2. 如果它傳回 `UsersPermissionToCreateGroupsEnabled : True`，非管理使用者就可以建立群組。 若要停用這項功能：
+  
+  ```` 
+  Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
+  ````
+  
+## <a name="manage-owners-of-groups"></a>管理群組擁有者
 若要將擁有者新增到群組，請使用 Add-AzureADGroupOwner Cmdlet︰
 
     PS C:\Windows\system32> Add-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea

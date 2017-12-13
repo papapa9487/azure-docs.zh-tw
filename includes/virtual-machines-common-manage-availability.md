@@ -8,14 +8,14 @@
 
   在可影響整個資料中心或甚至整個地區的罕見中斷或災害事件中，虛擬機器也可能遇到停機情況。 針對這些案例，Azure 提供了[可用性區域](../articles/availability-zones/az-overview.md)和[配對地區](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions)等保護選項。
 
-* **規劃的維護事件**是由 Microsoft 對基礎 Azure 平台進行的定期更新，為虛擬機器在其中執行的平台基礎結構改善整體可靠性、效能和安全性。 這些更新大多數都會在不影響虛擬機器或雲端服務的情況下執行 (請參閱 [VM 保留維護](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/preserving-maintenance))。 雖然 Azure 平台嘗試在所有可能的情況下使用 VM 保留維護，但是有極少數的情況需要重新啟動虛擬機器以將必要更新套用至基礎結構。 在此情況下，您也可以在適合的時間範圍起始 VM 的維護，以使用維護重新部署作業來執行 Azure 規劃的維護。 如需詳細資訊，請參閱[虛擬機器的規劃維護](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/planned-maintenance/)。
+* **規劃的維護事件**是由 Microsoft 對基礎 Azure 平台進行的定期更新，為虛擬機器在其中執行的平台基礎結構改善整體可靠性、效能和安全性。 這些更新大多數都會在不影響虛擬機器或雲端服務的情況下執行 (請參閱 [VM 保留維護](https://docs.microsoft.com/azure/virtual-machines/windows/preserving-maintenance))。 雖然 Azure 平台嘗試在所有可能的情況下使用 VM 保留維護，但是有極少數的情況需要重新啟動虛擬機器以將必要更新套用至基礎結構。 在此情況下，您也可以在適合的時間範圍起始 VM 的維護，以使用維護重新部署作業來執行 Azure 規劃的維護。 如需詳細資訊，請參閱[虛擬機器的規劃維護](https://docs.microsoft.com/azure/virtual-machines/windows/planned-maintenance/)。
 
 
 為了減少一或多個這些事件造成的停機所帶來的影響，建議您為虛擬機器使用下列高可用性的最佳做法：
 
 * [針對備援在可用性設定組中設定多部虛擬機器]
 * [將受控磁碟使用於可用性設定組中的 VM]
-* [使用排程事件主動回應 VM 影響事] (https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-scheduled-events)
+* [使用排程事件主動回應 VM 影響事] (https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [將每個應用程式層設定至不同的可用性設定組中]
 * [將負載平衡器與可用性設定組結合]
 * [使用可用性區域來防禦資料中心層級的失敗]
@@ -24,7 +24,7 @@
 若要為應用程式提供備援，建議您在可用性設定組中，將兩部以上的虛擬機器組成群組。 資料中心內的這項組態可以確保在規劃或未規劃的維護事件發生期間，至少有一部虛擬機器可以使用，且符合 99.95% 的 Azure SLA。 如需相關資訊，請參閱 [虛擬機器的 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)。
 
 > [!IMPORTANT]
-> 避免一個可用性設定組中只有一部執行個體虛擬機器。 此組態中的 VM 不符合 SLA 的保證，而且會在 Azure 規劃的維護事件期間發生停機狀況，除非單一 VM 是使用 [Azure 進階儲存體](../articles/storage/common/storage-premium-storage.md)。 使用進階儲存體的單一 VM 適用 Azure SLA。
+> 避免一個可用性設定組中只有一部執行個體虛擬機器。 此組態中的 VM 不符合 SLA 的保證，而且會在 Azure 規劃的維護事件期間發生停機狀況，除非單一 VM 是使用 [Azure 進階儲存體](../articles/virtual-machines/windows/premium-storage.md)。 使用進階儲存體的單一 VM 適用 Azure SLA。
 
 基礎 Azure 平台會為可用性集合中的每部虛擬機器指派一個**更新網域**和一個**容錯網域**。 在指定的可用性設定組中，預設指派五個非使用者可設定的更新網域 (接著可以增加 Resource Manager 部署，以提供最多 20 個更新網域)，表示虛擬機器群組和可同時重新啟動的基礎實體硬體。 當一個可用性設定組中設定了超過五部虛擬機器，會將第六部虛擬機器放入與第一部虛擬機器相同的更新網域中，而第七部則會放入與第二部相同的更新網域中，以此類推。 重新啟動的更新網域順序可能不會在規劃的維護事件期間循序進行，而只會一次重新啟動一個更新網域。 在不同的更新網域上起始維護之前，重新啟動的更新網域有 30 分鐘的復原時間。
 
@@ -81,3 +81,4 @@
 [將負載平衡器與可用性設定組結合]: #combine-a-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [將受控磁碟使用於可用性設定組中的 VM]: #use-managed-disks-for-vms-in-an-availability-set
+[使用可用性區域來防禦資料中心層級的失敗]: #use-availability-zones-to-protect-from-datacenter-level-failures

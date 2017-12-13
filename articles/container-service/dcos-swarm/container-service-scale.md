@@ -1,27 +1,19 @@
 ---
-title: "調整 Azure Container Service 叢集 | Microsoft Docs"
+title: "調整 Azure Container Service 叢集"
 description: "如何使用 Azure CLI 或 Azure 入口網站來調整 Azure Container Service 中 DC/OS、Docker Swarm 或 Kubernetes 叢集中的代理程式節點。"
 services: container-service
-documentationcenter: 
 author: sauryadas
-manager: madhana
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker、容器、微服務、Mesos、Azure"
-ms.assetid: 
+manager: timlt
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/01/2017
 ms.author: saudas
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 446eee0ffff3d10d09c691e9f2f0f4790c8ff7ab
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: faa1aee1f059f240074544e5e4727a7082824a77
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="scale-agent-nodes-in-a-container-service-cluster"></a>調整 Container Service 叢集中的代理程式節點
 

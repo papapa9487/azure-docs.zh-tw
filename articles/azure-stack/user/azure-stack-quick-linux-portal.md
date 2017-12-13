@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 5f815bafdcc7c05ec7f4149fb7c9df178f0f80e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f986c060b26489e412f6230665ec76a4730293f1
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>使用 Azure Stack 入口網站來建立 Linux 虛擬機器
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 * **Azure Stack 市集中的 Linux 映像**
 
-   Azure Stack 市集預設並未包含 Linux 映像。 因此，您必須先使用[將市集項目從 Azure 下載到 Azure Stack](../azure-stack-download-azure-marketplace-item.md) 主題所述的步驟來確定 Azure Stack 操作員已下載 **Ubuntu Server 16.04 LT** 映像，才能建立 Linux 虛擬機器。
+   Azure Stack 市集預設並未包含 Linux 映像。 因此，您必須先使用[將市集項目從 Azure 下載到 Azure Stack](../azure-stack-download-azure-marketplace-item.md) 主題所述的步驟來確定 Azure Stack 運算子已下載 **Ubuntu Server 16.04 LTS** 映像，才能建立 Linux 虛擬機器。
 
 * **SSH 用戶端存取權**
 

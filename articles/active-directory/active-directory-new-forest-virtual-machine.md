@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: joflore
-ms.openlocfilehash: 0a45a563d8aed45dd30cc76a13b0e197c248be84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18151f647b857dec78e659a3394359ff21a818c7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>在 Azure 虛擬網路上安裝新的 Active Directory 樹系
-本主題說明如何在 [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)上，於 Azure 虛擬網路的虛擬機器 (VM) 上建立新的 Windows Server Active Directory 環境。 在此案例中，Azure 虛擬網路並未連線至內部部署網路。
+本文說明如何在 [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)上，於虛擬機器 (VM) 上建立新的 Windows Server Active Directory 環境。 在此案例中，Azure 虛擬網路並未連線至內部部署網路。
 
-您也可能對以下相關主題有興趣：
+您也可能對以下相關文章有興趣：
 
 * 如需顯示相關步驟的影片，請參閱 [如何在 Azure 虛擬網路上安裝新的 Active Directory 樹系](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 * 您可以選擇性地 [設定站台對站台 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) ，然後安裝新樹系，或將內部部署樹系延伸至 Azure 虛擬網路。 如需相關步驟，請參閱 [在 Azure 虛擬網路中安裝複本 Active Directory 網域控制台](active-directory-install-replica-active-directory-domain-controller.md)。
@@ -87,7 +87,7 @@ ms.lasthandoff: 10/11/2017
    3. 在 [轉寄站] 索引標籤上，按一下轉寄站的 IP 位址，按一下 [編輯]。  選取的 IP 位址，然後按一下 [ **刪除**]。
    4. 按一下 [確定] 以關閉編輯器，再按一下 [確定] 以關閉 DNS 伺服器屬性。
 2. 更新虛擬網路的 DNS 伺服器設定。
-   1. 按一下 [虛擬網路] > 按兩下您建立的虛擬網路 > [設定]  >  [DNS 伺服器]，輸入執行 DC/DNS 伺服器角色的 VM 的名稱和其中一個 DIP，然後按一下 [儲存]。
+   1. 按一下 [虛擬網路] > 按兩下您建立的虛擬網路 > [設定] >  [DNS 伺服器]，輸入執行 DC/DNS 伺服器角色的其中一個 VM 名稱和 IP，然後按一下 [儲存]。
    2. 選取 VM 並按一下 [重新啟動]  ，以觸發 VM 利用新 DNS 伺服器的 IP 位址來設定 DNS 解析程式設定。
 
 ## <a name="create-vms-for-domain-members"></a>建立網域成員的 VM

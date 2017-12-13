@@ -1,10 +1,10 @@
 ---
-title: "Azure Active Directory B2C：建立 Azure Active Directory B2C 租用戶 | Microsoft Docs"
+title: "建立 Azure Active Directory B2C 租用戶 | Microsoft Docs"
 description: "有關如何建立 Azure Active Directory B2C 租用戶的主題"
 services: active-directory-b2c
 documentationcenter: 
-author: swkrish
-manager: mbaldwin
+author: parakhj
+manager: krassk
 editor: patricka
 ms.assetid: eec4d418-453f-4755-8b30-5ed997841b56
 ms.service: active-directory-b2c
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
 ms.date: 06/07/2017
-ms.author: swkrish
-ms.openlocfilehash: 213d532f484056f3833c743d25c5e6faa5b732e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: parja
+ms.openlocfilehash: 0a81b8717f9cd78b9e5c39267ff187656b0b2827
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-an-azure-active-directory-b2c-tenant-in-the-azure-portal"></a>在 Azure 入口網站中建立 Azure Active Directory B2C 租用戶
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-##  <a name="log-in-to-azure"></a>登入 Azure
+## <a name="log-in-to-azure"></a>登入 Azure
 
 登入 [Azure 入口網站](https://portal.azure.com/)。
 

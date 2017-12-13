@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 11/22/2017
 ms.author: jgao
-ms.openlocfilehash: 7d5534649595a3109442619e0adf13c0b354cc0f
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: a65daae8931c5ef892bf01eb049897488d6b15c7
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 HDInsight 上的 Hadoop 叢集
 
@@ -36,14 +36,17 @@ ms.lasthandoff: 11/09/2017
 1. 登入 [https://portal.azure.com](https://portal.azure.com)。
 2. 開啟入口網站之後，您可以：
 
-   * 按一下左功能表中的 [新增]  以建立新的叢集：
+   * 按一下左側功能表中的 [建立資源] 以建立新的叢集：
 
        ![新的 HDInsight 叢集按鈕](./media/hdinsight-administer-use-portal-linux/azure-portal-new-button.png)
+
+       在 [搜尋 Marketplace] 中輸入 **HDInsight**，按一下 [HDInsight]，然後按一下 [建立]。
+
    * 按一下左側功能表中的 [HDInsight 叢集] 以列出現有的叢集：
 
        ![Azure 入口網站 HDInsight 叢集按鈕](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
-       如果您沒有看見 [HDInsight 叢集] 按鈕，請按一下位於清單底部的 [更多服務]，然後按一下位於 [智慧 + 分析] 區段底下的 [HDInsight 叢集]。
+       如果您沒有看見 [HDInsight 叢集] 按鈕，請按一下位於 [智慧 + 分析] 區段底下的 [HDInsight 叢集]。
 
 
 ## <a name="create-clusters"></a>建立叢集
@@ -73,7 +76,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
 
 ## <a name="list-and-show-clusters"></a>列出和顯示叢集
 1. 登入 [https://portal.azure.com](https://portal.azure.com)。
-2. 按一下左側功能表中的 [HDInsight 叢集]  以列出現有的叢集。 如果您沒有看到 [HDInsight 叢集]，可先按一下 [更多服務]。
+2. 按一下左側功能表中的 [HDInsight 叢集]  以列出現有的叢集。 如果您沒有看到 [HDInsight 叢集]，請先按一下 [所有服務]。
 3. 按一下叢集名稱。 如果叢集清單很長，您可以使用頁面頂端的篩選器。
 4. 按一下清單中的叢集以顯示概觀頁面：
 
@@ -81,6 +84,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
     * **儀表板**：開啟叢集儀表板，這是適用於以 Linux 為基礎之叢集的 Ambari Web。
     * **安全殼層**︰顯示使用安全殼層 (SSH) 連線連接到叢集的指示。
     * **調整叢集**：可讓您變更此叢集的背景工作節點數目。
+    * **移動**：將叢集移至另一個資源群組或訂用帳戶。
     * **刪除**：刪除叢集。
 
     **左側功能表**：
@@ -92,17 +96,18 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
     * **自動化指令碼**︰顯示和匯出叢集的 Azure Resource Manager 範本。 目前，您只能匯出相依的 Azure 儲存體帳戶。 請參閱[使用 Azure Resource Manager 範本在 HDInsight 中建立 Linux 型 Hadoop 叢集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)。
     * **快速啟動**：顯示可協助您開始使用 HDInsight 的資訊。
     * **適用於 HDInsight 的工具**：HDInsight 相關工具的說明資訊。
-    * **叢集登入**︰顯示叢集登入資訊。
     * **訂用帳戶核心使用量**︰顯示訂用帳戶的已使用和可用核心。
     * **調整叢集**：增加和減少叢集背景工作角色節點的數目。 請參閱[調整叢集](hdinsight-administer-use-management-portal.md#scale-clusters)。
-    * **安全殼層**︰顯示使用安全殼層 (SSH) 連線連接到叢集的指示。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
+    * **SSH + 叢集登入**︰顯示使用安全殼層 (SSH) 連線來連線至叢集的指示。 如需詳細資訊，請參閱[搭配使用 SSH 與 HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) 並重設叢集登入認證。
     * **HDInsight 合作夥伴**︰新增/移除目前的 HDInsight 合作夥伴。
     * **外部中繼存放區**：檢視 Hive 和 Oozie 中繼存放區。 中繼存放區只可以在叢集建立程序期間進行設定。 請參閱[使用 Hive/Oozie 中繼存放區](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore)。
     * **指令碼動作**︰在叢集上執行 Bash 指令碼。 請參閱 [使用指令碼動作自訂 Linux 型 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
     * **應用程式**：新增/移除 HDInsight 應用程式。  請參閱[安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)。
+    * **監視**：監視 Azure Operations Management Suite 和 Azure Log Analytics 中的叢集。
     * **屬性**：檢視叢集屬性。
     * **儲存體帳戶**︰檢視儲存體帳戶和金鑰。 儲存體帳戶是在進行叢集建立程序時設定。
-    * **叢集 AAD 身分識別**：
+    * **Data Lake Store 存取**：設定 Data Lake Store 的存取。  請參閱[使用 Azure 入口網站建立搭配 Data Lake Store 的 HDInsight 叢集](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)。
+    * **資源健康狀態**：請參閱 [Azure 資源健康狀態概觀](../service-health/resource-health-overview.md)。
     * **新的支援要求**︰可讓您透過 Microsoft 支援服務建立支援票證。
     
 6. 按一下 [屬性] ：
@@ -128,7 +133,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
 刪除叢集時，並不會刪除預設的儲存體帳戶或任何連結的儲存體帳戶。 您可以使用相同的儲存體帳戶和相同的中繼存放區重新建立叢集。 建議您在重新建立叢集時使用新的預設 Blob 容器。
 
 1. 登入[入口網站][azure-portal]。
-2. 按一下左功能表中的 [HDInsight 叢集]  。 如果您沒有看到 [HDInsight 叢集]，可先按一下 [更多服務]。
+2. 按一下左功能表中的 [HDInsight 叢集]  。 如果您沒有看到 [HDInsight 叢集]，請先按一下 [所有服務]。
 3. 按一下您想要刪除的叢集。
 4. 按一下頂端功能表中的 [刪除]  ，然後依照指示執行。
 

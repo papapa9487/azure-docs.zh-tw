@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ec7d51d3f30eb3417a48fbf8d31a9b8359e39ab9
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 05099e868e62f612be0a3354eb8b339507ac7e4a
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>Durable Functions 中的具狀態單次個體 - 計數器範例
 
@@ -45,13 +45,31 @@ Durable Functions 就能輕鬆實作這種情節，因為協調流程執行個�
 
 本文會逐步解說範例應用程式中的 **E3_Counter**函式。
 
-下列各節說明用於 Visual Studio 開發的程式碼。 Azure 入口網站開發的程式碼很類似。
+
 
 ## <a name="the-counter-orchestration"></a>計數器協調流程
+
+下列各節說明用於 Visual Studio Code 和 Azure 入口網站開發的程式碼。
+
+### <a name="c-script"></a>C# 指令碼
+
+function.json 檔案：
+
+[!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)]
+
+run.csx 檔案：
+
+[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)]
+
+### <a name="precompiled-c"></a>先行編譯 C# 
+
+下列各節說明用於 Visual Studio 開發的程式碼。
 
 以下是實作協調器函式的程式碼：
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)]
+
+### <a name="explanation-of-the-code"></a>程式碼的說明
 
 此協調器函式基本上會執行下列動作：
 

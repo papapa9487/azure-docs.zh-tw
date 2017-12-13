@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 12/04/2017
 ms.author: larryfr
-ms.openlocfilehash: be18f6db46285233e233c843dab1f389cd553e96
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: fa19913928bad8b91777c0904324ff5983f6472c
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>使用 Pig 命令 (SSH) 在以 Linux 為基礎的叢集上執行 Pig 工作
 
@@ -35,35 +35,39 @@ ms.lasthandoff: 11/03/2017
 
 使用 SSH 連線到 HDInsight 叢集。 下列範例會以名為 **sshuser**的帳戶連線至名為 **myhdinsight** 的叢集：
 
-    ssh sshuser@myhdinsight-ssh.azurehdinsight.net
+```bash
+ssh sshuser@myhdinsight-ssh.azurehdinsight.net
+```
 
-**如果您提供憑證金鑰進行 SSH 驗證** (在建立 HDInsight 叢集時)，可能需要指定用戶端系統上私密金鑰的位置。
-
-    ssh sshuser@myhdinsight-ssh.azurehdinsight.net -i ~/mykey.key
-
-**如果您提供密碼進行 SSH 驗證** (在建立 HDInsight 叢集時)，請在出現提示時提供密碼。
-
-如需搭配 HDInsight 使用 SSH 的詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
+如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a id="pig"></a>使用 Pig 命令
 
 1. 連線之後，使用下列命令來啟動 Pig 命令列介面 (CLI)：
 
-        pig
+    ```bash
+    pig
+    ```
 
-    隨後，您應該會看到 `grunt>` 提示字元。
+    隨後，提示字元會變更為 `grunt>`。
 
 2. 輸入下列陳述式：
 
-        LOGS = LOAD '/example/data/sample.log';
+    ```piglatin
+    LOGS = LOAD '/example/data/sample.log';
+    ```
 
     此命令會將 sample.log 檔案的內容載入至 LOGS。 您可以使用下列陳述式檢視檔案的內容：
 
-        DUMP LOGS;
+    ```piglatin
+    DUMP LOGS;
+    ```
 
 3. 接下來是轉換資料，方法是套用規則運算式，並使用下列陳述式僅擷取每筆記錄的記錄層級：
 
-        LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+    ```piglatin
+    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+    ```
 
     轉換之後，您可以使用 **DUMP** 來檢視資料。 在此案例中，請使用 `DUMP LEVELS;`。
 
@@ -81,36 +85,48 @@ ms.lasthandoff: 11/03/2017
 
 5. 您也可以使用 `STORE` 陳述式儲存轉換結果。 例如，下列陳述式會將 `RESULT` 儲存到叢集之預設儲存體上的 `/example/data/pigout` 目錄：
 
-        STORE RESULT into '/example/data/pigout';
+    ```piglatin
+    STORE RESULT into '/example/data/pigout';
+    ```
 
    > [!NOTE]
    > 資料會儲存到所指定目錄中名為 `part-nnnnn` 的檔案。 如果目錄已經存在，則會收到錯誤。
 
 6. 若要結束 grunt 提示字元，請輸入下列陳述式：
 
-        QUIT;
+    ```piglatin
+    QUIT;
+    ```
 
 ### <a name="pig-latin-batch-files"></a>Pig Latin 批次檔
 
 您也可以使用 Pig 命令執行檔案中所含的 Pig Latin。
 
-1. 結束 grunt 提示字元之後，請使用下列命令將 STDIN 以管道方式輸出到名為 `pigbatch.pig` 的檔案。 此檔案會建立在 SSH 使用者帳戶的主目錄中。
+1. 結束 Grunt 提示字元之後，請使用下列命令來建立名為 `pigbatch.pig` 的檔案：
 
-        cat > ~/pigbatch.pig
+    ```bash
+    nano ~/pigbatch.pig
+    ```
 
-2. 輸入或貼上下列數行，然後在完成後使用 Ctrl+D。
+2. 輸入或貼上下列行：
 
-        LOGS = LOAD '/example/data/sample.log';
-        LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-        FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
-        GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
-        FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
-        RESULT = order FREQUENCIES by COUNT desc;
-        DUMP RESULT;
+    ```piglatin
+    LOGS = LOAD '/example/data/sample.log';
+    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+    FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+    GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+    FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+    RESULT = order FREQUENCIES by COUNT desc;
+    DUMP RESULT;
+    ```
+
+    完成後，請使用 __Ctrl__ + __X__、__Y__，然後按 __Enter__ 來儲存檔案。
 
 3. 使用下列命令，以使用 Pig 命令來執行 `pigbatch.pig` 檔案。
 
-        pig ~/pigbatch.pig
+    ```bash
+    pig ~/pigbatch.pig
+    ```
 
     當批次作業完成時，您會看到下列輸出︰
 
