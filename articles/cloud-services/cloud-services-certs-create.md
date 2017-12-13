@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 37a3a990b5f0164b1b6f53727e92e09fece7f6fb
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 8629f069440299690c68887b0d23d9f4ed7dfcc5
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure 雲端服務的憑證概觀
-Azure 中的憑證用於雲端服務 ([服務憑證](#what-are-service-certificates)) 及用於向管理 API 進行驗證 (使用 Azure 傳統入口網站而不是非傳統 Azure 入口網站時[管理憑證](#what-are-management-certificates))。 本主題提供兩種憑證類型的一般概觀、如何[建立](#create)這些憑證類型，以及如何將其[部署](#deploy)到 Azure。
+在 Azure 中，憑證用於雲端服務 ([服務憑證](#what-are-service-certificates)) 與驗證管理 API ([管理憑證](#what-are-management-certificates))。 本主題提供兩種憑證類型的一般概觀、如何[建立](#create)這些憑證類型，以及如何將其[部署](#deploy)到 Azure。
 
 在 Azure 中使用的憑證是 x.509 v3 憑證，而且可以由其他受信任的憑證簽署，或者可以自我簽署。 自我簽署的憑證是由自己的建立者簽署，因此預設不受到信任。 大部分的瀏覽器都可以忽略這個問題。 您應該僅在開發和測試雲端服務時使用自我簽署的憑證。 
 
@@ -30,7 +30,7 @@ Azure 所使用的憑證可以包含私密或公開金鑰。 憑證具有指紋�
 ## <a name="what-are-service-certificates"></a>什麼是服務憑證？
 服務憑證會附加至雲端服務，並啟用進出服務的安全通訊。 例如，如果您部署了一個 Web 角色，您會想要提供可以驗證公開的 HTTPS 端點的憑證。 在服務定義中定義的服務憑證會自動部署至執行您角色的執行個體的虛擬機器。 
 
-您可以使用 Azure 傳統入口網站或使用傳統部署模型，將服務憑證上傳到 Azure 傳統入口網站。 服務憑證是與特定的雲端服務相關聯。 它們指派給服務定義檔中的部署。
+您可以使用 Azure 入口網站或者傳統部署模型，將服務憑證上傳至 Azure。 服務憑證是與特定的雲端服務相關聯。 它們指派給服務定義檔中的部署。
 
 服務憑證可以與您的服務分開管理，而且可以由不同的人員管理。 例如，開發人員所上傳的服務封裝，指的可能是 IT 管理員先前上傳至 Azure 的憑證。 IT 管理員可以管理和更新該憑證 (變更服務的組態)，而不需要上傳新的服務套件。 不使用新的服務套件進行更新是可行的，因為憑證的邏輯名稱、存放區名稱及位置是在服務定義檔中指定，而憑證指紋是在服務組態檔中指定。 若要更新憑證，只需要上傳新憑證，並變更服務組態檔中的憑證指紋值即可。
 
@@ -95,5 +95,5 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 ## <a name="next-steps"></a>後續步驟
 [將服務憑證上傳到 Azure 入口網站](cloud-services-configure-ssl-certificate-portal.md)。
 
-將 [管理 API 憑證](../azure-api-management-certs.md) 上傳至 Azure 傳統入口網站。 Azure 入口網站並不使用管理憑證來進行驗證。
+將[管理 API 憑證](../azure-api-management-certs.md)上傳至 Azure 入口網站。
 

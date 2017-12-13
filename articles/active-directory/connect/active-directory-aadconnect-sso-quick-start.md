@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
-ms.openlocfilehash: b85afe54832319fae2ea3a2501ec268bc63fc7c1
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1bc76062b05938992b71eedaa71b3c7dfedd7ef4
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory 無縫單一登入：快速入門
 
@@ -127,7 +127,7 @@ ms.lasthandoff: 11/28/2017
 
 ### <a name="browser-considerations"></a>瀏覽器考量
 
-#### <a name="mozilla-firefox"></a>Mozilla Firefox
+#### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (所有平台)
 
 Mozilla Firefox 不會自動使用 Kerberos 驗證。 每個使用者都必須使用下列步驟，手動將 Azure AD URL 新增至其 Firefox 設定：
 1. 執行 Firefox，並在網址列中輸入 `about:config`。 關閉任何您看到的通知。
@@ -136,11 +136,15 @@ Mozilla Firefox 不會自動使用 Kerberos 驗證。 每個使用者都必須�
 4. 在欄位中，輸入 https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net。
 5. 選取 [確定]，然後重新開啟瀏覽器。
 
-#### <a name="safari-on-mac-os"></a>Mac OS 上的 Safari
+#### <a name="safari-mac-os"></a>Safari (Mac OS)
 
 確定執行 Mac OS 的電腦已加入 Azure AD。 如需加入 Azure AD 的相關說明，請參閱[整合 OS X 與 Active Directory 的最佳做法](http://training.apple.com/pdf/Best_Practices_for_Integrating_OS_X_with_Active_Directory.pdf)。
 
-#### <a name="google-chrome-on-mac-os"></a>Mac OS 上的 Google Chrome
+#### <a name="google-chrome-all-platforms"></a>Google Chrome (所有平台)
+
+如果您已覆寫環境中的 [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) \(英文\) 或 [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) \(英文\) 原則設定，請確定也將 Azure AD 的 URL (https://autologon.microsoftazuread-sso.com 和 https://aadg.windows.net.nsatc.net) 新增到這些設定。
+
+#### <a name="google-chrome-mac-os-only"></a>Google Chrome (僅限 Mac OS)
 
 針對 Mac OS 和其他非 Windows 平台上的 Google Chrome，請參閱 [Chromium 專案原則清單](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist)，以了解如何將 Azure AD URL 設為白名單以進行整合式驗證的資訊。
 
@@ -149,9 +153,6 @@ Mozilla Firefox 不會自動使用 Kerberos 驗證。 每個使用者都必須�
 #### <a name="known-browser-limitations"></a>已知的瀏覽器限制
 
 無縫 SSO 無法在 Firefox 和 Edge 瀏覽器的私人瀏覽模式中運作。 如果瀏覽器是在「增強保護」模式中執行，它也無法在 Internet Explorer 上運作。
-
->[!IMPORTANT]
->我們最近已復原對 Edge 的支援，以調查客戶回報的問題。
 
 ## <a name="step-4-test-the-feature"></a>步驟 4：測試功能
 

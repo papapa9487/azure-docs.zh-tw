@@ -12,6 +12,8 @@
 # 作法
 ## 建立範本
 ### [範本區段](resource-group-authoring-templates.md)
+#### [參數](resource-manager-templates-parameters.md)
+#### [變數](resource-manager-templates-variables.md)
 ### [範本的最佳做法](resource-manager-template-best-practices.md)
 ### [連結至其他範本](resource-group-linked-templates.md)
 ### [定義資源間的相依性](resource-group-define-dependencies.md)

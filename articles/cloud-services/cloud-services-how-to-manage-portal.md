@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 9af1fdeb5cfe69631cabe13bd341b43319175aae
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: a06becda42541b22d3e090087dd96cd08c980f44
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>如何管理雲端服務
-在 Azure 入口網站的 [雲端服務 (傳統)] 區域中，您可以更新服務角色或部署、將預備部署提升至生產、將資源連結至您的雲端服務以便於查看資源相依性，並將資源一起調整，以及刪除雲端服務或部署。
+在 Azure 入口網站的 [雲端服務] 區域中，您可以更新服務角色或部署、將預備部署提升至生產部署、將資源連結至您的雲端服務以便於查看資源相依性，並將資源一起調整，以及刪除雲端服務或部署。
 
 如需如何調整雲端服務的詳細資訊，可在 [這裡](cloud-services-how-to-scale-portal.md)取得。
 
@@ -80,9 +80,6 @@ ms.lasthandoff: 11/16/2017
 **交換是否會導致我的應用程式停止運作？我應該如何處理該情況？**
 
 如最後一節中所述，部署交換通常很快，因為它只是 Azure 負載平衡器中的設定變更。 不過，在某些情況下，它會花費十秒以上的時間，而導致暫時性的連線失敗。 若要限縮對您客戶造成的影響，請考慮實作[用戶端重試邏輯](../best-practices-retry-general.md)。
-
-## <a name="how-to-link-a-resource-to-a-cloud-service"></a>作法：將資源連結到雲端服務
-Azure 入口網站不會像目前 Azure 傳統入口網站一樣將資源連結一起。 相反地，會在雲端服務所使用的相同資源群組中部署額外的資源。
 
 ## <a name="how-to-delete-deployments-and-a-cloud-service"></a>作法：刪除部署和雲端服務
 刪除雲端服務之前，您必須先刪除每個現有的部署。

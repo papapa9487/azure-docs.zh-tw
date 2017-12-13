@@ -1,25 +1,19 @@
 ---
-title: "包含 Azure Container Service 引擎與 Swarm 模式的 CI/CD | Microsoft Docs"
+title: "搭配 Azure Container Service 引擎和 Swarm 模式使用 CI/CD"
 description: "搭配 Docker Swarm 模式、Azure Container Registry 及 Visual Studio Team Services 使用 Azure Container Service 引擎，來持續傳遞多容器 .NET Core 應用程式。"
 services: container-service
-documentationcenter: " "
 author: diegomrtnzg
-manager: esterdnb
-tags: acs, azure-container-service, acs-engine
-keywords: "Docker, 容器, 微服務, Swarm, Azure, Visual Studio Team Services, DevOps, ACS 引擎"
+manager: timlt
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 2c0e5fe4f60738fcc1aa67a78674e6f3c62e5628
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6aa690ff7ec0689db78ff1225d36171adb30ee2c
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-visual-studio-team-services"></a>使用 Visual Studio Team Services 的完整 CI/CD 管線，搭配 ACS 引擎和 Docker Swarm 模式在 Azure Container Service 上部署多容器應用程式。
 

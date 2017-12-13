@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
-ms.openlocfilehash: 978ad8f14d70fe60cb220136e87ce4a064672b8a
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: a7edfd1939ad45dd3309fe5eaee2afa36086e9eb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory 傳遞驗證：目前的限制
 
@@ -47,7 +47,10 @@ ms.lasthandoff: 11/28/2017
 - 偵測[認證外洩](../active-directory-reporting-risk-events.md#leaked-credentials)的使用者。
 
 >[!IMPORTANT]
->_僅_針對不支援的情節，請在 Azure AD Connect 精靈的 [選用功能](active-directory-aadconnect-get-started-custom.md#optional-features) 頁面上，啟用密碼雜湊同步處理作為因應措施。 啟用密碼雜湊同步處理也可讓您選擇在內部部署基礎結構中斷時，將驗證容錯移轉。 這個從傳遞驗證到 Active Directory 密碼雜湊同步處理的容錯移轉不會自動進行， 必須藉助 Microsoft 支援服務的協助才能完成。
+>_僅_針對不支援的情節，請在 Azure AD Connect 精靈的 [選用功能](active-directory-aadconnect-get-started-custom.md#optional-features) 頁面上，啟用密碼雜湊同步處理作為因應措施。
+
+>[!NOTE]
+啟用密碼雜湊同步處理可讓您選擇在內部部署基礎結構中斷時，將驗證容錯移轉。 這個從傳遞驗證到 Active Directory 密碼雜湊同步處理的容錯移轉不會自動進行， 您必須使用 Azure AD Connect，以手動方式切換登入方法。 如果執行 Azure AD Connect 的伺服器關閉，您將需要 Microsoft 支援服務的協助，以關閉傳遞驗證。
 
 ## <a name="next-steps"></a>後續步驟
 - [快速入門](active-directory-aadconnect-pass-through-authentication-quick-start.md)：開始使用 Azure AD 傳遞驗證。

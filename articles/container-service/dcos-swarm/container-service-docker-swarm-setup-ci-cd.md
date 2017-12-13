@@ -1,25 +1,19 @@
 ---
-title: "包含 Azure Container Service 與 Swarm 的 CI/CD | Microsoft Docs"
+title: "搭配 Azure Container Service 和 Swarm 使用 CI/CD"
 description: "搭配 Docker Swarm、Azure Container Registry 及 Visual Studio Team Services 使用 Azure Container Service ，來持續傳遞多容器 .NET Core 應用程式"
 services: container-service
-documentationcenter: " "
 author: jcorioland
-manager: pierlag
-tags: acs, azure-container-service
-keywords: "Docker, Containers, Micro-services, Swarm, Azure, Visual Studio Team Services, DevOps, 容器, 微型服務"
+manager: timlt
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 99c27c37218a35d2a3416d6edd5e0a871cd5c011
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 38877afb63e993eeaab723a6ea5f4c40d3c956a5
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-visual-studio-team-services"></a>使用 Visual Studio Team Services 的完整 CI/CD 管線，搭配 Docker Swarm 在 Azure Container Service 上部署多容器應用程式
 
@@ -72,7 +66,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="install-the-docker-integration-vsts-extension"></a>安裝 Docker Integration VSTS 擴充
 
-Microsoft 提供 VSTS 擴充以在建置與發行程序中搭配 Docker 使用。 此擴充可在 [VSTS Marketplace (英文)](https://marketplace.visualstudio.com/items?itemName=ms-vscs-rm.docker) 中取得。 按一下 [安裝] 以將此擴充新增到您的 VSTS 帳戶：
+Microsoft 提供 VSTS 擴充以在建置與發行程序中搭配 Docker 使用。 此擴充功能可在 [VSTS Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscs-rm.docker) \(英文\) 中取得。 按一下 [安裝] 以將此擴充新增到您的 VSTS 帳戶：
 
 ![安裝 Docker 整合](./media/container-service-docker-swarm-setup-ci-cd/install-docker-vsts.png)
 

@@ -1,27 +1,19 @@
 ---
-title: "Azure 上的 Kubernetes 教學課程 - 更新應用程式 | Microsoft Docs"
+title: "Azure 上的 Kubernetes 教學課程 - 更新應用程式"
 description: "AKS 教學課程 - 更新應用程式"
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: "Docker, 容器, 微服務, Kubernetes, DC/OS, Azure"
-ms.assetid: 
 ms.service: container-service
-ms.devlang: aurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: e788a982d2580e90309df977c8e2e1cb22daadaf
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 95c609ab49fe478eda48b2a2eca6a772d1356d18
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="update-an-application-in-azure-container-service-aks"></a>更新 Azure Container Service (AKS) 中的應用程式
 

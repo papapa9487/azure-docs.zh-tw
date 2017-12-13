@@ -8,11 +8,11 @@ ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: how-to
 ms.service: location-based-services
-ms.openlocfilehash: f7337c1c5821016987096da47dda4ac1124d7910
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: d928e4ff7c6e35291bcc1e6a1359d54542968278
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>如何使用 Azure LBS (預覽) 尋找地址
 搜尋服務是一組 RESTful 的 API，針對要搜尋地址、位置、感興趣點、商務清單及其他地理資訊的開發人員所設計。 搜尋服務會將經緯度指派給特定地址、交叉街道、地理功能或感景點 (POI)。 搜尋服務 API 所傳回的緯度與經度值可用來作為其他 Azure LBS (例如路由和流量 API) 中的參數。
@@ -62,12 +62,11 @@ Azure LBS 帳戶和訂用帳戶金鑰。 如需建立帳戶和擷取訂用帳戶
     
     此查詢中的結果會有所不同，未繫結至任何特定的參考位置。 您可以使用 **countrySet** 參數來指定只有您的應用程式需要涵蓋範圍的國家/地區，因為預設行為是要搜尋全世界，可能會傳回不必要的結果。
 
-5. 將下列值新增至查詢字串，然後按一下 [傳送]：
-    ```
-        ,countrySet=US
-    ```
-    >[!NOTE] 
-    >請確定您在查詢字串中以逗號分隔其他的 URI 參數。
+5. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
+
+    | Key | 值 |
+    |------------------|-------------------------|
+    | countrySet | US |
     
     結果現在會依國家/地區程式碼繫結，此查詢會傳回美國境內的披薩餐廳。
     
@@ -116,10 +115,11 @@ Azure LBS 帳戶和訂用帳戶金鑰。 如需建立帳戶和擷取訂用帳戶
         400 Broad, Seattle
     ```
 
-5. 將下列值新增至查詢字串，然後按一下 [傳送]：
-    ```
-        ,typeahead
-    ```
+5. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
+
+    | Key | 值 |
+    |-----|------------|
+    | typeahead | true |
 
     **typeahead** 旗標會指示地址搜尋 API 將查詢視為部分輸入，並傳回預測值的陣列。
 
@@ -150,37 +150,43 @@ Azure LBS 帳戶和訂用帳戶金鑰。 如需建立帳戶和擷取訂用帳戶
     
     此回應包含 Safeco 欄位的 POI 項目，具有「場地」的 POI 分類。 
     
-4. 將下列值新增至查詢字串，然後按一下 [傳送]：
-    ```
-        ,number
-    ```
+4. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
+
+    | Key | 值 |
+    |-----|------------|
+    | number | true |
+
     如果 [number](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 查詢參數隨著要求傳送，回應可能會包含街道邊 (左/右)，以及該號碼的位移位置。
     
-5. 將下列值新增至查詢字串，然後按一下 [傳送]：
-    ```
-        ,spatialKeys
-    ```
+5. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
+
+    | Key | 值 |
+    |-----|------------|
+    | spatialKeys | true |
 
     當設定 [spatialKeys](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 查詢參數時，回應會包含指定位置的專屬地理空間金鑰資訊。
 
-6. 將下列值新增至查詢字串，然後按一下 [傳送]：
-    ```
-        ,returnSpeedLimit
-    ```
+6. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
+
+    | Key | 值 |
+    |-----|------------|
+    | returnSpeedLimit | true |
     
     當設定 [returnSpeedLimit](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 查詢參數時，回應會傳回已張貼的速度限制。
 
-7. 將下列值新增至查詢字串，然後按一下 [傳送]：
-    ```
-        ,returnRoadUse
-    ```
+7. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
+
+    | Key | 值 |
+    |-----|------------|
+    | returnRoadUse | true |
 
     當設定 [returnRoadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 查詢參數時，回應會傳回街道層級的反向地理代碼道路使用陣列。
 
-8. 將下列值新增至查詢字串，然後按一下 [傳送]：
-    ```
-        ,roadUse
-    ```
+8. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
+
+    | Key | 值 |
+    |-----|------------|
+    | roadUse | true |
 
     您可以使用 [roadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 查詢參數，將反向地理代碼限制為特定類型的道路使用。
     

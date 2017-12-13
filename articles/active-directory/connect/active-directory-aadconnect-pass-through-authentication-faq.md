@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
-ms.openlocfilehash: d6a405f7245bf1b9635872efd0e29f8361d6a2f6
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 8722d7827aad10bcae3e8ec06b7014ebc64179d5
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 傳遞驗證：常見問題集
 
@@ -99,24 +99,20 @@ ms.lasthandoff: 11/28/2017
 
 安裝多個傳遞驗證代理程式可確保[高可用性](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)。 但是，它不會在驗證代理程式之間提供確定性的負載平衡。
 
-請考慮您預期在租用戶上看到的登入要求的尖峰與平均負載。 作為基準測試，在標準的 4 核心 CPU，16-GB RAM 伺服器上，單一驗證代理程式每秒可處理 300,000 到 400,000 次驗證。 對大多數客戶來說，總計中兩個或三個驗證代理程式已足以因應高可用性和容量。
+請考慮您預期在租用戶上看到的登入要求的尖峰與平均負載。 在標準的 4 核心 CPU、16-GB RAM 伺服器上，單一驗證代理程式每秒可處理 300 到 400 次驗證，乃是效能評定的基準。
 
-應在靠近網域控制站的地方安裝驗證代理程式，以改善登入的延遲情形。
+若要估計網路流量，請使用下列調整大小指導方針：
+- 每個要求都具有 (0.5K + 1K * num_of_agents) 個位元組的承載大小；也就是從 Azure AD 到驗證代理程式的資料。 在這裡，"num_of_agents" 表示已在您的租用戶上註冊的驗證代理程式數目。
+- 每個回應都具有 1K 個位元組的承載大小；也就是從驗證代理程式到 Azure AD 的資料。
+
+對大多數客戶來說，總計中兩個或三個驗證代理程式已足以因應高可用性和容量。 應在靠近網域控制站的地方安裝驗證代理程式，以改善登入的延遲情形。
+
+>[!NOTE]
+>系統限制每個租用戶只能有 12 個驗證代理程式。
 
 ## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>是否可以在不同於 Azure AD Connect 執行所在伺服器的某個伺服器上安裝第一個傳遞驗證代理程式？
 
 不行，「不」支援這種情況。
-
-## <a name="how-many-pass-through-authentication-agents-should-i-install"></a>應該安裝幾個傳遞驗證代理程式？
-
-我們的建議如下：
-
-- 總共安裝兩到三個驗證代理程式。 此設定足以應付大部分客戶的需求。
-- 您可以在網域控制站上 (或盡可能靠近地) 安裝驗證代理程式，以改善登入延遲情形。
-- 安裝了驗證代理程式的伺服器所新增至的 Active Directory 樹系務必要與需要驗證密碼之使用者的樹系相同。
-
->[!NOTE]
->系統限制每個租用戶只能有 12 個驗證代理程式。
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>如何停用傳遞驗證？
 

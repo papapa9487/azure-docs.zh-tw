@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: genli
-ms.openlocfilehash: 7b435b6904b05228a63e3ed3a9fed78747b843c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d86f3ec043c504c9d79b18f1f0b4c9cf0adb115b
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務之連線能力和網路服務問題：常見問題集 (FAQ)
 
@@ -48,8 +48,8 @@ Azure 會實作多層的網路安全性，可保護其平台服務免於遭受�
 
 ## <a name="when-i-try-to-rdp-to-my-cloud-service-instance-i-get-the-message-the-user-account-has-expired"></a>當我嘗試 RDP 到我的雲端服務執行個體時，會收到這個訊息：「使用者帳戶已過期」。
 當您略過 RDP 設定中所設定的到期日時，可能會收到「此使用者帳戶已過期」的錯誤訊息。 您可以從入口網站中變更到期日，方法是遵循下列步驟：
-1. 登入 Azure 管理主控台 ( https://manage.windowsazure.com )，瀏覽至您的雲端服務，然後選取 [設定] 索引標籤。
-2. 選取 [遠端]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)、瀏覽至您的雲端服務，然後選取 [遠端桌面] 索引標籤。
+2. 選取 [生產] 或 [預備] 部署位置。
 3. 變更「到期日」的日期，然後儲存設定。
 
 您現在應該能夠 RDP 到您的電腦。
