@@ -1,9 +1,9 @@
 ---
-title: "使用 cloud-init 自訂 Linux VM | Microsoft Docs"
-description: "如何透過 Azure CLI 2.0 在建立期間使用 cloud-init 自訂 Linux VM"
+title: "Azure 中 Linux 虛擬機器的 cloud-init 支援概觀 | Microsoft Docs"
+description: "Microsoft Azure 中的 cloud-init 功能概觀"
 services: virtual-machines-linux
 documentationcenter: 
-author: iainfoulds
+author: rickstercdn
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager
@@ -13,171 +13,86 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 10/03/2017
-ms.author: iainfou
-ms.openlocfilehash: 5559f258f5c29b07edb5e61be4755d67173019e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/29/2017
+ms.author: rclaus
+ms.openlocfilehash: ce238a3093e29c3091f979bbd9e80f28495307da
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="use-cloud-init-to-customize-a-linux-vm-in-azure"></a>在 Azure 中使用 cloud-init 自訂 Linux VM
-本文會示範如何在 Azure 中的虛擬機器 (VM) 上使用 [cloud-init](https://cloudinit.readthedocs.io) \(英文\) 來設定主機名稱、更新套件及管理使用者帳戶。 使用 Azure CLI 2.0 建立 VM 時，這些 cloud-init 指令碼會在開機時執行。 如需如何安裝應用程式、撰寫設定檔，以及從 Key Vault 插入金鑰的更深入概觀，請參閱[本教學課程](tutorial-automate-vm-deployment.md)。 您也可以使用 [Azure CLI 1.0](using-cloud-init-nodejs.md) 來執行這些步驟。
-
+# <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure 中虛擬機器的 Cloud-init 支援
+本文說明針對 [cloud-init](https://cloudinit.readthedocs.io) 存在的支援，以便在 Azure 中佈建時，設定虛擬機器 (VM) 或虛擬機器擴展集 (VMSS)。 一旦 Azure 佈建資源，這些 cloud-init 指令碼就會在初次開機時執行。  
 
 ## <a name="cloud-init-overview"></a>Cloud-Init 概觀
-[Cloud-init (英文)](https://cloudinit.readthedocs.io) 是在 Linux VM 初次開機時，廣泛用來自訂它們的方法。 您可以使用 cloud-init 來安裝封裝和寫入檔案，或者設定使用者和安全性。 當 cloud-init 在初次開機程序期間執行時，不需要使用任何額外的步驟或必要的代理程式來套用您的組態。
+[Cloud-init](https://cloudinit.readthedocs.io) 是在 Linux VM 初次開機時，廣泛用來自訂它們的方法。 您可以使用 cloud-init 來安裝套件和寫入檔案，或者設定使用者和安全性。 因為在初次開機程序期間時會呼叫 Cloud-init，因此不需要使用任何額外的步驟或必要的代理程式，就可以套用您的設定。  如需如何正確地設定 `#cloud-config` 檔案格式的詳細資訊，請參閱 [cloud-init 文件網站](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data) \(英文\)。  `#cloud-config` 檔案是以 base64 編碼的文字檔。
 
 Cloud-init 也適用於散發套件。 例如，您不使用 **apt-get install** 或 **yum install** 來安裝套件。 您可以改為定義要安裝的套件清單。 Cloud-init 會針對您選取的散發套件自動使用原生的套件管理工具。
 
-我們正在與合作夥伴合作，以期在他們提供給 Azure 的映像中包含和使用 cloud-init。 下表概述 cloud-init 目前在 Azure 平台映像上的可用性：
+ 我們一直積極地與背書的 Linux 發行版本合作夥伴合作，以便在 Azure Marketplace 中提供支援 Cloud-init 的映像。 這些映像可讓您的 cloud-init 部署和設定順暢地與 VM 和 VM 擴展集 (VMSS) 搭配運作。 下表概述目前支援 cloud-init 的映像在 Azure 平台上的可用性：
 
-| Alias | 發佈者 | 提供項目 | SKU | 版本 |
+| 發佈者 | 供應項目 | SKU | 版本 | cloud-init 就緒
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |最新 |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |最新 |
-| CoreOS |CoreOS |CoreOS |Stable |最新 |
+|Canonical |UbuntuServer |16.04-LTS |最新 |yes | 
+|Canonical |UbuntuServer |14.04.5-LTS |最新 |yes |
+|CoreOS |CoreOS |Stable |最新 |yes |
+|OpenLogic |CentOS |7-CI |最新 |preview |
+|RedHat |RHEL |7-RAW-CI |最新 |preview |
 
+## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>cloud-init 和 Linux 代理程式 (WALA) 之間有哪些差異？
+WALA 是 Azure 平台專屬的代理程式，用於佈建及設定 VM，並處理 Azure 擴充功能。 我們一直在加強設定 VM 使用 cloud-init 代替 Linux 代理程式的工作，以讓現有的 cloud-init 客戶使用其目前的 cloud-init 指令碼。  如果您已經對設定 Linux 系統所使用的 cloud-init 指令碼有所投入，則**不需要其他任何設定**，就可以將其啟用。 
 
-## <a name="set-the-hostname-with-cloud-init"></a>使用 cloud-init 設定主機名稱
-Cloud-init 檔案是以 [YAML](http://www.yaml.org) \(英文\) 撰寫。 若要在您使用 [az vm create](/cli/azure/vm#create) 於 Azure 中建立 VM 時執行 cloud-init 指令碼，請使用 `--custom-data` 參數來指定 cloud-init 檔案。 讓我們來看看您可以使用 cloud-init 檔案設定的一些範例。 常見的案例是設定 VM 的主機名稱。 根據預設，主機名稱會與 VM 名稱相同。 
+如果您在佈建時未包含 AzureCLI 命令列參數 `--custom-data`，WALA 會採用所需的最低限度 VM 佈建參數，來佈建 VM 並使用預設值完成部署。  如果您參考 cloud-init `--custom-data` 參數，自訂資料 (個別設定或完整指令碼) 中包含的任何內容都會覆寫 WALA 定義的預設值。 
 
-首先，使用 [az group create](/cli/azure/group#create) 建立資源群組。 下列範例會在 *eastus* 位置建立名為 *myResourceGroup* 的資源群組：
+VM 的 WALA 設定有時間限制，必須在 VM 佈建時間上限內運作。  套用到 VM 的 Cloud-init 設定沒有時間限制，且不會因為逾時而導致部署失敗。 
 
-```azurecli
+## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>部署支援 cloud-init 的虛擬機器
+部署支援 cloud-init 的虛擬機器就像在部署期間參考支援 cloud-init 的發行版本一樣簡單。  Linux 發行版本維護者必須選擇啟用，並將 cloud-init 整合到其基礎 Azure 發行映像。 一旦確認您想要部署的映像支援 cloud-init，您就可以使用 AzureCLI 來部署映像。 
+
+部署此映像的第一個步驟是使用 [az group create](/cli/azure/group#create) 命令建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
+
+下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
+
+```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
-
-在您目前的殼層中，建立名為 *cloud_init_hostname.txt* 的檔案，並貼上下列設定。 例如，在 Cloud Shell 中建立不在本機電腦上的檔案。 您可以使用任何您想要的編輯器。 在 Cloud Shell 中，輸入 `sensible-editor cloud_init_hostname.txt` 以建立檔案並查看可用的編輯器清單。 請確定已正確複製整個 cloud-init 檔案，特別是第一行：
-
-```yaml
-#cloud-config
-hostname: myhostname
-```
-
-現在，請使用 [az vm create](/cli/azure/vm#create) 建立 VM 並以 `--custom-data cloud_init_hostname.txt` 指定 cloud-init 檔案，如下所示：
-
-```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVMHostname \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud_init_hostname.txt
-```
-
-建立之後，Azure CLI 隨即顯示 VM 的相關資訊。 使用 `publicIpAddress` 來以 SSH 連線到您的 VM。 輸入您自己的位址，如下所示︰
-
-```bash
-ssh azureuser@publicIpAddress
-```
-
-若要查看 VM 名稱，請使用 `hostname` 命令，如下所示：
-
-```bash
-hostname
-```
-
-VM 所報告的主機名稱應該會和 cloud-init 檔案中所設定的值相同，如下列範例輸出所示：
-
-```bash
-myhostname
-```
-
-## <a name="update-a-vm-with-cloud-init"></a>使用 cloud-init 更新 VM
-基於安全考量，您應該設定 VM 以在第一次開機時套用最新的更新。 由於 cloud-init 可在不同的 Linux 散發版本上運作，所以不需要為套件管理員指定 `apt` 或 `yum`。 相反地，您可定義 `package_upgrade` 並讓 cloud-init 程序判斷使用中散發版本的適當機制。 此工作流程可讓您在不同的散發版本上使用相同的 cloud-init 指令碼。
-
-若要查看作用中的升級程序，請建立名為 *cloud_init_upgrade.txt* 的 cloud-init 檔案，然後貼上下列設定：
+下一個步驟是在您目前的殼層中建立名為 *cloud-init.txt* 的檔案，並貼上下列設定。 針對此案例，在 Cloud Shell 中 (而不是本機電腦上) 建立該檔案。 您可以使用任何您想要的編輯器。 輸入 `sensible-editor cloud-init.txt` 以建立檔案，並查看可用的編輯器清單。 選擇 #1 以使用 **nano** 編輯器。 請確定已正確複製整個 cloud-init 檔案，特別是第一行：
 
 ```yaml
 #cloud-config
 package_upgrade: true
+packages:
+  -httpd
 ```
+按下 `ctrl-X` 以結束檔案、輸入 `y` 以儲存檔案，然後按下 `enter` 以在結束時確認檔案名稱。
 
-現在，請使用 [az vm create](/cli/azure/vm#create) 建立 VM 並以 `--custom-data cloud_init_upgrade.txt` 指定 cloud-init 檔案，如下所示：
+最後一個步驟是使用 [az vm create](/cli/azure/vm#az_vm_create) 命令來建立 VM。 
 
-```azurecli
+下列範例會建立名為 *centos74* 的 VM，並建立 SSH 金鑰 (如果它們不存在於預設金鑰位置)。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。  使用 `--custom-data` 參數以傳入 cloud-init 組態檔。 如果您將檔案儲存於目前工作目錄之外的位置，請提供 cloud-init.txt 組態的完整路徑。 下列範例會建立名為 *centos74* 的 VM：
+
+```azurecli-interactive 
 az vm create \
-    --resource-group myResourceGroup \
-    --name myVMUpgrade \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud_init_upgrade.txt
+  --resource-group myResourceGroup \
+  --name centos74 \
+  --image OpenLogic:CentOS:7-CI:latest \
+  --custom-data cloud-init.txt \
+  --generate-ssh-keys 
 ```
 
-以 SSH 連線到顯示於由上述命令所產生之輸出中的 VM 公用 IP 位址。 輸入您自己的公用 IP 位址，如下所示︰
+建立 VM 後，Azure CLI 會顯示您部署專屬的資訊。 記下 `publicIpAddress`。 此位址用來存取 VM。  系統需要花一些時間建立 VM、安裝套件以及啟動應用程式。 在 Azure CLI 將您返回提示字元之後，背景工作會繼續執行。 您可以透過 SSH 連線到 VM，並使用「疑難排解」一節中所述的步驟來檢視 cloud-init 記錄。 
 
-```bash
-ssh azureuser@publicIpAddress
-```
+## <a name="troubleshooting-cloud-init"></a>針對 cloud-init 進行疑難排解
+一旦佈建 VM，Cloud-init 將會執行 `--custom-data` 中定義的所有模組和指令碼，以設定 VM。  如果您需要針對設定中的任何錯誤或遺漏進行疑難排解，則需要在 cloud-init 記錄 (位於 **/var/log/cloud-init.log**) 中搜尋模組名稱 (例如 `disk_setup` 或 `runcmd`)。
 
-執行套件管理工具並檢查是否有更新。 下列範例會在 Ubuntu VM 上使用 `apt-get`：
+> [!NOTE]
+> 並非每個模組失敗都會導致嚴重的 cloud-init 整體設定失敗。 例如，使用 `runcmd` 模組時，如果指令碼失敗，cloud-init 會因為執行了 runcmd 模組而仍然報告佈建成功，。
 
-```bash
-sudo apt-get upgrade
-```
-
-由於 cloud-init 會在開機時檢查是否有更新並予以安裝，因此已無要套用的更新，如下列範例輸出所示：
-
-```bash
-Reading package lists... Done
-Building dependency tree
-Reading state information... Done
-Calculating upgrade... Done
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
-```
-
-## <a name="add-a-user-to-a-vm-with-cloud-init"></a>使用 cloud-init 將使用者新增至 VM
-針對任何新的 Linux VM，首要工作之一就是為您自己新增一個使用者，以避免使用*根*。 SSH 金鑰是提供安全性和可用性的最佳做法。 此 cloud-init 指令碼會將金鑰新增至 *~/.ssh/authorized_keys* 檔案。
-
-若要將使用者新增至 Linux VM，請建立名為 *cloud_init_add_user.txt* 的 cloud-init 檔案，然後貼上下列設定。 針對 *ssh-authorized-keys* 提供您自己公開金鑰，(例如 *~/.ssh/id_rsa.pub* 的內容)：
-
-```yaml
-#cloud-config
-users:
-  - name: myadminuser
-    groups: sudo
-    shell: /bin/bash
-    sudo: ['ALL=(ALL) NOPASSWD:ALL']
-    ssh-authorized-keys:
-      - ssh-rsa AAAAB3<snip>
-```
-
-現在，請使用 [az vm create](/cli/azure/vm#create) 建立 VM 並以 `--custom-data cloud_init_add_user.txt` 指定 cloud-init 檔案，如下所示：
-
-```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVMUser \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud_init_add_user.txt
-```
-
-以 SSH 連線到顯示於由上述命令所產生之輸出中的 VM 公用 IP 位址。 輸入您自己的公用 IP 位址，如下所示︰
-
-```bash
-ssh myadminuser@publicIpAddress
-```
-
-若要確認已將您的使用者新增至 VM 與指定的群組，請檢視 */etc/group* 檔案的內容，如下所示：
-
-```bash
-cat /etc/group
-```
-
-下列範例輸出顯示來自 *cloud_init_add_user.txt* 檔案的使用者已新增至 VM 與適當的群組：
-
-```bash
-root:x:0:
-<snip />
-sudo:x:27:myadminuser
-<snip />
-myadminuser:x:1000:
-```
+如需 cloud-init 記錄的詳細資訊，請參閱 [cloud-init 文件](http://cloudinit.readthedocs.io/en/latest/topics/logging.html) \(英文\) 
 
 ## <a name="next-steps"></a>後續步驟
-Cloud-init 是在開機時修改 Linux VM 的其中一種標準方式。 在 Azure 中，您也可以使用 VM 擴充功能來在開機時或在 VM 執行之後修改 Linux VM。 例如，您可以使用 Azure VM 擴充功能在執行中的 VM 上執行指令碼，而非僅在首次開機時執行。 如需 VM 擴充功能的詳細資訊，請參閱 [VM 擴充功能和功能](extensions-features.md)；或者，若要取得如何使用擴充功能的範例，請參閱[使用 VMAccess 擴充功能在 Azure Linux VM 上管理使用者、SSH 及檢查或修復磁碟](using-vmaccess-extension.md)。
+如需設定變更的 cloud-init 範例，請參閱下列文件：
+ 
+- [將額外的 Linux 使用者新增至 VM](cloudinit-add-user.md)
+- [執行套件管理員以便在初次開機時更新現有的套件](cloudinit-update-vm.md)
+- [變更 VM 本機主機名稱](cloudinit-update-vm-hostname.md) 
+- [安裝應用程式套件、更新組態檔案，以及插入金鑰](tutorial-automate-vm-deployment.md)

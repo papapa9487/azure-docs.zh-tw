@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: saysa
-ms.openlocfilehash: e9422745de1f46098f1a1b0605c2560f44c02f3c
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 89b356c3959b7cb63a746805d60535e07f0d6898
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>使用 Jenkins 建置和部署您的 Linux 應用程式
 Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 Jenkins 建置和部署 Azure Service Fabric 應用程式的方式。
 
 ## <a name="general-prerequisites"></a>一般先決條件
 - 在本機安裝 Git。 您可以根據您的作業系統，從 [Git 下載頁面](https://git-scm.com/downloads)安裝適當的 Git 版本。 如果您不熟悉 Git，請從 [Git 文件](https://git-scm.com/docs)深入了解。
-- 備妥 Service Fabric Jenkins 外掛程式。 您可以從 [Service Fabric 下載](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi)進行下載。
+- 備妥 Service Fabric Jenkins 外掛程式。 您可以從 [Service Fabric 下載](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi)進行下載。 如果您是使用 Edge 瀏覽器，請將已下載檔案的副檔名從 .zip 重新命名為 .hpi。
 
 ## <a name="set-up-jenkins-inside-a-service-fabric-cluster"></a>在 Service Fabric 叢集內設定 Jenkins
 
@@ -129,8 +129,8 @@ ssh user@PublicIPorFQDN -p [port]
 現在，當您在終端機執行 ``docker info``，您應該會在輸出中看到 Docker 服務正在執行。
 
 ### <a name="steps"></a>步驟
-  1. 提取 Service Fabric Jenkins 容器映像︰``docker pull sayantancs/jenkins:v9``
-  2. 執行容器映像︰``docker run -itd -p 8080:8080 sayantancs/jenkins:v9``
+  1. 提取 Service Fabric Jenkins 容器映像︰``docker pull rapatchi/jenkins:v9``
+  2. 執行容器映像︰``docker run -itd -p 8080:8080 rapatchi/jenkins:v9``
   3. 取得容器映像執行個體的識別碼。 您可以使用命令 ``docker ps –a`` 列出所有 Docker 容器
   4. 使用下列步驟登入 Jenkins 入口網站︰
 

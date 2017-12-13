@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: da2dc87543fd8a0aa99e1de3018a310abe93fa3a
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: fb21280921f353d2300767059290a1a8fac05e71
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-media-services-concepts"></a>Azure 媒體服務概念
 本主題提供媒體服務概念的最重要概觀。
@@ -150,11 +150,10 @@ Azure 媒體服務可讓您保護媒體從離開電腦到進行儲存、處理�
 
 設定 token 限制原則時，您必須指定主要驗證金鑰、簽發者和對象參數。 主要驗證金鑰包含簽署權杖使用的金鑰，簽發者是發行權杖的安全權杖服務。 對象 (有時稱為範圍) 描述權杖或權杖獲授權存取之資源的用途。 媒體服務金鑰傳遞服務會驗證權杖中的這些值符合在範本中的值。
 
-如需詳細資訊，請參閱下列文章：
-
-[保護內容概觀](media-services-content-protection-overview.md)
-[使用 AES-128 保護](media-services-protect-with-aes128.md)
-[使用 DRM 保護](media-services-protect-with-drm.md)
+如需詳細資訊，請參閱下列文章。
+- [保護內容概觀](media-services-content-protection-overview.md)
+- [使用 AES-128 保護](media-services-protect-with-aes128.md)
+- [使用 PlayReady/Widevine 保護](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>傳遞
 ### <a id="dynamic_packaging"></a>動態封裝

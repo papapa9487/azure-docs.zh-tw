@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 438eeee7353cbd1d534f27471c9c9054aecc12e8
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 53c9072f98dfe9c03b85eb7409b8ed91c3c0ce33
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>使用 Reliable Services 的服務遠端處理
 對於未繫結至特定通訊協定或堆疊 (例如 WebAPI、Windows Communication Foundation (WCF) 或其他項目) 的服務，Reliable Services 架構會提供遠端機制，以便快速且輕鬆設定服務遠端程序呼叫。
@@ -79,10 +79,10 @@ string message = await helloWorldClient.HelloWorldAsync();
 
 ```
 
-遠端架構會將在服務擲回的例外狀況傳播給用戶端。 因此在用戶端使用 `ServiceProxy` 的例外狀況處理邏輯，可以直接處理服務擲回的例外狀況。
+遠端架構會將服務擲回的例外狀況傳播給用戶端。 因此，使用 `ServiceProxy` 時，用戶端會負責處理由服務擲回的例外狀況。
 
 ## <a name="service-proxy-lifetime"></a>服務 Proxy 存留期
-建立 ServiceProxy 是輕量型作業，因此使用者可以建立的數目沒有限制。 只要有需要，使用者可以重複使用服務 Proxy 執行個體。 如果遠端程序呼叫擲回例外狀況，則使用者仍然可以重複使用相同的 Proxy 執行個體。 每個 ServiceProxy 都包含用來透過網路傳送訊息的通訊用戶端。 叫用遠端呼叫時，我們會在內部檢查通訊用戶端是否有效。 根據結果，我們會重新建立通訊用戶端 (如有需要的話)。 因此如果發生例外狀況，使用者不需要重新建立 serviceproxy，此程序會自動在背景完成。
+建立 ServiceProxy 是輕量型作業，因此使用者可以建立的數目沒有限制。 只要有需要，使用者可以重複使用服務 Proxy 執行個體。 如果遠端程序呼叫擲回例外狀況，則使用者仍然可以重複使用相同的 Proxy 執行個體。 每個 ServiceProxy 都包含用來透過網路傳送訊息的通訊用戶端。 叫用遠端呼叫時，我們會在內部檢查通訊用戶端是否有效。 根據結果，我們會重新建立通訊用戶端 (如有需要的話)。 因此，如果發生例外狀況，使用者不需要重新建立 `ServiceProxy`，因為此程序會以透明方式完成。
 
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory 存留期
 [ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) 是建立不同遠端介面 Proxy 執行個體的處理站。 如果您使用 api `ServiceProxy.Create` 建立 Proxy，那麼架構將建立單一 ServiceProxy。
@@ -91,12 +91,13 @@ string message = await helloWorldClient.HelloWorldAsync();
 最佳做法是快取 ServiceProxyFactory 的時間愈長愈好。
 
 ## <a name="remoting-exception-handling"></a>遠端例外狀況處理
-服務 API 擲出的所有遠端例外狀況會以 AggregateException 的形式傳送回用戶端。 RemoteExceptions 應可進行 DataContract 序列化，否則 Proxy API 會收到包含序列化錯誤的 [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception)。
+服務 API 擲回的所有遠端例外狀況都會以 AggregateException 的形式傳送回用戶端。 RemoteExceptions 應可進行 DataContract 序列化，否則，Proxy API 會擲回包含序列化錯誤的 [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) \(英文\)。
 
-ServiceProxy 會處理服務分割區 (ServiceProxy 即是為其建立) 的所有容錯移轉列外狀況。 發生容錯移轉例外狀況 (非暫時性例外狀況) 時，ServiceProxy 會重新解析端點，然後以正確的端點再次嘗試呼叫。 容錯移轉例外狀況的重試次數並無限制。
+ServiceProxy 會處理它為其建立之服務分割區的所有容錯移轉列外狀況。 它會在有容錯移轉例外狀況 (非暫時性例外狀況) 時重新解析端點，然後以正確的端點再次嘗試呼叫。 容錯移轉例外狀況的重試次數並無限制。
 如果發生暫時性例外狀況，Proxy 會重試呼叫。
 
-預設的重試參數會由 [OperationRetrySettings] 提供。 (https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings) 使用者可透過將 OperationRetrySettings 物件傳遞至 ServiceProxyFactory 建構函式來設定這些值。
+預設的重試參數是由 [OperationRetrySettings](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings) \(英文\) 提供。
+使用者可以將 OperationRetrySettings 物件傳遞至 ServiceProxyFactory 建構函式，來設定這些值。
 ## <a name="how-to-use-remoting-v2-stack"></a>如何使用 Remoting V2 堆疊
 使用 2.8 NuGet Remoting 封裝時，您可以選擇使用 Remoting V2 堆疊。 Remoting V2 堆疊的效能更好，並提供像是自訂可序列化 Api 和更容易插入的 Api 等功能。
 根據預設，如果您沒有進行下列變更，則會繼續使用 Remoting V1 堆疊。

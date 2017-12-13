@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/26/2017
+ms.date: 12/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 70c85bcb2c26d2ad3d0515d24e028f84495634c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3965c74d51996b3e4144130fad01fae9e265897
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>在 Azure 入口網站中，使用 StorSimple 裝置管理員服務來複製磁碟區
 
@@ -56,7 +56,7 @@ StorSimple 裝置管理員服務 [備份類別目錄]  刀鋒視窗會顯示在�
 
 #### <a name="to-clone-a-volume"></a>若要複製磁碟區
 
-1. 移至 StorSimple 裝置管理員服務，然後按一下備份類別目錄。
+1. 移至 StorSimple 裝置管理員服務，然後按一下 [備份類別目錄]。
 
 2. 選取備份組，如下所示：
    
@@ -69,12 +69,7 @@ StorSimple 裝置管理員服務 [備份類別目錄]  刀鋒視窗會顯示在�
    
     ![備份組清單](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
      
-3. 展開備份組以檢視相關聯的磁碟區。 您必須先在主機和裝置上將這些磁碟區離線，才能還原它們。 存取您裝置上 [磁碟區] 刀鋒視窗上的磁碟區，然後依照[讓磁碟區離線](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline)中的步驟來讓它們離線。
-   
-   > [!IMPORTANT]
-   > 確定您已先讓主機上的磁碟區離線，然後再讓裝置上的磁碟區離線。 如果您並未讓主機上的磁碟區離線，可能會導致資料損毀。
-   
-4. 瀏覽回到 [備份類別目錄]，並選取備份組中的磁碟區。 以滑鼠右鍵按一下，然後從操作功能表中選取 [複製]。
+3. 展開備份組以檢視相關聯的磁碟區，並選取備份組中的磁碟區。 以滑鼠右鍵按一下，然後從操作功能表中選取 [複製]。
 
    ![備份組清單](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
 
@@ -100,7 +95,7 @@ StorSimple 裝置管理員服務 [備份類別目錄]  刀鋒視窗會顯示在�
 
     ![備份組清單](./media/storsimple-8000-clone-volume-u2/clonevol5.png)
 
-7. 複製作業完成後，移至您的裝置，然後按一下磁碟區。 在磁碟區清單中，您應該會看見剛剛在相同磁碟區容器中建立的複製具有來源磁碟區。
+7. 複製作業完成後，移至您的裝置，然後按一下 [磁碟區]。 在磁碟區清單中，您應該會看見剛剛在相同磁碟區容器中建立的複製具有來源磁碟區。
 
     ![備份組清單](./media/storsimple-8000-clone-volume-u2/clonevol6.png)
 

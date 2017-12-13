@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/02/2017
+ms.date: 12/06/2017
 ms.author: alkohli
-ms.openlocfilehash: e4980cdb77650f011d143ed9e86fbe0af6b29d5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8990d68b327e5688c7078a6b1a9d41ad0600a67
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple 安全性和資料保護
 
@@ -157,7 +157,7 @@ StorSimple 裝置管理員服務的主要目的是管理和設定 StorSimple 裝
 > 
 > 如果服務資料加密金鑰遺失，Microsoft 支援人員可協助您擷取該金鑰，但前提是您至少要有一個裝置處於線上狀態。 建議您在擷取服務資料加密金鑰後將其變更。 如需相關指示，請移至 [變更服務資料加密金鑰](storsimple-service-dashboard.md#change-the-service-data-encryption-key)。
 
-您可以在服務儀表板上選取 [變更服務資料加密金鑰]  選項，以變更服務資料加密金鑰和對應的資料加密憑證。 若要確保資料安全性不會受到危害，您必須使用實體 StorSimple 裝置變更服務資料加密金鑰。 變更加密金鑰時，必須使用新的金鑰更新所有裝置。 因此，建議您在所有裝置都在線上時變更金鑰。 如果裝置處於離線狀態，您可以在其他時間變更金鑰。 金鑰已過期的裝置仍然可以執行備份，但在金鑰更新之前將無法還原資料。 如需詳細資訊，請移至[使用 StorSimple 裝置管理員服務儀表板](storsimple-8000-service-dashboard.md)。
+若要變更服務資料加密金鑰和對應的資料加密憑證，請依照[針對 StorSimple 裝置管理員服務變更服務資料加密金鑰](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)中的步驟進行。 變更加密金鑰時，必須使用新的金鑰更新所有裝置。 因此，建議您在所有裝置都在線上時變更金鑰。 如果裝置處於離線狀態，您可以在其他時間變更金鑰。 金鑰已過期的裝置仍然可以執行備份，但在金鑰更新之前將無法還原資料。
 
 服務資料加密金鑰和資料加密憑證不會過期。 不過，建議您每年變更服務資料加密金鑰，以防金鑰外洩。
 
@@ -212,7 +212,7 @@ StorSimple 會使用下列加密演算法，來保護儲存在 StorSimple 解決
 
 **答：** 您應該立即變更服務資料加密金鑰，以及將資料分層時所使用之儲存體帳戶的儲存體帳戶金鑰。 如需相關指示，請移至：
 
-* [變更服務資料加密金鑰](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [變更服務資料加密金鑰](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [儲存體帳戶的金鑰輪替](storsimple-8000-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
 **問：** 新的 StorSimple 裝置要求我提供服務註冊金鑰。 該如何擷取此金鑰？
@@ -225,7 +225,7 @@ StorSimple 會使用下列加密演算法，來保護儲存在 StorSimple 解決
 
 **答：** 請連絡「Microsoft 支援服務」。 他們可以登入您裝置上的支援工作階段，協助您擷取金鑰 (假設至少一部裝置在線)。 您取得服務資料加密金鑰之後，請立即變更，以確保只有您自己知道新的金鑰。 如需相關指示，請移至：
 
-* [變更服務資料加密金鑰](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [變更服務資料加密金鑰](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 
 **問：**我已授權裝置進行服務資料加密金鑰變更，但未啟動金鑰變更程序。 我該怎麼辦？
 
@@ -240,7 +240,7 @@ StorSimple 會使用下列加密演算法，來保護儲存在 StorSimple 解決
 **答：** 變更並重設 StorSimple 裝置的存取密碼，並且變更服務資料加密金鑰，以確保未經授權的人員不知道新的資訊。 如需相關指示，請移至：
 
 * [使用 StorSimple 裝置管理員服務變更您的 StorSimple 密碼](storsimple-8000-change-passwords.md)
-* [變更服務資料加密金鑰](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [變更服務資料加密金鑰](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [為 StorSimple 裝置設定 CHAP](storsimple-8000-configure-chap.md)
 
 **問：** 我想要提供 StorSimple Snapshot Manager 密碼給連接至 StorSimple 裝置的主機，但無法取得密碼。 我該怎麼辦？

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 895d6307b1cef74e195cc2ffd8dbef4196e97b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2027aed8a604c33c96c66c23e9ddaa51f632edb5
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>使用 Apple FairPlay 或 Microsoft PlayReady 保護 HLS 內容
 Azure 媒體服務可讓您使用下列格式，動態加密您的 HTTP 即時串流 (HLS) 內容︰  
@@ -33,12 +33,12 @@ Azure 媒體服務可讓您使用下列格式，動態加密您的 HTTP 即時�
 
 下圖顯示 **HLS + FairPlay 或 PlayReady 動態加密** 工作流程。
 
-![動態加密工作流程的圖表](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
+![動態加密工作流程的圖表](./media/media-services-content-protection-overview/media-services-content-protection-with-FairPlay.png)
 
-本主題示範如何使用媒體服務，以 Apple FairPlay 動態加密 HLS 內容。 它也會顯示如何使用媒體服務授權傳遞服務，傳遞 FairPlay 授權給用戶端。
+本文示範如何使用媒體服務，以 Apple FairPlay 動態加密 HLS 內容。 它也會顯示如何使用媒體服務授權傳遞服務，傳遞 FairPlay 授權給用戶端。
 
 > [!NOTE]
-> 如果您也想要以 PlayReady 加密 HLS 內容，必須建立一般內容金鑰，並將它與您的資產產生關聯。 您也必須設定內容金鑰的授權原則，如[使用 PlayReady 動態一般加密](media-services-protect-with-drm.md)中所述。
+> 如果您也想要以 PlayReady 加密 HLS 內容，必須建立一般內容金鑰，並將它與您的資產產生關聯。 您也必須設定內容金鑰的授權原則，如[使用 PlayReady 動態一般加密](media-services-protect-with-playready-widevine.md)中所述。
 >
 >
 
@@ -65,10 +65,10 @@ Azure 媒體服務可讓您使用下列格式，動態加密您的 HTTP 即時�
         移至 FairPlay 憑證和其他 Apple 提供檔案所在的資料夾。
     2. 從命令列執行下列命令。 這會將 .cer 檔案轉換成 .pem 檔案。
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in fairplay.cer -out fairplay-out.pem
+        "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in FairPlay.cer -out FairPlay-out.pem
     3. 從命令列執行下列命令。 這會將 .pem 檔案轉換為包含私密金鑰的 .pfx 檔案。 OpenSSL 程式會接著要求 .Pfx 檔案的密碼。
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt
+        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
   * **應用程式憑證密碼** - 用來建立 .pfx 檔案的密碼。
   * **應用程式憑證密碼識別碼**︰您必須上傳密碼，做法類似於其上傳其他媒體服務金鑰的方式。 使用 **ContentKeyType.FairPlayPfxPassword** 列舉值來取得媒體服務識別碼。 這是它們要在金鑰傳遞原則選項內使用所需之物。
   * **iv**︰這是 16 位元組的隨機值。 其必須符合資產傳遞原則中的 iv。 您會產生 iv，並將它放在兩個位置︰資產傳遞原則和金鑰傳遞原則選項。
@@ -125,7 +125,7 @@ FPS 用戶端必須設定下列各項︰
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> Azure 媒體播放器不支援現成的 FairPlay 播放。 若要在 MAC OS X 上播放 FairPlay，請從 Apple 開發人員帳戶取得範例播放程式。
+> Azure 媒體播放器支援 FairPlay 播放。 如需詳細資訊，請參閱 [Azure 媒體播放器文件](https://amp.azure.net/libs/amp/latest/docs/index.html) \(英文\)。
 >
 >
 
@@ -157,7 +157,7 @@ FPS 用戶端必須設定下列各項︰
 以本章節中所顯示的程式碼覆寫 Program.cs 檔案中的程式碼。
 
 >[!NOTE]
->對於不同的 AMS 原則 (例如 Locator 原則或 ContentKeyAuthorizationPolicy) 有 1,000,000 個原則的限制。 如果您一律使用相同的日期 / 存取權限，例如，要長時間維持就地 (非上載原則) 的定位器原則，您應該使用相同的原則識別碼。 如需詳細資訊，請參閱 [這個](media-services-dotnet-manage-entities.md#limit-access-policies) 主題。
+>對於不同的 AMS 原則 (例如 Locator 原則或 ContentKeyAuthorizationPolicy) 有 1,000,000 個原則的限制。 如果您一律使用相同的日期 / 存取權限，例如，要長時間維持就地 (非上載原則) 的定位器原則，您應該使用相同的原則識別碼。 如需詳細資訊，請參閱[本篇文章](media-services-dotnet-manage-entities.md#limit-access-policies)。
 
 請務必更新變數，以指向您的輸入檔案所在的資料夾。
 

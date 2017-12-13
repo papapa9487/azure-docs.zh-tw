@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 5a35c7255a1c30a693862589c14f6a22a1900790
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36ec76718d21cac5ae3203f1c6d4b8af2aacb9ed
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="configure-content-key-authorization-policy"></a>設定內容金鑰授權原則
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -28,9 +28,9 @@ Microsoft Azure 媒體服務可讓您傳遞受到進階加密標準 (AES) (使�
 
 媒體服務也提供 **金鑰/授權傳遞服務** ，用戶端可以從該處取得 AES 金鑰或 PlayReady/Widevine 授權，以便播放加密的內容。
 
-本主題示範如何使用 Azure 入口網站設定內容金鑰授權原則。 金鑰稍後可以用來動態加密您的內容。 請注意，目前您可以加密下列串流格式：HLS、MPEG DASH 和 Smooth Streaming。 您無法加密漸進式下載。
+本文示範如何使用 Azure 入口網站設定內容金鑰授權原則。 金鑰稍後可以用來動態加密您的內容。 您目前可以加密下列串流格式：HLS、MPEG DASH 和 Smooth Streaming。 您無法加密漸進式下載。
 
-當播放程式要求設定為動態加密的串流時，媒體服務會使用設定的金鑰，以 AES 或 DRM 加密來動態加密您的內容。 為了將串流解密，播放程式將從金鑰傳遞服務要求金鑰。 為了決定使用者是否有權取得金鑰，服務會評估為金鑰指定的授權原則。
+當播放程式要求設定為動態加密的串流時，媒體服務會使用設定的金鑰，以 AES 或 DRM 加密來動態加密您的內容。 為了將串流解密，播放程式將向金鑰傳遞服務要求金鑰。 為了決定使用者是否有權取得金鑰，服務會評估為金鑰指定的授權原則。
 
 如果您預計有多個內容金鑰，或想要指定 **金鑰/授權傳遞服務** URL，而非媒體服務金鑰傳遞服務，請使用媒體服務 .NET SDK 或 REST API。
 
@@ -42,6 +42,7 @@ Microsoft Azure 媒體服務可讓您傳遞受到進階加密標準 (AES) (使�
 * 當建立您的 AMS 帳戶時，系統會新增一個狀態為 [已停止] 的「預設」串流端點到您的帳戶。 若要開始串流處理您的內容並利用動態封裝和動態加密功能，您的串流端點必須處於 [執行中] 狀態。 
 * 您的資產必須包含一組調適性位元速率 MP4 或調適性位元速率 Smooth Streaming 檔案。 如需詳細資訊，請參閱 [為資產編碼](media-services-encode-asset.md)。
 * 金鑰傳遞服務會快取 ContentKeyAuthorizationPolicy 和其相關物件 (原則選項和限制) 15 分鐘。  如果您建立 ContentKeyAuthorizationPolicy，並指定要使用 "Token" 的限制，那麼便測試它，然後將原則更新為"Open" 限制，將需要大約 15 分鐘，原則才會切換為 "Open" 版本的原則。
+* AMS 串流端點會在預檢回應中，將 CORS 'Access-Control-Allow-Origin' 標頭的值設定為萬用字元 '\*'。 這適用於大多數的播放程式，包括我們的 Azure 媒體播放器、Roku 和 JW，以及其他播放程式。 不過，有些利用 dashjs 的播放程式則不適用，因為，如果將認證模式設定為 “include”，其 dashjs 中的 XMLHttpRequest 就不允許萬用字元 “\*” 作為 “'Access-Control-Allow-Origin” 的值。 對於 dashjs 中此一限制的因應措施是，如果您從單一網域裝載用戶端，Azure 媒體服務就能在預檢回應標頭中指定該網域。 您可以透過 Azure 入口網站建立支援票證來達成。
 
 ## <a name="how-to-configure-the-key-authorization-policy"></a>作法：設定金鑰授權原則
 若要設定金鑰授權原則，請選取 [ **內容保護** ] 頁面。
@@ -49,7 +50,7 @@ Microsoft Azure 媒體服務可讓您傳遞受到進階加密標準 (AES) (使�
 媒體服務支援多種方式來驗證提出金鑰要求的使用者。 內容金鑰授權原則可以有 **open**、**token** 或 **IP** 授權限制 (**IP** 可以使用 REST 或 .NET SDK 設定)。
 
 ### <a name="open-restriction"></a>Open 限制
-**open** 限制表示系統將會傳送金鑰給提出金鑰要求的任何人。 這項限制可用於測試用途。
+**Open** 限制表示系統會傳送金鑰給提出金鑰要求的任何人。 這項限制可用於測試用途。
 
 ![OpenPolicy][open_policy]
 
@@ -60,7 +61,7 @@ Microsoft Azure 媒體服務可讓您傳遞受到進階加密標準 (AES) (使�
 
 媒體服務不提供 **安全權杖服務**。 您可以建立自訂 STS，或利用 Microsoft Azure ACS 來發行權杖。 STS 必須設定為建立使用指定的索引鍵和問題宣告您在權杖限制組態中指定簽署的權杖。 如果權杖有效，且權杖中的宣告符合為內容金鑰設定的宣告，媒體服務金鑰傳遞服務會將加密金鑰傳回給用戶端。 如需詳細資訊，請參閱 [使用 Azure ACS 發行權杖](http://mingfeiy.com/acs-with-key-services)。
 
-設定 **TOKEN** 限制原則時，您必須設定**驗證金鑰**、**簽發者**和**對象**的值。 主要驗證金鑰包含簽署權杖使用的金鑰，簽發者是發行權杖的安全權杖服務。 對象 (有時稱為範圍) 描述權杖或權杖獲授權存取之資源的用途。 媒體服務金鑰傳遞服務會驗證權杖中的這些值符合在範本中的值。
+設定**權杖**限制的原則時，您必須指定主要**驗證金鑰**、**簽發者**和**對象**參數。 主要**驗證金鑰**包含用以簽署權杖的金鑰，**簽發者**是發行權杖的安全性權杖服務。 **對象** (有時稱為**範圍**) 描述權杖或權杖獲授權存取之資源的用途。 媒體服務金鑰傳遞服務會驗證權杖中的這些值符合在範本中的值。
 
 ### <a name="playready"></a>PlayReady
 使用 **PlayReady**保護內容時，您需要在驗證原則中指定的其中一件事是定義 PlayReady 授權範本的 XML 字串。 依預設，會設定下列原則：
@@ -69,7 +70,7 @@ Microsoft Azure 媒體服務可讓您傳遞受到進階加密標準 (AES) (使�
 
 您可以按一下 [匯入原則 xml] 按鈕，並提供符合[這裡](media-services-playready-license-template-overview.md)所定義之 XML 結構描述的不同 XML。
 
-## <a name="next-step"></a>後續步驟
+## <a name="next-steps"></a>後續步驟
 檢閱媒體服務學習路徑。
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

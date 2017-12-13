@@ -1,5 +1,5 @@
 ---
-title: "使用 Azure 媒體服務傳遞 DRM 授權或 AES 金鑰"
+title: "使用 Azure 媒體服務傳遞 DRM 授權或 AES 金鑰 | Microsoft Docs"
 description: "本文將說明如何使用 Azure 媒體服務 (AMS) 來傳遞 PlayReady 和/或 Widevine 授權及 AES 金鑰，但使用您的內部部署伺服器完成其餘部分 (編碼、加密、串流)。"
 services: media-services
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 263a381dc72105eea60ad9b39434599ff04a4531
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb39b6a737aab3fe5ba477cc4aee601954d16247
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>使用 Azure 媒體服務傳遞 DRM 授權或 AES 金鑰
-Azure 媒體服務 (AMS) 可讓您內嵌、編碼、新增內容保護，以及串流您的內容 (如需詳細資料，請參閱 [這篇](media-services-protect-with-drm.md) 文章)。 不過，有一些客戶只想使用 AMS 來傳遞授權和/或金鑰，並使用他們的內部部署伺服器來進行編碼、加密和串流。 本文章說明如何使用 AMS 來傳遞 PlayReady 和/或 Widevine 授權，但使用您的內部部署伺服器來完成其餘部分。 
+Azure 媒體服務 (AMS) 可讓您內嵌、編碼、新增內容保護，以及串流您的內容 (如需詳細資料，請參閱 [這篇](media-services-protect-with-playready-widevine.md) 文章)。 不過，有一些客戶只想使用 AMS 來傳遞授權和/或金鑰，並使用他們的內部部署伺服器來進行編碼、加密和串流。 本文章說明如何使用 AMS 來傳遞 PlayReady 和/或 Widevine 授權，但使用您的內部部署伺服器來完成其餘部分。 
 
 ## <a name="overview"></a>概觀
 媒體服務提供傳遞 PlayReady 和 Widevine DRM 授權及 AES-128 金鑰的服務。 媒體服務也提供 API，可讓您設定您要 DRM 執行階段在使用者播放受 DRM 保護內容時強制執行的權限和限制。 當使用者要求受保護的內容時，播放器應用程式會向 AMS 授權服務要求授權。 如果播放器已獲授權，則 AMS 授權服務會發出授權給播放器。 PlayReady 和 Widevine 授權包含解密金鑰，可被用戶端播放器用來解密和串流處理內容。
@@ -43,7 +43,6 @@ Azure 媒體服務 (AMS) 可讓您內嵌、編碼、新增內容保護，以及�
     <add key="Issuer" value="http://testacs.com"/> <add key="Audience" value="urn:test"/>
 
 ## <a name="net-code-example"></a>.NET 程式碼範例
-
 下列程式碼範例示範如何建立通用內容金鑰，並取得 PlayReady 或 Widevine 授權取得 URL。 您需要從 AMS 取得下列資訊項目，並設定您的內部部署伺服器：**內容金鑰**、**金鑰識別碼**、**授權取得 URL**。 一旦設定內部部署伺服器之後，就可以從您的串流伺服器串流處理。 由於加密的串流指向 AMS 授權伺服器，您的播放器將會從 AMS 要求授權。 如果您選擇權杖驗證，AMS 授權伺服器將會驗證您透過 HTTPS 所傳送的權杖，然後 (如果有效) 將授權傳遞回您的播放器。 (此程式碼範例只示範如何建立通用內容金鑰，並取得 PlayReady 或 Widevine 授權取得 URL。 如果您想要傳遞 AES-128 金鑰，您必須建立信封內容金鑰，並取得金鑰取得 URL，而 [這篇](media-services-protect-with-aes128.md) 文章將說明做法)。
 
     using System;
@@ -332,9 +331,6 @@ Azure 媒體服務 (AMS) 可讓您內嵌、編碼、新增內容保護，以及�
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>另請參閱
-[使用 PlayReady 和/或 Widevine 動態 Common Encryption](media-services-protect-with-drm.md)
+[使用 PlayReady 和/或 Widevine 動態 Common Encryption](media-services-protect-with-playready-widevine.md)
 
 [使用 AES-128 動態加密和金鑰傳遞服務](media-services-protect-with-aes128.md)
-
-[使用合作夥伴將 Widevine 授權傳遞到 Azure 媒體服務](media-services-licenses-partner-integration.md)
-

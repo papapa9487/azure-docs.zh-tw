@@ -9,11 +9,11 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 6a5bb66db889dc1c52252773e3f129ba2c3d55f1
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9bb55d5af16056ebafc131e73ac4b9da181bd8c7
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>使用 Azure Media Clipper 建立剪輯
 Azure Media Clipper 是免費的 JavaScript 程式庫，可讓 Web 開發人員為其使用者提供用於建立媒體剪輯的介面。 此工具可整合到任何網頁中，並提供用於載入資產和提交剪輯作業的 API。
@@ -29,8 +29,11 @@ Azure Media Clipper 可讓您：
 
 若要要求新功能，或是提供想法或意見反應，請提交至 [Azure 媒體服務的 UserVoice](http://aka.ms/amsvoice/) \(英文\)。 如果您有特定問題或疑問，或是有發現任何錯誤 (Bug)，請以電子郵件通知媒體服務小組 (amcinfo@microsoft.com)。
 
+下圖顯示 Clipper 介面：![Azure Media Clipper](media/media-services-azure-media-clipper-getting-started/media-services-azure-media-clipper-interface.PNG)
+
 ## <a name="release-notes"></a>版本資訊
-下列清單說明最新版 Clipper 的各項已知問題和變更記錄：
+如需 Clipper 部落格文章、各種已知問題，以及 Clipper 最新版本的變更記錄，請參閱下列清單：
+- [部落格文章](https://azure.microsoft.com/blog/azure-media-clipper/) \(英文\)
 - [已知問題清單](https://amp.azure.net/libs/amc/latest/docs/known_issues.html) \(英文\)
 - [變更記錄](https://amp.azure.net/libs/amc/latest/docs/changelog.html) \(英文\)
 

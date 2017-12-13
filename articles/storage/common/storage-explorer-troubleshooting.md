@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: e06c73c2c00b27178f8431b83b5c5a42110b6b1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3187939fa813f941c2fe12a359df474a6c487c71
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 儲存體總管疑難排解指南
 
@@ -172,6 +172,14 @@ Microsoft Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您
 - 請確認 URL 尚未過期。
 
 - 如果 SAS URL 是以存取原則為基礎，請確認尚未撤銷存取原則。
+
+如果您不小心連接無效的 SAS URL ，而且無法中斷連結，請遵循下列步驟：
+1.  執行儲存體總管時，按下 F12 以開啟開發人員工具視窗。
+2.  按一下 [應用程式] 索引標籤，然後在左邊樹狀目錄中，按一下 [本機儲存體] > file://。
+3.  尋找與有問題的 SAS URI 服務類型相關聯的索引鍵。 例如，如果是 Blob 容器的 SAS URI 不正確，請尋找名為 "StorageExplorer_AddStorageServiceSAS_v1_blob" 的索引鍵。
+4.  索引鍵的值應該是 JSON 陣列。 尋找與不正確 URI 相關聯的物件，並將它移除。
+5.  按下 Ctrl+R，重新載入儲存體總管。
+
 
 ## <a name="next-steps"></a>後續步驟
 
