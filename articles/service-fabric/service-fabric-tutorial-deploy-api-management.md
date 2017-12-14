@@ -174,7 +174,7 @@ az account set --subscription <guid>
 
 - **displayName** 可以是 API 的任何名稱。 本教學課程使用 "Service Fabric App"。
 - **name** 提供 API 的唯一和描述性名稱，例如 "service-fabric-app"。 它會顯示在開發人員和發行者入口網站中。 
-- **serviceUrl** 會參考實作 API 的 HTTP 服務。 API 管理則將要求轉送至此位址。 就 Service Fabric 後端而言，並不使用此 URL 值。 您可以在這裡輸入任何值。 舉例來說，本教學課程使用：" http://servicefabric"。 
+- **serviceUrl** 會參考實作 API 的 HTTP 服務。 API 管理則將要求轉送至此位址。 就 Service Fabric 後端而言，並不使用此 URL 值。 您可以在這裡輸入任何值。 舉例來說，本教學課程使用：" http://servicefabric " 。 
 - **path** 會附加至 API 管理服務的基底 URL 後面。 基礎 URL 是 API 管理服務主控的所有 API 所共有。 API 管理依尾碼來區分 API，因此，特定發行者的每一個 API 必須有唯一的尾碼。 
 - **protocols** 會決定可使用哪些通訊協定來存取 API。 針對此教學課程，列出 **http** 和 **https**。
 - **path** 是 API 的尾碼。 本教學課程使用 "myapp"。
