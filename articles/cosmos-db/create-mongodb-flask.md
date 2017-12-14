@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/2/2017
 ms.author: hshapiro
-ms.openlocfilehash: e4d90e69edb67cf070bb54b9d60a986eb5d0e386
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: f86c6cce82812e02f373d7307c76ace26ea3e99b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB：使用 MongoDB API 建置 Flask 應用程式
 
@@ -116,7 +116,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="deploy-to-azure"></a>部署至 Azure
 
-若要部署此應用程式，您可以在 Azure 中建立新的 Web 應用程式，並搭配此 GitHub 存放庫的分支啟用持續部署。 請遵循此[教學課程](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-continuous-deployment)，以在 Azure 中搭配 GitHub 設定持續部署。
+若要部署此應用程式，您可以在 Azure 中建立新的 Web 應用程式，並搭配此 GitHub 存放庫的分支啟用持續部署。 請遵循此[教學課程](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment)，以在 Azure 中搭配 GitHub 設定持續部署。
 
 部署至 Azure 時，您應該移除應用程式金鑰，並確定以下區段未註解化：
 
@@ -126,7 +126,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     db.authenticate(name=os.getenv("MONGO_USERNAME"),password=os.getenv("MONGO_PASSWORD"))
 ```
 
-接著，您需要將 MONGOURL、MONGO_PASSWORD 和 MONGO_USERNAME 新增到應用程式設定。 您可以遵循此[教學課程](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-configure#application-settings)，以深入了解 Azure Web Apps 中的應用程式設定。
+接著，您需要將 MONGOURL、MONGO_PASSWORD 和 MONGO_USERNAME 新增到應用程式設定。 您可以遵循此[教學課程](https://docs.microsoft.com/azure/app-service-web/web-sites-configure#application-settings)，以深入了解 Azure Web Apps 中的應用程式設定。
 
 如果您不想要建立此存放庫的分支，也可以按一下下方的 [部署至 Azure] 按鈕。 接著，您應該移至 Azure 並使用 Cosmos DB 帳戶資訊設定應用程式設定。
 

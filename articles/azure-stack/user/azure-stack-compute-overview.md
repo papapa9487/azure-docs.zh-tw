@@ -7,11 +7,11 @@ ms.service: azure-stack
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: 68da653052d0e3dfd66d6b65958046e42cefce73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c37ad8ac5b6c37261e22237e843dd97e2bbd09f9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Azure Stack 虛擬機器簡介
 
@@ -121,8 +121,8 @@ VM 擴充可透過部署後設定及自動化工作，讓您的 VM 有更多功�
 |方法|說明|
 |---------|---------|
 |Azure Stack 入口網站|在 [中樞] 功能表中，按一下 [虛擬機器]，然後從清單中選取 VM。 在 VM 的頁面上，您可以存取概觀資訊、設定值及監視計量。|
-|Azure PowerShell|在 Azure 和 Azure Stack 中，管理 VM 的方法很相似。 如需有關使用 PowerShell 的詳細資訊，請參閱下列 Azure 主題：<br>[使用 Azure PowerShell 模組建立和管理 Windows VM](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
-|用戶端 SDK|在 Azure 和 Azure Stack 中，使用 C# 來管理 VM 的方法很相似。 如需詳細資訊，請參閱下列 Azure 主題：<br>[在 Azure 中使用 C# 建立和管理 Windows VM](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/csharp)|
+|Azure PowerShell|在 Azure 和 Azure Stack 中，管理 VM 的方法很相似。 如需有關使用 PowerShell 的詳細資訊，請參閱下列 Azure 主題：<br>[使用 Azure PowerShell 模組建立和管理 Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
+|用戶端 SDK|在 Azure 和 Azure Stack 中，使用 C# 來管理 VM 的方法很相似。 如需詳細資訊，請參閱下列 Azure 主題：<br>[在 Azure 中使用 C# 建立和管理 Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/csharp)|
 
 ### <a name="connect-to-the-vm"></a>連接至 VM
 

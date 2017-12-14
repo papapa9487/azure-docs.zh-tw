@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: f0cb50c5ad991073b83dc5e87fbfb0300f40fc03
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: c359b77efbfdbcf7d2c0193dc015ce418a3d997d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>整合資訊安全中心安全性原則與 Azure 原則
 本文件可協助您設定 Azure 資訊安全中心安全性原則 (採用 Azure 原則技術)。 
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/16/2017
 * 監視原則相容性。
 
 > [!NOTE]
-> Azure 原則是以有限預覽形式提供。 若要加入，請移至[註冊 Azure 原則](https://aka.ms/getpolicy)。 如需 Azure 原則的詳細資訊，請參閱[建立和管理原則來強制執行合規性](http://docs.microsoft.com/en-us/azure/azure-policy/create-manage-policy)。
+> Azure 原則是以有限預覽形式提供。 若要加入，請移至[註冊 Azure 原則](https://aka.ms/getpolicy)。 如需 Azure 原則的詳細資訊，請參閱[建立和管理原則來強制執行合規性](http://docs.microsoft.com/azure/azure-policy/create-manage-policy)。
 
 ## <a name="edit-security-policies"></a>編輯安全性原則
 您可以在資訊安全中心內，編輯每個 Azure 訂用帳戶的預設安全性原則。 若要修改安全性原則，您必須是該訂用帳戶或所在管理群組的擁有者、參與者或安全性系統管理員。 若要檢視資訊安全中心的安全性原則，請執行下列作業：

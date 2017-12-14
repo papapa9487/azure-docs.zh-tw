@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-ms.openlocfilehash: 8d39aafb0ab7b0e87afdf4d2f50f1e224b8d251f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa55df0c4d5291834035ea5cae58fa3d75de7e02
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>加密 Azure 虛擬機器
 Azure 資訊安全中心會在您有未加密的虛擬機器時對您發出警示。 這些警示會顯示為高嚴重性，因此建議您加密這些虛擬機器。
@@ -26,7 +26,7 @@ Azure 資訊安全中心會在您有未加密的虛擬機器時對您發出警�
 ![磁碟加密建議](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> 這份文件中的資訊適用於加密虛擬機器，而不使用金鑰加密金鑰 (使用 Azure 備份來備份虛擬機器時需要)。 如需有關如何使用金鑰加密金鑰，以支援加密 Azure 虛擬機器之 Azure 備份的資訊，請參閱[適用於 Windows 和 Linux 虛擬機器的 Azure 磁碟加密](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)一文。
+> 這份文件中的資訊適用於加密虛擬機器，而不使用金鑰加密金鑰 (使用 Azure 備份來備份虛擬機器時需要)。 如需有關如何使用金鑰加密金鑰，以支援加密 Azure 虛擬機器之 Azure 備份的資訊，請參閱[適用於 Windows 和 Linux 虛擬機器的 Azure 磁碟加密](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)一文。
 >
 >
 
@@ -149,7 +149,7 @@ Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMNa
 
 在輸入此命令後，按 **ENTER**鍵。
 
-第二個方法是在指令碼窗格 (PowerShell ISE 的上方窗格) 中按一下，然後向下捲動到指令碼底部。 反白顯示上面所列的命令並按一下滑鼠右鍵，然後按一下執行選取範圍 或按鍵盤上的 **F8** 鍵。
+第二個方法是在指令碼窗格 (PowerShell ISE 的上方窗格) 中按一下，然後向下捲動到指令碼底部。 反白顯示上面所列的命令並按一下滑鼠右鍵，然後按一下 [執行選取範圍] 或按鍵盤上的 **F8** 鍵。
 
 ![PowerShell ISE](./media/security-center-disk-encryption/security-center-disk-encryption-fig8.png)
 

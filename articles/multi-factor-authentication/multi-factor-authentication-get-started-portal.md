@@ -4,7 +4,7 @@ description: "這是說明如何開始使用 Azure MFA 和使用者入口網站�
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 06b419fa-3507-4980-96a4-d2e3960e1772
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 2a4f64524f94a782434306f89f6ad1034297c4cc
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 15f4ef7b70027a820dc50a9399891bbab77d7e12
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Server 的使用者入口網站
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/15/2017
 3. 除非基於某種原因而需要變更預設值，否則使用預設值來完成安裝。
 4. 將 SSL 憑證繫結至 IIS 中的網站。
 
-如果您有關於在 IIS 伺服器上設定 SSL 憑證的問題，請參閱[如何在 IIS 上設定 SSL](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 一文。
+如果您有關於在 IIS 伺服器上設定 SSL 憑證的問題，請參閱[如何在 IIS 上設定 SSL](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 一文。
 
 Web 服務 SDK 必須受到 SSL 憑證保護。 自我簽署憑證適用於這項用途。 請將此憑證匯入到「使用者入口網站」Web 伺服器上 [本機電腦] 帳戶的 [受信任的根憑證授權單位] 存放區中，這樣它才會在起始 SSL 連線時信任該憑證。
 
@@ -73,7 +73,7 @@ Web 服務 SDK 必須受到 SSL 憑證保護。 自我簽署憑證適用於這�
 
 ![MFA Server 使用者入口網站安裝](./media/multi-factor-authentication-get-started-portal/install.png)
 
-如果您有關於在 IIS 伺服器上設定 SSL 憑證的問題，請參閱[如何在 IIS 上設定 SSL](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 一文。
+如果您有關於在 IIS 伺服器上設定 SSL 憑證的問題，請參閱[如何在 IIS 上設定 SSL](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 一文。
 
 ## <a name="deploy-the-user-portal-on-a-separate-server"></a>在個別的伺服器上部署使用者入口網站
 
@@ -110,7 +110,7 @@ Web 服務 SDK 必須受到 SSL 憑證保護。 自我簽署憑證適用於這�
 
 6. 從任何電腦開啟網頁瀏覽器，並瀏覽至安裝使用者入口網站的 URL (例如：https://mfa.contoso.com/MultiFactorAuth)。 確定未出現任何憑證警告或錯誤。
 
-如果您有關於在 IIS 伺服器上設定 SSL 憑證的問題，請參閱[如何在 IIS 上設定 SSL](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 一文。
+如果您有關於在 IIS 伺服器上設定 SSL 憑證的問題，請參閱[如何在 IIS 上設定 SSL](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 一文。
 
 ## <a name="configure-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>在 Azure Multi-Factor Authentication Server 中進行使用者入口網站設定
 

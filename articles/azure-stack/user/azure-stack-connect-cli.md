@@ -3,8 +3,8 @@ title: "使用 CLI 連線至 Azure Stack | Microsoft 文件"
 description: "了解如何使用跨平台命令列介面 (CLI) 在 Azure Stack 上管理及部署資源"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: f576079c-5384-4c23-b5a4-9ae165d1e3c3
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
-ms.author: sngun
-ms.openlocfilehash: 9a0ad3d8c2cdd3cd1d46e789c2b65677ac5a10b1
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.author: mabrigg
+ms.openlocfilehash: 5d15815e9b1d20ab03b5716de45ad0fa77a11057
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>安裝並設定 CLI 以與 Azure Stack 搭配使用
 
@@ -145,7 +145,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
      --profile 2017-03-09-profile
    ```
 
-4. 使用 `az login` 命令來登入 Azure Stack 環境。 您可以以使用者身分或以[服務主體](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects)形式登入 Azure Stack 環境。 
+4. 使用 `az login` 命令來登入 Azure Stack 環境。 您可以以使用者身分或以[服務主體](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects)形式登入 Azure Stack 環境。 
 
    * 以「使用者」身分登入：您可以直接在 `az login` 命令內指定使用者名稱和密碼，或使用瀏覽器進行驗證。 如果您的帳戶已啟用多重要素驗證，則必須採用後者方式。
 
@@ -195,4 +195,3 @@ az group create \
 [使用 Azure CLI 部署範本](azure-stack-deploy-template-command-line.md)
 
 [管理使用者權限](azure-stack-manage-permissions.md)
-

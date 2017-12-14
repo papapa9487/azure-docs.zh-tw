@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 558c3c65a811a228f9d8ecae7ce41798ac8178c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 065638c1d724865f45b0c1e2691041848f90ad00
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>開始監視 ASP.NET Core Web 應用程式
 
@@ -32,7 +32,7 @@ Azure Application Insights 可讓您輕鬆監視 Web 應用程式的可用性、
 - [安裝 .NET Core 2.0 SDK](https://www.microsoft.com/net/core)
 - 您需要 Azure 訂用帳戶和現有的 .NET Core Web 應用程式。
 
-如果您沒有 ASP.NET Core Web 應用程式，請依照[建立 ASP.NET Core Web 應用程式指南](https://docs.microsoft.com/en-us/aspnet/core/tutorials/publish-to-azure-webapp-using-vs)來建立。
+如果您沒有 ASP.NET Core Web 應用程式，請依照[建立 ASP.NET Core Web 應用程式指南](https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs)來建立。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
@@ -126,4 +126,4 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [尋找並診斷執行階段例外狀況](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-tutorial-runtime-exceptions)
+> [尋找並診斷執行階段例外狀況](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-runtime-exceptions)

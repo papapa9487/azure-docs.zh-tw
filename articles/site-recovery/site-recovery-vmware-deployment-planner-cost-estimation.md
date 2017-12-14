@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/28/2017
 ms.author: nisoneji
-ms.openlocfilehash: 62308b4ab6c9aedf2f7f7e5a40ff476cce171988
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 36309eb85244435a853013448c83d125420c001c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Azure Site Recovery 部署規劃工具的成本估計報告  
 
@@ -166,4 +166,4 @@ Azure Site Recovery 部署規劃工具可以使用下列任何貨幣來產生成
 |土耳其里拉|土耳其里拉 (TL)||美元| 美元 ($)||南非幣|南非蘭特 (R)|
 
 ## <a name="next-steps"></a>後續步驟
-深入了解[使用 Azure Site Recovery 在 Azure 中保護 VMware](https://docs.microsoft.com/en-us/azure/site-recovery/tutorial-vmware-to-azure)。
+深入了解[使用 Azure Site Recovery 在 Azure 中保護 VMware](https://docs.microsoft.com/azure/site-recovery/tutorial-vmware-to-azure)。

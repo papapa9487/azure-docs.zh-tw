@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: anwestg
-ms.openlocfilehash: 82b6002557431f87de8fd206b4d7f4a07dec08b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc341d872a3b8943a934217ace21537f45bafd10
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-deployment-sources"></a>設定部署來源
 
@@ -91,7 +91,7 @@ Azure Stack 上的 App Service 支援從多個原始檔控制提供者進行隨�
 1. 瀏覽至 https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm 並使用 Microsoft 帳戶登入。
 2. 在 [我的應用程式] 下，按一下 [新增應用程式]。
 ![OneDrive 應用程式][10]
-3. 為新的應用程式註冊輸入**名稱**，輸入 **Azure Stack 上的 App Service**，然後按一下建立應用程式
+3. 為新的應用程式註冊輸入**名稱**，輸入 **Azure Stack 上的 App Service**，然後按一下 [建立應用程式]
 4. 下一個畫面會列出新應用程式的屬性。 記錄**應用程式識別碼**。![OneDrive 應用程式屬性][11]
 5. 在 [應用程式密碼] 下，按一下 [產生新密碼]。 請記下**產生的新密碼**。 這是您的應用程式密碼，並且當您在這個階段按一下 [確定] 之後，就無法擷取此密碼。
 6. 在 [平台] 下，按一下 [新增平台]，然後選取 [網站]。
@@ -152,4 +152,4 @@ Azure Stack 上的 App Service 支援從多個原始檔控制提供者進行隨�
 
 ## <a name="next-steps"></a>後續步驟
 
-使用者現在可以對[連續部署](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-continuous-deployment)、[本機 Git 部署](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-deploy-local-git)和[雲端資料夾同步處理](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-deploy-content-sync)之類使用部署來源。
+使用者現在可以對[連續部署](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment)、[本機 Git 部署](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-local-git)和[雲端資料夾同步處理](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-content-sync)之類使用部署來源。

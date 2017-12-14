@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.openlocfilehash: 04540524f83e367f92912171ddc55b6e6f82f80e
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ec97432cd14c6289928f0419c242e1ccc2c8d876
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>整合 System Center Configuration Manager 與 OMS 更新管理
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 12/06/2017
 
 如果您要繼續從 Configuration Manager 管理更新部署，請執行下列步驟。  OMS 會連線至 Configuration Manager，將更新套用至連線到您 Log Analytics 工作區的用戶端電腦。 更新內容可從用戶端電腦快取取得，就如同部署受到 Configuration Manager 管理一般。  
 
-1. 從使用[部署軟體更新程序](https://docs.microsoft.com/en-us/sccm/sum/deploy-use/deploy-software-updates)中描述的程序，從 Configuration Manager 階層中的頂層站台建立軟體更新部署。  必須與標準部署不同的唯一設定為可控制部署封裝下載行為的選項 [不要安裝軟體更新]。 此行為是由 OMS 更新管理解決方案透過在下一個步驟中建立排定的更新部署來管理。  
+1. 從使用[部署軟體更新程序](https://docs.microsoft.com/sccm/sum/deploy-use/deploy-software-updates)中描述的程序，從 Configuration Manager 階層中的頂層站台建立軟體更新部署。  必須與標準部署不同的唯一設定為可控制部署封裝下載行為的選項 [不要安裝軟體更新]。 此行為是由 OMS 更新管理解決方案透過在下一個步驟中建立排定的更新部署來管理。  
 
 1. 在 OMS 入口網站中，開啟 [更新管理] 儀表板。  遵循[建立更新部署](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment)中所述的步驟來建立新的部署，並從下拉式清單選取以 OMS 電腦群組表示的適當 Configuration Manager 集合。  請記住下列重點：
     1. 如果已在所選的 Configuration Manager 裝置集合上定義維護時段，該集合的成員會接受它，而不是 OMS 的排程部署中定義的 [持續時間] 設定。

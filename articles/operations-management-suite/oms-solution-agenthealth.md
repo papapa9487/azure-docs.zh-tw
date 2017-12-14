@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: magoedte
-ms.openlocfilehash: b810e37e393ddab55500f636b72450789285a4f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 601e059af6040834f1ceb520ffe23aeadb6cdb18
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 #  <a name="agent-health-solution-in-oms"></a>OMS 中的代理程式健全狀況解決方案
 對於直接向 OMS 工作區或連線到 OMS 之 System Center Operations Manager 管理群組回報的所有代理程式，OMS 中的代理程式健全狀況解決方案可協助您了解哪些代理程式沒有回應且正在提交作業資料。  您可以也追蹤已部署的代理程式數目，其散佈地區，並執行其他查詢，以留意 Azure、其他雲端環境或內部部署中部署之代理程式的散佈情形。    
 
 ## <a name="prerequisites"></a>必要條件
-部署這個解決方案之前，請確認您目前支援向 OMS 工作區回報或向與 OMS 工作區整合之 [Operations Manager 管理群組](../log-analytics/log-analytics-om-agents.md)回報的 [Windows 代理程式](../log-analytics/log-analytics-windows-agents.md)。    
+部署這個解決方案之前，請確認您目前支援向 OMS 工作區回報或向與 OMS 工作區整合之 [Operations Manager 管理群組](../log-analytics/log-analytics-om-agents.md)回報的 [Windows 代理程式](../log-analytics/log-analytics-windows-agent.md)。    
 
 ## <a name="solution-components"></a>方案元件
 此解決方案包含下列已新增到您的工作區以及直接連線之代理程式或 Operations Manager 連線之管理群組的資源。

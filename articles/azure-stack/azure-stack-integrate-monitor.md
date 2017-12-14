@@ -3,8 +3,8 @@ title: "整合外部監視解決方案與 Azure Stack | Microsoft Docs"
 description: "了解如何將 Azure Stack 與您的資料中心的外部監視解決方案整合。"
 services: azure-stack
 documentationcenter: 
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
-ms.author: twooley
-ms.openlocfilehash: 801e6be91f2b568ce51ec632bccef06a57d809f1
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.author: mabrigg
+ms.openlocfilehash: 76499ac959b77e83494bc4f9593c20a99da5c147
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>整合外部監視解決方案與 Azure Stack
 
@@ -209,7 +209,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*name*     |     警示的內部名稱。   |
 |*type*     |     資源定義。    |
 |*位置*     |       區域名稱。     |
-|*標記*     |   資源標籤。     |
+|*「標記」*     |   資源標籤。     |
 |*closedtimestamp*    |  關閉警示時的 UTC 時間。    |
 |*createdtimestamp*     |     建立警示時的 UTC 時間。   |
 |*description*     |    警示的描述。     |

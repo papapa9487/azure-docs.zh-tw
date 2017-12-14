@@ -10,11 +10,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 10/20/2017
 ms.author: tomfitz
-ms.openlocfilehash: e104778db445d078ffca7a9ddb9d28fc84a93c81
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 062e6b4d9edd9ca9220b8d11336f1a3ff544a1dd
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-and-deploy-an-azure-managed-application-with-azure-cli"></a>使用 Azure CLI 建立及部署 Azure 受管理的應用程式
 
@@ -121,5 +121,4 @@ az managedapp create \
 
 * 如需受管理應用程式的簡介，請參閱[受管理的應用程式概觀](overview.md)。
 * 如需檔案的範例，請參閱[受管理的應用程式範例](https://github.com/Azure/azure-managedapp-samples/tree/master/samples)。
-* 如需將受管理的應用程式發佈到 Azure Marketplace 的資訊，請參閱 [建立 Marketplace 應用程式](publish-marketplace-app.md)。
 * 若要了解如何建立受管理應用程式的 UI 定義檔案，請參閱[開始使用 CreateUiDefinition](create-uidefinition-overview.md)。

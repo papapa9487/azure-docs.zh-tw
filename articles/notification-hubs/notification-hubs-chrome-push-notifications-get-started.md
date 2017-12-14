@@ -15,11 +15,11 @@ ms.devlang: JavaScript
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-ms.openlocfilehash: 600b1b7e5f3987c9a0acc33b7049f7118442b931
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 107c001f1b02874adfdc53856f18e6bfcbcb0cf4
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="send-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>使用 Azure 通知中樞將推播通知傳送至 Chrome 應用程式
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
 設定 GCM 和 Azure 通知中樞的程序與 Android 的設定程序相同，因為 [Google Cloud Messaging for Chrome] 已停用，而相同的 GCM 現在可同時支援 Android 裝置和 Chrome 執行個體。
 
 ## <a id="register"></a>啟用 Google Cloud Messaging
-1. 瀏覽至 [Google 雲端主控台]網站，並使用 Google 帳戶認證登入，然後按一下 **[建立專案]** 按鈕。 提供適當的 專案名稱，然後按一下建立 按鈕。
+1. 瀏覽至 [Google 雲端主控台]網站，並使用 Google 帳戶認證登入，然後按一下 **[建立專案]** 按鈕。 提供適當的 [專案名稱]，然後按一下 [建立] 按鈕。
    
        ![Google Cloud Console - Create Project][1]
 2. 在 [專案] 頁面上，記下您剛才建立之專案的 [專案編號]。 您將以此編號做為 Chrome 應用程式中的 [GCM 寄件者識別碼]  ，向 GCM 註冊。
@@ -385,7 +385,7 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 > 
 > 
 
-1. 在 Visual Studio 的 [檔案] 功能表中，選取 [新增]，然後選取 [專案]。 在 Visual C# 下方，按一下 Windows 和 主控台應用程式，然後按一下確定。  這會建立新的主控台應用程式專案。
+1. 在 Visual Studio 的 [檔案] 功能表中，選取 [新增]，然後選取 [專案]。 在 [Visual C#] 下方，按一下 [Windows] 和 [主控台應用程式]，然後按一下 [確定]。  這會建立新的主控台應用程式專案。
 2. 在 [工具] 功能表中，依序按一下 [程式庫套件管理員] 和 [套件管理器主控台]。 這會顯示 [Package Manager Console]。
 3. 在主控台視窗中，執行下列命令：
    
@@ -460,7 +460,6 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 <!-- URLs. -->
 [Chrome 應用程式通知中樞範例]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToChromeApps
 [Google 雲端主控台]: http://cloud.google.com/console
-[Azure Classic Portal]: https://manage.windowsazure.com/
 [通知中樞概觀]: notification-hubs-push-notification-overview.md
 [Chrome 應用程式概觀]: https://developer.chrome.com/apps/about_apps
 [Chrome 應用程式 GCM 範例]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications

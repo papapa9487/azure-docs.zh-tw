@@ -4,7 +4,7 @@ description: "說明如何註冊 Azure Active Directory Premium 版本"
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 ms.assetid: 391764e5-c4eb-4ae6-b8a9-3d09f0de04a6
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 09/07/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: it-pro;
-ms.openlocfilehash: 4b86ececefd3724b9e7791d2609b146de052f605
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e7aa1757ec1720f15ac9d1f00129fd38f86f0668
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="quickstart-sign-up-for-azure-active-directory-premium"></a>快速入門：註冊 Azure Active Directory Premium
 若要開始使用 Azure Active Directory (Azure AD) Premium，您可以購買授權並將其與您的 Azure 訂用帳戶建立關聯。 如果您建立新的 Azure 訂用帳戶，您也需要啟用您的授權方案及 Azure AD 服務存取，如下列各節所述。 

@@ -3,8 +3,8 @@ title: "取代 Azure Stack 縮放單位節點上的硬體元件 | Microsoft Docs
 description: "了解如何取代 Azure Stack 整合式系統上的硬體元件。"
 services: azure-stack
 documentationcenter: 
-author: troettinger
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: c6e036bf-8c80-48b5-b2d2-aa7390c1b7c9
 ms.service: azure-stack
@@ -13,12 +13,12 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: twooley
-ms.openlocfilehash: 430274025bc6cd657a733fb80feb6cd7b39a36f3
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.author: mabrigg
+ms.openlocfilehash: 5f760ae0cc33e138fc3d484711b8747b984977d4
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>取代 Azure Stack 縮放單位節點上的硬體元件
 
@@ -64,7 +64,7 @@ Azure Stack 健康狀態和監視系統會監視儲存空間直接存取所控�
 4. 更新韌體。 請遵循使用硬體生命週期主機的廠商特定韌體更新程序，確定已取代的硬體元件已套用核准的韌體層級。 不論 OEM 硬體廠商是否執行這個步驟，都可能會根據支援合約而不同。  
 5. 使用[修復](azure-stack-node-actions.md#scale-unit-node-actions)動作，將縮放單位節點回復到縮放單位。
 6. 使用具有特殊權限的端點來[檢查虛擬磁碟修復狀態](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair)。 利用新的資料磁碟機，根據系統負載與已耗用的空間而定，完整的儲存體修復作業可能需要數小時的時間。
-7. 當修復動作完成之後，請驗證已自動關閉所有作用中警示。
+7. 當修復動作完成之後，驗證已自動關閉所有作用中警示。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f986c060b26489e412f6230665ec76a4730293f1
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: a97372002052570ccad2bb8bc442eb0dd1ca76d9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>使用 Azure Stack 入口網站來建立 Linux 虛擬機器
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/01/2017
 
 * **SSH 用戶端存取權**
 
-   如果您使用「Azure Stack 開發套件」(ASDK)，可能會無法存取您環境中的 SSH 用戶端。 如果是這種情況，您可以從包含 SSH 用戶端的數個套件中做選擇。 例如，您可以安裝包含 SSH 用戶端和 SSH 金鑰產生器 (puttygen.exe) 的 PuTTY。 如需有關可能選項的詳細資訊，請參閱下列相關的 Azure 文章：[如何在 Azure 上搭配 Windows 使用 SSH 金鑰](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients)。
+   如果您使用「Azure Stack 開發套件」(ASDK)，可能會無法存取您環境中的 SSH 用戶端。 如果是這種情況，您可以從包含 SSH 用戶端的數個套件中做選擇。 例如，您可以安裝包含 SSH 用戶端和 SSH 金鑰產生器 (puttygen.exe) 的 PuTTY。 如需有關可能選項的詳細資訊，請參閱下列相關的 Azure 文章：[如何在 Azure 上搭配 Windows 使用 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients)。
 
    本快速入門使用 PuTTY 來產生 SSH 金鑰及連線到 Linux 虛擬機器。 若要下載並安裝 PuTTY，請移至 [http://www.putty.org/](http://www.putty.org)。
 

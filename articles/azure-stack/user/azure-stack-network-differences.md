@@ -8,11 +8,11 @@ ms.author: victorh
 ms.date: 9/25/2017
 ms.topic: article
 ms.service: azure-stack
-ms.openlocfilehash: 7b7bac508a759a1367ac7328840848efe17ea3c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c72c58e63335f1cb440811e283bd742b8124161
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Azure Stack 網路服務的注意事項
 
@@ -34,7 +34,7 @@ Azure Stack 的網路功能提供了 Azure Stack 中的許多功能，但在開�
 | |每一區域的 DNS 記錄集|5000 (預設值)<br>可在要求時增加。|5000|
 ||區域委派的名稱伺服器|Azure 為建立的每個使用者 (租用戶) 區域提供四部名稱伺服器。|Azure Stack 為建立的每個使用者 (租用戶) 區域提供兩部名稱伺服器。|
 | 虛擬網路|虛擬網路對等互連|透過 Azure 骨幹網路來連線同一區域中兩個虛擬網路。|尚不支援|
-| |IPv6 位址|您可以指派 IPv6 位址作為[網路介面設定](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions)的一部分。|僅支援 IPv4。|
+| |IPv6 位址|您可以指派 IPv6 位址作為[網路介面設定](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions)的一部分。|僅支援 IPv4。|
 |VPN 閘道|點對站 VPN 閘道|支援|尚不支援|
 | |Vnet 對 Vnet 閘道|支援|尚不支援|
 | |VPN 閘道 SKU|支援基本、GW1、GW2、GW3、標準的高效能、超高效能。 |支援基本、標準和高效能 SKU。|

@@ -6,17 +6,17 @@ keywords:
 author: dsk-2015
 ms.author: dkshir
 ms.date: 11/28/2017
-ms.topic: article
+ms.topic: overview
 ms.service: location-based-services
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: c8ebce06a72bcaf769a11ec954702463d7489aa0
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 9b4b54c3a4cf0ed4350f570259f6997e4398682b
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>Azure LBS (預覽) 簡介
 Azure LBS 是地理空間服務的組合，內含地圖、搜尋、路線規劃、路況和時區的服務 API。 符合 Azure OneAPI 規範的服務組合可讓您使用熟悉的開發人員工具，快速開發和調整解決方案，進而將位置資訊整合到 Azure 解決方案中。 Azure LBS 可提供各產業的開發人員強大的地理空間功能，另納入最新的地圖資料，可提供 Web 和行動裝置應用程式的地理空間內容。 Azure LBS 是符合 Azure One API 規範的 REST API 集合，附有網頁型 JavaScript 控制項可讓開發作業變得超級容易、有彈性且可在多個媒介中轉移。 

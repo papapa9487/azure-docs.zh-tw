@@ -15,11 +15,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 07/05/2016
 ms.author: yuaxu
-ms.openlocfilehash: 808fc10ef1ebb3288facbdf2e9e817b27d4fc6bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fff043abea0a88f5f39bf8bfcd0be206772439bc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="sending-push-notifications-to-android-with-azure-notification-hubs"></a>使用 Azure 通知中樞將推播通知傳送至 Android
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -67,7 +67,7 @@ ms.lasthandoff: 10/11/2017
 2. 選擇 [電話和平板電腦] 板型規格和您要支援的 [Minimum SDK]。 然後按 [下一步] 。
    
    ![Android Studio - 專案建立工作流程][14]
-3. 為主要活動選擇 空白活動，並按 下一步，然後按一下完成。
+3. 為主要活動選擇 [空白活動]，並按 [下一步]，然後按一下 [完成]。
 
 ### <a name="add-google-play-services-to-the-project"></a>新增 Google Play 服務至專案
 [!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
@@ -125,7 +125,7 @@ ms.lasthandoff: 10/11/2017
         <uses-permission android:name="<your package>.permission.C2D_MESSAGE"/>
 
 ### <a name="adding-code"></a>加入程式碼
-1. 在 [專案檢視] 中，展開 [app] > [src] > [main] > [java]。 以滑鼠右鍵按一下 **java** 底下您的套件資料夾，並按一下 新增，然後按一下Java 類別。 新增名為 `NotificationSettings` 的新類別。 
+1. 在 [專案檢視] 中，展開 [app] > [src] > [main] > [java]。 以滑鼠右鍵按一下 **java** 底下您的套件資料夾，並按一下 [新增]，然後按一下 [Java 類別]。 新增名為 `NotificationSettings` 的新類別。 
    
     ![Android Studio - 新增 Java 類別][6]
    
@@ -664,7 +664,6 @@ ms.lasthandoff: 10/11/2017
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
-[Azure Classic Portal]: https://manage.windowsazure.com/
 [通知中樞指引]: http://msdn.microsoft.com/library/jj927170.aspx
 [使用通知中樞將通知推播給使用者]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [使用通知中樞傳送即時新聞]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md

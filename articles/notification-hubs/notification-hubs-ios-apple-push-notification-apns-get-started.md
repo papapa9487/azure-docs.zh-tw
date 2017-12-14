@@ -15,11 +15,11 @@ ms.devlang: objective-c
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-ms.openlocfilehash: ab0777f859e80afcd61e371056b44d018c7b7ab9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ca6507fba0895b4f551ead5341d4febbd402b8f
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="sending-push-notifications-to-ios-with-azure-notification-hubs"></a>使用 Azure 通知中樞將推播通知傳送至 iOS
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -90,7 +90,7 @@ ms.lasthandoff: 10/11/2017
     如果畫面未顯示您在 Xcode 中建立的新佈建設定檔，請嘗試重新整理簽署身分識別的設定檔。 按一下功能表列上的 Xcode，再依序按一下 [喜好設定]、[帳戶] 索引標籤、[檢視詳細資料] 按鈕、您的簽署身分識別，然後按一下右下角的 [重新整理] 按鈕。
    
     ![Xcode - 佈建設定檔][9]
-4. 下載 [行動服務 iOS SDK 1.2.4 版] ，然後將檔案解壓縮。 在 Xcode 中，以滑鼠右鍵按一下您的專案，然後按一下 [新增檔案至] 選項，將 **WindowsAzureMessaging.framework** 資料夾新增至 Xcode 專案。 選取 必要時複製項目，然後按一下新增。
+4. 下載 [行動服務 iOS SDK 1.2.4 版] ，然後將檔案解壓縮。 在 Xcode 中，以滑鼠右鍵按一下您的專案，然後按一下 [新增檔案至] 選項，將 **WindowsAzureMessaging.framework** 資料夾新增至 Xcode 專案。 選取 [必要時複製項目]，然後按一下 [新增]。
    
    > [!NOTE]
    > 通知中樞 SDK 目前不支援 Xcode 7 上的 Bitcode。  您必須在專案的 [建置選項] 中將 [啟用 Bitcode] 設定為 [否]。
@@ -471,7 +471,6 @@ ms.lasthandoff: 10/11/2017
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Azure Classic Portal]: https://manage.windowsazure.com/
 [通知中樞指引]: http://msdn.microsoft.com/library/jj927170.aspx
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
