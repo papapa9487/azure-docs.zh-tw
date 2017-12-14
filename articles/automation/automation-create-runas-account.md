@@ -3,7 +3,7 @@ title: "建立 Azure 自動化執行身分帳戶 | Microsoft Docs"
 description: "本文說明如何更新您的自動化帳戶，並使用 PowerShell 或從入口網站建立執行身分帳戶。"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 28bfa54c263388d91057118878a3109ec467894a
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 029ecaf43249175504cc1e22d246f24e927234af
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>使用執行身分帳戶更新您的自動化帳戶驗證 
 您可以從 Azure 入口網站或使用 PowerShell 來更新現有的自動化帳戶，前提是：

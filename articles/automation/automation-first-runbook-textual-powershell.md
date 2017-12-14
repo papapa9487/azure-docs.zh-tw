@@ -3,7 +3,7 @@ title: "我在 Azure 自動化中的第一個 PowerShell Runbook | Microsoft Doc
 description: "教學課程將逐步引導您建立、測試和發佈簡單的 PowerShell Runbook。"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 keywords: "azure powershell, powershell 指令碼教學課程, powershell 自動化"
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte;sngun
-ms.openlocfilehash: 2645d149df1f337700fb627aaff99e869fc8b8e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 885fe6caaa00bc0caea875d72fe2626f9e6b1863
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="my-first-powershell-runbook"></a>我的第一個 PowerShell Runbook
 
@@ -111,7 +111,7 @@ ms.lasthandoff: 10/11/2017
    Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
    ```
    <br>
-2. 儲存 Runbook，然後按一下測試  窗格，我們便能加以測試。
+2. 儲存 Runbook，然後按一下 [測試]  窗格，我們便能加以測試。
 3. 按一下 [開始]  以開始測試。 當它完成時，請檢查虛擬機器已啟動。
 
 ## <a name="step-7---add-an-input-parameter-to-the-runbook"></a>步驟 7 - 將輸入參數加入至 Runbook

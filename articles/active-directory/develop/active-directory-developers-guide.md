@@ -3,7 +3,7 @@ title: "開發人員適用的 Azure Active Directory | Microsoft Docs"
 description: "本文提供使用 Azure Active Directory 登入 Microsoft 工作和學校帳戶的概觀。"
 services: active-directory
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 1614e37693adad268965e586f919a842c8f42e6a
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: c7375b91790cc7a089560bd823e99850e3b34fec
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-for-developers"></a>開發人員適用的 Azure Active Directory
 Azure Active Directory (Azure AD) 是一項雲端識別服務，可讓開發人員使用 Microsoft 的公司或學校帳戶安全地讓使用者登入。 此文件說明如何使用業界標準通訊協定 (OAuth 和 OpenID Connect)，將 Azure AD 支援新增至您的應用程式。

@@ -22,6 +22,8 @@
       href: storage-quickstart-blobs-java.md
     - name: 使用 Blob - Python
       href: storage-quickstart-blobs-python.md
+    - name: 使用 Blob - Ruby
+      href: storage-quickstart-blobs-ruby.md
     - name: 使用 Blob - Node.js
       href: storage-quickstart-blobs-nodejs.md
     - name: 使用 Blob - 儲存體總管
@@ -46,6 +48,16 @@
           href: storage-simulate-failure-ragrs-account-app.md
     - name: 搜尋雲端儲存體中的非結構化資料
       href: storage-unstructured-search.md
+    - name: 最佳化儲存體應用程式效能和延展性
+      items:
+        - name: 建立虛擬機器和儲存體帳戶
+          href: storage-blob-scalable-app-create-vm.md
+        - name: 將大量資料上傳至 Azure 儲存體帳戶
+          href: storage-blob-scalable-app-upload-files.md
+        - name: 從 Azure 儲存體帳戶下載大量資料
+          href: storage-blob-scalable-app-download-files.md
+        - name: 驗證輸送量和延遲計量
+          href: storage-blob-scalable-app-verify-metrics.md
 - name: 範例
   items:
     - name: .NET

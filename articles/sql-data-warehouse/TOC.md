@@ -32,8 +32,8 @@
 ### [移轉資料](sql-data-warehouse-migrate-data.md)
 
 ## 載入與移動資料
-### [概觀](sql-data-warehouse-overview-load.md)
-### [PolyBase](sql-data-warehouse-load-polybase-guide.md)
+### [概觀](design-elt-data-loading.md)
+### [指引](guidance-for-loading-data.md)
 
 
 ## 整合

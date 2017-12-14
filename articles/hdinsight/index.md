@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 12/05/2017
 ms.author: carolz
-ms.openlocfilehash: 8dce980e50b465b67d3d6f14dc79c48c5f2fcdb5
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 12fbfada95f9356b1d32c0edd3346a57c6ffa26f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 #<a name="azure-hdinsight-documentation"></a>Azure HDInsight 文件
 
-了解如何使用 Azure HDInsight 來分析串流或歷史資料。 教學課程和其他文件會示範如何建立叢集、處理和分析巨量資料，以及如何使用 Hadoop、Spark、Hive、LLAP、Kafka、Storm、R 等熱門的開放原始碼架構來開發解決方案 
+了解如何使用 Azure HDInsight 來分析串流或歷史資料。 教學課程和其他文件會示範如何建立叢集、處理和分析巨量資料，以及如何使用 Hadoop、Spark、Hive、LLAP、Kafka、Storm、R 等熱門的開放原始碼架構來開發解決方案。 
 
 Azure HDInsight 是供企業使用的完全受控、全方位的開放原始碼分析服務。 HDInsight 是一種雲端服務，可輕鬆快速地處理大量資料，同時節省成本。 HDInsight 也支援各種案例，例如擷取、轉換和載入 (ETL)；資料倉儲、機器學習和 IoT。  
 

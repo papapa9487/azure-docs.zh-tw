@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 119d8abcea91bf5c6ea03212fcb886f9e31c1ada
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: aea0b93e658a0c5dd14deedbd2c5c92bb1fbf652
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>管理多部機器的更新
 
@@ -84,7 +84,7 @@ Linux 代理程式必須能夠存取更新存放庫。
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>為非 Azure 虛擬機器和電腦啟用更新管理
 
-如需有關如何為非 Azure Windows 虛擬機器和電腦啟用更新管理的指示，請參閱[將 Windows 電腦連線到 Azure 中的 Log Analytics 服務](../log-analytics/log-analytics-windows-agents.md)。
+如需有關如何為非 Azure Windows 虛擬機器和電腦啟用更新管理的指示，請參閱[將 Windows 電腦連線到 Azure 中的 Log Analytics 服務](../log-analytics/log-analytics-windows-agent.md)。
 
 如需有關如何為非 Azure Linux 虛擬機器和電腦啟用更新管理的指示，請參閱[將您的 Linux 電腦連線到 Log Analytics](../log-analytics/log-analytics-agent-linux.md)。
 

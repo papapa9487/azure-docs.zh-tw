@@ -176,8 +176,10 @@
               href: site-recovery-prepare-target-physical-to-azure.md
         - name: 設定適用於 VMware 到 Azure 的複寫設定
           href: site-recovery-setup-replication-settings-vmware.md
-        - name: 從複寫排除磁碟
+        - name: 讓磁碟不要從 VMware 複寫至 Azure
           href: site-recovery-exclude-disk.md
+        - name: 讓磁碟不要從 Hyper-V 複寫至 Azure
+          href: site-recovery-hyper-v-exclude-disk.md
         - name: 部署 VMware 複寫的行動服務
           href: site-recovery-vmware-to-azure-install-mob-svc.md
           items:

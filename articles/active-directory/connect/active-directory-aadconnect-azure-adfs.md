@@ -5,7 +5,7 @@ keywords: "在 azure 中部署 AD FS, 部署 azure adfs, azure adfs, azure ad fs
 services: active-directory
 documentationcenter: 
 author: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddd29a1230286de8999175498ee793f3b3ea24e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 954d161b3fbc66f594429f33d1bb5c88c2bc83b4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>在 Azure 中部署 Active Directory 同盟服務
 AD FS 提供簡化、安全的身分識別同盟和 Web 單一登入 (SSO) 功能。 與 Azure AD 或 O365 同盟可讓使用者使用內部部署認證進行驗證，並存取雲端中的所有資源。 如此一來，就一定要有高可用性的 AD FS 基礎結構，以確保能夠存取內部部署和雲端中的資源。 在 Azure 中部署 AD FS 有助於達成執行最低限度的工作所需要的高可用性。
@@ -220,7 +220,7 @@ AD FS 提供簡化、安全的身分識別同盟和 Web 單一登入 (SSO) 功�
 ### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.部署網際網路對向 (公用) 負載平衡器
 **8.1.建立網際網路對向 (公用) 負載平衡器**
 
-在 Azure 入口網站中選取 負載平衡器，然後按一下新增。 在 [建立負載平衡器] 面板中，輸入下列資訊
+在 Azure 入口網站中選取 [負載平衡器]，然後按一下 [新增]。 在 [建立負載平衡器] 面板中，輸入下列資訊
 
 1. **名稱**︰負載平衡器的名稱
 2. **配置**︰公用 – 此選項會告知 Azure，此負載平衡器需要公用位址。

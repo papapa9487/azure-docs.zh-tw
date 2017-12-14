@@ -150,7 +150,7 @@
         - name: 臉部
           tocHref: /azure/cognitive-services/face/
           topicHref: /azure/cognitive-services/face/
-        - name: 語意辨識智慧服務 (LUIS)
+        - name: 語言理解 (LUIS)
           tocHref: /azure/cognitive-services/LUIS/
           topicHref: /azure/cognitive-services/LUIS/
         - name: 文字分析

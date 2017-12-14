@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: bwren
-ms.openlocfilehash: 452dd602387db6db04ca87f6834c9e8606185484
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 94dedebe48060441cd3167fea87f6b721eb14517
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Operations Management Suite (OMS) 是什麼？
 本文提供 Operations Management Suite (OMS) 的簡介，包括簡短概述它所提供的商業價值、它所包含的服務和管理解決方案，以及將不同服務和解決方案封裝在一起的供應項目。  文中包含有關部署和使用每個服務和解決方案的詳細文件連結。
@@ -64,7 +64,7 @@ OMS 的核心功能是由在 Azure 中執行的一組服務所提供。  每個�
 #### <a name="collecting-data"></a>收集資料
 有各種方法可讓您將資料放入儲存機制，以便 Log Analytics 進行分析。
 
-- **Windows 或 Linux 電腦和虛擬機器。**  在您想從中收集資料的 [Windows](../log-analytics/log-analytics-windows-agents.md) 和 [Linux](../log-analytics/log-analytics-linux-agents.md) 電腦或虛擬機器上安裝 Microsoft Monitoring Agent。  此代理程式將會從定義欲收集之事件和效能資料的 Log Analytics 組態自動下載。  您可以使用 Azure 入口網站，在 Azure 中執行的虛擬機器上輕鬆安裝此代理程式。  如果有現有的 Operations Manager 環境，您可以將管理群組連接至 Log Analytics，並從所有現有的代理程式自動開始收集資料。
+- **Windows 或 Linux 電腦和虛擬機器。**  在您想從中收集資料的 [Windows](../log-analytics/log-analytics-windows-agent.md) 和 [Linux](../log-analytics/log-analytics-linux-agents.md) 電腦或虛擬機器上安裝 Microsoft Monitoring Agent。  此代理程式將會從定義欲收集之事件和效能資料的 Log Analytics 組態自動下載。  您可以使用 Azure 入口網站，在 Azure 中執行的虛擬機器上輕鬆安裝此代理程式。  如果有現有的 Operations Manager 環境，您可以將管理群組連接至 Log Analytics，並從所有現有的代理程式自動開始收集資料。
 - **Azure 服務。**  Log Analytics 會將 [Azure 診斷和 Azure 監視](../log-analytics/log-analytics-azure-storage.md)中的遙測資料收集至儲存機制，以便監視 Azure 資源。
 - **資料收集器 API。**  Log Analytics 具有[可供從任何用戶端填入資料的 REST API](../log-analytics/log-analytics-data-collector-api.md)。  這可讓您從協力廠商應用程式收集資料或實作自訂管理案例。  常見的方法是在 Azure 自動化中使用 Runbook 來收集資料，然後使用資料收集器 API 將它寫入儲存機制。
 

@@ -5,7 +5,7 @@ services: multi-factor-authentication
 keywords: "驗證伺服器, azure multi factor authentication 應用程式啟動頁面, 驗證伺服器下載"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: e94120e4-ed77-44b8-84e4-1c5f7e186a6b
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: a164dfa23a0bd8a598eb8871a160ced4158b172a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4a3e7bd851c2b7e082caeeb451c865eab4fe6635
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>開始使用 Azure Multi-Factor Authentication Server
 
@@ -89,7 +89,7 @@ ms.lasthandoff: 11/15/2017
 | 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
 
-## <a name="download-the-mfa-server---public-preview"></a>下載 MFA Server - 公開預覽
+## <a name="download-the-mfa-server"></a>下載 MFA Server
 
 請遵循下列步驟，以從 Azure 入口網站下載 Azure Multi-Factor Authentication Server：
 
@@ -101,28 +101,6 @@ ms.lasthandoff: 11/15/2017
    ![下載 MFA Server](./media/multi-factor-authentication-get-started-server/downloadportal.png)
 
 5. 讓此頁面保持開啟，我們會在執行安裝程式之後參照該頁面。
-
-
-## <a name="download-the-mfa-server"></a>下載 MFA Server
-
-請遵循下列步驟，以從 pfweb 入口網站下載 Azure Multi-Factor Authentication Server：
-
-1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取左邊的 [Active Directory]
-3. 選取 [使用者和群組]
-4. 選取 [所有使用者]
-5. 選取 [Multi-Factor Authentication]
-6. 在 [多重要素驗證] 區域之下，選取 [服務設定]
-
-   ![服務設定頁面](./media/multi-factor-authentication-get-started-server/servicesettings.png)
-
-6. 在 [服務設定] 頁面上，於畫面底部按一下 [ **移至入口網站**]。 新的頁面隨即開啟。
-7. 選取 [下載]。
-8. 按一下 [下載] 連結並儲存安裝程式。
-
-   ![下載 MFA Server](./media/multi-factor-authentication-get-started-server/download4.png)
-
-9. 讓此頁面保持開啟，我們會在執行安裝程式之後參照該頁面。
 
 ## <a name="install-and-configure-the-mfa-server"></a>安裝和設定 MFA Server
 
