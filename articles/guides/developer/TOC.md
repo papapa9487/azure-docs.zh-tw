@@ -64,8 +64,8 @@
 ## 儲存資料
 ### [Blobs (英文)](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)
 ### [檔案共用](https://docs.microsoft.com/azure/storage/files/storage-dotnet-how-to-use-files)
-### [機碼值組](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet)
-### [JSON 文件](https://docs.microsoft.com/azure/cosmos-db/documentdb-get-started)
+### [機碼值組](https://docs.microsoft.com/azure/cosmos-db/create-table-dotnet)
+### [JSON 文件](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet)
 ### [關聯式資料表](https://docs.microsoft.com/azure/sql-database/sql-database-get-started)
 ### [訊息佇列](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
 
