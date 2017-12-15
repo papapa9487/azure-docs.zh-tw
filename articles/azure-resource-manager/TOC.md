@@ -15,12 +15,11 @@
 #### [參數](resource-manager-templates-parameters.md)
 #### [變數](resource-manager-templates-variables.md)
 #### [資源](resource-manager-templates-resources.md)
-### [範本的最佳做法](resource-manager-template-best-practices.md)
+#### [輸出](resource-manager-templates-outputs.md)
 ### [連結至其他範本](resource-group-linked-templates.md)
 ### [定義資源間的相依性](resource-group-define-dependencies.md)
 ### [建立多個執行個體](resource-group-create-multiple.md)
-### [更新資源](resource-manager-update.md)
-### [在連結的範本間共用狀態](best-practices-resource-manager-state.md)
+### [更新資源](/azure/architecture/building-blocks/extending-templates/update-resource)
 ### [設計範本的模式](best-practices-resource-manager-design-templates.md)
 
 
