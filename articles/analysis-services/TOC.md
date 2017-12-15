@@ -21,6 +21,7 @@
 ## [取得用戶端程式庫](analysis-services-data-providers.md)
 ## [備份與還原](analysis-services-backup.md)
 ## [設定擴充](analysis-services-scale-out.md)
+## [設定伺服器名稱別名](analysis-services-server-alias.md)
 ## [與 Excel 連線](analysis-services-connect-excel.md)
 ## [與 Power BI 連線](analysis-services-connect-pbi.md)
 ## [建立 .odc 檔案](analysis-services-odc.md)

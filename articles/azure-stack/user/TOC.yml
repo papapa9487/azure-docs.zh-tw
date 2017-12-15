@@ -43,6 +43,8 @@
               href: azure-stack-compute-overview.md
             - name: VM 考量
               href: azure-stack-vm-considerations.md
+            - name: 管理虛擬機器磁碟
+              href: azure-stack-manage-vm-disks.md
         - name: 儲存體
           items:
             - name: 概觀
