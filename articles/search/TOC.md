@@ -28,11 +28,15 @@
 
 # 作法
 
-## 規劃和設計
+## 規劃與設計
 ### [選擇 SKU](search-sku-tier.md)
 ### [服務限制](search-limits-quotas-capacity.md)
 ### [服務延展性](search-capacity-planning.md)
 ### [多組織用戶的樣式](search-modeling-multitenant-saas-applications.md)
+## 安全性
+### [資料與作業安全性](search-security-overview.md)
+### [讓身分識別篩選條件保障您的安全](search-security-trimming-for-azure-search.md)
+### [讓 Active Directory 保障您的安全](search-security-trimming-for-azure-search-with-aad.md)
 ## 開發
 ### [API 版本](search-api-versions.md)
 ### [在 .Node.js 中開發](search-get-started-nodejs.md)
@@ -42,13 +46,6 @@
 ### [模型的複雜資料類型](search-howto-complex-data-types.md)
 ### [處理並行更新](search-howto-concurrency.md)
 ### [程式碼範例](https://azure.microsoft.com/resources/samples/?service=search)
-## 管理
-### 管理 Azure 搜尋服務
-#### [Azure 入口網站](search-manage.md)
-#### [Azure PowerShell](search-manage-powershell.md)
-### [監視使用量和統計資料](search-monitor-usage.md)
-### [搜尋流量分析](search-traffic-analytics.md)
-### [效能與最佳化](search-performance-optimization.md)
 ## 載入資料
 ### [索引子概觀](search-indexer-overview.md)
 ### [Azure Blob 儲存體索引子](search-howto-indexing-azure-blob-storage.md)
@@ -73,8 +70,6 @@
 #### [概觀](search-filters.md)
 #### [Facet 篩選條件](search-filters-facets.md)
 #### [語言篩選條件](search-filters-language.md)
-#### [安全性篩選條件 (一般)](search-security-trimming-for-azure-search.md)
-#### [安全性篩選條件 (AAD)](search-security-trimming-for-azure-search-with-aad.md)
 #### [運算式語法參考](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 ### [分頁結果](search-pagination-page-layout.md)
 ### [評分](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
@@ -82,6 +77,12 @@
 ### [多面向導覽](search-faceted-navigation.md)
 ### [同義字預覽](search-synonyms.md)
 ### [moreLikeThis 預覽](search-more-like-this.md)
+## 管理和分析
+### [使用 Azure 入口網站管理](search-manage.md)
+### [使用 Powershell 管理](search-manage-powershell.md)
+### [監視使用量和統計資料](search-monitor-usage.md)
+### [搜尋流量分析](search-traffic-analytics.md)
+### [效能與最佳化](search-performance-optimization.md)
 
 # 參考
 

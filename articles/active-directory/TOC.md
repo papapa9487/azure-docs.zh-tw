@@ -58,6 +58,7 @@
 #### [將 B2B 使用者新增至角色](active-directory-b2b-add-guest-to-role.md)
 #### [動態群組和 B2B 使用者](active-directory-b2b-dynamic-groups.md)
 #### [稽核與報告](active-directory-b2b-auditing-and-reporting.md)
+#### [適用於混合式組織的 B2B](active-directory-b2b-hybrid-organizations.md)
 #### [B2B 和 Office 365 外部共用](active-directory-b2b-o365-external-user.md)
 #### [B2B 授權](active-directory-b2b-licensing.md)
 #### [目前限制](active-directory-b2b-current-limitations.md)
