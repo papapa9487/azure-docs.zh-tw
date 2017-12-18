@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/06/2017
 ms.author: yurid
-ms.openlocfilehash: 72a3e1eafb6f4150d8410fdd5a7a6095909c052d
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: c41e233e177f540562d80649c7bffc15e208e870
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-security-center-data-security"></a>Azure 資訊安全中心資料安全性
 為了協助客戶防範、偵測和回應威脅，Azure 資訊安全中心會收集和處理安全性的相關資料，包括組態資訊、中繼資料、事件記錄檔、損毀傾印檔等等。 Microsoft 從撰寫程式碼到運作服務均遵守嚴格的規範與安全性指導方針。
@@ -69,6 +69,16 @@ Azure 資訊安全中心會收集損毀傾印檔案的暫時複本並加以分�
 
 如果您是使用免費版的 Azure 安全性中心，也可以在安全性原則中，從虛擬機器停用資料收集。 標準層上的訂用帳戶需要資料收集。 即使已停用資料集合，仍然會啟用VM 磁碟快照集和構件集合。
 
+## <a name="data-consumption"></a>資料耗用量
+
+客戶可以取用來自不同資料流的資訊安全中心相關資料，如下所示：
+
+* **Azure 活動**：所有的安全性警示、已核准的資訊安全中心 [Just-In-Time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) 要求，以及[調適性應用程式控制](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)產生的所有警示。
+* **Log Analytics**：所有安全性警示。
+
+
+> [!NOTE]
+> 您也可透過 REST API 取用安全性建議。 如需詳細資訊，請參閱[安全性資源提供者 REST API 參考](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx)。 
 
 ## <a name="see-also"></a>另請參閱
 在本文件中，您已了解如何在 Azure 資訊安全中心管理和保護資料。 若要深入了解 Azure 資訊安全中心，請參閱：

@@ -3,7 +3,7 @@ title: "從 Log Analytics Alert 呼叫 Azure 自動化 Runbook | Microsoft Docs"
 description: "這篇文章提供如何從 Microsoft OMS Log Analytics Alert 呼叫自動化 Runbook 的概觀。"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 10b445f8fcaa80182119e47f37ffb11240a46869
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 0c0b15f33a177afc70a3662c5bd008eb236ed0d6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="calling-an-azure-automation-runbook-from-an-oms-log-analytics-alert"></a>從 OMS Log Analytics Alert 呼叫 Azure 自動化 Runbook | Microsoft Docs
 
@@ -43,7 +43,7 @@ Webhook 可讓您在 Azure 自動化中，透過單一 HTTP 要求啟動特定�
 
 ## <a name="characteristics-of-a-runbook-for-both-options"></a>Runbook 的特性 (適用於兩個選項)
 
-您必須先了解這兩種從 Log Analytics 警示呼叫 Runbook 的方法所具有的特性，再設定警示規則。
+您必須先了解這兩種從 Log Analytics 警示呼叫 Runbook 的方法所具有的特性，再設定警示規則。 警示資料會以 json 格式儲存在名為 **SearchResults** 的單一屬性中。 此格式適用於具有標準承載的 Runbook 和 Webhook 動作。 對於自訂承載在 **RequestBody** 中包含 **IncludeSearchResults:True** 的 Webhook 動作，此屬性為 **SearchResults**。
 
 * 您必須擁有名為 **WebhookData** (也就是**物件**類型) 的 Runbook 輸入參數。 它可以是強制性或選擇性。 警示會使用此輸入參數將搜尋結果傳遞給 Runbook。
 
@@ -61,6 +61,7 @@ Webhook 可讓您在 Azure 自動化中，透過單一 HTTP 要求啟動特定�
     ```
 
     $SearchResult 是物件的陣列；每個物件都包含某個搜尋結果的值欄位
+
 
 ## <a name="example-walkthrough"></a>範例逐步解說
 
@@ -80,6 +81,9 @@ $SearchResult.SvcDisplayName_CF
 服務停止時，Log Analytics 中的警示規則會偵測相符項目、觸發 Runbook 並將警示內容傳送至 Runbook。 Runbook 會採取動作來確認服務已停止，若是則嘗試重新啟動服務，並確認它是否正確啟動，並輸出結果。     
 
 或者如果您沒有連結至 OMS 工作區的自動化帳戶，您可以設定具 webhook 動作的警示規則，來觸發 runbook 並將 runbook 設定為轉換 JSON 格式的字串，並對遵循先前所述指引的 \*.SearchResult\* 進行篩選。    
+
+>[!NOTE]
+> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](../log-analytics/log-analytics-log-search-upgrade.md)，則 Webhook 承載已變更。  如需格式的詳細資訊，請參閱 [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse) \(英文\)。
 
 ## <a name="next-steps"></a>後續步驟
 

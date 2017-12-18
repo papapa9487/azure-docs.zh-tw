@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: 6f4c0b11039bbdaf29c90ec2358934dc1c24af90
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c472cf080f8138ec6d0210f3ca4a8b3f3c33e7ae
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory 中的管道執行和觸發程序 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -131,7 +131,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 ## <a name="triggers"></a>觸發程序
 觸發程序提供第二種執行管道的方式。 觸發程序代表一個處理單位，用來決定何時需要啟動管道執行。 目前，Data Factory 支援一個可依時鐘排程來叫用管道的觸發程序。 稱為**排程器觸發程序**。 目前，Data Factory 不支援以事件為基礎的觸發程序，例如在檔案到達時所執行之管道的觸發程序。
 
-管道和觸發程序具有 "n-m" 關聯性。 多個觸發程序可以啟動單一管道，而相同的觸發程序可以啟動多個管道。 在下列觸發程序 JSON 定義中，**pipelines** 屬性會參考由特定觸發程序所觸發的管道清單，以及管道參數的值。
+管道和觸發程序具有多對多關聯性。 多個觸發程序可以啟動單一管道，或單一觸發程序可以啟動多個管道。 在下列觸發程序 JSON 定義中，**pipelines** 屬性會參考由特定觸發程序所觸發的管道清單，以及管道參數的值。
 
 ### <a name="basic-trigger-definition"></a>基本的觸發程序定義： 
 ```json
@@ -165,7 +165,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 ### <a name="scheduler-trigger-json-definition"></a>排程器觸發程序 JSON 定義
 當您建立的排程器觸發程序時，您可以使用 JSON 來指定排程與週期，如本節中的範例所示。 
 
-若要讓排程器觸發程序啟動管道執行，請在觸發程序定義中包含特定管道的管道參考。 管道和觸發程序具有 "n-m" 關聯性。 多個觸發程序可以啟動單一管道。 相同的觸發程序可以啟動多個管道。
+若要讓排程器觸發程序啟動管道執行，請在觸發程序定義中包含特定管道的管道參考。 管道和觸發程序具有多對多關聯性。 多個觸發程序可以啟動單一管道。 單一觸發程序可以啟動多個管道。
 
 ```json
 {

@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 4e2f788f4e4dfd013754925d8f6dbc3bf35b1a91
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 79089f09342f520f7d43115cc606d794db6c1602
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>如何成功推出自助式密碼重設
 
@@ -37,6 +37,10 @@ ms.lasthandoff: 11/23/2017
 9. 決定您需要強制執行註冊的時間。 您可以選擇在任何時間點強制執行註冊。 您也可以要求使用者在一段時間後重新確認其驗證資訊。
 10. 使用報告功能。 經過一段時間，您可以使用 [Azure AD 提供的報告功能](active-directory-passwords-reporting.md)來檢閱使用者註冊與使用方式。
 11. 啟用密碼重設。 當您準備好時，就可以為所有使用者啟用密碼重設，將 [已啟用自助式密碼重設] 切換為 [全部]。 
+
+   > [!NOTE]
+   > 將此選項從選取的群組變更為每個人，不會讓使用者已註冊為測試群組一部分的現有驗證資料失效。 已設定並註冊有效驗證資料的使用者會繼續運作。
+
 12. [讓 Windows 10 使用者在登入畫面重設其密碼](active-directory-passwords-login.md)。
 
    > [!IMPORTANT]
@@ -56,9 +60,9 @@ ms.lasthandoff: 11/23/2017
 
 很多客戶都選擇裝載網頁並建立 DNS 根項目，例如 https://passwords.contoso.com。它們會使用下列資訊的連結填入此頁面：
 
-* [Azure AD 密碼重設入口網站](https://aka.ms/sspr)
-* [Azure AD 密碼重設註冊入口網站](http://aka.ms/ssprsetup)
-* [Azure AD 密碼變更入口網站](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
+* [Azure AD 密碼重設入口網站 - https://aka.ms/sspr](https://aka.ms/sspr)
+* [Azure AD 密碼重設註冊入口網站 - http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+* [Azure AD 密碼變更入口網站 - https://account.activedirectory.windowsazure.com/ChangePassword.aspx](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
 * 其他組織特定資訊
 
 您送出的任何電子郵件或傳單都可以包含一個品牌化、令人印象深刻的 URL，使用者可以在需要使用服務時前往該 URL。 為方便您使用，我們建立了[範例密碼重設頁面](https://github.com/ajamess/password-reset-page)，您可以使用並根據組織需求加以自訂。

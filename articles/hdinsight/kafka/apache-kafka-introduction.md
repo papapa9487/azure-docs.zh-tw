@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: c4e0d792ae8f4c17d53430f49d81d179e56b9722
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 09a661b2a100245dd424e24d8a8ddef56c573b02
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>HDInsight 上的 Apache Kafka 簡介
 
@@ -62,6 +62,8 @@ Kafka on HDInsight 提供下列功能︰
 ![Kafka 叢集組態](./media/apache-kafka-introduction/kafka-cluster.png)
 
 此圖顯示的典型 Kafka 組態使用取用者群組、資料分割及複寫，提供具有容錯功能的事件平行讀取。 Apache ZooKeeper 是針對並行、有彈性且低延遲的交易而建置，因為它可管理 Kafka 叢集的狀態。 Kafka 會在「主題」中儲存記錄。 記錄是由「產生者」產生，並由「取用者」取用。 產生者會從 Kafka「訊息代理程式」擷取記錄。 HDInsight 叢集中的每個背景工作節點都是 Kafka 訊息代理程式。 系統會為每個取用者建立一個磁碟分割，以允許平行處理串流資料。 複寫用於將磁碟分割分散於各節點，以防止節點 (訊息代理程式) 中斷。 以 *(L)* 表示的磁碟分割是指定之磁碟分割的前端項目。 使用 ZooKeeper 所管理的狀態，可將生產者流量路由傳送至每個節點的前端項目。
+
+每個 Kafka 訊息代理程式都會使用 Azure 受控磁碟。 磁碟數目由使用者定義，每個訊息代理程式最多提供 16 TB 的儲存體。
 
 > [!IMPORTANT]
 > Kafka 並不知道 Azure 資料中心的基礎硬體 (機架)。 若要確保基礎硬體的磁碟分割達到適當平衡，請參閱[設定資料的高可用性 (Kafka)](apache-kafka-high-availability.md)。

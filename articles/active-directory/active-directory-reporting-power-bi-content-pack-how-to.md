@@ -3,21 +3,21 @@ title: "如何使用 Azure Active Directory Power BI 內容套件 | Microsoft Do
 description: "了解如何使用 Azure Active Directory Power BI 內容套件"
 services: active-directory
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 12/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ba3f9f74fd7ba658b4e082775e471ed65a386fed
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 503b3f4c576382d8ce965d1f90aadda32c819a0b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>如何使用 Azure Active Directory Power BI 內容套件
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/18/2017
 5.  出現提示時，輸入您的 Azure AD 租用戶識別碼，然後按 [下一步]。
 
     > [!TIP] 
-    > 登入 Azure AD 入口網站可快速取得您 Office 365 / Azure AD 租用戶的租用戶識別碼，請從下列 URL 深入探詢至目錄並複製識別碼：https://manage.windowsazure.com/woodgroveonline.com#Workspaces/ActiveDirectoryExtension/Directory/<tenantid>/directoryQuickStart
+    > 登入 Azure AD 入口網站、向下切入至目錄，以及從 [[屬性] 頁面](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)複製 [目錄識別碼]，即可快速取得您 Office 365 / Azure AD 租用戶的租用戶識別碼。
 
     ![Azure Active Directory Power BI 內容套件](./media/active-directory-reporting-power-bi-content-pack-how-to/04.png) 
 

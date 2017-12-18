@@ -3,7 +3,7 @@ title: "開始使用 Azure 自動化 | Microsoft Docs"
 description: "本文藉由回顧準備從 Auzre Marketplace 將供應項目上架的設計和實作詳細資料，提供 Azure 自動化服務的概觀。"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 486e2b2da7a78cdc39743e60f4140fc58275a8fc
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 2a57b60a2222d6e2ea864410edc6a32a0bf0c76c
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started-with-azure-automation"></a>開始使用 Azure 自動化
 
@@ -112,7 +112,7 @@ Azure Resource Manager 提供了角色型存取控制來對 Azure AD 使用者�
 [如何\驗證和安全性] 區段之下有一些支援文章，提供如何針對這些環境設定驗證的概觀和實作步驟 (使用您專用於該環境的現有或新的帳戶)。  對於 Azure 執行身分和傳統執行身分帳戶，[更新自動化執行身分帳戶](automation-create-runas-account.md)主題說明如何從入口網站或使用 PowerShell 透過執行身分帳戶更新現有的自動化帳戶 (如果原先並未以執行身分或傳統執行身分帳戶設定現有的自動化帳戶)。 如果您想要使用企業憑證授權單位 (CA) 所核發的憑證，建立執行身分和傳統執行身分帳戶，請檢閱本文以了解如何使用此組態來建立帳戶。     
  
 ## <a name="network-planning"></a>網路規劃
-若要讓混合式 Runbook 背景工作連線至 Microsoft Operations Management Suite (OMS) 並向其註冊，它必須能夠存取下述連接埠號碼和 URL。  此外，這是 [Microsoft Monitoring Agent 連線至 OMS 所需的連接埠和 URL](../log-analytics/log-analytics-windows-agents.md#network)。 如果您使用 Proxy 伺服器在代理程式和 OMS 服務之間進行通訊，您必須確保可以存取適當的資源。 如果您使用防火牆來限制網際網路存取，您需要設定防火牆以允許存取。
+若要讓混合式 Runbook 背景工作連線至 Microsoft Operations Management Suite (OMS) 並向其註冊，它必須能夠存取下述連接埠號碼和 URL。  此外，這是 [Microsoft Monitoring Agent 連線至 OMS 所需的連接埠和 URL](../log-analytics/log-analytics-windows-agent.md)。 如果您使用 Proxy 伺服器在代理程式和 OMS 服務之間進行通訊，您必須確保可以存取適當的資源。 如果您使用防火牆來限制網際網路存取，您需要設定防火牆以允許存取。
 
 以下資訊列出要讓 Hybrid Runbook Worker 與自動化進行通訊所需的連接埠和 URL。
 

@@ -2,16 +2,16 @@
 
 1. 登入 [Azure 入口網站][azure-portal]。
 2. 在入口網站的左方瀏覽窗格中，按一下 [服務匯流排] \(如果您未看見 [服務匯流排]，請按一下 [更多服務])。
-3. 按一下要在其中建立佇列的命名空間。 在本例中是 **nstest1**。
+3. 按一下要在其中建立佇列的命名空間。 在本例中是 **sbnstest1**。
    
     ![建立佇列][createqueue1]
-4. 在 [服務匯流排命名空間] 刀鋒視窗中，選取 [佇列]，然後按一下 [新增佇列]。
+4. 在命名空間視窗中，按一下 [佇列]，然後在 [佇列] 視窗中，按一下 [+ 佇列]。
    
     ![選取佇列][createqueue2]
-5. 輸入 [佇列名稱]  並且讓其他值保留其預設值。
+5. 輸入佇列 [名稱] 並且讓其他值保留其預設值。
    
     ![選取新增][createqueue3]
-6. 按一下刀鋒視窗底部的 [建立] 。
+6. 在視窗底部按一下 [建立]。
 
 [createqueue1]: ./media/service-bus-create-queue-portal/create-queue1.png
 [createqueue2]: ./media/service-bus-create-queue-portal/create-queue2.png

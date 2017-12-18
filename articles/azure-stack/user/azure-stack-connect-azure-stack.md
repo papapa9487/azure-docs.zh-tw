@@ -3,8 +3,8 @@ title: "連線到 Azure Stack | Microsoft Docs"
 description: "了解如何連線到 Azure Stack"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 3cebbfa6-819a-41e3-9f1b-14ca0a2aaba3
 ms.service: azure-stack
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/22/2017
-ms.author: sngun
-ms.openlocfilehash: 914f2e5d10aa341cea5eba8c24c7c37610e6b626
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 7479202a8afabf5a84560691a2bccf849206c077
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connect-to-azure-stack"></a>連線至 Azure Stack
 
-若要管理資源，您必須連線到「Azure Stack 開發套件」。 此主題將詳細說明連線到開發套件所需的步驟。 您可以使用下列其中一個連線選項：
+若要管理資源，您必須連線到「Azure Stack 開發套件」。 此文將詳細說明連線到開發套件所需的步驟。 您可以使用下列其中一個連線選項：
 
 * [遠端桌面](#connect-with-remote-desktop)：可讓單一並行使用者從開發套件快速連線。
 * [虛擬私人網路 (VPN)](#connect-with-vpn)：可讓多個並行使用者從 Azure Stack 基礎結構外部的用戶端連線 (需要設定)。

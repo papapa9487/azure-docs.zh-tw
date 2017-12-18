@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 54edb2d02701d36af52088cb8df7e252504a8760
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 815148d2a39ce8b18092619c9687a56b457c8339
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Hyper-V 到 Azure 的 Azure Site Recovery 部署規劃工具
 本文是 Hyper-V 到 Azure 生產部署的 Azure Site Recovery Deployment Planner 使用者指南。
@@ -40,6 +40,9 @@ Azure Site Recovery 部署規劃工具 (第 2 版) 是適用於 Hyper-V 到 Azur
 
 * 差異複寫所需的預估網路頻寬
 * Azure Site Recovery 可以從內部部署至 Azure 取得的輸送量
+* 給定頻寬可達成的 RPO
+* 對於所需 RPO 的影響 (如果佈建的頻寬比較低)。
+
     
 **Azure 基礎結構需求**
 
@@ -52,6 +55,7 @@ Azure Site Recovery 部署規劃工具 (第 2 版) 是適用於 Hyper-V 到 Azur
 
 **內部部署基礎結構需求**
 * 要成功進行初始複寫和差異複寫，Hyper-V 儲存體的每個磁碟區所需擁有的可用儲存體空間，以便確保 VM 複寫不會對生產應用程式造成任何不想要的停機時間
+* 要針對 Hyper-V 複寫設定的最大複製頻率
 
 **初始複寫批次處理指引** 
 * 要用於保護的 VM 批次數目

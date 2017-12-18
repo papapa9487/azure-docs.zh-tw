@@ -4,7 +4,7 @@ description: "Microsoft Authenticator 應用程式提供額外的頻外驗證選
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 6c8d6fcc-70f4-4da4-9610-c76d66635b8b
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 3d1e8d62127a3c5c888804278fbcd9a4fe81e33f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 83b04e48dd528881097bcf16bc03e1a18ea20c43
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>使用 Azure Multi-Factor Authentication Server 來啟用行動應用程式驗證
 
@@ -63,7 +63,7 @@ Microsoft Authenticator 應用程式提供額外的頻外驗證選項。 Azure M
 3. 除非基於某種原因而需要變更預設值，否則使用預設值來完成安裝。
 4. 將 SSL 憑證繫結至 IIS 中的網站。
 
-如果您有關於在 IIS 伺服器上設定 SSL 憑證的問題，請參閱[如何在 IIS 上設定 SSL](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 一文。
+如果您有關於在 IIS 伺服器上設定 SSL 憑證的問題，請參閱[如何在 IIS 上設定 SSL](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 一文。
 
 Web 服務 SDK 必須受到 SSL 憑證保護。 自我簽署憑證適用於這項用途。 請將此憑證匯入到「使用者入口網站」Web 伺服器上 [本機電腦] 帳戶的 [受信任的根憑證授權單位] 存放區中，這樣它才會在起始 SSL 連線時信任該憑證。
 
@@ -88,6 +88,7 @@ Web 服務 SDK 必須受到 SSL 憑證保護。 自我簽署憑證適用於這�
 
 7. 如果安裝 Mobile App Web 服務的網站尚未與公開簽署的憑證繫結，請在伺服器上安裝憑證、開啟「IIS 管理員」，然後將憑證繫結至該網站。
 8. 從任何電腦開啟網頁瀏覽器，並瀏覽至安裝行動裝置應用程式 Web 服務的 URL (例如：https://mfa.contoso.com/MultiFactorAuthMobileAppWebService)。 確定未出現任何憑證警告或錯誤。
+9. 如需有關 Web 服務 SDK 中可用方法的詳細資訊，請參閱 MFA Server 說明檔。
 
 ## <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>在 Azure Multi-Factor Authentication Server 中配置行動應用程式設定
 

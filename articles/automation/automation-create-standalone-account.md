@@ -3,7 +3,7 @@ title: "建立獨立的 Azure 自動化帳戶 | Microsoft Docs"
 description: "引導您在 Azure 自動化中建立、測試和舉例使用安全性主體驗證的逐步解說教學課程。"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: e3c18c7886c8338efc6168464b63a9557909a769
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc4bfa4a94eaa2fb4e0e821c4931dcd1963f3109
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>建立獨立的 Azure 自動化帳戶
 如果您想要評估並了解 Azure 自動化，但不包含其他管理解決方案或與 OMS Log Analytics 整合，本主題說明如何從 Azure 入口網站建立自動化帳戶，以提供 Runbook 作業的進階監視。  您可以新增這些管理解決方案，或在未來的任何時間點與 Log Analytics 整合。  使用自動化帳戶，您可以驗證在 Azure Resource Manager 或 Azure 傳統部署中管理資源的 Runbook。
