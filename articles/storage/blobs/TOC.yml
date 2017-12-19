@@ -72,10 +72,10 @@
   items:
     - name: 規劃和設計
       items:
+        - name: 儲存體帳戶選項
+          href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 複寫
           href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 儲存體帳戶選項
-          href: storage-account-options.md
         - name: 熱、冷和封存層
           href: storage-blob-storage-tiers.md
         - name: 回應事件

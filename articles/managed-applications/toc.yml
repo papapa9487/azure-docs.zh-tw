@@ -6,11 +6,11 @@
       href: overview.md
 - name: 快速入門
   items:
-    - name: 使用 Azure CLI 建立受管理的應用程式
+    - name: 建立受管理的應用程式
       href: managed-apps-quickstart-cli.md
 - name: 教學課程
   items:
-    - name: 建立服務目錄應用程式
+    - name: 建立受控應用程式檔案
       href: publish-service-catalog-app.md
 - name: 範例
   items:
@@ -26,7 +26,7 @@
       href: create-uidefinition-overview.md
     - name: 更新受管理的資源
       href: update-managed-resources.md
-    - name: 發佈服務目錄應用程式 - 入口網站
+    - name: 使用入口網站發佈
       href: publish-portal.md
 - name: 參考
   items:

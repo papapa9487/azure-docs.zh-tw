@@ -14,11 +14,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/22/2017
   ms.author: philmea
-  ms.openlocfilehash: fa69448296105ce8fd3cc1b885c3aa793882f909
-  ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+  ms.openlocfilehash: d3a547418d9b5c412584aaa2f27a40024130335b
+  ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 11/28/2017
+  ms.lasthandoff: 12/19/2017
 abstract:
   description: "Azure LBS (預覽) 提供來自各個產業的開發人員功能強大的地理空間功能，另納入最新的地圖資料，可提供網路和行動應用程式地理空間內容。 此服務屬於 Azure One API，符合 REST API 規範集，可進行網頁型 JavaScript 控管並讓開發作業更加輕鬆、有彈性且可在多個媒介中轉移。"
 sections:
@@ -43,3 +43,13 @@ sections:
     - html: "<a href=\"/azure/location-based-services/tutorial-search-location\">搜尋興趣點</a>"
     - html: "<a href=\"/azure/location-based-services/tutorial-route-location\">興趣點路線</a>"
     - html: "<a href=\"/azure/location-based-services/tutorial-prioritized-routes\">依旅遊方式區分的路線</a>"
+- title: "參考"
+  items:
+  - type: list
+    style: cards
+    className: cardsW
+    items:
+    - title: "語言"
+      html: "<p><a href=\"https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/\">地圖控制項 API - Javascript</a></p>"
+    - title: REST
+      html: "<p><a href=\"https://docs.microsoft.com/en-us/rest/api/location-based-services/\">功能性 API - REST</a></p><p><a href=\"https://docs.microsoft.com/en-us/rest/api/location-based-services-management/\">管理 API - REST</a></p>"

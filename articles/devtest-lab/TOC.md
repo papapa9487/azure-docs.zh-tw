@@ -61,6 +61,9 @@
 
 ## [調整您的實驗室](devtest-lab-scale-lab.md)
 
+## 與 CI/CD 整合
+### [將實驗室與您的 VSTS CI/CD 管道整合](devtest-lab-integrate-ci-cd-vsts.md)
+
 # 參考
 ## [CLI 2.0](/cli/azure/lab)
 ## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)

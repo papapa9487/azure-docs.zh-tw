@@ -54,6 +54,8 @@
 #### [相容性 - 英國官方](uk-official-three-tier-applications-overview.md)
 ##### [概觀](uk-official-three-tier-applications-overview.md)
 ##### [原則概觀](uk-official-three-tier-applications-principles-overview.md)
+#### [合規性 - 金融服務](financial-services-regulated-workloads.md)
+##### [適用於已規範工作負載的金融服務](financial-services-regulated-workloads.md)
 
 # 開始使用
 ## [開始使用 Azure 資訊安全](../azure-security-getting-started.md)

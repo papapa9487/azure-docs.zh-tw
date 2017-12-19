@@ -195,6 +195,8 @@
               href: site-recovery-replicate-vmware-to-azure.md
     - name: 自動化
       items:
+        - name: 使用 PowerShell 將 VMWare 虛擬機器複寫至 Azure
+          href: site-recovery-vmware-to-azure-powershell.md
         - name: 使用 PowerShell 設定 Hyper-V 至 Azure 的複寫 (不使用 VMM)
           href: site-recovery-deploy-with-powershell-resource-manager.md
         - name: 使用 PowerShell 設定 Hyper-V 至 Azure 的複寫 (使用 VMM)
@@ -262,7 +264,7 @@
 - name: 參考
   items:
     - name: Azure PowerShell
-      href: /powershell/module/azurerm.siterecovery
+      href: /powershell/module/azurerm.recoveryservices.siterecovery
     - name: Azure PowerShell (傳統)
       href: /powershell/module/azure/?view=azuresmps-3.7.0
     - name: REST

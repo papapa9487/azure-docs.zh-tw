@@ -195,6 +195,8 @@
               href: azure-stack-create-and-publish-marketplace-item.md
             - name: 使用 Marketplace 發佈工具
               href: azure-stack-marketplace-publisher.md
+            - name: 適用於 Azure Stack 的支援客體作業系統
+              href: azure-stack-supported-os.md
             - name: 新增自訂虛擬機器映像
               href: azure-stack-add-vm-image.md
             - name: 新增虛擬機器擴展集
