@@ -20,11 +20,11 @@ ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/08/2017
 ---
-# <a name="get-started-with-azure-advisor"></a>開始使用 Azure 建議程式
+# <a name="get-started-with-azure-advisor"></a>開始使用 Azure Advisor
 
 了解如何透過 Azure 入口網站存取 Advisor、取得建議，以及實作建議。
 
-## <a name="get-advisor-recommendations"></a>取得建議程式的建議
+## <a name="get-advisor-recommendations"></a>取得 Azure Advisor 的建議
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -80,7 +80,7 @@ ms.lasthandoff: 11/08/2017
 
 ## <a name="exclude-subscriptions-or-resource-groups-from-advisor"></a>將訂用帳戶或資源群組從 Advisor 中排除
 
-您可能有不想要收到 Advisor 建議的資源群組或訂用帳戶，例如「測試」資源。  您可以將 Advisor 設定成只針對特定訂用帳戶和資源群組產生建議。
+您可能有不想要收到 Advisor 建議的資源群組或訂用帳戶，例如「測試」資源。 您可以將 Advisor 設定成只針對特定訂用帳戶和資源群組產生建議。
 
 > [!NOTE]
 > 若要將訂用帳戶或資源群組包含在 Advisor 中或從中排除，您必須是訂用帳戶「擁有者」。  如果您沒有訂用帳戶或資源群組的必要權限，將其包含或排除的選項在使用者介面中就會停用。
@@ -97,9 +97,9 @@ ms.lasthandoff: 11/08/2017
 
 ## <a name="configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation"></a>針對低使用量虛擬機器建議設定平均 CPU 使用率規則
 
-Advisor 可監視 14 天的虛擬機器使用量，然後找出低使用率的虛擬機器。 虛擬機器若是平均 CPU 使用率等於或低於 5% 且網路使用量等於或低於 7 MB 長達 4 天 (含) 以上，就會被視為低使用率虛擬機器。
+Advisor 可監視 14 天的虛擬機器使用量，然後找出低使用率的虛擬機器。 虛擬機器若是平均 CPU 使用率小於(含) 5% 且網路使用量小於(含) 7 MB 長達 4 天 (含) 以上，就會視為低使用率虛擬機器。
 
-如果您想要更積極地識別低使用量虛擬機器，您可以依據個別訂用帳戶調整平均 CPU 使用率規則。  平均 CPU 使用率規則可以設定為 5%、10%、15% 或 20%。
+如果您想要更積極地識別低使用量虛擬機器，您可以依據個別訂用帳戶調整平均 CPU 使用率規則。 平均 CPU 使用率規則可以設定為 5%、10%、15% 或 20%。
 
 > [!NOTE]
 > 若要調整平均 CPU 使用率規則以識別低使用量虛擬機器，您必須是訂用帳戶「擁有者」。  如果您沒有訂用帳戶或資源群組的必要權限，將其包含或排除的選項在使用者介面中就會停用。 
@@ -120,7 +120,7 @@ Advisor 可監視 14 天的虛擬機器使用量，然後找出低使用率的�
 
 ## <a name="download-your-advisor-recommendations"></a>下載 Advisor 建議
 
-Advisor 可讓您下載建議摘要。  您可以將建議下載為 PDF 檔案或 CSV 檔案。  下載建議可讓您與同事輕鬆共用建議，或是在建議資料上執行您自己的分析。
+您可以在 Advisor 中下載建議摘要 (PDF 或 CSV)。 並輕鬆的與同事共用，或是在建議資料上執行您的分析。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，然後開啟 [Advisor](https://aka.ms/azureadvisordashboard)。
 
@@ -132,7 +132,7 @@ Advisor 可讓您下載建議摘要。  您可以將建議下載為 PDF 檔案�
 
 若要深入了解 Advisor，請參閱︰
 * [Azure 建議程式簡介](advisor-overview.md)
-* [建議程式高可用性建議](advisor-high-availability-recommendations.md)
-* [建議程式安全性建議](advisor-security-recommendations.md)
--  [建議程式效能建議](advisor-performance-recommendations.md)
-* [建議程式成本建議](advisor-performance-recommendations.md)
+* [Advisor 高可用性建議](advisor-high-availability-recommendations.md)
+* [Advisor 安全性建議](advisor-security-recommendations.md)
+- [Advisor 效能建議](advisor-performance-recommendations.md)
+* [Advisor 成本建議](advisor-performance-recommendations.md)
