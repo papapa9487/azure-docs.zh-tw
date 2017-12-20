@@ -1,6 +1,6 @@
 ---
 title: "開始使用 Azure 建議程式 | Microsoft Docs"
-description: "開始使用 Azure 建議程式。"
+description: "開始使用 Azure Advisor。"
 services: advisor
 documentationcenter: NA
 author: manbeenkohli
@@ -16,15 +16,15 @@ ms.date: 02/10/2017
 ms.author: makohli
 ms.openlocfilehash: dc89cd29e1e8038f0ff317ff6acee332218ebce7
 ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/08/2017
 ---
-# <a name="get-started-with-azure-advisor"></a>開始使用 Azure 建議程式
+# <a name="get-started-with-azure-advisor"></a>開始使用 Azure Advisor
 
 了解如何透過 Azure 入口網站存取 Advisor、取得建議，以及實作建議。
 
-## <a name="get-advisor-recommendations"></a>取得建議程式的建議
+## <a name="get-advisor-recommendations"></a>取得 Azure Advisor 的建議
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 11/08/2017
 
 ## <a name="configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation"></a>針對低使用量虛擬機器建議設定平均 CPU 使用率規則
 
-Advisor 可監視 14 天的虛擬機器使用量，然後找出低使用率的虛擬機器。 虛擬機器若是平均 CPU 使用率等於或低於 5% 且網路使用量等於或低於 7 MB 長達 4 天 (含) 以上，就會被視為低使用率虛擬機器。
+Advisor 可監視 14 天的虛擬機器使用量，然後找出低使用率的虛擬機器。 虛擬機器若是平均 CPU 使用率小於(含) 5% 且網路使用量小於(含) 7 MB 長達 4 天 (含) 以上，就會視為低使用率虛擬機器。
 
 如果您想要更積極地識別低使用量虛擬機器，您可以依據個別訂用帳戶調整平均 CPU 使用率規則。  平均 CPU 使用率規則可以設定為 5%、10%、15% 或 20%。
 
@@ -132,7 +132,7 @@ Advisor 可讓您下載建議摘要。  您可以將建議下載為 PDF 檔案�
 
 若要深入了解 Advisor，請參閱︰
 * [Azure 建議程式簡介](advisor-overview.md)
-* [建議程式高可用性建議](advisor-high-availability-recommendations.md)
-* [建議程式安全性建議](advisor-security-recommendations.md)
--  [建議程式效能建議](advisor-performance-recommendations.md)
-* [建議程式成本建議](advisor-performance-recommendations.md)
+* [Advisor 高可用性建議](advisor-high-availability-recommendations.md)
+* [Advisor 安全性建議](advisor-security-recommendations.md)
+-  [Advisor 效能建議](advisor-performance-recommendations.md)
+* [Advisor 成本建議](advisor-performance-recommendations.md)
