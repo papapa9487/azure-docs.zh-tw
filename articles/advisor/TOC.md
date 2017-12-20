@@ -8,22 +8,22 @@
 ## [安全性建議](advisor-security-recommendations.md)
 
 # 開始使用
-## [開始使用 Azure Advisor](advisor-get-started.md)
+## [開始使用 Advisor](advisor-get-started.md)
 
 # 參考
-## [REST API](https://docs.microsoft.com/rest/api/advisor)
+## [REST](https://docs.microsoft.com/rest/api/advisor)
 
 ## [CLI](https://docs.microsoft.com/cli/azure/advisor)
 
 
 # 相關參考
 ## [資訊安全中心](https://azure.microsoft.com/services/security-center/)
-## [SQL 資料庫](https://azure.microsoft.com/documentation/articles/sql-database-advisor/)
+## [SQL DB Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/)
 ## [Redis 快取](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor)
-## [APP 服務](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)
+## [App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)
 
 # 資源
 ## [Azure Advisor 影片](https://azure.microsoft.com/en-us/resources/videos/index/?services=advisor)
-## [Azure 發展方向](https://azure.microsoft.com/roadmap/?category=monitoring-management)
-## [價格試算](https://azure.microsoft.com/pricing/calculator/)
+## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=monitoring-management)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 
