@@ -32,7 +32,7 @@
 
 ## 載入與移動資料
 ### [概觀](design-elt-data-loading.md)
-### [指引](guidance-for-loading-data.md)
+### [最佳作法](guidance-for-loading-data.md)
 
 
 ## 整合
