@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 05/09/2017
 ms.author: sdanie
 ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>如何使用 Redis 快取建立 Web 應用程式
 > [!div class="op_single_selector"]
@@ -61,7 +61,7 @@ ms.lasthandoff: 10/11/2017
 如果您有 Visual Studio 2013，您可以 [下載最新的 Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322)。 有些畫面看起來可能與本教學課程所示插圖不同。
 
 ## <a name="create-the-visual-studio-project"></a>建立 Visual Studio 專案
-1. 開啟 Visual Studio，然後按一下檔案新增、專案。
+1. 開啟 Visual Studio，然後按一下 [檔案][新增]、[專案]。
 2. 展開 [範本] 清單中的 [Visual C#] 節點、選取 [雲端]，然後按一下 [ASP.NET Web 應用程式]。 確定已選取 [.NET Framework 4.5.2] 或更新版本。  在 [名稱] 文字方塊中輸入 **ContosoTeamStats**，然後按一下 [確定]。
    
     ![建立專案][cache-create-project]

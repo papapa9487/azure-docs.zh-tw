@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
 ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-with-azure-search-in-java"></a>開始在 Java 中使用 Azure 搜尋服務
 > [!div class="op_single_selector"]
@@ -125,7 +125,7 @@ ms.lasthandoff: 10/11/2017
 1. 在 [專案總管] 中，以滑鼠右鍵按一下專案名稱，然後選擇 [執行身分] > [Maven 組建...] 以設定專案。
    
     ![][10]
-2. 在 Edit Configuration (編輯組態) 的 Goals (目標) 中輸入 "clean install"，然後按一下Run (執行) 。
+2. 在 [Edit Configuration (編輯組態)] 的 [Goals (目標)] 中輸入 "clean install"，然後按一下 [Run (執行)] 。
 
 狀態訊息會輸出至主控台視窗。 您應該會看見 BUILD SUCCESS 訊息，指出專案已建置完成，未發生任何錯誤。
 
@@ -135,7 +135,7 @@ ms.lasthandoff: 10/11/2017
 如果您尚未在 Eclipse 中指定伺服器執行階段環境，請務必先行指定。
 
 1. 在 Project Explorer 中，展開 [WebContent] 。
-2. 以滑鼠右鍵依序按一下 [Search.jsp] > [執行身分] > [在伺服器上執行]。 選取 Apache Tomcat 伺服器，然後按一下Run (執行) 。
+2. 以滑鼠右鍵依序按一下 [Search.jsp] > [執行身分] > [在伺服器上執行]。 選取 Apache Tomcat 伺服器，然後按一下 [Run (執行)] 。
 
 > [!TIP]
 > 如果您使用非預設工作區來儲存專案，則需要修改 [執行組態]，使其指向專案位置，以避免伺服器啟動錯誤。 在 [專案總管] 中，以滑鼠右鍵依序按一下 [Search.jsp] > [執行身分] > [執行組態]。 選取 Apache Tomcat 伺服器。 按一下 [Arguments (引數)] 。 按一下 [Workspace (工作區)] 或 [File System (檔案系統)]，以設定包含專案的資料夾。

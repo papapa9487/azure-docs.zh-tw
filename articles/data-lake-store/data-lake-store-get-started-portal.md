@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 09/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 4d3a5c0c49b881db69a9d5cccc65406322212a8d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>使用 Azure 入口網站開始使用 Azure Data Lake Store
 > [!div class="op_single_selector"]
@@ -91,7 +91,7 @@ ms.lasthandoff: 10/11/2017
 2. 在您的 [資料湖儲存區帳戶] 刀鋒視窗中，按一下 [資料總管] 。
    
     ![在 Data Lake Store 帳戶中建立資料夾](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "在 Data Lake Store 帳戶中建立資料夾")
-3. 在 資料總管 刀鋒視窗中，按一下 新增資料夾，輸入新資料夾的名稱，然後按一下確定。
+3. 在 [資料總管] 刀鋒視窗中，按一下 [新增資料夾]，輸入新資料夾的名稱，然後按一下 [確定]。
    
     ![在 Data Lake Store 帳戶中建立資料夾](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "在 Data Lake Store 帳戶中建立資料夾")
    
@@ -103,7 +103,7 @@ ms.lasthandoff: 10/11/2017
 您可以直接在根層級將資料上傳至 Azure 資料湖存放區帳戶，或上傳至您在帳戶內建立的資料夾。 
 
 1. 從 [資料總管] 刀鋒視窗中，按一下 [上傳]。 
-2. 在 上傳檔案 刀鋒視窗中，導覽至您要上傳的檔案，然後按一下新增選取的檔案。 您可以選取數個檔案加以上傳。
+2. 在 [上傳檔案] 刀鋒視窗中，導覽至您要上傳的檔案，然後按一下 [新增選取的檔案]。 您可以選取數個檔案加以上傳。
 
     ![上傳資料](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "上傳資料")
 
@@ -118,7 +118,7 @@ ms.lasthandoff: 10/11/2017
 您可以在您的 Azure 資料湖存放區帳戶中使用 Azure Active Directory 和存取控制 (ACL) 保護儲存的資料。 如需如何執行此工作的指示，請參閱 [在 Azure 資料湖存放區中保護資料](data-lake-store-secure-data.md)。
 
 ## <a name="delete-azure-data-lake-store-account"></a>刪除 Azure 資料湖存放區帳戶
-若要刪除 Azure 資料湖存放區帳戶，請從 [資料湖存放區] 刀鋒視窗按一下 [刪除] 。 為了確認此動作，將提示您輸入您要刪除的帳戶名稱。 輸入帳戶的名稱，然後按一下刪除 。
+若要刪除 Azure 資料湖存放區帳戶，請從 [資料湖存放區] 刀鋒視窗按一下 [刪除] 。 為了確認此動作，將提示您輸入您要刪除的帳戶名稱。 輸入帳戶的名稱，然後按一下 [刪除] 。
 
 ![刪除 Data Lake 帳戶](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "刪除 Data Lake 帳戶")
 
