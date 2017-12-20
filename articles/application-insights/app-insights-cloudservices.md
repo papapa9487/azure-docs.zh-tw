@@ -15,14 +15,14 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9e27ffe72986406031ba6cf9b1153090f6ff1113
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 44044939f044b573d19270830ab140e8332b6825
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure 雲端服務的 Application Insights
-您可以透過 [Application Insights][start] 來監視 [Microsoft Azure 雲端服務應用程式](https://azure.microsoft.com/services/cloud-services/)，它會結合 Application Insights SDK 的資料與雲端服務的 [Azure 診斷](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics)資料，來讓您了解應用程式的可用性、效能、失敗和使用情形。 當您取得有關應用程式在現實世界的效能和效率的意見反應時，您可以在每個開發生命週期中針對設計方向做出明智的抉擇。
+您可以透過 [Application Insights][start] 來監視 [Microsoft Azure 雲端服務應用程式](https://azure.microsoft.com/services/cloud-services/)，它會結合 Application Insights SDK 的資料與雲端服務的 [Azure 診斷](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)資料，來讓您了解應用程式的可用性、效能、失敗和使用情形。 當您取得有關應用程式在現實世界的效能和效率的意見反應時，您可以在每個開發生命週期中針對設計方向做出明智的抉擇。
 
 ![範例](./media/app-insights-cloudservices/sample.png)
 
@@ -142,7 +142,7 @@ ms.lasthandoff: 11/01/2017
 * 請參閱[疑難排解][qna]。
 
 ## <a name="view-azure-diagnostic-events"></a>檢視 Azure 診斷事件
-[Azure 診斷](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics)資訊在 Application Insights 中的位置如下：
+[Azure 診斷](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)資訊在 Application Insights 中的位置如下：
 
 * 效能計數器顯示為自訂度量。 
 * Windows 事件記錄檔顯示為追蹤和自訂事件。

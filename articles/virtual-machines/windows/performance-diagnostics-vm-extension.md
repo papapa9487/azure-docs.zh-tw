@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 85d4764534c77ea0e4d999e249abe456d0234d75
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d9384af2cf1d8b3f55f9ec2316046536634c124e
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>適用於 Windows 的 Azure 效能診斷 VM 擴充功能
 
@@ -46,7 +46,6 @@ Azure 效能診斷 VM 擴充功能可協助從 Windows VM 收集效能診斷資�
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
                   "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
                   "perfCounterTrace": "[parameters('perfCounterTrace')]",
                   "networkTrace": "[parameters('networkTrace')]",
                   "xperfTrace": "[parameters('xperfTrace')]",
@@ -72,13 +71,11 @@ Azure 效能診斷 VM 擴充功能可協助從 Windows VM 收集效能診斷資�
 |typeHandlerVersion|1.0|擴充功能處理常式的版本
 |performanceScenario|basic|要擷取資料的效能案例。 有效值為：**basic**、**vmslow**、**azurefiles** 及 **custom**。
 |traceDurationInSeconds|300|追蹤的持續時間 (若有選取任何追蹤選項)。
-|DiagnosticsTrace|d|啟用診斷追蹤的選項。 有效值為 **d** 或空值。 如果您不想要擷取此追蹤，只要將值保持空白即可。
 |perfCounterTrace|p|啟用效能計數器追蹤的選項。 有效值為 **p** 或空值。 如果您不想要擷取此追蹤，只要將值保持空白即可。
 |networkTrace|n|啟用 Netmon 追蹤的選項。 有效值為 **n** 或空值。 如果您不想要擷取此追蹤，只要將值保持空白即可。
 |xperfTrace|x|啟用 XPerf 追蹤的選項。 有效值為 **x** 或空值。 如果您不想要擷取此追蹤，只要將值保持空白即可。
 |storPortTrace|s|啟用 StorPort 追蹤的選項。 有效值為 s 或空值。 如果您不想要擷取此追蹤，只要將值保持空白即可。
 |srNumber|123452016365929|支援票證號碼 (若可用)。 如果您沒有此號碼，請保持空白。
-|requestTimeUtc|9/2/2017 11:06:00 PM|目前的日期時間 (UTC)。 如果您使用入口網站安裝此擴充功能，便不需要提供此值。
 |storageAccountName|mystorageaccount|要儲存診斷記錄檔和結果的儲存體帳戶名稱。
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|儲存體帳戶的金鑰。
 
@@ -153,10 +150,6 @@ Azure 效能診斷 VM 擴充功能可協助從 Windows VM 收集效能診斷資�
       "type": "int",
     "defaultValue": 300
     },
-    "diagnosticsTrace": {
-      "type": "string",
-      "defaultValue": "d"
-    },
     "perfCounterTrace": {
       "type": "string",
       "defaultValue": "p"
@@ -192,7 +185,6 @@ Azure 效能診斷 VM 擴充功能可協助從 Windows VM 收集效能診斷資�
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
                   "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
                   "perfCounterTrace": "[parameters('perfCounterTrace')]",
                   "networkTrace": "[parameters('networkTrace')]",
                   "xperfTrace": "[parameters('xperfTrace')]",
@@ -216,8 +208,8 @@ Azure 效能診斷 VM 擴充功能可協助從 Windows VM 收集效能診斷資�
 PowerShell
 
 ````
-$PublicSettings = @{ "performanceScenario" = "basic"; "traceDurationInSeconds" = 300; "diagnosticsTrace" = "d"; "perfCounterTrace" = "p"; "networkTrace" = ""; "xperfTrace" = ""; "storPortTrace" = ""; "srNumber" = ""; "requestTimeUtc" = "2017-09-28T22:08:53.736Z" }
-$ProtectedSettings = @{"storageAccountName" = "mystorageaccount" ; "storageAccountKey" = "mystoragekey"}
+$PublicSettings = @{ "performanceScenario":"basic","traceDurationInSeconds":300,"perfCounterTrace":"p","networkTrace":"","xperfTrace":"","storPortTrace":"","srNumber":"","requestTimeUtc":"2017-09-28T22:08:53.736Z" }
+$ProtectedSettings = @{"storageAccountName":"mystorageaccount","storageAccountKey":"mystoragekey"}
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `
@@ -231,7 +223,7 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
 ````
 
 ## <a name="information-on-the-data-captured"></a>所擷取資料的詳細資訊
-PerfInsights 工具會根據所選取的案例，收集各種記錄檔、設定、診斷資料等。 如需根據案例所收集之資料的詳細資訊，請造訪 [PerfInsights 文件](http://aka.ms/perfinsights)。
+PerfInsights 工具會根據所選取的案例，收集各種記錄檔、設定、診斷資料等。 如需根據案例所收集的資料詳細資訊，請造訪 [PerfInsights 文件](http://aka.ms/perfinsights)。
 
 ## <a name="view-and-share-the-results"></a>檢視並共用結果
 

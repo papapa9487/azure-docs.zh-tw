@@ -3,22 +3,21 @@ title: "在 Azure API 管理中使用群組管理開發人員帳戶 | Microsoft 
 description: "了解如何在 Azure API 管理中使用群組來管理管理開發人員帳戶。"
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 33660b45-442f-44be-9a4a-1899d7f699b0
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 00322340d67fd064a0dc9149790e031b94390709
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 1587243bcd5f2b9af98b8b529c152ba49ef676be
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>如何在 Azure API 管理中建立和使用群組來管理開發人員帳戶
 在 API 管理中，群組的作用是管理產品對於開發人員的可見度。 產品是先設為可讓群組看見，然後群組中的開發人員就能檢視和訂閱與群組相關聯的產品。 
@@ -43,7 +42,7 @@ API 管理具有下列不可變的系統群組。
 
 ![發行者入口網站][api-management-management-console]
 
-> 如果您尚未建立 API 管理服務執行個體，請參閱[開始使用 Azure API 管理][Get started with Azure API Management]教學課程中的[建立 API 管理服務執行個體][Create an API Management service instance]。
+> 如果您尚未建立 API 管理服務執行個體，請參閱[建立 API 管理服務執行個體][Create an API Management service instance]。
 > 
 > 
 
@@ -112,6 +111,6 @@ API 管理具有下列不可變的系統群組。
 
 [How create and publish a product in Azure API Management]: api-management-howto-add-products.md
 
-[Get started with Azure API Management]: api-management-get-started.md
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: get-started-create-service-instance.md
+[Create an API Management service instance]: get-started-create-service-instance.md
 [leverage external groups in associated Azure Active Directory tenants]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group

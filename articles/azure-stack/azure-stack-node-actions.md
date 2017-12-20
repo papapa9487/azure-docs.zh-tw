@@ -3,8 +3,8 @@ title: "Azure Stack 中的縮放單位節點動作 | Microsoft Docs"
 description: "了解如何檢視節點狀態和在 Azure Stack 整合系統上使用開啟電源、關閉電源、清空和繼續節點動作。"
 services: azure-stack
 documentationcenter: 
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: dbb68b10-c721-4188-aa07-584d0cd63138
 ms.service: azure-stack
@@ -13,12 +13,12 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
-ms.author: twooley
-ms.openlocfilehash: 3696cd0da0859bebf001f7749ac8874efd574046
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 4b94092f1284abfa2462ddef04b6e84136e54dde
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack 中的縮放單位節點動作
 

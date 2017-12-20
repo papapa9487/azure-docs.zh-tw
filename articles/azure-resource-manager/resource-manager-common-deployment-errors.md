@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 11/29/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2ebb469289afc36b08c90ae9839f5bdba41cd90b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: db7561c31c0748ae5c1500ba8c39dfa79274901e
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>使用 Azure Resource Manager 針對常見的 Azure 部署錯誤進行疑難排解
 
@@ -31,6 +31,7 @@ ms.lasthandoff: 11/09/2017
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | 遵循儲存體帳戶的命名限制。 | [解析儲存體帳戶名稱](resource-manager-storage-account-name-errors.md) |
 | AccountPropertyCannotBeSet | 檢查可用儲存體帳戶屬性。 | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| AllocationFailed | 叢集或區域沒有可用的資源或無法支援所要求的 VM 大小。 稍後重試要求，或要求不同的 VM 大小。 | [Linux 的佈建和配置問題](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)和[Windows 的佈建和配置問題](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
 | AnotherOperationInProgress | 等候並行作業完成。 | |
 | AuthorizationFailed | 您的帳戶或服務主體沒有完成部署的足夠存取權。 請檢查您的帳戶所屬的角色以及它針對部署範圍的存取權。 | [Azure 角色型存取控制](../active-directory/role-based-access-control-configure.md) |
 | BadRequest | 您傳送的部署值不符合資源管理員的預期。 請查看內部狀態訊息，以取得疑難排解的說明。 | [範本參考](/azure/templates/)和[支援位置](resource-manager-template-location.md) |

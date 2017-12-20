@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/24/2017
 ms.author: adegeo
-ms.openlocfilehash: d203580f676d55acbad4936160982a40592af1d0
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: baed3e290ed29d1459455441e7cac7c5b1b1ebd9
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="scale-a-service-fabric-cluster"></a>調整 Service Fabric 叢集
 
@@ -30,6 +30,13 @@ ms.lasthandoff: 11/10/2017
 > * 讀取叢集節點計數
 > * 新增叢集節點 (相應放大)
 > * 移除叢集節點 (相應縮小)
+
+在本教學課程系列中，您將了解如何：
+> [!div class="checklist"]
+> * 在 Azure 上，使用範本建立安全的 [Windows 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)或 [Linux 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+> * 將叢集相應縮小或相應放大
+> * [升級叢集的執行階段](service-fabric-tutorial-upgrade-cluster.md)
+> * [使用 Service Fabric 部署 API 管理](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>必要條件
 開始進行本教學課程之前：
@@ -250,8 +257,8 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
 > * 移除叢集節點 (相應縮小)
 
 
-接下來，請前進到下列教學課程，了解如何部署應用程式和使用 API 管理。
+接下來，請前往下列教學課程，了解如何升級叢集執行階段。
 > [!div class="nextstepaction"]
-> [部署 API 管理](service-fabric-tutorial-deploy-api-management.md)
+> [升級叢集的執行階段](service-fabric-tutorial-upgrade-cluster.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster

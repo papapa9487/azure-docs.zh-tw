@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/03/2017
 ms.author: jgao
-ms.openlocfilehash: e139db13cf943723a498158870627fd66cdd6e0f
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ff9bf262fecd7307a1150dd6ea59f0f7c4b87258
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>使用 Data Lake Store 搭配 Azure HDInsight 叢集
 
@@ -51,7 +51,6 @@ HDInsight 叢集可透過兩種方式來使用 Data Lake Store︰
 | HDInsight 3.4 版 | 否 | 是 | |
 | HDInsight 3.3 版 | 否 | 否 | |
 | HDInsight 3.2 版 | 否 | 是 | |
-| HDInsight 進階版 (層級)| 否 | 否 | |
 | Storm | | |您可以使用 Data Lake Store 從 Storm 拓撲寫入資料。 您也可以使用 Data Lake Store 做為參考資料，該資料稍後可以由 Storm 拓撲讀取。|
 
 使用 Data Lake Store 作為其他儲存體帳戶，並不會影響效能或從叢集讀取或寫入至 Azure 儲存體的能力。

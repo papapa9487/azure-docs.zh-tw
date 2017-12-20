@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 10/17/2017
 ms.author: heidist
-ms.openlocfilehash: c1d393064313ea65d5226378172530115c338f86
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 827c0122fafceca369c0350e6846c77e98abc3b5
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="indexers-in-azure-search"></a>Azure 搜尋服務中的索引子
 > [!div class="op_single_selector"]
@@ -64,7 +64,10 @@ Azure 搜尋服務中的 *索引子* 是一種編目程式，其可從外部資�
 資料來源和使用資料來源的索引子是各自獨立設定與管理，這表示多個索引子可使用同一個資料來源來一次載入多個索引。
 
 ### <a name="step-2-create-an-index"></a>步驟 2：建立索引
-索引子能將有關資料擷取的某些工作自動化，不過不包括建立索引。 若要滿足必要條件，您必須擁有預先定義的索引，且欄位必須與外部資料來源中的欄位相符。 如需建構索引的詳細資訊，請參閱 [建立索引 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Index)。 如需欄位關聯的說明，請參閱 [Azure 搜尋服務索引子中的欄位對應](search-indexer-field-mappings.md)。
+索引子會自動執行有關資料擷取的某些工作，但是通常不包括建立索引。 若要滿足必要條件，您必須擁有預先定義的索引，且欄位必須與外部資料來源中的欄位相符。 如需建構索引的詳細資訊，請參閱 [建立索引 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Index)。 如需欄位關聯的說明，請參閱 [Azure 搜尋服務索引子中的欄位對應](search-indexer-field-mappings.md)。
+
+> [!Tip]
+> 雖然索引子不能為您產生索引，但入口網站中的 [匯入資料] 精靈有所幫助。 在大部分情況下，此精靈可以從來源中的現有中繼資料推斷索引結構描述，並呈現您可以在精靈作用中時以內嵌方式編輯的初步索引結構描述。 一旦在服務上建立索引後，在入口網站中的進一步編輯大部分都受限於新增欄位。 請考慮使用精靈進行建立，但非修改索引。 如需實際操作學習，請逐步執行[入口網站逐步解說](search-get-started-portal.md)。
 
 ### <a name="step-3-create-and-schedule-the-indexer"></a>步驟 3：建立和排程索引子
 索引子定義是指定索引、資料來源和排程的結構。 索引子可以參考另一個服務的資料來源，只要該資料來源來自相同訂用帳戶即可。 如需建構索引的詳細資訊，請參閱 [建立索引子 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)。

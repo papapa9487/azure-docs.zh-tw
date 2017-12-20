@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 35d7c04f245e93d8cc795dca7c01c2bab5a14eb8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 51a1b65446a1a0db93c21378f156b608a38ef817
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Azure Machine Learning 資料準備預覽版所支援的偵測器
 本文件概述此預覽中可用的偵測器集合。
@@ -113,3 +113,18 @@ X 軸上具有時間感知的折線圖。
 這個偵測器支援透過地圖上的點選取範圍進行篩選。 按下 **Ctrl** 鍵，然後按一下並拖曳滑鼠，在點周圍形成方形。 然後套用篩選，如先前所述。
 
 您可以按下地圖左側的 **E** 來快速調整地圖大小，以便只顯示可能的點。
+
+
+## <a name="pattern-frequency"></a>模式頻率 
+
+這個偵測器會顯示所選字串資料行中之模式的清單。 模式會使用類似規則運算式的語法來表示。 將滑鼠游標暫留在模式上會顯示該模式所表示之值的範例。 除了顯示模式之外，也會顯示以百分比表示的大約覆蓋範圍。
+
+![模式偵測器的影像](media/data-prep-appendix4-supported-inspectors/PatternInspectorProductNumber.png)
+
+### <a name="options"></a>選項
+- 頂端數值數目
+- 遞減
+- 顯示光暈
+
+### <a name="actions"></a>動作
+這個偵測器支援依據顯示的模式進行篩選。 按 **Ctrl** 鍵，然後選取模式偵測器中填滿的列。 然後套用篩選，如先前所述。 因為使用者動作的結果，增加了一個「進階篩選」步驟。 您可以透過叫用「進階篩選」步驟的編輯選項，以查看並修改產生的 Python 程式碼。

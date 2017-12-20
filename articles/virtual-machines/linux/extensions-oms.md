@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: 6eb07b5ad4b3ebdde75575fc5682ae2153a0c12f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: dcb7a777c66200c5046a6ad34dc4ff5d346f13e0
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>適用於 Linux 的 OMS 虛擬機器擴充功能
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/08/2017
 
 Operations Management Suite (OMS) 可提供雲端和內部部署資產的監視、警示和警示補救功能。 Microsoft 已發佈和支援適用於 Linux 的 OMS 代理程式虛擬機器擴充功能。 擴充功能會在 Azure 虛擬機器上安裝 OMS 代理程式，並且在現有的 OMS 工作區中註冊虛擬機器。 本文件詳述適用於 Linux 的 OMS 虛擬機器擴充功能所支援的平台、組態和部署選項。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="operating-system"></a>作業系統
 
@@ -42,9 +42,13 @@ Operations Management Suite (OMS) 可提供雲端和內部部署資產的監視�
 | Ubuntu | 12.04 LTS、14.04 LTS、15.04、15.10、16.04 LTS |
 | SUSE Linux Enterprise Server | 11 和 12 |
 
+### <a name="azure-security-center"></a>Azure 資訊安全中心
+
+Azure 資訊安全中心會使用 Azure 訂用帳戶的預設記錄分析工作區，自動佈建 OMS 代理程式並與它連線。 如果您使用的是 Azure 資訊安全中心，請不要執行此文件中的步驟。 這樣做會覆寫已設定的工作區，並中斷與 Azure 資訊安全中心的連線。
+
 ### <a name="internet-connectivity"></a>網際網路連線
 
-適用於 Linux 的 OMS 代理程式擴充功能會要求目標虛擬機器連接到網際網路。 
+適用於 Linux 的 OMS 代理程式擴充功能會要求目標虛擬機器連線到網際網路。 
 
 ## <a name="extension-schema"></a>擴充功能結構描述
 

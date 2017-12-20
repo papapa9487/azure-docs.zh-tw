@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 667ff16dc7608dab2a5b8b1fd7df715da4620ca1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68d519cd36d41728f57419cd6cecd2a79d65a4af
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="widevine-license-template-overview"></a>Widevine 授權範本概觀
-## <a name="overview"></a>Overview
-Azure 媒體服務現在可讓您設定和要求 Widevine 授權。 使用者播放程式嘗試播放 Widevine 保護內容時，會將要求傳送到授權傳遞服務來取得授權。 如果授權服務核准要求，就會發出傳送給用戶端並可用來解密和播放所指定內容的授權。
+Azure 媒體服務可讓您設定和要求 Widevine 授權。 使用者播放程式嘗試播放 Widevine 保護內容時，會將要求傳送到授權傳遞服務來取得授權。 如果授權服務核准要求，就會發出傳送給用戶端並可用來解密和播放所指定內容的授權。
 
 Widevine 授權要求會格式化為 JSON 訊息。  
 
@@ -197,5 +196,5 @@ Widevine 授權要求會格式化為 JSON 訊息。
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>另請參閱
-[使用 PlayReady 和/或 Widevine 動態 Common Encryption](media-services-protect-with-drm.md)
+[使用 PlayReady 和/或 Widevine 動態 Common Encryption](media-services-protect-with-playready-widevine.md)
 

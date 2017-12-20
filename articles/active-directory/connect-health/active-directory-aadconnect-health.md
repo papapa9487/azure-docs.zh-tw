@@ -4,7 +4,7 @@ description: "這是 Azure AD Connect Health 頁面，其中說明它的功能�
 services: active-directory
 documentationcenter: 
 author: karavar
-manager: samueld
+manager: mtillman
 editor: curtand
 ms.assetid: 82798ea6-5cd3-4f30-93ae-d56536f8d8e3
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 24552ef153f5aa601b2998129a7bbacc8f9da6bf
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 9919e326613ce81db32f1d72a8cb5e3668992885
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>在雲端中監視內部部署身分識別基礎結構和同步處理服務。
 Azure Active Directory (Azure AD) Connect Health 可協助您監視和了解內部部署身分識別基礎結構和同步處理服務。 它提供重要身分識別元件 (例如 Active Directory Federation Services (AD FS) 伺服器、Azure AD Connect 伺服器 (也稱為同步處理引擎)、Active Directory 網域控制站等) 的監視功能，讓您維護可靠的 Office 365 或 Microsoft Online Services 連線。它也使這些元件的相關重要資料點變得容易存取，讓您取得使用情況和其他重要情資，以做出明智的決策。

@@ -1,5 +1,5 @@
 ---
-title: "Node.js 入門指南 | Microsoft Docs"
+title: "Node.js 入門指南"
 description: "了解如何建立簡單的 Node.js Web 應用程式，並將它部署至 Azure 雲端服務。"
 services: cloud-services
 documentationcenter: nodejs
@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 02aa75824bab4e33f1cd73ab1053d64a20956a0a
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: d498fc09112c0df7b6ecb81a492b180765fdf883
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>建立 Node.js 應用程式並部署到 Azure 雲端服務
 
@@ -136,7 +136,7 @@ Node.js app 是在 **server.js** 檔案中定義，該檔案位於 Web 角色 (�
 4. 將部署封裝發佈到 Azure。
 
 ## <a name="stopping-and-deleting-your-application"></a>停止並刪除您的應用程式
-部署您的應用程式後，您可能會想要將它停用，以便避免額外的成本。 Azure 會對於 Web 角色執行個體的伺服器使用時間時數計費。 部署應用程式之後，即使執行個體未執行而在停止狀態中，也會使用伺服器時間。
+部署您的應用程式後，建議您將它停用，以避免額外的成本。 Azure 會對於 Web 角色執行個體的伺服器使用時間時數計費。 部署應用程式之後，即使執行個體未執行而在停止狀態中，也會使用伺服器時間。
 
 1. 在 Windows PowerShell 視窗中，使用下列 Cmdlet 停止上一個小節中建立的服務部署：
 

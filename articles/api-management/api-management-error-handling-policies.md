@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: e8837b8d62bb8caeee9460661438368c2d11697a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bc71c0745493d52128553a78a31c45a3bca30f8
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="error-handling-in-api-management-policies"></a>API 管理原則中的錯誤處理
 Azure API 管理可讓發佈者回應在處理 Proxy 要求期間可能會發生的錯誤狀況，其方法是藉由提供 `ProxyError` 物件。 `ProxyError` 物件是透過 [context.LastError](api-management-policy-expressions.md#ContextVariables) 屬性來存取，並可供 `on-error` 原則區段中的原則使用。 本主題提供 Azure API 管理中錯誤處理功能的參考。  
@@ -56,27 +56,16 @@ Azure API 管理可讓發佈者回應在處理 Proxy 要求期間可能會發生
  下列原則可用於 `on-error` 原則區段。  
   
 -   [choose](api-management-advanced-policies.md#choose)  
-  
 -   [set-variable](api-management-advanced-policies.md#set-variable)  
-  
 -   [find-and-replace](api-management-transformation-policies.md#Findandreplacestringinbody)  
-  
 -   [return-response](api-management-advanced-policies.md#ReturnResponse)  
-  
 -   [set-header](api-management-transformation-policies.md#SetHTTPheader)  
-  
 -   [set-method](api-management-advanced-policies.md#SetRequestMethod)  
-  
 -   [set-status](api-management-advanced-policies.md#SetStatus)  
-  
 -   [send-request](api-management-advanced-policies.md#SendRequest)  
-  
 -   [send-one-way-request](api-management-advanced-policies.md#SendOneWayRequest)  
-  
 -   [log-to-eventhub](api-management-advanced-policies.md#log-to-eventhub)  
-  
 -   [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML)  
-  
 -   [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON)  
   
 ## <a name="lasterror"></a>LastError  
@@ -128,4 +117,10 @@ Azure API 管理可讓發佈者回應在處理 Proxy 要求期間可能會發生
 |validate-jwt|其他驗證失敗|JwtInvalid|<來自 jwt 程式庫的訊息\>|
 
 ## <a name="next-steps"></a>後續步驟
-如需有關使用原則的詳細資訊，請參閱 [API 管理中的原則](api-management-howto-policies.md)。  
+
+如需使用原則的詳細資訊，請參閱︰
+
++ [API 管理中的原則](api-management-howto-policies.md)
++ [轉換 API](transform-api.md)
++ [原則參考文件](api-management-policy-reference.md)，取得原則陳述式及其設定的完整清單
++ [原則範例](policy-samples.md)   

@@ -3,7 +3,7 @@ title: "我在 Azure 自動化中的第一個 PowerShell 工作流程 Runbook | 
 description: "本教學課程逐步引導您使用 PowerShell 工作流程建立、測試和發佈簡單的文字 Runbook。"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 keywords: "powershell 工作流程, powershell 工作流程範例, 工作流程 powershell"
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 71fba79804e4361fd731ec5627526beafa01fa3b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 214163dd0f63bb8e08afdf94dcbfcc93d0279ad1
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>我的第一個 PowerShell 工作流程 Runbook
 
@@ -127,7 +127,7 @@ ms.lasthandoff: 10/11/2017
    Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
    }
    ```
-2. 儲存 Runbook，然後按一下測試  窗格，我們便能加以測試。
+2. 儲存 Runbook，然後按一下 [測試]  窗格，我們便能加以測試。
 3. 按一下 [開始]  以開始測試。 當它完成時，請檢查虛擬機器已啟動。
 
 ## <a name="step-7---add-an-input-parameter-to-the-runbook"></a>步驟 7 - 將輸入參數加入至 Runbook

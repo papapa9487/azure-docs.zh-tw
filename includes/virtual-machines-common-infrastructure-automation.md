@@ -41,21 +41,24 @@
 
 
 ## <a name="cloud-init"></a>Cloud-init
-[Cloud-init (英文)](https://cloudinit.readthedocs.io) 是在 Linux VM 初次開機時，廣泛用來自訂它們的方法。 您可以使用 cloud-init 來安裝封裝和寫入檔案，或者設定使用者和安全性。 當 cloud-init 在初次開機程序期間執行時，不需要使用任何額外的步驟或必要的代理程式來套用您的組態。
+[Cloud-init (英文)](https://cloudinit.readthedocs.io) 是在 Linux VM 初次開機時，廣泛用來自訂它們的方法。 您可以使用 cloud-init 來安裝封裝和寫入檔案，或者設定使用者和安全性。 因為在初次開機程序期間時會呼叫 Cloud-init，不需要使用任何額外的步驟或必要的代理程式來套用您的組態。  如需如何正確地格式化 `#cloud-config` 檔案的相關資訊，請參閱 [ 文件網站](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data)。  `#cloud-config` 檔案是以 base64 編碼的文字檔。
 
 Cloud-init 也適用於散發套件。 例如，您不使用 **apt-get install** 或 **yum install** 來安裝套件。 您可以改為定義要安裝的套件清單。 Cloud-init 會針對您選取的散發套件自動使用原生的套件管理工具。
 
-我們正在與合作夥伴合作，以期在他們提供給 Azure 的映像中包含和使用 cloud-init。 下表概述 cloud-init 目前在 Azure 平台映像上的可用性：
+ 我們正積極與背書的 Linux 散發版本夥伴合作，以便在 Azure 市集中提供啟用 Cloud-init 的映像。 這些映像會讓您的 Cloud-init 部署和設定順暢地與 VM 和 VM 擴展集 (VMSS) 運作。 下表概述目前啟用 Cloud-init 的映像在 Azure 平台上的可用性：
 
-| Alias | 發佈者 | 提供項目 | SKU | 版本 |
+| 發佈者 | 提供項目 | SKU | 版本 | Cloud-init 就緒
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |最新 |
-| UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |最新 |
-| CoreOS |CoreOS |CoreOS |Stable |最新 |
+|Canonical |UbuntuServer |16.04-LTS |最新 |yes | 
+|Canonical |UbuntuServer |14.04.5-LTS |最新 |yes |
+|CoreOS |CoreOS |Stable |最新 |yes |
+|OpenLogic |CentOS |7-CI |最新 |preview |
+|RedHat |RHEL |7-RAW-CI |最新 |preview |
 
-了解如何：
+在 Azure 上深入了解 Cloud-init 的詳細資料：
 
-- [使用 cloud-init 來自訂 Linux VM](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md)。
+- [Azure 中 Linux 虛擬機器的 Cloud-init 支援](../articles/virtual-machines/linux/using-cloud-init.md)
+- [請使用 Cloud-init 嘗試自動化 VM 組態上的教學課程](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md)。
 
 
 ## <a name="powershell-dsc"></a>PowerShell DSC

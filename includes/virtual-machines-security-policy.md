@@ -24,7 +24,7 @@
 
 ## <a name="policies"></a>原則
 
-[Azure Resource Manager 原則](../articles/azure-resource-manager/resource-manager-policy.md)可用來為您組織的 [Windows VM](../articles/virtual-machines/windows/policy.md) 和 [Linux VM](../articles/virtual-machines/linux/policy.md) 定義所要的行為。 藉由使用原則，組織可以強制執行整個企業的各種慣例和規則。 強制執行所要的行為有助於降低風險，同時促進組織的成功。
+[Azure 原則](../articles/azure-policy/azure-policy-introduction.md)可用來為您組織的 [Windows VM](../articles/virtual-machines/windows/policy.md) 和 [Linux VM](../articles/virtual-machines/linux/policy.md) 定義所要的行為。 藉由使用原則，組織可以強制執行整個企業的各種慣例和規則。 強制執行所要的行為有助於降低風險，同時促進組織的成功。
 
 ## <a name="role-based-access-control"></a>角色型存取控制
 

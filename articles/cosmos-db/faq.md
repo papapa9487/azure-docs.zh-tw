@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 0f45468616884a6866bd95ef53acab71b4fed06c
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: f32d23caa0a89b7f9336628280d726a351fb0603
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常見問題集
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB 基本概念
@@ -195,7 +195,6 @@ Azure Cosmos DB 會強制執行嚴格的安全性需求和標準。 Azure Cosmos
 * 資料表 API 所傳回的查詢結果，不會和 Azure 資料表儲存體一樣使用資料分割索引鍵/資料列索引鍵順序來排序。
 * 資料列索引鍵最多只能是 255 個位元組
 * 批次最多只可包含 2 MB
-* CreateIfNotExists 呼叫會由固定的管理節流來進行節流處理，且不同於 RU 所涵蓋的其他資料表作業。 這表示因為此限制不是來自其 RU，進行大量 CreateIfNotExists 的作業會受到節流，且將無法再進行其任何相關操作。
 * 目前不支援 CORS
 * 資料表名稱在 Azure 資料表儲存體中不區分大小寫，但在 Azure Cosmos DB 資料表 API 中則有區分
 * 部分 Azure Cosmos DB 用於編碼資訊 (例如二進位欄位) 的內部格式，目前不如預期地有效率。 因此這會對資料大小造成非預期的限制。 例如，目前無法使用資料表實體的完整 1 Meg 來儲存二進位資料，因為編碼方式增加了資料的大小。
@@ -504,7 +503,7 @@ Azure Cosmos DB 是一種平台服務，可協助您提高產能，而不必擔�
 ### <a name="which-client-sdks-can-work-with-apache-cassandra-api-of-azure-cosmos-db"></a>哪些用戶端 SDK 可以搭配 Azure Cosmos DB 的 Apache Cassandra API 來運作？
 在私人預覽版中，使用 CQLv3 的 Apache Cassandra SDK 用戶端驅動程式會用於用戶端程式。 如果您使用其他驅動程式，或如果您遇到問題，請傳送電子郵件到 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)。 
 
-### <a name="is-composite-primary-key-supported"></a>是否支援複合主索引鍵？
+### <a name="is-composite-partition-key-supported"></a>是否支援複合資料分割索引鍵？
 是，您可以使用一般語法來建立複合的資料分割索引鍵。 
 
 ### <a name="can-i-use-sstable-loader-for-data-loading"></a>是否可以使用 sstable loader 來載入資料？

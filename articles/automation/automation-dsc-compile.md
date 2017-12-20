@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; eslesar
-ms.openlocfilehash: 1aadd604e676659475f00760af3b0bdfb13a4792
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b126072424bfc6ad54fd2497ffcdb410b9dc5fe
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>編譯 Azure 自動化 DSC 中的組態
 
@@ -128,6 +128,50 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 ```
 
 如需如何將 PSCredentials 傳入作為參數的相關資訊，請參閱下方的 <a href="#credential-assets">**認證資產**</a> 。
+
+## <a name="composite-resources"></a>複合資源
+
+**複合資源**可讓您使用 DSC 組態作為組態內的巢狀資源。  這可讓您將多個組態套用至單一資源。  如需深入了解**複合資源**，請參閱[複合資源：使用 DSC 組態作為資源](https://docs.microsoft.com/en-us/powershell/dsc/authoringresourcecomposite)
+
+> [!NOTE]
+> 為使**複合資源**正確編譯，您必須先確定複合依賴的任何 DSC 資源都已先安裝在 Azure 自動化帳戶模組存放庫中，否則它就無法正確匯入。
+
+若要新增 DSC **複合資源**，您必須將資源模組新增至封存 (*.zip)。 前往您 Azure 自動化帳戶上的模組存放庫。  然後按一下 [新增模組] 按鈕。
+
+![新增模組](./media/automation-dsc-compile/add_module.png)
+
+瀏覽至您封存所在的目錄。  選取封存檔，然後按一下 [確定]。
+
+![選取 [模組]](./media/automation-dsc-compile/select_dscresource.png)
+
+然後，會將您重新導向回模組目錄，您可以在**複合資源**解壓縮並向 Azure 自動化註冊時，在此監視它的狀態。
+
+![匯入複合資源](./media/automation-dsc-compile/register_composite_resource.png)
+
+一旦註冊模組後，您可以按一下來驗證**複合資源**現在可在組態中使用。
+
+![驗證複合資源](./media/automation-dsc-compile/validate_composite_resource.png)
+
+然後，您可以呼叫**複合資源**至組態中，就像這樣：
+
+```powershell
+
+    Node ($AllNodes.Where{$_.Role -eq "WebServer"}).NodeName
+    {
+            
+            JoinDomain DomainJoin
+            {
+                DomainName = $DomainName
+                Admincreds = $Admincreds
+            }
+
+            PSWAWebServer InstallPSWAWebServer
+            {
+                DependsOn = "[JoinDomain]DomainJoin"
+            }        
+    }
+
+```
 
 ## <a name="configurationdata"></a>ConfigurationData
 **ConfigurationData** 可讓您在使用 PowerShell DSC 時區隔結構化組態與任何環境特定組態。 請參閱 [區隔 PowerShell DSC 中的 "What" 與 "Where"](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) ，以深入了解 **ConfigurationData**。
@@ -242,7 +286,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 ## <a name="importing-node-configurations"></a>匯入節點組態
 
-您也可以匯入在 Azure 外部完成編譯的節點組態 (MOF)。 這樣做的優點之一就是可以簽署節點組態。
+您也可以匯入在 Azure 外部完成編譯的節點組態 (MOF)。 這樣做的優點之一，就是可以簽署節點組態。
 DSC 代理程式會在受管理的節點上本機驗證簽署的節點組態，確保套用到節點的組態來自經授權之來源。
 
 > [!NOTE]

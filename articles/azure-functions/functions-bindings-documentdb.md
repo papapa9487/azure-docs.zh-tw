@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a725d6e08721107ddd83999dac85dddb88896ebf
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 91289507b9989da9d5c36628fe25cd2e60b8814d
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Azure Cosmos DB 繫結
 
@@ -123,7 +123,7 @@ IReadOnlyList<Document> documents,
 
 對於[先行編譯 C#](functions-dotnet-class-library.md) 函式，請使用 [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs) 屬性，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) 中。
 
-屬性的建構函式可接受資料庫名稱和集合名稱。 如需這些設定及其他您可以設定之屬性的相關資訊，請參閱[觸發程序 - 組態](#trigger---configuration)。 以下是方法簽章中的 `CosmosDBTrigger` 屬性範例：
+屬性的建構函式可接受資料庫名稱和集合名稱。 如需這些設定及其他您可以設定之屬性的相關資訊，請參閱[觸發程序 - 設定](#trigger---configuration)。 以下是方法簽章中的 `CosmosDBTrigger` 屬性範例：
 
 ```csharp
 [FunctionName("DocumentUpdates")]
@@ -170,9 +170,49 @@ DocumentDB API 輸入繫結會擷取一或多個 Azure Cosmos DB 文件，並將
 
 請參閱可讀取單一文件的特定語言範例：
 
+* [先行編譯 C#](#input---c-example)
 * [C# 指令碼](#input---c-script-example)
 * [F#](#input---f-example)
 * [JavaScript](#input---javascript-example)
+
+### <a name="input---c-example"></a>輸入 - C# 範例
+
+下列範例所示的[先行編譯 C# 函式](functions-dotnet-class-library.md)會從特定資料庫與集合擷取單一文件。 首先，將 `CarReview` 執行個體的 `Id` 和 `Maker` 值傳遞至佇列。 
+
+ ```cs
+    public class CarReview
+    {
+        public string Id { get; set; }
+        public string Maker { get; set; }
+        public string Description { get; set; }
+        public string Model { get; set; }
+        public string Image { get; set; }
+        public string Review { get; set; }
+    }
+ ```
+
+Cosmos DB 繫結會使用來自佇列訊息的 `Id` 和 `Maker`，從資料庫中擷取文件。
+
+```cs
+    using Microsoft.Azure.WebJobs;
+    using Microsoft.Azure.WebJobs.Host;
+    using Microsoft.Azure.WebJobs.Extensions.DocumentDB;
+
+    namespace CosmosDB
+    {
+        public static class SingleEntry
+        {
+            [FunctionName("SingleEntry")]
+            public static void Run(
+                [QueueTrigger("car-reviews", Connection = "StorageConnectionString")] CarReview carReview,
+                [DocumentDB("cars", "car-reviews", PartitionKey = "{maker}", Id= "{id}", ConnectionStringSetting = "CarReviewsConnectionString")] CarReview document,
+                TraceWriter log)
+            {
+                log.Info( $"Selected Review - {document?.Review}"); 
+            }
+        }
+    }
+```
 
 ### <a name="input---c-script-example"></a>輸入 - C# 指令碼範例
 
@@ -191,7 +231,7 @@ DocumentDB API 輸入繫結會擷取一或多個 Azure Cosmos DB 文件，並將
   "direction": "in"
 }
 ```
-[設定](#input---configuration)章節會說明這些屬性。
+[設定](#input---configuration)一節會說明這些屬性。
 
 以下是 C# 指令碼程式碼：
 
@@ -223,7 +263,7 @@ public static void Run(string myQueueItem, dynamic inputDocument)
 }
 ```
 
-[設定](#input---configuration)章節會說明這些屬性。
+[設定](#input---configuration)節會說明這些屬性。
 
 以下是 F# 程式碼：
 
@@ -268,7 +308,7 @@ let Run(myQueueItem: string, inputDocument: obj) =
   "direction": "in"
 }
 ```
-[設定](#input---configuration)章節會說明這些屬性。
+[設定](#input---configuration)節會說明這些屬性。
 
 以下是 JavaScript 程式碼：
 
@@ -323,7 +363,7 @@ public static HttpResponseMessage Run(
 }
 ```
 
-[設定](#input---configuration)章節會說明這些屬性。
+[設定](#input---configuration)節會說明這些屬性。
 
 以下是 C# 指令碼程式碼：
 
@@ -362,7 +402,7 @@ public class QueuePayload
 }
 ```
 
-[設定](#input---configuration)章節會說明這些屬性。
+[設定](#input---configuration)節會說明這些屬性。
 
 以下是 JavaScript 程式碼：
 
@@ -381,9 +421,9 @@ module.exports = function (context, input) {
 
 對於[先行編譯 C#](functions-dotnet-class-library.md) 函式，請使用 [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) 屬性，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) 中。
 
-屬性的建構函式可接受資料庫名稱和集合名稱。 如需這些設定及其他您可以設定之屬性的相關資訊，請參閱[下列組態區段](#input---configuration)。 
+屬性的建構函式可接受資料庫名稱和集合名稱。 如需這些設定及其他您可以設定之屬性的相關資訊，請參閱[下列設定區段](#input---configuration)。 
 
-## <a name="input---configuration"></a>輸入 - 組態
+## <a name="input---configuration"></a>輸入 - 設定
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `DocumentDB` 屬性。
 
@@ -471,7 +511,7 @@ public static void Run(
 }
 ```
 
-[設定](#output---configuration)章節會說明這些屬性。
+[設定](#output---configuration)節會說明這些屬性。
 
 以下是 C# 指令碼程式碼：
 
@@ -535,7 +575,7 @@ public static void Run(string myQueueItem, out object employeeDocument, TraceWri
   "direction": "out"
 }
 ```
-[設定](#output---configuration)章節會說明這些屬性。
+[設定](#output---configuration)節會說明這些屬性。
 
 以下是 F# 程式碼：
 
@@ -614,7 +654,7 @@ let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
 }
 ```
 
-[設定](#output---configuration)章節會說明這些屬性。
+[設定](#output---configuration)節會說明這些屬性。
 
 以下是 JavaScript 程式碼：
 
@@ -636,7 +676,7 @@ module.exports = function (context) {
 
 對於[先行編譯 C#](functions-dotnet-class-library.md) 函式，請使用 [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) 屬性，其定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) 中。
 
-屬性的建構函式可接受資料庫名稱和集合名稱。 如需這些設定及其他您可以設定之屬性的相關資訊，請參閱[輸出 - 組態](#output---configuration)。 以下是方法簽章中的 `DocumentDB` 屬性範例：
+屬性的建構函式可接受資料庫名稱和集合名稱。 如需這些設定及其他您可以設定之屬性的相關資訊，請參閱[輸出 - 設定](#output---configuration)。 以下是方法簽章中的 `DocumentDB` 屬性範例：
 
 ```csharp
 [FunctionName("QueueToDocDB")]        

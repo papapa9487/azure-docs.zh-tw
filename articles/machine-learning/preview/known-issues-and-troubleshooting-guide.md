@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 5c7c15eacdf43d3623000ed228adfaeb55803c8f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 54038785f513e56b07f5f3fafa3dbd6d4b6e7400
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - 已知問題和疑難排解指南 
 本文可協助您尋找和修正使用 Azure Machine Learning Workbench 應用程式過程中遇到的錯誤與失敗。 
@@ -112,6 +112,19 @@ $ az ml experiment diagnostics -r <run_id> -t <target_name>
    - 移除指令碼 `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
    - 移除可啟動上述指令碼的桌面捷徑
    - 下載安裝程式 https://aka.ms/azureml-wb-msi 並重新安裝。
+
+## <a name="get-stuck-at-checking-experimentation-account-screen-after-logging-in"></a>在登入後卡在「正在檢查測試帳戶」畫面
+登入之後，Workbench 應用程式可能會卡在空白畫面，並會顯示「正在檢查測試帳戶」訊息及旋轉的滾輪。 若要解決此問題，請採取下列步驟：
+1. 關閉應用程式
+2. 刪除以下檔案：
+  ```
+  # on Windows
+  %appdata%\AmlWorkbench\AmlWb.settings
+
+  # on macOS
+  ~/Library/Application Support/AmlWorkbench/AmlWb.settings
+  ```
+3. 重新啟動應用程式。
 
 ## <a name="cant-delete-experimentation-account"></a>無法刪除測試帳戶
 您可以使用 CLI 來刪除測試帳戶，但是必須先刪除子工作區和子工作區內的子專案。 否則，您會看到錯誤。

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.openlocfilehash: 91d1c52c0abf14656e08b511e4f6c8041e319020
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7fd3c36825746a009c01c97fb8664e04278159f
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 適用於：Azure Stack 開發套件
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>使用 Azure 入口網站建立 Azure Stack 租用戶帳戶
 您必須擁有 Azure 訂用帳戶，才能使用 Azure 入口網站。
 
-1. 登入 [Azure](http://manage.windowsazure.com)。
+1. 登入 [Azure](https://portal.azure.com)。
 2. 在 Microsoft Azure 左側的導覽列中，按一下 [Active Directory] 。
 3. 在目錄清單中，按一下您想要用於 Azure Stack 的目錄，或建立一個新的目錄。
 4. 在此目錄頁面上，按一下 [使用者] 。

@@ -3,8 +3,8 @@ title: "Azure Stack 管理基本知識 | Microsoft Docs"
 description: "了解要管理 Azure Stack 需要知道哪些事項。"
 services: azure-stack
 documentationcenter: 
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
@@ -13,12 +13,12 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: twooley
-ms.openlocfilehash: 04dea8f055eb562455b568c43553a6fefe749467
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: fa77faac195de3be7bf7b2785eb589b030a6e6ce
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack 管理基本知識
 
@@ -122,7 +122,7 @@ Azure Stack 使用 Azure Resource Manager 作為其基礎的部署、管理及�
 
 就整合系統而言，在 Microsoft 與原始設備製造商 (OEM) 硬體合作夥伴之間有一個協調的呈報和解決程序。
 
-如果雲端服務發生問題，將會透過「Microsoft 客戶支援服務」(CSS).提供支援。 如果您按一下系統管理員入口網站右上角的 說明及支援 圖示 (問號)，然後按一下新增支援要求，就會開啟一個可供您直接建立支援要求的網站。
+如果雲端服務發生問題，將會透過「Microsoft 客戶支援服務」(CSS).提供支援。 如果您按一下系統管理員入口網站右上角的 [說明及支援] 圖示 (問號)，然後按一下 [新增支援要求]，就會開啟一個可供您直接建立支援要求的網站。
 
 如果部署、修補程式和更新、硬體 (包括現場可更換單元) 及任何硬體品牌化軟體 (例如在硬體生命週期主機上執行的軟體) 發生問題，請先連絡您的 OEM 硬體廠商。
 
@@ -130,7 +130,7 @@ Azure Stack 使用 Azure Resource Manager 作為其基礎的部署、管理及�
 
 ### <a name="development-kit"></a>開發套件
 
-針對開發套件，您可以在 [Microsoft 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)中詢問與支援相關的問題。 如果您按一下系統管理員入口網站右上角的 說明及支援 圖示 (問號)，然後按一下新增支援要求，這會直接開啟論壇網站。 我們會定期留意這些論壇。 由於開發套件是一個評估環境，因此並未透過 Microsoft CSS 提供官方支援。
+針對開發套件，您可以在 [Microsoft 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)中詢問與支援相關的問題。 如果您按一下系統管理員入口網站右上角的 [說明及支援] 圖示 (問號)，然後按一下 [新增支援要求]，這會直接開啟論壇網站。 我們會定期留意這些論壇。 由於開發套件是一個評估環境，因此並未透過 Microsoft CSS 提供官方支援。
 
 ## <a name="next-steps"></a>後續步驟
 

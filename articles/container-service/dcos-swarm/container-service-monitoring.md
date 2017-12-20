@@ -1,28 +1,22 @@
 ---
-title: "監視 Azure DC/OS 叢集 - Datadog | Microsoft Docs"
+title: "監視 Azure DC/OS 叢集 - Datadog"
 description: "使用 Datadog 監視 Azure 容器服務叢集。 使用 DC/OS Web UI 將 Datadog 代理程式部署至您的叢集。"
 services: container-service
-documentationcenter: 
 author: sauryadas
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: "容器, DC/OS, Docker Swarm, Azure"
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure
 ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 9dd451f994940d7cc3a59bd7fd08a8f067345e34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b895ef906a8c8f3f8cc21267d80f8b59b64837f4
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>使用 Datadog 監視 Azure Container Service DC/OS 叢集
+
 本文中，我們會將 Datadog 代理程式部署到 Azure 容器服務叢集中的所有代理程式節點。 您將需要 Datadog 帳戶以進行這項設定。 
 
 ## <a name="prerequisites"></a>必要條件

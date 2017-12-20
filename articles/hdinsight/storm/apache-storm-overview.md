@@ -15,45 +15,42 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2017
+ms.date: 12/08/2017
 ms.author: larryfr
-ms.openlocfilehash: c978a9ba97ecb9b8facaf32cbefbdd06cab8df67
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2232ae8a838ae2d7feb9a66e0953f006bf45c644
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>什麼是 Apache Storm on Azure HDInsight？
 
 [Apache Storm](http://storm.apache.org/) 是一個容錯的分散式開放原始碼計算系統。 您可以使用 Storm 搭配 Hadoop 來即時處理資料流。 Storm 解決方案也能夠重播最初未成功處理的資料，保證一定會處理資料。
 
-Storm on HDInsight 提供下列主要優點︰
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
-* 可作為受管理服務執行，且具有 99.9% 運作時間的 SLA。
+## <a name="why-use-storm-on-hdinsight"></a>為何使用 Storm on HDInsight？
+
+Storm on HDInsight 提供下列功能︰
+
+* __Storm 運作時間的 99% 服務等級協定 (SLA)__：如需詳細資訊，請參閱 [HDInsight 的 SLA 資訊](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/)文件。
 
 * 在建立期間或之後針對 Storm 叢集執行指令碼，可支援輕鬆自訂。 如需詳細資訊，請參閱[使用指令碼動作來自訂 HDInsight 叢集](../hdinsight-hadoop-customize-cluster-linux.md)。
 
-* 使用各種不同的語言。 您可以用所選的語言撰寫 Storm 元件，例如 Java、C# 和 Python。
+* **以多種語言建立解決方案**：您可以用所選的語言撰寫 Storm 元件，例如 Java、C# 和 Python。
 
     * 整合 Visual Studio 與 HDInsight，以供開發、管理及監視 C# 拓撲。 如需詳細資訊，請參閱[使用 HDInsight Tools for Visual Studio 開發 C# Storm 拓撲](apache-storm-develop-csharp-visual-studio-topology.md)。
 
     * 支援 Trident Java 介面。 您可以建立 Storm 拓撲，以支援一次性處理訊息、交易式資料存放區持續性和一組常用的串流分析作業。
 
-*  輕鬆地相應增加和相應減少 Storm 叢集。 您可以新增或移除背景工作節點，而不影響執行 Storm 拓撲。
+* **動態調整**：您可以新增或移除背景工作節點，而不影響執行 Storm 拓撲。
 
-* 與下列 Azure 服務整合︰
+    > [!NOTE]
+    > 您必須停用並重新執行拓撲，才能利用透過調整作業新增的節點。
 
-    * Azure 事件中心
+* **使用多項 Azure 服務建立串流管線**：Storm on HDInsight 會與其他 Azure 服務整合，例如事件中樞、SQL Database、Azure 儲存體及 Azure Data Lake Store。
 
-    * Azure 虛擬網路
-
-    * Azure SQL Database
-
-    * Azure 儲存體
-
-    * Azure Cosmos DB
-
-* 使用虛擬網路安全地結合多個 HDInsight 叢集的功能。 您可以建立使用 Storm、Kafka、HBase 或 Hadoop 叢集的分析管線。
+    如需與 Azure 服務整合的解決方案範例，請參閱[利用 Storm on HDInsight 處理 Azure 事件中樞的事件](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)。
 
 如需使用 Apache Storm 作為即時分析解決方案的公司清單，請參閱[使用 Apache Storm 的公司](https://storm.apache.org/documentation/Powered-By.html)。
 
@@ -68,6 +65,16 @@ Storm 會執行拓撲，而不是您可能熟悉的 MapReduce 作業。 Storm �
 * Spout 元件可將資料帶入拓撲中。 它們會將一或多個串流發出至拓撲。
 
 * Bolt 元件會取用 Spout 或其他 Bolt 所發出的串流。 Bolt 可以選擇性地將串流發出至拓撲。 Bolt 也負責將資料寫入外部服務或儲存體，例如 HDFS、Kafka 或 HBase。
+
+## <a name="reliability"></a>可靠性
+
+即使資料分析分散在數以百計的節點中，Apache Storm 也能保證每則傳入訊息一律都會經過完整處理。
+
+Nimbus 節點提供與 Hadoop JobTracker 類似的功能，並會透過 Zookeeper 將工作指派給叢集中的其他節點。 Zookeeper 節點可為叢集進行協調，並促進 Nimbus 與背景工作節點上的監督員處理序之間的通訊。 如果其中一個處理節點停止，Nimbus 節點會收到通知，然後將工作和相關資料指派給其他節點。
+
+Apache Storm 叢集的預設組態只有一個 Nimbus 節點。 Storm on HDInsight 會提供兩個 Nimbus 節點。 如果主要節點失敗，Storm 叢集會切換至次要節點，直到主要節點復原為止。 下圖說明 Storm on HDInsight 的工作流程組態：
+
+![Nimbus、Zookeeper 和監督員的圖表](./media/apache-storm-overview/nimbus.png)
 
 ## <a name="ease-of-creation"></a>容易建立
 
@@ -100,23 +107,6 @@ Storm 會執行拓撲，而不是您可能熟悉的 MapReduce 作業。 Storm �
     * [利用 Storm on HDInsight 處理 Azure 事件中樞的事件 (C#)](apache-storm-develop-csharp-event-hub-topology.md)
 
 * __SQL Database__、__Cosmos DB__、__Event Hubs__ 和 __HBase__：範本範例已包含在 Data Lake Tools for Visual Studio 中。 如需詳細資訊，請參閱[開發 Storm on HDInsight 的 C# 拓撲](apache-storm-develop-csharp-visual-studio-topology.md)。
-
-## <a name="reliability"></a>可靠性
-
-即使資料分析分散在數以百計的節點中，Apache Storm 也能保證每則傳入訊息一律都會經過完整處理。
-
-Nimbus 節點提供與 Hadoop JobTracker 類似的功能，並會透過 Zookeeper 將工作指派給叢集中的其他節點。 Zookeeper 節點可為叢集進行協調，並促進 Nimbus 與背景工作節點上的監督員處理序之間的通訊。 如果其中一個處理節點停止，Nimbus 節點會收到通知，然後將工作和相關資料指派給其他節點。
-
-Apache Storm 叢集的預設組態只有一個 Nimbus 節點。 Storm on HDInsight 會提供兩個 Nimbus 節點。 如果主要節點失敗，Storm 叢集會切換至次要節點，直到主要節點復原為止。 下圖說明 Storm on HDInsight 的工作流程組態：
-
-![Nimbus、Zookeeper 和監督員的圖表](./media/apache-storm-overview/nimbus.png)
-
-## <a name="scale"></a>調整
-
-新增或移除背景工作節點即可動態調整 HDInsight 叢集。 在處理資料時，可以執行這項作業。
-
-> [!IMPORTANT]
-> 若要利用透過調整所新增的新節點，您必須重新平衡在叢集大小增加之前啟動的 Storm 拓撲。
 
 ## <a name="support"></a>支援
 

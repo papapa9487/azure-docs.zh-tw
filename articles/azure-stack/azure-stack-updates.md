@@ -3,8 +3,8 @@ title: "管理 Azure Stack 中的更新概觀 | Microsoft Docs"
 description: "深入了解 Azure Stack 整合系統的更新管理。"
 services: azure-stack
 documentationcenter: 
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 9b0781f4-2cd5-4619-a9b1-59182b4a6e43
 ms.service: azure-stack
@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: twooley
-ms.openlocfilehash: 3d0d5ea6cc3f3cc7bc0550b83dabbf0ae6af8a27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 4355e7a8c220dea03df5eda54ed4e94d6ebc5c94
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>在 Azure Stack 中管理更新概觀
 
-*適用於：Azure Stack 整合系統*
+適用於：Azure Stack 整合系統
 
-Microsoft 會定期發行 Azure Stack 整合系統的更新封裝。 每次發行的 Microsoft 軟體更新均以單一更新封裝的形式提供。 身為 Azure Stack 操作員，您可以從管理員入口網站輕鬆匯入和安裝這些更新封裝，並監視這些更新封裝的安裝進度。 
+Microsoft 會以一般的步調釋出 Azure Stack 整合系統的更新套件，通常會落在每個月的第四個星期二，從正式上市開始。 請洽詢您的 OEM 了解其特定通知程序，以確保貴組織收到更新通知，或在 Concepts\Release notes\Integrated 系統版本資訊下在這裡查看，了解關於特定版本的詳細資訊。
+
+每次發行的 Microsoft 軟體更新均以單一更新封裝的形式提供。 身為 Azure Stack 操作員，您可以從管理員入口網站輕鬆匯入和安裝這些更新封裝，並監視這些更新封裝的安裝進度。 
 
 原始設備製造商 (OEM) 硬體廠商也會發行更新，例如驅動程式和韌體更新。 這些更新是由 OEM 硬體廠商以個別封裝的形式提供，並從 Microsoft Update 分別管理。
 

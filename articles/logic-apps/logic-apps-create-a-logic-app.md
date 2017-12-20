@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 10/20/2017
 ms.author: LADocs; estfan
 ms.openlocfilehash: 5906605192f9b03f612e6ca3a445434a23713d7f
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="automate-your-first-workflow-to-process-data-with-a-logic-app"></a>自動化您的第一個工作流程是以邏輯應用程式處理資料
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/21/2017
 > * 新增傳送電子郵件的動作，郵件中包含 RSS 摘要項目的相關詳細資料。
 > * 執行邏輯應用程式工作流程。
 
-如果您沒有 Azure 訂用帳戶，請在開始前[註冊免費 Azure 帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始前，先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 10/21/2017
 
    ![Azure 入口網站, 新增, 企業整合, 邏輯應用程式](./media/logic-apps-create-a-logic-app/azure-portal-create-logic-app.png)
 
-3. 使用此映像底下之資料表中的設定建立應用程式邏輯：
+3. 使用下圖底下表格中的設定來建立您的邏輯應用程式：
 
    ![提供邏輯應用程式詳細資料](./media/logic-apps-create-a-logic-app/logic-app-settings.png)
 
@@ -71,16 +71,16 @@ ms.lasthandoff: 10/21/2017
    | **名稱** | *邏輯應用程式的名稱* | 提供唯一的邏輯應用程式名稱。 | 
    | **訂用帳戶** | 您的 Azure 訂用帳戶名稱 | 選取您要使用的 Azure 訂用帳戶。 | 
    | **資源群組** | 您的 Azure 資源群組名稱 | 針對此邏輯應用程式建立 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)，並且組織與此應用程式相關聯的所有資源。 | 
-   | **位置** | 您的 Azure 資料中心區域 | 選取資料中心區域，用於部署邏輯應用程式，例如，美國西部。 | 
+   | **位置** | 您的 Azure 資料中心區域 | 選取用於部署邏輯應用程式的資料中心區域，例如，美國西部。 | 
    | **Log Analytics** | 關閉 | 開啟應用程式邏輯的診斷記錄，但是針對本快速入門保留 [關閉] 設定。 | 
    |||| 
 
-4. 當您準備就緒，選取 [釘選到儀表板]。 這樣一來，邏輯應用程式就會在部署之後自動出現在 Azure 儀表板並且開啟。 選擇 [建立] 。
+4. 當您準備就緒，選取 [釘選到儀表板]。 這樣一來，邏輯應用程式就會在部署之後自動出現在 Azure 儀表板上並開啟。 選擇 [建立] 。
 
    > [!NOTE]
-   > 如果您不想要釘選邏輯應用程式，您必須在部署之後以手動方式尋找邏輯應用程式並且開啟，以便繼續。
+   > 如果您不想要釘選邏輯應用程式，就必須在部署之後以手動方式尋找並開啟邏輯應用程式，才能繼續操作。
 
-   Azure 部署您的邏輯應用程式之後，Logic Apps 設計工具隨即開啟，並顯示具有簡介影片的分頁。 
+   在 Azure 部署您的邏輯應用程式之後，「Logic Apps 設計工具」會隨即開啟，並顯示含有簡介影片的分頁。 
    您可以在影片底下找到一般邏輯應用程式模式的範本。 
    本快速入門會從頭建置邏輯應用程式。 
 

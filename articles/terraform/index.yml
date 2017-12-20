@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/21/2017
   ms.author: routlaw
-  ms.openlocfilehash: 9334cf6dad16c4c4a36adbd278f52c255a5b2823
-  ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+  ms.openlocfilehash: 000d7d19a6bf897d5c32ec31017f96fe23461b29
+  ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 10/25/2017
+  ms.lasthandoff: 12/11/2017
 abstract:
   description: "使用 Terraform 進行版本可靠化，並在 Azure 上建立架構。 了解如何建立資源、使用 Azure Terraform 模組，並使用我們的快速入門和教學課程，透過程式碼維護基礎結構。"
   aside:
@@ -52,6 +52,7 @@ sections:
     - html: "<a href=\"/azure/terraform/terraform-create-vm-cluster-module\">使用 Azure Terraform 模組建立負載平衡 VM 叢集</a>."
     - html: "<a href=\"/azure/terraform/terraform-create-vm-cluster-with-infrastructure\">在 Azure Cloud Shell 中建立負載平衡的 VM 叢集</a>。"
     - html: "<a href=\"/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl\">設定 VM 擴展集及網路服務和儲存體。</a>"
+    - html: "<a href=\"/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl\">從 Packer 自訂映像佈建 VM 擴展集。</a>"
 - title: "範例"
   items:
   - type: paragraph

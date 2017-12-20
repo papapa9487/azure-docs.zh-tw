@@ -43,6 +43,8 @@
               href: azure-stack-compute-overview.md
             - name: VM 考量
               href: azure-stack-vm-considerations.md
+            - name: 管理虛擬機器磁碟
+              href: azure-stack-manage-vm-disks.md
         - name: 儲存體
           items:
             - name: 概觀
@@ -119,6 +121,10 @@
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
     - name: Azure Stack CLI
       href: /cli/azure/?view=azure-cli-2017-03-09-profile
+- name: 相關參考
+  items:
+    - name: Azure Stack 操作員文件
+      href: /azure/azure-stack/
 - name: 資源
   items:
     - name: Azure 藍圖

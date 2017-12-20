@@ -1,22 +1,22 @@
 ---
-title: "Azure IoT 中樞裝置佈建服務概觀 (預覽) | Microsoft Docs"
+title: "Azure IoT 中樞裝置佈建服務概觀 | Microsoft Docs"
 description: "描述在 Azure 中使用裝置佈建服務與 IoT 中樞佈建的裝置"
 services: iot-dps
 keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a9df3f4e27e0d6e11b9d85a44467f3c62f453121
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 021ff1299321ae1aece3a77fc61129517c85697b
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service-preview"></a>使用 Azure IoT 中樞裝置佈建服務來佈建裝置 (預覽)
 Microsoft Azure 提供一組豐富的整合式公用雲端服務，可滿足所有的 IoT 方案需求。 IoT 中樞裝置佈建服務是 IoT 中樞的協助程式服務，無須人為介入，即可對正確的 IoT 中樞進行 Just-In-Time 自動佈建，讓客戶能以安全又可調整的方式佈建數百萬個裝置。
@@ -59,7 +59,7 @@ Microsoft Azure 提供一組豐富的整合式公用雲端服務，可滿足所�
 
 裝置佈建服務不會在製造過程中導入新的步驟；相反地，它所繫結的現有步驟會在裝置上安裝初始軟體和 (在理想情況下) HSM。 裝置只會使用佈建服務資訊來進行程式設計，而不是在此步驟中建立裝置識別碼，因此它會呼叫佈建服務，在它開啟時取得其連線資訊/IoT 解決方案指派。
 
-在這個步驟中，製造商也會提供裝置部署器/運算子，當中包含識別金鑰資訊。 這可能很簡單，就像確認所有裝置都具有裝置部署器/運算子提供的根 CA 所產生的 X.509 憑證，從而從每個 TPM 裝置擷取 TPM 簽署金鑰的公用部分。 這些服務目前由許多矽製造商所提供。
+在這個步驟中，製造商也會提供裝置部署器/運算子，當中包含識別金鑰資訊。 這可能很簡單，就像確認所有裝置都具有由裝置部署者/操作員提供之簽署憑證所產生的 X.509 憑證，從而從每個 TPM 裝置擷取 TPM 簽署金鑰的公開部分。 這些服務目前由許多矽製造商所提供。
 
 ### <a name="cloud-setup-step"></a>雲端安裝步驟
 這個步驟與設定適用於自動佈建的雲端相關。 通常雲端安裝步驟中會包含兩種類型的使用者：知道裝置必須初始設定方式的使用者 (裝置運算子)，以及其他知道裝置如何在 IoT 中樞 (方案運算子) 之間分割的使用者。
@@ -84,19 +84,29 @@ Microsoft Azure 提供一組豐富的整合式公用雲端服務，可滿足所�
 * **多個配置原則**可控制裝置佈建服務將裝置指派給 IoT 中樞的方式，從而支援您的情節。
 * **監視和診斷記錄**並確定一切運作正常。
 * **多重中樞支援**可讓裝置佈建服務來將裝置指派給一個以上的 IoT 中樞。 裝置佈建服務可與多個 Azure 訂用帳戶之間的中樞通訊。
+* **跨區域支援**可讓「裝置佈建服務」將裝置指派到其他區域的 IoT 中樞。
 
 您可以在[裝置概念](concepts-device.md)、[服務概念](concepts-service.md)和[安全性概念](concepts-security.md)中，深入了解裝置佈建中包含的概念和功能。
 
 ## <a name="cross-platform-support"></a>跨平台支援
-裝置佈建服務，如同所有 Azure IoT 服務，能跨平台適用於各種作業系統。 公開預覽支援一組有限的語言/通訊協定支援，但裝置佈建服務正式推出時將可提供更多支援。 對於公開預覽，裝置佈建服務只支援裝置和服務作業的 HTTPS 連線。 裝置 SDK 是使用 C，SDK 服務則是使用 C#。
+裝置佈建服務，如同所有 Azure IoT 服務，能跨平台適用於各種作業系統。 Azure 提供多種[程式設計語言](https://github.com/Azure/azure-iot-sdks) \(英文\) 的開放原始碼 SDK，以協助建立裝置的連線及管理服務。 「裝置佈建服務」支援使用下列通訊協定建立裝置的連線：
+
+* HTTPS
+* AMQP
+* 透過 WebSocket 的 AMQP
+* MQTT
+* 透過 WebSocket 的 MQTT
+
+「裝置佈建服務」只支援服務作業的 HTTPS 連線。
 
 ## <a name="regions"></a>區域
-裝置佈建服務在美國東部、西歐和東南亞可供公開預覽。 我們會保持所有服務的現有和最新宣佈區域的更新清單。
+「裝置佈建服務」在許多區域中都可以使用。 我們在 [Azure 區域](https://azure.microsoft.com/regions/)維護所有服務的現有和最新宣佈區域的更新清單。 您可以在 [Azure 狀態](https://azure.microsoft.com/status/)頁面上查看提供「裝置佈建服務」的區域。
 
-* [Azure 區域](https://azure.microsoft.com/regions/)
+> [!NOTE]
+> 「裝置佈建服務」是全球性的，而非僅限於某個位置。 不過，您必須指定一個區域，與您「裝置佈建服務」設定檔相關聯的中繼資料會位在該區域。
 
-## <a name="availability"></a>Availability
-我們會在公開預覽期間保持服務的最佳方式可用性。 在預覽期間，沒有任何服務等級協定。 完整 [Azure SLA](https://azure.microsoft.com/support/legal/sla/) 說明保證的 Azure 整體可用性。
+## <a name="availability"></a>可用性
+我們針對「裝置佈建服務」維護 99.9% 的服務等級協定，而且您可以[閱讀 SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/)。 完整 [Azure SLA](https://azure.microsoft.com/support/legal/sla/) 說明保證的 Azure 整體可用性。
 
 ## <a name="quotas"></a>配額
 每個 Azure 訂用帳戶都有預設配額限制，而此限制會對 IoT 解決方案的範圍造成影響。 目前每個訂用帳戶的限制為每個訂用帳戶 10 個裝置佈建服務。

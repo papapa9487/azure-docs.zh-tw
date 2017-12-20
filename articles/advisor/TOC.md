@@ -13,6 +13,9 @@
 # 參考
 ## [REST API](https://docs.microsoft.com/rest/api/advisor)
 
+## [CLI](https://docs.microsoft.com/cli/azure/advisor)
+
+
 # 相關參考
 ## [資訊安全中心](https://azure.microsoft.com/services/security-center/)
 ## [SQL 資料庫](https://azure.microsoft.com/documentation/articles/sql-database-advisor/)

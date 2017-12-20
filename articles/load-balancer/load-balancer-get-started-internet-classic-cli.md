@@ -14,16 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: 0813cb0ccf976b7e47420b33ec65714fd8e60ac1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c50596d353629c8a320d77e802aa51b9b1cb1a5d
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-cli"></a>開始在 Azure CLI 中建立網際網路面向的負載平衡器 (傳統)
 
 > [!div class="op_single_selector"]
-> * [Azure 傳統入口網站](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
 > * [Azure 雲端服務](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)

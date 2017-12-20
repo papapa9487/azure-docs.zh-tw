@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: f2e7b5b96b70333ae4ee92d24c354960008c7f00
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d6962bf2ffbf731a4aa301e663c7c7d3428080d4
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>開始使用 Azure Stack 上的 App Service 之前
 
@@ -68,7 +68,7 @@ Azure App Service on Azure Stack 目前無法提供高可用性，因為 Azure S
 
 在 Azure Stack 開發套件主機上執行指令碼，並確定您是以 azurestack\CloudAdmin 身分執行 PowerShell。
 
-1. 在以 azurestack\CloudAdmin 身分執行的 PowerShell 工作階段中，從您解壓縮協助程式指令碼所在的資料夾執行 Create-AppServiceCerts.ps1 指令碼。 此指令碼會在與 App Service 所需之建立憑證指令碼相同的資料夾中建立四個憑證。
+1. 在以 azurestack\AzureStackAdmin 身分執行的 PowerShell 工作階段中，從您解壓縮協助程式指令碼所在的資料夾執行 Create-AppServiceCerts.ps1 指令碼。 此指令碼會在與 App Service 所需之建立憑證指令碼相同的資料夾中建立四個憑證。
 2. 輸入密碼來保護 .pfx 檔案，並記下密碼。 您必須在 App Service on Azure Stack 安裝程式中輸入此密碼。
 
 #### <a name="create-appservicecertsps1-parameters"></a>Create-AppServiceCerts.ps1 參數
@@ -120,7 +120,7 @@ API 憑證會放置在管理角色上，並且由資源提供者用來保護 API
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
-#### <a name="extract-the-azure-stack-azure-resource-manager-root-certificate"></a>擷取 Azure Stack Azure Resource Manager 根憑證
+### <a name="extract-the-azure-stack-azure-resource-manager-root-certificate"></a>擷取 Azure Stack Azure Resource Manager 根憑證
 
 在以 azurestack\CloudAdmin 身分執行的 PowerShell 工作階段中，從您解壓縮協助程式指令碼所在的資料夾執行 Get-AzureStackRootCert.ps1 指令碼。 此指令碼會在與 App Service 所需之建立憑證指令碼相同的資料夾中建立四個憑證。
 
@@ -134,12 +134,10 @@ API 憑證會放置在管理角色上，並且由資源提供者用來保護 API
 
 Azure App Service 需要使用檔案伺服器。 在實際執行的部署中，必須將檔案伺服器設定為高度可用，且能夠處理失敗。
 
-僅針對與 Azure Stack 開發套件部署搭配使用，您可以使用此範例 Azure Resource Manager 部署範本來部署設定的單一節點檔案伺服器：https://aka.ms/appsvconmasdkfstemplate。
+僅針對與 Azure Stack 開發套件部署搭配使用，您可以使用此範例 Azure Resource Manager 部署範本來部署設定的單一節點檔案伺服器：https://aka.ms/appsvconmasdkfstemplate。 單一節點檔案伺服器會位於工作群組中。
 
 ### <a name="provision-groups-and-accounts-in-active-directory"></a>在 Active Directory 中佈建群組和帳戶
 
->[!NOTE]
-> 在系統管理員命令提示字元工作階段中設定檔案伺服器時，請執行下列所有的命令。  **請勿使用 PowerShell。**
 
 1. 建立下列 Active Directory 全域安全性群組：
     - FileShareOwners
@@ -159,7 +157,10 @@ Azure App Service 需要使用檔案伺服器。 在實際執行的部署中，�
 
 ### <a name="provision-groups-and-accounts-in-a-workgroup"></a>在工作群組中佈建群組和帳戶
 
-在工作群組上，執行 net 和 WMIC 命令來佈建群組和帳戶。
+>[!NOTE]
+> 在系統管理員命令提示字元工作階段中設定檔案伺服器時，請執行下列所有的命令。  **請勿使用 PowerShell。**
+
+使用上述的 Azure Resource Manager 範本時，使用者已建立。
 
 1. 執行下列命令來建立 FileShareOwner 與 FileShareUser 帳戶。 以您自己的值取代 <password>。
 ``` DOS
@@ -189,7 +190,7 @@ net localgroup FileShareOwners FileShareOwner /add
 
 ```DOS
 set WEBSITES_SHARE=WebSites
-set WEBSITES_FOLDER=<C:\WebSites>
+set WEBSITES_FOLDER=C:\WebSites
 md %WEBSITES_FOLDER%
 net share %WEBSITES_SHARE% /delete
 net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
@@ -223,7 +224,7 @@ net localgroup Administrators FileShareOwners /add
 #### <a name="active-directory"></a>Active Directory
 ```DOS
 set DOMAIN=<DOMAIN>
-set WEBSITES_FOLDER=<C:\WebSites>
+set WEBSITES_FOLDER=C:\WebSites
 icacls %WEBSITES_FOLDER% /reset
 icacls %WEBSITES_FOLDER% /grant Administrators:(OI)(CI)(F)
 icacls %WEBSITES_FOLDER% /grant %DOMAIN%\FileShareOwners:(OI)(CI)(M)
@@ -234,7 +235,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 #### <a name="workgroup"></a>工作群組
 ```DOS
-set WEBSITES_FOLDER=<C:\WebSites>
+set WEBSITES_FOLDER=C:\WebSites
 icacls %WEBSITES_FOLDER% /reset
 icacls %WEBSITES_FOLDER% /grant Administrators:(OI)(CI)(F)
 icacls %WEBSITES_FOLDER% /grant FileShareOwners:(OI)(CI)(M)
@@ -249,9 +250,9 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 若要搭配使用 Azure Stack 開發套件，您可以使用 SQL Express 2014 SP2 或更新版本。
 
-若要用於生產環境及高可用性，您應該使用完整版本的 SQL 2014 SP2 或更新版本，啟用混合模式驗證，並在[高可用性配置](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)中部署。
+若要用於生產環境及高可用性，您應該使用完整版本的 SQL 2014 SP2 或更新版本，啟用混合模式驗證，並在[高可用性配置](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)中部署。
 
-Azure App Service on Azure Stack SQL Server 必須能夠從所有 App Service 角色存取。 您可以在 Azure Stack 中的預設提供者訂用帳戶中部署 SQL Server。 或者，您可以使用組織中現有的基礎結構 (請確認可以連線到 Azure Stack)。
+Azure App Service on Azure Stack SQL Server 必須能夠從所有 App Service 角色存取。 您可以在 Azure Stack 中的預設提供者訂用帳戶中部署 SQL Server。 或者，您可以使用組織中現有的基礎結構 (請確認可以連線到 Azure Stack)。 如果您使用 Azure Marketplace 映像，請記得設定適用的防火牆。 
 
 針對任何 SQL Server 角色，您可以使用預設執行個體或具名執行個體。 不過，如果您使用具名執行個體，請務必手動啟動 SQL Browser 服務並開啟連接埠 1434。
 
@@ -269,12 +270,12 @@ Azure App Service on Azure Stack SQL Server 必須能夠從所有 App Service �
 
 請遵循下列步驟：
 
-1. 以 azurestack\cloudadmin 身分開啟 PowerShell 執行個體。
+1. 以 azurestack\AzureStackAdmin 身分開啟 PowerShell 執行個體。
 2. 移至在[先決條件步驟](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts)中下載並解壓縮的指令碼位置。
 3. [安裝 Azure Stack PowerShell](azure-stack-powershell-install.md)。
 4. 執行 **Create-AADIdentityApp.ps1** 指令碼。 當系統提示您提供 Azure AD 租用戶識別碼時，請輸入您針對 Azure Stack 部署使用的 Azure AD 租用戶識別碼，例如 myazurestack.onmicrosoft.com。
 5. 在 [認證] 視窗中，輸入您的 Azure AD 服務管理帳戶和密碼。 按一下 [確定] 。
-6. 輸入[稍早建立的憑證](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack)的憑證檔案路徑和憑證密碼。 根據預設值，針對此步驟建立的憑證是 sso.appservice.local.azurestack.external.pfx。
+6. 輸入[稍早建立的憑證](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack)的憑證檔案路徑和憑證密碼。 根據預設值，針對此步驟建立的憑證是 **sso.appservice.local.azurestack.external.pfx**。
 7. 此指令碼會在租用戶 Azure AD 中建立新的應用程式。 請記下 PowerShell 輸出中傳回的應用程式識別碼。 安裝期間會需要這項資訊。
 8. 開啟新的瀏覽器視窗，並以 **Azure Active Directory 服務管理員**身分登入 Azure 入口網站 (portal.azure.com)。
 9. 開啟 Azure AD 資源提供者。

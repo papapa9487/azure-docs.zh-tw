@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89970b50a2f7246a43ac9666be4d992649605cbf
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-security-center-platform-migration"></a>Azure 資訊安全中心平台移轉
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="agent"></a>代理程式
 
-在轉換過程中，Microsoft Monitoring Agent (適用於 [Windows](../log-analytics/log-analytics-windows-agents.md) 或 [Linux](../log-analytics/log-analytics-linux-agents.md)) 會安裝在目前從中收集資料的所有 Azure VM 上。  如果 VM 已經安裝 Microsoft Monitoring Agent，則資訊安全中心會利用目前安裝的代理程式。
+在轉換過程中，Microsoft Monitoring Agent (適用於 [Windows](../log-analytics/log-analytics-windows-agent.md) 或 [Linux](../log-analytics/log-analytics-linux-agents.md)) 會安裝在目前從中收集資料的所有 Azure VM 上。  如果 VM 已經安裝 Microsoft Monitoring Agent，則資訊安全中心會利用目前安裝的代理程式。
 
 一段時間 (通常數天) 之後，這兩個代理程式會並排執行，以確保順利轉換且不會遺失任何資料。 這可讓 Microsoft 在停止使用目前的管線之前，驗證新的資料管線可以運作。 一旦驗證，將從您的 VM 移除 Azure Monitoring Agent。 您不需要執行任何工作。 所有客戶都已移轉後，系統會以電子郵件通知您。
  

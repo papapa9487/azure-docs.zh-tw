@@ -14,11 +14,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 12/05/2017
   ms.author: mimig
-  ms.openlocfilehash: 1d40fbbe9b5162811a92f54d8f556cac01a4cc9c
-  ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+  ms.openlocfilehash: 4b9eb9a46924f7d4915c67cd8724d02ec3861d2c
+  ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 12/06/2017
+  ms.lasthandoff: 12/14/2017
 abstract:
   description: "Azure Cosmos DB 是全域散發的多模型資料庫服務。 透過這些快速入門、教學課程及範例，使用常用的 API 及程式設計模型來開發文件、金鑰值、整個資料行和圖形資料庫。 並了解如何跨數個 Azure 區域複製資料並調整儲存體以外的輸送量，同時享受完整的 SLA 優點。"
   aside:
@@ -49,12 +49,12 @@ sections:
     - image:
         src: media/index/logo_gremlin.svg
     rows:
-    - title: DocumentDB API
+    - title: SQL API
       values:
-      - href: /azure/cosmos-db/create-documentdb-java
-      - href: /azure/cosmos-db/create-documentdb-dotnet
-      - href: /azure/cosmos-db/create-documentdb-nodejs
-      - href: /azure/cosmos-db/create-documentdb-python
+      - href: /azure/cosmos-db/create-sql-api-java
+      - href: /azure/cosmos-db/create-sql-api-dotnet
+      - href: /azure/cosmos-db/create-sql-api-nodejs
+      - href: /azure/cosmos-db/create-sql-api-python
       - href: 
     - title: MongoDB API
       values:
@@ -91,10 +91,10 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: "透過 Cosmos DB 開發應用程式：<a href=\"/azure/cosmos-db/tutorial-develop-documentdb-dotnet\">DocumentDB</a> | <a href=\"/azure/cosmos-db/tutorial-develop-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-develop-table-dotnet\">Table</a> | <a href=\"/azure/cosmos-db/tutorial-develop-graph-dotnet\">Graph</a> | <a href=\"https://aka.ms/cassandratutorial\">Cassandra</a>"
-    - html: "將資料匯入 Cosmos DB：<a href=\"import-data\">DocumentDB</a> | <a href=\"mongodb-migrate\">MongoDB</a> | <a href=\"https://aka.ms/tableapiimporttool\">資料表</a> | <a href=\"https://aka.ms/cassandraimport\">Cassandra</a>"
-    - html: "透過 Cosmos DB 查詢資料：<a href=\"/azure/cosmos-db/tutorial-query-documentdb\">DocumentDB</a> | <a href=\"/azure/cosmos-db/tutorial-query-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-query-table\">Table</a> | <a href=\"/azure/cosmos-db/tutorial-query-graph\">Graph</a>"
-    - html: "透過 Cosmos DB 複寫全域資料庫：<a href=\"/azure/cosmos-db/tutorial-global-distribution-documentdb\">DocumentDB</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-table\">Table</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-graph\">Graph</a>"
+    - html: "透過 Cosmos DB 開發應用程式：<a href=\"/azure/cosmos-db/tutorial-develop-sql-api-dotnet\">SQL</a> | <a href=\"/azure/cosmos-db/tutorial-develop-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-develop-table-dotnet\">Table</a> | <a href=\"/azure/cosmos-db/tutorial-develop-graph-dotnet\">Graph</a> | <a href=\"https://aka.ms/cassandratutorial\">Cassandra</a>"
+    - html: "將資料匯入 Cosmos DB：<a href=\"import-data\">SQL</a> | <a href=\"mongodb-migrate\">MongoDB</a> | <a href=\"https://aka.ms/tableapiimporttool\">Table</a> | <a href=\"https://aka.ms/cassandraimport\">Cassandra</a>"
+    - html: "透過 Cosmos DB 查詢資料：<a href=\"/azure/cosmos-db/tutorial-query-sql-api\">SQL</a> | <a href=\"/azure/cosmos-db/tutorial-query-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-query-table\">Table</a> | <a href=\"/azure/cosmos-db/tutorial-query-graph\">Graph</a>"
+    - html: "透過 Cosmos DB 複寫全域資料庫：<a href=\"/azure/cosmos-db/tutorial-global-distribution-sql-api\">SQL</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-table\">Table</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-graph\">Graph</a>"
     - html: "<a href=\"local-emulator\">使用模擬器在本機開發應用程式</a>"
     - html: "<a href=\"/azure/cosmos-db/tutorial-functions-http-trigger\">使用 Azure Cosmos DB 輸入繫結建立 HTTP 觸發程序</a>"
 - title: "範例"
@@ -111,8 +111,8 @@ sections:
     style: cards
     className: cardsD
     items:
-    - title: DocumentDB API
-      html: "<p><a href=\"/rest/api/documentdb/\">REST</a></p><p><a href=\"https://aka.ms/acdbnetref\">.NET</a></p><p><a href=\"documentdb-sdk-dotnet-changefeed\">.NET 變更摘要</a></p><p><a href=\"https://aka.ms/acdbnetcoreref\">.NET Core</a></p><p><a href=\"https://aka.ms/acdbnoderef\">Node.js</a></p><p><a href=\"https://aka.ms/acdbjavaref\">Java</a></p><p><a href=\"https://aka.ms/acdbpythonref\">Python</a></p><p><a href=\"/rest/api/documentdbresourceprovider/\">REST 資源提供者</a></p><p><a href=\"documentdb-sql-query-reference\">SQL</a></p>"
+    - title: SQL API
+      html: "<p><a href=\"/rest/api/documentdb/\">REST</a></p><p><a href=\"https://aka.ms/acdbnetref\">.NET</a></p><p><a href=\"sql-api-sdk-dotnet-changefeed\">.NET 變更摘要</a></p><p><a href=\"https://aka.ms/acdbnetcoreref\">.NET Core</a></p><p><a href=\"https://aka.ms/acdbnoderef\">Node.js</a></p><p><a href=\"https://aka.ms/acdbjavaref\">Java</a></p><p><a href=\"https://aka.ms/acdbpythonref\">Python</a></p><p><a href=\"/rest/api/documentdbresourceprovider/\">REST 資源提供者</a></p><p><a href=\"sql-api-sql-query-reference\">SQL</a></p>"
     - title: MongoDB API
       html: "<p><a href=\"https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/\">有線通訊協定</a></p><p><a href=\"https://mongodb.github.io/node-mongodb-native/ \">Node.js</a></p><p><a href=\"https://docs.mongodb.com/ecosystem/drivers/csharp/\">C#</a></p><p><a href=\"https://docs.mongodb.com/ecosystem/drivers/java/\">Java</a></p><p><a href=\"https://docs.mongodb.com/ecosystem/drivers/python/\">Python</a></p><p><a href=\"https://docs.mongodb.com/ruby-driver/master/\">Ruby</a></p>"
     - title: "資料表 API"

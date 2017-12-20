@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/22/2017
 ms.author: raynew
-ms.openlocfilehash: 1c21364c3ff5cfb61866c912a699b722f2668607
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: b0818fbc1d227093fcc1b9b925d0859b8580f9c1
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>探索及評估要移轉到 Azure 的內部部署 VMware VM
 
@@ -37,10 +37,14 @@ ms.lasthandoff: 11/28/2017
 
 ## <a name="prerequisites"></a>必要條件
 
-- **VMware**：您必須至少有一個 VMware VM 位於執行 5.0 版或更新版本的 ESXi 主機或叢集上。 主機或叢集必須是由執行 5.5、6.0 或 6.5 版的 vCenter Server 所管理。
-- **vCenter 帳戶**：您必須有唯讀帳戶，且此帳戶具有 vCenter Server 的系統管理員認證。 Azure Migrate 會使用此帳戶來探索 VM。
-- **權限**：在 vCenter Server 上，您必須有權限可藉由匯入 .OVA 格式的檔案來建立 VM。 
-- **統計資料設定**：vCenter Server 的統計資料設定應該先設為層級 3，再開始部署。 如果低於層級 3，還是能進行評估，但不會收集儲存體和網路的效能資料。
+- **VMware**：您計劃移轉的 VM 必須透過執行版本 5.5、6.0 或 6.5 的 vCenter Server 來管理。 此外，您還需要一部執行版本 5.0 或更新版本的 ESXi 主機來部署收集器 VM。 
+ 
+> [!NOTE]
+> Hyper-V 支援已在我們的藍圖中，將儘速啟用。 
+
+- **vCenter Server 帳戶**：您需要一個唯讀帳戶來存取 vCenter Server。 Azure Migrate 會使用此帳戶來探索內部部署 VM。
+- **權限**：在 vCenter Server 上，您需要權限，方可藉由匯入 .OVA 格式的檔案來建立 VM。 
+- **統計資料設定**：vCenter Server 的統計資料設定應該先設為層級 3，再開始部署。 如果低於層級 3，還是能進行評估，但不會收集儲存體和網路的效能資料。 在此情況下，將根據 CPU 和記憶體的效能資料以及磁碟和網路介面卡的組態資料來提出大小建議。 
 
 ## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
 登入 [Azure 入口網站](https://portal.azure.com)。
@@ -51,7 +55,7 @@ ms.lasthandoff: 11/28/2017
 2. 搜尋 **Azure Migrate**，然後在搜尋結果中選取服務 (**Azure Migrate (預覽版)**)。 然後按一下 [ **建立**]。
 3. 指定專案名稱，以及專案的 Azure 訂用帳戶。
 4. 建立新的資源群組。
-5. 指定要在其中建立專案的區域，然後按一下 [建立]。 從內部部署 VM 收集來的中繼資料會儲存在此區域中。 在這個預覽版中，您只能在「美國中西部」區域建立 Azure Migrate 專案。 不過，您可以評估不同位置的 VM。
+5. 指定要在其中建立專案的區域，然後按一下 [建立]。 從內部部署 VM 收集來的中繼資料會儲存在此區域中。 在這個預覽版中，您只能在「美國中西部」區域建立 Azure Migrate 專案。 不過，您仍能針對任何目標 Azure 位置規劃移轉。 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -143,7 +147,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 探索到 VM 之後，您可以將它們分組，並建立評估。 
 
 1. 在專案的 [概觀] 頁面中，按一下 [+建立評估]。
-2. 按一下 [檢視全部] 來檢閱評估設定。
+2. 按一下 [檢視全部] 來檢閱評估屬性。
 3. 建立群組，並指定群組名稱。
 4. 選取您想要新增至群組的機器。
 5. 按一下 [建立評估] 以建立群組和評估。
@@ -168,13 +172,16 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 
 #### <a name="monthly-cost-estimate"></a>每月成本預估值
 
-此檢視會顯示每一部機器的計算和儲存成本。 在計算成本估計值時，會使用以效能為基礎的大小建議來用於機器和其磁碟以及評估屬性。
+此檢視會顯示在 Azure 中執行 VM 的計算和儲存總成本，以及每部電腦的詳細資訊。 在計算成本估計值時，會使用以效能為基礎的大小建議來用於機器和其磁碟以及評估屬性。 
 
-系統會彙總群組內所有 VM 之計算和儲存的每月預估成本。 您可以在每部機器上按一下，以深入了解其詳細資料。 
+> [!NOTE]
+> Azure Migrate 所提供的成本估計適用於執行內部部署 VM 以作為 Azure 基礎結構即服務 (IaaS) VM。 它不會考慮任何平台即服務 (PaaS) 或軟體即服務 (SaaS) 成本。 
+
+系統會彙總群組內所有 VM 之計算和儲存的每月預估成本。 
 
 ![評估 VM 成本](./media/tutorial-assessment-vmware/assessment-vm-cost.png) 
 
-您可以向下切入以查看特定機器的成本。
+您可以向下切入以查看特定機器的詳細資料。
 
 ![評估 VM 成本](./media/tutorial-assessment-vmware/assessment-vm-drill.png) 
 

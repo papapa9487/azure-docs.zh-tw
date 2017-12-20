@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: juliako
-ms.openlocfilehash: 024b4cbb13001d67e7c1f0b86a84dfb43478c49d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5dd263a2e925989069c3b0257cfafa4c43e6157
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="media-services-development-with-net"></a>使用 .NET 進行媒體服務開發
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 
 或者，您可以從 GitHub 取得最新 Media Services .NET SDK 位元 ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) 或 [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions))、建置方案，並新增至用戶端專案的參考。 所有必要相依性皆會自動下載並解壓縮。
 
-1. 在 Visual Studio 中，建立新的 C# 主控台應用程式。 輸入 名稱、位置 和 方案名稱，然後按一下確定。
+1. 在 Visual Studio 中，建立新的 C# 主控台應用程式。 輸入 [名稱]、[位置] 和 [方案名稱]，然後按一下 [確定]。
 2. 建置方案。
 3. 使用 **NuGet** 來安裝和新增 **Azure 媒體服務 .NET SDK 延伸模組** (**windowsazure.mediaservices.extensions**)。 安裝這個封裝，也會安裝 **Media Services .NET SDK** ，並新增所有其他必要相依性。
    
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/11/2017
 
     2. [管理 NuGet 封裝] 對話方塊隨即出現。
 
-    3. 在線上資源庫中，搜尋「Azure MediaServices 擴充功能」，選擇 Azure Media Services .NET SDK 擴充功能 (**windowsazure.mediaservices.extensions**)，然後按一下安裝 按鈕。
+    3. 在線上資源庫中，搜尋「Azure MediaServices 擴充功能」，選擇 [Azure Media Services .NET SDK 擴充功能] (**windowsazure.mediaservices.extensions**)，然後按一下 [安裝] 按鈕。
    
     4. 會修改專案，並新增 Media Services .NET SDK 延伸模組、Media Services .NET SDK 和其他相依組件的參考。
 4. 若要提升更乾淨的開發環境，請考慮啟用 [NuGet 封裝還原]。 如需詳細資訊，請參閱 [NuGet 封裝還原](http://docs.nuget.org/consume/package-restore)。
@@ -66,8 +66,11 @@ ms.lasthandoff: 10/11/2017
 
     如果您使用[使用者驗證](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication)，您的設定檔可能會有 Azure AD 租用戶網域和 AMS REST API 端點的值。
     
+    >[!Note]
+    >Azure 媒體服務文件集中大多數的程式碼範例，以使用者 (互動式) 的驗證類型連線到 AMS API。 這種驗證方法適用於管理或監控原生應用程式：行動應用程式、Windows 應用程式和主控台應用程式。
+    
     >[!Important]
-    >Azure 媒體服務文件集中大多數的程式碼範例，以使用者 (互動式) 的驗證類型連線到 AMS API。 這種驗證方法適用於管理或監控原生應用程式：行動應用程式、Windows 應用程式和主控台應用程式。 這種驗證方法不適用於伺服器、Web 服務、API 類型的應用程式。  如需詳細資訊，請參閱[使用 Azure AD 驗證存取 AMS API](media-services-use-aad-auth-to-access-ams-api.md)。
+    > **互動式**驗證方法不適用於伺服器、Web 服務、API 類型的應用程式。 對於這些類型的應用程式，請使用**服務主體**驗證方法。 如需詳細資訊，請參閱[使用 Azure AD 驗證存取 AMS API](media-services-use-aad-auth-to-access-ams-api.md)。
 
         <configuration>
         ...

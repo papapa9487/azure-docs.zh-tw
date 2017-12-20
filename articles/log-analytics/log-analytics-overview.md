@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/12/2017
 ms.author: bwren
-ms.openlocfilehash: 9fcf23f5ff47bd7457e5afa69eb2b9b33e0bf0fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f12958550738ff465c06d0e5d774d8bffa0b90b
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-is-log-analytics"></a>什麼是 Log Analytics？
 Log Analytics 是 [Operations Management Suite \(OMS\)](../operations-management-suite/operations-management-suite-overview.md) 中的一項服務，可監視您的雲端和內部部署環境，以維護其可用性和效能。  它會收集您的雲端和內部部署環境中的資源所產生的資料，以及從其他監視工具提供橫跨多個來源的分析。  本文提供 Log Analytics 所提供值的簡短討論、其運作方式的概觀，並連結至更詳細的內容，以便您進一步探究。
@@ -60,7 +60,7 @@ Log Analytics 的中心是裝載在 Azure 雲端的 OMS 存放庫。  資料會�
 
 ![OMS 存放庫](media/log-analytics-overview/overview.png)
 
-連接的來源是指產生 Log Analytics 所收集資料的電腦和其他資源。  這可以包括安裝在直接連接的 [Windows](log-analytics-windows-agents.md) 和 [Linux](log-analytics-linux-agents.md) 電腦的代理程式，或[已連線的 System Center Operations Manager 管理群組](log-analytics-om-agents.md)中的代理程式。  對於 Azure 資源，Log Analytics 會從 [Azure 監視器和 Azure 診斷](log-analytics-azure-storage.md)收集資料。
+連接的來源是指產生 Log Analytics 所收集資料的電腦和其他資源。  這可以包括安裝在直接連接的 [Windows](log-analytics-windows-agent.md) 和 [Linux](log-analytics-linux-agents.md) 電腦的代理程式，或[已連線的 System Center Operations Manager 管理群組](log-analytics-om-agents.md)中的代理程式。  對於 Azure 資源，Log Analytics 會從 [Azure 監視器和 Azure 診斷](log-analytics-azure-storage.md)收集資料。
 
 [資料來源](log-analytics-data-sources.md) 是從每一個已連接來源收集的不同種類的資料。  這包括來自 [Windows](log-analytics-data-sources-windows-events.md) 和 Linux 代理程式的[事件](log-analytics-data-sources-windows-events.md)和[效能資料](log-analytics-data-sources-performance-counters.md)，以及例如 [IIS 記錄](log-analytics-data-sources-iis-logs.md)和[自訂文字記錄](log-analytics-data-sources-custom-logs.md)等來源。  您設定想要收集的每個資料來源，組態會自動傳遞到每一個已連接的來源。
 
@@ -69,7 +69,7 @@ Log Analytics 的中心是裝載在 Azure 雲端的 OMS 存放庫。  資料會�
 ## <a name="log-analytics-architecture"></a>Log Analytics 架構
 Log Analytics 的部署需求非常少，因為中心元件託管於 Azure 雲端。  這包括存放庫，以及可讓您關聯與分析所收集資料的服務。  可以從任何瀏覽器存取入口網站，因此不需要用戶端軟體。
 
-您必須在 [Windows](log-analytics-windows-agents.md) 和 [Linux](log-analytics-linux-agents.md) 電腦上安裝代理程式，但已經是[連線的 SCOM 管理群組](log-analytics-om-agents.md)成員的電腦則不需要其他代理程式。  SCOM 代理程式將會繼續與管理伺服器通訊，管理伺服器會將其資料轉送至 Log Analytics。  不過，某些方案需要代理程式以便直接與 Log Analytics 通訊。  每個方案的文件將詳述其通訊需求。
+您必須在 [Windows](log-analytics-windows-agent.md) 和 [Linux](log-analytics-linux-agents.md) 電腦上安裝代理程式，但已經是[連線的 SCOM 管理群組](log-analytics-om-agents.md)成員的電腦則不需要其他代理程式。  SCOM 代理程式將會繼續與管理伺服器通訊，管理伺服器會將其資料轉送至 Log Analytics。  不過，某些方案需要代理程式以便直接與 Log Analytics 通訊。  每個方案的文件將詳述其通訊需求。
 
 當您 [註冊 Log Analytics](log-analytics-get-started.md)時，會建立一個 OMS 工作區。  您可以將工作區視為唯一的 Log Analytics 環境，有其自己的資料存放庫、資料來源和方案。 您可以在訂用帳戶中建立多個工作區以支援多個環境，例如生產環境和測試環境。
 

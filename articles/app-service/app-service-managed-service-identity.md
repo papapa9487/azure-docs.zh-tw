@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 59e6db7caf4988623e6d2f93e986b423db7d7248
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6b2dcaa4b0e0f59bf8a632b48813ba6a24202ec5
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>如何在 App Service 和 Azure Functions 中使用 Azure 受管理服務身分識別 (公開預覽)
 
@@ -45,6 +45,35 @@ ms.lasthandoff: 11/15/2017
 4. 將 [向 Azure Active Directory 註冊應用程式] 切換為 [開啟]。 按一下 [儲存] 。
 
 ![App Service 中的受管理服務識別](media/app-service-managed-service-identity/msi-blade.png)
+
+### <a name="using-the-azure-cli"></a>使用 Azure CLI
+
+若要使用 Azure CLI 設定受控服務識別，您必須對現有的應用程式使用 `az webapp assign-identity` 命令。 有三個選項可供您執行本節中的範例︰
+
+- 從 Azure 入口網站使用 [Azure Cloud Shell](../cloud-shell/overview.md)。
+- 請透過下方每個程式碼區塊右上角的 [立即試用] 按鈕，使用內嵌的 Azure Cloud Shell。
+- 如果您需要使用本機的 CLI 主控台，請[安裝最新版的 CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.21 或更新版本)。 
+
+下列步驟將逐步引導您建立 web 應用程式，並使用 CLI 指派身分識別給它：
+
+1. 如果您要在本機主控台中使用 Azure CLI，請先使用 [az login](/cli/azure/#login) 登入 Azure。 使用您要部署應用程式且已與 Azure 訂用帳戶相關聯的帳戶：
+
+    ```azurecli-interactive
+    az login
+    ```
+2. 使用 CLI 建立 web 應用程式。 如需如何使用 CLI 搭配 App Service 的相關範例，請參閱 [App Service CLI 範例](../app-service/app-service-cli-samples.md)：
+
+    ```azurecli-interactive
+    az group create --name myResourceGroup --location westus
+    az appservice plan create --name myplan --resource-group myResourceGroup --sku S1
+    az webapp create --name myapp --resource-group myResourceGroup --plan myplan
+    ```
+
+3. 執行 `assign-identity` 命令來建立此應用程式的身分識別：
+
+    ```azurecli-interactive
+    az webapp assign-identity --name myApp --resource-group myResourceGroup
+    ```
 
 ### <a name="using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本
 

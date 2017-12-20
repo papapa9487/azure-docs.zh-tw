@@ -3,22 +3,22 @@ title: "安裝並設定 Azure Stack 的 PowerShell 快速入門 | Microsoft Docs
 description: "深入瞭解 Azure Stack 的 PowerShell 的安裝和設定。"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: 6996DFC1-5E05-423A-968F-A9427C24317C
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: sngun
-ms.openlocfilehash: 039806e164be29b80e604bbcf0f2997e635664e5
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.author: mabrigg
+ms.openlocfilehash: 0a85fc78d31c58ee83721d7dccbcdf46f98b3ddd
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>在 Azure Stack 使用 PowerShell 啟動和執行
 
@@ -50,7 +50,6 @@ Set-ExecutionPolicy RemoteSigned `
 
 # Uninstall any existing Azure PowerShell modules. To uninstall, close all the active PowerShell sessions, and then run the following command:
 Get-Module -ListAvailable | `
-  where-Object {$_.Name -like “Azure*”} | `
   Uninstall-Module
 
 # Install PowerShell for Azure Stack.
@@ -86,7 +85,7 @@ Import-Module .\Connect\AzureStack.Connect.psm1
   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
 # For Azure Stack development kit, this value is adminvault.local.azurestack.external 
-$KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
+$KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
 
 
 # Register an AzureRM environment that targets your Azure Stack instance
@@ -96,7 +95,7 @@ $KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
 
 # Get the Active Directory tenantId that is used to deploy Azure Stack
   $TenantID = Get-AzsDirectoryTenantId `
-    -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
+    -AADTenantName $TenantName `
     -EnvironmentName "AzureStackAdmin"
 
 # Sign in to your environment
@@ -105,9 +104,9 @@ $KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
     -TenantId $TenantID 
 ```
 
-## <a name="set-up-powershell-for-ad-fs-based-deployments"></a>設定 PowerShell 進行以 AD FS 為基礎的部署 
+## <a name="set-up-powershell-for-ad-fs-based-deployments"></a>設定 PowerShell 進行以 AD FS 為基礎的部署
 
-如果您透過 VPN 連線，登入到 Azure Stack 開發套件或以 Windows 為基礎的外部用戶端。 開啟提升權限的 PowerShell ISE 工作階段，然後執行下列指令碼。 確定視需要更新環境設定的 **ArmEndpoint** 和 **GraphAudience** 變數：
+如果您在連線至網際網路時執行 Azure Stack，您可以使用下列指令碼。 如果您在未連線至網際網路時執行 Azure Stack，請使用[離線安裝 PowerShell 的方法](azure-stack-powershell-install.md#install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity)，設定 PowerShell 的 Cmdlet 一樣如同此指令碼中所示。 如果您透過 VPN 連線，登入到 Azure Stack 開發套件或以 Windows 為基礎的外部用戶端。 開啟提升權限的 PowerShell ISE 工作階段，然後執行下列指令碼。 確定視需要更新環境設定的 **ArmEndpoint** 和 **GraphAudience** 變數：
 
 ```powershell
 
@@ -120,8 +119,7 @@ Set-ExecutionPolicy RemoteSigned `
   -force
 
 # Uninstall any existing Azure PowerShell modules. To uninstall, close all the active PowerShell sessions and run the following command:
-Get-Module -ListAvailable | `
-  where-Object {$_.Name -like “Azure*”} | `
+Get-Module -ListAvailable -Name Azure* | `
   Uninstall-Module
 
 # Install PowerShell for Azure Stack.
@@ -156,7 +154,7 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
 # For Azure Stack development kit, this value is adminvault.local.azurestack.external 
-$KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
+$KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
 
 # Register an AzureRM environment that targets your Azure Stack instance
 Add-AzureRMEnvironment `

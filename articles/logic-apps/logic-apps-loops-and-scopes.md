@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 413a2ba9107ca259ed577825bf0a17ff5622f1ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a17de187f67c075147ea8ff7f69434014eea3fdb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="logic-apps-loops-scopes-and-debatching"></a>Logic Apps 迴圈、範圍和解除批次處理
   
@@ -26,7 +26,7 @@ Logic Apps 提供數種方法來處理工作流程中的陣列、集合、批次
   
 ## <a name="foreach-loop-and-arrays"></a>ForEach 迴圈和陣列
   
-Logic Apps 可讓您在一組資料上進行迴圈，並為每個項目執行動作。  這可透過 `foreach` 動作來達成。  在設計工具中，您可以指定要新增一個 for each 迴圈。  在選取您希望反覆查看的陣列之後，就可以新增動作。  目前您受限於每個 foreach 迴圈只能有一個動作，但在未來幾週內，將會提高此限制。  一旦進入迴圈之後，您就可以開始指定應針對陣列的每個值執行哪些動作。
+Logic Apps 可讓您在一組資料上進行迴圈，並為每個項目執行動作。  這可透過 `foreach` 動作來達成。  在設計工具中，您可以指定要新增一個 for each 迴圈。  在選取您希望反覆查看的陣列之後，就可以新增動作。  您可以每個 foreach 迴圈中新增多個動作。  一旦進入迴圈之後，您就可以開始指定應針對陣列的每個值執行哪些動作。
 
 如果使用程式碼檢視，您就可以指定 for each 迴圈，如下所示。  這是 for each 迴圈的範例，可針對每個包含「microsoft.com」的電子郵件地址傳送傳送電子郵件︰
 

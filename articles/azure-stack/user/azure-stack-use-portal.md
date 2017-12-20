@@ -3,8 +3,8 @@ title: "使用 Azure Stack 入口網站 | Microsoft Docs"
 description: "了解如何存取和使用 Azure Stack 中的使用者入口網站。"
 services: azure-stack
 documentationcenter: 
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 5aa00123-5b87-45e0-a671-4165e66bfbc6
 ms.service: azure-stack
@@ -13,12 +13,12 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: twooley
-ms.openlocfilehash: 63c270affca31d3db7e03116f5e287d8569b0dae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 7c34d7a225be63da95f664525b0366ff89b28838
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="using-the-azure-stack-portal"></a>使用 Azure Stack 入口網站
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="customize-the-dashboard"></a>自訂儀表板
 
-儀表板包含一組預設圖格。 您可以按一下 [編輯儀表板] 來修改預設儀表板，或是按一下 [新增儀表板] 來新增自訂儀表板。 您可以輕鬆地將圖格新增到儀表板中。 例如，您可以按一下 新增，在 計算 上按一下滑鼠右鍵，然後按一下釘選到儀表板。
+儀表板包含一組預設圖格。 您可以按一下 [編輯儀表板] 來修改預設儀表板，或是按一下 [新增儀表板] 來新增自訂儀表板。 您可以輕鬆地將圖格新增到儀表板中。 例如，您可以按一下 [新增]，在 [計算] 上按一下滑鼠右鍵，然後按一下 [釘選到儀表板]。
 
 ## <a name="create-subscription-and-browse-available-resources"></a>建立訂用帳戶及瀏覽可用的資源
  
@@ -53,7 +53,7 @@ ms.lasthandoff: 10/11/2017
 
 - 您的組織或服務提供者可能會提供自己的文件。 當它們提供自訂的服務或應用程式時，尤其會是這種情況。
 - 協力廠商應用程式會有自己的文件。
-- 針對與 Azure 一致的服務，強烈建議您先檢閱 Azure Stack 文件。 若要存取 Azure Stack 使用者文件，請按一下 說明 圖示，然後按一下說明 + 支援。
+- 針對與 Azure 一致的服務，強烈建議您先檢閱 Azure Stack 文件。 若要存取 Azure Stack 使用者文件，請按一下 [說明] 圖示，然後按一下 [說明 + 支援]。
  
     ![UI 中 [說明及支援] 選項的螢幕擷取畫面](media/azure-stack-use-portal/HelpAndSupport.png)
 

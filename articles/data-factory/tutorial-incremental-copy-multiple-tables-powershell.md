@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 5472c41af9b0c524b931ed3e6b149270e17a633a
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2d9213a74fd881a7be52f51ff8ebb49171c77283
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database"></a>以累加方式將 SQL Server 中多個資料表的資料載入到 Azure SQL Database
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從內部部署 SQL Server 中的多個資料表，載入到 Azure SQL Database。    
@@ -215,7 +215,8 @@ END
 
 ```
 
-[!INCLUDE [data-factory-quickstart-prerequisites-2](../../includes/data-factory-quickstart-prerequisites-2.md)]
+### <a name="azure-powershell"></a>Azure PowerShell
+依照[如何安裝和設定 Azure PowerShell](/powershell/azure/install-azurerm-ps)中的指示，安裝最新的 Azure PowerShell 模組。
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 1. 定義資源群組名稱的變數，以便稍後在 PowerShell 命令中使用。 將下列命令文字複製到 PowerShell，以雙引號指定 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱，然後執行命令。 例如： `"adfrg"`。 
@@ -866,6 +867,6 @@ project_table   2017-10-01 00:00:00.000
 進入下列教學課程，以了解如何在 Azure 上使用 Spark 叢集來轉換資料：
 
 > [!div class="nextstepaction"]
->[使用變更追蹤技術，以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體](tutorial-incremental-copy-multiple-tables-powershell.md)
+>[使用變更追蹤技術，以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 

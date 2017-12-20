@@ -32,6 +32,14 @@
       href: how-to-deploy-monitor.md
     - name: 佈建 IoT Core 裝置
       href: how-to-install-iot-core.md
+    - name: 使用 VS Code 開發 IoT Edge 解決方案
+      items:
+        - name: '開發和部署 C# 模組'
+          href: how-to-vscode-develop-csharp-module.md
+        - name: '偵錯 C# 模組'
+          href: how-to-vscode-debug-csharp-module.md
+    - name: 疑難排解
+      href: troubleshoot.md
 - name: 概念
   items:
     - name: IoT Edge 模組

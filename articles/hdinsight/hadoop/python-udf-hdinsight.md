@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 12/05/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 822293da48f14dc3fe29e7e95e7a30faaadbfea4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 002072c8eac37ffb1548b44627ec08e941c96a1d
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>在 HDInsight 上使用 Python 使用者定義函數 (UDF) 與 Hive 和 Pig
 
@@ -166,7 +166,7 @@ def create_structure(input):
     return date, time, classname, level, detail
 ```
 
-在 Pig Latin 範例中，我們因為輸入沒有一致的結構描述而將 `LINE` 輸入定義為 chararray。 Python 指令碼會將資料轉換成一致的結構描述，以便輸出。
+在 Pig Latin 範例中，因為該輸入沒有一致的結構描述，因而將 `LINE` 輸入定義為 chararray。 Python 指令碼會將資料轉換成一致的結構描述，以便輸出。
 
 1. `@outputSchema` 陳述式定義將傳回給 Pig 的資料格式。 在此案例中，這是一個 **data bag**(一種 Pig 資料類型)。 Bag 包含下列欄位，全部都是 chararray (字串)：
 
@@ -178,7 +178,7 @@ def create_structure(input):
 
 2. 接下來，`def create_structure(input)` 定義可供 Pig 傳遞行項目的函數。
 
-3. 範例資料 `sample.log` 大致上符合我們想要傳回的 date、time、classname、level 和 detail 結構描述。 不過，它包含開頭為 `*java.lang.Exception*` 的數行。 這幾行必須經過修改以符合結構描述。 `if` 陳述式會檢查這幾行，然後調整輸入資料將 `*java.lang.Exception*` 字串移至尾端，使資料符合我們預期的輸出結構描述。
+3. 範例資料 `sample.log` 大致上符合 date、time、classname、level 和 detail 結構描述。 不過，它包含開頭為 `*java.lang.Exception*` 的數行。 這幾行必須經過修改以符合結構描述。 `if` 陳述式會檢查它們，然後調整輸入資料以將 `*java.lang.Exception*` 字串移至尾端，使資料符合預期的輸出結構描述。
 
 4. 接下來，使用 `split` 命令，在前四個空白字元處分割資料。 輸出即獲指派 `date`、`time`、 `classname`、 `level` 和 `detail` 。
 
@@ -291,7 +291,7 @@ def create_structure(input):
     #from pig_util import outputSchema
     ```
 
-    這樣會修改 Python 指令碼與 C Python 而非 Jython 搭配使用。 完成變更後，使用 **Ctrl+X** 結束編輯器。 選取 [Y]，然後按 **Enter** 儲存變更。
+    這行會修改 Python 指令碼以搭配 C Python 使用，而非 Jython。 完成變更後，使用 **Ctrl+X** 結束編輯器。 選取 [Y]，然後按 **Enter** 儲存變更。
 
 6. 使用 `pig` 命令再次啟動 Shell。 進入 `grunt>` 提示字元後，使用下列命令以使用 C Python 解譯器執行 Python 指令碼。
 

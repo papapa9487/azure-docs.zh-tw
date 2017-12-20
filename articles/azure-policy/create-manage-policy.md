@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/17/2017
+ms.date: 12/06/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 517f85307e97c1e98a84da95cb51660d6d4fe679
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: ba425e938f81ffb37a2c8bc2a764a4db074e9106
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>建立和管理原則來強制執行相容性
 
@@ -26,22 +26,6 @@ ms.lasthandoff: 11/18/2017
 > * 在整個組織中實作新的原則
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
-
-## <a name="opt-in-to-azure-policy"></a>加入 Azure 原則
-
-Azure 原則目前僅供有限預覽，因此您必須註冊以要求存取權。
-
-1. 移至 Azure 原則，位置是：https://aka.ms/getpolicy ，然後選取左窗格中的 [註冊]。
-
-   ![搜尋原則](media/assign-policy-definition/sign-up.png)
-
-2. 藉由選取您想要使用之 [訂用帳戶] 清單中的訂用帳戶，加入 Azure 原則。 接著，選取 [註冊]。
-
-   您的訂用帳戶清單包含您的所有 Azure 訂用帳戶。
-
-   ![加入以使用 Azure 原則](media/assign-policy-definition/preview-opt-in.png)
-
-   根據需求，我們可能需要數天的時間接受您的註冊要求。 一旦您的要求被接受，系統會透過電子郵件通知您，您可以開始使用服務。
 
 ## <a name="assign-a-policy"></a>指派原則
 
@@ -69,7 +53,7 @@ Azure 原則目前僅供有限預覽，因此您必須註冊以要求存取權�
 
    Azure 原則有兩個定價層 – 免費和標準。 使用免費層次，您只能在未來的資源上強制執行原則，而使用標準層，您也能在現有資源上強制執行這些原則，以更加了解相容性狀態。 因為還是有限預覽版本，所以尚未發行計價模式，因此您選取「標準」也不會收到帳單。 若要深入了解定價，請參閱 [Azure 原則定價](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/)。
 
-8. 選取**範圍** - 您先前加入 Azure 原則時註冊的訂用帳戶 (或資源群組)。 範圍會決定在哪些資源或資源群組上強制執行原則指派。 範圍從訂用帳戶到資源群組。
+8. 選取 [範圍]：您先前註冊的訂用帳戶 (或資源群組)。 範圍會決定在哪些資源或資源群組上強制執行原則指派。 範圍從訂用帳戶到資源群組。
 
    我們針對此範例使用這個訂用帳戶 - **Azure Analytics Capacity Dev**。 您的訂用帳戶不同。
 
@@ -94,9 +78,9 @@ Azure 原則目前僅供有限預覽，因此您必須註冊以要求存取權�
       - 原則規則/條件，在此情況下 – VM SKU 大小等於 G 系列
       - 原則效果，在此情況下 – **拒絕**。
 
-   以下是 json 應該會有的外觀
+    以下是 json 應該會有的外觀
 
-```json
+    ```json
 {
     "policyRule": {
       "if": {
@@ -116,11 +100,9 @@ Azure 原則目前僅供有限預覽，因此您必須註冊以要求存取權�
       }
     }
 }
-```
+    ```
 
-<!-- Update the following link to the top level samples page
--->
-   若要檢視 json 程式碼的範例，請參閱這篇文章 - [Azure 原則的範本](json-samples.md)
+    若要檢視 json 程式碼的範例，請參閱 [Azure 原則的範本](json-samples.md)一文。
 
 4. 選取 [ **儲存**]。
 

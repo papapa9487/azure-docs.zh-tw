@@ -1,28 +1,22 @@
 ---
-title: "Azure DC/OS 叢集中的負載平衡容器 | Microsoft Docs"
+title: "Azure DC/OS 叢集中的負載平衡容器"
 description: "Azure Container Service DC/OS 叢集中多個容器的負載平衡。"
 services: container-service
-documentationcenter: 
 author: rgardler
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: "容器, 微服務, DC/OS, Azure"
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 78725c9d23e13d307821a188028ef573d1def038
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8dfa99b609cf2c54d29c55d3f5ba748910f7513b
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Azure Container Service DC/OS 叢集中容器的負載平衡
+
 在此文章中，我們將探討如何在 DC/OS 管理的 Azure Container Service 中使用 Marathon-LB 建立內部負載平衡器。 這項設定可讓您以水平方式調整應用程式。 也可讓您在將負載平衡器放在公用叢集上，並將應用程式容器放在私用叢集上，藉此利用公用和私用代理程式叢集。 在本教學課程中，您：
 
 > [!div class="checklist"]

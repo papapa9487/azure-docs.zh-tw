@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 05b25ffad4a91859932cd53475d82b11bf3e43e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 590831454e8a18678e357b4824eb35a717d1fee0
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-cross-domain-policies"></a>API 管理跨網域原則
 本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -26,9 +26,7 @@ ms.lasthandoff: 10/11/2017
 ##  <a name="CrossDomainPolicies"></a>跨網域原則  
   
 -   [允許跨網域呼叫](api-management-cross-domain-policies.md#AllowCrossDomainCalls) - 將 API 設為可供 Adobe Flash 和 Microsoft Silverlight 瀏覽器型用戶端存取。  
-  
 -   [CORS](api-management-cross-domain-policies.md#CORS) - 將跨原始來源資源分享 (CORS) 支援加入至操作或 API，以允許來自瀏覽器型用戶端的跨網域呼叫。  
-  
 -   [JSONP](api-management-cross-domain-policies.md#JSONP) - 將 JSON 與補充的 (JSONP) 支援加入至操作或 API，以允許來自 JavaScript 瀏覽器型用戶端的跨網域呼叫。  
   
 ##  <a name="AllowCrossDomainCalls"></a>允許跨網域呼叫  
@@ -63,7 +61,6 @@ ms.lasthandoff: 10/11/2017
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
 -   **原則區段︰**輸入  
-  
 -   **原則範圍︰**全域  
   
 ##  <a name="CORS"></a>CORS  
@@ -147,7 +144,6 @@ ms.lasthandoff: 10/11/2017
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
 -   **原則區段︰**輸入  
-  
 -   **原則範圍︰**API、作業  
   
 ##  <a name="JSONP"></a>JSONP  
@@ -185,8 +181,13 @@ ms.lasthandoff: 10/11/2017
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
 -   **原則區段︰**輸出  
-  
 -   **原則範圍︰**全域、產品、API、作業  
   
 ## <a name="next-steps"></a>後續步驟
-如需有關使用原則的詳細資訊，請參閱 [API 管理中的原則](api-management-howto-policies.md)。  
+
+如需使用原則的詳細資訊，請參閱︰
+
++ [API 管理中的原則](api-management-howto-policies.md)
++ [轉換 API](transform-api.md)
++ [原則參考文件](api-management-policy-reference.md)，取得原則陳述式及其設定的完整清單
++ [原則範例](policy-samples.md)   

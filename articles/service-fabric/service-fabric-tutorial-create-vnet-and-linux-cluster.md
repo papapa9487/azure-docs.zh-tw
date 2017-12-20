@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: 47e023e7240cfae3553b220ebc44c95ec96d62a7
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: bf4b0f67a4c3667fb0c0cb826a822d6090c36375
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>將 Service Fabric Linux 叢集部署到 Azure 虛擬網路
 本教學課程是一個系列的第一部分。 您將會了解如何使用 Azure CLI 將 Linux Service Fabric 叢集部署到現有的 Azure 虛擬網路 (VNET) 和子網路。 完成時，您會有在您可以部署應用程式的雲端中執行的叢集。 若要使用 PowerShell 建立 Windows 叢集，請參閱[在 Azure 上建立安全的 Windows 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)。
@@ -35,7 +35,8 @@ ms.lasthandoff: 11/18/2017
 在本教學課程系列中，您將了解如何：
 > [!div class="checklist"]
 > * 在 Azure 上建立安全叢集
-> * [將叢集相應縮小或相應放大](/service-fabric-tutorial-scale-cluster.md)
+> * [將叢集相應縮小或相應放大](service-fabric-tutorial-scale-cluster.md)
+> * [升級叢集的執行階段](service-fabric-tutorial-upgrade-cluster.md)
 > * [使用 Service Fabric 部署 API 管理](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>必要條件

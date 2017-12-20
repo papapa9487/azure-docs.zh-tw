@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: juliako
-ms.openlocfilehash: 5b8f2d750c3330fb05f5529c3e3549d8e06e5e4e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 0ae5d37507bb6e36589e9755faf8bd3471910257
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>動態加密：設定內容金鑰授權原則
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -34,13 +34,9 @@ Microsoft Azure 媒體服務可讓您傳遞使用進階加密標準 (AES) (使�
 
 媒體服務不提供安全權杖服務。 您可以建立自訂 STS，或利用 Microsoft Azure ACS 來發行權杖。 STS 必須設定為建立使用指定金鑰簽署的權杖，並發行在權杖限制組態中指定的宣告 (如本文中所述)。 如果權杖有效，且權杖中的宣告符合為內容金鑰設定的宣告，媒體服務金鑰傳遞服務會將加密金鑰傳回給用戶端。
 
-如需詳細資訊，請參閱
-
-[JWT 權杖驗證](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
-
-[整合 Azure 媒體服務 OWIN MVC 型應用程式與 Azure Active Directory 並根據 JWT 宣告限制內容金鑰傳遞](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)。
-
-[使用 Azure ACS 發行權杖](http://mingfeiy.com/acs-with-key-services)。
+如需詳細資訊，請參閱下列文章。
+- [JWT 權杖驗證](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
+- [整合 Azure 媒體服務 OWIN MVC 型應用程式與 Azure Active Directory 並根據 JWT 宣告限制內容金鑰傳遞](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)。
 
 ### <a name="some-considerations-apply"></a>適用一些考量事項：
 * 為了能夠使用動態封裝和動態加密功能，請確定您想要從中串流內容的串流端點是處於 [執行中] 狀態。
@@ -50,6 +46,7 @@ Microsoft Azure 媒體服務可讓您傳遞使用進階加密標準 (AES) (使�
 * 金鑰傳遞服務會快取 ContentKeyAuthorizationPolicy 和其相關物件 (原則選項和限制) 15 分鐘。  如果您建立 ContentKeyAuthorizationPolicy，並指定要使用 "Token" 的限制，那麼便測試它，然後將原則更新為"Open" 限制，將需要大約 15 分鐘，原則才會切換為 "Open" 版本的原則。
 * 如果您加入或更新您的資產傳遞原則，您必須刪除現有的定位程式 (如果有的話)，並建立新的定位器。
 * 您目前無法加密漸進式下載。
+* AMS 串流端點會在預檢回應中，將 CORS 'Access-Control-Allow-Origin' 標頭的值設定為萬用字元 '\*'。 這適用於大多數的播放程式，包括我們的 Azure 媒體播放器、Roku 和 JW，以及其他播放程式。 不過，有些利用 dashjs 的播放程式則不適用，因為，如果將認證模式設定為 “include”，其 dashjs 中的 XMLHttpRequest 就不允許萬用字元 “\*” 作為 “'Access-Control-Allow-Origin” 的值。 對於 dashjs 中此一限制的因應措施是，如果您從單一網域裝載用戶端，Azure 媒體服務就能在預檢回應標頭中指定該網域。 您可以透過 Azure 入口網站建立支援票證來達成。
 
 ## <a name="aes-128-dynamic-encryption"></a>AES-128 動態加密
 > [!NOTE]
@@ -234,7 +231,7 @@ Open 限制表示系統將會傳送金鑰給提出金鑰要求的任何人。 �
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-設定 **token** 限制原則時，您必須指定主要**驗證金鑰**、**簽發者**和**對象**參數。 **主要驗證金鑰**包含簽署權杖使用的金鑰，**簽發者**是發行權杖的安全性權杖服務。 **對象** (有時稱為**範圍**) 描述權杖或權杖獲授權存取之資源的用途。 媒體服務金鑰傳遞服務會驗證權杖中的這些值符合在範本中的值。 
+設定**權杖**限制的原則時，您必須指定主要**驗證金鑰**、**簽發者**和**對象**參數。 主要**驗證金鑰**包含用以簽署權杖的金鑰，**簽發者**是發行權杖的安全性權杖服務。 **對象** (有時稱為**範圍**) 描述權杖或權杖獲授權存取之資源的用途。 媒體服務金鑰傳遞服務會驗證權杖中的這些值符合在範本中的值。
 
 下列範例會建立具有 token 限制的授權原則。 在此範例中，用戶端必須提出權杖，權杖中包含簽署金鑰 (VerificationKey)、權杖簽發者和必要的宣告。
 

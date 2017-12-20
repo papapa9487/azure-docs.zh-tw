@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 50015fabb323e618d3c093d4083cc648ff13b8f1
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 694d0c27b26c1ed9f6a1a54f766d024d882b5b64
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>管理 Azure 內容傳遞網路中 Azure Blob 儲存體的期限
 > [!div class="op_single_selector"]
@@ -29,8 +29,10 @@ ms.lasthandoff: 11/30/2017
 
 Azure 儲存體中的 [Blob 儲存體服務](../storage/common/storage-introduction.md#blob-storage)是數個已與 Azure 內容傳遞網路 (CDN) 整合之 Azure 型來源的其中一個。 任何可公開存取的 Blob 內容均可在 Azure CDN 中加以快取，直到其存留時間 (TTL) 結束。 TTL 是由來自原始伺服器之 HTTP 回應中的 `Cache-Control` 標頭所決定。 本文章會說明幾種可設定位於 Azure 儲存體中，Blob 上的 `Cache-Control` 標頭的方法。
 
+您也可以藉由設定 [CDN 快取規則](cdn-caching-rules.md)，從 Azure 入口網站控制快取設定。 如果您設定一個或多個快取規則，並將其快取行為設定為 [覆寫] 或 [略過快取]，就會忽略本文所討論之原始提供的快取設定。 如需一般快取概念的相關資訊，請參閱[快取如何運作](cdn-how-caching-works.md)。
+
 > [!TIP]
-> 您可以選擇不替 blob 設定 TTL。 在此情況下，Azure CDN 會自動套用預設為期 7 天的 TTL。 此預設 TTL 僅會套用至一般 Web 傳遞最佳化。 針對大型檔案的最佳化，預設 TTL 為一天；針對媒體串流最佳化，預設 TTL 則為一年。
+> 您可以選擇不替 blob 設定 TTL。 在此情況下，除非您已在 Azure 入口網站中設定快取規則，否則 Azure CDN 會自動套用七天的預設 TTL。 此預設 TTL 僅會套用至一般 Web 傳遞最佳化。 針對大型檔案的最佳化，預設 TTL 為一天；針對媒體串流最佳化，預設 TTL 則為一年。
 > 
 > 針對 Azure CDN 如何加快對 blob 和其他檔案的存取速度，如需詳細資訊請參閱 [Azure 內容傳遞網路概觀](cdn-overview.md)。
 > 
@@ -111,9 +113,9 @@ class Program
 ![Azure 儲存體總管屬性](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Azure 命令列介面
-上傳 Blob 時，您可以使用 [Azure 命令列介面](../cli-install-nodejs.md)中的 `-p` 參數來設定 *cacheControl* 屬性。 下列範例顯示如何將 TTL 設定為一小時 (3600 秒)：
+透過 [Azure 命令列介面](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) (CLI)，您可以從命令列管理 Azure Blob 資源。 若要在使用 Azure CLI 上傳 Blob 時設定 Cache-Control 標頭，請使用 `-p` 參數來設定 *cacheControl* 屬性。 下列範例顯示如何將 TTL 設定為一小時 (3600 秒)：
   
-```command
+```azurecli
 azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\test.txt myContainer test.txt
 ```
 
@@ -129,4 +131,5 @@ azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .
 
 ## <a name="next-steps"></a>後續步驟
 * [了解如何在 Azure CDN 中管理雲端服務內容的到期](cdn-manage-expiration-of-cloud-service-content.md)
+* [了解快取概念](cdn-how-caching-works.md)
 

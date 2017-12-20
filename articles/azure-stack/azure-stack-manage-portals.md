@@ -3,8 +3,8 @@ title: "使用 Azure Stack 中的系統管理員入口網站 | Microsoft Docs"
 description: "身為 Azure Stack 操作員，您應了解如何使用系統管理員入口網站。"
 services: azure-stack
 documentationcenter: 
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 02c7ff03-874e-4951-b591-28166b7a7a79
 ms.service: azure-stack
@@ -13,12 +13,12 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: twooley
-ms.openlocfilehash: 3a1be7a08fab8ad0253f26e6a0683617bff4b7c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 34d9d207225327758d535a11c870019f3db31cb0
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>使用 Azure Stack 中的系統管理員入口網站
 
@@ -66,15 +66,15 @@ Azure Stack 中有兩種入口網站：系統管理員入口網站和使用者�
 
 ### <a name="customize-the-dashboard"></a>自訂儀表板
 
-儀表板包含一組預設圖格。 您可以按一下 [編輯儀表板] 來修改預設儀表板，或是按一下 [新增儀表板] 來新增自訂儀表板。 您可以輕鬆地將圖格新增到儀表板中。 例如，您可以按一下 新增，在 供應項目 + 方案 上按一下滑鼠右鍵，然後按一下釘選到儀表板。
+儀表板包含一組預設圖格。 您可以按一下 [編輯儀表板] 來修改預設儀表板，或是按一下 [新增儀表板] 來新增自訂儀表板。 您可以輕鬆地將圖格新增到儀表板中。 例如，您可以按一下 [新增]，在 [供應項目 + 方案] 上按一下滑鼠右鍵，然後按一下 [釘選到儀表板]。
 
 ### <a name="quick-access-to-online-documentation"></a>快速存取線上文件
 
-若要存取 Azure Stack 操作員文件，請按一下系統管理員入口網站右上角的 說明及支援 圖示 (問號)，然後按一下說明 + 支援。
+若要存取 Azure Stack 操作員文件，請按一下系統管理員入口網站右上角的 [說明及支援] 圖示 (問號)，然後按一下 [說明 + 支援]。
 
 ### <a name="quick-access-to-help-and-support"></a>快速存取說明及支援
 
-如果您按一下系統管理員入口網站右上角的 說明及支援 圖示 (問號)，然後按一下新增支援要求，將會進行下列其中一項操作：
+如果您按一下系統管理員入口網站右上角的 [說明及支援] 圖示 (問號)，然後按一下 [新增支援要求]，將會進行下列其中一項操作：
 
 - 如果您使用的是整合系統，此動作會開啟一個網站，可讓您直接向「Microsoft 客戶支援服務」(CSS) 建立支援票證。 若要了解何時應該透過 Microsoft 支援或透過原始設備製造商 (OEM) 硬體廠商支援，請參考 [Azure Stack 系統管理員基本知識](azure-stack-manage-basics.md) 的＜從哪裡取得支援＞一節。
 - 如果您使用的是開發套件，則此動作會直接開啟 Azure Stack 論壇網站。 我們會定期留意這些論壇。 由於開發套件是一個評估環境，因此並未透過 Microsoft CSS 提供官方支援。

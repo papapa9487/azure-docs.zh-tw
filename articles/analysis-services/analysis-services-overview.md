@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/04/2017
+ms.date: 12/08/2017
 ms.author: owend
-ms.openlocfilehash: 224ecbb80e8fc5b3f1a32e42eda7ec5452e9e553
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 60097a18afc76e09ecd7d69eececea53e9712bec
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>什麼是 Azure Analysis Services？
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -116,7 +116,7 @@ Azure Analysis Services 受 [Microsoft Online Services 條款](http://www.micros
 ## <a name="supports-the-latest-client-tools"></a>支援最新的用戶端工具
 ![資料視覺效果](./media/analysis-services-overview/aas-overview-clients.png)
 
-新式資料探索和視覺效果工具 (像是 Power BI、Excel 和第三方工具) 可讓使用者以高度互動和豐富的視覺化方式，深入了解您的模型資料。
+支援新式資料探索和視覺效果工具 (像是 Power BI、Excel、SQL Server 2017 Reporting Services 和第三方工具)，並可讓使用者以高度互動和豐富的視覺化方式，深入了解您的模型資料。 
 
 用戶端可使用 MSOLAP、AMO 或 ADOMD [用戶端程式庫](analysis-services-data-providers.md)來連線到 Analysis Services 伺服器。 Microsoft 用戶端應用程式 (像是 Power BI Desktop 和 Excel) 會安裝這三個用戶端程式庫。 但請記住，用戶端程式庫可能不是 Azure Analysis Services 所需的最新版本，需依更新的版本或頻率而定。 同樣適用於自訂應用程式或其他介面，例如 AsCmd、TOM、ADOMD.NET。 這些應用程式通常需要以手動方式將程式庫安裝為套件的一部分。
 

@@ -4,11 +4,11 @@ hide_bc: True
 title: "Microsoft Azure 文件"
 description: "了解如何使用 Microsoft Azure 雲端服務建置和管理功能強大的應用程式。 取得文件、程式碼範例、教學課程等資訊。"
 featureFlags: clicktale
-ms.openlocfilehash: 1d6ff00b9fdabbf612cba15fa09f923d0b08a58e
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 69213ca5c456f13b39c68eae2839329bfd05df6d
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -109,6 +109,7 @@ ms.lasthandoff: 12/11/2017
                                                     <li><a class="barLink" href="/azure/cost-management/">Azure 成本管理</a></li>
                                                     <li><a class="barLink" href="/azure/backup/">Azure 備份</a></li>
                                                     <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
+                                                    <li><a class="barLink" href="/azure/migrate/">Azure Migrate</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -177,6 +178,7 @@ ms.lasthandoff: 12/11/2017
                                                 <h4>關聯式資料庫</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/sql-database/">SQL 資料庫即服務</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-data-warehouse/">SQL 資料倉儲即服務</a></li>
                                                     <li><a class="barLink" href="/azure/postgresql/">PostgreSQL 資料庫即服務</a></li>
                                                     <li><a class="barLink" href="/azure/mysql/">MySQL 資料庫即服務</a></li>
                                                 </ul>
@@ -597,7 +599,7 @@ ms.lasthandoff: 12/11/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/bot-framework/azure-bot-service-overview">
+                                            <a href="https://docs.microsoft.com/bot-framework/bot-service-overview-introduction">
                                                 <img src="media/index/bot-service.svg" alt="" />
                                                 <p>Azure Bot 服務</p>
                                             </a>
@@ -653,7 +655,7 @@ ms.lasthandoff: 12/11/2017
                                         <li>
                                             <a href="/azure/cognitive-services/luis/">
                                                 <img src="media/index/API_Luis.svg" alt="" />
-                                                <p>Language Understanding Intelligent Services (LUIS)</p>
+                                                <p>語言理解 (LUIS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2343,7 +2345,7 @@ ms.lasthandoff: 12/11/2017
                                         </div>
                                     </div>
                                 </a>
-                            </li>   
+                            </li>
                             <li>
                                 <a href="/azure/stream-analytics/">
                                     <div class="cardSize">
@@ -2562,7 +2564,7 @@ ms.lasthandoff: 12/11/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/bot-framework/azure-bot-service-overview/">
+                                <a href="https://docs.microsoft.com/bot-framework/bot-service-overview-introduction">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2669,7 +2671,7 @@ ms.lasthandoff: 12/11/2017
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Bing_Spell_Check.svg" alt="" />Bing 拼字檢查</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/luis/"><img src="media/index/API_Luis.svg" alt="" /><span>Language Understanding Intelligent Services (LUIS)&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/luis/"><img src="media/index/API_Luis.svg" alt="" /><span>語言理解 (LUIS)</span></a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/linguisticanalysisapi/home"><img src="media/index/API_LinguisticAnalysis.svg" alt="" /><span>語言分析&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
@@ -4106,7 +4108,7 @@ Azure CLI </h3>
                                                     <a href="https://www.visualstudio.com/vs/azure-tools/">Visual Studio Tools for Azure</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids">下載</a>
+                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">下載</a>
                                                 </p>
                                             </div>
                                         </div>

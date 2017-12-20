@@ -59,8 +59,6 @@
           items:
             - name: 在 Azure 入口網站中準備 Azure 備份伺服器工作負載
               href: backup-azure-microsoft-azure-backup.md
-            - name: 在傳統入口網站中準備 Azure 備份伺服器工作負載
-              href: backup-azure-microsoft-azure-backup-classic.md
             - name: 在 Azure 備份伺服器中新儲存體
               href: backup-mabs-add-storage.md
             - name: 將 Azure 備份伺服器升級至 V.2
@@ -89,8 +87,6 @@
               href: backup-azure-arm-vms-prepare.md
             - name: Linux VM 的應用程式一致備份
               href: backup-azure-linux-app-consistent.md
-            - name: 準備 Azure 虛擬機器
-              href: backup-azure-vms-prepare.md
         - name: 規劃您的環境
           items:
             - name: 規劃 VM 備份基礎結構
@@ -101,16 +97,12 @@
               href: backup-azure-arm-vms.md
             - name: 備份加密的虛擬機器
               href: backup-azure-vms-encryption.md
-            - name: 備份 Azure 虛擬機器
-              href: backup-azure-vms.md
         - name: 管理和監視 VM
           items:
             - name: 在 Azure 入口網站中管理 Azure VM 備份
               href: backup-azure-manage-vms.md
             - name: 在 Azure 入口網站中監視 Azure VM 備份的警示
               href: backup-azure-monitor-vms.md
-            - name: 在傳統入口網站中管理及監視 Azure VM 備份
-              href: backup-azure-manage-vms-classic.md
         - name: 從 VM 還原資料
           items:
             - name: 從 Azure VM 備份中復原檔案
@@ -119,8 +111,6 @@
               href: backup-azure-arm-restore-vms.md
             - name: 還原加密的虛擬機器
               href: backup-azure-vms-encryption.md
-            - name: 還原 Azure 中的虛擬機器
-              href: backup-azure-restore-vms.md
             - name: 還原已加密 VM 的 Key Vault 金鑰與祕密
               href: backup-azure-restore-key-secret.md
     - name: 設定 Azure 備份報告
@@ -135,8 +125,6 @@
       items:
         - name: 在 Azure 入口網站中準備 DPM 工作負載
           href: backup-azure-dpm-introduction.md
-        - name: 在傳統入口網站中準備 DPM 工作負載
-          href: backup-azure-dpm-introduction-classic.md
         - name: 使用 System Center DPM 備份 Exchange Server
           href: backup-azure-backup-exchange-server.md
         - name: 將資料復原至替代的 DPM 伺服器中
@@ -149,16 +137,10 @@
       items:
         - name: Azure 入口網站中的 Azure VM
           href: backup-azure-vms-automation.md
-        - name: 傳統入口網站中的 Azure VM
-          href: backup-azure-vms-classic-automation.md
         - name: Azure 入口網站中的 DPM
           href: backup-dpm-automation.md
-        - name: 傳統入口網站中的 DPM
-          href: backup-dpm-automation-classic.md
         - name: Azure 入口網站中的 Windows Server
           href: backup-client-automation.md
-        - name: 傳統入口網站中的 Windows Server
-          href: backup-client-automation-classic.md
     - name: Azure SQL Database
       items:
         - name: 設定長期備份保留期
@@ -181,14 +163,6 @@
           href: backup-azure-restore-system-state.md
         - name: 監視及管理復原服務保存庫
           href: backup-azure-manage-windows-server.md
-        - name: 使用傳統入口網站進行備份與還原
-          items:
-            - name: 使用傳統部署模型的 Windows Server
-              href: backup-configure-vault-classic.md
-            - name: 使用傳統部署模型管理備份保存庫
-              href: backup-azure-manage-windows-server-classic.md
-            - name: 使用傳統部署模型將檔案復原到 Windows Server
-              href: backup-azure-restore-windows-server-classic.md
     - name: 復原服務保存庫
       items:
         - name: 復原服務保存庫概觀
@@ -201,8 +175,6 @@
       items:
         - name: Azure 入口網站中的 Azure VM 備份問題
           href: backup-azure-vms-troubleshoot.md
-        - name: 傳統入口網站中的 Azure VM 備份問題
-          href: backup-azure-vms-troubleshoot-classic.md
         - name: Azure VM 備份失敗︰無法與 VM 代理程式通訊來取得快照集狀態 - 快照集 VM 子工作已逾時
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
         - name: Azure 備份中的檔案和資料夾備份速度緩慢

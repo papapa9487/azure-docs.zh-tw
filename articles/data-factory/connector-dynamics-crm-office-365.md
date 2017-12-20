@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: c2de89ba3adaaa7d745731cff74269deecef03e2
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 62b1bf66647c762b17410c37fe6ebd996f577d25
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>使用 Azure Data Factory 從/至 Dynamics 365/Dynamics CRM 複製資料
 
@@ -30,14 +30,20 @@ ms.lasthandoff: 11/10/2017
 
 您可以將資料從 Dynamics 365/Dynamics CRM 複製到任何支援的接收資料存放區，或將資料從任何支援的來源資料存放區複製到 Dynamics 365/Dynamics CRM。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
-具體而言，這個 Dynamics 連接器支援下列 Dynamics 版本和驗證類型：
+此 Dynamics 連接器支援下列 Dynamics 版本和驗證類型 (*IFD 為 Internet Facing Deployment (網際網路面向部署) 的縮寫*)：
 
 | Dynamics 版本 | 驗證類型 | 已連結的服務範例 |
 |:--- |:--- |:--- |
 | Dynamics 365 線上版 <br> Dynamics CRM Online | Office365 | [Dynamics Online + Office365 驗證](#dynamics-365-and-dynamics-crm-online) |
 | 搭配 IFD 的 Dynamics 365 內部部署版 <br> 搭配 IFD 的 Dynamics CRM 2016 內部部署版 <br> 搭配 IFD 的 Dynamics CRM 2015 內部部署版 | IFD | [搭配 IFD 的 Dynamics 內部部署版 + IFD 驗證](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
-IFD 是「網際網路對向部署」的縮寫。
+特別針對 Dynamics 365 而言，支援下列應用程式類型：
+
+- Dynamics 365 for Sales
+- Dynamics 365 for Customer Service
+- Dynamics 365 for Field Service
+- Dynamics 365 for Project Service Automation
+- Dynamics 365 for Marketing
 
 > [!NOTE]
 > 若要使用 Dynamics 連接器，請將您的密碼儲存在 Azure Key Vault 中，然後讓 ADF 在執行資料複製時從該處提取密碼。 若要了解如何設定，請參閱[已連結的服務屬性](#linked-service-properties)一節。
@@ -54,7 +60,7 @@ IFD 是「網際網路對向部署」的縮寫。
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 和 Dynamics CRM Online
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | 類型 | 類型屬性必須設定為：**Dynamics**。 | 是 |
 | deploymentType | Dynamics 執行個體的部署類型。 如果是 Dynamics Online，就必須是 **"Online"**。 | 是 |
@@ -62,7 +68,7 @@ IFD 是「網際網路對向部署」的縮寫。
 | authenticationType | 連線到 Dynamics 伺服器時所要使用的驗證類型。 如果是 Dynamics Online，請指定 **"Office365"**。 | 是 |
 | username | 指定連線到 Dynamics 時所要使用的使用者名稱。 | 是 |
 | password | 指定您為使用者名稱所指定之使用者帳戶的密碼。 您必須將密碼放在 Azure Key Vault 中，然後將密碼設定為 "AzureKeyVaultSecret"。 請參閱[在金鑰保存庫中儲存認證](store-credentials-in-key-vault.md)深入了解。 | 是 |
-| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否 (用於來源)；是 (用於接收) |
+| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否 (來源)；是 (接收) |
 
 >[!IMPORTANT]
 >若要將資料複製到 Dynamics，使用 Dynamics 附近的位置明確[建立 Azure IR](create-azure-integration-runtime.md#create-azure-ir)，並在下列範例所示的連結服務中產生關聯。
@@ -101,7 +107,7 @@ IFD 是「網際網路對向部署」的縮寫。
 
 相較於 Dyanmics Online，額外的屬性為 "hostName" 和 "port"。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | 類型 | 類型屬性必須設定為：**Dynamics**。 | 是 |
 | deploymentType | Dynamics 執行個體的部署類型。 如果是搭配 IFD 的 Dynamics 內部部署版，就必須是 **"OnPremisesWithIfd"**。| 是 |
@@ -154,7 +160,7 @@ IFD 是「網際網路對向部署」的縮寫。
 
 若要從/至 Dynamics 複製資料，請將資料集的類型屬性設定為 **DynamicsEntity**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | 類型 | 資料集的類型屬性必須設定為：**DynamicsEntity** |是 |
 | entityName | 要擷取之實體的邏輯名稱。 | 否 (來源，如果已指定活動來源中的「查詢」)；是 (接收) |
@@ -207,7 +213,7 @@ IFD 是「網際網路對向部署」的縮寫。
 
 若要從 Dynamics 複製資料，請將複製活動中的來源類型設定為 **DynamicsSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | 類型 | 複製活動來源的類型屬性必須設定為：**DynamicsSource**  | 是 |
 | query  | FetchXML 是一個在 Microsoft Dynamics (線上版和內部部署版) 中使用的專屬查詢語言。 請參閱以下範例，若要深入了解，請參閱[使用 FetchXML 建立查詢](https://msdn.microsoft.com/en-us/library/gg328332.aspx)。 | 否 (如果已指定資料集中的 "entityName")  |
@@ -268,7 +274,7 @@ IFD 是「網際網路對向部署」的縮寫。
 
 若要複製資料至 Dynamics ，將複製活動中的接收類型設定為 **DynamicsSink**。 複製活動的 **sink** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要 |
 |:--- |:--- |:--- |
 | 類型 | 複製活動接收器的類型屬性必須設定為：**DynamicsSink**  | 是 |
 | writeBehavior | 作業的寫入行為。<br/>允許的值為：**"Upsert"**。 | 是 |

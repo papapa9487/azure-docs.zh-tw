@@ -16,22 +16,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: jgao
-ms.openlocfilehash: 3c98150239134c686ac8edebd3c477bec8be7dd8
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: b2208f0553ce62be054409a415723445733708d4
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>在 Azure HDInsight 上管理 Apache Spark 叢集的資源 
 
-在本文中，您將學習如何存取介面，例如 Ambari UI、YARN UI 以及與您 Spark 叢集相關聯的 Spark 歷程記錄伺服器。 您也將了解如何調整叢集組態，以獲得最佳效能。
+您將學習存取如 Ambari UI、YARN UI，以及與您 Spark 叢集相關聯的 Spark 歷程記錄伺服器等介面的方式，以及如何調整叢集設定以取得最佳效能。
 
 **先決條件：**
 
-* Azure 訂用帳戶。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
-* HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
+* HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱 [在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
 
-## <a name="how-do-i-launch-the-ambari-web-ui"></a>如何啟動 Ambari Web UI？
+## <a name="open-the-ambari-web-ui"></a>開啟 Ambari Web UI
 1. 在 [Azure 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集格圖格 (如果您已將其釘選到開始面板)。 您也可以按一下 [瀏覽全部] > [HDInsight 叢集] 來瀏覽至您的叢集。
 2. 針對 Spark 叢集，請按一下 [儀表板]。 出現提示時，輸入 Spark 叢集的系統管理員認證。
 
@@ -40,7 +39,7 @@ ms.lasthandoff: 11/29/2017
 
     ![Ambari Web UI](./media/apache-spark-resource-manager/ambari-web-ui.png "Ambari Web UI")   
 
-## <a name="how-do-i-launch-the-spark-history-server"></a>如何啟動 Spark 歷程記錄伺服器？
+## <a name="open-the-spark-history-server"></a>開啟 Spark 歷程記錄伺服器
 1. 在 [Azure 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集格圖格 (如果您已將其釘選到開始面板)。
 2. 從叢集刀鋒視窗的 [快速連結] 下，按一下 [叢集儀表板]。 在 [叢集儀表板] 刀鋒視窗中，按一下 [Spark 歷程記錄伺服器]。
 
@@ -48,7 +47,7 @@ ms.lasthandoff: 11/29/2017
 
     出現提示時，輸入 Spark 叢集的系統管理員認證。
 
-## <a name="how-do-i-launch-the-yarn-ui"></a>如何啟動 Yarn UI？
+## <a name="open-the-yarn-ui"></a>開啟 Yarn UI
 您可以使用 YARN UI 來監視目前在 Spark 叢集上執行的應用程式。
 
 1. 從叢集刀鋒視窗按一下 [叢集儀表板]，然後按一下 [YARN]。
@@ -60,7 +59,7 @@ ms.lasthandoff: 11/29/2017
    >
    >
 
-## <a name="what-is-the-optimum-cluster-configuration-to-run-spark-applications"></a>什麼是執行 Spark 應用程式的最佳叢集組態？
+## <a name="the-optimum-cluster-configuration-to-run-spark-applications"></a>執行 Spark 應用程式的最佳叢集設定
 根據應用程式需求，可用於 Spark 組態的三個主要參數為 `spark.executor.instances`、`spark.executor.cores` 和 `spark.executor.memory`。 執行程式是針對 Spark 應用程式啟動的程序。 它會在背景工作角色節點上執行，並負責執行應用程式的工作。 執行程式的預設數目和每個叢集的執行程式大小，是根據背景工作角色節點數目和背景工作角色節點大小計算。 這項資訊會儲存在叢集前端節點上的 `spark-defaults.conf`。
 
 這三個組態參數可以在叢集層級設定 (適用於在叢集執行的所有應用程式)，或者也可以針對每個個別應用程式指定。

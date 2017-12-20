@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2017
+ms.date: 11/30/2017
 ms.author: tomfitz
-ms.openlocfilehash: e789a234979be877d990665902fd6219ae7ec40b
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 7e02bd9c6130ef8b120282fafa9f0ee517890d0d
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>在部署期間使用 Azure Key Vault 以傳遞安全的參數值
 
@@ -66,7 +66,11 @@ Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue
 
 ## <a name="reference-a-secret-with-static-id"></a>使用靜態識別碼參考密碼
 
-接收金鑰保存庫密碼的範本與其他任何範本都很像。 這是因為**您參考了參數檔案中的金鑰保存庫，而非範本。** 例如，下列範本部署了包含系統管理員密碼的 SQL 資料庫。 密碼參數會設定為安全字串。 但是，範本並未指定該值來自何處。
+接收金鑰保存庫密碼的範本與其他任何範本都很像。 這是因為**您參考了參數檔案中的金鑰保存庫，而非範本。** 下圖顯示參數檔案如何參考祕密，並將該值傳遞至範本。
+
+![靜態識別碼](./media/resource-manager-keyvault-parameter/statickeyvault.png)
+
+例如，[下列範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.json)部署了包含系統管理員密碼的 SQL 資料庫。 密碼參數會設定為安全字串。 但是，範本並未指定該值來自何處。
 
 ```json
 {
@@ -102,7 +106,7 @@ Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue
 }
 ```
 
-現在，請為前述範本建立參數檔案。 在參數檔案中，指定符合範本中參數名稱的參數。 針對參數值，參考來自金鑰保存庫的密碼。 您可以藉由傳遞金鑰保存庫的資源識別碼和密碼的名稱來參考密碼。 在下列範例中，金鑰保存庫密碼必須已經存在，而且您要針對其資源識別碼提供靜態值。
+現在，請為前述範本建立參數檔案。 在參數檔案中，指定符合範本中參數名稱的參數。 針對參數值，參考來自金鑰保存庫的密碼。 您可以藉由傳遞金鑰保存庫的資源識別碼和密碼的名稱來參考密碼。 在[下列參數檔案](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.parameters.json)中，金鑰保存庫祕密必須已經存在，而且您要針對其資源識別碼提供靜態值。 在本機複製這個檔案，並設定訂用帳戶識別碼、保存庫名稱及 SQL 伺服器名稱。
 
 ```json
 {
@@ -127,25 +131,27 @@ Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue
 }
 ```
 
-現在可部署範本，並在參數檔案中傳遞。 對於 Azure CLI，請使用：
+現在可部署範本，並在參數檔案中傳遞。 您可以使用 GitHub 中的範例範本，但您必須使用其值設定為您的環境的本機參數檔案。
+
+對於 Azure CLI，請使用：
 
 ```azurecli-interactive
-az group create --name datagroup --location "Central US"
+az group create --name datagroup --location "South Central US"
 az group deployment create \
     --name exampledeployment \
     --resource-group datagroup \
-    --template-file sqlserver.json \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json \
     --parameters @sqlserver.parameters.json
 ```
 
 對於 PowerShell，請使用：
 
 ```powershell
-New-AzureRmResourceGroup -Name datagroup -Location "Central US"
+New-AzureRmResourceGroup -Name datagroup -Location "South Central US"
 New-AzureRmResourceGroupDeployment `
   -Name exampledeployment `
   -ResourceGroupName datagroup `
-  -TemplateFile sqlserver.json `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json `
   -TemplateParameterFile sqlserver.parameters.json
 ```
 
@@ -153,7 +159,13 @@ New-AzureRmResourceGroupDeployment `
 
 上一節已說明如何傳遞金鑰保存庫密碼的靜態資源識別碼。 不過，在某些情況下，您需要參考會隨目前的部署而變化的金鑰保存庫密碼。 在該情況下，您將無法在參數檔中硬式編碼資源識別碼。 不幸的是，因為參數檔中不允許使用範本運算式，因此您無法在參數檔中以動態方式產生資源識別碼。
 
-若要以動態方式產生金鑰保存庫密碼的資源識別碼，您必須將需要密碼的資源移動到巢狀範本。 在主要範本中，您必須新增巢狀範本，並傳入包含動態產生的資源識別碼的參數。 巢狀的範本必須可透過外部 URI 使用。 本文接下來的部分會假設您已將上述範本新增至儲存體帳戶，且可透過 URI- `https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json` 使用。
+若要以動態方式產生金鑰保存庫祕密的資源識別碼，您必須將需要密碼的資源移動到連結的範本。 在父代範本中，您必須新增連結的範本，並傳入包含動態產生的資源識別碼的參數。 下圖顯示連結的範本中的參數如何參考祕密。
+
+![動態識別碼](./media/resource-manager-keyvault-parameter/dynamickeyvault.png)
+
+連結的範本必須可透過外部 URI 使用。 一般而言，您可將範本新增至儲存體帳戶，並透過類似 `https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json` 的 URI 進行存取。
+
+[下列範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json)會動態建立金鑰保存庫識別碼，並將它當作參數傳遞。 它會連結到 GitHub 中的[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.json)。
 
 ```json
 {
@@ -184,7 +196,7 @@ New-AzureRmResourceGroupDeployment `
       "properties": {
         "mode": "incremental",
         "templateLink": {
-          "uri": "https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json",
+          "uri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
@@ -205,7 +217,29 @@ New-AzureRmResourceGroupDeployment `
 }
 ```
 
-請部署上述範本，並提供參數值。
+請部署上述範本，並提供參數值。 您可以使用 GitHub 中的範例範本，但您必須為您的環境提供參數值。
+
+對於 Azure CLI，請使用：
+
+```azurecli-interactive
+az group create --name datagroup --location "South Central US"
+az group deployment create \
+    --name exampledeployment \
+    --resource-group datagroup \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json \
+    --parameters vaultName=<your-vault> vaultResourceGroup=examplegroup secretName=examplesecret adminLogin=exampleadmin sqlServerName=<server-name>
+```
+
+對於 PowerShell，請使用：
+
+```powershell
+New-AzureRmResourceGroup -Name datagroup -Location "South Central US"
+New-AzureRmResourceGroupDeployment `
+  -Name exampledeployment `
+  -ResourceGroupName datagroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json `
+  -vaultName <your-vault> -vaultResourceGroup examplegroup -secretName examplesecret -adminLogin exampleadmin -sqlServerName <server-name>
+```
 
 ## <a name="next-steps"></a>後續步驟
 * 如需金鑰保存庫的一般資訊，請參閱[開始使用 Azure 金鑰保存庫](../key-vault/key-vault-get-started.md)。

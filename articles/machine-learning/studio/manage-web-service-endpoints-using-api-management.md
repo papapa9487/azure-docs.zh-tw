@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2017
+ms.date: 11/03/2017
 ms.author: roalexan
-ms.openlocfilehash: 53a6b18fb74db46ccb66c7c70851a9bf364e927c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2c9f53de1abd2aea5fabbefecc5bbb144148a7b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>了解如何使用 API 管理來管理 AzureML Web 服務
 ## <a name="overview"></a>Overview
@@ -39,94 +39,133 @@ AzureML 是 Azure Machine Learning 服務，可讓您輕鬆建置、部署及共
 * 部署為 Web 服務之 AzureML 實驗的工作區、服務和 API 金鑰。 如需如何建立 AzureML 實驗的詳細資訊，請按一下 [這裡](create-experiment.md) 。 如需如何將 AzureML 實驗部署為 Web 服務的詳細資訊，請按一下 [這裡](publish-a-machine-learning-web-service.md) 。 此外，附錄 A 中的指示說明如何建立及測試簡單的 AzureML 實驗，並將其部署為 Web 服務。
 
 ## <a name="create-an-api-management-instance"></a>建立 API 管理執行個體
-以下是使用 API 管理來管理您的 AzureML Web 服務的步驟。 首先建立服務執行個體。 登入[傳統入口網站](https://manage.windowsazure.com/)，然後按一下新增 > [應用程式服務] > [API 管理] > [建立]。
 
-![建立執行個體](./media/manage-web-service-endpoints-using-api-management/create-instance.png)
+您可以使用 API 管理執行個體來管理 Azure Machine Learning Web 服務。
 
-指定唯一的 **URL**。 本指南使用 **demoazureml** ，您必須選擇其他不同的值。 針對您的服務執行個體，選擇需要的 [訂用帳戶] 和 [區域]。 進行您的選擇之後，請按下一步按鈕。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 選取 [+ 建立資源]。
+3. 在搜尋方塊中，輸入 [API 管理]，然後選取 [API 管理] 資源。
+4. 按一下 [建立] 。
+5. [名稱] 值將用來建立唯一的 URL (此範例使用 "demoazureml")。
+6. 針對您的服務執行個體，選取 [訂用帳戶]、[資源群組] 和 [位置]。
+7. 指定 [組織名稱] 的值 (此範例使用 "demoazureml")。
+8. 輸入您的 [系統管理員電子郵件] - 此電子郵件將用於自 API 管理系統傳送通知。
+9. 按一下 [建立] 。
 
-![建立服務 1](./media/manage-web-service-endpoints-using-api-management/create-service-1.png)
+新服務建立作業最多可能需要花費 30 分鐘的時間。
 
-指定 [組織名稱] 的值。 本指南使用 **demoazureml** ，您必須選擇其他不同的值。 在 [系統管理員電子郵件] 欄位中，輸入您的電子郵件地址。 此電子郵件地址將用於自 API 管理系統傳送通知。
+![create-service](./media/manage-web-service-endpoints-using-api-management/create-service.png)
 
-![建立服務 2](./media/manage-web-service-endpoints-using-api-management/create-service-2.png)
-
-按一下核取方塊來建立您的服務執行個體。 *建立新服務最多需要 30 分鐘的時間*。
 
 ## <a name="create-the-api"></a>建立 API
 建立服務執行個體之後，下一個步驟是建立 API。 API 包含可自用戶端應用程式叫用的一組作業。 API 作業會代理到現有的 Web 服務。 本指南會建立代理現有 AzureML RRS 和 BES Web 服務的 API。
 
-API 是透過您經由 Azure 傳統入口網站存取的 API 發行者入口網站來建立和設定。 若要連線到發行者入口網站，請選取您的服務執行個體。
+若要建立 API：
 
-![選取服務執行個體](./media/manage-web-service-endpoints-using-api-management/select-service-instance.png)
+1. 在 Azure 入口網站中，開啟您剛才建立的服務執行個體。
+2. 在左導覽窗格中，選取 [API]。
 
-在 Azure 傳統入口網站中，按一下您的 API 管理服務中的 [管理]  。
+   ![API 管理功能表](./media/manage-web-service-endpoints-using-api-management/api-management.png)
 
-![管理服務](./media/manage-web-service-endpoints-using-api-management/manage-service.png)
+1. 按一下 [新增 API]。
+2. 輸入 [Web API 名稱] (此範例使用「AzureML 示範 API」)。
+3. 對於 [Web 服務 URL]，輸入 "`https://ussouthcentral.services.azureml.net`"。
+4. 輸入 [Web API URL 尾碼]。 此尾碼會成為 URL 的結尾，客戶將使用該 URL 將要求傳送至服務執行個體 (此範例使用 "azureml-demo")。
+5. 對於 [Web API URL 配置]，選取 [HTTPS]。
+6. 對於 [產品]，選取 [入門]。
+7. 按一下 [儲存] 。
 
-從左側 API 管理 功能表按一下 API，然後按一下新增 API。
-
-![API 管理功能表](./media/manage-web-service-endpoints-using-api-management/api-management-menu.png)
-
-在 [Web API 名稱] 中，輸入 **AzureML 示範 API**。 在 [Web 服務 URL] 中，輸入 **https://ussouthcentral.services.azureml.net**。 在 [Web API URL 尾碼] 中，輸入 **azureml-demo**。 在 [Web API URL 配置] 中，核取 [HTTPS]。 在 [產品] 中，選取 [Starter]。 完成後，按一下 [儲存] 以建立 API。
-
-![加入新的 API](./media/manage-web-service-endpoints-using-api-management/add-new-api.png)
 
 ## <a name="add-the-operations"></a>加入作業
-按一下 [加入作業]  ，將作業加入這個 API。
 
-![加入作業](./media/manage-web-service-endpoints-using-api-management/add-operation.png)
+請在發行者入口網站新增和設定 API 的作業。 若要存取發行者入口網站，請在 API 管理服務的 Azure 入口網站中按一下 [發行者入口網站]，選取 [API]、[作業]，然後按一下 [新增作業]。
+
+![加入作業](./media/manage-web-service-endpoints-using-api-management/add-an-operation.png)
 
 將顯示 [新增作業] 視窗，並且預設會選取 [簽章] 索引標籤。
 
 ## <a name="add-rrs-operation"></a>加入 RRS 作業
-首先建立 AzureML RRS 服務的作業。 在 [HTTP 指令動詞] 中，選取 [POST]。 在 [URL 範本] 中，輸入 **/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}**。 在 [顯示名稱] 中，輸入 **RRS 執行**。
+首先建立 AzureML RRS 服務的作業：
 
-![加入 RRS 作業簽章](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
+1. 對於 [HTTP 指令動詞]，選取 [POST]。
+2. 對於 [URL 範本]，輸入 "`/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}`"。
+3. 輸入 [顯示名稱] (此範例使用「RRS 執行」)。
 
-按一下左側的 [回應] > [新增]，然後選取 [200 確定]。 按一下 [儲存]  儲存這個作業。
+   ![加入 RRS 作業簽章](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
 
-![加入 RRS 作業回應](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
+4. 按一下左側的 [回應] > [新增]，然後選取 [200 確定]。
+5. 按一下 [儲存]  儲存這個作業。
+
+   ![加入 RRS 作業回應](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
 
 ## <a name="add-bes-operations"></a>加入 BES 作業
-由於加入 BES 作業的螢幕擷取畫面與加入 RRS 作業的螢幕擷取畫面很類似，因此不再提供。
+
+> [!NOTE]
+> 由於新增 BES 作業的螢幕擷取畫面與新增 RRS 作業的螢幕擷取畫面很類似，因此這裡不再提供。
 
 ### <a name="submit-but-not-start-a-batch-execution-job"></a>提交 (但不啟動) 批次執行工作
-按一下 [新增作業]，將 AzureML BES 作業新增至 API。 在 [HTTP 指令動詞] 中，選取 [POST]。 在 [URL 範本] 中，輸入 **/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}**。 在 [顯示名稱] 中，輸入 **BES 提交**。 按一下左側的 [回應] > [新增]，然後選取 [200 確定]。 按一下 [儲存]  儲存這個作業。
+
+1. 按一下 [新增作業]，將 BES 作業新增至 API。
+2. 對於 [HTTP 指令動詞]，選取 [POST]。
+3. 對於 [URL 範本]，輸入 "`/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}`"。
+4. 輸入 [顯示名稱] (此範例使用「BES 提交」)。
+5. 按一下左側的 [回應] > [新增]，然後選取 [200 確定]。
+6. 按一下 [儲存] 。
 
 ### <a name="start-a-batch-execution-job"></a>啟動批次執行工作
-按一下 [新增作業]，將 AzureML BES 作業新增至 API。 在 [HTTP 指令動詞] 中，選取 [POST]。 在 [URL 範本] 中，輸入 **/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}**。 在 [顯示名稱] 中，輸入 **BES 啟動**。 按一下左側的 [回應] > [新增]，然後選取 [200 確定]。 按一下 [儲存]  儲存這個作業。
+
+1. 按一下 [新增作業]，將 BES 作業新增至 API。
+2. 對於 [HTTP 指令動詞]，選取 [POST]。
+3. 對於 [HTTP 指令動詞] 中，輸入 "`/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}`"。
+4. 輸入 [顯示名稱] (此範例使用「BES 啟動」)。
+6. 按一下左側的 [回應] > [新增]，然後選取 [200 確定]。
+7. 按一下 [儲存] 。
 
 ### <a name="get-the-status-or-result-of-a-batch-execution-job"></a>取得批次執行工作的狀態或結果
-按一下 [新增作業]，將 AzureML BES 作業新增至 API。 在 [HTTP 指令動詞] 中，選取 [GET]。 在 [URL 範本] 中，輸入 **/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}**。 在 [顯示名稱] 中，輸入 **BES 狀態**。 按一下左側的 [回應] > [新增]，然後選取 [200 確定]。 按一下 [儲存]  儲存這個作業。
+
+1. 按一下 [新增作業]，將 BES 作業新增至 API。
+2. 對於 [HTTP 指令動詞] 中，選取 [GET]。
+3. 對於 [URL 範本]，輸入 "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`"。
+4. 輸入 [顯示名稱] (此範例使用「BES 狀態」)。
+6. 按一下左側的 [回應] > [新增]，然後選取 [200 確定]。
+7. 按一下 [儲存] 。
 
 ### <a name="delete-a-batch-execution-job"></a>刪除批次執行工作
-按一下 [新增作業]，將 AzureML BES 作業新增至 API。 在 [HTTP 指令動詞] 中，選取 [DELETE]。 在 [URL 範本] 中，輸入 **/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}**。 在 [顯示名稱] 中，輸入 **BES 刪除**。 按一下左側的 [回應] > [新增]，然後選取 [200 確定]。 按一下 [儲存]  儲存這個作業。
 
-## <a name="call-an-operation-from-the-developer-portal"></a>透過開發人員入口網站呼叫作業
-您可以從開發人員入口網站直接呼叫作業，以便檢視和測試 API 的操作。 在這個指南步驟中，您會呼叫新增至 [AzureML 示範 API] 的 [RRS 執行] 方法。 從傳統入口網站右上角的功能表中，按一下 [開發人員入口網站]  。
+1. 按一下 [新增作業]，將 BES 作業新增至 API。
+2. 對於 [HTTP 指令動詞]，選取 [DELETE]。
+3. 對於 [URL 範本]，輸入 "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`"。
+4. 輸入 [顯示名稱] (此範例使用「BES 刪除」)。
+5. 按一下左側的 [回應] > [新增]，然後選取 [200 確定]。
+6. 按一下 [儲存] 。
 
-![開發人員入口網站](./media/manage-web-service-endpoints-using-api-management/developer-portal.png)
+## <a name="call-an-operation-from-the-developer-portal"></a>從開發人員入口網站呼叫作業
 
-按一下上層功能表中的 API，然後按一下AzureML 示範 API 以查看可用的作業。
+您可以從開發人員入口網站直接呼叫作業，以便檢視和測試 API 的操作。 在這個步驟中，您會呼叫新增至 [AzureML 示範 API] 的 [RRS 執行] 方法。 
 
-![demoazureml API](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
+1. 按一下 [開發人員入口網站]。
 
-為作業選取 [RRS 執行]  。 按一下 [試試看] 。
+   ![開發人員入口網站](./media/manage-web-service-endpoints-using-api-management/developer-portal.png)
 
-![試試看](./media/manage-web-service-endpoints-using-api-management/try-it.png)
+2. 按一下上層功能表中的 [API]，然後按一下 [AzureML 示範 API] 以查看可用的作業。
 
-在 [要求參數] 中，輸入您的**工作區**和**服務**，在 [API 版本] 中輸入 **2.0**，並在 [詳細資料] 中輸入 **true**。 您可以在 AzureML Web 服務儀表板中找到您的**工作區**和**服務** (請參閱附錄 A 中的**測試 Web 服務**)。
+   ![demoazureml API](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
 
-在 [要求標頭] 中，按一下 [新增標頭] 並輸入 **Content-Type** 和 **application/json**，然後按一下 [新增標頭] 並輸入 **Authorization** 和 **Bearer <YOUR AZUREML SERVICE API-KEY>**。 您可以在 AzureML Web 服務儀表板中找到您的 **API 金鑰** (請參閱附錄 A 中的**測試 Web 服務**)。
+3. 為作業選取 [RRS 執行]  。 按一下 [試試看] 。
 
-在 [要求本文] 中，輸入 **{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}**。
+   ![試試看](./media/manage-web-service-endpoints-using-api-management/try-it.png)
 
-![AzureML 示範 API](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
+4. 對於 [要求參數]，輸入您的 [工作區] 和 [服務]，在 [API 版本] 中輸入"2.0，以及在 [詳細資料] 中輸入 "true"。 您可以在 AzureML Web 服務儀表板中找到您的**工作區**和**服務** (請參閱附錄 A 中的**測試 Web 服務**)。
 
-按一下 [傳送] 。
+   對於 [要求標頭]，按一下 [新增標頭] 並輸入 "Content-Type" 和 "application/json"。 再次按一下 [新增標頭] 並輸入 "Authorization" 和 "Bearer \<您的服務 API-KEY\>"。 您可以在 AzureML Web 服務儀表板中找到您的 API-KEY (請參閱附錄 A 中的**測試 Web 服務**)。
 
-![傳送](./media/manage-web-service-endpoints-using-api-management/send.png)
+   對於 [要求本文]，輸入 `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`。
+
+   ![AzureML 示範 API](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
+
+5. 按一下 [傳送] 。
+
+   ![傳送](./media/manage-web-service-endpoints-using-api-management/send.png)
 
 叫用作業之後，開發人員入口網站會顯示來自後端服務 [要求的 URL]、[回應狀態]、[回應標頭]，以及任何的 [回應內容]。
 
@@ -152,7 +191,7 @@ API 是透過您經由 Azure 傳統入口網站存取的 API 發行者入口網�
 
 ![選取資料行](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
 
-按一下 選取資料集中的資料行，然後按一下啟動資料行選取器 並選取 Col2。 按一下核取記號以套用這些變更。
+按一下 [選取資料集中的資料行]，然後按一下 [啟動資料行選取器] 並選取 [Col2]。 按一下核取記號以套用這些變更。
 
 ![選取資料行](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
 

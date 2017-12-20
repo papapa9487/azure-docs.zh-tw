@@ -4,7 +4,7 @@ description: "了解如何透過 Azure Active Directory 存取權檢閱，以群
 services: active-directory
 documentationcenter: 
 author: markwahl-msft
-manager: femila
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: c4ea5d797613b214be569c6405a0fc672cae83a0
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 6a4d25b2eb228cafab48419a0d0eda92bba9f1ec
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>使用 Azure AD 存取權檢閱來管理使用者存取權
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/02/2017
 
 4. 開始存取權檢閱。 如需詳細資訊，請參閱[建立存取權檢閱](active-directory-azure-ad-controls-create-access-review.md)。
 
-5. 要求檢閱者提供意見。 根據預設，他們會各自收到來自 Azure AD 的一封電子郵件，內含存取面板的連結，他們將會在其中[執行其存取權檢閱](active-directory-azure-ad-controls-perform-access-review.md)。
+5. 要求檢閱者提供意見。 根據預設，他們會各自收到來自 Azure AD 的電子郵件，其中的連結可連至存取面板以[執行其存取權檢閱](active-directory-azure-ad-controls-perform-access-review.md)。
 
 6. 如果檢閱者有沒有指定的輸入，則您可以要求 Azure AD 將提醒傳送給他們。 依預設，Azure AD 會在結束日期過半時自動將提醒傳送給尚未回應的檢閱者。
 

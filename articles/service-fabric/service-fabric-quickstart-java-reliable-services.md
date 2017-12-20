@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c4966f3ddc95a7e7c97d09cd45abdb8443601b74
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: aec4db684a9067e1dee424f2c0e05e3674f84d1a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-java-application"></a>建立 Java 應用程式
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理微服務與容器。 
@@ -38,10 +38,10 @@ Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理�
 
 ## <a name="prerequisites"></a>必要條件
 若要完成本快速入門：
-1. [安裝 Service Fabric SDK 和 Service Fabric 命令列介面 (CLI)](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+1. [安裝 Service Fabric SDK 和 Service Fabric 命令列介面 (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 2. [安裝 Git](https://git-scm.com/)
 3. [安裝 Eclipse](https://www.eclipse.org/downloads/)
-4. [設定 Java 環境](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development)，務必遵循選擇性步驟來安裝 Eclipse 外掛程式 
+4. [設定 Java 環境](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development)，務必遵循選擇性步驟來安裝 Eclipse 外掛程式 
 
 ## <a name="download-the-sample"></a>下載範例
 在命令視窗中執行下列命令，將範例應用程式存放庫複製到本機電腦。

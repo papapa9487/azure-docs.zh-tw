@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 07/31/2017
+ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: f0be787ba1ccee067fb1d7e6a6554be32f886089
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c66488ce4381a3c5f796aa9826810195b2738769
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>使用 .NET SDK 傳遞點播內容入門
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -86,22 +86,26 @@ ms.lasthandoff: 10/11/2017
 
 搭配使用媒體服務與 .NET 時，您必須將 **CloudMediaContext** 類別用於大部分的媒體服務程式設計工作：連線到媒體服務帳戶；建立、更新、存取和刪除下列物件：資產、資產檔案、工作、存取原則、定位器等。
 
-將預設 Program 類別覆寫為下列程式碼。 此程式碼示範如何讀取 App.config 檔案中的連線值，以及如何建立 **CloudMediaContext** 物件來連線到媒體服務。 如需詳細資訊，請參閱[連線至媒體服務 API](media-services-use-aad-auth-to-access-ams-api.md)。
+以下列程式碼覆寫預設 Program 類別：此程式碼示範如何讀取 App.config 檔案中的連線值，以及如何建立 **CloudMediaContext** 物件來連線到媒體服務。 如需詳細資訊，請參閱[連線至媒體服務 API](media-services-use-aad-auth-to-access-ams-api.md)。
 
 務必更新您的媒體檔案的檔案名稱和路徑。
 
 **Main** 函數會呼叫未來將在此區段中定義的方法。
 
 > [!NOTE]
-> 除非您加入所有函式的定義，否則將會出現編譯錯誤。
+> 在您新增本文稍後定義知所有函式的定義以前，將會出現編譯錯誤。
 
     class Program
     {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static CloudMediaContext _context = null;
 
@@ -109,7 +113,11 @@ ms.lasthandoff: 10/11/2017
         {
         try
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -137,7 +145,7 @@ ms.lasthandoff: 10/11/2017
             Console.ReadLine();
         }
         }
-    }
+    
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>建立新資產並上傳視訊檔案
 
@@ -145,7 +153,7 @@ ms.lasthandoff: 10/11/2017
 
 下面所定義的 **UploadFile** 方法會呼叫 **CreateFromFile** (定義於 .NET SDK 延伸模組中)。 **CreateFromFile** 會建立要在其中上傳指定來源檔案的新資產。
 
-**CreateFromFile** 方法會採用 **AssetCreationOptions**，以讓您指定下列其中一個資產建立選項：
+**CreateFromFile** 方法會採用 **AssetCreationOptions，以讓您指定下列其中一個資產建立選項：
 
 * **None** - 不使用加密。 這是預設值。 請注意，使用此選項時，您的內容在傳輸或儲存體中靜止時不會受到保護。
   如果您計劃使用漸進式下載傳遞 MP4，請使用此選項。

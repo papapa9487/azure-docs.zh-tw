@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 0973f83ae839597f3b499814a4a04a8a640a1fb6
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 9ba1cdc5c72e04802d29794fa6cb40a29cc1d353
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Durable Functions 中的函式鏈結- Hello 序列範例
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/29/2017
  
 ## <a name="functionjson-file"></a>function.json 檔案
 
-如果您使用 Azure 入口網站進行開發，以下是協調器函式的 *function.json* 檔案的內容。 大部分協調器 *function.json* 檔案看起來幾乎完全像這樣。
+如果您使用 Visual Studio Code 或 Azure 入口網站進行開發，以下是適用於協調器函式的 *function.json* 檔案內容。 大部分協調器 *function.json* 檔案看起來幾乎完全像這樣。
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E1_HelloSequence/function.json)]
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 11/29/2017
 > [!WARNING]
 > 為了遵守協調器函式的「沒有 I/O」規則，當您使用 `orchestrationTrigger` 觸發程序繫結時，請勿使用任何輸入或輸出繫結。  如果需要其他輸入或輸出繫結，請改為在協調器所呼叫之 `activityTrigger` 函式的內容中使用。
 
-## <a name="c-script"></a>C# 指令碼
+## <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>C# 指令碼 (Visual Studio Code 和 Azure 入口網站範例程式碼) 
 
 以下是原始程式碼：
 

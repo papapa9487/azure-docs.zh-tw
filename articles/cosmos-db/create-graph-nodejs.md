@@ -3,7 +3,7 @@ title: "使用圖形 API 來建置 Azure Cosmos DB Node.js 應用程式 | Micros
 description: "提供可用來連線及查詢 Azure Cosmos DB 的 Node.js 程式碼範例。"
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/29/2017
-ms.author: denlee
-ms.openlocfilehash: 361f63141a8bf3f901eee6c93742f1a7fdc4348f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.author: lbosq
+ms.openlocfilehash: d60a431f53b72544c0116080cc78381fb302b7be
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB：使用圖形 API 來建置 Node.js 應用程式
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 665bb65d17e9abec98262b92afffba008ed6c891
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 0910d5802d64ca637b3ecd1e392a6df8629c7f25
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>VMware 到 Azure 的 Azure Site Recovery 部署規劃工具
 本文是 VMware 到 Azure 生產部署的 Azure Site Recovery Deployment Planner 使用者指南。
@@ -42,6 +42,8 @@ Azure Site Recovery 部署規劃工具 (第 2 版) 是適用於 Hyper-V 到 Azur
 * 差異複寫所需的預估網路頻寬
 * Site Recovery 可以從內部部署至 Azure 取得的輸送量
 * 根據在給定時間量內完成初始複寫所需的預估頻寬，要劃分批次的 VM 數目
+* 給定頻寬可達成的 RPO
+* 對於所需 RPO 的影響 (如果佈建的頻寬比較低)。
 
 **Azure 基礎結構需求**
 
@@ -55,7 +57,7 @@ Azure Site Recovery 部署規劃工具 (第 2 版) 是適用於 Hyper-V 到 Azur
 **內部部署基礎結構需求**
 * 要在內部部署環境中部署的必要組態伺服器和處理序伺服器數目
 
-**Azure DR 的估計成本** 
+**Azure DR 的估計成本**
 * Azure DR 的總估計成本：計算、儲存體、網路和 Azure Site Recovery 授權成本
 * 每一 VM 的詳細成本分析
 

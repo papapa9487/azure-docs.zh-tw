@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/17/2017
+ms.date: 12/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 22d63ff5e9fd33db8711b0c5125ab0882b9f6a74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5529f67ac03fe5c9b09203556f365a6009cf579a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>如何使用 Azure 媒體服務執行即時串流，以使用 .NET 建立多位元速率串流
 > [!div class="op_single_selector"]
@@ -74,14 +74,14 @@ ms.lasthandoff: 10/11/2017
 15. 刪除程式 (並選擇性地刪除資產)。
 
 ## <a name="what-youll-learn"></a>您將學到什麼
-本主題示範如何使用 Media Services.NET SDK 在通道上執行不同的作業和程式。 因為許多作業會長時間執行，所以會使用管理長時間執行作業的 .NET API。
+本文示範如何使用媒體服務 .NET SDK 在通道上執行不同的作業和程式。 因為許多作業會長時間執行，所以會使用管理長時間執行作業的 .NET API。
 
-本主題示範如何執行下列動作：
+本文示範如何執行下列動作：
 
 1. 建立並啟動通道。 使用長時間執行的 API。
 2. 取得通道內嵌 (輸入) 端點。 此端點應該提供給可以傳送單一位元速率即時串流的編碼器。
 3. 取得預覽端點。 此端點可用來預覽您的串流。
-4. 建立將用來儲存內容的資產。 資產傳遞原則也應該另外設定，如此範例中所示。
+4. 建立用來儲存內容的資產。 資產傳遞原則也應該另外設定，如此範例中所示。
 5. 建立程式，並指定使用稍早建立的資產。 啟動程式。 使用長時間執行的 API。
 6. 建立資產的定位器，讓內容發行，並且可以串流至用戶端。
 7. 顯示和隱藏 slate。 啟動和停止公告。 使用長時間執行的 API。
@@ -98,11 +98,11 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="considerations"></a>考量
 * 目前，即時事件的最大建議持續時間是 8 小時。 如果您需要較長的時間來執行通道，請連絡 amslived@Microsoft.com。
-* 對於不同的 AMS 原則 (例如 Locator 原則或 ContentKeyAuthorizationPolicy) 有 1,000,000 個原則的限制。 如果您一律使用相同的日期 / 存取權限，例如，要長時間維持就地 (非上載原則) 的定位器原則，您應該使用相同的原則識別碼。 如需詳細資訊，請參閱 [這個](media-services-dotnet-manage-entities.md#limit-access-policies) 主題。
+* 對於不同的 AMS 原則 (例如 Locator 原則或 ContentKeyAuthorizationPolicy) 有 1,000,000 個原則的限制。 如果您一律使用相同的日期 / 存取權限，例如，要長時間維持就地 (非上載原則) 的定位器原則，您應該使用相同的原則識別碼。 如需詳細資訊，請參閱[本篇文章](media-services-dotnet-manage-entities.md#limit-access-policies)。
 
 ## <a name="download-sample"></a>下載範例
 
-您可以從[這裡](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/)下載本主題所述的範例。
+您可以從[這裡](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/)下載本文所述的範例。
 
 ## <a name="set-up-for-development-with-media-services-sdk-for-net"></a>設定使用媒體服務 SDK for.NET 的開發
 
@@ -110,34 +110,43 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="code-example"></a>程式碼範例
 
-    using System;
-    using System.Collections.Generic;
-    using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using System.Net;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
+```
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using System.Net;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
 
-    namespace EncodeLiveStreamWithAmsClear
+namespace EncodeLiveStreamWithAmsClear
+{
+    class Program
     {
-        class Program
-        {
         private const string ChannelName = "channel001";
         private const string AssetlName = "asset001";
         private const string ProgramlName = "program001";
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static CloudMediaContext _context = null;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -161,9 +170,9 @@ ms.lasthandoff: 10/11/2017
             // The thumbnail is exposed via the same end-point as the Channel Preview URL.
             string thumbnailUri = new UriBuilder
             {
-            Scheme = Uri.UriSchemeHttps,
-            Host = channel.Preview.Endpoints.FirstOrDefault().Url.Host,
-            Path = "thumbnails/input.jpg"
+                Scheme = Uri.UriSchemeHttps,
+                Host = channel.Preview.Endpoints.FirstOrDefault().Url.Host,
+                Path = "thumbnails/input.jpg"
             }.Uri.ToString();
 
             Console.WriteLine("Thumbain URL: {0}", thumbnailUri);
@@ -191,11 +200,11 @@ ms.lasthandoff: 10/11/2017
 
             ChannelCreationOptions options = new ChannelCreationOptions
             {
-            EncodingType = ChannelEncodingType.Standard,
-            Name = ChannelName,
-            Input = channelInput,
-            Preview = channePreview,
-            Encoding = channelEncoding
+                EncodingType = ChannelEncodingType.Standard,
+                Name = ChannelName,
+                Input = channelInput,
+                Preview = channePreview,
+                Encoding = channelEncoding
             };
 
             Log("Creating channel");
@@ -219,10 +228,10 @@ ms.lasthandoff: 10/11/2017
         {
             return new ChannelInput
             {
-            StreamingProtocol = StreamingProtocol.RTPMPEG2TS,
-            AccessControl = new ChannelAccessControl
-            {
-                IPAllowList = new List<IPRange>
+                StreamingProtocol = StreamingProtocol.RTPMPEG2TS,
+                AccessControl = new ChannelAccessControl
+                {
+                    IPAllowList = new List<IPRange>
                 {
                     new IPRange
                     {
@@ -231,7 +240,7 @@ ms.lasthandoff: 10/11/2017
                     SubnetPrefixLength = 0
                     }
                 }
-            }
+                }
             };
         }
 
@@ -243,9 +252,9 @@ ms.lasthandoff: 10/11/2017
         {
             return new ChannelPreview
             {
-            AccessControl = new ChannelAccessControl
-            {
-                IPAllowList = new List<IPRange>
+                AccessControl = new ChannelAccessControl
+                {
+                    IPAllowList = new List<IPRange>
                 {
                     new IPRange
                     {
@@ -254,7 +263,7 @@ ms.lasthandoff: 10/11/2017
                     SubnetPrefixLength = 0
                     }
                 }
-            }
+                }
             };
         }
 
@@ -266,11 +275,11 @@ ms.lasthandoff: 10/11/2017
         {
             return new ChannelEncoding
             {
-            SystemPreset = "Default720p",
-            IgnoreCea708ClosedCaptions = false,
-            AdMarkerSource = AdMarkerSource.Api,
-            // You can only set audio if streaming protocol is set to StreamingProtocol.RTPMPEG2TS.
-            AudioStreams = new List<AudioStream> { new AudioStream { Index = 103, Language = "eng" } }.AsReadOnly()
+                SystemPreset = "Default720p",
+                IgnoreCea708ClosedCaptions = false,
+                AdMarkerSource = AdMarkerSource.Api,
+                // You can only set audio if streaming protocol is set to StreamingProtocol.RTPMPEG2TS.
+                AudioStreams = new List<AudioStream> { new AudioStream { Index = 103, Language = "eng" } }.AsReadOnly()
             };
         }
 
@@ -383,35 +392,35 @@ ms.lasthandoff: 10/11/2017
             IAsset asset;
             if (channel != null)
             {
-            foreach (var program in channel.Programs)
-            {
-                asset = _context.Assets.Where(se => se.Id == program.AssetId)
-                            .FirstOrDefault();
-
-                Log("Stopping program");
-                var programStopOperation = program.SendStopOperation();
-                TrackOperation(programStopOperation, "Program stop");
-
-                program.Delete();
-
-                if (asset != null)
+                foreach (var program in channel.Programs)
                 {
-                Log("Deleting locators");
-                foreach (var l in asset.Locators)
-                    l.Delete();
+                    asset = _context.Assets.Where(se => se.Id == program.AssetId)
+                                .FirstOrDefault();
 
-                Log("Deleting asset");
-                asset.Delete();
+                    Log("Stopping program");
+                    var programStopOperation = program.SendStopOperation();
+                    TrackOperation(programStopOperation, "Program stop");
+
+                    program.Delete();
+
+                    if (asset != null)
+                    {
+                        Log("Deleting locators");
+                        foreach (var l in asset.Locators)
+                            l.Delete();
+
+                        Log("Deleting asset");
+                        asset.Delete();
+                    }
                 }
-            }
 
-            Log("Stopping channel");
-            var channelStopOperation = channel.SendStopOperation();
-            TrackOperation(channelStopOperation, "Channel stop");
+                Log("Stopping channel");
+                var channelStopOperation = channel.SendStopOperation();
+                TrackOperation(channelStopOperation, "Channel stop");
 
-            Log("Deleting channel");
-            var channelDeleteOperation = channel.SendDeleteOperation();
-            TrackOperation(channelDeleteOperation, "Channel delete");
+                Log("Deleting channel");
+                var channelDeleteOperation = channel.SendDeleteOperation();
+                TrackOperation(channelDeleteOperation, "Channel delete");
             }
         }
 
@@ -429,9 +438,9 @@ ms.lasthandoff: 10/11/2017
             Log("starting to track ", null, operation.Id);
             while (isCompleted == false)
             {
-            operation = _context.Operations.GetOperation(operation.Id);
-            isCompleted = IsCompleted(operation, out entityId);
-            System.Threading.Thread.Sleep(TimeSpan.FromSeconds(30));
+                operation = _context.Operations.GetOperation(operation.Id);
+                isCompleted = IsCompleted(operation, out entityId);
+                System.Threading.Thread.Sleep(TimeSpan.FromSeconds(30));
             }
             // If we got here, the operation succeeded.
             Log(description + " in completed", operation.TargetEntityId, operation.Id);
@@ -456,20 +465,20 @@ ms.lasthandoff: 10/11/2017
 
             switch (operation.State)
             {
-            case OperationState.Failed:
-                // Handle the failure. 
-                // For example, throw an exception. 
-                // Use the following information in the exception: operationId, operation.ErrorMessage.
-                Log("operation failed", operation.TargetEntityId, operation.Id);
-                break;
-            case OperationState.Succeeded:
-                completed = true;
-                entityId = operation.TargetEntityId;
-                break;
-            case OperationState.InProgress:
-                completed = false;
-                Log("operation in progress", operation.TargetEntityId, operation.Id);
-                break;
+                case OperationState.Failed:
+                    // Handle the failure. 
+                    // For example, throw an exception. 
+                    // Use the following information in the exception: operationId, operation.ErrorMessage.
+                    Log("operation failed", operation.TargetEntityId, operation.Id);
+                    break;
+                case OperationState.Succeeded:
+                    completed = true;
+                    entityId = operation.TargetEntityId;
+                    break;
+                case OperationState.InProgress:
+                    completed = false;
+                    Log("operation in progress", operation.TargetEntityId, operation.Id);
+                    break;
             }
             return completed;
         }
@@ -483,8 +492,9 @@ ms.lasthandoff: 10/11/2017
             entityId ?? string.Empty,
             operationId ?? string.Empty);
         }
-        }
     }
+}
+```
 
 ## <a name="next-step"></a>後續步驟
 檢閱媒體服務學習路徑。

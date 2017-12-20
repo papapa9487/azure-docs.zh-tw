@@ -3,7 +3,7 @@ title: "Azure 自動化中的角色型存取控制 | Microsoft Docs"
 description: "角色型存取控制 (RBAC) 可以啟用對 Azure 資源的存取權管理。 本文說明如何在 Azure 自動化中設定 RBAC。"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 keywords: "自動化 rbac, 角色型存取控制, azure rbac"
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/30/2016
 ms.author: magoedte;sngun
-ms.openlocfilehash: 946d80d40ac0566db72c787f260f2d4faff01e6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59ec4000645583b8cd35f7e8e475b95ea5499232
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure 自動化中的角色型存取控制
 ## <a name="role-based-access-control"></a>角色型存取控制
@@ -144,7 +144,7 @@ ms.lasthandoff: 10/11/2017
 2. 從可用角色的清單中選取角色。 我們將選擇 **讀取者** 角色，但是您可以選擇自動化帳戶支援的任何可用的內建角色，或已定義的任何自訂角色。  
    
    ![選取角色](media/automation-role-based-access-control/automation-03-select-role.png)  
-3. 按一下 [新增使用者] 以開啟 [新增使用者] 頁面。 如果您已新增任何使用者、群組或應用程式以管理您的訂用帳戶，則會列出這些使用者，您可以選取他們以新增存取權。 如果沒有列出任何使用者，或未列出您有興趣新增的使用者，請按一下 [邀請] 開啟 [邀請來賓] 頁面；您可以在此邀請具有有效 Microsoft 帳戶電子郵件地址 (例如 Outlook.com、OneDrive 或 Xbox Live ID) 的使用者。 輸入了使用者的電子郵件地址之後，按一下 選取 以新增使用者，然後按一下確定。 
+3. 按一下 [新增使用者] 以開啟 [新增使用者] 頁面。 如果您已新增任何使用者、群組或應用程式以管理您的訂用帳戶，則會列出這些使用者，您可以選取他們以新增存取權。 如果沒有列出任何使用者，或未列出您有興趣新增的使用者，請按一下 [邀請] 開啟 [邀請來賓] 頁面；您可以在此邀請具有有效 Microsoft 帳戶電子郵件地址 (例如 Outlook.com、OneDrive 或 Xbox Live ID) 的使用者。 輸入了使用者的電子郵件地址之後，按一下 [選取] 以新增使用者，然後按一下 [確定]。 
    
    ![新增使用者](media/automation-role-based-access-control/automation-04-add-users.png)  
    

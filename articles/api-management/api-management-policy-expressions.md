@@ -12,18 +12,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 96455dcdcf2eb90c836675c73c83c0320524fdac
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 58f7f71fd619eea2865ed42d2808fe6ae3e75c1f
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-policy-expressions"></a>API 管理原則運算式
 原則運算式的語法是 C# 6.0。 每個運算式皆可存取以隱含方式提供的[內容](api-management-policy-expressions.md#ContextVariables)變數，以及允許的 .NET Framework 類型[子集](api-management-policy-expressions.md#CLRTypes)。  
   
-> [!NOTE]
+> [!TIP]
 >  如需原則運算式的詳細資訊，請觀賞[原則運算式](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/)影片。  
 >   
 >  如需使用原則運算式來設定原則的示範，請觀賞 [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)。 這段影片中包含下列原則運算式的示範。  
@@ -206,5 +206,15 @@ ms.lasthandoff: 11/22/2017
 |byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm)|輸入 - 要解密的 cyphertext<br /><br />alg - 加密演算法<br /><br />傳回純文字。|
 |byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|輸入 - 輸入 - 要解密的 cyphertext<br /><br />alg - 加密演算法<br /><br />金鑰 - 加密金鑰<br /><br />iv - 初始化向量<br /><br />傳回純文字。|
 
+## <a name="video"></a>影片
+
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player] 
+>
 ## <a name="next-steps"></a>後續步驟
-如需有關使用原則的詳細資訊，請參閱 [API 管理中的原則](api-management-howto-policies.md)。  
+
+如需使用原則的詳細資訊，請參閱︰
+
++ [API 管理中的原則](api-management-howto-policies.md)
++ [轉換 API](transform-api.md)
++ [原則參考文件](api-management-policy-reference.md)，取得原則陳述式及其設定的完整清單
++ [原則範例](policy-samples.md)   

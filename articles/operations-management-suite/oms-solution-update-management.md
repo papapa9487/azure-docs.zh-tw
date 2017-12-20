@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 668065933745168c88a1f4bf755f1adc0cc31d7f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: e3d605b12a1db2fca1048be15e7b365e5336f663
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="update-management-solution-in-oms"></a>OMS 中的更新管理方案
 
@@ -81,7 +81,7 @@ OMS 管理的電腦會使用下列各項來執行評估和更新部署︰
     > 此解決方案不支援適用於 Linux 且設定為向多個 OMS 工作區報告的 OMS 代理程式。  
     >
 
-如需有關如何安裝適用於 Linux 的 OMS 代理程式及下載最新版本的詳細資訊，請參閱[適用於 Linux 的 Operations Management Suite 代理程式](https://github.com/microsoft/oms-agent-for-linux)。  如需有關如何安裝適用於 Windows 的 OMS 代理程式，請檢閱[適用於 Windows 的 Operations Management Suite 代理程式](../log-analytics/log-analytics-windows-agents.md)。  
+如需有關如何安裝適用於 Linux 的 OMS 代理程式及下載最新版本的詳細資訊，請參閱[適用於 Linux 的 Operations Management Suite 代理程式](https://github.com/microsoft/oms-agent-for-linux)。  如需有關如何安裝適用於 Windows 的 OMS 代理程式，請檢閱[適用於 Windows 的 Operations Management Suite 代理程式](../log-analytics/log-analytics-windows-agent.md)。  
 
 ### <a name="permissions"></a>權限
 若要建立更新部署，您必須被授與自動化帳戶和 Log Analytics 工作區的參與者角色。  
@@ -126,7 +126,7 @@ OMS 管理的電腦會使用下列各項來執行評估和更新部署︰
 1.  在控制台中開啟 Microsoft Monitoring Agent，而代理程式會在 [Azure Log Analytics (OMS)] 索引標籤上顯示以下訊息︰**Microsoft Monitoring Agent 已成功連線到 Microsoft Operations Management Suite 服務**。   
 2.  開啟 [Windows 事件記錄]，瀏覽至 [應用程式及服務記錄\Operations Manager] 並從來源服務連接器搜尋事件識別碼 3000 和 5002。  這些事件表示電腦已向 OMS 工作區註冊，並且正在接收組態。  
 
-如果代理程式無法與 OMS 服務進行通訊，並已設定為透過防火牆或 Proxy 伺服器來與網際網路通訊，請藉由檢閱 [Windows 代理程式的網路設定](../log-analytics/log-analytics-windows-agents.md#network)或 [Linux 代理程式的網路設定](../log-analytics/log-analytics-agent-linux.md#network)，確認防火牆或 Proxy 伺服器設定正確。
+如果代理程式無法與 OMS 服務進行通訊，並已設定為透過防火牆或 Proxy 伺服器來與網際網路通訊，請藉由檢閱 [Windows 代理程式的網路設定](../log-analytics/log-analytics-windows-agent.md)或 [Linux 代理程式的網路設定](../log-analytics/log-analytics-agent-linux.md)，確認防火牆或 Proxy 伺服器設定正確。
 
 > [!NOTE]
 > 如果您的 Linux 系統是設定為與 proxy 或 OMS 閘道通訊，而且您要將此解決方案上架，請更新 proxy.conf 權限，請執行下列命令，將檔案讀取權限授與 omiuser 群組：  

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
+ms.date: 12/13/2017
 ms.author: yurid
-ms.openlocfilehash: e68ec1b7d82a0e1d98953521b05f423044e6d2f2
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 71dcafab92a9045388c2e602c0dc297aed32e527
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Azure 資訊安全中心的自適性應用程式控制 (預覽)
 了解如何利用此逐步解說，在 Azure 資訊安全中心設定應用程式控制。
@@ -32,9 +32,6 @@ ms.lasthandoff: 10/18/2017
 - 避免執行舊版和不支援的應用程式。
 - 阻止您的組織不允許的特定軟體工具。
 - 讓 IT 能夠透過應用程式使用量來控制敏感性資料的存取。
-
-> [!NOTE]
-> 自適性應用程式控制是以有限的公開預覽形式提供給 Azure 資訊安全中心標準客戶使用。 請將含有您的訂用帳戶識別碼的電子郵件傳送給[我們](mailto:ASC_appcontrol@microsoft.com)，以加入預覽。
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>如何啟用自適性應用程式控制？
 自適性應用程式控制可協助您定義一組可以在設定之資源群組上執行的應用程式。 這項功能只適用於 Windows 電腦 (所有版本，傳統或 Azure Resource Manager)。 可以使用下列步驟在資訊安全中心設定應用程式白名單：
@@ -72,7 +69,7 @@ ms.lasthandoff: 10/18/2017
 
 - **名稱**：完整應用程式路徑
 - **程序**：每個路徑內有多少個應用程式
-- **通用**：true 表示這些程序已在此資源群組中的大部分 VM 上執行。
+- **通用**：[是] 表示這些程序已在此資源群組中的大部分 VM 上執行。
 - **易受利用**：警告圖示將會指出攻擊者是否可能使用應用程式來略過應用程式白名單。 建議您在核准之前檢閱這些應用程式。 
 
 一旦完成您的選擇，請按一下 [建立] 按鈕。 根據預設，資訊安全中心一律在「稽核」模式啟用應用程式控制。 驗證白名單對您的工作負載沒有任何不良影響之後，即可變更為「強制」模式。

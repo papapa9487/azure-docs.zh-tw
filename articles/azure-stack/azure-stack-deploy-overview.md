@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 07/10/2017
 ms.author: erikje
 ms.custom: mvc
-ms.openlocfilehash: 3d3f31775ae9384faeae20f108b71cea5dcc2934
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04742a587284cf72632360a9575a63a576da36e8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-development-kit-deployment-quickstart"></a>Azure Stack 開發套件部署快速入門
 
@@ -31,9 +31,9 @@ ms.lasthandoff: 10/11/2017
 
 2. [**下載部署套件並解壓縮**](azure-stack-run-powershell-script.md#download-and-extract-the-development-kit)。 您可以將部署套件下載到開發套件主機或另一部電腦。 解壓縮後的部署檔案會佔用 60 GB 的可用磁碟空間，因此使用另一部電腦可協助降低開發套件主機的硬體需求。
 
-3. 使用安裝程式來[**準備開發套件主機**](azure-stack-run-powershell-script.md#prepare-the-development-kit-host)。 在此步驟之後，開發套件主機會開機進入 Cloudbuilder.vhdx (一個包含可開機作業系統和 Azure Stack 安裝檔的虛擬硬碟)。
+3. 使用安裝程式來[**準備開發套件主機**](azure-stack-run-powershell-script.md)。 在此步驟之後，開發套件主機會開機進入 Cloudbuilder.vhdx (一個包含可開機作業系統和 Azure Stack 安裝檔的虛擬硬碟)。
 
-4. 在開發套件主機上[**部署開發套件**](azure-stack-run-powershell-script.md#deploy-the-development-kit)。
+4. 在開發套件主機上[**部署開發套件**](azure-stack-run-powershell-script.md)。
 
 5. 如果您的 Azure Stack 部署使用 Azure Active Directory，您就必須[向 Azure 註冊 Azure Stack](azure-stack-register.md)，如此您才能夠[將 Azure Marketplace 項目下載](azure-stack-download-azure-marketplace-item.md)到 Azure Stack。
 

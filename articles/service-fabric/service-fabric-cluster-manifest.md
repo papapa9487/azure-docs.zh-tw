@@ -12,40 +12,43 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/15/2017
+ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: dc17ba7f8cc1326790b0256de277ccb2eaa20949
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: bd6e5c1591d01329d95ccb168e5a14e436920baf
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>獨立 Windows 叢集的組態設定
-本文說明如何使用 ClusterConfig.JSON 檔案來設定獨立的 Azure Service Fabric 叢集。 您可以使用此檔案指定資訊，例如 Service Fabric 節點和其 IP 位址，以及該叢集上不同類型的節點。 您也可以為獨立叢集指定安全性組態，以及關於容錯/升級網域的網路拓撲。
+本文說明如何使用 ClusterConfig.json 檔案來設定獨立的 Azure Service Fabric 叢集。 您將會使用此檔案來指定叢集節點、安全性設定，以及容錯和升級網域方面之網路拓撲的相關資訊。
 
-當您[下載獨立 Service Fabric 套件](service-fabric-cluster-creation-for-windows-server.md#downloadpackage)時，即會將 ClusterConfig.JSON 檔案的一些範例下載至您的工作電腦。 名稱中有 DevCluster 的範例可協助您在同一部電腦上建立三個節點皆具的叢集，例如邏輯節點。 在這三個節點中，至少必須將一個節點標示為主要節點。 此叢集可用於開發或測試環境。 但不支援做為生產叢集。 名稱中有 MultiMachine 的範例可協助您建立生產品質叢集，其中的每個節點會建立在不同電腦上。 這些叢集的主要節點數目會以[可靠性層級](#reliability)為基礎。 在 API 05-2017 版的 5.7 版次中，我們移除了可靠性層級屬性。 但是，我們的程式碼會計算叢集的最佳化可靠性層級。 請不要在 5.7 和更新的程式碼版本中使用這個屬性。
+當您[下載獨立的 Service Fabric 套件](service-fabric-cluster-creation-for-windows-server.md#downloadpackage)時，ClusterConfig.json 範例也會包含在內。 名稱中包含 "DevCluster" 的範例，會使用邏輯節點，建立三個節點皆位於相同電腦上的叢集。 在這三個節點中，至少必須將一個節點標示為主要節點。 此類型的叢集可用於開發或測試環境。 但不支援做為生產叢集。 名稱中包含 "MultiMachine" 的範例，能協助建立生產等級的叢集，其中每個節點都會位於不同的電腦上。 這些叢集的主要節點數目會以叢集的[可靠性層級](#reliability)為基礎。 在 5.7 版，API 版本 05-2017 中，我們移除了可靠性層級屬性。 但是，我們的程式碼會計算叢集的最佳化可靠性層級。 請不要嘗試在 5.7 版及更新版本中設定這個屬性的值。
 
 
-* ClusterConfig.Unsecure.DevCluster.JSON 和 ClusterConfig.Unsecure.MultiMachine.JSON 示範如何分別建立不安全的測試或生產叢集。
+* ClusterConfig.Unsecure.DevCluster.json 和 ClusterConfig.Unsecure.MultiMachine.json 分別示範如何建立不安全的測試或生產叢集。
 
-* ClusterConfig.Windows.DevCluster.JSON 和 ClusterConfig.Windows.MultiMachine.JSON 示範如何使用 [Windows 安全性](service-fabric-windows-cluster-windows-security.md)建立受保護的測試或生產叢集。
+* ClusterConfig.Windows.DevCluster.json 和 ClusterConfig.Windows.MultiMachine.json 示範如何建立使用 [Windows 安全性](service-fabric-windows-cluster-windows-security.md)提供保護的測試或生產叢集。
 
-* ClusterConfig.X509.DevCluster.JSON 和 ClusterConfig.X509.MultiMachine.JSON 示範如何使用 [X509 憑證型安全性](service-fabric-windows-cluster-x509-security.md)建立受保護的測試或生產叢集。
+* ClusterConfig.X509.DevCluster.json 和 ClusterConfig.X509.MultiMachine.json 示範如何建立使用 [X509 憑證型安全性](service-fabric-windows-cluster-x509-security.md)提供保護的測試或生產叢集。
 
-現在，讓我們檢視 ClusterConfig.JSON 檔案的各個區段。
+現在，讓我們檢視 ClusterConfig.json 檔案的各個區段。
 
 ## <a name="general-cluster-configurations"></a>一般叢集組態
 一般叢集組態會涵蓋廣泛的叢集特有組態，如下列 JSON 程式碼片段所示：
 
+```json
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
     "apiVersion": "01-2017",
+```
 
 若要為 Service Fabric 叢集提供任何易記名稱，您可以將它指派給 name 變數。 ClusterConfigurationVersion 是叢集的版本號碼。 請在每次升級 Service Fabric 叢集時上調此號碼。 讓 apiVersion 繼續設定為預設值。
 
+## <a name="nodes-on-the-cluster"></a>叢集上的節點
+
     <a id="clusternodes"></a>
 
-## <a name="nodes-on-the-cluster"></a>叢集上的節點
 您可以使用 nodes 區段，在 Service Fabric 叢集上設定節點，如下列程式碼片段所示：
 
     "nodes": [{
@@ -79,12 +82,12 @@ Service Fabric 叢集至少必須包含 3 個節點。 您可以根據您的設�
 | upgradeDomain |升級網域說明大約會在相同時間關閉以進行 Service Fabric 升級的節點集。 因為它們不會受到任何實體需求所限制，您可以選擇要將哪些節點指派給哪些升級網域。 |
 
 ## <a name="cluster-properties"></a>叢集屬性
-ClusterConfig.JSON 中的 properties 區段用來設定叢集，如下所示：
-
-    <a id="reliability"></a>
+ClusterConfig.json 中的 [屬性] 區段是用來設定叢集，如下所示：
 
 ### <a name="reliability"></a>可靠性
 reliabilityLevel 的概念會定義可以在叢集主要節點上執行之 Service Fabric 系統服務的複本或執行個體數目。 它會決定這些服務以及叢集的可靠性。 其值會由系統在建立和升級叢集時計算。
+
+    <a id="reliability"></a>
 
 ### <a name="diagnostics"></a>診斷
 在 diagnosticsStore 區段中，您可以設定參數，以啟用診斷以及疑難排解節點或叢集的失敗，如下列程式碼片段所示： 
@@ -119,9 +122,10 @@ security 區段對於安全獨立的 Service Fabric 叢集是必要的項目。 
 
 metadata 是安全叢集的說明，而且可根據您的設定來進行設定。 ClusterCredentialType 和 ServerCredentialType 決定叢集和節點會實作的安全性類型。 如果是憑證式安全性，可設定為 X509，如果是以 Azure Active Directory 為基礎的安全性，可設定為 Windows。 其餘的 security 區段則是根據安全性類型。 如需如何填滿其餘 security 區段的相關資訊，請參閱[獨立叢集中的憑證式安全性](service-fabric-windows-cluster-x509-security.md)或[獨立叢集中的 Windows 安全性](service-fabric-windows-cluster-windows-security.md)。
 
+### <a name="node-types"></a>節點類型
+
     <a id="nodetypes"></a>
 
-### <a name="node-types"></a>節點類型
 nodeTypes 區段說明叢集所擁有的節點類型。 至少必須針對叢集指定一個節點類型，如下列程式碼片段所示： 
 
     "nodeTypes": [{
@@ -197,5 +201,5 @@ name 是此特定節點類型的易記名稱。 若要建立此節點類型的�
 
 
 ## <a name="next-steps"></a>後續步驟
-根據獨立叢集設定來設定好完整的 ClusterConfig.JSON 檔案後，您就可以部署叢集。 請遵循[建立獨立 Service Fabric 叢集](service-fabric-cluster-creation-for-windows-server.md)中的步驟來進行。 然後移至[使用 Service Fabric Explorer 視覺化叢集](service-fabric-visualizing-your-cluster.md)，並遵循其中的步驟。
+在您根據獨立叢集設定，設定好完整的 ClusterConfig.json 檔案後，您就可以部署叢集。 請遵循[建立獨立 Service Fabric 叢集](service-fabric-cluster-creation-for-windows-server.md)中的步驟來進行。 然後移至[使用 Service Fabric Explorer 視覺化叢集](service-fabric-visualizing-your-cluster.md)，並遵循其中的步驟。
 

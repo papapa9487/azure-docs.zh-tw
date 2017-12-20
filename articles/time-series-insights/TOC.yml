@@ -44,6 +44,8 @@
       href: time-series-insights-send-events.md
     - name: 調整您的環境
       href: time-series-insights-how-to-scale-your-environment.md
+    - name: 使用範本管理資源
+      href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
 - name: 參考
   items:
     - name: 查詢 API

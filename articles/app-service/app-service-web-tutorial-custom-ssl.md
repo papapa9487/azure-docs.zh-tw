@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/23/2017
+ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c18ca8e81fefdee723714c6535160e75ef4d698d
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: f69bc731b2858c338d7f7b4d347e7107a0f4eeed
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>將現有的自訂 SSL 憑證繫結至 Azure Web Apps
 
@@ -214,61 +214,17 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 ## <a name="enforce-https"></a>強制使用 HTTPS
 
-App Service 不會強制使用 HTTPS，因此任何使用者仍可以使用 HTTP 存取您的 Web 應用程式。 若要強制 Web 應用程式使用 HTTPS，請在 Web 應用程式的 _web.config_ 檔案中定義重寫規則。 無論 Web 應用程式語言架構為何，App Service 應用程式都會使用這個檔案。
+根據預設，任何人仍可以使用 HTTP 存取您的 Web 應用程式。 您可以將所有 HTTP 要求重新都導向至 HTTPS 連接埠。
 
-> [!NOTE]
-> 有語言特定的要求重新導向。 ASP.NET MVC 可使用 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 篩選，而非 _web.config_ 中的重寫規則。
+在 Web 應用程式頁面的左側導覽中，選取 [自訂網域]。 然後，在 [僅限 HTTPS] 中選取 [開啟]。
 
-如果您是 .NET 開發人員，應該很熟悉這個檔案。 它會在您解決方案的根目錄。
+![強制使用 HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
-此外，如果您是使用 PHP、Node.js、Python 或 Java 進行開發，我們有可能會在 App Service 中代表您產生這個檔案。
+當作業完成時，瀏覽至指向您的應用程式的任何 HTTP URL。 例如：
 
-遵循[使用 FTP/S 將應用程式部署至 Azure App Service](app-service-deploy-ftp.md) 中的指示，連線到 Web 應用程式的 FTP 端點。
-
-此檔案應該位於 _/home/site/wwwroot_。 如果沒有，請在此資料夾中建立一個 _web.config_ 檔案，並包含下列 XML：
-
-```xml   
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-  <system.webServer>
-    <rewrite>
-      <rules>
-        <!-- BEGIN rule ELEMENT FOR HTTPS REDIRECT -->
-        <rule name="Force HTTPS" enabled="true">
-          <match url="(.*)" ignoreCase="false" />
-          <conditions>
-            <add input="{HTTPS}" pattern="off" />
-          </conditions>
-          <action type="Redirect" url="https://{HTTP_HOST}/{R:1}" appendQueryString="true" redirectType="Permanent" />
-        </rule>
-        <!-- END rule ELEMENT FOR HTTPS REDIRECT -->
-      </rules>
-    </rewrite>
-  </system.webServer>
-</configuration>
-```
-
-對於現有的 _web.config_ 檔案，請將整個 `<rule>` 元素複製到 _web.config_ 的 `configuration/system.webServer/rewrite/rules` 元素中。 如果您的 _web.config_ 中有其他 `<rule>` 元素，請將複製的 `<rule>` 元素放在其他 `<rule>` 元素之前。
-
-每當使用者向 web 應用程式要求 HTTP 時，此規則就會將 HTTP 301 (永久重新導向) 傳回 HTTPS 通訊協定。 例如，它會從 `http://contoso.com` 重新導向至 `https://contoso.com`。
-
-如需 IIS URL Rewrite 模組的詳細資訊，請參閱 [URL Rewrite](http://www.iis.net/downloads/microsoft/url-rewrite) \(英文\) 文件。
-
-## <a name="enforce-https-for-web-apps-on-linux"></a>強制 Linux 上的 Web Apps 使用 HTTPS
-
-Linux 上的 App Service 不會強制使用 HTTPS，因此任何使用者仍可以使用 HTTP 存取您的 Web 應用程式。 若要強制 Web 應用程式使用 HTTPS，請在 Web 應用程式的 _.htaccess_ 檔案中定義重寫規則。 
-
-遵循[使用 FTP/S 將應用程式部署至 Azure App Service](app-service-deploy-ftp.md) 中的指示，連線到 Web 應用程式的 FTP 端點。
-
-在 _/home/site/wwwroot_ 中，建立一個包含以下程式碼的 _.htaccess_ 檔案：
-
-```
-RewriteEngine On
-RewriteCond %{HTTP:X-ARR-SSL} ^$
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-```
-
-每當使用者向 web 應用程式要求 HTTP 時，此規則就會將 HTTP 301 (永久重新導向) 傳回 HTTPS 通訊協定。 例如，它會從 `http://contoso.com` 重新導向至 `https://contoso.com`。
+- `http://<app_name>.azurewebsites.net`
+- `http://contoso.com`
+- `http://www.contoso.com`
 
 ## <a name="automate-with-scripts"></a>使用指令碼進行自動化
 
@@ -312,7 +268,7 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## <a name="public-certificates-optional"></a>公開憑證 (選擇性)
-您可以將[公開憑證](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/)上傳至 Web 應用程式。 您可以將「公開憑證」與 App Service 或 App Service Environment (ASE) 上的 Web 應用程式搭配使用。 如果您需要將憑證儲存在 LocalMachine 憑證存放區中，就必須使用 App Service Enviroment 上的 Web 應用程式。 如需更多詳細資料，請參閱[如何設定 Web 應用程式的公開憑證](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer) \(英文\)。
+您可以將[公開憑證](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/)上傳至 Web 應用程式。 您也可以在 App Service Environment 中使用應用程式的公開憑證。 如果您需要將憑證儲存在 LocalMachine 憑證存放區中，就必須使用 App Service Environment 上的 Web 應用程式。 如需詳細資訊，請參閱[如何設定 Web 應用程式的公開憑證](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer)。
 
 ![上傳公開憑證](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
@@ -330,3 +286,5 @@ New-AzureRmWebAppSSLBinding `
 
 > [!div class="nextstepaction"]
 > [將內容傳遞網路 (CDN) 新增至 Azure App Service](app-service-web-tutorial-content-delivery-network.md)
+
+如需詳細資訊，請參閱[在 Azure App Service 中的應用程式程式碼中使用 SSL 憑證](app-service-web-ssl-cert-load.md)。

@@ -1,6 +1,6 @@
 ---
-title: "使用路由處理 Azure IoT 中樞的裝置到雲端訊息 (.Net) | Microsoft Docs"
-description: "如何使用路由規則和自訂端點來處理 IoT 中樞的裝置到雲端訊息，以將訊息分派至其他後端服務。"
+title: "使用 Azure IoT 中樞路由傳送訊息 (.NET) | Microsoft Docs"
+description: "如何使用路由規則和自訂端點來處理 Azure IoT 中樞的裝置到雲端訊息，以將訊息分派至其他後端服務。"
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 1d2b52ea005ab520bf294efa603512c00a92ee63
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8fed08aa22577574b30b360ec164daf592ed456
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="process-iot-hub-device-to-cloud-messages-using-routes-net"></a>使用路由處理 Azure IoT 中樞的裝置到雲端訊息 (.NET)
+# <a name="routing-messages-with-iot-hub-net"></a>使用 IoT 中樞路由傳送訊息 (.NET)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 * Visual Studio 2015 或 Visual Studio 2017。
 * 使用中的 Azure 帳戶。 <br/>如果您沒有帳戶，只需要幾分鐘的時間就可以建立 [免費帳戶](https://azure.microsoft.com/free/) 。
 
-您應具備 [Azure 儲存體]和 [Azure 服務匯流排]的基本知識。
+我們也建議您閱讀 [Azure 儲存體]和 [Azure 服務匯流排]的相關文件。
 
 ## <a name="send-interactive-messages"></a>傳送互動式訊息
 
@@ -74,8 +74,16 @@ private static async void SendDeviceToCloudMessagesAsync()
 
         if (rand.NextDouble() > 0.7)
         {
-            messageString = "This is a critical message";
-            levelValue = "critical";
+            if (rand.NextDouble() > 0.5)
+            {
+                messageString = "This is a critical message";
+                levelValue = "critical";
+            }
+            else 
+            {
+                messageString = "This is a storage message";
+                levelValue = "storage";
+            }
         }
         else
         {
@@ -93,13 +101,13 @@ private static async void SendDeviceToCloudMessagesAsync()
 }
 ```
 
-這個方法會隨機將 `"level": "critical"` 屬性新增至裝置所傳送的訊息，該裝置會模擬需要解決方案後端立即採取行動的訊息。 裝置應用程式會在訊息屬性中傳遞此資訊，而不是在訊息主體中傳遞，因此 IoT 中樞可以將訊息路由傳送至適當的訊息目的地。
+這個方法會隨機將 `"level": "critical"` 和 `"level": "storage"` 屬性新增至裝置所傳送的訊息，這會模擬需要應用程式後端立即採取行動的訊息，或是需要永久儲存的訊息。 應用程式會在訊息屬性中傳遞此資訊，而不是在訊息主體中傳遞，因此 IoT 中樞可以將訊息路由傳送至適當的訊息目的地。
 
 > [!NOTE]
 > 除了此處顯示的最忙碌路徑範例以外，您可以使用訊息屬性來路由傳送各種案例的訊息，包括冷門路徑處理。
 
 > [!NOTE]
-> 為了簡單起見，本教學課程不會實作任何重試原則。 在實際程式碼中，您應該如 MSDN 文章 [Transient Fault Handling (暫時性錯誤處理)]所建議來實作重試原則 (例如指數型輪詢)。
+> 我們建議您依 MSDN 文章[暫時性錯誤處理]中的建議，實作如指數型輪詢的重試原則。
 
 ## <a name="route-messages-to-a-queue-in-your-iot-hub"></a>將訊息路由至 IoT 中樞中的佇列
 
@@ -138,7 +146,7 @@ private static async void SendDeviceToCloudMessagesAsync()
 
 1. 在 Visual Studio 中，使用 [主控台應用程式 (.NET Framework)] 專案範本，將 Visual C# Windows 傳統桌面專案新增至目前的方案。 將專案命名為 **ReadCriticalQueue**。
 
-2. 在 方案總管 中，以滑鼠右鍵按一下 **ReadCriticalQueue** 專案，然後按一下管理 NuGet 套件。 此操作會顯示 [NuGet 套件管理員]  視窗。
+2. 在 [方案總管] 中，以滑鼠右鍵按一下 **ReadCriticalQueue** 專案，然後按一下 [管理 NuGet 套件]。 此操作會顯示 [NuGet 套件管理員]  視窗。
 
 3. 搜尋 **WindowsAzure.ServiceBus**，按一下 [安裝]，然後接受使用規定。 此操作會對 Azure 服務匯流排及其所有相依性進行下載、安裝和新增參考。
 
@@ -177,6 +185,30 @@ private static async void SendDeviceToCloudMessagesAsync()
    
    ![三個主控台應用程式][50]
 
+## <a name="optional-add-storage-container-to-your-iot-hub-and-route-messages-to-it"></a>(選擇性) 將儲存體容器新增至 IoT 中樞並將訊息路由傳送給它
+
+在本節中，您會建立儲存體帳戶，將它連線到您的 IoT 中樞，然後設定 IoT 中樞以根據訊息上的屬性將訊息傳送至該帳戶。 如需如何管理儲存體的詳細資訊，請參閱[開始使用 Azure 儲存體][Azure 儲存體]。
+
+ > [!NOTE]
+   > 如果您不受限於單一**端點**，除了 **CriticalQueue** 之外，您還可以設定 **StorageContainer**，並同時執行它們。
+
+1. 按照 [Azure 儲存體文件][lnk-storage]中所述的方法來建立儲存體帳戶。 記下帳戶名稱。
+
+2. 在 Azure 入口網站中，開啟 IoT 中樞然後按一下 [端點]。
+
+3. 在 [端點] 刀鋒視窗中，選取 [CriticalQueue] 端點，然後按一下 [刪除]。 按一下 [是]，然後按一下 [新增]。 將端點命名為 **StorageContainer**，並使用下拉式清單選取 [Azure 儲存體容器]，然後建立**儲存體帳戶**和**儲存體容器**。  記下它們的名稱。  完成時，請按一下底部的 [確定]。 
+
+ > [!NOTE]
+   > 如果您不受限於單一**端點**，則不需要刪除 **CriticalQueue**。
+
+4. 按一下 IoT 中樞中的 [路由]。 按一下刀鋒視窗頂端的 [新增] 來建立路由規則，以便將訊息路由傳送至您剛才新增的佇列。 選取 [裝置訊息] 作為資料來源。 輸入 `level="storage"` 作為條件，然後選擇 [StorageContainer] 作為路由規則端點。 按一下底部的 [儲存]。  
+
+    確定後援路由設定為 [開啟]。 此設定為 IoT 中樞的預設設定。
+
+1. 確定您先前的應用程式仍在執行。 
+
+1. 在 Azure 入口網站中移至儲存體帳戶，並按一下 [Blob 服務] 下方的 [瀏覽 Blob]。選取您的容器，瀏覽至 JSON 檔案並按一下它，然後按一下 [下載] 來檢視資料。
+
 ## <a name="next-steps"></a>後續步驟
 在本教學課程中，您已學到如何使用 IoT 中樞的訊息路由功能來可靠地分派裝置到雲端訊息。
 
@@ -203,6 +235,6 @@ private static async void SendDeviceToCloudMessagesAsync()
 [開始使用 IoT 中樞]: iot-hub-csharp-csharp-getstarted.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 [Azure IoT 開發人員中心]: https://azure.microsoft.com/develop/iot
-[Transient Fault Handling (暫時性錯誤處理)]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
+[暫時性錯誤處理]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[lnk-c2d]: iot-hub-csharp-csharp-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/

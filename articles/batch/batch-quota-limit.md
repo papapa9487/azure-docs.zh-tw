@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 11/29/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8bb5470918aa3ad15cb9081f5c02b40984d83f51
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 210ba4a90f24ce9b0b55c4565028232c2b7fd7cc
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服務配額和限制
 
@@ -51,10 +51,11 @@ ms.lasthandoff: 10/11/2017
 | 每個應用程式的應用程式封裝 |40 |
 | 應用程式封裝大小 (每一個) |大約 195 GB<sup>1</sup> |
 | 最大啟動工作大小 | 32768 個字元<sup>2</sup> |
+| 工作存留期上限 | 7 天<sup>3</sup> |
 
 <sup>1</sup> 對於區塊 Blob 大小上限的 Azure 儲存體限制<br />
-<sup>2</sup> 包含資源檔案和環境變數
-
+<sup>2</sup> 包含資源檔案和環境變數<br />
+<sup>3</sup> 工作的最長存留期 (從它新增至作業到完成時) 為 7 天。 已完成的工作會無限期保留；無法存取未在最長存留期內完成之工作的資料。
 
 
 ## <a name="view-batch-quotas"></a>檢視 Batch 配額

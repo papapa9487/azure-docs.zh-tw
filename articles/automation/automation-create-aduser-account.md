@@ -3,7 +3,7 @@ title: "建立 Azure AD 使用者帳戶 | Microsoft Docs"
 description: "本文說明如何在 Azure 自動化中為 Runbook 建立 Azure AD 使用者帳戶認證，以在 Azure 和傳統 Azure 中進行驗證。"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 keywords: "azure active directory 使用者, azure 服務管理, azure ad 使用者帳戶"
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 8f24e6e57c2eec5950c8c12d9f4383ce11cf5c11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 700c4419821934daac89025c889b21d8e2ef46b6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>使用 Azure 傳統部署和 Resource Manager 驗證 Runbook
 本文說明要為針對 Azure 傳統部署模型或 Azure Resource Manager 資源執行的 Azure 自動化 Runbook 設定 Azure AD 使用者帳戶，所必須執行的步驟。  雖然這您的 Azure Resource Manager 型 Runbook 仍然持續支援驗證身分識別，但還是建議您使用 Azure 執行身分帳戶。       
 
 ## <a name="create-a-new-azure-active-directory-user"></a>建立新的 Azure Active Directory 使用者
-1. 以您想要管理的 Azure 訂用帳戶服務系統管理員身分登入 Azure 傳統入口網站。
+1. 以您想要管理的 Azure 訂用帳戶的服務系統管理員身分登入 Azure 傳統入口網站。
 2. 選取 [Active Directory] ，然後選取貴組織目錄的名稱。
 3. 選取 [使用者] 索引標籤，然後在命令區域中選取 [新增使用者]。
 4. 在 [告訴我們這位使用者] 頁面上，於 [使用者類型] 底下選取 [您組織中的新使用者]。
@@ -36,17 +36,17 @@ ms.lasthandoff: 10/11/2017
 9. 選取 [設定] > [系統管理員] > [新增]。
 10. 輸入您所建立之使用者的完整使用者名稱。
 11. 選取您想讓使用者管理的訂用帳戶。
-12. 登出 Azure，然後使用您剛才建立的帳戶登入。 將提示您變更使用者的密碼。
+12. 登出 Azure，然後使用您剛才建立的帳戶登入。 系統會提示您變更使用者的密碼。
 
 ## <a name="create-an-automation-account-in-azure-classic-portal"></a>在 Azure 傳統入口網站中建立自動化帳戶
 在本節中，您會執行下列步驟以在 Azure 入口網站中建立 Azure 自動化帳戶，以便與您用來在 Azure 傳統部署中管理資源的 Runbook 搭配使用。  
 
 > [!NOTE]
-> 您可以透過 Azure 傳統入口網站和 Azure 入口網站以及任一組 Cmdlet，來管理使用 Azure 傳統入口網站建立的自動化帳戶。 帳戶一旦建立，您在帳戶中建立和管理資源的方式就沒有差別。 如果您打算繼續使用 Azure 傳統入口網站，應該使用它代替 Azure 入口網站來建立任何的自動化帳戶。
+> 您可以透過 Azure 傳統入口網站和 Azure 入口網站以及任一組 Cmdlet，來管理使用 Azure 傳統入口網站建立的自動化帳戶。 帳戶一旦建立，您在帳戶中建立和管理資源的方式就沒有差別。 如果您打算繼續使用 Azure 傳統入口網站，您應該使用它代替 Azure 入口網站來建立任何的自動化帳戶。
 > 
 > 
 
-1. 以您想要管理的 Azure 訂用帳戶服務系統管理員身分登入 Azure 傳統入口網站。
+1. 以您想要管理的 Azure 訂用帳戶的服務系統管理員身分登入 Azure 傳統入口網站。
 2. 選取 [自動化] 。
 3. 在 [自動化] 頁面上，選取 [建立自動化帳戶]。
 4. 在 [建立自動化帳戶] 方塊中輸入新的自動化帳戶的名稱，然後在下拉式清單中選取 [區域]。  

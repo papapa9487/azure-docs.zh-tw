@@ -3,8 +3,8 @@ title: "更換 Azure Stack 整合系統上的縮放單位節點 | Microsoft Docs
 description: "了解如何更換 Azure Stack 整合系統上的實體縮放單位節點。"
 services: azure-stack
 documentationcenter: 
-author: troettinger
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: f9434689-ee66-493c-a237-5c81e528e5de
 ms.service: azure-stack
@@ -13,12 +13,12 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: twooley
-ms.openlocfilehash: 63ba6cedd32bcf6ea3039bc80cc4a3f3407adfa7
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.author: mabrigg
+ms.openlocfilehash: f3d6215b672be0d8de8ba0d94320b1a2413eadf1
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>更換 Azure Stack 整合系統上的縮放單位節點
 
@@ -63,5 +63,5 @@ ms.lasthandoff: 10/21/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需更換熱插拔的實體磁碟相關資訊，請參閱[更換磁碟](azure-stack-replace-disk.md)。 
+- 如需更換熱插拔實體磁碟的資訊，請參閱[更換磁碟](azure-stack-replace-disk.md)。 
 - 如需更換非熱插拔的硬體元件相關資訊，請參閱[更換硬體元件](azure-stack-replace-component.md)。 

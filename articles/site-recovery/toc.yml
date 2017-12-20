@@ -143,11 +143,11 @@
               href: site-recovery-vmware-deployment-planner-run.md
             - name: 分析已產生的報告
               href: site-recovery-vmware-deployment-planner-analyze-report.md
-            - name: 分析災害復原成本預估報告
+            - name: 分析成本預估報告
               href: site-recovery-vmware-deployment-planner-cost-estimation.md
         - name: 相應放大處理伺服器以供 VMware 進行複寫
           href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
-        - name: Hyper-V 複寫至 Azure 的部署規劃和工具
+        - name: 將 Hyper-V 複寫至 Azure 的部署規劃工具
           href: null
           items:
             - name: 概觀和必要條件
@@ -156,7 +156,7 @@
               href: site-recovery-hyper-v-deployment-planner-run.md
             - name: 分析已產生的報告
               href: site-recovery-hyper-v-deployment-planner-analyze-report.md
-            - name: 分析災害復原成本預估報告
+            - name: 分析成本預估報告
               href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
         - name: 內部部署站台間 Hyper-V 複寫的效能調整測試
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
@@ -176,8 +176,10 @@
               href: site-recovery-prepare-target-physical-to-azure.md
         - name: 設定適用於 VMware 到 Azure 的複寫設定
           href: site-recovery-setup-replication-settings-vmware.md
-        - name: 從複寫排除磁碟
+        - name: 讓磁碟不要從 VMware 複寫至 Azure
           href: site-recovery-exclude-disk.md
+        - name: 讓磁碟不要從 Hyper-V 複寫至 Azure
+          href: site-recovery-hyper-v-exclude-disk.md
         - name: 部署 VMware 複寫的行動服務
           href: site-recovery-vmware-to-azure-install-mob-svc.md
           items:
@@ -193,6 +195,8 @@
               href: site-recovery-replicate-vmware-to-azure.md
     - name: 自動化
       items:
+        - name: 使用 PowerShell 將 VMWare 虛擬機器複寫至 Azure
+          href: site-recovery-vmware-to-azure-powershell.md
         - name: 使用 PowerShell 設定 Hyper-V 至 Azure 的複寫 (不使用 VMM)
           href: site-recovery-deploy-with-powershell-resource-manager.md
         - name: 使用 PowerShell 設定 Hyper-V 至 Azure 的複寫 (使用 VMM)
@@ -209,7 +213,7 @@
       items:
         - name: Active Directory 和 DNS
           href: site-recovery-active-directory.md
-        - name: 複寫 SQL Server
+        - name: SQL Server
           href: site-recovery-sql.md
         - name: SharePoint
           href: site-recovery-sharepoint.md
@@ -239,6 +243,8 @@
           href: site-recovery-vmware-to-azure-manage-configuration-server.md
         - name: 管理 vCenter 伺服器
           href: site-recovery-vmware-to-azure-manage-vCenter.md
+        - name: 透過 CSP 管理多租用戶
+          href: site-recovery-manage-multi-tenancy-with-csp.md
         - name: 移除伺服器並停用保護
           href: site-recovery-manage-registration-and-protection.md
         - name: 刪除保存庫
@@ -258,7 +264,7 @@
 - name: 參考
   items:
     - name: Azure PowerShell
-      href: /powershell/module/azurerm.siterecovery
+      href: /powershell/module/azurerm.recoveryservices.siterecovery
     - name: Azure PowerShell (傳統)
       href: /powershell/module/azure/?view=azuresmps-3.7.0
     - name: REST

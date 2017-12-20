@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: a8bbe6c4f6919f150012163b0c7559d2986e072f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9872ee033d8c0bed215f8b37d64395e5dcd534c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理存取限制原則
 本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -26,17 +26,11 @@ ms.lasthandoff: 10/11/2017
 ##  <a name="AccessRestrictionPolicies"></a>存取限制原則  
   
 -   [檢查 HTTP 標頭](api-management-access-restriction-policies.md#CheckHTTPHeader) - 強制必須存在和/或強制採用 HTTP 標頭的值。  
-  
 -   [依訂閱限制呼叫率](api-management-access-restriction-policies.md#LimitCallRate) - 以訂閱為單位，限制呼叫率以避免 API 使用量暴增。  
-  
 -   [依金鑰限制呼叫率](#LimitCallRateByKey) - 以金鑰為單位，限制呼叫率以避免 API 使用量暴增。  
-  
 -   [限制呼叫端 IP](api-management-access-restriction-policies.md#RestrictCallerIPs) - 篩選 (允許/拒絕) 來自特定 IP 位址和/或位址範圍的呼叫。  
-  
 -   [依訂閱設定使用量配額](api-management-access-restriction-policies.md#SetUsageQuota) - 以訂閱為單位，讓您可以強制採用可續訂或有存留期呼叫量與 (或) 頻寬配額。  
-  
 -   [依金鑰設定使用量配額](#SetUsageQuotaByKey) - 以金鑰為單位，讓您可以強制採用可續訂或有存留期呼叫量與 (或) 頻寬配額。  
-  
 -   [驗證 JWT](api-management-access-restriction-policies.md#ValidateJWT) - 強制擷取自指定 HTTP 標頭或指定查詢參數的 JWT 必須存在且有效。  
   
 ##  <a name="CheckHTTPHeader"></a>檢查 HTTP 標頭  
@@ -235,7 +229,6 @@ ms.lasthandoff: 10/11/2017
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
 -   **原則區段︰**輸入  
-  
 -   **原則範圍︰**全域、產品、API、作業  
   
 ##  <a name="SetUsageQuota"></a>依訂用帳戶設定使用量配額  
@@ -291,7 +284,6 @@ ms.lasthandoff: 10/11/2017
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
 -   **原則區段︰**輸入  
-  
 -   **原則範圍︰**產品  
   
 ##  <a name="SetUsageQuotaByKey"></a>依金鑰設定使用量配額  
@@ -352,7 +344,6 @@ ms.lasthandoff: 10/11/2017
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
 -   **原則區段︰**輸入  
-  
 -   **原則範圍︰**全域、產品、API、作業  
   
 ##  <a name="ValidateJWT"></a>驗證 JWT  
@@ -523,8 +514,13 @@ ms.lasthandoff: 10/11/2017
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
 -   **原則區段︰**輸入  
-  
 -   **原則範圍︰**全域、產品、API、作業  
   
 ## <a name="next-steps"></a>後續步驟
-如需有關使用原則的詳細資訊，請參閱 [API 管理中的原則](api-management-howto-policies.md)。  
+
+如需使用原則的詳細資訊，請參閱︰
+
++ [API 管理中的原則](api-management-howto-policies.md)
++ [轉換 API](transform-api.md)
++ [原則參考文件](api-management-policy-reference.md)，取得原則陳述式及其設定的完整清單
++ [原則範例](policy-samples.md)   

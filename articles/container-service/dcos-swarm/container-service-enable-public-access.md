@@ -1,28 +1,22 @@
 ---
-title: "啟用對 Azure DC/OS 容器應用程式的存取 | Microsoft Docs"
+title: "啟用對於 Azure DC/OS 容器應用程式的存取"
 description: "如何在 Azure Container Service 中啟用對 DC/OS 容器的公用存取。"
 services: container-service
-documentationcenter: 
 author: sauryadas
 manager: madhana
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker、容器、微服務、Mesos、Azure"
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: c9ef5913859cf3a55a2de2107a9304f1d28a4829
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aedc97335a0b9ad00cf653477b62bf530b556900
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="enable-public-access-to-an-azure-container-service-application"></a>啟用 Azure Container Service 應用程式的公用存取
+
 ACS [公用代理程式集區](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) 中的任何 DC/OS 容器都會自動公開到網際網路。 根據預設，連接埠 **80**、**443**、**8080** 已開啟，在這些連接埠上接聽的任何 (公用) 容器皆可供存取。 本文將說明如何在 Azure Container Service 中開啟更多的連接埠供應用程式使用。
 
 ## <a name="open-a-port-portal"></a>開啟連接埠 (入口網站)

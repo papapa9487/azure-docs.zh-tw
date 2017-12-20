@@ -3,8 +3,8 @@ title: "允許應用程式取出 Azure Stack Key Vault 密碼 | Microsoft Docs"
 description: "使用範例應用程式來處理 Azure Stack Key Vault"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 3748b719-e269-4b48-8d7d-d75a84b0e1e5
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2017
-ms.author: sngun
-ms.openlocfilehash: 7cfb78cc5219d4adab5ceddc9d7eb8d1fc71b678
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 50103dca21d047c5cee211b2250e750739131bc1
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>使用金鑰保存庫中所儲存金鑰和密碼的範例應用程式
 
@@ -132,7 +132,7 @@ Write-Host
 
 ## <a name="download-and-run-the-sample-application"></a>下載並執行範例應用程式
 
-下載 Azure [金鑰保存庫用戶端範例](https://www.microsoft.com/en-us/download/details.aspx?id=45343)頁面所提供的金鑰保存庫範例。 將.zip 檔的內容解壓縮至您的開發工作站上。 範例資料夾中有兩個範例。 我們在本主題中會使用 HellpKeyVault 範例。 瀏覽至 **Microsoft.Azure.KeyVault.Samples** > **範例** > **HelloKeyVault** 資料夾，然後在 Visual Studio 中開啟 HelloKeyVault 應用程式。 
+下載 Azure [金鑰保存庫用戶端範例](https://www.microsoft.com/en-us/download/details.aspx?id=45343)頁面所提供的金鑰保存庫範例。 將.zip 檔的內容解壓縮至您的開發工作站上。 範例資料夾中有兩個範例。 我們在本文中會使用 HellpKeyVault 範例。 瀏覽至 **Microsoft.Azure.KeyVault.Samples** > **範例** > **HelloKeyVault** 資料夾，然後在 Visual Studio 中開啟 HelloKeyVault 應用程式。 
 
 開啟 HelloKeyVault\App.config 檔案並取代 <appSettings> 元素以及先前指令碼所傳回 **VaultUrl**、**AuthClientId** 和 **AuthClientSecret** 的值。 請注意，依預設 App.config 會包含 *AuthCertThumbprint* 的預留位置，但您將會改用 *AuthClientSecret*。 取代設定之後，請重建解決方案並啟動應用程式。
 

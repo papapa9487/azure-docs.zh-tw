@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 3c56719d99a5a3cc3e650b72ecd2e92438533448
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9246def86fa647213aa3ec12427d829c24fa8034
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="start-monitoring-your-java-web-application"></a>開始監視 Java Web 應用程式
 
@@ -30,7 +30,7 @@ Azure Application Insights 可讓您輕鬆監視 Web 應用程式的可用性、
 - 安裝[免費的 Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/)。 本快速入門使用 Eclipse Oxygen (4.7)
 - 您需要 Azure 訂用帳戶和現有的 Java 動態 Web 專案
  
-如果您沒有 Java 動態 Web 專案，請參閱[建立 Java Web 應用程式快速入門](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-java)來建立。
+如果您沒有 Java 動態 Web 專案，請參閱[建立 Java Web 應用程式快速入門](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-java)來建立。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
@@ -138,4 +138,4 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [尋找並診斷效能問題](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics)
+> [尋找並診斷效能問題](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)

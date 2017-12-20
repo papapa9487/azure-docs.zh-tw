@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 9841b61c21586976ee06ffc1fe4d01e3fc3428b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc331e1557c3a35ea3faa8e021923764ec748a4f
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Azure Machine Learning Web 服務：部署和取用
 您可以使用 Azure Machine Learning 來部署機器學習服務的工作流程和模型做為 Web 服務。 然後便可以透過網際網路利用這些 Web 服務從應用程式呼叫機器學習服務模型，進行即時預測或批次模式的預測。 由於 Web 服務為 RESTful，您可以從各種程式設計語言與平台 (如 .NET 與 Java) 和應用程式 (如 Excel) 呼叫它們。
@@ -26,6 +26,7 @@ ms.lasthandoff: 10/11/2017
 下列章節提供可協助您快速開始的逐步解說、程式碼及文件的連結。
 
 ## <a name="deploy-a-web-service"></a>部署 Web 服務
+
 ### <a name="with-azure-machine-learning-studio"></a>使用 Azure Machine Learning Studio
 Machine Learning Studio 和 Microsoft Azure Machine Learning Web 服務入口網站可協助您部署和管理 Web 服務，而不需要撰寫程式碼。
 
@@ -58,7 +59,7 @@ Machine Learning Studio 和 Microsoft Azure Machine Learning Web 服務入口網
 
 * 儲存體帳戶名稱和金鑰
 
-    您可以從 [Azure 入口網站](https://portal.azure.com/)或 [Azure 傳統入口網站](http://manage.windowsazure.com/)取得儲存體帳戶名稱和金鑰。
+    您可以從 [Azure 入口網站](https://portal.azure.com/)取得儲存體帳戶名稱和金鑰。
 * 承諾用量方案識別碼
 
     您可以從 [Azure Machine Learning Web 服務](https://services.azureml.net) 入口網站登入，按一下方案名稱取得方案識別碼。

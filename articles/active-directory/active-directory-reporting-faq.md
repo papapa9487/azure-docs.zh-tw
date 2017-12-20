@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: faee3bc9b0b1a10a48a514d830af5045cb047e02
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: e1c1b8bdf94104c0047e367f67a29d557fcc8df9
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory 報告常見問題集
 
@@ -119,5 +119,11 @@ ms.lasthandoff: 10/13/2017
 **問：如何在登入和有風險的登入報告中計算 IP 位址？**
 
 **答：**IP 位址的發出方式如下：IP 位址與該位址實際所在的電腦之間沒有任何明確的連線。 有些因素會使這種情況變復雜，例如行動提供者和從中央集區發出 IP 位址的 VPN 通常距離實際使用用戶端裝置的位置非常遠。 基於上述的假設，根據追蹤、登錄資料、反向查詢和其他資訊，將 IP 位址轉換為實體位置的效果最佳。 
+
+---
+
+**問：「登入時偵測到其他風險」風險事件表示什麼？**
+
+**答：**為讓您深入了解您環境中所有具有風險的登入，我們會針對因 Azure AD Identity Protection 訂閱者專屬之偵測而視為危險的登入，顯示風險事件「登入時偵測到其他風險」。
 
 ---

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: fe519c3ad5f99899277bf005929142c52a4c4724
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: dca6ca5f21f4a4f1701af57eb40d92094b6a4754
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>管理 Azure 內容傳遞網路中 Web 內容的期限
 > [!div class="op_single_selector"]
@@ -26,10 +26,12 @@ ms.lasthandoff: 11/23/2017
 > * [Azure Blob 儲存體](cdn-manage-expiration-of-blob-content.md)
 > 
 
-來自任何可公開存取的原始 Web 伺服器的檔案均可在 Azure 內容傳遞網路 (CDN) 中加以快取，直到其存留時間 (TTL) 結束。 TTL 是由來自原始伺服器之 HTTP 回應中的 `Cache-Control` 標頭所決定。 本文說明如何設定 Microsoft Azure App Service 之 Web Apps 功能、Azure Cloud Services、ASP.NET 應用程式、Internet Information Services (IIS) 網站的 `Cache-Control` 標頭，上述所有項目的設定方式均類似。 您可以使用組態檔，或以程式設計方式來設定 `Cache-Control` 標頭。
+來自任何可公開存取的原始 Web 伺服器的檔案均可在 Azure 內容傳遞網路 (CDN) 中加以快取，直到其存留時間 (TTL) 結束。 TTL 是由來自原始伺服器之 HTTP 回應中的 `Cache-Control` 標頭所決定。 本文說明如何設定 Microsoft Azure App Service 之 Web Apps 功能、Azure Cloud Services、ASP.NET 應用程式、Internet Information Services (IIS) 網站的 `Cache-Control` 標頭，上述所有項目的設定方式均類似。 您可以使用組態檔，或以程式設計方式來設定 `Cache-Control` 標頭。 
+
+您也可以藉由設定 [CDN 快取規則](cdn-caching-rules.md)，從 Azure 入口網站控制快取設定。 如果您設定一個或多個快取規則，並將其快取行為設定為**覆寫**或**略過快取**，就會忽略本文所討論的來源提供快取設定。 如需一般快取概念的相關資訊，請參閱[快取運作方式](cdn-how-caching-works.md)。
 
 > [!TIP]
-> 您可以選擇不替檔案設定 TTL。 在此情況下，Azure CDN 會自動套用預設為期 7 天的 TTL。 此預設 TTL 僅會套用至一般 Web 傳遞最佳化。 針對大型檔案的最佳化，預設 TTL 為一天；針對媒體串流最佳化，預設 TTL 則為一年。
+> 您可以選擇不替檔案設定 TTL。 在此情況下，Azure CDN 會自動套用 7 天的預設 TTL，除非您已在 Azure 入口網站中設定快取規則。 此預設 TTL 僅會套用至一般 Web 傳遞最佳化。 針對大型檔案的最佳化，預設 TTL 為一天；針對媒體串流最佳化，預設 TTL 則為一年。
 > 
 > 針對 Azure CDN 如何加快對檔案和其他資源的存取速度，如需詳細資訊請參閱 [Azure 內容傳遞網路概觀](cdn-overview.md)。
 > 
@@ -82,5 +84,5 @@ Response.Cache.SetLastModified(DateTime.Now);
 ## <a name="next-steps"></a>後續步驟
 * [深入了解 **clientCache** 項目](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
 * [閱讀 **HttpResponse.Cache** 屬性的文件](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
-* [閱讀 **HttpCachePolicy 類別**的文件](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)。  
-
+* [閱讀 **HttpCachePolicy 類別**的文件](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
+* [深入了解快取概念](cdn-how-caching-works.md)

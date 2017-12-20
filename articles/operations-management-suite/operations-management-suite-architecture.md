@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-ms.openlocfilehash: 76f69946724b5297b1f9a1f715819c69c4a4a51d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb4e9150c1069d48399fb217f865b294ccd317dc
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="oms-architecture"></a>OMS 架構
 [Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/) 是管理內部部署和雲端環境的雲端型服務集合。  本文描述 OMS 的不同內部部署和雲端元件以及其高階雲端運算架構。  您可以參考每個服務的文件，以取得進一步詳細資料。
 
 ## <a name="log-analytics"></a>Log Analytics
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) 收集的所有資料都會儲存到裝載於 Azure 的 OMS 儲存機制中。  已連接來源會產生收集到 OMS 儲存機制的資料。  目前支援三種類型的已連接來源。
+[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) 收集的所有資料都會儲存到裝載於 Azure 的 OMS 存放庫中。  已連接來源會產生收集到 OMS 儲存機制的資料。  目前支援三種類型的已連接來源。
 
-* [Windows](../log-analytics/log-analytics-windows-agents.md) 或 [Linux](../log-analytics/log-analytics-linux-agents.md) 電腦上所安裝的代理程式會直接連接到 OMS。
+* [Windows](../log-analytics/log-analytics-windows-agent.md) 或 [Linux](../log-analytics/log-analytics-linux-agents.md) 電腦上所安裝的代理程式會直接連接到 OMS。
 * System Center Operations Manager (SCOM) 管理群組 [連接到 Log Analytics](../log-analytics/log-analytics-om-agents.md) 。  SCOM 代理程式會繼續與管理伺服器通訊，而管理伺服器會將資料和效能資料轉送至 Log Analytics。
 * [Azure 儲存體帳戶](../log-analytics/log-analytics-azure-storage.md)，收集 Azure 背景工作角色、Web 角色或虛擬機器中的 [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) 資料。
 

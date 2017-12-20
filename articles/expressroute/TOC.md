@@ -85,6 +85,7 @@
 ## [服務更新](https://azure.microsoft.com/updates/?product=expressroute)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [訂用帳戶與服務限制](../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json)
+## [適用於雲端解決方案提供者 (CSP) 的 ExpressRoute](expressroute-for-cloud-solution-providers.md)
 ## [影片](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)
 ### [將虛擬網路閘道連接到線路](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
 ### [為 ExpressRoute 建立虛擬網路](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-virtual-network/)

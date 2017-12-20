@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 98941c49b057380b3ef9164515bcc2a63ccb56ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3544112b025f5df10e6f67c8e2e02f4bb587b4e0
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="optimize-azure-content-delivery-for-your-scenario"></a>最佳化您案例的 Azure 內容傳遞
 
@@ -103,7 +103,7 @@ Verizon 的 Azure 內容傳遞網路會使用一般 Web 傳遞最佳化類型來
 
 如果您使用 Akamai 的 Azure 內容傳遞網路，最佳化的大型檔案下載適合超過 10 MB 的內容。 如果您的平均檔案大小小於 10 MB，您可能會想要使用一般 Web 傳遞。 如果您的平均檔案大小一直都大於 10 MB，為大型檔案分別建立端點可能更有效率。 例如，韌體或軟體更新通常是大型檔案。
 
-Verizon 的 Azure 內容傳遞網路會使用一般 Web 傳遞最佳化類型來傳遞串流處理媒體內容。
+Verizon 的 Azure 內容傳遞網路會使用一般 Web 傳遞最佳化類型來傳遞大型檔案下載內容。
 
 若要深入了解大型檔案最佳化，請參閱[大型檔案最佳化](cdn-large-file-optimization.md)。
 

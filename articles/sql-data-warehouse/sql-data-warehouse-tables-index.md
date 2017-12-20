@@ -3,8 +3,8 @@ title: "在 SQL 資料倉儲中編製資料表的索引 | Microsoft Azure"
 description: "開始在 Azure SQL 資料倉儲中編製資料表的索引"
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: barbkess
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: 3e617674-7b62-43ab-9ca2-3f40c41d5a88
 ms.service: sql-data-warehouse
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 07/12/2016
-ms.author: shigu;barbkess
-ms.openlocfilehash: b205ed47833f675286539705e2754d2ea3821b8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: 672270536a7405e617edbcf5ec0e6eff68be7fde
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>在 SQL 資料倉儲中編製資料表的索引
 > [!div class="op_single_selector"]
@@ -191,7 +191,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 這些因素可能會導致資料行存放區索引在每個資料列群組中的資料列大幅少於最佳的 100 萬個。  它們也會造成資料列移至差異資料列群組，而不是壓縮的資料列群組。 
 
 ### <a name="memory-pressure-when-index-was-built"></a>建立索引時的記憶體壓力
-每個壓縮資料列群組的資料列數目，直接與資料列寬度以及可用來處理資料列群組的記憶體數量相關。  當資料列在記憶體不足的狀態下寫入資料行存放區資料表時，資料行存放區區段品質可能會降低。  因此，最佳做法是盡可能讓寫入至您的資料行存放區索引資料表的工作階段能存取較多的記憶體。  因為記憶體與並行存取之間有所取捨，正確的記憶體配置指引取決於您的資料表的每個資料列中的資料、您已配置給您的系統的 DWU 數量，以及您可以提供給將資料寫入至資料表的工作階段的並行存取插槽數量。  最佳做法：如果您使用 DW300 或更少，我們建議從 xlargerc 開始，如果您使用 DW400 至 DW600，則從 largerc 開始，而如果您使用 DW1000 和更高，則從 mediumrc 開始。
+每個壓縮資料列群組的資料列數目，直接與資料列寬度以及可用來處理資料列群組的記憶體數量相關。  當資料列在記憶體不足的狀態下寫入資料行存放區資料表時，資料行存放區區段品質可能會降低。  因此，最佳做法是盡可能讓寫入至您的資料行存放區索引資料表的工作階段能存取較多的記憶體。  因為記憶體與並行存取之間有所取捨，正確的記憶體配置指引取決於您的資料表的每個資料列中的資料、配置給系統的資料倉儲單位，以及您可以提供給將資料寫入至資料表的工作階段的並行存取插槽數目。  最佳做法：如果您使用 DW300 或更少，我們建議從 xlargerc 開始，如果您使用 DW400 至 DW600，則從 largerc 開始，而如果您使用 DW1000 和更高，則從 mediumrc 開始。
 
 ### <a name="high-volume-of-dml-operations"></a>大量的 DML 作業
 更新和刪除資料列的大量 DML 作業，會造成資料行存放區沒有效率。 這在資料列群組中大部分的資料列都已修改時，更是如此。
@@ -247,7 +247,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-在 SQL 資料倉儲中重建索引是一項離線作業。  如需重建索引的詳細資訊，請參閱[資料行存放區索引重組][Columnstore Indexes Defragmentation] 和語法主題 [ALTER INDEX][ALTER INDEX] 中的 ALTER INDEX REBUILD 區段。
+在 SQL 資料倉儲中重建索引是一項離線作業。  如需重建索引的詳細資訊，請參閱[資料行存放區索引重組][Columnstore Indexes Defragmentation]和 [ALTER INDEX][ALTER INDEX] 中的 ALTER INDEX REBUILD 區段。
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>步驟 3︰確認已改善叢集資料行存放區區段品質
 請重新執行已識別區段品質不佳之資料表的查詢，並驗證區段品質是否已改善。  如果區段品質並未改善，可能是您的資料表中的資料列過寬。  請考慮在重建索引時使用較高的資源類別或 DWU。

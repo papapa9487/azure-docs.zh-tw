@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 992c438ab2dac8dc20ba284bd095afbcd801a62f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 819af52bb10c9ffcb7e1133437f6d0afbe6105ae
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="hybrid-connections-overview"></a>混合式連線概觀
 
@@ -90,12 +90,12 @@ ms.lasthandoff: 10/11/2017
 | 80、443 |這些連接埠用於傳送部分資料要求給 Azure。 而且，如果連接埠 9352 和 5671 無法使用，則連接埠 80 和 443 是用於資料傳輸和控制通道的後援連接埠。允許對這些連接埠的輸出連線。<br/><br/>允許對這些連接埠的輸出連線。 <br/><br/>**注意** 不建議使用這些做為後援連接埠來代替其他 TCP 連接埠。 HTTP/WebSocket 是做為通訊協定使用，而非資料通道的原生 TCP。 這可能會導致效能變低。 |
 
 ## <a name="next-steps"></a>後續步驟
-[Create and manage Hybrid Connections](integration-hybrid-connection-create-manage.md)<br/>
+[Create and manage Hybrid Connections](integration-hybrid-connection-create-manage.md)
 
 ## <a name="see-also"></a>另請參閱
-[用於管理 Microsoft Azure 上之 BizTalk 服務的 REST API](http://msdn.microsoft.com/library/azure/dn232347.aspx)
-[BizTalk 服務：版本圖表](biztalk-editions-feature-chart.md)<br/>
-[使用 Azure 入口網站建立 BizTalk 服務](biztalk-provision-services.md)<br/>
-[BizTalk 服務：儀表板、監視和調整索引標籤](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+[用於管理 Microsoft Azure 上之 BizTalk 服務的 REST API](http://msdn.microsoft.com/library/azure/dn232347.aspx)  
+[BizTalk 服務：版本圖表](biztalk-editions-feature-chart.md)  
+[建立 BizTalk 服務](biztalk-provision-services.md)  
+[BizTalk 服務：儀表板、監視和調整索引標籤](biztalk-dashboard-monitor-scale-tabs.md)  
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png

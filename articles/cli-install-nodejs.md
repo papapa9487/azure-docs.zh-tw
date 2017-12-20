@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
-ms.openlocfilehash: 63b35ed25b809a16b61b685fd35aa67474b0a369
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0dc9d95729f28dd0846178e24a25425170c893df
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="install-the-azure-cli-10"></a>安裝 Azure CLI 1.0
 > [!div class="op_single_selector"]
@@ -28,7 +28,8 @@ ms.lasthandoff: 10/11/2017
 > * [Azure CLI 2.0](/cli/azure/install-azure-cli)
 
 > [!IMPORTANT]
-> 本主題說明如何安裝 Azure CLI 1.0，它是以 NodeJS 為基礎而建置，並支援所有傳統部署 API 呼叫，以及大量的 Resource Manager 部署活動。 針對新的或前瞻性的 CLI 部署及管理，您應該使用 [Azure CLI 2.0](/cli/azure/overview)。
+> 本主題將說明如何安裝 Azure CLI 1.0。 此 CLI 已經過時，僅能用於支援具有「傳統」資源的 Azure 服務管理 (ASM) 模型。
+> 對於 Azure Resource Manager (ARM) 部署，請使用 [Azure CLI 2.0](/cli/azure/overview)。
 
 快速安裝 Azure 命令列介面 (Azure CLI 1.0) 來使用一組開放原始碼的殼層命令，用於建立和管理 Microsoft Azure 中的資源。 有數個選項可讓您在電腦上安裝這些跨平台工具︰
 

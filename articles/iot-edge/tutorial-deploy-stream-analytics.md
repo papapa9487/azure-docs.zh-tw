@@ -9,84 +9,109 @@ ms.author: v-masebo
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5a143bbf7abb5304ac51782d517c02ec184a05a2
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 6cf8e2469a6fe6bac0db6caf9acb182a6349096f
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>將 Azure 串流分析部署為 IoT Edge 模組 - 預覽
 
-IoT 裝置可能會產生大量資料。 有時候，這些資料必須先進行分析或處理，然後才送到雲端，這樣可減少上傳資料的大小，或排除可操作深入解析 (actionable insight) 的往返延遲。
+IoT 裝置可能會產生大量資料。 若要減少上傳資料的大小，或排除可操作深入解析的來回行程延遲，則這些資料有時候必須先進行分析或處理，然後才送到雲端。
 
-IoT Edge 會利用預先建置的 Azure 服務 IoT Edge 模組，以便快速進行部署，而 [Azure 串流分析][azure-stream] (ASA) 就是這類模組。 您可以從其入口網站中建立 ASA 作業，然後前往 IoT 中樞入口網站將該作業部署為 IoT Edge 模組。  
+Azure IoT Edge 會利用預先建置的 Azure 服務 IoT Edge 模組，以便快速進行部署。 [Azure 串流分析][azure-stream]屬於此類模組。 您可以從 Azure 串流分析入口網站中建立其作業，然後移至 Azure IoT 中樞入口網站將它部署為 IoT Edge 模組。 
 
-Azure 串流分析針對雲端中或 IoT Edge 上的資料，提供了豐富結構化的查詢語法。 如需 IoT Edge 上的 ASA 相關資訊，請參閱 [ASA 文件](../stream-analytics/stream-analytics-edge.md)。
+Azure 串流分析針對雲端中或 IoT Edge 上的資料，提供了豐富結構化的查詢語法。 如需 IoT Edge 上串流分析的詳細資訊，請參閱 [Azure 串流分析文件](../stream-analytics/stream-analytics-edge.md)。
 
-本教學課程會引導您建立 Azure 串流分析作業，以及其在 IoT Edge 裝置上的部署，以便直接在裝置上處理本機遙測資料流，並產生警示以在裝置上立即採取動作。  此教學課程中包含兩個模組。 模擬的溫度感應器模組 (tempSensor) 會產生 20 到 120 度的溫度資料 (每隔 5 秒增加 1 度)。 串流分析模組會在平均 30 秒就會達到 70 度時，重設 tempSensor。 在生產環境中，這項功能可能會用來關閉機器，或在溫度達到危險層級時採取預防措施。 
+本教學課程逐步引導您建立 Azure 串流分析作業，並將它部署在 IoT Edge 裝置上。 這樣做可讓您直接在該裝置上處理本機遙測資料流，並產生在裝置上驅動立即動作的警示。 
 
-您會了解如何：
+教學課程示範兩個模組： 
+* 模擬的溫度感應器模組 (tempSensor) 會產生 20 到 120 度的溫度資料 (每隔 5 秒增加 1 度)。 
+* 串流分析模組會在 30 秒的平均值達到 70 度時重設 tempSensor。 在生產環境中，您可能會使用此功能用來關閉機器，或在溫度達到危險程度時採取預防措施。 
+
+在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
-> * 在 Edge 上建立 ASA 作業來處理資料
-> * 將新的 ASA 作業與其他 IoT Edge 模組連線
-> * 將 ASA 作業部署到 IoT Edge 裝置
+> * 建立 Azure 串流分析作業以在邊緣上處理資料。
+> * 將新的 Azure 串流分析作業與其他 IoT Edge 模組連結。
+> * 將 Azure 串流分析作業部署到 IoT Edge 裝置。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-* IoT 中樞 
-* 您在快速入門中，或是在＜在 [Windows][lnk-tutorial1-win] 和 [Linux][lnk-tutorial1-lin] 上的模擬裝置中部署 Azure IoT Edge＞中建立及設定的裝置。 您必須知道裝置連線金鑰和裝置識別碼。 
-* 在 IoT Edge 裝置上執行的 Docker
-    * [在 Windows 上安裝 Docker][lnk-docker-windows]
-    * [在 Linux 上安裝 Docker][lnk-docker-linux]
-* IoT Edge 裝置上的 Python 2.7.x
+* IoT 中樞。 
+* 您在快速入門中，或是有關在 [Windows][lnk-tutorial1-win] 或 [Linux][lnk-tutorial1-lin] 中的模擬裝置上部署 Azure IoT Edge 的文章中建立及設定的裝置。 您必須知道裝置連線金鑰和裝置識別碼。 
+* 在 IoT Edge 裝置上執行的 Docker。
+    * [在 Windows 上安裝 Docker][lnk-docker-windows]。
+    * [在 Linux 上安裝 Docker][lnk-docker-linux]。
+* IoT Edge 裝置上的 Python 2.7.x。
     * [在 Windows 上安裝 Python 2.7][lnk-python]。
-    * 大部分的 Linux 發行版本 (包括 Ubuntu) 都已安裝 Python 2.7。  請使用下列命令確定 pip 已安裝：`sudo apt-get install python-pip`。
+    * 大部分的 Linux 發行版本 (包括 Ubuntu) 都已安裝 Python 2.7。 若要確定 pip 已安裝，請使用下列命令：`sudo apt-get install python-pip`。
 
+## <a name="create-an-azure-stream-analytics-job"></a>建立 Azure 串流分析作業
 
-## <a name="create-an-asa-job"></a>建立 ASA 作業
-
-在本節中，您可以透過建立 Azure 串流分析作業，從 IoT 中樞取用資料、查詢從您裝置送出的遙測資料，以及將結果轉送至 Azure 儲存體容器 (BLOB)。 如需詳細資訊，請參閱[串流分析文件][azure-stream]的**概觀**一節。 
+在本節中，您可以透過建立 Azure 串流分析作業，從 IoT 中樞取用資料、查詢從您裝置送出的遙測資料，然後將結果轉送至 Azure Blob 儲存體容器。 如需詳細資訊，請參閱[串流分析文件][azure-stream]的＜概觀＞一節。 
 
 ### <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-Azure 儲存體帳戶必須提供端點，才可作為 ASA 作業中的輸出。 下列範例會使用 BLOB 儲存體類型。  如需詳細資訊，請參閱 [Azure 儲存體文件][azure-storage]中的 **Blob** 一節。
+需要有 Azure 儲存體帳戶，才能提供端點作為 Azure 串流分析作業中的輸出。 本節中的範例使用 Blob 儲存體類型。 如需詳細資訊，請參閱 [Azure 儲存體文件][azure-storage]的＜Blob＞一節。
 
-1. 在 Azure 入口網站中，瀏覽至**建立資源**並在搜尋列中輸入 `Storage account`。 選取**儲存體帳戶 - blob、檔案、資料表、佇列**。
+1. 在 Azure 入口網站中，移至 [建立資源]，在搜尋方塊中輸入**儲存體帳戶**，然後選取 [儲存體帳戶 - Blob、檔案、資料表、佇列]。
 
-2. 輸入儲存體帳戶的名稱，並選取與您 IoT 中樞所在相同的位置。 按一下 [建立] 。 記下名稱以在稍後使用。
+2. 在 [建立儲存體帳戶] 窗格中，輸入您的儲存體帳戶名稱，再選取儲存您 IoT 中樞的相同位置，然後選取 [建立]。 記下名稱以在稍後使用。
 
-    ![新儲存體帳戶][1]
+    ![建立儲存體帳戶][1]
 
-3. 瀏覽至您剛建立的儲存體帳戶。 按一下 [瀏覽 blob]。 
-4. 建立新的 ASA 模組容器來儲存資料。 將存取層級設為**容器**。 按一下 [確定] 。
+3. 移至您剛才建立的儲存體帳戶，然後選取 [瀏覽 Blob]。 
+
+4. 為 Azure 串流分析模組建立用來儲存資料的新容器，將存取層級設定為 [容器]，然後選取 [確定]。
 
     ![儲存體設定][10]
 
 ### <a name="create-a-stream-analytics-job"></a>建立串流分析工作
 
-1. 在 Azure 入口網站中，瀏覽至 [建立資源] > [物聯網]，然後選取 [串流分析作業]。
+1. 在 Azure 入口網站中，移至 [建立資源] > [物聯網]，然後選取 [串流分析工作]。
 
-2. 輸入名稱，選擇 [Edge] 作為主控環境，並使用其餘的預設值。  按一下 [建立] 。
+2. 在 [新的串流分析工作] 窗格中，執行下列動作：
 
-    >[!NOTE]
-    >目前，「美國西部 2」區域並不支援 IoT Edge 上的 ASA 作業。 
+    a. 在 [工作名稱] 方塊中，輸入作業名稱。
+    
+    b. 在 [主控環境] 下，選取 [Edge]。
+    
+    c. 在剩餘的欄位中，使用預設值。
 
-3. 前往已建立作業。 選取 [輸入] 然後按一下 [新增]。
+    > [!NOTE]
+    > 目前，在「美國西部 2」區域中並不支援 IoT Edge 上的 Azure 串流分析作業。 
 
-4. 針對輸入別名，輸入 `temperature`，將來源類型設為 [資料流]，然後使用其他參數的預設值。 按一下 [建立] 。
+3. 選取 [建立]。
 
-   ![ASA 輸入](./media/tutorial-deploy-stream-analytics/asa_input.png)
+4. 在已建立的作業中，於 [工作拓撲] 下選取 [輸入]，然後選取 [新增]。
 
-5. 選取 [輸出] 然後按一下 [新增]。
+5. 在 [新的輸入] 窗格中，執行下列動作：
 
-6. 針對輸出別名，輸入 `alert`，然後使用其他參數的預設值。 按一下 [建立] 。
+    a. 在 [輸入別名] 方塊中，輸入**溫度**。
+    
+    b. 在 [來源類型] 方塊中，選取 [資料流]。
+    
+    c. 在剩餘的欄位中，使用預設值。
 
-   ![ASA 輸出](./media/tutorial-deploy-stream-analytics/asa_output.png)
+   ![Azure 串流分析輸入](./media/tutorial-deploy-stream-analytics/asa_input.png)
+
+6. 選取 [建立]。
+
+7. 在 [工作拓撲] 下選取 [輸出]，然後選取 [新增]。
+
+8. 在 [新的輸出] 窗格中，執行下列動作：
+
+    a. 在 [輸出別名] 方塊中，輸入**警示**。
+    
+    b. 在剩餘的欄位中，使用預設值。 
+    
+    c. 選取 [建立]。
+
+   ![Azure 串流分析輸出](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
 
-7. 選取 [查詢]。
-8. 使用下列查詢取代預設文字：
+9. 在下 [工作拓撲] 下選取 [查詢]，並以下列查詢取代預設文字：
 
     ```sql
     SELECT  
@@ -98,30 +123,43 @@ Azure 儲存體帳戶必須提供端點，才可作為 ASA 作業中的輸出。
     GROUP BY TumblingWindow(second,30) 
     HAVING Avg(machine.temperature) > 70
     ```
-9. 按一下 [儲存] 。
+
+10. 選取 [儲存]。
 
 ## <a name="deploy-the-job"></a>部署作業
 
-現在您已經準備好要在 IoT Edge 裝置上部署 ASA 作業。
+現在您已經準備好要在 IoT Edge 裝置上部署 Azure 串流分析作業。
 
-1. 在 Azure 入口網站中，從您的 IoT 中樞內瀏覽至 [IoT Edge (預覽)]，並開啟 IoT Edge 裝置的詳細資料頁面。
-1. 選取 [設定模組]。
-1. 如果您先前在此裝置上部署過 tempSensor 模組，其可能會自動填入。 如果沒有，請使用下列步驟來新增模組：
-   1. 按一下 [新增 IoT Edge 模組]。
-   1. 輸入 `tempSensor` 作為名稱，以及 `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview` 作為影像 URI。 
-   1. 其他設定保留不變，然後按一下 [儲存]。
-1. 若要新增 ASA Edge 作業，請選取 [匯入 Azure 串流分析 IoT Edge 模組]。
-1. 選取訂用帳戶與您建立的 ASA Edge 作業。 
-1. 選取訂用帳戶與您建立的儲存體帳戶。 按一下 [儲存] 。
+1. 在 Azure 入口網站中，從您的 IoT 中樞內移至 [IoT Edge (預覽)]，然後開啟 IoT Edge 裝置的詳細資料頁面。
+
+2. 選取 [設定模組]。  
+    如果您先前在此裝置上部署過 tempSensor 模組，它可能會自動填入。 如果沒有，請執行下列動作來新增模組：
+
+   a. 選取 [新增 IoT Edge 模組]。
+
+   b. 針對名稱，輸入 **tempSensor**。
+    
+   c. 針對映像 URI，輸入 **microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview**。 
+
+   d. 其他設定保留不變。
+   
+   e. 選取 [儲存]。
+
+3. 若要新增 Azure 串流分析 Edge 作業，請選取 [匯入 Azure 串流分析 IoT Edge 模組]。
+
+4. 選取訂用帳戶與您建立的 Azure 串流分析 Edge 作業。 
+
+5. 選取訂用帳戶與您建立的儲存體帳戶，然後選取 [儲存]。
 
     ![設定模組][6]
 
-1. 複製已自動產生的 ASA 模組名稱。 
+6. 複製已自動產生的 Azure 串流分析模組名稱。 
 
     ![溫度模組][11]
 
-1. 按一下 [下一步] 來設定路由。
-1. 將下列命令複製到 [路由]。  使用您複製的模組名稱取代 _{moduleName}_：
+7. 若要設定路由，請選取 [下一步]。
+
+8. 將下列程式碼複製到 [路由]。 使用您複製的模組名稱取代 _{moduleName}_：
 
     ```json
     {
@@ -134,19 +172,20 @@ Azure 儲存體帳戶必須提供端點，才可作為 ASA 作業中的輸出。
     }
     ```
 
-1. 按一下 [下一步] 。
+9. 選取 [下一步] 。
 
-1. 在 [檢閱範本] 步驟中，按一下 [提交]。
+10. 在 [檢閱範本] 步驟中，選取 [提交]。
 
-1. 返回裝置的詳細資料頁面，按一下 [重新整理]。  您應該會看到新的串流分析模組正在與 **IoT Edge 代理程式**模組和 **IoT Edge 中樞**一起執行。
+11. 返回裝置的詳細資料頁面，然後選取 [重新整理]。  
+    您應該會看到新的串流分析模組正在與 IoT Edge 代理程式模組和 IoT Edge 中樞一起執行。
 
     ![模組輸出][7]
 
 ## <a name="view-data"></a>檢視資料
 
-現在您可以移至您的 IoT Edge 裝置，確認 ASA 模組和 tempSensor 模組之間的互動。
+現在您可以移至您的 IoT Edge 裝置，確認 Azure 串流分析模組和 tempSensor 模組之間的互動。
 
-檢查是否所有模組皆在 Docker 中執行：
+1. 檢查是否所有模組皆在 Docker 中執行：
 
    ```cmd/sh
    docker ps  
@@ -154,7 +193,7 @@ Azure 儲存體帳戶必須提供端點，才可作為 ASA 作業中的輸出。
 
    ![Docker 輸出][8]
 
-查看所有系統記錄和計量資料。 使用串流分析模組名稱：
+2. 檢視所有系統記錄和計量資料。 使用串流分析模組名稱：
 
    ```cmd/sh
    docker logs -f {moduleName}  
@@ -167,7 +206,7 @@ Azure 儲存體帳戶必須提供端點，才可作為 ASA 作業中的輸出。
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已設定了 Azure 儲存體容器與串流分析作業來分析 IoT Edge 裝置中的資料。  接著，您載入了自訂 ASA 模組，透過串流將資料從您的裝置移至用於下載的 BLOB 中。  您可以繼續閱讀其他教學課程，以進一步了解 Azure IoT Edge 可如何為您的企業建立解決方案。
+在本教學課程中，您已設定了 Azure 儲存體容器與串流分析作業來分析 IoT Edge 裝置的資料。 接著，您載入了自訂 Azure 串流分析模組，透過串流將資料從您的裝置移至用於下載的 Blob 中。 若要進一步了解 Azure IoT Edge 可如何為您的企業建立解決方案，請繼續閱讀其他教學課程。
 
 > [!div class="nextstepaction"] 
 > [將 Azure Machine Learning 模型部署為模組][lnk-ml-tutorial]

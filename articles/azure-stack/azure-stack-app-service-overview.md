@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: anwestg
-ms.openlocfilehash: 19b712d622276b6521317d79c68fc093dba547db
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: fd2d355b2556faddb06acf2998b54ffcc9aa7919
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Azure Stack 概觀上的 App Service
 
@@ -37,8 +37,8 @@ Azure App Service 包含可用來自動執行商務程序及裝載雲端 API 的
 
 App Service 提供數個「應用程式類型」，而每個類型主要裝載特定工作負載：
 
-- [Web Apps](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) 用於裝載網站和 Web 應用程式。
-- [API Apps](https://docs.microsoft.com/en-us/azure/app-service-api/app-service-api-apps-why-best-platform) 用於裝載 RESTful API。
+- [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) 用於裝載網站和 Web 應用程式。
+- [API Apps](https://docs.microsoft.com/azure/app-service-api/app-service-api-apps-why-best-platform) 用於裝載 RESTful API。
 - Azure Functions 用於託管活動導向的無伺服器工作負載。
 
 應用程式一詞在這裡是指專門用來執行工作負載的裝載資源。 以「Web 應用程式」為例，您可能已習慣將 Web 應用程式視為可一起提供瀏覽器功能的計算資源和應用程式程式碼。 但是在 App Service 中，Web 應用程式是 Azure Stack 提供用來裝載應用程式程式碼的計算資源。

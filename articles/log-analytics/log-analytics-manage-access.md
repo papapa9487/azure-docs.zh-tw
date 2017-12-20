@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: d9f86ac19044fd13e77d35d6c3dd9964c3852001
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1549408c6885ee556a142ab7de613ebb1629070d
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="manage-workspaces"></a>管理工作區
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 * 您是受管理的服務提供者，需要將您管理的每個客戶的 Log Analytics 資料和其他客戶的資料保持隔離。
 * 您管理多個客戶，想要讓每個客戶/部門/事業群只看到他們自己的資料，而不是其他客戶/部門/事業群的資料。
 
-使用代理程式收集資料時，您可以[設定每個代理程式向一或多個工作區回報](log-analytics-windows-agents.md)。
+使用代理程式收集資料時，您可以[設定每個代理程式向一或多個工作區回報](log-analytics-windows-agent.md)。
 
 如果您使用 System Center Operations Manager，每個 Operations Manager 管理群組只能連接一個工作區。 不過，您可以將電腦上的 Microsoft Monitoring Agent 設定為同時向 Operations Manager 和不同的 Log Analytics 工作區回報。  
 
@@ -195,7 +195,7 @@ Azure 有兩個適用於 Log Analytics 的內建使用者角色：
 使用下列步驟，將使用者或群組新增至工作區。
 
 1. 在 OMS 入口網站中，按一下 [設定] 圖格。
-2. 按一下 帳戶 索引標籤，然後按一下管理使用者 索引標籤。
+2. 按一下 [帳戶] 索引標籤，然後按一下 [管理使用者] 索引標籤。
 3. 在 [管理使用者] 區段中，選擇要新增的帳戶類型：[組織帳戶]、[Microsoft 帳戶]、[Microsoft 支援服務]。
 
    * 如果您選擇 [Microsoft 帳戶]，請輸入與該 Microsoft 帳戶相關聯的使用者電子郵件地址。
@@ -226,7 +226,7 @@ Azure 有兩個適用於 Log Analytics 的內建使用者角色：
 
 #### <a name="to-edit-an-account"></a>編輯帳戶
 1. 在 OMS 入口網站中，按一下 [設定] 圖格。
-2. 按一下 帳戶 索引標籤，然後按一下管理使用者 索引標籤。
+2. 按一下 [帳戶] 索引標籤，然後按一下 [管理使用者] 索引標籤。
 3. 選取您要變更的使用者角色。
 4. 在確認對話方塊中，按一下 [是]。
 
@@ -234,7 +234,7 @@ Azure 有兩個適用於 Log Analytics 的內建使用者角色：
 使用下列步驟，從工作區移除使用者。 移除使用者並不會關閉工作區。 而會移除使用者與工作區之間的關聯。 如果使用者與多個工作區相關聯，該使用者還是可以登入 OMS，並看到其他工作區。
 
 1. 在 OMS 入口網站中，按一下 [設定] 圖格。
-2. 按一下 帳戶 索引標籤，然後按一下管理使用者 索引標籤。
+2. 按一下 [帳戶] 索引標籤，然後按一下 [管理使用者] 索引標籤。
 3. 按一下您要移除之使用者名稱旁邊的 [移除]。
 4. 在確認對話方塊中，按一下 [是]。
 
@@ -243,14 +243,14 @@ Azure 有兩個適用於 Log Analytics 的內建使用者角色：
 2. 在 [選擇使用者/群組] 下方，選取 [群組]。  
    ![add a group to an existing workspace](./media/log-analytics-manage-access/add-group.png)
 3. 輸入您想要新增之群組的顯示名稱或電子郵件地址。
-4. 在清單結果中選取群組，然後按一下新增。
+4. 在清單結果中選取群組，然後按一下 [新增]。
 
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>將現有的工作區連結到 Azure 訂用帳戶
 建立時，所有在 2016 年 9 月 26 日之後建立的工作區都必須連結到 Azure 訂用帳戶。 當您登入時，在這個日期之前建立的工作區必須連結到工作區。 如果您從 Azure 入口網站建立工作區，或將工作區連結到 Azure 訂用帳戶，則會連結 Azure Active Directory 作為您的組織帳戶。
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>在 OMS 入口網站中將工作區連結到 Azure 訂用帳戶
 
-- 當您登入 OMS 入口網站時，系統會提示您選取 Azure 訂用帳戶。 選取您想要連結至工作區的訂用帳戶，然後按一下連結。  
+- 當您登入 OMS 入口網站時，系統會提示您選取 Azure 訂用帳戶。 選取您想要連結至工作區的訂用帳戶，然後按一下 [連結]。  
     ![連結 Azure 訂用帳戶](./media/log-analytics-manage-access/required-link.png)
 
     > [!IMPORTANT]
@@ -286,8 +286,8 @@ Azure 有兩個適用於 Log Analytics 的內建使用者角色：
 
 ### <a name="to-change-the-azure-active-directory-organization-for-a-workspace"></a>變更工作區的 Azure Active Directory 組織
 
-1. 在 OMS 入口網站的 設定 頁面上，按一下 帳戶，然後按一下管理使用者 索引標籤。  
-2. 檢閱組織帳戶的資訊，然後按一下變更組織。  
+1. 在 OMS 入口網站的 [設定] 頁面上，按一下 [帳戶]，然後按一下 [管理使用者] 索引標籤。  
+2. 檢閱組織帳戶的資訊，然後按一下 [變更組織]。  
     ![變更組織](./media/log-analytics-manage-access/manage-access-add-adorg01.png)
 3. 輸入您 Azure Active Directory 網域之系統管理員的身分識別資訊。 之後，您會看到通知，指出您的工作區連結到 Azure Active Directory 網域。  
     ![連結的工作區通知](./media/log-analytics-manage-access/manage-access-add-adorg02.png)

@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 241b744f5c5e89f53addb4d41d732245d76ef9a3
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: f2e7f93d2d2914399f3fc7b24a00540f1c045b58
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>規劃 Azure 檔案同步 (預覽) 部署
 使用 Azure 檔案同步 (預覽版)，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的靈活度、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -46,7 +46,10 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>伺服器端點
-伺服器端點代表已註冊伺服器上的特定位置，例如伺服器磁碟區上的資料夾或磁碟區的根目錄。 如果伺服器端點的命名空間沒有重疊 (例如 F:\sync1 和 F:\sync2)，則相同磁碟區中可以存在多個伺服器端點。 您可以為每個伺服器端點個別設定雲端階層原則。 如果您將具有一組現有檔案的伺服器位置作為伺服器端點新增至同步群組，那些檔案會與同步群組中其他端點上已存在的任何其他檔案合併。
+伺服器端點代表已註冊的伺服器上的特定位置，例如伺服器磁碟區上的資料夾或磁碟區的根目錄。 如果伺服器端點的命名空間沒有重疊 (例如 F:\sync1 和 F:\sync2)，則相同磁碟區中可以存在多個伺服器端點。 您可以為每個伺服器端點個別設定雲端階層原則。 如果您將具有一組現有檔案的伺服器位置作為伺服器端點新增至同步群組，那些檔案會與同步群組中其他端點上已存在的任何其他檔案合併。
+
+> [!Note]  
+> 伺服器端點可能會放在 Windows 系統磁碟區。 系統磁碟區上不支援雲端階層。
 
 ### <a name="cloud-endpoint"></a>雲端端點
 雲端端點是屬於同步群組之一部分的 Azure 檔案共用。 整個 Azure 檔案共用都會同步，而且 Azure 檔案共用只能是單一雲端端點的成員。 因此，Azure 檔案共用只能是單一同步處理群組的成員。 如果您將內含一組現有檔案的 Azure 檔案共用作為雲端端點新增至同步群組，現有的檔案會與同步群組中其他端點上已存在的任何其他檔案合併。
@@ -56,6 +59,9 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 
 ### <a name="cloud-tiering"></a>雲端階層處理 
 雲端階層處理是 Azure 檔案同步的選擇性功能，可將不常使用或存取的檔案分層處理至 Azure 檔案服務。 當檔案被分層之後，Azure 檔案同步檔案系統篩選器 (StorageSync.sys) 會將本機檔案取代為指標或重新分析點。 重新分析點代表的是針對 Azure 檔案服務中檔案的 URL。 階層式檔案在 NTFS 中具有「離線」屬性集，使協力廠商應用程式得以識別階層式檔案。 當使用者開啟階層式檔案時，Azure 檔案同步會順暢地從 Azure 檔案服務重新叫用檔案資料，使用者並不需要知道檔案未儲存在本機系統上。 這項功能也稱為階層式存放裝置管理 (HSM)。
+
+> [!Important]  
+> Windows 系統磁碟區上的伺服器端點不支援雲端接層。
 
 ## <a name="azure-file-sync-interoperability"></a>Azure 檔案同步互通性 
 本節涵蓋 Azure 檔案同步與 Windows Server 功能和角色，以及協力廠商解決方案的互通性。
@@ -79,15 +85,15 @@ Windows Server 的未來版本將會於發佈時加入支援清單。 舊版的 
 | 存取控制清單 (ACL) | 完全支援 | Azure 檔案同步會保留 Windows ACL，並由 Windows Server 在伺服器端點上強制執行。 如果檔案是直接在雲端中存取，則 Azure 檔案服務尚未支援 Windows ACL。 |
 | 永久連結 | Skipped | |
 | 符號連結 | Skipped | |
-| 掛接點 | 部分支援 | 掛接點可能是伺服器端點的根目錄，但如果它們被包含在伺服器端點的命名空間中，系統將會略過它們。 |
-| 接合 | Skipped | |
+| 掛接點 | 部分支援 | 掛接點可能是伺服器端點的根目錄，但如果伺服器端點的命名空間中包含它們，系統會予以略過。 |
+| 接合 | Skipped | 例如，分散式檔案系統 DfrsrPrivate 和 DFSRoots 資料夾。 |
 | 重新分析點 | Skipped | |
 | NTFS 壓縮 | 完全支援 | |
 | 疏鬆檔案 | 完全支援 | 疏鬆檔案會同步 (不會封鎖)，但它們會以完整檔案的形式同步至雲端。 如果檔案內容在雲端中 (或另一部伺服器上) 有所變更，該檔案在變更下載之後就不再是疏鬆檔案。 |
 | 替代資料流 (ADS) | 已保留，但未同步 | |
 
 > [!Note]  
-> 僅支援 NTFS 磁碟區。
+> 僅支援 NTFS 磁碟區。 不支援 ReFS、FAT、FAT32 及其他檔案系統。
 
 ### <a name="failover-clustering"></a>容錯移轉叢集
 Azure 檔案同步的 [一般用途的檔案伺服器] 部署選項支援 Windows Server 容錯移轉叢集。 「適用於應用程式資料的向外延展檔案伺服器」(SOFS) 或叢集共用磁碟區 (CSV) 上並不支援容錯移轉叢集。
@@ -97,6 +103,24 @@ Azure 檔案同步的 [一般用途的檔案伺服器] 部署選項支援 Window
 
 ### <a name="data-deduplication"></a>重複資料刪除
 針對未啟用雲端階層處理的磁碟區，Azure 檔案同步支援在磁碟區上啟用 Windows Server 重複資料刪除。 目前並不支援已啟用雲端階層處理的 Azure 檔案同步與重複資料刪除之間的互通性。
+
+### <a name="distributed-file-system-dfs"></a>分散式檔案系統 (DFS)
+從 [Azure 檔案同步代理程式 1.2](https://go.microsoft.com/fwlink/?linkid=864522) 開始，Azure 檔案同步支援與 DFS 命名空間 (DFS-N) 和 DFS 複寫 (DFS-R) 互通。
+
+**DFS 命名空間 (DFS-N)**：DFS-N 伺服器上完全支援 Azure 檔案同步。 您可以將 Azure 檔案同步代理程式安裝在一或多個 DFS-N 成員上，同步伺服器端點與雲端端點之間的資料。 如需詳細資訊，請參閱 [DFS 命名空間概觀](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview)。
+ 
+**DFS 複寫 (DFS-R)**：因為 DFS-R 與 Azure 檔案同步都是複寫解決方案，建議您在大部分情況下，以 Azure 檔案同步取代 DFS-R。不過有幾個案例，您會想要一起使用 DFS-R 和 Azure 檔案同步：
+
+- 您正要從 DFS-R 部署移轉至 Azure 檔案同步部署。 如需詳細資訊，請參閱[將 DFS 複寫 (DFS-R) 部署移轉至 Azure 檔案同步](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync)。
+- 並非需要檔案資料複本的每個內部部署伺服器都能直接連線到網際網路。
+- 分支伺服器將資料合併到您要使用 Azure 檔案同步的單一中樞伺服器。
+
+Azure 檔案同步和 DFS-R 如需並存使用：
+
+1. 務必在具有 DFS-R 複寫資料夾的磁碟區上停用 Azure 檔案同步雲端階層。
+2. 不應在 DFS-R 唯讀複寫資料夾上設定伺服器端點。
+
+如需詳細資訊，請參閱 [DFS 複寫概觀](https://technet.microsoft.com/library/jj127250)。
 
 ### <a name="antivirus-solutions"></a>防毒解決方案
 因為防毒程式的運作方式是掃描檔案中的已知惡意程式碼，所以防毒產品可能會導致階層式檔案的重新叫用。 因為階層式檔案具有「離線」屬性集，因此建議洽詢您的軟體廠商，以了解如何設定其解決方案以略過讀取離線檔案。 

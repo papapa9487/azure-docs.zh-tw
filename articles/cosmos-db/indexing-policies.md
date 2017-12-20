@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 30a21645831f0cfcb3b52c797dbddfa6b5283960
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53bf756963c305b8b31ac1a90d219f143522d051
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB 如何為資料編製索引？
 
@@ -61,14 +61,14 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="customizing-the-indexing-policy-using-the-portal"></a>使用入口網站自訂編製索引原則
 
-您可以使用 Azure 入口網站變更集合的編製索引原則。 在 Azure 入口網站中開啟您的 Azure Cosmos DB 帳戶，選取您的集合，在左側瀏覽功能表中按一下 設定，然後按一下編製索引原則。 在 編製索引原則 刀鋒視窗中，變更您的編製索引原則，然後按一下確定 以儲存變更。 
+您可以使用 Azure 入口網站變更集合的編製索引原則。 在 Azure 入口網站中開啟您的 Azure Cosmos DB 帳戶，選取您的集合，在左側瀏覽功能表中按一下 [設定]，然後按一下 [編製索引原則]。 在 [編製索引原則] 刀鋒視窗中，變更您的編製索引原則，然後按一下 [確定] 以儲存變更。 
 
 ### <a id="indexing-modes"></a>資料庫編製索引模式
 Azure Cosmos DB 支援三個編製索引模式，這些模式可以透過 Azure Cosmos DB 集合的編製索引原則來設定：「一致」、「延遲」和「無」。
 
 **一致**：如果將 Azure Cosmos DB 集合的原則指定為「一致」，指定 Azure Cosmos DB 集合上的查詢會依照與針對讀數所指定的相同一致性層級 (也就是強式、限定過期、工作階段或最終) 進行。 索引會在文件更新 (亦即，在 Azure Cosmos DB 集合中插入、取代、更新和刪除文件) 時同步更新。  一致的索引編製支援一致的查詢，但代價可能是減少寫入輸送量。 這指的是減少需要編製索引的唯一路徑以及「一致性層級」的功能。 一致的索引編製模式是針對「快速寫入、立即查詢」工作負載而設計。
 
-**延遲**：為允許最大的文件擷取輸送量，可以使用延遲一致性設定 Azure Cosmos DB 集合，也就是說，查詢最終是一致的。 索引會在 Azure Cosmos DB 集合靜止 (亦即，未充分利用集合的輸送量容量來處理使用者要求) 時，以非同步方式更新。 對於需要文件擷取不受妨礙的「立即擷取、稍後查詢」工作負載，可能適合「延遲」索引編製模式。
+**延遲**：索引會在 Azure Cosmos DB 集合靜止 (亦即，未完整利用集合的輸送量容量來處理使用者要求的時候) 時，以非同步方式更新。 對於需要文件擷取的「立即擷取、稍後查詢」工作負載，可能適合「延遲」索引編製模式。 請注意，因為資料擷取與索引編製緩慢，因此可能會有不一致的結果。 這表示在完成資料索引編製前，不保證您的計數查詢或特定查詢結果會是正確或可重複的。 索引通常處於追補模式。 WRT 延遲編製索引 - TTL 變更會導致卸除與重新建立索引，因此這項活動可能會導致非預期的結果。 大部分的客戶應使用一致的索引編製。
 
 **無**：標示為「無」索引模式的集合沒有任何與其相關聯的索引。 如果將 Azure Cosmos DB 做為索引鍵值儲存體，且只能依據文件的 ID 屬性來存取它們，常會使用此選項。 
 

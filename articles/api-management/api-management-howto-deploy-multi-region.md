@@ -3,22 +3,21 @@ title: "將 Azure API 管理服務部署到多個 Azure 區域 | Microsoft Docs"
 description: "瞭解如何將 Azure API 管理服務執行個體部署到多個 Azure 區域。"
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 47389ad6-f865-4706-833f-846115e22e4d
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 75a0fd7f02bcc7ed5278582f36d0ed6d54aa7bc4
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: e126e34bc9fce21243b0ef79f5ab661aec3a2de6
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>如何將 Azure API 管理服務執行個體部署到多個 Azure 區域
 API 管理支援多區域部署，可讓 API 發行者跨所需的任意數量 Azure 區域發佈單一 API 管理服務。 這有助於降低地理上分散的 API 取用者感受到的要求延遲，並且可以改善某個區域離線時服務的可用性。 
@@ -32,7 +31,7 @@ API 管理支援多區域部署，可讓 API 發行者跨所需的任意數量 A
 
 ## <a name="add-region"> </a>部署 API 管理服務執行個體到新區域
 > [!NOTE]
-> 如果您尚未建立 API 管理服務執行個體，請參閱[開始使用 Azure API 管理][Get started with Azure API Management]教學課程中的[建立 API 管理服務執行個體][Create an API Management service instance]。
+> 如果您尚未建立 API 管理服務執行個體，請參閱[建立 API 管理服務執行個體][Create an API Management service instance]。
 > 
 > 
 
@@ -70,8 +69,8 @@ API 管理支援多區域部署，可讓 API 發行者跨所需的任意數量 A
 [api-management-select-location-units]: ./media/api-management-howto-deploy-multi-region/api-management-select-location-units.png
 [api-management-remove-region]: ./media/api-management-howto-deploy-multi-region/api-management-remove-region.png
 
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
-[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: get-started-create-service-instance.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 
 [Deploy an API Management service instance to a new region]: #add-region
 [Delete an API Management service instance from a region]: #remove-region

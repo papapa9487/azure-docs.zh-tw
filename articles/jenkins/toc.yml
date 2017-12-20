@@ -26,6 +26,9 @@
     - name: 用 Azure VM 代理程式進行調整
       href: /azure/jenkins/jenkins-azure-vm-agents
       maintainContext: true
+    - name: 使用 Azure Container Instances 建置
+      href: /azure/jenkins/azure-container-agents-plugin-run-container-as-an-agent
+      maintainContext: true
 - name: 作法
   items:
     - name: 保護 Azure 上的 Jenkins

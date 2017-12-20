@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: get-started-article
 ms.date: 11/15/2017
-ms.openlocfilehash: 582ec5babf2bac34f20d4e9c7517f78ee2002e0b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: f066f0dd0dab0096279c18ded3c024a7cc0cbda0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="visual-studio-tools-for-ai"></a>適用於 AI 的 Visual Studio Tools
-適用於 AI 的 Visual Studio Tools 是開發延伸模組，可建置、測試及部署深入學習和 AI 解決方案。 它的特色在於與 Azure Machine Learning 的緊密整合、值得注意的執行歷程記錄檢視、詳細說明先前的定型與自訂度量的效能。 它提供範例總管檢視，可供使用 [Microsoft 辨識工具組 (先前稱為 CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit)、[Google TensorFlow](https://www.tensorflow.org) 與其他深入學習架構瀏覽並啟動新專案。 最後，提供用於計算目標的總管，它可讓您在使用 GPU 的 Azure 虛擬機器或 Linux 伺服器之類的遠端環境上，將作業提交至定型模型。 它也提供 [Azure Batch AI (預覽)](https://docs.microsoft.com/en-us/azure/batch-ai/) 的促進式存取。
+適用於 AI 的 Visual Studio Tools 是開發延伸模組，可建置、測試及部署深入學習和 AI 解決方案。 它的特色在於與 Azure Machine Learning 的緊密整合、值得注意的執行歷程記錄檢視、詳細說明先前的定型與自訂度量的效能。 它提供範例總管檢視，可供使用 [Microsoft 辨識工具組 (先前稱為 CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit)、[Google TensorFlow](https://www.tensorflow.org) 與其他深入學習架構瀏覽並啟動新專案。 最後，提供用於計算目標的總管，它可讓您在使用 GPU 的 Azure 虛擬機器或 Linux 伺服器之類的遠端環境上，將作業提交至定型模型。 它也提供 [Azure Batch AI (預覽)](https://docs.microsoft.com/azure/batch-ai/) 的促進式存取。
  
 ## <a name="getting-started"></a>開始使用 
 若要開始使用，您必須先下載並安裝 [Visual Studio](https://www.visualstudio.com/downloads/)。 開啟 Visual Studio 之後，執行下列步驟：
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/28/2017
 3. 按一下 [ **下載** ] 按鈕。 
 4. 安裝之後，重新啟動 Visual Studio。 
 
-一旦重新載入 Visual Studio，擴充功能就會啟動。 [深入了解尋找擴充功能](hhttps://docs.microsoft.com/en-us/visualstudio/ide/finding-and-using-visual-studio-extensions)。
+一旦重新載入 Visual Studio，擴充功能就會啟動。 [深入了解尋找擴充功能](hhttps://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions)。
 
 > [!NOTE]
 > 適用於 AI 的 Visual Studio Tools 需要 Visual Studio 2015 或 2017 專業或企業版。 它不支援 Apple OSX 版本。 

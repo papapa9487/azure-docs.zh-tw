@@ -15,16 +15,18 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/06/2017
 ms.author: barbkess
-ms.openlocfilehash: f24dc2600bec8b7086ee34a960e777a8a1b288ad
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 861c2c977fa9d0341125127852bc7747dfd6001a
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲最佳做法
 這篇文章集合許多讓您從 Azure SQL 資料倉儲獲得最佳效能的最佳做法。  文章中有些基本概念很容易說明，有些概念則更進階，我們在文中只做概述。  這篇文章的目的是要提供您一些基本指引，以及讓您對建立資料倉儲時需注意的重要領域有所認知。  每一節都會介紹一個概念，並提供您哪裡可以閱讀深度討論的詳細文章。
 
 如果您剛開始使用 Azure SQL 資料倉儲，千萬別讓這篇文章嚇到您。  主題的順序是大部分是按照重要性排列。  如果您從前幾項概念開始，您的進展會很順利。  當您更熟悉 SQL 資料倉儲且能運用自如，再回來看看其他概念。  融會貫通不需要很長時間。
+
+如需載入指引，請參閱[載入資料的指引](guidance-for-loading-data.md)。
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>利用暫停和調整來降低成本
 SQL 資料倉儲的一個重要功能，是能夠在您不使用它時予以暫停，這會停止計算資源的計費。  另一個重要功能是能夠調整資源。  暫停和調整可以透過 Azure 入口網站或透過 PowerShell 命令執行。  請熟悉這些功能，因為這些功能可以在資料倉儲不使用時大幅降低成本。  如果您希望隨時可存取資料倉儲，建議您將其調整到最小的大小 (DW100)，而不是暫停。
@@ -52,7 +54,7 @@ SQL 資料倉儲支援透過數種工具 (包括 Azure Data Factory、PolyBase�
 另請參閱[載入資料][Load data]、[PolyBase 使用指南][Guide for using PolyBase]、[Azure SQL 資料倉儲載入模式和策略][Azure SQL Data Warehouse loading patterns and strategies]、[使用 Azure Data Factory 載入資料][Load Data with Azure Data Factory]、[使用 Azure Data Factory 移動資料][Move data with Azure Data Factory]、[CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT]、[Create table as select (CTAS)][Create table as select (CTAS)]
 
 ## <a name="load-then-query-external-tables"></a>載入並查詢外部資料表
-雖然 Polybase (也稱為外部資料表) 可能是載入資料最快的方法，卻並非最適合查詢。 SQL 資料倉儲 Polybase 資料表目前僅支援 Azure blob 檔案。 這些檔案沒有任何支援的計算資源。  因此，SQL 資料倉儲無法卸載此工作，因而必須將整個檔案載入 tempdb 以讀取資料。  所以，如果您有數個將會查詢此資料的查詢，最好能一次載入此資料，並讓查詢使用本機資料表。
+雖然 Polybase (也稱為外部資料表) 可能是載入資料最快的方法，卻並非最適合查詢。 SQL 資料倉儲 Polybase 資料表目前僅支援 Azure blob 檔案和 Azure Data Lake 儲存體。 這些檔案沒有任何支援的計算資源。  因此，SQL 資料倉儲無法卸載此工作，因而必須將整個檔案載入 tempdb 以讀取資料。  所以，如果您有數個將會查詢此資料的查詢，最好能一次載入此資料，並讓查詢使用本機資料表。
 
 另請參閱[使用 PolyBase 的指南][Guide for using PolyBase]
 
@@ -127,8 +129,8 @@ SQL 資料倉儲有數個 DMV 可用來監視查詢的執行。  下列的監視
 [Table partitioning]: ./sql-data-warehouse-tables-partition.md
 [Manage table statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary tables]: ./sql-data-warehouse-tables-temporary.md
-[Guide for using PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
-[Load data]: ./sql-data-warehouse-overview-load.md
+[Guide for using PolyBase]: ./guidance-for-loading-data.md
+[Load data]: ./design-elt-data-loading.md
 [Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md
 [Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md

@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/21/2017
+ms.date: 12/04/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 043aea81258d96fc6598903f9b523f29a5bf2c15
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 67ec6489a6aeed946d41ac8b297d3d99b86e4169
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Azure 成本管理的常見問題集
 
@@ -92,20 +92,13 @@ Cloudyn 使用者帳戶使用單一登入從 Azure 連線。 如果使用者輸�
 
 若要將其他雲端解決方案提供者帳戶新增至實體，當您建立新的實體時，請選取 [MSP Access] \(MSP 存取\)  而不是 [Enterprise]。 如果您的帳戶註冊為 Enterprise 合約，而且您想要新增雲端解決方案提供者認證，Cloudyn 支援人員可能需要修改您的帳戶設定。 如果您是付費的 Azure 訂閱者，可以在 Azure 入口網站中建立新的支援要求。 選取 [說明 + 支援]，然後選取 [新增支援要求]。
 
-## <a name="how-do-i-change-the-currency-symbol-used-in-cloudyn"></a>如何變更 Cloudyn 中使用的貨幣符號？
+## <a name="currency-symbols-in-cloudyn-reports"></a>Cloudyn 報表中的貨幣符號
 
-當單一實體中的所有 Azure 帳戶都使用相同的貨幣時，會自動偵測您所使用的貨幣。 不過，如果是下列任何一種貨幣，貨幣符號會錯誤地顯示為 **$**：
+您可能會有多個使用不同貨幣的 Azure 帳戶。 不過，在 Cloudyn 成本報表中，每個報表不會顯示一個以上的貨幣類型。
 
-- GBP = 英國英鎊
-- EUR = 歐元
-- INR = 印度盧比
-- NOK = 挪威克朗
+如果您有使用不同貨幣的多個訂用帳戶，父實體和其子實體貨幣會以 **$** 符號顯示。 建議的最佳作法是避免在相同的實體階層中使用不同的貨幣。 換句話說，在實體結構中組織的所有訂用帳戶都應該使用相同的貨幣。
 
-雖然貨幣符號可能會顯示為美元的 **$**，但是成本值會以正確的貨幣顯示。 例如，如果您的帳戶在相同實體中都使用歐元，Cloudyn 中顯示的 _value_ 就是歐元，但是會顯示錯誤的 **$** 符號。
-
-如果您是 Azure Enterprise 合約客戶，Cloudyn 支援人員可以變更成本報表中顯示的 $ 貨幣符號。 您可以在 Azure 入口網站中建立新的支援要求。 選取 [說明 + 支援]，然後選取 [新增支援要求]。
-
-如果您是雲端解決方案提供者客戶，則無法變更您的貨幣符號。 Cloudyn 只支援使用美元的計費卡。 Cloudyn 正努力尋找讓計費卡支援不同貨幣的方法。
+Cloudyn 會自動偵測您的 Enterprise 合約訂用帳戶貨幣，並在報表中正確顯示。  不過，Cloudyn 僅會針對 CSP 和 Web-direct Azure 帳戶顯示 **$** 符號。
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>什麼是 Cloudyn 資料重新整理時間軸？
 

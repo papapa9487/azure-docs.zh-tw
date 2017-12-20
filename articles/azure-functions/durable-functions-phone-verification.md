@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 822abf5cd09a0cd0d66441acfe4ae114c6ba73eb
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 1763c63b37c5e6b326c3623dc058974f718ac990
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>長期函式中的人為互動 - 電話驗證範例
 
@@ -58,9 +58,9 @@ ms.lasthandoff: 11/29/2017
 * **E4_SmsPhoneVerification**
 * **E4_SendSmsChallenge**
 
-下列各節說明用於 Azure 入口網站開發的設定和程式碼。 Visual Studio 開發適用的程式碼會顯示在文章結尾。
+下列各節說明用於 Azure 入口網站開發的設定和程式碼。 適用於 Visual Studio 開發的程式碼顯示在本文結尾。
  
-## <a name="the-sms-verification-orchestration"></a>SMS 驗證協調流程
+## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>SMS 驗證協調流程 (Visual Studio Code 和 Azure 入口網站範例程式碼) 
 
 **E4_SmsPhoneVerification** 函式會針對協調器函式使用標準 function.json。
 

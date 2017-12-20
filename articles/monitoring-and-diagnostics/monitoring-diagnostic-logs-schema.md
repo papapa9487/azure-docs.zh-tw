@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 12/04/2017
 ms.author: johnkem
-ms.openlocfilehash: f571a723d91db060a1aff5e14bc452d56794db6c
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 1a58db2d424e4280fd56be972d48df89648e8c13
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 診斷記錄支援的服務、結構描述和類別
 
@@ -29,6 +29,7 @@ ms.lasthandoff: 11/10/2017
 
 | 服務 | 結構描述與文件 |
 | --- | --- |
+| Analysis Services | 無法使用結構描述。 |
 | API 管理 | [API 管理診斷記錄](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | 應用程式閘道 |[應用程式閘道的診斷記錄功能](../application-gateway/application-gateway-diagnostics.md) |
 | Azure 自動化 |[Azure 自動化的記錄檔分析](../automation/automation-manage-send-joblogs-log-analytics.md) |
@@ -45,7 +46,7 @@ ms.lasthandoff: 11/10/2017
 | Logic Apps |[Logic Apps B2B 自訂追蹤結構描述](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | 網路安全性群組 |[網路安全性群組 (NSG) 的記錄檔分析](../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDOS 保護 | 無法使用結構描述。 |
-| [復原服務] | 無法使用結構描述。|
+| [復原服務] | [Azure 備份的資料模型](../backup/backup-azure-reports-data-model.md)|
 | 搜尋 |[啟用和使用搜尋流量分析](../search/search-traffic-analytics.md) |
 | 伺服器管理 | 無法使用結構描述。 |
 | 服務匯流排 |[Azure 服務匯流排診斷記錄](../service-bus-messaging/service-bus-diagnostic-logs.md) |
@@ -56,6 +57,7 @@ ms.lasthandoff: 11/10/2017
 ## <a name="supported-log-categories-per-resource-type"></a>每個資源類型支援的記錄檔類別
 |資源類型|類別|類別顯示名稱|
 |---|---|---|
+|microsoft.aadiam/tenants|Signin|登入|
 |Microsoft.AnalysisServices/servers|引擎|引擎|
 |Microsoft.AnalysisServices/servers|服務|服務|
 |Microsoft.ApiManagement/service|GatewayLogs|ApiManagement 閘道的相關記錄檔|
@@ -63,6 +65,7 @@ ms.lasthandoff: 11/10/2017
 |Microsoft.Automation/automationAccounts|JobStreams|作業串流|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Dsc 節點狀態|
 |Microsoft.Batch/batchAccounts|ServiceLog|服務記錄檔|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|取得端點的計量，例如頻寬、輸出等資訊。|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataFactory/factories|ActivityRuns|管線活動執行記錄|
 |Microsoft.DataFactory/factories|PipelineRuns|管線執行記錄|
@@ -77,7 +80,7 @@ ms.lasthandoff: 11/10/2017
 |Microsoft.Devices/IotHubs|DeviceIdentityOperations|裝置身分識別作業|
 |Microsoft.Devices/IotHubs|FileUploadOperations|檔案上傳作業|
 |Microsoft.Devices/IotHubs|路由|路由|
-|Microsoft.Devices/IotHubs|D2CTwinOperations|D2C 對應項作業|
+|Microsoft.Devices/IotHubs|D2C 對應項作業|D2C 對應項作業|
 |Microsoft.Devices/IotHubs|C2DTwinOperations|C2D 對應項作業|
 |Microsoft.Devices/IotHubs|TwinQueries|對應項查詢|
 |Microsoft.Devices/IotHubs|JobsOperations|作業的操作|

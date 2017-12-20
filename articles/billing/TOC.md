@@ -27,17 +27,17 @@
 ### [了解企業適用之保留執行個體的使用方式](billing-understand-reserved-instance-usage-ea.md)
 
 ## 管理訂用帳戶
+### [尋找訂用帳戶或管理群組](billing-enterprise-mgmt-grp-find.md)
 ### [管理系統管理員角色](billing-add-change-azure-subscription-administrator.md)
 ### [移轉訂用帳戶擁有權](billing-subscription-transfer.md)
 ### [重新啟動已停用的訂用帳戶](billing-subscription-become-disable.md)
 ### [升級免費訂用帳戶](billing-upgrade-azure-subscription.md)
 ### [切換訂用帳戶優惠](billing-how-to-switch-azure-offer.md)
+### [連結 Azure AD 租用戶](../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json)
 ### [取消訂用帳戶](billing-how-to-cancel-azure-subscription.md)
-### [尋找訂用帳戶或管理群組](billing-enterprise-mgmt-grp-find.md)
 ## 管理帳戶
 ### [編輯設定檔](billing-how-to-change-azure-account-profile.md)
 ### [更新付款資訊](billing-how-to-change-credit-card.md)
-### [連結 Office 365 租用戶](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [依發票支付訂用帳戶費用](billing-how-to-pay-by-invoice.md)
 ## [管理保留 VM 執行個體](billing-manage-reserved-vm-instance.md)
 ## 疑難排解

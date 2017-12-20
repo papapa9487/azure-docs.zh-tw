@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: ddove
-ms.openlocfilehash: 721b87c67aa5e8002f21faca5a10fe41b8958e1e
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 0674aba66b48b26b70b3ab32d9283de5c63a267a
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>建置可調整的雲端資料庫
 使用 Azure SQL Database 的可調整工具和功能，可以輕鬆地相應放大資料庫。 特別是，您可以使用 **彈性資料庫用戶端程式庫** 來建立和管理相應放大的資料庫。 這項功能可讓您使用成百上千個 Azure SQL 資料庫，輕鬆地開發分區化應用程式。 [彈性工作](sql-database-elastic-jobs-powershell.md) 則可用來協助簡化管理這些資料庫。
 
 若要下載：
-* .NET 版本的程式庫，請參閱 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)。
 * Java 版本的程式庫，請參閱 [Maven 中央存放庫](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools)。
+* .NET 版本的程式庫，請參閱 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)。
 
 ## <a name="documentation"></a>文件
 1. [開始使用彈性資料庫工具](sql-database-elastic-scale-get-started.md)
@@ -60,11 +60,11 @@ ms.lasthandoff: 11/17/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-- 彈性資料庫用戶端程式庫 ([.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)、[Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)) - 以**下載**程式庫。
+- 彈性資料庫用戶端程式庫 ([Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)、[.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)) - 以**下載**程式庫。
 
 - [開始使用彈性資料庫工具](sql-database-elastic-scale-get-started.md)- 嘗試使用示範用戶端功能的**範例應用程式**。
 
-- GitHub ([.NET](https://github.com/Azure/elastic-db-tools)、[Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md)) - 以參與程式碼。
+- GitHub ([Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md)、[.NET](https://github.com/Azure/elastic-db-tools)) - 以參與程式碼。
 - [Azure SQL Database 彈性查詢概觀](sql-database-elastic-query-overview.md) - 使用彈性查詢。
 
 - [在相應放大的雲端資料庫之間移動資料](sql-database-elastic-scale-overview-split-and-merge.md) - 取得使用**分割合併工具**的指示。

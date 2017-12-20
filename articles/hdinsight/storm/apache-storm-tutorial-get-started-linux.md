@@ -13,14 +13,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2017
+ms.date: 12/05/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: d8b7d5830684b5e19eadd1b145a933527c2aa9fd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19ab428913517e4f3df156c93782fe23f1cd67ec
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 #<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>使用 storm-starter 範例在 HDInsight 上開始使用 Apache Storm
 
@@ -47,7 +47,7 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
 
     ![建立 HDInsight 叢集](./media/apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
-2. 在 [基本概念] 刀鋒視窗中，輸入下列資訊：
+2. 從 [基本概念] 區段中，輸入下列資訊：
 
     * **叢集名稱**︰HDInsight 叢集的名稱。
     * **訂用帳戶**：選取要使用的訂用帳戶。
@@ -58,7 +58,7 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
 
    ![選取訂用帳戶](./media/apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
 
-3. 選取 [叢集類型]，並且在 [叢集組態] 刀鋒視窗中設定下列值︰
+3. 選取 [叢集類型]，並且在 [叢集組態] 區段中設定下列值︰
 
     * **叢集類型**：Storm
 
@@ -74,11 +74,11 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
 
 4. 選取叢集類型之後，請使用 [選取] 按鈕來設定叢集類型。 接下來，使用 [下一步] 按鈕來完成基本組態。
 
-5. 從 [儲存體] 刀鋒視窗中，選取或建立儲存體帳戶。 本文件的步驟是，將此刀鋒視窗中的其他欄位保留為預設值。 使用 [下一步] 按鈕以儲存儲存體組態。
+5. 從 [儲存體] 區段中，選取或建立儲存體帳戶。 本文件的步驟是，將此區段中的其他欄位保留為預設值。 使用 [下一步] 按鈕以儲存儲存體組態。
 
     ![設定 HDInsight 的儲存體帳戶](./media/apache-storm-tutorial-get-started-linux/set-hdinsight-storage-account.png)
 
-6. 從 [摘要] 刀鋒視窗中，檢閱叢集組態。 使用 [編輯] 連結來變更所有不正確的設定。 最後，使用 [建立] 按鈕建立叢集。
+6. 從 [摘要] 區段中，檢閱叢集組態。 使用 [編輯] 連結來變更所有不正確的設定。 最後，使用 [建立] 按鈕建立叢集。
 
     ![叢集組態摘要](./media/apache-storm-tutorial-get-started-linux/hdinsight-configuration-summary.png)
 
@@ -95,7 +95,7 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
     > 您的 SSH 用戶端可能會說無法建立主機的真確性。 若是如此，輸入 `yes` 繼續作業。
 
     > [!NOTE]
-    > 如果您已經使用密碼保護您 SSH 使用者帳戶的安全，系統會提示您輸入密碼。 如果您使用的是公開金鑰，您需要使用 `-i` 參數來指定對應的私密金鑰。 例如， `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`。
+    > 如果您已經使用密碼保護您 SSH 使用者帳戶的安全，系統會提示您輸入密碼。 如果您使用的是公開金鑰，您需要使用 `-i` 參數來指定對應的私密金鑰。 例如： `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`。
 
     如需相關資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -103,10 +103,7 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology wordcount
 
-    > [!NOTE]
-    > 在舊版 HDInsight 上，拓撲的類別名稱是 `storm.starter.WordCountTopology` 而不是 `org.apache.storm.starter.WordCountTopology`。
-
-    此命令會在叢集上使用 'wordcount' 的易記名稱，啟動範例 WordCount 拓撲。 命令會隨機產生句子，並計算句子中每個字詞的出現次數。
+    這個命令會在叢集上啟動範例 WordCount 拓撲。 此拓撲會產生隨機的句子並計算單字出現的次數。 拓撲的易記名稱為 `wordcount`。
 
     > [!NOTE]
     > 將您自己的拓撲提交至叢集時，必須先複製包含叢集的 jar 檔案，再使用 `storm` 命令。 使用 `scp` 命令來複製檔案。 例如， `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
@@ -199,7 +196,7 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 
 在本 Apache Storm 教學課程中，您已了解使用 Storm on HDInsight 的基本概念。 接下來，了解如何 [使用 Maven 開發 Java 型拓撲](apache-storm-develop-java-topology.md)。
 
-如果您已熟悉開發 Java 型拓撲，而且想要將現有的拓撲部署至 HDInsight，請參閱 [部署和管理 HDInsight 上的 Apache Storm 拓撲](apache-storm-deploy-monitor-topology-linux.md)。
+如果您已熟悉開發 Java 型拓撲，請參閱[部署和管理 HDInsight 上的 Apache Storm 拓撲](apache-storm-deploy-monitor-topology-linux.md)文件。
 
 如果您是 .NET 開發人員，您可以使用 Visual Studio 建立 C# 或混合式 C#/Java 拓撲。 如需詳細資訊，請參閱 [使用 Visual Studio 的 Hadoop 工具開發 Apache Storm on HDInsight 的 C# 拓撲](apache-storm-develop-csharp-visual-studio-topology.md)。
 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 310306e22a9f3c4c770e326d3284d02da7f06039
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 358b3701773e6cd61b4a3dfddf4bb092741ff713
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒體服務版本資訊
 這些版本資訊彙總了舊版的變更和已知問題。
@@ -114,7 +114,7 @@ ms.lasthandoff: 11/29/2017
 > 
 
 ### <a name="a-new-client-manifest-ismc-file-is-generated-in-the-output-asset-when-an-encoding-task-outputs-one-or-more-mp4-files"></a>當編碼工作輸出一或多個 MP4 檔案時，會在輸出資產中產生新的用戶端資訊清單 (*.ISMC) 檔案
-從最新的服務版本開始，當產生一或多個 MP4 檔案的編碼工作完成後，輸出資產也會包含一個串流用戶端資訊清單 (*.ismc) 檔案。 .Ismc 檔案有助於改善動態串流的效能。 
+從最新的服務版本開始，在產生另一個 MP4 檔案的編碼工作完成後，輸出資產也會包含一個串流用戶端資訊清單 (*.ismc) 檔案。 .Ismc 檔案有助於改善動態串流的效能。 
 
 > [!NOTE]
 > 用戶端資訊清單 (.ism) 檔案的語法保留供內部使用，在未來的版本中也可能會變更。 請勿修改或操作這個檔案的內容。
@@ -131,7 +131,7 @@ ms.lasthandoff: 11/29/2017
 Azure 媒體服務引進了 Azure 媒體分析，提供功能強大的視訊智慧。 如需詳細資訊，請參閱 [Azure 媒體服務分析概觀](media-services-analytics-overview.md)。
 
 ### <a name="apple-fairplay-preview"></a>Apple FairPlay (預覽)
-Azure 媒體服務現在能讓您透過 Apple FairPlay 來動態加密您的 HTTP 即時串流 (HLS) 內容。 您也可以使用 AMS 授權傳遞服務，將 FairPlay 授權傳遞給用戶端。 如需詳細資訊，請參閱 [使用 Azure 媒體服務串流以 Apple FairPlay 保護的 HLS 內容 ](media-services-protect-hls-with-fairplay.md)。
+Azure 媒體服務現在能讓您透過 Apple FairPlay 來動態加密您的 HTTP 即時串流 (HLS) 內容。 您也可以使用 AMS 授權傳遞服務，將 FairPlay 授權傳遞給用戶端。 如需更多詳細資訊，請參閱＜使用 Azure 媒體服務串流處理以 Apple FairPlay 保護的 HLS 內容＞。
 
 ## <a id="feb_changes16"></a>2016 年 2 月版本
 Azure Media Services SDK for .NET (3.5.3) 的最新版本包含 Widevine 相關的錯誤修正。 問題是：AssetDeliveryPolicy 無法重複用於多個以 Widevine 加密的資產。 在此錯誤修正中，已將下列屬性新增至 SDK： **WidevineBaseLicenseAcquisitionUrl**。
@@ -162,13 +162,13 @@ Azure SDK 小組已發佈新版的 [Azure SDK for PHP](http://github.com/Azure/a
 * [Microsoft Azure Media Services SDK for PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/) 部落格。
 * 以下 [程式碼範例](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) 可協助您快速上手：
   * **vodworkflow_aes.php**：這是一個 PHP 檔案，說明如何使用 AES-128 動態加密和金鑰傳遞服務。 它是以 [此](media-services-protect-with-aes128.md) 文章中說明的 .NET 範例為依據。
-  * **vodworkflow_aes.php**：這是一個 PHP 檔案，說明如何使用 PlayReady 動態加密和授權傳遞服務。 它是以 [此](media-services-protect-with-drm.md) 文章中說明的 .NET 範例為依據。
+  * **vodworkflow_aes.php**：這是一個 PHP 檔案，說明如何使用 PlayReady 動態加密和授權傳遞服務。 它是以 [此](media-services-protect-with-playready-widevine.md) 文章中說明的 .NET 範例為依據。
   * **scale_encoding_units.php**：這是一個 PHP 檔案，說明如何調編碼保留單元大小。
 
 ## <a id="nov_changes_15"></a>2015 年 11 月版本
-Azure 媒體服務現在在雲端提供 Google Widevine 授權傳遞服務。 如需詳細資訊，請閱讀 [本公告部落格](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)。 同時也參閱[本教學課程](media-services-protect-with-drm.md)和 [GitHub 儲存機制](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm)。 
+Azure 媒體服務現在在雲端提供 Google Widevine 授權傳遞服務。 如需詳細資訊，請參閱[此公告部落格](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/) \(英文\)。 同時也參閱[本教學課程](media-services-protect-with-playready-widevine.md)和 [GitHub 儲存機制](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm)。 
 
-請注意，Azure 媒體服務所提供的 Widevine 授權傳遞服務為預覽狀態。 如需詳細資訊，請參閱 [此部落格](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)。
+Azure 媒體服務所提供的 Widevine 授權傳遞服務為預覽狀態。 如需詳細資訊，請參閱 [此部落格](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)。
 
 ## <a id="oct_changes_15"></a>2015 年 10 月版本
 Azure 媒體服務 (AMS) 現在也在下列資料中心推出：巴西南部、印度西部、印度南部和印度中部。 您現在可以使用 Azure 入口網站來[建立媒體服務帳戶](media-services-portal-create-account.md)，以及執行[這裡](https://azure.microsoft.com/documentation/services/media-services/)所述的各種工作。 不過，這些資料中心不會啟用即時編碼。 此外，並非所有類型的編碼保留單元都可用於這些資料中心。
@@ -181,16 +181,16 @@ Azure 媒體服務 (AMS) 現在也在下列資料中心推出：巴西南部、�
   
     您可以使用 [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (從版本 3.5.1 開始) 或 REST API 來設定 AssetDeliveryConfiguration 以使用 Widevine。  
 * AMS 已新增對 Apple ProRes 影片的支援。 您現在可以上傳使用 Apple ProRes 或其他轉碼器的 QuickTime 來源視訊檔案。 如需詳細資訊，請參閱 [此部落格](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/)。
-* 您現在可以使用 Media Encoder Standard 進行字幕裁剪和即時封存解壓縮。 如需詳細資訊，請參閱 [此部落格](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)。
+* 您現在可以使用媒體編碼器標準，進行字幕裁剪和即時封存擷取。 如需詳細資訊，請參閱 [此部落格](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)。
 * 進行了下列篩選更新： 
   
   * 您現在可以使用 Apple HTTP Live Streaming (HLS) 格式搭配僅限音訊的篩選條件。 這項更新可讓您在 URL 中指定 (audio-only=false) 來移除僅限音訊的曲目。
   * 在定義您的資產篩選條件時，現在您可以結合多個 (最多 3 個) 篩選器到單一 URL 中。
     
-    如需詳細資訊，請參閱 [此](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) 部落格。
+    如需詳細資訊，請參閱 [此部落格](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) 。
 * AMS 現在支援 HLS v4 的 I-Frames。 I-Frames 支援最佳化向前快轉和倒轉的作業。 根據預設，所有 HLS v4 輸出都包含 I-Frames 播放清單 (EXT-X-I-FRAME-STREAM-INF)。
   
-    如需詳細資訊，請參閱 [此](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) 部落格。
+    如需詳細資訊，請參閱 [此部落格](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) 。
 
 ## <a id="august_changes_15"></a>2015 年 8 月版本
 * 現在已有適用於 Java 0.8.0 版本的 Azure 媒體服務 SDK 以及新的範例可用。 如需詳細資訊，請參閱：
@@ -203,13 +203,13 @@ Azure 媒體服務 (AMS) 現在也在下列資料中心推出：巴西南部、�
 ## <a id="july_changes_15"></a>2015 年 7 月版本
 * 宣布 Media Encoder Standard 的一般可用性。 如需詳細資訊，請參閱 [此部落格文章](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)。
   
-    Media Encoder Standard 使用 [本節](http://go.microsoft.com/fwlink/?LinkId=618336) 描述的預設值。 請注意，使用 4k 編碼的預設值時，您應該取得 **進階** 保留單元類型。 如需詳細資訊，請參閱 [如何調整編碼](media-services-scale-media-processing-overview.md)。
+    Media Encoder Standard 使用 [本節](http://go.microsoft.com/fwlink/?LinkId=618336) 描述的預設值。 使用 4k 編碼的預設時，您應該取得**進階**保留單元類型。 如需詳細資訊，請參閱 [如何調整編碼](media-services-scale-media-processing-overview.md)。
 * 直播即時字幕與 Azure 媒體服務和播放器。 如需詳細資訊，請參閱[此部落格文章](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)
 
 ### <a name="media-services-net-sdk-updates"></a>媒體服務 .NET SDK 更新
 Azure 媒體服務 .NET SDK 現在是版本 3.4.0.0。 此版本中加入了下列功能：  
 
-* 即時封存的實作支援。 請注意，您無法下載包含即時封存的資產。
+* 即時封存的實作支援。 您無法下載包含即時封存的資產。
 * 動態篩選的實作支援。
 * 實作功能，可讓使用者在刪除資產時保留儲存體容器的。
 * 通道中重試原則的相關 Bug 修正。
@@ -222,7 +222,7 @@ Azure 媒體服務 .NET SDK 現在是版本 3.3.0.0。 此版本中加入了下�
 * 支援 OpenId Connect 探索規格
 * 支援處理識別提供者端的金鑰變換 
 
-如果您使用的身分識別提供者會公開 OpenID Connect 探索文件 (如同下列提供者：Azure Active Directory、Google、Salesforce)，您可以指示 Azure 媒體服務從 OpenID Connect 探索規格取得 JWT 權杖驗證的簽署金鑰。 
+如果您使用的識別提供者會公開 OpenID Connect 探索文件 (如同下列提供者所做的：Azure Active Directory、Google、Salesforce)，您可以指示 Azure 媒體服務，從 OpenID Connect 探索規格取得 JWT 權杖驗證的簽署金鑰。 
 
 如需詳細資訊，請參閱 [在 Azure 媒體服務中使用 OpenID Connect 探索規格的 Json Web 金鑰來處理 JWT 權杖驗證](http://gtrifonov.com/2015/06/07/using-json-web-keys-from-openid-connect-discovery-spec-to-work-with-jwt-token-authentication-in-azure-media-services/)。
 
@@ -281,7 +281,7 @@ Azure 媒體服務 .NET SDK 現在是版本 3.1.0.1。
 * 已加入金鑰傳遞服務的 CORS 支援。
 * 已完成查詢授權原則選項的效能改進。
 * 在中國資料中心， [金鑰傳遞 URL](https://docs.microsoft.com/rest/api/media/operations/contentkey#get_delivery_service_url) 現在是針對每位客戶 (就像其他資料中心)。
-* 已加入 HLS 自動目標持續時間。 在執行即時資料流時，會一律動態封裝 HLS。 依預設，媒體服務會根據從即時編碼器收到的主要畫面格間隔 (KeyFrameInterval，也稱為圖片群組 – GOP)，自動計算 HLS 區段封裝比例 (FragmentsPerSegment) 。 如需詳細資訊，請參閱 [使用 Azure 媒體服務即時資料流]。
+* 已加入 HLS 自動目標持續時間。 在執行即時資料流時，會一律動態封裝 HLS。 依預設，媒體服務會根據從即時編碼器收到的主要畫面格間隔 (KeyFrameInterval，也稱為圖片群組 – GOP)，自動計算 HLS 區段封裝比例 (FragmentsPerSegment)。 如需詳細資訊，請參閱 [使用 Azure 媒體服務即時資料流]。
 
 ### <a name="media-services-net-sdk-updates"></a>媒體服務 .NET SDK 更新
 * [Azure 媒體服務 .NET SDK](http://www.nuget.org/packages/windowsazure.mediaservices/) 現在是版本 3.1.0.0。
@@ -291,13 +291,13 @@ Azure 媒體服務 .NET SDK 現在是版本 3.1.0.1。
 * 已在 PlayReady 授權範本中加入 BeginDate 和 ExpirationDate 的相對位移。
 
 ## <a id="november_changes_14"></a>2014 年 11 月版本
-* 媒體服務現在可讓您透過 SSL 連線擷取即時的 Smooth Streaming (FMP4) 內容。 若要透過 SSL 擷取，請務必將擷取 URL 更新為 HTTPS。  請注意，目前 AMS 不支援使用 SSL 搭配自訂網域。  如需即時資料流的詳細資訊，請參閱[使用 Azure 媒體服務即時資料流]。
+* 媒體服務現在可讓您透過 SSL 連線擷取即時的 Smooth Streaming (FMP4) 內容。 若要透過 SSL 擷取，請務必將擷取 URL 更新為 HTTPS。  目前 AMS 不支援使用 SSL 搭配自訂網域。  如需即時資料流的詳細資訊，請參閱[使用 Azure 媒體服務即時資料流]。
 * 目前您無法透過 SSL 連線內嵌 RTMP 即時資料流。
-* 只有當您傳遞內容的來源串流端點是在 2014 年 9 月 10 日之後建立時，才能透過 SSL 串流。 如果您的串流 URL 是根據 9 月 10 日之後建立的串流端點，則 URL 會包含 "streaming.mediaservices.windows.net" (新格式)。 包含 "origin.mediaservices.windows.net" (舊格式) 的串流 URL 不支援 SSL。 如果您的 URL 是舊格式，而且您希望能夠透過 SSL 串流，請[建立新的串流端點](media-services-portal-manage-streaming-endpoints.md)。 使用根據新的串流端點建立的 URL，透過 SSL 串流處理內容。
+* 只有當您傳遞內容的來源串流端點是在 2014 年 9 月 10 日之後建立的，才能透過 SSL 進行串流處理。 如果您的串流 URL 是以 9 月 10 日之後建立的串流端點為根據，則 URL 會包含 "streaming.mediaservices.windows.net" (新格式)。 包含 "origin.mediaservices.windows.net" (舊格式) 的串流 URL 不支援 SSL。 如果您的 URL 是舊格式，而且您希望能夠透過 SSL 串流，請[建立新的串流端點](media-services-portal-manage-streaming-endpoints.md)。 使用根據新的串流端點建立的 URL，透過 SSL 串流處理內容。
 
 ## <a id="october_changes_14"></a>2014 年 10 月版本
 ### <a id="new_encoder_release"></a>Media Services Encoder 版本
-發表新版的 Media Services Azure Media Encoder。 使用最新的 Azure Media Encoder 時，您只需要為輸出 GB 付費，除此之外，新編碼器也與舊編碼器的功能相容。 如需詳細資訊，請參閱 [行動服務定價詳細資料])。
+發表新版的 Media Services Azure Media Encoder。 使用最新的 Azure 媒體編碼器時，您只需為輸出 GB 付費，除此之外，新編碼器也與舊編碼器的功能相容。 如需詳細資訊，請參閱 [行動服務定價詳細資料])。
 
 ### <a id="oct_sdk"></a>媒體服務 .NET SDK
 Media Services SDK for .NET 延伸目前的版本為 2.0.0.3。
@@ -308,7 +308,7 @@ Media Services SDK for .NET 目前的版本為 3.0.0.8。
 
 * 重試原則類別中的重整。
 * 將使用者代理字串加入至 http 要求標頭。
-* 新增 nuget 還原建置步驟。
+* 新增 NuGet 還原建置步驟。
 * 修正案例測試，以使用來自儲存機制的 x509 憑證。
 * 更新通道和串流結束時，驗證設定。
 
@@ -332,7 +332,7 @@ Media Services SDK for .NET 目前的版本為 3.0.0.7。
 * 建立 SAS URL 以下載 (或累進播放) .mp4。 如需如何建立 SAS 定位器的詳細資訊，請參閱 [傳遞內容]。
 
 ### <a id="sept_14_GA_changes"></a>GA 版本中的新功能/案例
-* **索引器媒體處理器**。 如需詳細資訊，請參閱 [使用 Azure 媒體索引器編製媒體檔案的索引]。
+* **索引器媒體處理器**。 如需詳細資訊，請參閱[使用 Azure 媒體索引器編製媒體檔案的索引]。
 * [StreamingEndpoint] 實體現在可讓您新增自訂網域 (主機) 名稱。
   
     對於要作為媒體服務串流端點名稱的自訂網域名稱，您必須將自訂主機名稱新增至您的串流端點。 請使用媒體服務 REST API 或 .NET SDK 來新增自訂主機名稱。
@@ -340,7 +340,7 @@ Media Services SDK for .NET 目前的版本為 3.0.0.7。
     您必須考量下列事項：
   
   * 您必須具有自訂網域名稱的擁有權。
-  * 網域名稱的擁有權必須通過 Azure 媒體服務的驗證。 若要驗證網域，請建立對應 <MediaServicesAccountId>.<parent domain> 的 CName。 以確認 dns.<mediaservices-dns-zone>。 
+  * 網域名稱的擁有權必須通過 Azure 媒體服務的驗證。 若要驗證網域，請建立對應 <MediaServicesAccountId> <parent domain> 的 CName 以確認 DNS.<mediaservices-dns-zone>。 
   * 您必須建立另一個 CName，將自訂主機名稱 (例如，sports.contoso.com) 對應到您的媒體服務 StreamingEndpont 主機名稱 (例如，amstest.streaming.mediaservices.windows.net)。
 
     如需詳細資訊，請參閱 [StreamingEndpoint] 一文中的 **CustomHostNames** 屬性。
@@ -376,7 +376,7 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 * 重試邏輯和暫時性例外狀況處理已有改善： 
   
   * 因查詢、儲存變更、上傳或下載檔案而造成的例外狀況，在暫時性錯誤偵測和重試邏輯方面已有改善。 
-  * 當 Web 例外狀況出現時 (例如，在 ACS 權杖要求期間)，您會發現嚴重錯誤現在的失效速度已變快。
+  * 出現 Web 例外狀況時 (例如，在 ACS 權杖要求期間)，您會發現嚴重錯誤現在的失效速度已變快。
 
 如需詳細資訊，請參閱 [Media Services SDK for .NET 中的重試邏輯]。
 
@@ -393,9 +393,9 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 3.0.0.1 和 3.0.0.2 中的變更包括：
 
 * 修正了使用 OrderBy 陳述式進行 LINQ 查詢的用法相關問題。
-* 將 [Github] 中的測試方案分成單元測試和案例測試。
+* 將 [GitHub] 中的測試方案分成單元測試和案例測試。
 
-如需關於變更的詳細資料，請參閱： [Azure 媒體服務 .NET SDK 3.0.0.1 和 3.0.0.2 版本]。
+如需關於變更的詳細資訊，請參閱：[Azure 媒體服務 .NET SDK 3.0.0.1 和 3.0.0.2 版本]。
 
 3.0.0.3 中做了下列變更：
 
@@ -409,12 +409,12 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 > 
 > 
 
-媒體服務 SDK 目前的最新版本為 3.0.0.0。 您可以從 Nuget 下載最新套件，或從 [Github]取得。
+媒體服務 SDK 目前的最新版本為 3.0.0.0。 您可以從 NuGet 下載最新封裝，或從 [GitHub] 取得。
 
-從媒體服務 SDK 3.0.0.0 版開始，您可以重複使用 Azure Active Directory 存取控制服務 (ACS) 權杖。 
+從媒體服務 SDK 3.0.0.0 版開始，您可以重複使用 [Azure Active Directory 存取控制服務 (ACS)] 權杖。 如需詳細資訊，請參閱[使用 Media Services SDK for .NET 連接到媒體服務]一文中的「重複使用存取控制服務權杖」一節。
 
 ### <a name="dec_13_donnet_ext_changes"></a>Azure 媒體服務 .NET SDK 延伸模組 2.0.0.0
-Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，可簡化您的程式碼以及使用 Azure 媒體服務進行開發的工作。 您可以從 [Azure 媒體服務 .NET SDK 延伸]取得最新版本。
+Azure 媒體服務 .NET SDK 延伸模組是一組延伸方法和協助程式函式，能夠簡化您的程式碼，並輕鬆地以 Azure 媒體服務進行開發。 您可以從 [Azure 媒體服務 .NET SDK 延伸]取得最新版本。
 
 ## <a id="november_changes_13"></a>2013 年 11 月版本
 ### <a name="nov_13_donnet_changes"></a>Azure 媒體服務 .NET SDK 變更
@@ -447,7 +447,7 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
   
     Asset.StorageAccountName 和 Asset.StorageAccount
 * 能夠更新 Job.Priority。 
-* 實體和屬性的相關通知： 
+* 通知相關的實體和屬性： 
   
     JobNotificationSubscription
   
@@ -471,7 +471,7 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
     StorageAccountName 屬性。
   
     如需詳細資訊，請參閱 [管理多個儲存體帳戶間的媒體服務資產]。
-* API 的相關通知。 自 2.2.0.0 版起，您已能夠聽取 Azure 佇列儲存體通知。 如需詳細資訊，請參閱 [處理媒體服務工作通知]。
+* 通知相關的 API。 自 2.2.0.0 版起，您已能夠聽取 Azure 佇列儲存體通知。 如需詳細資訊，請參閱[處理媒體服務作業通知]。
   
     Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions 屬性。
   
@@ -490,21 +490,21 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 ## <a id="december_changes_12"></a>2012 年 12 月版本
 ### <a name="dec_12_dotnet_changes"></a>Azure 媒體服務 .NET SDK 變更
 * Intellisense：針對許多類型新增了遺漏的 Intellisense 文件。
-* Microsoft.Practices.TransientFaultHandling.Core：修正了 SDK 對此組件的舊版仍有相依性的問題。 SDK 現已參考此組件的 5.1.1209.1 版。
+* Microsoft.Practices.TransientFaultHandling.Core：已修正 SDK 對此組件的舊版仍有相依性的問題。 SDK 現已參考此組件的 5.1.1209.1 版。
 
 修正在 2012 年 11 月 SDK 中發現的問題：
 
-* IAsset.Locators.Count：現在，當所有定位器刪除後，此計數已會正確地在新的 IAsset 介面上報告。
-* IAssetFile.ContentFileSize：現在，當 IAssetFile.Upload(filepath) 完成上傳後，會正確設定此值。
-* IAssetFile.ContentFileSize：現已可在建立資產檔案後設定此屬性。 此檔案過去是唯讀的。
+* IAsset.Locators.Count：在刪除所有定位器之後，現在已會在新的 IAsset 介面上正確報告此計數。
+* IAssetFile.ContentFileSize：現在會在 IAssetFile.Upload(filepath) 上傳之後設定此值。
+* IAssetFile.ContentFileSize：現在可在建立資產檔案後設定此屬性。 此檔案過去是唯讀的。
 * IAssetFile.Upload(filepath)：已修正此同步上傳方法在將多個檔案上傳至資產時會擲回以下錯誤的問題。 此錯誤為「伺服器無法驗證要求。 請確定授權標頭的值 (包括簽章在內) 格式正確。」
-* IAssetFile.UploadAsync：已修正無法同時上傳超過 5 個檔案的問題。
+* IAssetFile.UploadAsync：已修正無法同時上傳超過五個檔案的問題。
 * IAssetFile.UploadProgressChanged：此事件現在由 SDK 提供。
 * IAssetFile.DownloadAsync(string, BlobTransferClient, ILocator, CancellationToken)：現在提供此方法多載。
-* IAssetFile.DownloadAsync：已修正無法同時下載超過 5 個檔案的問題。
+* IAssetFile.DownloadAsync：已修正無法同時下載超過五個檔案的問題。
 * IAssetFile.Delete()：已修正若未上傳任何用於 IAssetFile 的檔案，呼叫刪除時可能會擲回例外狀況的問題。
-* 工作：已修正在使用工作範本鏈結「MP4 to Smooth Streams 工作」與「PlayReady Protection 工作」時不會建立任何工作的問題。
-* EncryptionUtils.GetCertificateFromStore()：此方法已不會再因為無法根據憑證組態問題找到憑證，而擲回 Null 參考例外狀況。
+* 作業：已修正在使用作業範本鏈結「MP4 to Smooth Streams 工作」與「PlayReady Protection 工作」時不會建立任何工作的問題。
+* EncryptionUtils.GetCertificateFromStore()：此方法已不再因為無法根據憑證設定問題找到憑證，而擲回 Null 參考例外狀況。
 
 ## <a id="november_changes_12"></a>2012 年 11 月版本
 本節說明的變更是 2012 年 11 月 (2.0.0.0 版) SDK 所包含的更新。 進行這些變更時，可能必須修改或重寫為 2012 年 6 月預覽 SDK 版本撰寫的程式碼。
@@ -535,7 +535,7 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 
 * 刪除實體
   
-    IAsset、IAssetFile、ILocator、IAccessPolicy、IContentKey 物件現已會在物件層級上刪除 (即 IObject.Delete())，而無須在「集合」中刪除 (即 cloudMediaContext.ObjCollection.Delete(objInstance))。
+    IAsset、IAssetFile、ILocator、IAccessPolicy、IContentKey 物件現已在物件層級上刪除 (即 IObject.Delete())，而無須在集合中刪除 (即 cloudMediaContext.ObjCollection.Delete(objInstance))。
 * 定位器
   
     定位器現在必須使用 CreateLocator 方法來建立，並使用 LocatorType.SAS 或 LocatorType.OnDemandOrigin 列舉值作為您要建立之特定定位器類型的引數。
@@ -580,11 +580,11 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 [建立重疊]: http://msdn.microsoft.com/library/azure/dn640496.aspx
 [結合視訊片段]: http://msdn.microsoft.com/library/azure/dn640504.aspx
 [Azure 媒體服務 .NET SDK 3.0.0.1 和 3.0.0.2 版本]: http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/
-[Azure Active Directory Access Control Service (ACS)]: http://msdn.microsoft.com/library/hh147631.aspx
-[Connecting to Media Services with the Media Services SDK for .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
+[Azure Active Directory 存取控制服務 (ACS)]: http://msdn.microsoft.com/library/hh147631.aspx
+[使用 Media Services SDK for .NET 連接到媒體服務]: http://msdn.microsoft.com/library/azure/jj129571.aspx
 [Azure 媒體服務 .NET SDK 延伸]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
 [azure-sdk-tools]: https://github.com/Azure/azure-sdk-tools
-[Github]: https://github.com/Azure/azure-sdk-for-media-services
+[GitHub]: https://github.com/Azure/azure-sdk-for-media-services
 [管理多個儲存體帳戶間的媒體服務資產]: http://msdn.microsoft.com/library/azure/dn271889.aspx
-[處理媒體服務工作通知]: http://msdn.microsoft.com/library/azure/dn261241.aspx
+[處理媒體服務作業通知]: http://msdn.microsoft.com/library/azure/dn261241.aspx
 

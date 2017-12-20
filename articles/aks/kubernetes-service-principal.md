@@ -9,15 +9,15 @@ ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a217f4cc8ac18888de8dfa803b4b8667a566dc0b
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 23d59d37e25775f67d01813bbf53d150f1973622
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>服務主體與 Azure Container Service (AKS)
 
-AKS 叢集需要 [Azure Active Directory 服務主體](../active-directory/develop/active-directory-application-objects.md)，才能與 Azure API 進行互動。 需要服務主體，才能以動態方式管理資源，例如[使用者定義的路由](../virtual-network/virtual-networks-udr-overview.md)及[第 4 層 Azure Load Balancer](../load-balancer/load-balancer-overview.md)。
+AKS 叢集需要 [Azure Active Directory 服務主體][aad-service-principal]，才能與 Azure API 進行互動。 需要服務主體，才能以動態方式管理資源，例如[使用者定義的路由][user-defined-routes]及[第 4 層 Azure Load Balancer][azure-load-balancer-overview]。
 
 本文說明為 AKS 中 Kubernetes 叢集設定服務主體的各種選項。
 
@@ -26,7 +26,7 @@ AKS 叢集需要 [Azure Active Directory 服務主體](../active-directory/devel
 
 若要建立 Azure AD 服務主體，您必須有足夠權限向 Azure AD 租用戶註冊應用程式，並將應用程式指派給您訂用帳戶中的角色。 如果您沒有必要的權限，您可能需要要求您的 Azure AD 或訂用帳戶管理員指派必要權限，或預先建立 Kubernetes 叢集的服務主體。
 
-您也必須安裝和設定 Azure CLI 版本 2.0.21 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
+您也必須安裝和設定 Azure CLI 版本 2.0.21 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="create-sp-with-aks-cluster"></a>建立 SP 與 AKS 叢集
 
@@ -44,7 +44,7 @@ az aks create --name myK8SCluster --resource-group myResourceGroup --generate-ss
 
 ## <a name="pre-create-a-new-sp"></a>預先建立新 SP
 
-若要使用 Azure CLI 建立服務主體，請使用 [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) 命令。
+若要使用 Azure CLI 建立服務主體，請使用 [az ad sp create-for-rbac][az-ad-sp-create] 命令。
 
 ```azurecli
 az ad sp create-for-rbac --skip-assignment
@@ -83,7 +83,7 @@ az aks create --resource-group myResourceGroup --name myK8SCluster --service-pri
 * 指定服務主體的 [用戶端識別碼] 時，您可以使用 `appId` 的值 (如本文所示) 或對應的服務主體`name` (例如，`https://www.contoso.org/example`)。
 * 在 Kubernetes 叢集中的主要和節點 VM 上，服務主體認證會儲存在 `/etc/kubernetes/azure.json` 檔案中。
 * 當您使用 `az aks create` 命令自動產生服務主體時，服務主體認證會寫入用來執行命令之電腦上的 `~/.azure/acsServicePrincipal.json` 檔案。
-* 當您使用 `az aks create` 命令自動產生服務主體時，服務主體也可以向在訂用帳戶中建立的 [Azure Container Registry](../container-registry/container-registry-intro.md) 進行驗證。
+* 當您使用 `az aks create` 命令自動產生服務主體時，服務主體也可以向在訂用帳戶中建立的 [Azure container registry][acr-into] 進行驗證。
 * 刪除 `az aks create` 所建立的 AKS 叢集時，將不會刪除自動建立的服務主體。 您可以使用 `az ad sp delete --id $clientID` 將它刪除。
 
 ## <a name="next-steps"></a>後續步驟
@@ -91,4 +91,13 @@ az aks create --resource-group myResourceGroup --name myK8SCluster --service-pri
 如需有關 Azure Active Directory 服務主體的詳細資訊，請參閱 Azure AD 應用程式文件。
 
 > [!div class="nextstepaction"]
-> [應用程式和服務主體物件](../active-directory/develop/active-directory-application-objects.md)
+> [應用程式和服務主體物件][service-principal]
+
+<!-- LINKS - internal -->
+[aad-service-principal]: ../active-directory/develop/active-directory-application-objects.md
+[acr-intro]: ../container-registry/container-registry-intro.md
+[az-ad-sp-create]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[azure-load-balancer-overview]: ../load-balancer/load-balancer-overview.md
+[install-azure-cli]: /cli/azure/install-azure-cli
+[service-principal]: ../active-directory/develop/active-directory-application-objects.md
+[user-defined-routes]: ../load-balancer/load-balancer-overview.md

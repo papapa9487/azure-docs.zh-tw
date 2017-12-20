@@ -1,6 +1,6 @@
 ---
 title: "建立 VNet 之間的連線：傳統：Azure 入口網站 | Microsoft Docs"
-description: "如何使用 PowerShell 和 Azure 傳統入口網站將 Azure 虛擬網路連接在一起。"
+description: "如何使用 PowerShell 和 Azure 入口網站將 Azure 虛擬網路連接在一起。"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 12/05/2017
 ms.author: cherylmc
-ms.openlocfilehash: 77097d59077cd8e199acdb5dc0d8427369565eea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e7a7af26fbfb728aa5a6b8a0d63b71f678256bf
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>設定 VNet 對 VNet 連線 (傳統)
 
@@ -86,12 +86,12 @@ ms.lasthandoff: 10/11/2017
 
 在 [Azure 入口網站](https://portal.azure.com)中建立兩個虛擬網路。 如需建立傳統虛擬網路的步驟，請參閱[建立傳統虛擬網路](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)。 
 
-使用入口網站建立傳統虛擬網路時，您必須使用下列步驟來瀏覽至 [虛擬網路] 刀鋒視窗，否則建立傳統虛擬網路的選項就不會出現：
+使用入口網站建立傳統虛擬網路時，您必須使用下列步驟瀏覽至 [虛擬網路] 頁面，否則建立傳統虛擬網路的選項就不會出現：
 
-1. 按一下 [+] 以開啟 [新增] 刀鋒視窗。
+1. 按一下 [+] 以開啟 [新增] 頁面。
 2. 在 [搜尋 Marketplace] 欄位中，輸入「虛擬網路」。 如果您改為選取 [網路功能]-> [虛擬網路]，將無法取得建立傳統 VNet 的選項。
-3. 在傳回的清單中找到 [虛擬網路]，然後按一下以開啟 [虛擬網路] 刀鋒視窗。 
-4. 在 [虛擬網路] 刀鋒視窗中，選取 [傳統] 以建立傳統的 VNet。 
+3. 在傳回的清單中找出 [虛擬網路]，然後按一下以開啟 [虛擬網路] 頁面。 
+4. 在 [虛擬網路] 頁面上，選取 [傳統] 以建立傳統的 VNet。 
 
 如果您使用這篇文章作為練習，您可以使用下列範例值：
 
@@ -144,14 +144,14 @@ Azure 會使用每個區域網路站台中指定的設定，來決定如何路�
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |美國東部 |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |美國西部 |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
 
-1. 在 Azure 入口網站中找出 TestVNet1。 在刀鋒視窗的 [VPN 連線] 區段中，按一下 [閘道]。
+1. 在 Azure 入口網站中找出 TestVNet1。 在頁面的 [VPN 連線] 區段中，按一下 [閘道]。
 
     ![沒有閘道](./media/vpn-gateway-howto-vnet-vnet-portal-classic/nogateway.png)
 2. 在 [新增 VPN 連線] 頁面上，選取 [站對站]。
 3. 按一下 [本機網站] 以開啟 [本機網站] 頁面，並且進行設定。
 4. 在 [本機網站] 頁面上，為您的本機網站命名。 在我們的範例中，我們將本機網站命名為 'VNet4Local'。
 5. 針對 [VPN 閘道 IP 位址]，只要是有效的格式，您可以使用您想要的任何 IP 位址。 一般而言，您會將實際的外部 IP 位址用於 VPN 裝置。 但是針對傳統 VNet 對 VNet 組態，您需使用指派給您 VNet 閘道的公用 IP 位址。 由於您尚未建立虛擬網路閘道，因此您可以指定任何有效的公用 IP 位址作為預留位置。<br>請勿將此欄位留白 - 這不是此組態的選擇性欄位。 在稍後的步驟中，您將在 Azure 產生閘道之後，回到這些設定，並使用對應的虛擬網路閘道 IP 位址來進行設定。
-6. 針對 [用戶端位址空間]，使用其他 VNet 的位址空間。 請參閱您的計劃範例。 按一下 [確定] 來儲存設定，並且返回 [新增 VPN 連線] 刀鋒視窗。
+6. 針對 [用戶端位址空間]，使用其他 VNet 的位址空間。 請參閱您的計劃範例。 按一下 [確定] 來儲存設定，並且返回 [新增 VPN 連線] 頁面。
 
     ![本機網站](./media/vpn-gateway-howto-vnet-vnet-portal-classic/localsite.png)
 
@@ -159,13 +159,13 @@ Azure 會使用每個區域網路站台中指定的設定，來決定如何路�
 
 每個虛擬網路都必須有虛擬網路閘道。 虛擬網路閘道會路由傳送流量並且加密。
 
-1. 在 [新增 VPN 連線] 刀鋒視窗上，選取 [立即建立閘道] 核取方塊。
-2. 按一下 [子網路、大小和路由類型]。 在 [閘道組態] 刀鋒視窗中，按一下 [子網路]。
+1. 在 [新增 VPN 連線] 頁面上，選取 [立即建立閘道] 核取方塊。
+2. 按一下 [子網路、大小和路由類型]。 在 [閘道組態] 頁面上，按一下 [子網路]。
 3. 閘道子網路名稱會自動填入必要名稱 'GatewaySubnet'。 [位址範圍] 包含配置給 VPN 閘道服務的 IP 位址。 某些組態允許閘道子網路 /29，但是最好是使用 /28 或 /27 以容納未來可能需要更多閘道服務 IP 位址的組態。 在我們的範例設定中，我們會使用 10.11.1.0/27。 調整位址空間，然後按一下 [確定]。
 4. 設定**閘道大小**。 此設定表示[閘道 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
 5. 設定**路由類型**。 此組態的路由類型必須是**動態**。 除非您卸除閘道並且建立一個新閘道，否則您無法在稍後變更路由類型。
 6. 按一下 [確定] 。
-7. 在 [新增 VPN 連線] 刀鋒視窗中，按一下 [確定] 以開始建立虛擬網路閘道。 建立閘道通常可能需要 45 分鐘或更久，視選取的閘道 SKU 而定。
+7. 在 [新增 VPN 連線] 頁面上，按一下 [確定] 以開始建立虛擬網路閘道。 建立閘道通常可能需要 45 分鐘或更久，視選取的閘道 SKU 而定。
 
 ## <a name="vnet4settings"></a>步驟 5 - 進行 TestVNet4 設定
 
@@ -183,7 +183,7 @@ Azure 會使用每個區域網路站台中指定的設定，來決定如何路�
 ### <a name="part-1---get-the-virtual-network-gateway-public-ip-address"></a>第 1 部分 - 取得虛擬網路閘道公用 IP 位址
 
 1. 在 Azure 入口網站中找到虛擬網路。
-2. 按一下以開啟 VNet [概觀] 刀鋒視窗。 在刀鋒視窗的 [VPN 連線] 中，您可以檢視虛擬網路閘道的 IP 位址。
+2. 按一下以開啟 VNet 的 [概觀] 頁面。 在頁面的 [VPN 連線] 中，您可以檢視虛擬網路閘道的 IP 位址。
 
   ![公用 IP](./media/vpn-gateway-howto-vnet-vnet-portal-classic/publicIP.png)
 3. 複製 IP 位址。 您在下一節將會用到此位址。
@@ -192,10 +192,10 @@ Azure 會使用每個區域網路站台中指定的設定，來決定如何路�
 ### <a name="part-2---modify-the-local-sites"></a>第 2 部分 - 修改本機網站
 
 1. 在 Azure 入口網站中找到虛擬網路。
-2. 在 VNet 的 [概觀] 刀鋒視窗中，按一下本機網站。
+2. 在 VNet 的 [概觀] 頁面上，按一下本機網站。
 
   ![建立本機網站](./media/vpn-gateway-howto-vnet-vnet-portal-classic/local.png)
-3. 在 [站對站 VPN 連線] 刀鋒視窗中，按一下您想要修改之本機網站的名稱。
+3. 在 [站對站 VPN 連線] 頁面上，按一下您想要修改之本機網站的名稱。
 
   ![開啟本機網站](./media/vpn-gateway-howto-vnet-vnet-portal-classic/openlocal.png)
 4. 按一下您想要修改的 [本機網站]。
@@ -204,7 +204,7 @@ Azure 會使用每個區域網路站台中指定的設定，來決定如何路�
 5. 更新 [VPN 閘道 IP 位址]，然後按一下 [確定] 以儲存設定。
 
   ![閘道 IP](./media/vpn-gateway-howto-vnet-vnet-portal-classic/gwupdate.png)
-6. 關閉其他刀鋒視窗。
+6. 關閉其他頁面。
 7. 對 TestVNet4 重複執行這些步驟。
 
 ## <a name="getvalues"></a>步驟 7 - 從網路組態檔擷取值

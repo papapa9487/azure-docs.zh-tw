@@ -11,7 +11,6 @@
 ## 建立 DNS 區域和記錄
 ### [Azure 入口網站](dns-getstarted-portal.md)
 ### [Azure PowerShell](dns-getstarted-powershell.md)
-### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 ### [Azure CLI](dns-getstarted-cli.md)
 
 ## 建立私人 DNS 區域和記錄
@@ -24,13 +23,11 @@
 ## 管理 DNS 區域
 ### [Azure 入口網站](dns-operations-dnszones-portal.md)
 ### [Azure PowerShell](dns-operations-dnszones.md)
-### [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
 ### [Azure CLI](dns-operations-dnszones-cli.md)
 
 ## 管理 DNS 記錄
 ### [Azure 入口網站](dns-operations-recordsets-portal.md)
 ### [Azure PowerShell](dns-operations-recordsets.md)
-### [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
 ### [Azure CLI](dns-operations-recordsets-cli.md)
 
 ## 管理反向 DNS

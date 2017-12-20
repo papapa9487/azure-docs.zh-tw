@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: cfb3a309208c78dc7896d61891da9825cf36dbd9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 5fad793bcf9ac86c2a1bc67e74dfb62af9876100
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory 條件式存取的技術參考
 
@@ -117,7 +117,7 @@ ms.lasthandoff: 11/30/2017
 
 ![控制對支援之瀏覽器的存取](./media/active-directory-conditional-access-technical-reference/05.png)
 
-這項設定會影響從下列瀏覽器進行的存取嘗試： 
+此設定適用於所有瀏覽器。 不過，為了滿足像是符合裝置需求規範的裝置原則，因此支援下列作業系統和瀏覽器：
 
 
 | 作業系統                     | 瀏覽器                            | 支援     |
@@ -138,6 +138,9 @@ ms.lasthandoff: 11/30/2017
 > [!NOTE]
 > 如需 Chrome 支援，您必須使用 Windows 10 Creators Update (1703 版) 或更新版本。<br>
 > 您可以安裝[這個擴充功能](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji)。
+
+這些瀏覽器支援裝置驗證，因此可以根據原則來識別和驗證裝置。 如果瀏覽器在私用模式中執行，裝置檢查將會失敗。 
+
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>支援的行動裝置應用程式和桌面用戶端
 

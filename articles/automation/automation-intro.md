@@ -3,7 +3,7 @@ title: "什麼是 Azure 自動化 |Microsoft Docs"
 description: "了解 Azure 自動化提供的價值，並取得常見問題的解答，以便您可以開始建立及使用 Runbook 和 Azure Automation DSC。"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 keywords: "何謂自動化, azure 自動化, azure 自動化範例"
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: c9f5c346350a62540ba29444b1b00cc9dc398d56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae2b607be9a02e688a6b513d593f79eeb985ca93
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-overview"></a>Azure 自動化概觀
 Microsoft Azure 自動化可讓使用者將執行於雲端和企業環境中的手動、長時間執行、易發生錯誤且重複性高的工作自動化。 它可以節省時間並提高日常管理工作的可靠性，甚至將它們排程為定期自動執行。 您可以使用 Runbook 自動執行程序，或使用「期望狀態設定」自動進行組態管理。 本文提供 Azure 自動化的簡短概觀，並回答一些常見問題。 您可以參考此文件庫中的其他文件，以取得不同主題的詳細資訊。

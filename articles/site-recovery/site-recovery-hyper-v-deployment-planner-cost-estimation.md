@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 47cdbf31e6b01055405cefedda11d5eeef82f32e
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: b36e8064da2661e6424d68f11b1e08d5af96131f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Azure Site Recovery 部署規劃工具的成本估計報告  
 
-部署規劃工具報告在[建議](site-recovery-hyper-v-deployment-planner-analyze-report.md#recommendations)表中提供成本估計摘要，以及在成本估計表中提供詳細的成本分析。 其中包含每部 VM 的詳細成本分析。 
+部署規劃工具報告在[建議](site-recovery-hyper-v-deployment-planner-analyze-report.md#recommendations)工作表中提供成本估計摘要，以及在成本估計工作表中提供詳細的成本分析。 其中包含每部 VM 的詳細成本分析。 
 
 ### <a name="cost-estimation-summary"></a>成本估計摘要 
 此圖形會就您所選的目標區域和您針對報告產生所指定的貨幣，顯示災害復原 (DR) 至 Azure 之估計總成本的摘要檢視。
@@ -152,14 +152,14 @@ Azure Site Recovery 部署規劃工具可以使用下列任何貨幣來產生成
 
 |貨幣|名稱||貨幣|名稱||貨幣|名稱|
 |---|---|---|---|---|---|---|---|
-|ARS|阿根廷披索 ($)||澳幣|澳洲元 ($)||巴西里耳|巴西里耳 (R$)|
+|ARS 披索|阿根廷披索 ($)||澳幣|澳洲元 ($)||巴西里耳|巴西里耳 (R$)|
 |加拿大幣|加幣 ($)||瑞士法郎|瑞士法郎 (chf)||丹麥幣|丹麥克朗 (kr)|
 |歐元|歐元 (€)||英鎊|英鎊 (£)||港幣|港幣 (HK$)|
 |印尼盾|印尼盾 (Rp)||印度幣|印度盧比 (₹)||日圓|日圓 (¥)|
-|韓元|韓元 (₩)||墨西哥批索|墨西哥披索 (MX$)||MYR|馬來西亞林吉特 (RM$)|
+|韓元|Korean Won (₩)||墨西哥批索|Mexican Peso (MX$)||馬來西亞林吉特|馬來西亞林吉特 (RM$)|
 |挪威克朗|挪威克朗 (kr)||紐西蘭幣|紐西蘭元 ($)||盧布|俄羅斯盧布 (руб)|
 |SAR 里亞爾|沙烏地里亞爾 (SR)||瑞典克朗|瑞典克朗 (kr)||新台幣|新台幣 (NT$)|
 |土耳其里拉|土耳其里拉 (TL)||美元| 美元 ($)||南非幣|南非蘭特 (R)|
 
 ## <a name="next-steps"></a>後續步驟
-深入了解[使用 Azure Site Recovery 在 Azure 中保護 Hyper-V VM](https://docs.microsoft.com/en-us/azure/site-recovery/tutorial-hyper-v-to-azure)。
+深入了解[使用 Azure Site Recovery 在 Azure 中保護 Hyper-V VM](https://docs.microsoft.com/azure/site-recovery/tutorial-hyper-v-to-azure)。

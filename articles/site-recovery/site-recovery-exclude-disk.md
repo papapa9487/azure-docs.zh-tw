@@ -1,6 +1,6 @@
 ---
 title: "使用 Azure Site Recovery 排除磁碟不要保護 | Microsoft Docs"
-description: "說明在 VMware 到 Azure 和 Hyper-V 到 Azure 案例中，為何及如何排除 VM 磁碟不要複寫。"
+description: "說明為何及如何排除 VM 磁碟不要從 VMware 複寫到 Azure。"
 services: site-recovery
 documentationcenter: 
 author: nsoneji
@@ -12,16 +12,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/24/2017
+ms.date: 12/12/2017
 ms.author: nisoneji
-ms.openlocfilehash: e636065131d0719601a3e834cfc571e94e1abfb7
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: af3f934c0572b50b22cdfb99a8a94bb856042b1b
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/13/2017
 ---
-# <a name="exclude-disks-from-replication"></a>從複寫排除磁碟
-本文說明如何從複寫排除磁碟。 這種排除可以最佳化已使用的複寫頻寬，或最佳化此類磁碟使用的目標端資源。 VMware 到 Azure 和 Hyper-V 到 Azure 案例支援此功能。
+# <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>排除磁碟不要從 VMware 複寫到 Azure 案例
+本文說明如何從複寫排除磁碟。 這種排除可以最佳化已使用的複寫頻寬，或最佳化此類磁碟使用的目標端資源。 
 
 ## <a name="supported-scenarios"></a>支援的案例
 **功能** | **VMware 至 Azure** | **Hyper-V 至 Azure** | **Azure 至 Azure**| **Hyper-V 至 Hyper-V** 
@@ -53,7 +53,6 @@ ms.lasthandoff: 10/24/2017
 
 ## <a name="how-to-exclude-disks-from-replication"></a>如何排除磁碟不要複寫？
 
-### <a name="vmware-to-azure"></a>VMware 至 Azure
 從 Azure Site Recovery 入口網站，依照[啟用複寫](site-recovery-vmware-to-azure.md)工作流程來保護虛擬機器。 在工作流程的第四個步驟中，使用 [要複寫的磁碟] 資料行，排除磁碟不要複寫。 依預設會選取所有磁碟進行複寫。 針對您想排除而不要複寫的磁碟清除核取方塊，然後完成步驟以啟用複寫。
 
 ![排除磁碟不要複寫，並針對 VMware 到 Azure 容錯回復啟用複寫](./media/site-recovery-exclude-disk/v2a-enable-replication-exclude-disk1.png)
@@ -69,19 +68,6 @@ ms.lasthandoff: 10/24/2017
 > * Linux 虛擬機器：您以手動方式在 Azure 中建立的磁碟將會容錯回復。 例如，如果您容錯移轉三個磁碟，並直接在 Azure 虛擬機器中建立兩個磁碟，則五個磁碟全都將容錯回復。 您無法從容錯回復排除手動建立的磁碟。
 >
 
-### <a name="hyper-v-to-azure"></a>Hyper-V 至 Azure
-從 Azure Site Recovery 入口網站，依照[啟用複寫](site-recovery-hyper-v-site-to-azure.md)工作流程來保護虛擬機器。 在工作流程的第四個步驟中，使用 [要複寫的磁碟] 資料行，排除磁碟不要複寫。 依預設會選取所有磁碟進行複寫。 針對您想排除而不要複寫的磁碟清除核取方塊，然後完成步驟以啟用複寫。
-
-![排除磁碟不要複寫，並針對 Hyper-V 到 Azure 容錯回復啟用複寫](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
-
->[!NOTE]
->
-> * 您只能排除基本磁碟不要複寫。 您無法排除作業系統磁碟。 我們建議您不要排除動態磁碟。 Azure Site Recovery 無法識別在客體虛擬機器中哪些虛擬硬碟 (VHD) 是基本或動態。  如果未排除所有相依動態磁碟區磁碟，受保護的動態磁碟會在容錯移轉虛擬機器上成為失敗的磁碟，且該磁碟上的資料無法存取。
-> * 啟用複寫之後，您無法新增或移除磁碟以進行複寫。 如果您想要新增或排除磁碟，必須停用虛擬機器的保護，然後再次啟用它。
-> * 如果您排除應用程式運作所需的磁碟，在容錯移轉至 Azure 之後，您將必須在 Azure 中手動建立磁碟，複寫的應用程式才能執行。 或者，您可以將 Azure 自動化整合至復原計劃，在機器容錯移轉期間建立磁碟。
-> * 您以手動方式在 Azure 中建立的磁碟不會容錯回復。 例如，如果您容錯移轉三個磁碟，並直接在 Azure 虛擬機器中建立兩個磁碟，則只有那三個容錯移轉的磁碟會從 Azure 容錯回復至 Hyper-V。 您無法包含在從 Hyper-V 到 Azure 的容錯回復中或反向複寫中手動建立的磁碟。
-
-
 
 ## <a name="end-to-end-scenarios-of-exclude-disks"></a>排除磁碟的端對端案例
 我們來看一下兩個案例，以了解排除磁碟功能：
@@ -89,7 +75,7 @@ ms.lasthandoff: 10/24/2017
 - SQL Server tempdb 磁碟
 - 分頁檔 (pagefile.sys) 磁碟
 
-### <a name="exclude-the-sql-server-tempdb-disk"></a>排除 SQL Server tempdb 磁碟
+## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>範例 1：排除 SQL Server tempdb 磁碟
 我們來看一下有 tempdb 可排除的 SQL Server 虛擬機器。
 
 虛擬磁碟的名稱是 SalesDB。
@@ -125,7 +111,7 @@ Disk3，這是 SQL tempdb 磁碟 (tempdb 資料夾路徑 F:\MSSQL\Data\)，排�
 - 新增磁碟和指派 tempdb 資料夾路徑。
 - 使用現有的暫存磁碟來設定 tempdb 資料夾路徑。
 
-#### <a name="add-a-new-disk"></a>新增磁碟：
+### <a name="add-a-new-disk"></a>新增磁碟：
 
 1. 容錯移轉之前，記下 SQL tempdb.mdf 和 tempdb.ldf 的路徑。
 2. 從 Azure 入口網站中，將等於或大於來源 SQL tempdb 磁碟 (Disk3) 大小的新磁碟，新增至容錯移轉虛擬機器。
@@ -134,7 +120,7 @@ Disk3，這是 SQL tempdb 磁碟 (tempdb 資料夾路徑 F:\MSSQL\Data\)，排�
 5. 在 F: 磁碟區上建立 tempdb 資料夾 (F:\MSSQL\Data)。
 6. 從服務主控台啟動 SQL 服務。
 
-#### <a name="use-an-existing-temporary-storage-disk-for-the-sql-tempdb-folder-path"></a>使用現有的暫存磁碟來設定 SQL tempdb 資料夾路徑：
+### <a name="use-an-existing-temporary-storage-disk-for-the-sql-tempdb-folder-path"></a>使用現有的暫存磁碟來設定 SQL tempdb 資料夾路徑：
 
 1. 開啟命令提示字元。
 2. 從命令提示字元，在復原模式下執行 SQL Server。
@@ -166,10 +152,10 @@ Disk3，這是 SQL tempdb 磁碟 (tempdb 資料夾路徑 F:\MSSQL\Data\)，排�
 * [使用 Azure VM 中的 SSD 來儲存 SQL Server TempDB 和緩衝集區擴充](https://blogs.technet.microsoft.com/dataplatforminsider/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/)
 * [Azure 虛擬機器中的 SQL Server 效能最佳做法](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance)
 
-### <a name="failback-from-azure-to-an-on-premises-host"></a>容錯回復 (從 Azure 至內部部署主機)
-現在讓我們了解從 Azure 容錯移轉至內部部署 VMware 或 Hyper-V 主機時，將會複製的磁碟。 您以手動方式在 Azure 中建立的磁碟不會複寫。 例如，如果您容錯移轉三個磁碟，並直接在 Azure 虛擬機器中建立兩個磁碟，則只有三個已容錯移轉的磁碟會容錯回復。 您無法將手動建立的磁碟納入從內部部署至 Azure 的容錯回復或重新保護中。 暫存磁碟也不會複寫至內部部署主機。
+## <a name="failback-from-azure-to-an-on-premises-host"></a>容錯回復 (從 Azure 至內部部署主機)
+現在讓我們了解從 Azure 容錯移轉至內部部署 VMware 時，將會複製的磁碟。 您以手動方式在 Azure 中建立的磁碟不會複寫。 例如，如果您容錯移轉三個磁碟，並直接在 Azure 虛擬機器中建立兩個磁碟，則只有三個已容錯移轉的磁碟會容錯回復。 您無法將手動建立的磁碟納入從內部部署至 Azure 的容錯回復或重新保護中。 暫存磁碟也不會複寫至內部部署主機。
 
-#### <a name="failback-to-original-location-recovery"></a>容錯回復至原始位置復原
+### <a name="failback-to-original-location-recovery"></a>容錯回復至原始位置復原
 
 在上述範例中，Azure 虛擬機器磁碟組態如下所示︰
 
@@ -180,8 +166,6 @@ Disk1 | E:\ | 暫存儲存體</br /> </br />Azure 會新增此磁碟，並指派
 Disk2 | D:\ | SQL 系統資料庫和使用者資料庫 1
 Disk3 | G:\ | 使用者資料庫 2
 
-
-#### <a name="vmware-to-azure"></a>VMware 至 Azure
 容錯回復至原始位置完成之後，容錯回復虛擬機器磁碟組態不會有已排除的磁碟。 從 WMware 到 Azure 中排除的磁碟，不會出現在容錯回復虛擬機器上。
 
 從 Azure 到內部部署 VMware 之規劃的容錯移轉之後，VMWare 虛擬機器 (原始位置) 上的磁碟如下所示︰
@@ -192,28 +176,13 @@ DISK0 | C:\ | 作業系統磁碟
 Disk1 | D:\ | SQL 系統資料庫和使用者資料庫 1
 Disk2 | G:\ | 使用者資料庫 2
 
-#### <a name="hyper-v-to-azure"></a>Hyper-V 至 Azure
-容錯回復至原始位置後，容錯回復虛擬機器磁碟組態與 Hyper-V 的原始虛擬機器磁碟組態維持相同。 從 Hyper-V 網站到 Azure 中排除的磁碟，不會出現在容錯回復虛擬機器上。
-
-從 Azure 到內部部署 Hyper-V 之規劃的容錯移轉之後，Hyper-V 虛擬機器 (原始位置) 上的磁碟如下所示︰
-
-**磁碟名稱** | **客體作業系統磁碟#** | **磁碟機代號** | **磁碟上的資料類型**
---- | --- | --- | ---
-DB-Disk0-OS | DISK0 |   C:\ | 作業系統磁碟
-DB-Disk1 | Disk1 | D:\ | SQL 系統資料庫和使用者資料庫 1
-DB-Disk2 (排除的磁碟) | Disk2 | E:\ | 暫存檔案
-DB-Disk3 (排除的磁碟) | Disk3 | F:\ | SQL tempdb 資料庫 (資料夾路徑 (F:\MSSQL\Data\)
-DB-Disk4 | Disk4 | G:\ | 使用者資料庫 2
-
-
-#### <a name="exclude-the-paging-file-pagefilesys-disk"></a>排除分頁檔 (pagefile.sys) 磁碟
+## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>範例 2：排除分頁檔 (pagefile.sys) 磁碟
 
 我們來看一下有分頁檔磁碟可排除的虛擬機器。
 有兩種案例。
 
-#### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>案例 1：D: 磁碟機上設定分頁檔
+### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>案例 1：D: 磁碟機上設定分頁檔
 以下是磁碟組態︰
-
 
 **磁碟名稱** | **客體作業系統磁碟#** | **磁碟機代號** | **磁碟上的資料類型**
 --- | --- | --- | ---
@@ -227,7 +196,7 @@ DB-Disk3 | Disk3 | F:\ | 使用者資料 2
 ![來源虛擬機器上的分頁檔設定](./media/site-recovery-exclude-disk/pagefile-on-d-drive-sourceVM.png)
 
 
-從 VMware 到 Azure 或 Hyper-V 到 Azure 的虛擬機器容錯移轉之後，Azure 虛擬機器上的磁碟如下所示︰
+從 VMware 到 Azure 的虛擬機器容錯移轉之後，Azure 虛擬機器上的磁碟如下所示︰
 
 **磁碟名稱** | **客體作業系統磁碟#** | **磁碟機代號** | **磁碟上的資料類型**
 --- | --- | --- | ---
@@ -242,7 +211,7 @@ DB-Disk3 | Disk3 | F:\ | 使用者資料 2
 
 ![Azure 虛擬機器上的分頁檔設定](./media/site-recovery-exclude-disk/pagefile-on-Azure-vm-after-failover.png)
 
-#### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>案例 2︰在其他磁碟機 (非 D: 磁碟機) 上設定分頁檔
+### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>案例 2︰在其他磁碟機 (非 D: 磁碟機) 上設定分頁檔
 
 以下是來源虛擬機器磁碟組態︰
 
@@ -257,7 +226,7 @@ DB-Disk3 | Disk3 | F:\ | 使用者資料 2
 
 ![內部部署虛擬機器上的分頁檔設定](./media/site-recovery-exclude-disk/pagefile-on-g-drive-sourceVM.png)
 
-從 VMware/Hyper-V 到 Azure 的虛擬機器容錯移轉之後，Azure 虛擬機器上的磁碟如下所示︰
+從 VMware 到 Azure 的虛擬機器容錯移轉之後，Azure 虛擬機器上的磁碟如下所示︰
 
 **磁碟名稱**| **客體作業系統磁碟#**| **磁碟機代號** | **磁碟上的資料類型**
 --- | --- | --- | ---

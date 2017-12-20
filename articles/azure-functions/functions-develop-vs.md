@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 1f0d50331aa3986e80542902fd528f98e1c91bc2
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 099ff4c9748244ddaf9c12f5eb39657bf59c063b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools for Visual Studio  
 
@@ -32,6 +32,9 @@ Azure Functions Tools 提供下列優點：
 * 在 C# 中編寫函數，同時享有 Visual Studio 開發的所有優點。 
 
 本主題示範如何使用 Azure Functions Tools for Visual Studio 2017 在 C# 中開發函數。 您也會了解如何將專案發佈到 Azure 成為 .NET 組件。
+
+> [!IMPORTANT]
+> 請勿在相同函式應用程式中混用本機開發與入口網站開發。 當您從本機專案發佈至函式應用程式時，部署程序將會覆寫您在入口網站開發的任何函式。
 
 ## <a name="prerequisites"></a>必要條件
 

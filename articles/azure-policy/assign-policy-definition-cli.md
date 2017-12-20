@@ -5,42 +5,27 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2017
+ms.date: 12/06/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 6ea39618a24249d92b77afdf5cb0ea284b180223
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 88ceb47d46b66e716c6c263098d5b9458e4aff22
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>使用 Azure CLI 建立原則指派，以識別 Azure 環境中的不相容資源
 
 了解 Azure 中相容性的第一個步驟是了解您與自己的目前資源所處的位置。 本快速入門會逐步引導您完成程序來建立原則指派，以識別出未使用受控磁碟的虛擬機器。
 
 在此程序結束時，您將已成功識別出因未使用受控磁碟而「不符合規範」的虛擬機器。
-.
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 如果您選擇在本機安裝和使用 CLI，本快速入門會要求您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
-
-## <a name="opt-in-to-azure-policy"></a>加入 Azure 原則
-
-「Azure 原則」目前是以「公開預覽」的形式提供，您必須註冊才能要求存取。
-
-1. 移至 Azure 原則，位置是：https://aka.ms/getpolicy ，然後選取左窗格中的 [註冊]。
-
-   ![搜尋原則](media/assign-policy-definition/sign-up.png)
-
-2. 藉由選取您想要使用之 [訂用帳戶] 清單中的訂用帳戶，加入 Azure 原則。 接著，選取 [註冊]。
-
-   ![加入以使用 Azure 原則](media/assign-policy-definition/preview-opt-in.png)
-
-   針對「預覽版」，系統會自動核准您的要求。 請等候 30 分鐘讓系統處理您的註冊。
 
 ## <a name="create-a-policy-assignment"></a>建立原則指派
 
@@ -66,7 +51,7 @@ Azure 原則隨附您可以使用的內建原則定義。 內建原則定義如�
 - **原則** – 這是原則定義，這是您用來建立指派的根基。 在此案例中，即為原則定義 – *Audit Virtual Machines without Managed Disks* (稽核沒有受控磁碟的虛擬機器)
 - **範圍** – 範圍會決定在哪些資源或資源群組上強制執行原則指派。 範圍從訂用帳戶到資源群組。
 
-  使用您先前加入 Azure 原則時註冊的訂用帳戶 (或資源群組)，在此範例中我們使用此訂用帳戶識別碼 - **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** 和資源群組名稱 - **FabrikamOMS**。 請務必將這些項目變更為您使用之訂用帳戶識別碼和資源群組名稱。
+  使用您先前註冊的訂用帳戶 (或資源群組)。 在此範例中，我們將使用此訂用帳戶 ID - **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** 和資源群組名稱 - **FabrikamOMS**。 請務必將這些項目變更為您使用之訂用帳戶識別碼和資源群組名稱。
 
 命令外觀應該如下所示：
 

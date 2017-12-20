@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: rafats
-ms.openlocfilehash: 030d6d136c16946d6231b165b4b33d496bb7c818
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 127b42b67a3e29022ac5d9535751a1b2a3be250e
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Azure Cosmos DB 中的唯一索引鍵
 
-唯一索引鍵提供開發人員對其資料庫新增一層資料完整性的能力。 您可在建立容器時建立唯一索引鍵原則，以確保每個[分割區](partition-data.md)一或多個值的唯一性。 一旦使用唯一索引鍵原則建立容器，即可防止使用與唯一索引鍵條件約束所指定值重複的值，建立任何新的或已更新的項目。   
+唯一索引鍵提供開發人員對其資料庫新增一層資料完整性的能力。 您可在建立容器時建立唯一索引鍵原則，以確保每個[資料分割索引鍵](partition-data.md)一或多個值的唯一性。 一旦使用唯一索引鍵原則建立容器，即可防止使用與唯一索引鍵條件約束所指定值重複的值，建立任何新的或已更新的項目。   
 
 > [!NOTE]
 > 唯一索引鍵是由最新版的 [.NET](documentdb-sdk-dotnet.md) 和 [.NET Core](documentdb-sdk-dotnet-core.md) DocumentDB (SQL) SDK 和 [MongoDB API](mongodb-feature-support.md#unique-indexes) 支援。 資料表 API 和圖形 API 此時不支援唯一索引鍵。 

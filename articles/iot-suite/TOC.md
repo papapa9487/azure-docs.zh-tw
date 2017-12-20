@@ -71,6 +71,7 @@
 ### [為連線的處理站部署閘道](iot-suite-connected-factory-gateway-deployment.md)
 ### [自訂已連線處理站](iot-suite-connected-factory-customize.md)
 ### [針對連線的處理站使用 OPC 發行者](iot-suite-connected-factory-publisher.md)
+### [設定已連線處理站](iot-suite-connected-factory-configure.md)
 ## [azureiotsuite.com 的權限](iot-suite-permissions.md)
 
 # 參考

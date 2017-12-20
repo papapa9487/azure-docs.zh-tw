@@ -12,22 +12,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 2f2a943657dd328fc5657b775ba0273f99718f39
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 540e9804d2ee84c050531f5287d4c4b8922ae999
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="azure-api-management-developer-portal-templates"></a>Azure API 管理開發人員入口網站範本
+# <a name="developer-portal-templates"></a>開發人員入口網站範本
+
 「Azure API 管理」可讓您使用一組可設定開發人員入口網站頁面內容的範本，來自訂那些頁面的內容。 使用這些範本時，您可以運用 [DotLiquid](http://dotliquidmarkup.org/) 語法和您選擇的編輯器 (例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers))，以及一組提供的當地語系化[字串資源](api-management-template-resources.md#strings)、[字符資源](api-management-template-resources.md#glyphs)和[頁面控制項](api-management-page-controls.md)，依照您的想法自由靈活地設定頁面內容。  
   
- 如需有關使用範本的詳細資訊，請參閱[如何使用範本自訂 API 管理開發人員入口網站](api-management-developer-portal-templates.md)。  
+如需有關使用範本的詳細資訊，請參閱[如何使用範本自訂 API 管理開發人員入口網站](api-management-developer-portal-templates.md)。  
 
-
-
-  
 ##  <a name="DeveloperPortalTemplates"></a> 開發人員入口網站範本  
   
 -   [API](api-management-api-templates.md)  
@@ -60,9 +58,9 @@ ms.lasthandoff: 10/11/2017
     -   [註冊](api-management-page-templates.md#SignUp)  
     -   [找不到頁面](api-management-page-templates.md#PageNotFound)
 
-
 ## <a name="next-steps"></a>後續步驟  
--   [範本參考](api-management-developer-portal-templates-reference.md)  
--   [資料模型參考](api-management-template-data-model-reference.md)  
--   [頁面控制項](api-management-page-controls.md)  
--   [範本資源](api-management-template-resources.md)
+
++ [範本參考](api-management-developer-portal-templates-reference.md)  
++ [資料模型參考](api-management-template-data-model-reference.md)  
++ [頁面控制項](api-management-page-controls.md)  
++ [範本資源](api-management-template-resources.md)

@@ -15,15 +15,15 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/20/2017
 ms.author: mimig
-ms.openlocfilehash: e0f0a95ea086e83ef0c46145b33b348071407aa5
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 44637049dd5d6cfe353afe98427d843a0d4e403a
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>快速入門：使用 .NET 與 Azure Cosmos DB 建置資料表 API 應用程式 
 
-本快速入門示範如何使用 Java 與 Azure Cosmos DB [資料表 API](table-introduction.md)，以藉由從 GitHub 複製範例來建置應用程式。 本快速入門也會示範如何建立 Azure Cosmos DB 帳戶，以及如何使用資料總管在以 Web 為基礎的 Azure 入口網站中建立資料表和實體。
+本快速入門示範如何使用 .NET 與 Azure Cosmos DB [資料表 API](table-introduction.md)，透過從 GitHub 複製範例來建置應用程式。 本快速入門也會示範如何建立 Azure Cosmos DB 帳戶，以及如何使用資料總管在以 Web 為基礎的 Azure 入口網站中建立資料表和實體。
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。 
 
@@ -36,7 +36,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 ## <a name="create-a-database-account"></a>建立資料庫帳戶
 
 > [!IMPORTANT] 
-> 您需要建立新資料表 API 帳戶，和正式推出的資料表 API SDK 搭配使用。 正式推出的 SDK 不支援在預覽期間建立的資料表 API 帳戶。
+> 您需要建立新的資料表 API 帳戶，以與正式推出的資料表 API SDK 搭配使用。 正式推出的 SDK 不支援在預覽期間建立的資料表 API 帳戶。
 >
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
@@ -95,10 +95,10 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-4. 將來自入口網站的主要連接字串貼到第 8 行上的 StorageConnectionString 值中。 將字串貼到引號內。 
+4. 將來自入口網站的主要連接字串貼到第 8 行上的 StorageConnectionString 值中。 在引號內貼上字串。 
 
     > [!IMPORTANT]
-    > 如果端點使用 documents.azure.com，這表示您擁有預覽帳戶，因此您需要建立一個[新資料表 API 帳戶](#create-a-database-account)與正式推出的資料表 API SDK 搭配使用。 
+    > 如果端點使用 documents.azure.com，這表示您擁有預覽帳戶，因此您需要建立一個[新的資料表 API 帳戶](#create-a-database-account)與正式推出的資料表 API SDK 搭配使用。 
     > 
 
     第 8 行現在看起來應該類似：

@@ -26,14 +26,13 @@
 
 ## 移轉至 SQL 資料倉儲
 ### [概觀](sql-data-warehouse-overview-migrate.md)
-### [移轉公用程式](sql-data-warehouse-migrate-migration-utility.md)
 ### [移轉結構描述](sql-data-warehouse-migrate-schema.md)
 ### [移轉程式碼](sql-data-warehouse-migrate-code.md)
 ### [移轉資料](sql-data-warehouse-migrate-data.md)
 
 ## 載入與移動資料
-### [概觀](sql-data-warehouse-overview-load.md)
-### [PolyBase](sql-data-warehouse-load-polybase-guide.md)
+### [概觀](design-elt-data-loading.md)
+### [指引](guidance-for-loading-data.md)
 
 
 ## 整合

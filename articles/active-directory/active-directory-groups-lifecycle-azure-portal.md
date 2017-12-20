@@ -1,5 +1,5 @@
 ---
-title: "在 Azure Active Directory 中預覽 Office 365 群組到期日 | Microsoft Docs"
+title: "Azure Active Directory 中的 Office 365 群組到期日 | Microsoft Docs"
 description: "如何設定 Azure Active Directory 中 Office 365 群組的到期日 (預覽)"
 services: active-directory
 documentationcenter: 
@@ -12,29 +12,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 12/01/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 8a43df84fd050d7b4bd8d937b8c55e744cb805d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c2dd56bd34e5b7845298fab1f36e231113a2e28e
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="configure-office-365-groups-expiration-preview"></a>設定 Office 365 群組到期日 (預覽)
+# <a name="configure-expiration-for-office-365-groups-preview"></a>設定 Office 365 群組的到期日 (預覽)
 
-您現在可以藉由設定到期日，對您選取任何 Office 365 群組管理 Office 365 群組的生命週期。 一旦設定此到期日，如果這些群組的擁有者仍需要群組，則會要求他們續訂。 未續訂的任何 Office 365 群組將會予以刪除。 群組擁有者或系統管理員可在 30 天內還原已刪除的任何 Office 365 群組。  
-
+您現在可以藉由設定 Office 365 群組的到期日，來管理 Office 365 群組的生命週期。 您可以只設定 Azure Active Directory (Azure AD) 中 Office 365 群組的到期日。 一旦您為群組設定到期日：
+-   群組擁有者會在到期日快到時收到更新群組的通知
+-   未更新的群組會遭到刪除
+-   群組擁有者或系統管理員可在 30 天內還原已刪除的任何 Office 365 群組
 
 > [!NOTE]
-> 您可以僅針對 Office 365 群組設定到期日。
->
-> 設定已指派 Azure AD Premium 授權之 O365 群組所需要的到期日
->   - 為租用戶設定到期設定的系統管理員
->   - 為此設定選取之群組的所有成員
+> 若要設定 Office 365 群組的到期日，套用到期日設定的群組成員都要有 Azure AD Premium 授權或 Azure AD Basic EDU 授權。
+> 
+> 對於有 Azure AD Basic EDU 授權的客戶：若是第一次設定此原則，請使用 Azure Active Directory PowerShell Cmdlet。 在這之後，您可以使用 PowerShell 或 Azure AD 入口網站更新到期設定，透過 Azure AD 租用戶中的使用者帳戶管理員或全域管理員帳戶。
 
-## <a name="set-office-365-groups-expiration"></a>設定 Office 365 群組到期日
+如需如何下載及安裝 Azure AD PowerShell Cmdlet 的資訊，請參閱 [Azure Active Directory PowerShell for Graph - 公開預覽版本 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137)。
+
+## <a name="set-group-expiration"></a>設定群組到期日
 
 1. 開啟其帳戶在 Azure AD 租用戶中為全域系統管理員的 [Azure AD 系統管理中心](https://aad.portal.azure.com)。
 
@@ -51,7 +53,6 @@ ms.lasthandoff: 10/11/2017
   * 選取到期的 Office 365 群組。 您可以針對**所有** Office 365 群組啟用到期、從 Office 365 群組中選擇啟用對象，或選取 [無] 以停用所有群組的到期。
   * 當您完成時，選取 [儲存] 會儲存您的設定。
 
-如需如何下載及安裝 Microsoft PowerShell 模組以透過 PowerShell 設定 Office 365 群組之到期日的指示，請參閱 [Azure Active Directory V2 PowerShell 模組 - 公開預覽版本 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137)。
 
 這種電子郵件通知會在群組到期前 30 天、前 15 天和前 1 天傳送給 Office 365 群組擁有者。
 
@@ -68,7 +69,8 @@ ms.lasthandoff: 10/11/2017
 如果您要還原的群組包含文件、SharePoint 網站或其他持續物件，則可能需要 24 小時，才能完全還原群組及其內容。
 
 > [!NOTE]
-> * 部署到期設定時，可能會有一些群組已超過到期時間。 這些群組不會立即刪除，但會設定為 30 天後到期。 第一封續訂通知電子郵件會在第一天發出。 例如，400 天前已建立群組 A，而且到期間隔設定為 180 天。 您套用了到期設定，除非擁有者續訂群組 A，不然該群組就會在 30 天後刪除。
+> * 當您第一次設定到期日時，任何早於到期間隔的群組會設定為 30 後到期。 第一封續訂通知電子郵件會在第一天發出。 
+>   例如，400 天前已建立群組 A，而且到期間隔設定為 180 天。 您套用了到期設定，除非擁有者續訂群組 A，不然該群組就會在 30 天後刪除。
 > * 刪除並還原動態群組時，會將其視為新群組，並根據規則重新填入。 此流程可能需要多達 24 小時的時間。
 
 ## <a name="next-steps"></a>後續步驟

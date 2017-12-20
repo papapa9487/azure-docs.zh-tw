@@ -15,23 +15,28 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danis
-ms.openlocfilehash: b4cd56606d0f84653f3e50634fc5e4d1318c0f94
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: cfdbf6c3d1ac86d430543eada15c1e3b31e3712f
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="oms-virtual-machine-extension-for-windows"></a>適用於 Windows 的 OMS 虛擬機器擴充功能
 
 Operations Management Suite (OMS) 可提供雲端和內部部署資產的監視、警示和警示補救功能。 Microsoft 已發佈和支援適用於 Windows 的 OMS 代理程式虛擬機器擴充功能。 擴充功能會在 Azure 虛擬機器上安裝 OMS 代理程式，並且在現有的 OMS 工作區中註冊虛擬機器。 本文件詳述適用於 Windows 的 OMS 虛擬機器擴充功能所支援的平台、組態和部署選項。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="operating-system"></a>作業系統
+
 適用於 Windows 的 OMS 代理程式擴充功能可以在 Windows Server 2008 R2、2012、2012 R2 及 2016 版本上執行。
 
+### <a name="azure-security-center"></a>Azure 資訊安全中心
+
+Azure 資訊安全中心會使用 Azure 訂用帳戶的預設記錄分析工作區，自動佈建 OMS 代理程式並與它連線。 如果您使用的是 Azure 資訊安全中心，請不要執行此文件中的步驟。 這樣做會覆寫已設定的工作區，並中斷與 Azure 資訊安全中心的連線。
+
 ### <a name="internet-connectivity"></a>網際網路連線
-適用於 Windows 的 OMS 代理程式擴充功能會要求目標虛擬機器連接到網際網路。 
+適用於 Windows 的 OMS 代理程式擴充功能會要求目標虛擬機器連線到網際網路。 
 
 ## <a name="extension-schema"></a>擴充功能結構描述
 

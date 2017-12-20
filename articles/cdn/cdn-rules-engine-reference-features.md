@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: ec2555df27f4b709d06b660bf161f741e5b86ea6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 107601fcc53e5f5b6f809bb3c7fceaf5e5c03d36
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN 規則引擎功能
 本主題會針對 Azure 內容傳遞網路 (CDN) [規則引擎](cdn-rules-engine.md)列出可用功能的詳細說明。
@@ -644,7 +644,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 **預設行為：**已停用。
 
-###<a name="modify-client-response-header"></a>修改用戶端回應標頭
+###<a name="modify-client-request-header"></a>修改用戶端要求標頭
 **目的︰**每個要求都會包含一組說明其本身的 [要求標頭]()。 此功能可以：
 
 - 附加或覆寫指派給要求標頭的值。 如果指定的要求標頭不存在，則此功能會將其加入至要求。
@@ -680,7 +680,7 @@ Append|指定的值會新增至現有要求標頭值的結尾。|**要求標頭�
 ###<a name="modify-client-response-header"></a>修改用戶端回應標頭
 每個回應都包含一組說明其本身的 [回應標頭]()。 此功能可以：
 
-- 附加或覆寫指派給回應標頭的值。 如果指定的要求標頭不存在，則此功能會將其加入至回應。
+- 附加或覆寫指派給回應標頭的值。 如果指定的回應標頭不存在，則此功能會將其新增至回應。
 - 刪除回應的回應標頭。
 
 根據預設，回應標頭值是由原始伺服器和 Edge Server 所定義。
@@ -689,9 +689,9 @@ Append|指定的值會新增至現有要求標頭值的結尾。|**要求標頭�
 
 選項|說明|範例
 -|-|-
-Append|指定的值會新增至現有要求標頭值的結尾。|**回應標頭值 (用戶端)：**Value1 <br/> **回應標頭值 (HTTP 規則引擎)：**Value2 <br/>**新的回應標頭值：**Value1Value2
-覆寫|要求標頭值將會設定為指定的值。|**回應標頭值 (用戶端)：**Value1 <br/>**回應標頭值 (HTTP 規則引擎)：**Value2 <br/>**新的回應標頭值：**Value2 <br/>
-刪除|刪除指定的要求標頭。|**要求標頭值 (用戶端)：**Value1 <br/> **修改用戶端要求標頭組態：**刪除有問題的回應標頭。 <br/>**結果︰**指定的回應標頭將不會轉送給要求者。
+Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭值 (用戶端)：**Value1 <br/> **回應標頭值 (HTTP 規則引擎)：**Value2 <br/>**新的回應標頭值：**Value1Value2
+覆寫|回應標頭值將會設定為指定的值。|**回應標頭值 (用戶端)：**Value1 <br/>**回應標頭值 (HTTP 規則引擎)：**Value2 <br/>**新的回應標頭值：**Value2 <br/>
+刪除|刪除指定的回應標頭。|**回應標頭值 (用戶端)：**Value1 <br/> **修改用戶端回應標頭組態：**刪除有問題的回應標頭。 <br/>**結果︰**指定的回應標頭將不會轉送給要求者。
 
 重要資訊：
 

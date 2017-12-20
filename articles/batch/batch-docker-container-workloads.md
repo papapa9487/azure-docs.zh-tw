@@ -1,6 +1,6 @@
 ---
-title: "Azure Batch 上的 Docker 容器工作負載 | Microsoft Docs"
-description: "了解如何在 Azure Batch 上透過 Docker 容器映像執行應用程式。"
+title: "Azure Batch 上的容器工作負載 | Microsoft Docs"
+description: "了解如何在 Azure Batch 上透過容器映像執行應用程式。"
 services: batch
 author: v-dotren
 manager: timlt
@@ -8,15 +8,15 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 12/01/2017
 ms.author: v-dotren
-ms.openlocfilehash: fc15b2db051b5ebbf39665b803b22d3a5e4885f9
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 1795bdde5506f599849a30d4e59ed7b916595ac4
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="run-docker-container-applications-on-azure-batch"></a>在 Azure Batch 上執行 Docker 容器應用程式
+# <a name="run-container-applications-on-azure-batch"></a>在 Azure Batch 上執行容器應用程式
 
 Azure Batch 可讓您在 Azure 上執行及縮放大量批次運算作業。 到目前為止，Batch 工作已可直接在 Batch 集區中的虛擬機器 (VM) 上執行，但現在您可以將 Batch 集區設定為在 Docker 容器中執行工作。
 
@@ -112,12 +112,11 @@ Batch 集區是作業中 Batch 執行工作所在的計算節點集合。 當您
 
 ### <a name="pool-without-prefetched-container-images"></a>沒有預先擷取容器映像的集區
 
-若要設定沒有預先擷取容器映像的集區，請使用 `ContainerConfiguration`，如下列範例所示。 此範例與下列範例皆假設您使用已安裝 Docker 引擎的自訂 Ubuntu 16.04 LTS 映像。
+若要設定沒有預先擷取容器映像的集區，請定義 `ContainerConfiguration` 和 `VirtualMachineConfiguration` 物件，如下列範例所示。 此範例與下列範例皆假設您使用已安裝 Docker 引擎的自訂 Ubuntu 16.04 LTS 映像。
 
 ```csharp
 // Specify container configuration
-ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker");
+ContainerConfiguration containerConfig = new ContainerConfiguration();
 
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
@@ -136,14 +135,14 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 pool.Commit();
 ```
 
+
 ### <a name="prefetch-images-for-container-configuration"></a>為容器設定預先擷取映像
 
-若要在集區上預先擷取容器映像，請將容器映像清單 (`containerImageNames`) 新增至 容器設定，並提供映像清單的名稱。 下列範例假設您使用自訂 Ubuntu 16.04 LTS 映像、從 [Docker Hub](https://hub.docker.com) 預先擷取 TensorFlow 映像，以及在啟動工作中啟動 TensorFlow。
+若要在集區上預先擷取容器映像，請將容器映像清單 (`containerImageNames`) 新增至 `ContainerConfiguration`，並提供映像清單的名稱。 下列範例假設您使用自訂 Ubuntu 16.04 LTS 映像、從 [Docker Hub](https://hub.docker.com) 預先擷取 TensorFlow 映像，以及在啟動工作中啟動 TensorFlow。
 
 ```csharp
 // Specify container configuration, prefetching Docker images
 ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker",
     containerImageNames: new List<string> { "tensorflow/tensorflow:latest-gpu" } );
 
 // VM configuration
@@ -176,7 +175,7 @@ pool.Commit();
 
 ### <a name="prefetch-images-from-a-private-container-registry"></a>從私人容器登錄中預先擷取映像
 
-您也可以透過驗證私人容器登錄伺服器，來預先擷取容器映像。 下列範例假設您使用自訂 Ubuntu 16.04 LTS 映像，而且會從私人 Azure 容器登錄中預先提取私人 TensorFlow 映像。
+您也可以透過驗證私人容器登錄伺服器，來預先擷取容器映像。 在下列範例中，`ContainerConfiguration`和 `VirtualMachineConfiguration` 物件會使用自訂 Ubuntu 16.04 LTS 映像，而且會從私人 Azure 容器登錄中預先提取私人 TensorFlow 映像。
 
 ```csharp
 // Specify a container registry
@@ -187,7 +186,6 @@ ContainerRegistry containerRegistry = new ContainerRegistry (
 
 // Create container configuration, prefetching Docker images from the container registry
 ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker",
     containerImageNames: new List<string> {
         "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" },
     containerRegistries: new List<ContainerRegistry> { containerRegistry } );

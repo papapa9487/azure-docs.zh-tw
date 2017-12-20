@@ -74,6 +74,8 @@
           href: how-to-read-write-partitioned-data.md
         - name: 連接器
           items:
+            - name: Amazon Marketplace Web Service
+              href: connector-amazon-marketplace-web-service.md
             - name: Amazon Redshift
               href: connector-amazon-redshift.md
             - name: Amazon S3
@@ -86,6 +88,8 @@
               href: connector-azure-data-lake-store.md
             - name: 適用於 MySQL 的 Azure 資料庫
               href: connector-azure-database-for-mysql.md
+            - name: 適用於 PostgreSQL 的 Azure 資料庫
+              href: connector-azure-database-for-postgresql.md
             - name: Azure 檔案儲存體
               href: connector-azure-file-storage.md
             - name: Azure 搜尋服務
@@ -98,8 +102,14 @@
               href: connector-azure-table-storage.md
             - name: Cassandra
               href: connector-cassandra.md
+            - name: Concur
+              href: connector-concur.md
+            - name: Couchbase
+              href: connector-couchbase.md
             - name: DB2
               href: connector-db2.md
+            - name: 深入探詢
+              href: connector-drill.md
             - name: Dynamics 365
               href: connector-dynamics-crm-office-365.md
             - name: Dynamics CRM
@@ -110,12 +120,32 @@
               href: connector-ftp.md
             - name: GE Historian
               href: 'connector-odbc.md#ge-historian-source'
+            - name: Google BigQuery
+              href: connector-google-bigquery.md
+            - name: Greenplum
+              href: connector-greenplum.md
+            - name: HBase
+              href: connector-hbase.md
             - name: HDFS
               href: connector-hdfs.md
+            - name: Hive
+              href: connector-hive.md
             - name: HTTP
               href: connector-http.md
+            - name: HubSpot
+              href: connector-hubspot.md
+            - name: Impala
+              href: connector-impala.md
             - name: Informix
               href: 'connector-odbc.md#ibm-informix-source'
+            - name: Jira
+              href: connector-jira.md
+            - name: Magento
+              href: connector-magento.md
+            - name: MariaDB
+              href: connector-mariadb.md
+            - name: Marketo
+              href: connector-marketo.md
             - name: Microsoft Access
               href: 'connector-odbc.md#microsoft-access-source'
             - name: MongoDB
@@ -128,26 +158,50 @@
               href: connector-odbc.md
             - name: Oracle
               href: connector-oracle.md
+            - name: Oracle Eloqua
+              href: connector-oracle-eloqua.md
+            - name: Paypal
+              href: connector-paypal.md
+            - name: Phoenix
+              href: connector-phoenix.md
             - name: PostgreSQL
               href: connector-postgresql.md
+            - name: Presto
+              href: connector-presto.md
+            - name: QuickBooks
+              href: connector-quickbooks.md
             - name: Salesforce
               href: connector-salesforce.md
             - name: Salesforce 服務雲端
               href: connector-salesforce.md
             - name: SAP Business Warehouse
               href: connector-sap-business-warehouse.md
+            - name: SAP Cloud for Customer
+              href: connector-sap-cloud-for-customer.md
             - name: SAP HANA
               href: connector-sap-hana.md
+            - name: ServiceNow
+              href: connector-servicenow.md
             - name: SFTP
               href: connector-sftp.md
+            - name: Shopify
+              href: connector-shopify.md
+            - name: Spark
+              href: connector-spark.md
             - name: SQL Server
               href: connector-sql-server.md
+            - name: 正方形
+              href: connector-square.md
             - name: Sybase
               href: connector-sybase.md
             - name: Teradata
               href: connector-teradata.md
             - name: Web 資料表
               href: connector-web-table.md
+            - name: Xero
+              href: connector-xero.md
+            - name: Zoho
+              href: connector-zoho.md
         - name: 格式和壓縮支援
           href: supported-file-formats-and-compression-codecs.md
         - name: 結構描述和類型對應
@@ -233,8 +287,6 @@
           href: create-self-hosted-integration-runtime.md
         - name: Azure SSIS 整合執行階段
           href: create-azure-ssis-integration-runtime.md
-        - name: 將 Azure SSIS 整合執行階段新增至 VNET
-          href: join-azure-ssis-integration-runtime-virtual-network.md
     - name: 在 Azure 中執行 SSIS 套件
       items:
         - name: 建立 Azure-SSIS 整合執行階段
@@ -243,8 +295,14 @@
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: 管理 Azure-SSIS 整合執行階段
           href: manage-azure-ssis-integration-runtime.md
-        - name: 設定 Azure-SSIS 整合執行階段效能
+        - name: 設定 Azure-SSIS 整合執行階段效能設定
           href: configure-azure-ssis-integration-runtime-performance.md
+        - name: 使用預存程序活動叫用 SSIS 套件
+          href: how-to-invoke-ssis-package-stored-procedure-activity.md
+    - name: 建立觸發程序
+      items:
+        - name: 建立排程觸發程序
+          href: how-to-create-schedule-trigger.md
 - name: 參考
   items:
     - name: .NET

@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory 中的具名位置 | Microsoft Docs"
-description: "透過設定具名位置，您可以避免組織所擁有的 IP 位址針對不可能到達非典型位置的移動風險事件類型，產生誤判。"
+description: "了解具名位置是什麼及如何設定。"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -11,22 +11,50 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: da437908509e40386ed23863648bd6956b308186
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 126646d7460831f0235221595b8a93c88be6146d
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="named-locations-in-azure-active-directory"></a>Azure Active Directory 中的具名位置
 
-透過 Azure Active Directory 的具名位置功能，您可以標記組織中信任的 IP 位址範圍。 在您的環境中，您可以在[風險事件](active-directory-reporting-risk-events.md)偵測內容中使用具名位置。 此功能可協助減少「不可能進入非慣用位置」風險事件類型的回報誤判次數。 
+您可以使用具名位置，標記組織中受信任的 IP 位址範圍。 Azure Active Directory 會在下列動作的內容中使用具名位置：
 
-## <a name="configuration"></a>組態
+- 偵測[風險事件](active-directory-reporting-risk-events.md)以降低報告的誤判數量。  
 
-若要設定具名位置：
+- [位置型條件式存取](active-directory-conditional-access-azure-portal.md#locations)。
+
+
+本文說明如何在您的環境中設定具名位置。
+
+
+## <a name="entry-points"></a>進入點
+
+您可以在 [Azure Active Directory] 頁面的 [安全性] 區段中存取具名位置設定頁面，方法是按一下：
+
+![進入點](./media/active-directory-named-locations/34.png)
+
+- **條件式存取：**
+
+    - 在 [管理] 區段中，按一下 [具名位置]。
+    
+        ![具名位置命令](./media/active-directory-named-locations/06.png)
+
+- **具風險的登入：**
+
+    - 在頂端工具列上，按一下 [加入已知的 IP 位址範圍]。
+
+       ![具名位置命令](./media/active-directory-named-locations/35.png)
+
+
+
+## <a name="configuration-example"></a>設定範例
+
+**設定具名位置：**
 
 1. 以全域管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -34,22 +62,22 @@ ms.lasthandoff: 10/11/2017
 
     ![左窗格中的 Azure Active Directory 連結](./media/active-directory-named-locations/01.png)
 
-3. 在 [Azure Active Directory] 刀鋒視窗的 [安全性] 區段中，按一下 [條件式存取]。
+3. 在 [Azure Active Directory] 頁面的 [安全性] 區段中，按一下 [條件式存取]。
 
     ![條件式存取命令](./media/active-directory-named-locations/05.png)
 
 
-4. 在 [條件式存取] 刀鋒視窗的 [管理] 區段中，按一下 [具名位置]。
+4. 在 [條件式存取] 頁面的 [管理] 區段中，按一下 [具名位置]。
 
     ![具名位置命令](./media/active-directory-named-locations/06.png)
 
 
-5. 在 [具名位置] 刀鋒視窗上，按一下 [新增位置]。
+5. 在 [具名位置] 頁面上，按一下 [新增位置]。
 
     ![新增位置命令](./media/active-directory-named-locations/07.png)
 
 
-6. 在 [新增] 刀鋒視窗上，執行下列動作：
+6. 在 [新增] 頁面上，執行下列動作：
 
     ![[新增] 刀鋒視窗](./media/active-directory-named-locations/56.png)
 
@@ -73,5 +101,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解風險事件，請參閱 [Azure Active Directory 風險事件](active-directory-reporting-risk-events.md)。
+若要深入了解：
 
+- 有關**風險事件**，請參閱 [Azure Active Directory 風險事件](active-directory-reporting-risk-events.md)。
+
+- 有關**條件式存取**，請參閱 [Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal.md)。
+
+- 有關**具風險的登入報告**，請參閱 [Azure Active Directory 入口網站中有風險的登入報告](active-directory-reporting-security-risky-sign-ins.md)。  

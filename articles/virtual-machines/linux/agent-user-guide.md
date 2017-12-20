@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 486ad6bb148583a957fb82b7954ff94f853b12cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59266c6d6452eeff56b05e60389ac14f0b2c3f1f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>了解與使用 Azure Linux 代理程式
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -143,6 +143,7 @@ Linux 代理程式需要一些系統封裝才能正確運作：
     Provisioning.MonitorHostName=y
     Provisioning.DecodeCustomData=n
     Provisioning.ExecuteCustomData=n
+    Provisioning.AllowResetSysUser=n
     Provisioning.PasswordCryptId=6
     Provisioning.PasswordCryptSaltLength=10
     ResourceDisk.Format=y
@@ -157,6 +158,7 @@ Linux 代理程式需要一些系統封裝才能正確運作：
     OS.OpensslPath=None
     HttpProxy.Host=None
     HttpProxy.Port=None
+    AutoUpdate.Enabled=y
 
 以下詳細說明各種組態選項。 組態選項可分成三種：布林、字串或整數。 布林組態選項可指定為 "y" 或 "n"。 特殊關鍵字 "None" 可用於某些字串類型組態項目，詳述如下。
 
@@ -209,9 +211,13 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 
 如果設定，waagent 將在佈建之後執行 CustomData。
 
+**Provisioning.AllowResetSysUser** 類型：布林值的預設值：n
+
+此選項可允許重設系統使用者的密碼，預設為停用。
+
 **Provisioning.PasswordCryptId**  
-型別︰字串  
-預設︰6
+類型：字串  
+預設值：6
 
 產生密碼雜湊時由 crypt 使用的演算法。  
  1 - MD5  
@@ -220,8 +226,8 @@ Linux 代理程式需要一些系統封裝才能正確運作：
  6 - SHA-512  
 
 **Provisioning.PasswordCryptSaltLength**  
-型別︰字串  
-預設值︰10
+類型：字串  
+預設值：10
 
 產生密碼雜湊時使用的隨機 salt 長度。
 
@@ -290,6 +296,12 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 預設值︰無
 
 如果設定，代理程式將使用此 Proxy 伺服器存取網際網路。 
+
+**AutoUpdate.Enabled**類型：布林值的預設值：y
+
+啟用或停用目標狀態處理的自動更新；預設為啟用。
+
+
 
 ## <a name="ubuntu-cloud-images"></a>Ubuntu 雲端映像
 請注意，Ubuntu 雲端映像會利用 [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) 來執行許多組態工作，否則會由 Azure Linux 代理程式來管理。  請注意下列差異：

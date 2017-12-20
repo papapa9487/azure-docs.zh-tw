@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 12/05/2017
 ms.author: barclayn
-ms.openlocfilehash: 6c49b086fd35a855fa8e32fa576c5b52d16f1d04
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 0d34a19658ae67a9c98d6f31aaca35e67add5beb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>如何為 Azure 金鑰保存庫產生並傳輸受 HSM 保護的金鑰
 ## <a name="introduction"></a>簡介
@@ -82,10 +82,14 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。 這些增強內容�
 ### <a name="step-12-get-your-azure-subscription-id"></a>步驟 1.2：取得您的 Azure 訂用帳戶識別碼
 使用下列命令開始 Azure PowerShell 工作階段，並登入您的 Azure 帳戶：
 
-        Add-AzureAccount
+```Powershell
+   Add-AzureAccount
+```
 在快顯瀏覽器視窗中，輸入您的 Azure 帳戶使用者名稱與密碼。 然後，使用 [Get-azuresubscription](/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) 命令：
 
-        Get-AzureSubscription
+```powershell
+   Get-AzureSubscription
+```
 從輸出中，找出您將用於 Azure 金鑰保存庫的訂用帳戶識別碼。 您稍後將需要此訂用帳戶識別碼。
 
 請勿關閉 Azure PowerShell 視窗。
@@ -188,7 +192,9 @@ KeyVault-BYOK-Tools-UnitedKingdom.zip
 
 若要驗證您已下載之 BYOK 工具組的完整性，請從您的 Azure PowerShell 工作階段，使用 [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) Cmdlet。
 
-    Get-FileHash KeyVault-BYOK-Tools-*.zip
+   ```powershell
+   Get-FileHash KeyVault-BYOK-Tools-*.zip
+   ```
 
 工具組包含下列各項：
 
@@ -208,7 +214,9 @@ KeyVault-BYOK-Tools-UnitedKingdom.zip
 
 確定 Thales 工具位於您的路徑 (**%nfast_home%\bin**)。 例如，輸入下列內容：
 
-        set PATH=%PATH%;"%nfast_home%\bin"
+  ```cmd
+  set PATH=%PATH%;"%nfast_home%\bin"
+  ```
 
 如需詳細資訊，請參閱 Thales HSM 內附的使用者指南。
 
@@ -229,7 +237,9 @@ KeyVault-BYOK-Tools-UnitedKingdom.zip
 ### <a name="step-32-create-a-security-world"></a>步驟 3.2：建立安全世界
 啟動命令提示字元並執行 Thales new-world 程式。
 
+   ```cmd
     new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
+   ```
 
 此程式會在 %NFAST_KMDATA%\local\world 建立**安全世界**檔案，並對應到 C:\ProgramData\nCipher\Key Management Data\local 資料夾。 您可以使用不同的值進行仲裁，但是在我們的範例中，系統會提示您輸入三個空白的卡片和其個別的 pin。 然後，任兩張卡片可提供安全世界的完整存取權。 這些卡片將成為新安全世界的 **系統管理員卡組** 。
 
@@ -293,6 +303,10 @@ KeyVault-BYOK-Tools-UnitedKingdom.zip
    * 針對印度︰
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-INDIA-1 -w BYOK-SecurityWorld-pkg-INDIA-1
+   * 針對英國：
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-UK-1 -w BYOK-SecurityWorld-pkg-UK-1
+
      > [!TIP]
      > Thales 軟體包含 %NFAST_HOME%\python\bin 中的 python
      >
@@ -370,6 +384,9 @@ KeyVault-BYOK-Tools-UnitedKingdom.zip
 * 針對印度︰
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1
+* 針對英國：
+
+        KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1
 
 當您執行此命令時，請以您從[產生您的金鑰](#step-3-generate-your-key)步驟的**步驟 3.5：建立新的金鑰**中指定的相同值取代 *contosokey*。
 
@@ -426,6 +443,9 @@ KeyVault-BYOK-Tools-UnitedKingdom.zip
 * 針對印度︰
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+* 針對英國：
+
+        KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 
 當您執行此命令時，請使用下列指示：
 
@@ -441,7 +461,9 @@ KeyVault-BYOK-Tools-UnitedKingdom.zip
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>步驟 5：將金鑰傳輸至 Azure 金鑰保存庫
 針對這最後一個步驟，在連線到網際網路的工作站上，使用 [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) Cmdlet，將您從已中斷連線的工作站複製的金鑰傳輸套件上傳到「Azure 金鑰保存庫 HSM」：
 
-    Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+   ```powershell
+        Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+   ```
 
 如果上傳成功，就會顯示您剛才加入之金鑰的屬性。
 

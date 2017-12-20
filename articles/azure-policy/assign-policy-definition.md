@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2017
+ms.date: 12/06/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 85136ff2783b21472ef02aee15f8ec5844a00c12
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: b28e442a075e38a4fbe7b0d9d46f2c9d23e7c6fb
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>建立原則指派，以識別 Azure 環境中的不相容資源
 了解 Azure 中相容性的第一個步驟是了解您與自己的目前資源所處的位置。 本快速入門會逐步引導您完成程序來建立原則指派，以識別出未使用受控磁碟的虛擬機器。
@@ -21,20 +21,6 @@ ms.lasthandoff: 11/28/2017
 在此程序結束時，您將已成功識別出因未使用受控磁碟而「不符合規範」的虛擬機器。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
-
-## <a name="opt-in-to-azure-policy"></a>加入 Azure 原則
-
-「Azure 原則」目前是以「公開預覽」的形式提供，您必須註冊才能要求存取。
-
-1. 移至 Azure 原則，位置是：https://aka.ms/getpolicy ，然後選取左窗格中的 [註冊]。
-
-   ![搜尋原則](media/assign-policy-definition/sign-up.png)
-
-2. 藉由選取您想要使用之 [訂用帳戶] 清單中的訂用帳戶，加入 Azure 原則。 接著，選取 [註冊]。
-
-   ![加入以使用 Azure 原則](media/assign-policy-definition/preview-opt-in.png)
-
-   針對「預覽版」，系統會自動核准您的要求。 請等候 30 分鐘讓系統處理您的註冊。
 
 ## <a name="create-a-policy-assignment"></a>建立原則指派
 
@@ -65,7 +51,7 @@ ms.lasthandoff: 11/28/2017
    Azure 原則有兩個定價層 – 免費和標準。 使用免費層次，您只能在未來的資源上強制執行原則，而使用標準層，您也能在現有資源上強制執行這些原則，以更加了解相容性狀態。 因為還是有限預覽版本，所以尚未發行計價模式，因此您選取「標準」也不會收到帳單。 若要深入了解定價，請參閱 [Azure 原則定價](https://azure.microsoft.com/pricing/details/azure-policy/)。
 
 7. 選取您想要套用原則的 [範圍]。  範圍會決定在哪些資源或資源群組上強制執行原則指派。 範圍從訂用帳戶到資源群組。
-8. 選取您先前加入 Azure 原則時註冊的訂用帳戶 (或資源群組)。 在此範例中，我們使用這個訂用帳戶 - **Azure Analytics Capacity Dev**，但是您的選項會有不同。
+8. 選取您先前註冊的訂用帳戶 (或資源群組)。 在此範例中，我們使用這個訂用帳戶 - **Azure Analytics Capacity Dev**，但是您的選項會有不同。
 
    ![尋找正確的原則定義](media/assign-policy-definition/assign-policy.png)
 

@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
-ms.openlocfilehash: 2c844ce8aec04c74a9c2dbecdd1b3effb286df97
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 649d138a85ca47440e43c00637ee92b86f4eb03e
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="configure-domain-joined-hdinsight-clusters-preview"></a>設定已加入網域的 HDInsight 叢集 (預覽)
+# <a name="configure-domain-joined-hdinsight-clusters"></a>設定已加入網域的 HDInsight 叢集
 
 了解如何設定 Azure HDInsight 叢集與 Azure Active Directory (Azure AD) 和 [Apache Ranger](http://hortonworks.com/apache/ranger/)，以利用增強式驗證和豐富的角色型存取控制 (RBAC) 原則。  您可以只在 Linux 架構的叢集上設定已加入網域的 HDInsight。 如需詳細資訊，請參閱[已加入網域的 HDInsight 叢集簡介](apache-domain-joined-introduction.md)。
 

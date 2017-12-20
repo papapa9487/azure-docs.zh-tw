@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.openlocfilehash: a441e76fae0bda829cb112d307b3b436809b9c9b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04c015a6fb6f9398e83b8717e869ba1d8e32a702
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="using-aes-128-dynamic-encryption-and-key-delivery-service"></a>使用 AES-128 動態加密和金鑰傳遞服務
 > [!div class="op_single_selector"]
@@ -26,21 +26,21 @@ ms.lasthandoff: 10/11/2017
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
-> 
 
 ## <a name="overview"></a>概觀
 > [!NOTE]
+> 請參閱此[部落格文章](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/) \(英文\)，以了解如何使用 AES 加密內容以傳遞至 **macOS 上的 Safari**。
 > 如需如何使用 AES 加密保護媒體內容的概觀，請參閱[此視訊](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-Protecting-your-Media-Content-with-AES-Encryption)。
 > 
 > 
 
-Microsoft Azure 媒體服務可讓您傳遞您使用進階加密標準 (AES) (使用 128 位元加密金鑰) 加密的 Http-Live-Streaming (HLS) 和 Smooth Streaming 。 媒體服務也提供加密金鑰傳遞服務，將加密金鑰傳遞至授權的使用者。 如果您想要媒體服務加密資產，則需要建立加密金鑰 與資產的關聯，同時設定金鑰的授權原則。 播放程式要求串流時，媒體服務便會使用 AES 加密，使用指定的金鑰動態加密您的內容。 為了將串流解密，播放程式將從金鑰傳遞服務要求金鑰。 為了決定使用者是否有權取得金鑰，服務會評估為金鑰指定的授權原則。
+Microsoft Azure 媒體服務可讓您傳遞您使用進階加密標準 (AES) (使用 128 位元加密金鑰) 加密的 Http-Live-Streaming (HLS) 和 Smooth Streaming 。 媒體服務也提供加密金鑰傳遞服務，將加密金鑰傳遞至授權的使用者。 如果您想要媒體服務加密資產，則需要建立加密金鑰 與資產的關聯，同時設定金鑰的授權原則。 播放程式要求串流時，媒體服務便會使用 AES 加密，使用指定的金鑰動態加密您的內容。 為了將串流解密，播放程式將向金鑰傳遞服務要求金鑰。 為了決定使用者是否有權取得金鑰，服務會評估為金鑰指定的授權原則。
 
 媒體服務支援多種方式來驗證提出金鑰要求的使用者。 內容金鑰授權原則可能會有一個或多個授權限制：open 或 token 限制。 權杖限制原則必須伴隨著安全權杖服務 (STS) 所發出的權杖。 媒體服務支援[簡單 Web 權杖](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) 格式和 [JSON Web 權杖](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) 格式的權杖。 如需詳細資訊，請參閱 [設定內容金鑰的授權原則](media-services-protect-with-aes128.md#configure_key_auth_policy)。
 
-若要利用動態加密，您需有一個資源，其中包含一組多位元速率 MP4 檔案或多位元速率 Smooth Streaming 來源檔案。 您也需要設定資產的傳遞原則 (本主題稍後會加以描述)。 然後，根據串流 URL 中指定的格式，隨選資料流處理伺服器將確保以您所選擇的通訊協定傳遞串流。 因此，您只需要儲存及支付一種儲存格式之檔案的費用，媒體服務會根據用戶端的要求建置及提供適當的回應。
+若要利用動態加密，您需有一個資源，其中包含一組多位元速率 MP4 檔案或多位元速率 Smooth Streaming 來源檔案。 您也需要設定資產的傳遞原則 (本文稍後會加以描述)。 然後，根據串流 URL 中指定的格式，隨選資料流處理伺服器確保會以您選擇的通訊協定傳遞串流。 因此，您只需儲存單一儲存格式的檔案並支付費用，媒體服務就會根據用戶端的要求建置及提供適當的回應。
 
-本主題將有助於開發人員開發提供受保護媒體的應用程式。 本主題將展示如何利用授權原則設定金鑰傳遞服務，這樣只有授權的用戶端才會收到加密金鑰。 它也會展示如何使用動態加密。
+本文有助於開發人員開發提供受保護媒體的應用程式。 本文示範如何利用授權原則設定金鑰傳遞服務，只讓已獲授權的用戶端能夠收到加密金鑰。 它也會展示如何使用動態加密。
 
 
 ## <a name="aes-128-dynamic-encryption-and-key-delivery-service-workflow"></a>使用 AES-128 動態加密和金鑰傳遞服務工作流程
@@ -53,19 +53,19 @@ Microsoft Azure 媒體服務可讓您傳遞您使用進階加密標準 (AES) (�
 4. [設定內容金鑰的授權原則](media-services-protect-with-aes128.md#configure_key_auth_policy)。 內容金鑰授權原則必須由您設定，而且用戶端必須符合條件，才能將內容金鑰傳遞給用戶端。
 5. [設定資產的傳遞原則](media-services-protect-with-aes128.md#configure_asset_delivery_policy)。 傳遞原則組態包括：主要取得 URL 和初始化向量 (IV) (AES 128 會在加密和解密時要求提供相同的 IV)、傳送通訊協定 (例如，MPEG DASH、HLS、Smooth Streaming 或全部)、動態加密的類型 (例如，信封或沒有動態加密)。
 
-    您可以將不同的原則套用至相同資產上的每一個通訊協定。 例如，您可以將 PlayReady 加密套用到 Smooth/DASH，以及將 AES 信封加密套用到 HLS。 傳遞原則中未定義的任何通訊協定 (例如，您加入單一原則，它只有指定 HLS 做為通訊協定) 將會遭到封鎖無法串流。 這個狀況的例外情形是您完全沒有定義資產傳遞原則之時。 那麼，將允許所有通訊協定，不受阻礙。
+    您可以將不同的原則套用至相同資產上的每一個通訊協定。 例如，您可以將 PlayReady 加密套用到 Smooth/DASH，以及將 AES 信封加密套用到 HLS。 傳遞原則中未定義的任何通訊協定 (例如，您加入單一原則，它只有指定 HLS 做為通訊協定) 將會遭到封鎖無法串流。 這個狀況的例外情形是您完全沒有定義資產傳遞原則之時。 接著，允許所有通訊協定，不受阻礙。
 
 6. [建立隨選定位器](media-services-protect-with-aes128.md#create_locator) 。
 
-本主題也說明 [用戶端應用程式如何從金鑰傳遞服務要求金鑰](media-services-protect-with-aes128.md#client_request)。
+本文也會示範[用戶端應用程式如何向金鑰傳遞服務要求金鑰](media-services-protect-with-aes128.md#client_request)。
 
-您會在本主題結尾處發現完整的.NET [範例](media-services-protect-with-aes128.md#example) 。
+您可以在本文結尾處找到完整的 .NET [範例](media-services-protect-with-aes128.md#example)。
 
 下圖示範上述的工作流程。 這裡的權杖用於驗證。
 
 ![利用 AES 128 保護](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
 
-本主題的其餘部分會提供詳細的說明、程式碼範例，以及展示如何達成上述工作之主題的連結。
+本文的其餘部分會提供詳細的說明、程式碼範例，以及示範如何達成上述工作之主題的連結。
 
 ## <a name="current-limitations"></a>目前的限制
 如果您加入或更新您的資產傳遞原則，您必須刪除現有的定位程式 (如果有的話)，並建立新的定位器。
@@ -76,7 +76,7 @@ Microsoft Azure 媒體服務可讓您傳遞您使用進階加密標準 (AES) (�
 如需詳細資訊，請參閱 [上傳檔案到媒體服務帳戶](media-services-dotnet-upload-files.md)。
 
 ## <a id="encode_asset"></a>將包含檔案的資產編碼為自適性位元速率 MP4 集
-使用動態加密時，您只需建立一個資源，其中包含一組多位元速率 MP4 檔案或多位元速率 Smooth Streaming 來源檔案。 然後隨選資料流處理伺服器會根據資訊清單或片段要求中的指定格式，確保您以自己選擇的通訊協定接收串流。 因此，您只需要儲存及支付一種儲存格式之檔案的費用，媒體服務會根據用戶端的要求建置及提供適當的回應。 如需詳細資訊，請參閱 [動態封裝概觀](media-services-dynamic-packaging-overview.md) 主題。
+使用動態加密時，您只需建立一個資源，其中包含一組多位元速率 MP4 檔案或多位元速率 Smooth Streaming 來源檔案。 然後，隨選資料流處理伺服器會根據資訊清單或片段要求中的指定格式，確保您會以自己選擇的通訊協定接收串流。 因此，您只需要儲存及支付一種儲存格式之檔案的費用，媒體服務會根據用戶端的要求建置及提供適當的回應。 如需詳細資訊，請參閱[動態封裝概觀](media-services-dynamic-packaging-overview.md)一文。
 
 >[!NOTE]
 >建立 AMS 帳戶時，**預設**串流端點會新增至 [已停止] 狀態的帳戶。 若要開始串流內容並利用動態封裝和動態加密功能，您想要串流內容的串流端點必須處於 [執行中] 狀態。 
@@ -103,10 +103,10 @@ Microsoft Azure 媒體服務可讓您傳遞您使用進階加密標準 (AES) (�
 * 資產傳遞通訊協定 (例如，MPEG DASH、HLS、Smooth Streaming 或全部)。
 * 動態加密的類型 (例如，AES 信封) 或沒有動態加密。 
 
-如需詳細資訊，請參閱 [設定資產傳遞原則 ](media-services-rest-configure-asset-delivery-policy.md)。
+如需詳細資訊，請參閱[設定資產傳遞原則](media-services-dotnet-configure-asset-delivery-policy.md)。
 
 ## <a id="create_locator"></a>建立隨選串流定位器以取得串流 URL
-您必須為您的使用者提供 Smooth、DASH 或 HLS 的串流 URL。
+您必須為使用者提供 Smooth、DASH 或 HLS 的串流 URL。
 
 > [!NOTE]
 > 如果您加入或更新您的資產傳遞原則，您必須刪除現有的定位程式 (如果有的話)，並建立新的定位器。
@@ -135,7 +135,7 @@ Microsoft Azure 媒體服務可讓您傳遞您使用進階加密標準 (AES) (�
 在上一個步驟中，您可以建構指向資訊清單檔案的 URL。 您的用戶端必須從串流資訊清單檔案擷取所需的資訊，才能向金鑰傳遞服務提出要求。
 
 ### <a name="manifest-files"></a>資訊清單檔案
-用戶端必須從資訊清單檔案擷取 URL (其中也包含內容金鑰識別碼 (kid)) 值。 用戶端接著會嘗試從金鑰傳遞服務取得加密金鑰。 用戶端也必須擷取 IV 值，並使用它解密串流。下列程式碼片段展示 Smooth Streaming 資訊清單的 <Protection> 項目。
+用戶端必須從資訊清單檔案擷取 URL (其中也包含內容金鑰識別碼 (kid)) 值。 用戶端接著會嘗試從金鑰傳遞服務取得加密金鑰。 用戶端也必須擷取 IV 值，並使用它來進行串流解密。 下列程式碼片段說明 Smooth Streaming 資訊清單的 <Protection> 元素。
 
     <Protection>
       <ProtectionHeader SystemID="B47B251A-2409-4B42-958E-08DBAE7B4EE9">
@@ -181,7 +181,7 @@ Microsoft Azure 媒體服務可讓您傳遞您使用進階加密標準 (AES) (�
 
 ### <a name="request-the-key-from-the-key-delivery-service"></a>從金鑰傳遞服務要求金鑰
 
-下列程式碼展示如何使用金鑰傳遞 Uri (擷取自資訊清單) 和權杖 (本主題不會討論如何從安全性權杖服務取得簡單 Web 權杖)，將要求傳送至媒體服務金鑰傳遞服務。
+下列程式碼示範如何使用金鑰傳遞 Uri (擷取自資訊清單) 和權杖 (本文不會討論如何從安全性權杖服務取得簡單 Web 權杖)，將要求傳送至媒體服務金鑰傳遞服務。
 
     private byte[] GetDeliveryKey(Uri keyDeliveryUri, string token)
     {
@@ -238,7 +238,7 @@ Microsoft Azure 媒體服務可讓您傳遞您使用進階加密標準 (AES) (�
 以本章節中所顯示的程式碼覆寫 Program.cs 檔案中的程式碼。
  
 >[!NOTE]
->對於不同的 AMS 原則 (例如 Locator 原則或 ContentKeyAuthorizationPolicy) 有 1,000,000 個原則的限制。 如果您一律使用相同的日期 / 存取權限，例如，要長時間維持就地 (非上載原則) 的定位器原則，您應該使用相同的原則識別碼。 如需詳細資訊，請參閱 [這個](media-services-dotnet-manage-entities.md#limit-access-policies) 主題。
+>對於不同的 AMS 原則 (例如 Locator 原則或 ContentKeyAuthorizationPolicy) 有 1,000,000 個原則的限制。 如果您一律使用相同的日期 / 存取權限，例如，要長時間維持就地 (非上載原則) 的定位器原則，您應該使用相同的原則識別碼。 如需詳細資訊，請參閱[本篇文章](media-services-dotnet-manage-entities.md#limit-access-policies)。
 
 請務必更新變數，以指向您的輸入檔案所在的資料夾。
 
