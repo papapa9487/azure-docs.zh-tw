@@ -16,7 +16,7 @@
 ### <a name="obtain-the-management-credentials"></a>取得管理認證
 建立新命名空間會自動產生初始共用存取簽章 (SAS) 規則，其利用相關聯的主要和次要金鑰組，分別授與命名空間的所有層面的完全控制權。 請參閱[服務匯流排驗證與授權](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md)，以深入了解取得如何建立進一步規則，其對於一般傳送者和接收者的權限限制更多。 若要複製初始規則，請遵循下列步驟： 
 
-1. 在命名空間清單中，按一下新建立的命名空間名稱。
+1.  按一下**所有資源**，然後按一下新建立的命名空間名稱。
 2. 在命名空間視窗中，按一下 [共用存取原則]。
 3. 在 [共用存取原則] 畫面中，按一下 **RootManageSharedAccessKey**。
    

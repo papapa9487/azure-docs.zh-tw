@@ -32,7 +32,7 @@
 
 [大小] 刀鋒視窗會識別 VM 的設定詳細資料，並列出各種選擇，包括作業系統、處理器數目、磁碟儲存體類型，以及估計的每月使用成本。  
 
-選擇 VM 大小，然後按一下選取 以繼續。 在此範例中，DS1\_V2 Standard 就是 VM 大小。
+選擇 VM 大小，然後按一下 [選取] 以繼續。 在此範例中，DS1\_V2 Standard 就是 VM 大小。
 
   ![顯示您可以選取之 Azure VM 大小的 [大小] 刀鋒視窗的螢幕擷取畫面](./media/virtual-machines-common-portal-create-fqdn/vm-size-classic.png)
 

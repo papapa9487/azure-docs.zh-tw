@@ -51,6 +51,7 @@
 | &nbsp; |[HubSpot 搶鮮版 (Beta)](../articles/data-factory/connector-hubspot.md) |✓ | |✓  |✓  |
 | &nbsp; |[Jira 搶鮮版 (Beta)](../articles/data-factory/connector-jira.md) |✓ | |✓  |✓  |
 | &nbsp; |[Magento 搶鮮版 (Beta)](../articles/data-factory/connector-magento.md) |✓ | |✓  |✓  |
+| &nbsp; |[Merketo (Beta)](../articles/data-factory/connector-marketo.md) |✓ | |✓  |✓  |
 | &nbsp; |[Oracle Eloqua 搶鮮版 (Beta)](../articles/data-factory/connector-oracle-eloqua.md) |✓ | |✓  |✓  |
 | &nbsp; |[Paypal 搶鮮版 (Beta)](../articles/data-factory/connector-paypal.md) |✓ | |✓  |✓  |
 | &nbsp; |[QuickBooks 搶鮮版 (Beta)](../articles/data-factory/connector-quickbooks.md) |✓ | |✓  |✓  |
