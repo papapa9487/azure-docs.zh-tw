@@ -16,11 +16,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.openlocfilehash: 26d8399ce4ea23b51677def85b3732468dcbc02f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f63c20831a2700f1024507bef614a5a7cc87d00e
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB：Visual Studio 已連線的服務 (預覽)
 
@@ -33,7 +33,7 @@ Visual Studio 已連線的服務可讓開發人員輕鬆地連線其 Azure Cosmo
 請確定您具有下列項目：
 
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/free/)。 
-* Azure Cosmos DB 帳戶。 如果您還沒有帳戶，請遵循[建立 Azure Cosmos DB 帳戶](create-documentdb-dotnet.md)的步驟在 Azure 入口網站中建立帳戶，或請參閱[在已連線的服務工具中建立 Azure Cosmos DB 帳戶](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool)。 
+* Azure Cosmos DB 帳戶。 如果您還沒有帳戶，請遵循[建立 Azure Cosmos DB 帳戶](create-sql-api-dotnet.md)的步驟在 Azure 入口網站中建立帳戶，或請參閱[在已連線的服務工具中建立 Azure Cosmos DB 帳戶](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool)。 
 * 如果您想要使用本機環境來進行開發，您可以使用 [Azure Cosmos DB 模擬器](local-emulator.md)。 環境便會模擬 Azure Cosmos DB 服務。
 * [Visual Studio](http://www.visualstudio.com/)。
 * 最新版的 Azure Cosmos DB 已連線服務。 您可以從 Visual Studio Marketplace 下載 Azure Cosmos DB 已連線服務，如下列螢幕擷取畫面所示。 在電腦中開啟 **Visual Studio**。 在 [工具] 功能表上，選取 [擴充功能和更新...]，然後選擇 [線上] / [Visual Studio Marketplace]。 輸入 **cosmosdb** 來搜尋版本。
@@ -119,8 +119,8 @@ Visual Studio 已連線的服務可讓開發人員輕鬆地連線其 Azure Cosmo
 
 現在，您已使用 Azure Cosmos DB 帳戶讓已連線的服務啟動並執行，接下來請繼續進行其中一個教學課程以開始開發您的解決方案：
 
-* [在 .NET 中利用 SQL API 進行開發](tutorial-develop-documentdb-dotnet.md)。
-* [Azure Cosmos DB：開始使用 SQL API 教學課程](documentdb-get-started.md)。
+* [在 .NET 中利用 SQL API 進行開發](tutorial-develop-sql-api-dotnet.md)。
+* [Azure Cosmos DB：開始使用 SQL API 教學課程](sql-api-get-started.md)。
 * 需要使用 Azure Cosmos DB 來執行規模和效能測試嗎？ 請參閱 [Azure Cosmos DB 的效能和級別測試](performance-testing.md)。
 * 了解如何[監視 Azure Cosmos DB 帳戶](monitor-accounts.md)。
 

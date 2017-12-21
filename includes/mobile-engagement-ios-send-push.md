@@ -3,7 +3,7 @@
 
 1. 瀏覽至您的 Mobile Engagement 入口網站。 請確認您的所在位置正確無誤，然後按一下底部的 [接洽]  按鈕：
    
-    ![](./media/mobile-engagement-ios-send-push/engage-button.png)
+    ![](./media/mobile-engagement-create-app-in-portal-new/engage-button.png)
 2. 請在 Engagement 入口網站中按一下 [設定]  頁面。 從該處按一下 [原生推送]  區段以上傳 p12 憑證：
    
     ![](./media/mobile-engagement-ios-send-push/engagement-portal.png)

@@ -19,7 +19,7 @@ Blob 儲存體帳戶會公開 [存取層]  屬性，該屬性可在帳戶建立�
 * [經常性存取]  層，這表示將會更頻繁地存取儲存體帳戶中的物件。 這可讓您以較低的存取成本儲存資料。
 * [非經常性存取]  層，這表示將不常存取儲存體帳戶中的物件。 這可讓您以較低的資料儲存成本儲存資料。
 
-如果您的資料使用模式有變動，您也可以隨時在這些存取層之間切換。 變更存取層可能會導致額外的費用。 如需詳細資訊，請參閱 [Blob 儲存體帳戶的價格和計費](../articles/storage/blobs/storage-account-options.md#pricing-and-billing) 。
+如果您的資料使用模式有變動，您也可以隨時在這些存取層之間切換。 變更存取層可能會導致額外的費用。 如需詳細資訊，請參閱 [Blob 儲存體帳戶的價格和計費](../articles/storage/common/storage-account-options.md#pricing-and-billing) 。
 
 如需 Blob 儲存體帳戶的詳細資訊，請參閱 [Azure Blob 儲存體：經常性存取和非經常性存取層](../articles/storage/blobs/storage-blob-storage-tiers.md)。
 

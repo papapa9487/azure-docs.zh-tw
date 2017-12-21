@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: c359b77efbfdbcf7d2c0193dc015ce418a3d997d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 045cf83caa15cb2487b4781f3c1f42752880580c
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>整合資訊安全中心安全性原則與 Azure 原則
 本文件可協助您設定 Azure 資訊安全中心安全性原則 (採用 Azure 原則技術)。 
@@ -39,14 +39,14 @@ ms.lasthandoff: 12/08/2017
 
 2. 在 [資訊安全中心] 儀表板的 [一般] 底下，選取 [安全性原則]。
 
-    ![原則管理窗格](./media/security-center-policies/security-center-policies-fig10.png)
+    ![原則管理窗格](./media/security-center-azure-policy/security-center-policies-fig10.png)
 
 3. 選取您要啟用安全性原則的訂用帳戶。  
 
 4. 在 [原則元件] 區段中，選取 [安全性原則]。  
     [基本資料] 視窗隨即開啟。
 
-    ![原則元件](./media/security-center-policies/security-center-policies-fig12.png)
+    ![原則元件](./media/security-center-azure-policy/security-center-policies-fig12.png)
 
 5. 若要刪除原則定義，請在 [原則和參數] 下您要刪除的定義旁，選取 [刪除]。
 
@@ -57,12 +57,12 @@ ms.lasthandoff: 12/08/2017
 
     * 若要新增原則定義，請選取定義旁邊的加號 (+)。
 
-    ![可用原則定義](./media/security-center-policies/security-center-policies-fig11.png)
+    ![可用原則定義](./media/security-center-azure-policy/security-center-policies-fig11.png)
 
     * 選取以取得原則的詳細說明。  
     定義的 [預覽] 視窗隨即開啟。 其中會顯示定義說明，以及提供[原則定義](../azure-policy/policy-definition.md)結構的 JSON 程式碼連結。
 
-    ![定義的預覽視窗](./media/security-center-policies/security-center-policies-fig14.png)
+    ![定義的預覽視窗](./media/security-center-azure-policy/security-center-policies-fig14.png)
 
 7. 編輯完成時，請選取 [儲存]。
 

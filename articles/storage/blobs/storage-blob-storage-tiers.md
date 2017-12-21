@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: fd3ca18fd7a9d1226d41229d37e637a62478f92a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: b8f0f899dff0f9e238017cb77126b3ca1275f3cd
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob 儲存體︰經常性存取、非經常性存取和封存儲存層
 
@@ -32,7 +32,7 @@ Azure 儲存體會為 Blob 物件儲存體提供三個儲存層，所以您可�
 
 ## <a name="storage-accounts-that-support-tiering"></a>支援階層處理的儲存體帳戶
 
-您只能將物件儲存體資料處理為 Blob 儲存體或一般用途 v2 (GPv2) 帳戶中的經常性存取、非經常性存取或封存層。 一般用途 v1 (GPv1) 帳戶不支援階層處理。 不過，客戶可以透過 Azure 入口網站中簡單的單鍵程序，輕鬆地將現有的 GPv1 或 Blob 儲存體帳戶轉換為 GPv2 帳戶。 GPv2 提供 blob、檔案和佇列的新價格結構，而且可供存取各種不同的其他新儲存體功能。 此外，接下來只會在 GPv2 帳戶中提供一些新功能與降價。 因此，客戶應評估使用 GPv2 帳戶，但請在檢閱所有服務的價格之後才使用這類帳戶，因為有些工作負載在 GPv2 上可能會比在 GPv1 上昂貴。 若要深入了解，請參閱 [Azure 儲存體帳戶選項](storage-account-options.md)。
+您只能將物件儲存體資料處理為 Blob 儲存體或一般用途 v2 (GPv2) 帳戶中的經常性存取、非經常性存取或封存層。 一般用途 v1 (GPv1) 帳戶不支援階層處理。 不過，客戶可以透過 Azure 入口網站中簡單的單鍵程序，輕鬆地將現有的 GPv1 或 Blob 儲存體帳戶轉換為 GPv2 帳戶。 GPv2 提供 blob、檔案和佇列的新價格結構，而且可供存取各種不同的其他新儲存體功能。 此外，接下來只會在 GPv2 帳戶中提供一些新功能與降價。 因此，客戶應評估使用 GPv2 帳戶，但請在檢閱所有服務的價格之後才使用這類帳戶，因為有些工作負載在 GPv2 上可能會比在 GPv1 上昂貴。 若要深入了解，請參閱 [Azure 儲存體帳戶選項](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
 
 Blob 儲存體和 GPv2 帳戶會在帳戶層級公開 [存取層] 屬性，這可讓您針對儲存體帳戶中未在物件層級設定儲存層的任何 Blob，將預設儲存層指定為經常性存取或非經常性存取。 對於已在物件層級設定儲存層的物件，不會套用此帳戶層。 封存層只能套用在物件層級。 您可以隨時在這些儲存層之間切換。
 
@@ -139,7 +139,7 @@ Blob 層級的階層處理可讓您使用稱為[設定 Blob 層](/rest/api/stora
 
 建議您 GPv2，而不要使用 Blob 儲存體帳戶進行階層處理。 GPv2 支援 Blob 儲存體帳戶支援的所有功能，以及其他許多功能。 Blob 儲存體與 GPv2 之間的價格幾乎相同，但是 GPv2 帳戶將提供一些新功能和降價。 GPv1 帳戶不支援階層處理。
 
-GPv1 與 GPv2 帳戶之間的價格結構不同，客戶在決定使用 GPv2 帳戶之前，應該仔細評估兩者。 您可以透過簡單的單鍵程序，輕鬆地將現有的 Blob 儲存體或 GPv1 帳戶轉換為 GPv2。 若要深入了解，請參閱 [Azure 儲存體帳戶選項](storage-account-options.md)。
+GPv1 與 GPv2 帳戶之間的價格結構不同，客戶在決定使用 GPv2 帳戶之前，應該仔細評估兩者。 您可以透過簡單的單鍵程序，輕鬆地將現有的 Blob 儲存體或 GPv1 帳戶轉換為 GPv2。 若要深入了解，請參閱 [Azure 儲存體帳戶選項](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
 
 **可以在相同帳戶中的三個 (經常性存取、非經常性存取和封存) 儲存層中儲存物件嗎？**
 

@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: dc255a930bf71e6ef6d964bc5e3472a38ce4e467
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4acd06591b05b9328b35400e0932cfcf92cb7e80
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-android-apps"></a>開始使用適用於 Android 應用程式的 Azure Mobile Engagement
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -93,7 +93,8 @@ Android Studio 現在要建立會和 Mobile Engagement 整合的示範應用程�
         import com.microsoft.azure.engagement.EngagementConfiguration;
 3. 回到 Azure 傳統入口網站中您應用程式的 [連線資訊] 頁面，並複製 [連接字串]。
 
-      ![][9]
+      ![](../../includes/media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
+
 4. 將它貼到 `setConnectionString` 參數內，取代如下列程式碼所示的整個字串︰
 
         engagementConfiguration.setConnectionString("Endpoint=my-company-name.device.mobileengagement.windows.net;SdkKey=********************;AppId=*********");

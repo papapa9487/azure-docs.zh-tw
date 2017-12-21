@@ -12,7 +12,6 @@
 # 作法
 ## 設定高可用性
 ### [高可用性選項](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
-### [在入口網站中設定 Always On 可用性群組](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 ### [使用 PowerShell 設定 Always On 可用性群組](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 ### [設定可用性群組的內部接聽程式](virtual-machines-windows-classic-ps-sql-int-listener.md)
 ### [設定可用性群組的外部接聽程式](virtual-machines-windows-classic-ps-sql-ext-listener.md)

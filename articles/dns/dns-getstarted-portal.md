@@ -3,8 +3,8 @@ title: "利用 Azure 入口網站開始使用 Azure DNS | Microsoft Docs"
 description: "了解如何在 Azure DNS 中建立 DNS 區域和記錄。 這份逐步指南將引導您使用 Azure 入口網站建立和管理第一個 DNS 區域和記錄。"
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
@@ -13,20 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2017
-ms.author: jonatul
-ms.openlocfilehash: 93b24e3d9fbb3fbb3ea995271fd63d1e82eb9c9e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/18/2017
+ms.author: kumud
+ms.openlocfilehash: b2a9a7dbd1fa7da7ebe479ac166602245cdaefde
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="get-started-with-azure-dns-using-the-azure-portal"></a>利用 Azure 入口網站開始使用 Azure DNS
 
 > [!div class="op_single_selector"]
 > * [Azure 入口網站](dns-getstarted-portal.md)
 > * [PowerShell](dns-getstarted-powershell.md)
-> * [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-getstarted-cli.md)
 
 本文將逐步引導您使用 Azure 入口網站建立第一個 DNS 區域和記錄。 您也可以使用 Azure PowerShell 或跨平台 Azure CLI 執行這些步驟。
@@ -36,11 +35,11 @@ DNS 區域用來裝載特定網域的 DNS 記錄。 若要開始將網域裝載�
 ## <a name="create-a-dns-zone"></a>建立 DNS 區域
 
 1. 登入 Azure 入口網站
-2. 在 [中樞] 功能表上，按一下 [新增] > [網路] > [DNS 區域] 以開啟 [建立 DNS 區域] 刀鋒視窗。
+2. [中樞] 功能表上，按一下 [新增] > [網路] >，再按一下 [DNS 區域] 以開啟 [建立 DNS 區域] 頁面。
 
     ![DNS 區域](./media/dns-getstarted-portal/openzone650.png)
 
-4. 在 [建立 DNS 區域] 刀鋒視窗中輸入下列的值，然後按一下 [建立]：
+4. 在 [建立 DNS 區域] 頁面中輸入下列的值，然後按一下 [建立]：
 
 
    | **設定** | **值** | **詳細資料** |
@@ -57,11 +56,11 @@ DNS 區域用來裝載特定網域的 DNS 記錄。 若要開始將網域裝載�
 
 下列範例將逐步引導您完成建立新的 'A' 記錄的程序。 關於其他記錄類型和修改現有的記錄，請參閱[使用 Azure 入口網站管理 DNS 記錄和記錄集](dns-operations-recordsets-portal.md)。 
 
-1. 建立 DNS 區域之後，在 Azure 入口網站的 [我的最愛] 窗格中，按一下 [所有資源]。 在 [所有資源] 刀鋒視窗中，按一下 [contoso.com] DNS 區域。 如果您選取的訂用帳戶已有幾個資源，您可以在 [依名稱篩選...] 方塊中輸入 **contoso.com**， 輕鬆地存取 DNS 區域。
+1. 建立 DNS 區域之後，在 Azure 入口網站的 [我的最愛] 窗格中，按一下 [所有資源]。 在 [所有資源] 頁面中，按一下 [contoso.com] DNS 區域。 如果您選取的訂用帳戶已有幾個資源，您可以在 [依名稱篩選...] 方塊中輸入 **contoso.com**， 輕鬆地存取 DNS 區域。
 
-1. 在 [DNS 區域] 刀鋒視窗頂端，選取 [+ 記錄集] 以開啟 [新增記錄集] 刀鋒視窗。
+1. 在 [DNS 區域] 頁面頂端，選取 [+ 記錄集] 以開啟 [新增記錄集] 刀鋒視窗。
 
-1. 在 [新增記錄集] 刀鋒視窗上，輸入下列的值，然後按一下 [確定]。 在此範例中，我們會建立 A 記錄。
+1. 在 [新增記錄集] 頁面上，輸入下列值，然後按一下 [確定]。 在此範例中，我們會建立 A 記錄。
 
    |**設定** | **值** | **詳細資料** |
    |---|---|---|
@@ -73,7 +72,7 @@ DNS 區域用來裝載特定網域的 DNS 記錄。 若要開始將網域裝載�
 
 ## <a name="view-records"></a>檢視記錄
 
-在 [DNS 區域] 刀鋒視窗的下半部，您可以看到 DNS 區域的記錄。 您應該會看到預設 DNS 和 SOA 記錄 (在每個區域中建立)，還有您已建立的任何新記錄。
+在 [DNS 區域] 頁面的下半部，您可以看到 DNS 區域的記錄。 您應該會看到預設 DNS 和 SOA 記錄 (在每個區域中建立)，還有您已建立的任何新記錄。
 
 ![區域](./media/dns-getstarted-portal/viewzone500.png)
 
@@ -92,8 +91,8 @@ Azure 入口網站中會提供您區域的名稱伺服器：
 
 若要刪除這篇文章中建立的所有資源，請完成下列步驟︰
 
-1. 在 Azure 入口網站的 [我的最愛] 窗格中，按一下 [所有資源]。 在 [所有資源] 刀鋒視窗中，按一下 [MyResourceGroup] 資源群組。 如果您選取的訂用帳戶已有幾個資源，您可以在 [依名稱篩選...] 方塊中輸入 **MyResourceGroup**， 輕鬆地存取資源群組。
-1. 在 [MyResourceGroup] 刀鋒視窗中，按一下 [刪除] 按鈕。
+1. 在 Azure 入口網站的 [我的最愛] 窗格中，按一下 [所有資源]。 在 [所有資源] 頁面中，按一下 [MyResourceGroup] 資源群組。 如果您選取的訂用帳戶已有幾個資源，您可以在 [依名稱篩選...] 方塊中輸入 **MyResourceGroup**， 輕鬆地存取資源群組。
+1. 在 [MyResourceGroup] 頁面中，按一下 [刪除] 按鈕。
 1. 入口網站會要求您輸入資源群組的名稱，以確認您想要刪除它。 按一下 [刪除]，輸入 *MyResourceGroup* 作為資源群組名稱，然後按一下 [刪除]。 刪除資源群組會刪除資源群組內的所有資源，所以務必確認資源群組的內容，然後再刪除它。 入口網站會刪除資源群組內包含的所有資源，然後刪除資源群組本身。 這個程序需要幾分鐘的時間。
 
 
