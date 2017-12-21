@@ -13,18 +13,21 @@
 ## [在 Azure 入口網站 (預覽) 中建立模型](analysis-services-create-model-portal.md)
 
 # 作法 
-## [管理伺服器](analysis-services-manage.md)
-## [管理資料庫使用者](analysis-services-database-users.md)
-## [管理伺服器管理員](analysis-services-server-admins.md)
-## [監視伺服器計量](analysis-services-monitor.md)
 ## [安裝及設定內部部署資料閘道](analysis-services-gateway-install.md)
-## [取得用戶端程式庫](analysis-services-data-providers.md)
 ## [備份與還原](analysis-services-backup.md)
+## [使用 REST API 重新整理](analysis-services-async-refresh.md)
 ## [設定擴充](analysis-services-scale-out.md)
-## [設定伺服器名稱別名](analysis-services-server-alias.md)
-## [與 Excel 連線](analysis-services-connect-excel.md)
-## [與 Power BI 連線](analysis-services-connect-pbi.md)
-## [建立 .odc 檔案](analysis-services-odc.md)
+## 伺服器管理
+### [設定伺服器名稱別名](analysis-services-server-alias.md)
+### [管理伺服器](analysis-services-manage.md)
+### [管理資料庫使用者](analysis-services-database-users.md)
+### [管理伺服器管理員](analysis-services-server-admins.md)
+### [監視伺服器計量](analysis-services-monitor.md)
+## 連線
+### [取得用戶端程式庫](analysis-services-data-providers.md)
+### [與 Excel 連線](analysis-services-connect-excel.md)
+### [與 Power BI 連線](analysis-services-connect-pbi.md)
+### [建立 .odc 檔案](analysis-services-odc.md)
 ## 教學課程
 ### [Adventure Works 教學課程](tutorials/aas-adventure-works-tutorial.md)
 ### [第 1 課：建立新的表格式模型專案](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)

@@ -1,3 +1,5 @@
+- name: Azure 原則文件
+  href: index.yml
 - name: 概觀
   items:
     - name: Azure 原則的概觀

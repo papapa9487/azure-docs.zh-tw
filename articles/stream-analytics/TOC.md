@@ -17,6 +17,7 @@
 ### [IoT Edge (預覽) 中的串流分析](stream-analytics-edge.md)
 ### [Azure 使用量異常偵測指南 (預覽)](stream-analytics-machine-learning-anomaly-detection.md)
 ### [使用串流分析進行高頻率的交易模擬](stream-analytics-high-frequency-trading.md)
+### [Azure Functions 搭配 Azure 串流分析](stream-analytics-with-azure-functions.md)
 
 ## 建立作業
 ### [建立輸入](stream-analytics-define-inputs.md)

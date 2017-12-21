@@ -22,6 +22,8 @@
 
 # 作法
 ## 規劃和設計
+### [受控服務識別 (預覽)](event-hubs-managed-service-identity.md)
+### [角色型存取控制 (預覽)](event-hubs-role-based-access-control.md)
 ### [異地災難復原和異地複寫](event-hubs-geo-dr.md)
 ### [專用的事事件中樞](event-hubs-dedicated-overview.md)
 ### [驗證和安全性模型概觀](event-hubs-authentication-and-security-model-overview.md)

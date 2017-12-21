@@ -18,7 +18,8 @@
 ### [在 Azure 中控管](../governance-in-azure.md)
 ### [待用資料加密](../azure-security-encryption-atrest.md)
 ### 架構藍圖
-#### [相容性 - PCI DSS](payment-processing-blueprint.md)
+#### 合規性 - PCI DSS
+##### [適用於符合 PCI DSS 規範之環境的付款處理](payment-processing-blueprint.md)
 ##### [需求概觀](pci-dss-requirements-overview.md)
 ##### [需求 1 - 防火牆](pci-dss-requirement-1-firewall.md)
 ##### [需求 2 - 密碼](pci-dss-requirement-2-password.md)
@@ -32,7 +33,8 @@
 ##### [需求 10 - 監視](pci-dss-requirement-10-monitoring.md)
 ##### [需求 11 - 測試](pci-dss-requirement-11-testing.md)
 ##### [需求 12 - 原則](pci-dss-requirement-12-policy.md)
-#### [合規性 - FedRAMP](fedramp.md)
+#### 合規性 - FedRAMP
+##### [適用於 FedRAMP 的 Web 應用程式](fedramp.md)
 ##### [安全性控制項概觀](fedramp-controls-overview.md)
 ##### [存取控制](fedramp-access-controls.md)
 ##### [稽核和責任](fedramp-audit-accountability-controls.md)
@@ -51,10 +53,11 @@
 ##### [系統與通訊保護](fedramp-system-communications-protection-controls.md)
 ##### [系統和資訊完整性](fedramp-system-information-integrity-controls.md)
 ##### [系統和服務擷取](fedramp-system-services-acquisition-controls.md)
-#### [相容性 - 英國官方](uk-official-three-tier-applications-overview.md)
+#### 合規性 - UK-OFFICIAL
+##### [適用於 UK-OFFICIAL 的三層式 Web 應用程式](uk-official-three-tier-applications-overview.md)
 ##### [概觀](uk-official-three-tier-applications-overview.md)
 ##### [原則概觀](uk-official-three-tier-applications-principles-overview.md)
-#### [合規性 - 金融服務](financial-services-regulated-workloads.md)
+#### 合規性 - 金融服務
 ##### [適用於已規範工作負載的金融服務](financial-services-regulated-workloads.md)
 
 # 開始使用

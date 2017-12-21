@@ -26,6 +26,8 @@
 
 # 作法
 ## 規劃和設計
+### [受控服務識別 (預覽)](service-bus-managed-service-identity.md)
+### [角色型存取控制 (預覽)](service-bus-role-based-access-control.md)
 ### [進階傳訊](service-bus-premium-messaging.md)
 ### [Azure 佇列和服務匯流排佇列的比較](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [效能最佳化](service-bus-performance-improvements.md)

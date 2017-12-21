@@ -48,6 +48,10 @@
 ### [連線的處理站解決方案概觀](iot-suite-connected-factory-overview.md)
 ### [連線的處理站解決方案逐步解說](iot-suite-connected-factory-sample-walkthrough.md)
 
+## 裝置模擬
+### [部署裝置模擬](iot-suite-device-simulation-deploy.md)
+### [探索裝置模擬](iot-suite-device-simulation-explore.md)
+
 # 使用說明指南
 ## 遠端監視
 ### [執行進階監視](iot-suite-remote-monitoring-monitor.md)

@@ -31,7 +31,7 @@
           href: monitoring-overview.md
         - name: 度量
           href: monitoring-overview-metrics.md
-        - name: 警示
+        - name: Alerts
           href: monitoring-overview-alerts.md
         - name: 警示 (預覽)
           href: monitoring-overview-unified-alerts.md
@@ -90,6 +90,8 @@
           href: monitoring-enable-alerts-using-template.md
     - name: 使用自動調整
       items:
+        - name: 了解自動調整設定
+          href: monitoring-understanding-autoscale-settings.md
         - name: 最佳作法
           href: insights-autoscale-best-practices.md
         - name: 常見計量
