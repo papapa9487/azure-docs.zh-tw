@@ -1,6 +1,7 @@
 # 概觀
 
 ## [關於 Azure SQL 資料倉儲](sql-data-warehouse-overview-what-is.md)
+## [速查表](cheat-sheet.md)
 
 # 快速入門
 

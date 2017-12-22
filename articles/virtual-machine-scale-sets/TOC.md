@@ -2,9 +2,12 @@
 ## [什麼是虛擬機器擴展集？](virtual-machine-scale-sets-overview.md)
 
 # 開始使用
-## [在 Azure 入口網站中部署擴展集](virtual-machine-scale-sets-portal-create.md)
-## [使用 PowerShell 或 Azure CLI 部署擴展集](virtual-machine-scale-sets-create.md)
-## [使用範本部署自動調整應用程式](virtual-machine-scale-sets-deploy-scaling-app-template.md)
+## [在 Azure 入口網站中建立](virtual-machine-scale-sets-create-portal.md)
+## [使用 Azure CLI 2.0 建立](virtual-machine-scale-sets-create-cli.md)
+## [使用 Azure PowerShell 建立](virtual-machine-scale-sets-create-powershell.md)
+## 使用範本建立
+### [Linux 擴展集](virtual-machine-scale-sets-create-template-linux.md)
+### [Windows 擴展集](virtual-machine-scale-sets-create-template-windows.md)
 
 # 作法
 ## 規劃和設計
@@ -17,9 +20,7 @@
 ### [使用來賓型自動調整搭配 Linux 擴展集範本](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
 ## 部署
-### [使用 Azure 入口網站建立](virtual-machine-scale-sets-portal-create.md)
 ### [使用 Visual Studio 建立](virtual-machine-scale-sets-vs-create.md)
-### [使用 Azure PowerShell 或 Azure CLI 建立](virtual-machine-scale-sets-create.md)
 ### [搭配受控磁碟的擴展集](virtual-machine-scale-sets-managed-disks.md)
 ### [自動調整擴展集](virtual-machine-scale-sets-autoscale-overview.md)
 #### [使用 Azure 入口網站](virtual-machine-scale-sets-autoscale-portal.md)

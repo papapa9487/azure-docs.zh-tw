@@ -1,6 +1,6 @@
 ---
-title: "Azure 轉送節點 API 概觀 | Microsoft Docs"
-description: "轉送節點 API 概觀"
+title: "Azure 轉送 Node API 概觀 | Microsoft Docs"
+description: "轉送 Node API 概觀"
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -16,15 +16,15 @@ ms.date: 10/05/2017
 ms.author: sethm
 ms.openlocfilehash: f9b679f167952076db6df17711dc124931a0880c
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="relay-hybrid-connections-node-api-overview"></a>轉送混合式連接節點 API 概觀
+# <a name="relay-hybrid-connections-node-api-overview"></a>轉送混合式連線 Node API 概觀
 
 ## <a name="overview"></a>概觀
 
-[`hyco-ws`](https://www.npmjs.com/package/hyco-ws) Azure 轉送混合式連線的節點封裝建置於並擴充 ['ws'](https://www.npmjs.com/package/ws) NPM 封裝。 此封裝重新匯出該基本封裝的所有匯出，並新增新的匯出，可啟用與 Azure 轉送服務混合式連線功能整合。 
+[`hyco-ws`](https://www.npmjs.com/package/hyco-ws) Azure 轉送混合式連線的 Node 封裝建置於並擴充 ['ws'](https://www.npmjs.com/package/ws) NPM 封裝。 此封裝重新匯出該基本封裝的所有匯出，並新增新的匯出，可啟用與 Azure 轉送服務混合式連線功能整合。 
 
 現有的應用程式 `require('ws')` 可以改為搭配使用這個套件與 `require('hyco-ws')`，這也會啟用混合式案例，其中應用程式可以從「防火牆內部」及透過混合式連線，在本機接聽 WebSocket 連線，全部都在相同的時間。
   
@@ -47,7 +47,7 @@ listenUri = WebSocket.appendRelayToken(listenUri, 'ruleName', '...key...')
 
 ```
 
-協助程式方法適用於與此封裝搭配使用，但也可供節點伺服器用來啟用 web 或裝置用戶端以建立接聽程式或傳送程式。 伺服器會將內嵌短期權杖的 URI 傳遞給它們來使用這些方法。 這些 URI 也可以搭配使用一般不支援設定 WebSocket 信號交換之 HTTP 標頭的 WebSocket 堆疊。 將授權權杖內嵌至 URI 主要目的是為了支援這些程式庫外部使用方式案例。 
+協助程式方法適用於與此封裝搭配使用，但也可供 Node 伺服器用來啟用 web 或裝置用戶端以建立接聽程式或傳送程式。 伺服器會將內嵌短期權杖的 URI 傳遞給它們來使用這些方法。 這些 URI 也可以搭配使用一般不支援設定 WebSocket 信號交換之 HTTP 標頭的 WebSocket 堆疊。 將授權權杖內嵌至 URI 主要目的是為了支援這些程式庫外部使用方式案例。 
 
 #### <a name="createrelaylistenuri"></a>createRelayListenUri
 
